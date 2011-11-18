@@ -88,7 +88,7 @@ table.component_table td.actions{padding-left:10px;text-align:left;vertical-alig
 .fbIndex .contentContainer{margin:0 auto 0 auto;width:980px}
 .fbIndex .bodyWash{margin-bottom:0}
 .fbIndex .locales{margin:10px auto 0;width:964px}
-.fbIndex .gradient{background-image:url(https://s-static.ak.facebook.com/rsrc.php/v1/yB/r/TwAHgQi2ZPB.png);background-repeat:repeat-x;background-position:0 0}
+.fbIndex .gradient{background-image:url(../images/TwAHgQi2ZPB.png);background-repeat:repeat-x;background-position:0 0}
 .fbIndex .gradient{min-width:980px}
 .fbIndex .gradient .gradientContent{margin:0 auto;width:980px}
 .fbIndexFeaturePhone{height:295px;padding-top:45px;width:550px}
@@ -105,8 +105,8 @@ table.component_table td.actions{padding-left:10px;text-align:left;vertical-alig
 .fbIndexFeaturePhone .logoGrid{margin-top:20px;margin-bottom:20px}
 .fbIndexFeaturePhone .belowLineSpecial{width:380px}
 .fbIndexMap .title{color:#0e385f;font-size: 21px;line-height:29px;margin-top:40px;width:450px;word-spacing:-1px}
-.fbIndexMap .map{background:transparent url(https://s-static.ak.facebook.com/rsrc.php/v1/yi/r/OBaVg52wtTZ.png) no-repeat;height:195px}
-.fbIndexMobile{height:295px;background:url(https://s-static.ak.facebook.com/rsrc.php/v1/yK/r/BFOd681AL3h.png) bottom left no-repeat;padding-top:45px;width:537px}
+.fbIndexMap .map{background:transparent url(../images/OBaVg52wtTZ.png) no-repeat;height:195px}
+.fbIndexMobile{height:295px;background:url(../images/BFOd681AL3h.png) bottom left no-repeat;padding-top:45px;width:537px}
 .fbIndexMobile .phoneImage{margin-left:50px}
 .fbIndexMobile .rightSide{width:370px}
 .fbIndexMobile .title,.fbIndexMobile .subtitle{color:#203360}
@@ -178,7 +178,7 @@ table.component_table td.actions{padding-left:10px;text-align:left;vertical-alig
 #reg_ads_msg{color:#666;font-size: 12px;font-weight:bold;margin-top:10px;text-align:center}
 .pagesSection{border-top-color:#a0a9c0;border-top-style:solid;text-align:center;font-weight:bold;border-top-width:1px;margin-top:10px;font-size: 12px;padding-top:10px;color:#666}
 .registration .pagesSection{border-top-color:#ccc;margin-top:20px}
-.registration .cancel_button_image{background-image:url(https://s-static.ak.facebook.com/rsrc.php/v1/yS/r/STeWPW2kh0m.png);background-repeat:no-repeat;float:left;height:17px;margin:6px 0 0;width:12px}
+.registration .cancel_button_image{background-image:url(../images/STeWPW2kh0m.png);background-repeat:no-repeat;float:left;height:17px;margin:6px 0 0;width:12px}
 .registration #cancel_button{border:0 solid transparent;color:#3b5998;float:left;font-size: 13px;font-weight:bold;line-height:14px;margin:6px 0 0;width:75px}
 .async_status{margin-left:10px;position:relative;top:3px}
 .simple_registration_container .tos_container{margin-top:12px}
@@ -201,7 +201,7 @@ table.component_table td.actions{padding-left:10px;text-align:left;vertical-alig
 .uiWashLayoutBlueWash{background-color:#eceff5;border-bottom:1px solid #d8dfea}
 .uiWashLayoutGrayWash{background-color:#f2f2f2;border-bottom:1px solid #ccc}
 .uiWashLayoutGradientWash,
-.uiWashLayoutEmptyGradientWash{background:url(https://s-static.ak.facebook.com/rsrc.php/v1/yB/r/TwAHgQi2ZPB.png) repeat-x}
+.uiWashLayoutEmptyGradientWash{background:url(../images/TwAHgQi2ZPB.png) repeat-x}
 .uiWashLayoutEmptyGradientWash{background-position:0 25%}
 .uiWashLayoutEmptyWash{height:40px}
 .uiWashLayoutBlueWash,
@@ -245,7 +245,7 @@ p.legal_tos{color:#555;font-size: 10px;padding:0;margin:0 0 10px 0}
 #captcha_buttons #A_btn_sign_up{width:160px}
 #captcha_buttons #back_button{width:101px}
 #reg_captcha #cancel_button{float:left;font-size: 13px;line-height:14px;font-weight:bold;border:0 solid transparent;color:#3b5998;margin:6px 0 0 0;width:75px}
-#reg_captcha .cancel_button_image{float:left;width:12px;height:17px;margin:6px 0 0 0;background-image:url(https://s-static.ak.facebook.com/rsrc.php/v1/yS/r/STeWPW2kh0m.png);background-position:center left;background-repeat:no-repeat}
+#reg_captcha .cancel_button_image{float:left;width:12px;height:17px;margin:6px 0 0 0;background-image:url(../images/STeWPW2kh0m.png);background-position:center left;background-repeat:no-repeat}
 #reg_captcha .pc_field_container{margin-left:6px}
 #reg_captcha label{vertical-align:middle}
 #reg_captcha .pc_email{border:1px solid #bdc7d8;font-size: 12px;padding:3px;width:140px}
@@ -312,7 +312,7 @@ td.auxCell{width:50%}
 .uiInterstitialContent{margin-bottom:15px}
 .fullBleed .uiInterstitialContent{margin:0;padding:0}
 .uiInterstitialBar{border-bottom-right-radius:3px;border-bottom-left-radius:3px;-moz-border-radius:0 0 3px 3px;line-height:16px;padding:8px 10px}
-div.uiInterstitialWithStripes{background:transparent url(https://s-static.ak.facebook.com/rsrc.php/v1/y9/r/y7MG8IZpiC8.gif) repeat-x;padding-top:15px}
+div.uiInterstitialWithStripes{background:transparent url(../images/y7MG8IZpiC8.gif) repeat-x;padding-top:15px}
 #conf_code_input input{width:70px}
 .securityq_prompt{padding-bottom:12px}
 

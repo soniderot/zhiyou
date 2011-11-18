@@ -236,8 +236,8 @@ div.fh_instr{display:none;margin:3px 3px 0 0;padding:6px}
 #ci_module_list .other_tools .ci_module_content a{line-height:22px}
 #ci_module_list .ci_module .contact_importer_widget .label{width:130px;text-align:right}
 #ci_compact_list .ci_compact_icon_holder{width:40px;height:40px;padding:5px 0 0 5px;background-repeat:no-repeat;background-position:center}
-#ci_compact_list .ci_compact_icon_holder:hover{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/y9/r/dyjIxuzzMJx.png);cursor:pointer}
-#ci_compact_list .ci_compact_icon_holder.selected{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yH/r/CNhELnGRSSd.png)}
+#ci_compact_list .ci_compact_icon_holder:hover{background-image:url(../images/dyjIxuzzMJx.png);cursor:pointer}
+#ci_compact_list .ci_compact_icon_holder.selected{background-image:url(../images/CNhELnGRSSd.png)}
 #ci_compact_list .ci_compact_icon{display:inline}
 .ci_compact_module_header{border-top:solid 1px #d8dfea;margin-top:8px;padding:5px 0 2px 0}
 #ci_compact_right{width:410px}
@@ -408,11 +408,11 @@ div.fh_instr{display:none;margin:3px 3px 0 0;padding:6px}
 #friend_filter_select{width:135px}
 #friends_network_select{width:180px}
 .remove_friends #content{padding:20px 0}
-.uiStepList ol{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yP/r/e8iPvmYALrW.png);height:51px;list-style:none;margin:0;padding:0}
+.uiStepList ol{background:url(../images/e8iPvmYALrW.png);height:51px;list-style:none;margin:0;padding:0}
 .uiStep{display:inline;list-style-type:none}
-.uiStep .part{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ya/r/SiholkfAnQs.png);float:left;height:51px}
+.uiStep .part{background:url(../images/SiholkfAnQs.png);float:left;height:51px}
 .uiStep .back{background-position:-24px 0}
-.uiStep .middle{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yP/r/e8iPvmYALrW.png)}
+.uiStep .middle{background:url(../images/e8iPvmYALrW.png)}
 .uiStep .point{background-position:-30px 0;width:21px}
 .uiStep .title{margin-bottom:1px}
 .uiStep .content{margin:11px 10px 0 10px}
@@ -421,22 +421,22 @@ div.fh_instr{display:none;margin:3px 3px 0 0;padding:6px}
 .uiStepFirst .back{width:3px}
 .uiStepFirst .content{margin-left:15px}
 .uiStepSelected .back{background-position:-21px 0}
-.uiStepSelected .middle{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yZ/r/MZW8R4cXlo9.png)}
+.uiStepSelected .middle{background:url(../images/MZW8R4cXlo9.png)}
 .uiStepSelected .point{background-position:0 0}
 .uiStepNextSelected .point{background-position:-51px 0}
 .uiStepSelected .title,.uiStepSelected .description,.uiStepSelected a{color:#fff}
 .uiStepSelected a:hover{text-decoration:none}
 .uiStepListSingleLine ol{background:#edeff4;color:#3b5997;height:31px}
 .uiStepListSingleLine .part{height:31px}
-.uiStepListSingleLine .middle{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yA/r/lFahQXTaTNO.png) repeat-x}
-.uiStepListSingleLine .back{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yz/r/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:0 -160px}
-.uiStepListSingleLine .uiStep .point{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yz/r/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:0 -128px;width:14px}
-.uiStepListSingleLine .uiStepSelected .back{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yz/r/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:-8px -160px}
-.uiStepListSingleLine .uiStepLast .point{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yz/r/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:0 0}
-.uiStepListSingleLine li.uiStepLastSelected .point{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yz/r/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:0 -64px}
-.uiStepListSingleLine .uiStepNextSelected .point{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yz/r/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:0 -32px}
-.uiStepListSingleLine .uiStepSelected .middle{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yp/r/9UNNaVu8SFB.png) repeat-x}
-.uiStepListSingleLine .uiStepSelected .point{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yz/r/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:0 -96px}
+.uiStepListSingleLine .middle{background:url(../images/lFahQXTaTNO.png) repeat-x}
+.uiStepListSingleLine .back{background-image:url(../images/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:0 -160px}
+.uiStepListSingleLine .uiStep .point{background-image:url(../images/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:0 -128px;width:14px}
+.uiStepListSingleLine .uiStepSelected .back{background-image:url(../images/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:-8px -160px}
+.uiStepListSingleLine .uiStepLast .point{background-image:url(../images/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:0 0}
+.uiStepListSingleLine li.uiStepLastSelected .point{background-image:url(../images/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:0 -64px}
+.uiStepListSingleLine .uiStepNextSelected .point{background-image:url(../images/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:0 -32px}
+.uiStepListSingleLine .uiStepSelected .middle{background:url(../images/9UNNaVu8SFB.png) repeat-x}
+.uiStepListSingleLine .uiStepSelected .point{background-image:url(../images/9IUOLjqyZ8-.png);background-repeat:no-repeat;background-position:0 -96px}
 .uiStepListSingleLine .uiStep .content{margin:9px 8px 0}
 .uiStepListSingleLineWhite ol{background:#fff}
 #checkpointChangePasswordIntro{margin-bottom:10px}

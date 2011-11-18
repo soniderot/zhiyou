@@ -1,0 +1,139 @@
+﻿/*1321319410,169776319*/
+
+.fbEmuStreamStoryAttachment .fbEigenpoll{margin-left:-18px}
+.fbEmuStreamStoryAttachment .fbEigenpoll .fbEigenpollPager,
+.fbEmuStreamStoryAttachment .fbEigenpoll .fbEigenpollAddOption,
+.fbEmuStreamStoryAttachment .fbEigenpoll .fbEigenpollResults{width:146px;white-space:nowrap}
+.fbEmuStreamStoryAttachment .fbEigenpoll
+.fbEigenpollAddOption .fbEigenpollTypeahead{width:146px}
+.fbEmuStreamStoryAttachment .fbEigenpoll .fbEigenpollRow{width:200px}
+.fbEmuStreamStoryAttachment .fbEigenpoll .fbEigenpollFacepile{width:24px}
+.fbEmuStreamStoryAttachment .pollOptions{margin-left:-18px}
+.fbEmuStreamStoryAttachment .pollOptions .fbQuestionsPollResultsBar{width:146px;white-space:nowrap}
+.fbEmuStreamStoryAttachment .pollOptions .fbQuestionsPollResultsBar .label{padding:0;text-align:left}
+.fbEmuStreamStoryAttachment .pollOptions .pollResultsFacepile{width:24px}
+.fbEmuStreamStoryAttachment .pollOptions{table-layout:auto}
+.fbEigenpoll .fbEigenpollCheckbox{cursor:pointer;margin:4px 0 0 5px}
+.fbEigenpoll .fbEigenpollCheckbox input{cursor:pointer;margin-left:1px}
+.fbEigenpoll .fbEigenpollAddOption,.fbEigenpoll .fbEigenpollPager,.fbEigenpoll .fbEigenpollResults{cursor:pointer;width:236px}
+* .fbEigenpoll .fbEigenpollAddOption{margin-top:6px}
+.fbEigenpollRow,.fbEigenpollFeed{width:398px}
+.fbEigenpollSubstoryAttachment{width:358px}
+.fbEigenpoll .fbEigenpollResults,.fbEigenpoll .fbEigenpollPager,.fbEigenpollRow + .fbEigenpollAddOption,.fbEigenpollRow ~ .fbEigenpollAddOption{padding-left:26px}
+.fbEigenpoll .fbEigenpollFacepile{width:132px}
+.fbEigenpollFacepile .uiTooltipWrap{margin:2px 0}
+.fbEigenpoll .fbEigenpollSelected div,.fbEigenpoll .fbEigenpollResults:hover div,.fbEigenpoll .fbEigenpollCheckbox:hover + .fbEigenpollResults div{border-color:#3b5998}
+.fbEigenpoll .fbEigenpollResults:active div{border-color:#1d4088}
+.fbEigenpoll .fbEigenpollResults:hover .fbQuestionsPollAttachment,.fbEigenpoll .fbEigenpollCheckbox:hover + .fbEigenpollResults
+.fbQuestionsPollAttachment,.fbEigenpoll .fbEigenpollResults:hover .auxlabel,.fbEigenpoll .fbEigenpollCheckbox:hover + .fbEigenpollResults .auxlabel{visibility:visible}
+.fbEigenpoll .fbEigenpollRow{padding:2px 0}
+.fbEigenpoll .fbEigenpollPager{padding-top:2px}
+.fbEigenpoll .fbEigenpollRow + .fbEigenpollAddOption{cursor:default;margin-top:6px}
+.fbEigenpoll .fbEigenpollHighlight{background-color:#edeff4;border-left:2px solid #a8b2ce;margin:0 0 0 -2px}
+.fbEigenpoll .fbEigenpollRemoveButton{margin:5px 190px 0 0}
+.pollOptions{width:100%;table-layout:fixed;border-spacing:1px 0 0 0}
+.pollOptions .pollRadioBtn{position:relative;top:2px;padding-left:3px;width:26px;vertical-align:top}
+.pollOptions .fbOpinionPollHighlight .pollRadioBtn{border-left:2px solid #a8b2ce;width:24px;padding-left:1px}
+.pollOptions .pollRadioBtn,.pollOptions .pollRadioBtn input{cursor:pointer}
+.pollOptions .pollResultsFacepile{width:171px;vertical-align:top;padding-top:2px}
+.pollOptions .pollResultsFacepile .uiFacepile{padding-left:2px}
+.pollResultsFacepile .uiTooltipWrap{margin:0 3px}
+.pollOptions .selectedPollOption div,.pollOptions .pollResultsBar:hover div,.pollOptions .pollRadioBtn:hover + .pollResultsBar div{border-color:#3b5998}
+.pollOptions .pollRadioBtn:hover + .pollResultsBar .auxlabel,.pollOptions .pollResultsBar:hover .auxlabel,.pollOptions .pollRadioBtn:hover + .pollResultsBar .fbQuestionsPollAttachment,.pollOptions .pollResultsBar:hover .fbQuestionsPollAttachment{visibility:visible}
+.pollOptions .pollResultsBar{padding:2px 0}
+.pollOptions .fbOpinionPollHighlight{background-color:#edeff4}
+.fbQuestionsPollPager{color:#6d84b4;display:block;margin-top:2px;text-align:center;border:1px solid #eceff5;height:18px}
+.fbQuestionsPollPager span{padding-top:2px;border:1px dashed #bec8dd;height:16px;display:block;margin:-1px}
+.fbQuestionsPollPager:hover{background-color:#ebeff4;color:#3b5998;border-color:#d8dfea;text-decoration:none}
+.fbQuestionsPollPager:hover span{border-color:#93a4c7}
+.uiNumberGiant{font-family:arial, helvetica}
+#confirm_body{padding:5px}
+#confirm_body #confirm_progress{text-align:center}
+#confirm_body #confirm_status{margin:5px 0 10px}
+#confirm_body #confirm_error{margin:0 0 10px}
+#confirm_body #error,
+#confirm_body #status{margin:10px 0}
+#confirm_body .editor{margin:10px auto}
+#confirm_body .instructions{padding-bottom:5px}
+#confirm_body .instruction_details{padding-top:5px;margin-left:10px}
+#confirm_body #confirm_intro{padding-bottom:10px}
+#confirm_body #code,
+#confirm_body #email{width:250px}
+#confirm_body #confirm{margin-top:3px}
+#confirm_body .help_links{margin-top:10px;font-size: 10px}
+#confirm_resend input{font-size: 10px}
+#confirm_email_container{margin-bottom:40px}
+#confirm_email_container .confirm_message{padding:10px 40px;background-color:#fff}
+#confirm_email_container .confirm_buttons{border-top:0}
+#confirm_email_container .confirm_progress{text-align:center}
+#confirm_email_container .confirm_help_box{margin-top:20px;padding:10px 40px}
+#confirm_email_container .help_links_title{font-size: 13px;font-weight:bold}
+#confirm_email_container .help_question{margin-top:10px;font-weight:bold}
+#confirm_email_container .cliff_email_text{margin-left:4px}
+#confirm_email_container .contact_importer #befriend_selector,
+#confirm_email_container .contact_importer #address_book_selector{margin:0 auto;width:520px}
+#confirm_email_container .contact_importer .contact_importer_widget{margin:20px auto;border-top:0;width:520px}
+div.file_help{padding:10px;display:none;border:1px solid #ccc;background:#fcfcfc;margin-top:6px;margin-bottom:6px}
+.fh_title{font-size: 12px}
+div.fh_sect{margin:4px}
+div.fh_instr{display:none;margin:3px 3px 0 0;padding:6px}
+.contact_importer_widget{padding:2px 2px 10px 2px;width:auto}
+.contact_importer_widget .instructions{font-size: 12px;padding:4px 10px 4px 0;margin:0}
+.contact_importer_widget .editor{padding:0 0 0 40px;margin:0;width:auto}
+.contact_importer_widget .editor .buttons{padding:0 0 0 4px;margin:0;width:286px}
+.contact_importer_widget .editor #password{width:205px}
+.contact_importer .contacts_header{margin:10px auto 0 auto;border-top:1px solid #c0c0c0;border-left:1px solid #c0c0c0;border-right:1px solid #c0c0c0;width:505px;background:#ededed}
+.contact_importer .contacts_header a{color:gray}
+.contact_importer .contacts_wrapper{overflow:auto;margin:0 auto;border:1px solid #c0c0c0;background:#fff;width:505px}
+.contact_importer .contacts_header td, .contact_importer .contacts_wrapper td{margin-top:0;padding:2px}
+.contact_importer .contacts_wrapper table{width:488px}
+.contact_importer .contacts_wrapper tr.row1{background:#f5f5f5}
+.contact_importer .contacts_wrapper td.name,
+.contact_importer .contacts_wrapper td.email{cursor:pointer;cursor:hand}
+.contact_importer .contacts_wrapper td.email{display:none}
+.contact_importer .contacts_wrapper td.checkbox{width:20px}
+.contact_importer #address_book_selector h2{margin-bottom:5px}
+.contact_importer #address_book_selector .buttons{margin:10px 0;width:300px}
+.contact_importer #address_book_selector .buttons .aux{background:#f0f0f0;border-color:#E7E7E7 #666 #666 #e7e7e7;color:#000}
+.contact_importer #address_book_selector .buttons input{float:left;margin-right:10px}
+#friend_req_progress{padding-top:2px;float:left}
+#ms_contacts_loading{margin:3px 0 0 20px;float:left}
+.ms_iframe{float:left}
+.msapi_button{margin-left:-3px}
+div.contact_logos{margin:6px 0}
+.contact_importer_logo{margin-right:12px}
+.contact_importer_logo.last{margin-right:0}
+.fbQuestionHeader{padding:4px 0 0 0;margin-bottom:5px}
+.fbEigenpollAddOption .fbEigenpollTypeaheadTD{width:100%;border:1px solid #bdc7d8}
+.fbEigenpollAddOption .child_was_focused .fbEigenpollTypeaheadTD{border-right-width:0}
+.fbEigenpollAddOption .fbEigenpollTypeahead,.fbEigenpollAddOption .fbEigenpollTypeahead .wrap{border-width:0}
+.fbEigenpollAddOption .fbEigenpollTypeahead{width:234px}
+.fbEigenpollAddOption .child_was_focused .fbEigenpollTypeahead{width:auto}
+.fbEigenpollAddOption .fbEigenpollAddButton{display:none}
+.fbEigenpollAddOption .child_was_focused .fbEigenpollAddButton{display:inline-block}
+.fbEigenpollTypeahead .calltoaction{margin:-2px 0 2px !important;border-top:none;border-bottom:1px solid #ddd !important}
+.fbEigenpollTypeahead .calltoaction.selected{border-bottom-color:#3b5998 !important}
+.fbEigenpollTypeahead .plus{margin-right:3px;position:absolute;top:0}
+.fbEigenpollTypeahead .selected .plus{background:#e2e8f6}
+.webComposerQuestion .fbEigenpollTypeahead input,.fbEigenpollAddOption .fbEigenpollTypeahead input{padding-left:16px;width:90%}
+.fbQuestionsReplyComposer{width:417px;margin-top:0}
+.fbQuestionsRemoveButton{opacity:0}
+.fbQuestionsReply:hover .fbQuestionsRemoveButton{opacity:1}
+.fbQuestionsDetails{border-left:2px solid #ccc}
+.fbQuestionsActionLinks{border-top:1px solid #e9e9e9;margin:6px 5px 15px;padding-top:7px}
+.fbEigenpollMorePager{margin-left:26px;width:236px}
+.fbQuestionsFriendQuestionInfo{margin-left:4px}
+.fbQuestionsFriendQuestionLink{margin-bottom:2px;margin-top:-3px}
+.fbQuestionsFriendQuestionName a,.fbQuestionsCenteredMessage a{color:#6b84b4}
+.fbQuestionsCenteredMessage{text-align:center}
+#fbQuestionReplies .selected{color:#333;cursor:default;text-decoration:none}
+.fbQuestionsAnswers .fbEigenpollRow .fbEigenpollFacepile,.fbQuestionsAnswers .pollOptions .pollResultsFacepile{width:212px}
+.fbQuestionsAnswers .pollOptions .pollResultsBar{vertical-align:top}
+.fbQuestionsAnswers .fbEigenpollRow{width:477px}
+a.fbQuestionsFauxLink:hover{cursor:default;text-decoration:none}
+#fbQuestionReplies .shareButton{display:none}
+#fbQuestionReplies .child_was_focused .shareButton{display:block}
+.profile-platform-pane{overflow:hidden;padding-right:0;position:relative;width:520px}
+.profile-platform-pane pane-content{overflow:hidden}
+
+#bootloader_c5V1k { height: 42px; }
