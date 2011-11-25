@@ -1,0 +1,229 @@
+﻿/*1321315058,176820662*/
+
+.fbFamilySearchResultsHeading{font-size: 12px}
+.fbFamilySearchResult{width:300px}
+.fbFamilySearchResult .fbFamilySearchResultInfo{width:144px}
+.fbFamilySearchResultActions{text-align:right;width:100px}
+.nullableFieldDisabled{border:1px dashed #ccc}
+.nullableFieldEnabled .nullableDisabledButton{display:none}
+.nullableFieldDisabled .nullableDisabledButton{display:inherit}
+.nullableFieldDisabled .nullableComboField{display:none}
+.nullableDisabledText{padding-top:2px;padding-bottom:2px;font-size: 12px;color:#777}
+.nullableDisabledCloseButton{margin-top:2px}
+.nullableFieldDisabled .nullableDisabledButton{margin:1px 1px 1px 6px}
+.nullableFieldEnabled .nullableComboField .nullableNullSelector{z-index:auto}
+.UIFaq_Container{font-size: 13px;line-height:16px;padding-bottom:5px}
+.UIFaq_Container p{font-size: 13px}
+.UIFaq_Inert_Link{padding-top:1px}
+.UIFaq_Inert_Link input:hover{text-decoration:none}
+.UIFaq_Inline_Feedback input{margin-top:1px}
+.UIFaq_Inline_Feedback{display:inline}
+.UIFaq_Inline_Feedback div{display:inline}
+.UIFaq_Arrow{width:12px;float:left}
+.UIFaq_ClosedArrow{display:block}
+.UIFaq_OpenArrow{display:none}
+.UIFaq_Content{float:left;width:460px;padding-left:5px}
+.UIFaq_Open > .UIFaq_Arrow > .UIFaq_ClosedArrow{display:none}
+.no_js .UIFaq_ClosedArrow{display:none}
+.UIFaq_Open > .UIFaq_Arrow > .UIFaq_OpenArrow{display:block}
+.no_js .UIFaq_OpenArrow{display:block}
+.UIFaq_Content > .UIFaq_Answer{display:none}
+.UIFaq_Open > .UIFaq_Content > .UIFaq_Question{font-weight:bold;padding-bottom:2px}
+.no_js .UIFaq_Question{font-weight:bold;padding-bottom:2px}
+.UIFaq_Open > .UIFaq_Content > .UIFaq_Answer{display:block;padding-bottom:10px}
+.no_js .UIFaq_Answer{display:block;padding-bottom:10px}
+.UIFaq_Open > .UIFaq_Content > .UIFaq_Snippet{display:none}
+.no_js .UIFaq_Snippet{display:none}
+.UIFaq_Highlight{background:#fff8cc;border-bottom:1px solid #ffe222;padding:1px 1px 2px}
+.UIFaq_QuestionHighlight{font-weight:bold}
+.UIFaq_Question a{font-weight:bold}
+.UIFaq_Snippet{font-size: 12px;color:gray}
+.UIFaq_Sharing{padding:5px 0}
+.UIFaq_Sharing a{color:#6d84b4;text-decoration:none}
+.UIFaq_Feedback{font-size: 12px;vertical-align:middle}
+.UIFaq_Feedback .tiny_indent{margin-left:2px}
+.helpPage .backLink{display:inline;font-size: 14px;font-weight:bold;padding-bottom:10px;text-transform:none}
+.helpMore.collapsed .showMoreLink{display:inline}
+.helpMore .showMoreLink{display:none}
+.helpMore.collapsed > div{display:none}
+.helpMore > div{display:inline}
+.helpPage{min-width:1024px}
+.helpPage .menu{background-color:#3b5998;font-weight:bold;padding-top:8px;margin:0;width:100%;z-index:1}
+.helpPage .menu a{color:#fff;text-decoration:none}
+.helpPage .body .HCContents #HCContent{font-size: 14px;max-width:670px}
+.helpPage .menu .HCContents{background:#627aad;border:1px solid #1a3c6c;border-bottom-width:0;margin:0 auto;max-width:980px}
+.helpPage .menu .search{display:inline-block;width:300px}
+.helpPage .body{background-color:#f2f2f2;margin:0;padding-bottom:30px}
+.helpPage .body .HCContents{border:1px solid #ddd;border-top-width:0;margin:0 auto;width:940px;background-color:#fff;padding:70px 20px 40px 20px;min-height:400px}
+.helpPage .body .HCContents .bodyMenu{float:left;width:250px;background-attachment:scroll}
+.helpPage .body .HCContents .bodyMenu li{font-size: 17px}
+.helpPage .body .HCContents .bodyMenu ul{border-color:#ccc;border-width:1px 0;border-style:solid}
+.helpPage .body .HCContents .bodyMenu .menuOption{width:240px;padding-left:10px}
+.helpPage .body .HCContents .bodyMenu .menuOption .label{width:190px}
+.helpPage .body .HCContents .bodyMenu .firstMenuItem{padding-top:11px}
+.helpPage .body .HCContents .bodyMenu .lastMenuItem{padding-bottom:11px}
+.helpPage .body .HCContents .bodyMenu .selected{font-weight:bold;background-color:#f9f9f9}
+.helpPage .body .HCContents .bodyMenu .selected a{color:#333}
+.helpPage .body .HCContents .bodyMenu a{text-decoration:none}
+.helpPage .body .HCContents .bodyMenu li :hover{color:#333}
+.helpPage .body .HCContents .bodyMenu li .selectionIndicator{padding-bottom:2px}
+.helpPage .body .HCContents .bodyMenu li :hover .hidden{display:inline}
+.helpPage .body .HCContents .bodyMenu a{text-decoration:none;color:#333}
+.helpPage .body .HCContents .bodyMenu a :hover{color:#3b5998}
+.helpPage .body .HCContents .topics a.topLevelTopic{text-decoration:none;display:block}
+.helpPage .body .HCContents .topics a.topLevelTopic:hover{background:#edeff4}
+.helpPage .body .HCContents .narrow{max-width:635px;padding-left:30px}
+.helpPage .body .HCContents .bodyText .help_title{font-size: 21px;font-weight:bold}
+.helpPage .body .HCContents .bodyText .breadcrumb{font-size: 13px;margin-top:7px}
+.helpPage .body .HCContents .bodyText .help_title .rfloat{margin-top:7px}
+.helpPage .body .HCContents .bodyText td, td.label{font-size: 14px}
+.menuButton{background:#627aad;font-size: 15px;padding:7px 21px 6px}
+.logo{text-transform:uppercase}
+.menuButton:hover{background:#293870;text-decoration:none}
+.helpPage .logo .menuButton.lfloat{padding-left:21px;padding-right:0;padding-top:7px;padding-bottom:6px}
+.helpPage .logo .menuButton.rfloat{padding-left:2px;padding-right:21px;padding-top:11px;padding-bottom:5px
+}
+.fixed{position:fixed}
+.hidden{display:none}
+.appsPile tr{line-height:20px}
+.helpPage{background:#f2f2f2}
+.helpPage #contentCurve{background:#f2f2f2}
+.HC_MainContent td{text-align:center}
+.helpPage .uiComboInput .comboButton{z-index:0}
+.block{display:block}
+.HCGray{background-color:#f2f2f2}
+.surveyBox{padding-top:50px}
+.helpPage .fakeWash{margin:-28px -20px 0;padding:30px 60px 53px}
+.helpPage .searchHeading{font-size: 23px}
+.helpPage .body .HC_Typeahead{width:500px}
+.helpPage .body .HC_Search_Input{border:auto;float:none;font-size: 16px;font-weight:normal;height:17px;outline:none;width:390px}
+.helpPage .body .HC_Search_Button{float:right;height:20px}
+.helpPage .body .title{font-size: 21px;font-weight:normal}
+.helpPage .body .subtitle{font-size: 13px}
+.helpPage .helpBrowser{width:610px}
+.helpPage .helpFeed{width:370px}
+.helpPage .helpFeed li{border-style:none}
+.helpPage .helpFeed .profilePic{height:30px;width:30px}
+.helpPage .helpFeed .uiStream .uiStreamMessage{width:295px}
+.helpPage .uiUfi{width:295px}
+.helpPage .topics{width:480px}
+.helpPage .helpSpacer{border-color:#ececec}
+.helpPage .inlineImageBlock i, .helpPage .inlineImageBlock span{vertical-align:middle}
+.helpPage .topics .additionalLinks a.inlineImageBlock{display:inline}
+.helpPage .shortSelect{max-height:19px}
+.helpPage .HC_Center{width:395px}
+.helpPage .wideContent{width:640px}
+.helpPage #HCContent{float:left}
+.helpPage .helpFeed .helpMore .showMoreLink{font-size: 14px;font-weight:bold;float:right;margin-right:35px}
+.messaging_nux_header{background:#f2f2f2;border-bottom:1px dashed #b3b3b3;margin:-15px -20px 15px -20px;padding:24px 20px 19px;position:relative;zoom:1}
+.messaging_nux_header .tip_wrapper{position:relative}
+.active_tip .tip_link{color:#333;cursor:text;text-decoration:none}
+.chat_setup_tip_callout,
+.email_setup_tip_callout,
+.sms_setup_tip_callout{margin-left:-16px;margin-top:5px}
+.chat_setup_tip_callout .uiOverlayContent,
+.email_setup_tip_callout .uiOverlayContent,
+.sms_setup_tip_callout .uiOverlayContent{zoom:1}
+.messaging_email_setup_confirmation_row{width:250px}
+.sms_setup_tip_callout .sms_activation_instructions{display:none}
+.sms_carrier_selection{margin-left:-40px}
+.sms_setup_tip_callout .sms_carrier_selection .select{width:160px}
+.messaging_sms_disclaimer{color:#999}
+.async_saving .tip_content_status_wrapper{background:url(../images/r/LOOn0JtHNzb.gif);background-position:center center;background-repeat:no-repeat;min-height:80px}
+.async_saving .tip_content_wrapper{visibility:hidden}
+.async_saving .loading_shield{position:absolute;bottom:0;left:0;right:0;top:0}
+.async_saving .callout_check_alias_button,
+.async_saving .callout_actions,
+.async_saving .callout_next_button,
+.async_saving .callout_activate_button{visibility:hidden}
+.async_saving .alias_picker_wrapper{background:url(../images/GsNJNwuI-UM.gif);background-position:305px center;background-repeat:no-repeat}
+.messaging_nux_tip_list li.tip_wrapper{padding-right:20px}
+.messaging_nux_tip_callout .callout_arrow_up{background-position:35px 0;position:absolute}
+.messaging_nux_tip_callout .uiContextualDialogFooter{overflow:auto}
+.messaging_nux_tip_callout .callout_actions{line-height:22px}
+.messaging_callout_title{font-size: 12px;line-height:16px}
+#messaging_nux_done{position:absolute;top:23px;right:20px}
+.messaging_nux_info_table th.label{width:auto;text-align:left}
+.sms_setup_tip_callout .mobile_activation_carrier_container{padding:5px 0}
+.sms_setup_tip_callout .mobile_activation_carrier_container select{margin-right:10px}
+.sms_setup_tip_callout .sms_requests{margin-left:-40px}
+.callout_activate_button,
+.callout_check_alias_button,
+.activate_step .callout_next_button,
+.check_alias_step .callout_next_button,
+.check_alias_step .callout_activate_button,
+.check_alias_step .alias_unavailable_wrapper,
+.success_result .alias_picker_wrapper,
+.success_result .alias_unavailable_wrapper,
+.check_alias_step .alias_picker_confirm_wrapper{display:none}
+.failure_result .alias_unavailable_wrapper,
+.success_result .alias_picker_confirm_wrapper{display:block}
+.check_alias_step .callout_check_alias_button,
+.activate_step .callout_activate_button{display:inline-block}
+.messaging_nux_tip_callout .alias_picker{width:200px}
+.messaging_nux_tip_callout .alias_checker_results{position:relative}
+.messaging_nux_tip_callout .cancel_alias_link{position:absolute;top:5px;right:5px}
+.threadRow .snippet{max-width:430px;overflow:hidden;position:absolute;text-overflow:ellipsis;white-space:nowrap}
+.threadRow .snippet .indicator,#fbMessagesItemList .snippet .indicator{vertical-align:middle}
+.MessagingSearchTypeahead{width:240px}
+.MessagingSearchTypeahead .details{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#MessagingSearch .MessagingSearchFilter{border-color:#6484b4 #899bc1 #899bc1}
+#MessagingSearch .MessagingSearchFilter .uiSelectorButton{background-image:url(../images/fIv5vjcQcd-.png);background-repeat:no-repeat;background-position:0 -98px}
+#MessagingSearch .MessagingSearchFilter .uiSelectorButton:active,#MessagingSearch .MessagingSearchFilter .openToggler .uiSelectorButton{background-image:none}
+#MessagingSearch #MessagingQuery{border-top:1px solid #ededed;padding-left:6px;padding-top:2px}
+#MessagingInviteFriends{line-height:20px;margin-left:3px;position:absolute}
+.MessagingSecondaryHeader a{color:#3b5998 !important}
+.MessagingExitViewButton{bottom:1px;padding-bottom:3px;position:relative}
+#MessagingThreadlist{min-height:525px}
+.MessagingEmptyMessages{border:solid #e9e9e9;border-width:1px 0;color:#ccc;font-size: 23px;font-weight:bold;margin:0;padding:218px 0 280px;text-align:center}
+.ArchiveCallout{top:-40px;left:-400px;background-position:385px 34px;width:400px}
+.ArchiveCallout h3{margin:0 0 10px}
+#MessagingArchiveCallout .archiveLink{display:inline-block}
+#MessagingThreadlist .threadRow{border-top-width:1px}
+.threadRow .authorsWrapper{max-width:500px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.threadRow .authors{font-size: 14px}
+.threadRow .threadLink:hover{text-decoration:none}
+.threadRow .threadLink:hover .authors{text-decoration:underline}
+.threadRow .content{line-height:16px;padding-top:8px}
+.threadRow .timestamp,.threadRow .mutualFriends{color:#aaa}
+.threadRow .emote_img{margin-bottom:-4px}
+.threadRow .unarchiveLink .uiCloseButton{background:url(../images/ij5EGgoOSQ3.png) right top}
+.threadRow .unarchiveLink .uiCloseButton:hover{background-position:left top}
+.threadRow .right{padding-top:18px}
+.threadRow .draft{padding-right:12px;vertical-align:top;color:#a2b2cf;font-weight:normal}
+.threadRow.unread{background-color:#ebeef4}
+.threadRow .unarchiveLink,.threadRow .markAsReadLink,.threadRow.archived .archiveLink,.threadRow.unread .markAsUnreadLink{display:none}
+.threadRow .archiveLink,.threadRow .markAsUnreadLink,.threadRow.archived .unarchiveLink,.threadRow.unread .markAsReadLink{display:block}
+.threadRow.unread,.threadRow.unread + .threadRow{border-color:#dce2ec;margin:0 -20px;padding:0 20px}
+.threadRow.unread .snippet,.threadRow.unread .timestamp{color:#6d84b4}
+.threadRow.unread .mutualFriends{color:#9c9c9c}
+.threadRow .readState{vertical-align:middle}
+.threadRow .markunread,.threadRow .markread{display:inline-block;height:11px;width:11px}
+.threadRow .markunread{background-image:url(../images/HOHcA2kE6Ta.png);background-repeat:no-repeat;background-position:-11px 0}
+.threadRow .markunread:hover{background-image:url(../images/HOHcA2kE6Ta.png);background-repeat:no-repeat;background-position:0 0}
+.threadRow .markread{background-image:url(../images/HOHcA2kE6Ta.png);background-repeat:no-repeat;background-position:-11px -12px}
+.threadRow .markread:hover{background-image:url(../images/HOHcA2kE6Ta.png);background-repeat:no-repeat;background-position:0 0}
+.threadMainCol{width:1000px}
+.threadRow.noDraft .draft{display:none}
+.uiSplitPics{width:50px}
+.uiSplitPics_small .uiSplitPics{width:32px}
+.uiSplitPics .uiSplitPic{float:left;overflow:hidden;width:24px}
+.uiSplitPics .leftThree{width:33px}
+.uiSplitPics .rBottom .img{height:25px}
+.uiSplitPics .rTop .img,
+.uiSplitPics .rBottom .img{margin-left:-4px}
+.uiSplitPics .rBottom{margin-top:1px}
+.uiSplitPics .rTop,
+.uiSplitPics .rBottom{margin-left:1px;width:16px}
+.uiSplitPics_small .uiSplitPics .uiSplitPic{width:15px}
+.uiSplitPics .img{display:block;margin-left:-13px}
+.uiSplitPics_small .uiSplitPics .img,
+.uiSplitPics .leftThree .img{margin-left:-8px}
+.uiSplitPics .leftPic{margin-right:1px;width:25px}
+.uiSplitPics_small .uiSplitPics .leftPic{width:16px}
+.uiComboInput{border:1px solid #bdc7d8;display:inline-block;zoom:1}
+.uiComboInput .inputtext,.uiComboInput .uiTypeahead,.uiComboInput .uiTypeahead .wrap{border:transparent}
+.uiComboInput .uiTypeahead{display:inline-block;vertical-align:top;zoom:1}
+.uiComboInput .comboButton{margin:-1px;position:relative;z-index:2;zoom:1}
+
+#bootloader_TYHyQ { height: 42px; }
