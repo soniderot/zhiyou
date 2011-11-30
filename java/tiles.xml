@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+<definition name="home" template="/WEB-INF/jsp/home.jsp" extends="layout.base" preparer="com.m4g.bns.TilesPreparer">
+	<put-attribute name="title" value="page.title.home"/>
+</definition>
+
+<definition name="security.login" extends="layout.base" preparer="com.m4g.bns.TilesPreparer">
+	<put-attribute name="title" value="page.title.security.login"/>
+	<put-attribute name="column-1">
+		<definition extends="member.layout.base.column">
+			<put-attribute name="content" value="/WEB-INF/jsp/security/login.jsp" />
+		</definition>
+	</put-attribute>
+</definition>
+
+	<definition name="email.verify" extends="layout.base" preparer="com.m4g.bns.TilesPreparer">
+		<put-attribute name="title" value="page.title.security.login"/>
+		<put-attribute name="column-1">
+			<definition extends="member.layout.base.column">
+				<put-attribute name="content" value="/WEB-INF/jsp/security/emailverify.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+
+	<definition name="member.search.result" extends="member.layout.base" preparer="com.m4g.bns.TilesPreparer">
+		<put-attribute name="title" value="page.title.member.search.result"/>
+		<put-attribute name="js.custom" value="/WEB-INF/jsp/member/search/js.jsp"/>
+		<put-attribute name="column-1" value="/WEB-INF/jsp/member/search/search_result.jsp"/>
+		
+	</definition>
+	
+	<definition name="member.search.advance" extends="member.layout.base" preparer="com.m4g.bns.TilesPreparer">
+		<put-attribute name="title" value="page.title.member.search.advance"/>
+		<put-attribute name="js.custom" value="/WEB-INF/jsp/member/search/js.jsp"/>
+		<put-attribute name="column-1">
+			<definition extends="member.layout.base.column">
+				<put-attribute name="content" value="/WEB-INF/jsp/member/search/search_adv.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+	
+	<definition name="password.forget.fetch" extends="layout.base" preparer="com.m4g.bns.TilesPreparer">
+		<put-attribute name="title" value="page.title.password.forget.fetch"/>
+		<put-attribute name="column-1">
+			<definition extends="member.layout.base.column">
+				<put-attribute name="content" value="/WEB-INF/jsp/profile/pw_fetch.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+	
+	<definition name="password.forget.reset" extends="layout.base" preparer="com.m4g.bns.TilesPreparer">
+		<put-attribute name="title" value="page.title.password.forget.reset"/>
+		<put-attribute name="column-1">
+			<definition extends="member.layout.base.column">
+				<put-attribute name="content" value="/WEB-INF/jsp/profile/pw_reset.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+	
+	<!-- definition name="email.modified.success" extends="layout.base" preparer="com.m4g.bns.TilesPreparer">
+		<put-attribute name="title" value="page.title.email.modified.success"/>
+		<put-attribute name="column-1">
+			<definition extends="member.layout.base.column">
+				<put-attribute name="content" value="/WEB-INF/jsp/profile/emailModify_success.jsp" />
+			</definition>
+		</put-attribute>
+	</definition-->
+	
+	<definition name="member.document" extends="member.layout.base" preparer="com.m4g.bns.TilesPreparer">
+		<put-attribute name="title" value="page.title.member.document"/>
+		<put-attribute name="column-1">
+			<definition extends="member.layout.base.column">
+				<put-attribute name="content" value="/WEB-INF/jsp/common/document.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+
+	<definition name="document" extends="layout.base" preparer="com.m4g.bns.TilesPreparer">
+		<put-attribute name="title" value="page.title.document"/>
+		<put-attribute name="column-1">
+			<definition extends="member.layout.base.column">
+				<put-attribute name="content" value="/WEB-INF/jsp/common/document.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+	
+	<definition name="document.popup" template="/WEB-INF/jsp/common/document.jsp" />
+	<definition name="member.document.popup" template="/WEB-INF/jsp/common/document.jsp" />
+	
+
+
+</tiles-definitions>
