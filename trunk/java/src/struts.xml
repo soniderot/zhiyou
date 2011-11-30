@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+    <constant name="struts.custom.i18n.resources" value="message"></constant>
+	<include file="conf/struts_user.xml"/>
+
+	
+<package name="zy-default" extends="tiles-default,json-default">
+	<action name="landing" class="com.zy.action.profile.LandingAction">
+		<result name="public.welcome">/WEB-INF/jsp/logout/langing.html</result>
+	</action>
+	
+	<action name="login" class="com.zy.action.profile.LoginAction">
+		<result name="login.welcome">/WEB-INF/jsp/login/welcome.html</result>
+		<result name="login.fail">/WEB-INF/jsp/logout/login.html</result>
+	</action>
+</package>
+</struts>
