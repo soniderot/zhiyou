@@ -6,3 +6,7 @@
 .sx_48249a{background-position:-0px -50px}
 
 #bootloader_OvN0F { height: 42px; }
+.uiPagerTopBorder {
+border-top:1px solid #EEEEEE;
+padding:15px 0 0;
+}
