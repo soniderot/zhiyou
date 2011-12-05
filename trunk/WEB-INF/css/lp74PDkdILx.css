@@ -10,3 +10,57 @@
 border-top:1px solid #EEEEEE;
 padding:15px 0 0;
 }
+.profilePictureNuxHighlightLink {
+display:block;
+}
+.profilePictureNuxHighlight {
+background-color:#ECEFF5;
+border:1px solid #C5CDE1;
+}
+.fbPageEdit .profilePictureNuxHighlight {
+border-right-width:0;
+}
+.uiDatepicker .prevMonth, .uiDatepicker .nextMonth, .uiDatepicker .dateBox .textField, .uiDatepicker .dayCell {
+cursor:pointer;
+}
+.uiDatepicker .dateBox .textField {
+background:#FFFFFF url(http://static.ak.fbcdn.net/rsrc.php/v1/yA/r/saFg5U_7LMd.png) no-repeat scroll right 50%;
+border:0 none;
+color:#3B5998;
+width:95px;
+}
+.uiDatepicker .dateBox {
+border:1px solid #BDC7D8;
+float:left;
+padding-right:4px;
+}
+.uiDatepicker {
+position:relative;
+}
+.uiDatepicker .calendarWrapper {
+display:none;
+left:0;
+position:absolute;
+top:25px;
+z-index:4;
+}
+.detailedsearch_feature_header {
+background-color:#E9E9E9;
+border:0 none;
+height:7px;
+margin-bottom:10px;
+padding:0;
+text-align:center;
+}
+.detailedsearch_feature_header span {
+background-color:#FFFFFF;
+color:gray;
+font-weight:bold;
+padding:0 5px;
+position:relative;
+top:-4px;
+}
+.searchArea {
+	color: #333333;
+	font-weight: normal;
+}
