@@ -1,0 +1,58 @@
+﻿	<meta charset="utf-8" />
+	<meta name="robots" content="noodp,noydir" />
+	<meta name="description" content="知友网 是一个以好友互动娱乐为主要功能的交友网站。围绕交友设计开发了包括美食点评、活动邀请、交友推荐、吃货配对、社交管家等线上线下互动功能，旨在促进网友间现实的互动和交流。" />
+	<link rel="alternate" media="handheld" href="http://www.facebook.com/" />
+  <link type="text/css" rel="stylesheet" href="/css/GfrxW__2wNR.css" />
+  <link type="text/css" rel="stylesheet" href="/css/6JziMmtqgI9.css" />
+  <link type="text/css" rel="stylesheet" href="/css/oKInZho4Fq0.css" />
+  <link type="text/css" rel="stylesheet" href="/css/B2si-Z7yw-e.css" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/IE/IhlLCbRnaR-.css" />
+    <link type="text/css" rel="stylesheet" href="/css/vhaqLt4m8pH.css" />
+  <link type="text/css" rel="stylesheet" href="/css/hwQwCf7RQjM.css" />
+  
+    
+  <link type="text/css" rel="stylesheet" href="/css/IE/IhlLCbRnaR-.css" />
+  <link type="text/css" rel="stylesheet" href="/css/fkAcKjsqY28.css" />
+  <link type="text/css" rel="stylesheet" href="/css/Kik3stz4LwG.css" />
+  <link type="text/css" rel="stylesheet" href="/css/m-D37VXlUU0.css" /
+
+  <title>Facebook</title>
+  <link rel="shortcut icon" href="#" />
+  <style>
+		.sidebarMode #chatFriendsOnline,.sidebarMode #fbDockChatBuddylistNub.fbNub,.sidebarMode #fbChatErrorNub{display:none}
+		.sidebarMode #pageHead,.sidebarMode #globalContainer{left:-90px;position:relative}
+		.sidebarMode .liquid #globalContainer{margin:0 90px}
+		.sidebarMode .fbDockWrapper{right:175px}
+		.sidebarMode .timelineLayout .fbTimelineSideColumn{margin-right:-400px}
+		.sidebarMode .fbTimelineSideAds,.sidebarMode .fbTimelineScrubber{margin-right:-400px}
+		.sidebarMode .fbTimelineStickyHeader{right:310px}
+		.sidebarMode #fbPhotoTheater .container{margin-left:-570px}
+	</style>
+	
+																		<%
+																		java.util.Map<Integer,String> years = new java.util.LinkedHashMap<Integer,String>();
+																		years.put(-1,"年");
+																		for(int i=1950;i<2012;i++){
+																			years.put(i,""+i);
+																		}
+																		request.setAttribute("years",years);
+																		%>
+																		
+																		<%
+																		java.util.Map<Integer,String> months = new java.util.LinkedHashMap<Integer,String>();
+																		months.put(-1,"月");
+																		for(int i=1;i<=12;i++){
+																			months.put(i,""+i);
+																		}
+																		request.setAttribute("months",months);
+																		%>
+																		
+																		<%
+																		java.util.Map<Integer,String> days = new java.util.LinkedHashMap<Integer,String>();
+																		days.put(-1,"日");
+																		for(int i=1;i<=31;i++){
+																			days.put(i,""+i);
+																		}
+																		request.setAttribute("days",days);
+																		%>
