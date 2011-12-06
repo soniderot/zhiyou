@@ -14,11 +14,13 @@ import org.jdom.input.SAXBuilder;
 
 public class ImportTiles{
 	public static void main(String[] args) throws Exception{
-		import_tiles("D:\\tmp\\tiles-site.v3_1.xml");
-		import_tiles("D:\\tmp\\tiles-site.v3_2.xml");
+		//import_tiles("D:\\tmp\\tiles-site.v3_1.xml");
+		//import_tiles("D:\\tmp\\tiles-site.v3_2.xml");
 		//import_source("D:\\tmp\\tiles-site.v3.source.xml");
 		//String str = "tiles.member.contacts.hotlists.remove.confirm";
 		//System.out.println(str.split("\\.").length);
+		//import_tiles("D:\\tmp\\tiles-site.v5.xml");
+		import_source("D:\\tmp\\tiles-site.v5.source.xml");
 	}
 	public static void compare(){
 		String tilesSql = "";

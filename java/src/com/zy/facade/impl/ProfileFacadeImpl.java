@@ -17,10 +17,17 @@ public class ProfileFacadeImpl implements ProfileFacade {
 	public void setProfileService(ProfileService profileService) {
 		this.profileService = profileService;
 	}
-	public ZyProfile findBasicProfileById(int profileId){
+	public ZyProfile findProfileById(int profileId){
 		return profileService.findProfileById(profileId);
 	}
-	public boolean checkProfileLogin(String email,String password){
+	public ZyProfile checkProfileLogin(String email,String password){
 		return profileService.checkProfileLogin(email, password);
+	}
+	public void addProfile(ZyProfile profile){
+		profileService.insertProfile(profile);
+	}
+	
+	public ZyProfile findProfileByEmail(String email){
+		return profileService.findProfileByEmail(email);
 	}
 }
