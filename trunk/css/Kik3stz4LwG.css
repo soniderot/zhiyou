@@ -1,0 +1,156 @@
+/*1321374552,176820409*/
+
+.MessagingHoverlist a.allLink{background:#f7f7f7;border-top:1px solid #e0e0e0;display:block;font-weight:bold;margin:0 -10px -10px -10px;padding:8px;text-align:center}
+.MessagingHoverlist a.allLink:hover{background:#6d84b4;border-color:#3b5998;color:#fff;text-decoration:none}
+#MessagingDashboard #error,#MessagingDashboard .status{margin:10px 0}
+#MessagingDashboard #MessagingFooter{clear:both;float:left;margin:25px 0 20px;overflow:hidden;width:100%}
+#MessagingDashboard #MessagingFooter dl{display:inline;margin:0;overflow:hidden;padding:0}
+#MessagingDashboard #MessagingFooter dt{display:inline;font-weight:bold;margin:0;padding:0 5px 0 0}
+#MessagingDashboard #MessagingFooter dd{display:inline;margin:0;padding:0 20px 0 0}
+#MessagingDashboard #MessagingFooter form{display:inline}
+#MessagingDashboard .footerActionBar{width:100%}
+#MessagingDashboard .uiHeaderActions .uiPager .lfloat,#MessagingDashboard .uiHeaderActions .uiPager .rfloat,#MessagingDashboard .footerActionBar .footerPager .lfloat,#MessagingDashboard .footerActionBar .footerPager .rfloat{display:inline-block;float:none;vertical-align:top;zoom:1}
+#MessagingDashboard .UIPager .UIPager_PageNum{display:none}
+#MessagingDashboard .MessagingFooterContent .UIPager{float:right}
+#MessagingFrame{display:block;float:left;margin-bottom:-10px;min-height:200px;width:759px}
+.MessagingComposerBody{border-color:#6d84b4;outline:none;overflow-y:auto !important;resize:none;height:30px;width:335px;max-height:280px}
+.MessagingSimpleComposer .MessagingComposerBody{width:270px}
+.MessagingSimpleComposer .toField .label,.MessagingSimpleComposer .attendeeField .label,.MessagingSimpleComposer .messageField .label{width:20px}
+.MessagingComposerTypeaheadWrapper .uiInlineTokenizer{border-color:#6d84b4}
+.MessagingComposerTypeaheadWrapper .compact{width:340px}
+.MessagingComposer .standard_status_element{display:none}
+.MessagingComposer .standard_status_element.async_saving{display:block}
+.MessagingComposer .uploading .loadingIndicator{margin-top:2px}
+.MessagingComposer .uploaded{margin:3px 0}
+.MessagingComposer .uploaded .uiCloseButton{margin:-2px 0 0 4px}
+.MessagingComposer .toField .data{vertical-align:bottom}
+#MessagingInlineComposer{padding-left:45px}
+#MessagingInlineComposer .MessagingComposerBody{width:100%}
+#MessagingInlineComposer .MessagingComposerForm{max-width:406px}
+#MessagingInlineComposer .MessagingComposerFormLeft{width:100%}
+#MessagingInlineComposer textarea{border-color:#899bc1;font-size: 12px;height:14px;margin-right:6px;overflow:hidden;width:100%;max-width:342px}
+#MessagingComposerOptions{margin-top:2px;max-width:350px}
+#MessagingInlineComposer .checkboxes{margin-top:2px}
+.MessagingComposerButton{margin-right:2px}
+.MessagingAttachmentFrame{background-image:url(../../images/pq_lCqSxJXw.png);background-repeat:no-repeat;background-position:-31px 0;height:18px;width:18px;opacity:.5}
+.MessagingShareOption{cursor:default;display:block;background-image:url(../../images/pq_lCqSxJXw.png);background-repeat:no-repeat;background-position:-31px -19px;height:18px;width:18px}
+.MessagingShareOption:hover{background-image:url(../../images/pq_lCqSxJXw.png);background-repeat:no-repeat;background-position:-49px -19px}
+.MessagingShareOption:active{background-image:url(../../images/pq_lCqSxJXw.png);background-repeat:no-repeat;background-position:-67px -19px}
+.MessagingAttachmentEnabled .MessagingAttachmentFrame{opacity:1}
+.MessagingAttachmentEnabled .MessagingAttachmentFrame:hover{background-image:url(../../images/pq_lCqSxJXw.png);background-repeat:no-repeat;background-position:-49px 0}
+.MessagingAttachmentEnabled .MessagingAttachmentFrame:active{background-image:url(../../images/pq_lCqSxJXw.png);background-repeat:no-repeat;background-position:-67px 0}
+.MessagingComposer .FBAttachmentStage{border:1px solid #aeaeae;background:#fff;overflow:hidden;width:331px}
+.MessagingComposer .previewWrapper img{max-height:78px;border:1px solid #ccc;padding:2px}
+.MessagingComposer .FBAttachmentStageLoader{text-align:center}
+.MessagingComposer .attachmentContainer{width:300px}
+.MessagingComposer .UIShareStage_HasImage .UIShareStage_ShareContent{width:199px}
+.MessagingComposer .attachupload iframe{height:25px}
+.hasFBShare .MessagingShareOption{display:none}
+.MessagingComposer .webCamContainer{position:relative}
+.MessagingComposer .webCamContainer .webCamModeLink{background-color:#555;position:absolute;right:10px;text-decoration:none;top:10px}
+#MessagingFrame .fallback{color:#ccc;font-size: 14px;font-weight:bold;padding:120px 0;text-align:center}
+#MessagingFrame .fallback a{color:#6d84b4}
+#MessagingTypingIndicator{border-style:solid;border-color:#e9e9e9;border-width:1px 0 0 0}
+#MessagingShelfSpacer{height:33px}
+#MessagingLoadingSpinner,.MessagingForwardedContent,.MessagingReadViewMainContent,#MessagingShelf{width:493px;overflow:hidden}
+#MessagingShelf{overflow:visible}
+#MessagingNetegoWrapper{width:244px}
+.MessagingReadHeader{background-color:#fff;width:759px;z-index:2}
+.MessagingContentHeaderWrapper{position:absolute;margin-top:-1px}
+.MessagingContentBorder{border-top:1px solid #ccc;width:493px}
+.MessagingForwardForm,.MessagingDeleteForm{background-color:#fef8cb;border:1px solid #debe00;padding:10px 10px 9px 5px}
+#MessagingActionShelf{display:none}
+.MessagingActionShelfSpacer{background-color:#fff;width:493px;height:10px}
+.MessagingReadHeader .hoverlistLink{color:#3b5998}
+#MessagingEarlierMessagesLink:hover{text-decoration:none}
+#MessagingMessages .heavySeparator{border-top:1px solid #aaa}
+#MessagingMessages .uiList:first-child .uiListItem:first-child{border-top-width:0}
+#MessagingMessages .uiList .uiListItem:first-child{border-top-width:1px}
+.fixedBody #MessagingScroller{position:relative}
+.fixedBody #MessagingScroller #MessagingMessages{bottom:0;position:absolute}
+#MessagingLoadingSpinner{position:absolute;padding-top:100px;text-align:center}
+.MessagingMessage .main,.MessagingParticipantList{margin:0 -15px;padding:8px 15px}
+.MessagingLogMessage .UIImageBlock{margin:0 -15px;padding:4px 15px 4px 49px;color:gray}
+.MessagingLogMessage .timestamp{color:#ccc;cursor:default;display:inline-block;font-size: 10px;margin-left:4px;vertical-align:baseline;float:none}
+.uiList .MessagingLogMessage{border-style:none}
+.uiList .MessagingLogMessageHead{border-style:solid}
+.MessagingLogMessageAttachment{margin-top:10px}
+.MessagingLogMessageAttachment img{height:100px;width:100px}
+.MessagingMessage .favicon{background-color:#f2f2f2;border-top:1px solid #e9e9e9;height:16px;padding:7px 8px 8px;width:16px}
+.MessagingMessage .body{margin-top:2px}
+.MessagingMessage .subject{margin:4px 0 2px;overflow:hidden;width:350px}
+.MessagingMessage .rightSide{padding-top:2px}
+.MessagingMessage .content{line-height:14px;overflow:hidden;padding:2px 0 1px;width:350px;word-wrap:break-word}
+.MessagingMessage .content p{display:inline;margin:0}
+.MessagingMessage .animateRow{padding:0}
+.MessagingMessage .animateRow p{padding:2px 0 1px}
+.MessagingMessage .animateRow p.emote_text{display:none}
+.MessagingMessage .forwardedBlock{border-left:2px solid #ccc;padding-left:8px}
+.MessagingMessage pre{font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-size: 12px;margin:0;white-space:pre-wrap;word-wrap:break-word}
+.MessagingMessage iframe{border:0;display:block;height:0;width:100%}
+.MessagingMessage .attachments iframe{height:inherit}
+.MessagingMessage .emote_img{bottom:1px;margin-bottom:-2px;position:relative}
+.MessagingMessage .attachments{margin-bottom:8px;max-width:460px}
+.MessagingMessage .attachments .previewWrapper{height:78px;margin:5px 0 15px}
+.MessagingMessage .attachments li:last-child .previewWrapper{margin-bottom:2px}
+.MessagingMessage .attachments img.preview{border:1px solid #ccc;max-height:78px;max-width:400px;padding:2px}
+.MessagingMessage .attachments img.preview:hover{border-color:#3b5998}
+#MessagingMessages a.participantListReply:hover{background-color:#d8dfea}
+#MessagingEarlierMessages{margin:1px 0 -1px;text-align:center}
+#MessagingEarlierMessages img{position:relative;top:1px}
+#MessagingEarlierMessages .no_fixed_support .loading_earlier_label,#MessagingEarlierMessages .async_saving span.load_earlier_label{display:none}
+#MessagingEarlierMessages .async_saving span.loading_earlier_label{display:inline}
+.MessagingMessage .showFullMsg{color:#aaa;display:inline-block;margin-right:3px;vertical-align:top}
+.MessagingMessage .showFullMsg .dialogLink{vertical-align:top}
+.MessagingMessage .timestamp{color:#aaa;cursor:default;display:inline-block;vertical-align:top}
+.MessagingMessage .sourceTooltip{cursor:default;padding-top:3px}
+.MessagingMessage .bccTooltipWrapper{color:#aaa;font-weight:bold;vertical-align:top}
+.MessagingMessage .bccTooltip{cursor:default;color:#aaa}
+#MessagingReadParticipants,.MessagingReadHeader h2{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.MessagingReadHeader .MessagingThreadSearch input{width:160px}
+.MessagingThreadNameAndPeopleCount{font-size: 14px;color:gray;font-weight:normal}
+.MessagingThreadNameAndPeopleCount .MessagingThreadName{color:#1c2a47;font-size: 17px;font-weight:bold;margin-right:2px}
+.MessagingThreadNameAndPeopleCount .hoverlistLink{color:#3b5998}
+.MessagingMessage .quotedTextLink{font-size: 10px}
+.MessagingOnlineIndicator{display:none;background:url(../../images/AA4mSyZRGOi.png) no-repeat;width:12px;height:8px}
+.MessagingOnlineIndicator_Online{display:inline-block}
+.MessagingOnlineIndicator_Idle{background-position:0 -119px;display:inline-block}
+.MessagingLocation{height:12px;width:7px;margin-left:3px}
+.MessagingNoResults{color:#ccc;font-size: 23px;font-weight:bold;padding:140px 0;text-align:center;width:550px}
+.MessagingMessage .files{display:inline-block;vertical-align:top}
+.MessagingSenderWarning .img{margin-top:1px}
+.fixedBody .MessagingReadHeader{position:fixed !important;margin-top:-15px;padding-top:15px}
+.fixedBody .MessagingContentWrapperNuxVisible{margin-top:104px}
+.fixedBody .MessagingContentWrapper{margin-top:45px}
+.fixedBody .MessagingContentHeaderWrapper{position:fixed !important;z-index:1}
+.fixedBody #MessagingContentBorderShingle{background-color:rgba(0, 0, 0, .07);height:3px}
+#MessagingMessages .searchMessages > li{border-style:dashed}
+#MessagingMessages .moreLink{padding:0;border-style:none;background-color:#fff}
+.MessagingMessage .messageCheck{padding:14px 6px 0 4px}
+.MessagingLogMessage .messageCheck{padding-left:4px}
+.messageCheck,.SearchThreadPage #MessagingShelf,.MessagingShelfNoReply,.selectionMode .seeMore,.selectionMode .MessagingComposerForm,.selectionMode .MessagingThreadNoReplyInfo,.selectionMode .MessagingLogMessage .messageCheck,.selectionMode #MessagingShelf{display:none}
+.MessagingThreadNoReplyInfo,.selectionMode .messageCheck,.selectionMode .MessagingShelfNoReply,.selectionMode.deleteSelectionMode .messageCheck{display:block}
+.selectionMode .selected{background-color:#eff2f7}
+#MessagingActionShelf{display:none}
+.selectionMode #MessagingActionShelf{display:block}
+.selectionMode #MessagingMainContent{margin-top:55px}
+#MessagingNoReplyContent,#MessagingShelfContent{padding:8px 10px 23px}
+#MessagingNoReplyContent{padding-left:58px}
+#MessagingShelf.fixedScrolling{bottom:0}
+.ComposerForward{min-height:250px;max-height:450px;overflow-x:hidden;overflow-y:auto}
+.ComposerForward .MessagingComposerForm .label{width:55px}
+.ComposerForward .MessagingComposerContainer{padding:0 4px}
+.ComposerForward .MessagingForwardPreview{margin:8px 0 0 65px}
+.ComposerForward .MessagingComposerBody{width:100%;margin:0 -4px}
+.ImageDialogContent{text-align:center;vertical-align:middle}
+.ResizableDialogContent{overflow:auto}
+div.MessagingImageDialogLoading{background:url(../../images/jKEcVPZFk-2.gif) no-repeat center;height:200px;min-width:400px;overflow:hidden}
+.MessagingImageDialogLoading img{visibility:hidden}
+.MessagingDirections .img{margin:-7px -7px -9px -7px}
+a.MessagingMapLink{color:#aaa}
+.uiToolbarBordered{margin:0 -7px;padding:6px 7px 6px 1px}
+.uiToolbar .uiToolbarItem{float:left;margin-left:6px;vertical-align:top}
+.uiToolbarUnbordered .uiToolbarItem:first-child{margin-left:0}
+.uiToolbar .uiToolbarDivider{background:#d6d6d6;height:22px;width:1px}
+
+#bootloader_9DP_7 { height: 42px; }

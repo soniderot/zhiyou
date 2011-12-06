@@ -1,0 +1,299 @@
+﻿/*1321896871,169776068*/
+
+.familyWarning{background-color:#edeff4;border:1px solid #d8dfea}
+.familyMember .friendSelector{float:left}
+.familyMember .friendSelector img{width:20px;height:20px}
+.familyMember .friendSelector .uiTypeahead{margin-left:25px;width:190px}
+.familyMember .relationSelector{height:22px;margin-top:0;margin-right:5px;width:119px}
+.familyEmail .inputtext{width:100%}
+.familyEntry .remove{float:right;padding-top:2px}
+#familyEntryList{margin-top:-10px}
+.familySection .audienceSelector{margin-top:3px}
+.familySection .dummyFamilyEntry{padding-bottom:0;border-width:0}
+.familySection .uiListItem{border-width:0 0 1px 0}
+.familySection #add_family{border-width:0}
+.uiContextualDialog .familyMember .friendSelector .uiTypeahead{width:150px}
+.uiContextualDialog .familyMember .relationSelector{width:115px}
+.friendSelector img{float:left;margin-right:5px}
+.friendSelector .uiTypeahead{margin-left:55px;width:320px}
+.publicList .removeSection{width:25px}
+.publicList .faces li{margin:2px 2px 0 0}
+.publicList .faces li a{display:-moz-inline-box;display:inline-block}
+#add_family .async_saving .add_family_link{display:none}
+#add_family .loader{display:none}
+#add_family .async_saving .loader{display:inline}
+#featuredListSection .label{padding-top:15px}
+.publicListContainer{width:374px;cursor:move}
+.publicListContainer.drag{border-style:none;background-color:#ececec}
+.relConnector{display:none}
+.relStatus_2 .relConnector_2,
+.relStatus_3 .relConnector_3,
+.relStatus_4 .relConnector_4,
+.relStatus_5 .relConnector_5,
+.relStatus_6 .relConnector_6,
+.relStatus_10 .relConnector_10,
+.relStatus_11 .relConnector_11{display:inline}
+.relationshipWarning .pendingPartner,
+.relationshipWarning .statusChange,
+.relationshipWarning .cancelExisting{background-color:#edeff4;border:1px solid #d8dfea;margin-bottom:5px}
+.relationSelector{height:22px;margin-top:0}
+.UIComposer{margin-bottom:10px;position:relative}
+#home_stream .UIComposer{border-bottom:1px solid #eee;margin-bottom:8px;padding-bottom:9px}
+.UIComposer_Upload_Iframe{height:1px;position:absolute;top:-10000px;width:1px}
+.UIComposer_Pic,.UIComposer_PicRounded{left:0;position:absolute}
+.UIComposer_Prompt{color:#696969;display:block;font-size: 14px;font-weight:bold;margin-bottom:5px;padding-left:1px}
+.UIComposer .UIComposer_Box{background-color:#f2f2f2;border-color:#b5b5b5;border-bottom-color:#cbcbcb;border-top:2px solid #919191;padding:7px 0}
+.UIComposer_Content{padding:0 7px}
+.NewHighLight .UIComposer_Content{padding:0}
+.UIComposer_InputArea_Base{background:#fff;display:block;position:relative}
+.UIComposer_InputArea{border:1px solid #bbb;border-top-color:#aeaeae}
+.UIComposer_InputShadow{border-top:1px solid #e8e8e8;padding:2px 5px 3px}
+.NewHighLight .UIComposer_InputShadow{padding:2px 4px 3px}
+.UIComposer_InputShadow .DOMControl_placeholder{line-height:21px}
+.UIComposer .UIComposer_TextArea{border:0 none;font-size: 14px;height:21px;margin:0;outline:none;overflow:hidden;padding:0;resize:none;vertical-align:bottom;width:100%}
+.UIComposer .UIShareStage{padding:9px}
+.UIComposer_ButtonArea{height:24px;margin-bottom:0;padding-top:7px}
+.UIComposer_ButtonArea ul{display:block}
+.UIComposer_Buttons li.UIComposer_FormButtons,.UIComposer_Buttons li.UIComposer_PrivacyEtc{float:right;margin-left:5px}
+.hide_buttons #composer_buttons{display:none}
+.UIComposer_STATE_PIC_OUTSIDE .UIComposer_Box{padding-left:60px}
+.UIComposer_STATE_PIC_OUTSIDE .UIComposer_Pic{padding-left:14px;padding-top:10px}
+.UIComposer_STATE_PIC_INSIDE .UIComposer_Pic{padding:0}
+.UIComposer_STATE_PIC_INSIDE .UIComposer_InputArea{padding-left:60px}
+.UIComposer_STATE_INPUT_DISABLED .Mentions_Input,.UIComposer_STATE_INPUT_DISABLED .UIComposer_InputArea,.UIComposer_STATE_INPUT_DISABLED .UIComposer_InputShadow,.UIComposer_STATE_INPUT_DISABLED .UIComposer_TextArea{background-color:#ddd}
+.UIComposer_STATE_INPUT_EXPANDED .Mentions_Input,.UIComposer_STATE_INPUT_FOCUSED .Mentions_Input{min-height:36px}
+.UIComposer_STATE_INPUT_EXPANDED .UIComposer_TextArea,.UIComposer_STATE_INPUT_FOCUSED .UIComposer_TextArea{height:36px}
+.UIComposer_Buttons .UIComposer_PrivacyEtc{width:100px}
+.UIComposer_Buttons .UIComposer_PrivacyEtc .UIComposer_PrivacyEtcButton{float:right}
+.Mentions_Input{width:100%;margin:0;padding:0;font-size: 14px;min-height:20px;max-height:200px;cursor:text;border:none;outline:none;overflow:auto;overflow-x:hidden;background-color:#fff}
+.Mentions_Input a{cursor:default}
+.Mentions_Input a span{outline:none}
+.Mentions_Input a:hover{text-decoration:none}
+.UIComposer_PrivacyWidgetConfirmationBody{overflow:hidden}
+.UIComposer_PrivacyWidgetConfirmationBody p{margin:0 0 10px 0}
+.UIComposer_PrivacyWidgetConfirmationImage{float:right;margin-left:5px}
+.UIComposer_PrivacyCallout{background-color:transparent;margin-top:-5px;position:absolute;right:38px;width:180px;z-index:100}
+.UIComposer_PrivacyCallout_Title,.UIComposer_PrivacyCallout_Text{border:1px solid #467c2c}
+.UIComposer_PrivacyCallout_Arrow{background:url(../images/CpHMi1OJYT4.gif) no-repeat scroll right top;height:7px;margin-right:40px;position:relative;top:1px}
+.UIComposer_PrivacyCallout_Arrow span{display:none}
+.UIComposer_PrivacyCallout_Title{background-color:#67a54b;border-bottom:medium none;color:#fff;font-size: 12px;margin:0;padding:3px 6px}
+.UIComposer_PrivacyCallout_Text{background-color:#fff;color:#666;margin:0;padding:6px 12px}
+.UIComposer_PrivacyCallout_Text a{display:block}
+.UIComposer_PrivacyCallout_CloseLink{float:right;padding:4px 6px}
+.UIComposer_PrivacyCallout_CloseLink a{color:#fff}
+.UIComposer_PrivacyWidget .uiTooltipWrap,.UIComposer_TargetedPrivacyWidget .uiTooltipWrap{bottom:23px;margin-left:4px;right:16px}
+div.pop_dialog .UIComposer{margin-bottom:0}
+div.pop_dialog .UIComposer .UIComposer_ButtonArea{display:none}
+div.pop_dialog .UIComposer_ButtonArea .UIComposer_FormButtons .uiButton{min-width:44px}
+.UIComposer_MentionsCallout{background-color:transparent;position:absolute;width:180px;left:-1px;margin-top:-4px;z-index:100}
+.UIComposer_MentionsCallout_Arrow{margin-right:150px}
+.ego_contact_importer .contact_importer_widget .ci_submit_container
+.ci_submit_button{float:none}
+.ego_contact_importer .contact_importer_widget .ci_submit_container
+.ci_ego_link_button input{font-weight:bold}
+.contact_importer_widget.ci_webmail .lhs_logo_class{float:left;margin:0 10px 0 0}
+.contact_importer_widget.ci_webmail .unsupported_email{width:275px}
+.contact_importer_widget.ci_webmail .unsupported .unsupported_email{display:block}
+.contact_importer_widget.ci_webmail .unsupported .disclaimer,.contact_importer_widget.ci_webmail .unsupported_email,.contact_importer_widget.ci_webmail .unsupported .ci_submit_container,.contact_importer_widget.ci_webmail .api .disclaimer,.contact_importer_widget.ci_webmail .yahoo_api .uiButton{display:none}
+.contact_importer_widget.ci_webmail .yahoo_submit{display:none}
+.contact_importer_widget.ci_webmail .yahoo_api .yahoo_submit{display:inline-block;border:1px solid #e8a918;padding:8px 4px 8px 5px;background:#f4dd51;background:url(../images/lNKB5gXYOpL.png)
+no-repeat 5px center,
+-moz-linear-gradient(#FDFBE5, #F4DD51);background:url(../images/lNKB5gXYOpL.png)
+no-repeat 5px center,
+-webkit-gradient(linear, 0 top, 0 bottom, from(#FDFBE5), to(#F4DD51));-moz-border-radius:6px;-moz-border-radius:6px}
+.contact_importer_widget.ci_webmail .yahoo_api .yahoo_submit input{border:0;background:none;margin:0;display:inline-block;font-size: 14px;cursor:pointer}
+.contact_importer_widget.ci_webmail .waiting .ci_login{background:url(../images/GsNJNwuI-UM.gif) 210px center no-repeat;background-color:#fff}
+.ego_contact_importer .contact_importer_widget.ci_webmail .valid .ci_login,.ego_contact_importer .contact_importer_widget.ci_webmail .api .ci_login{padding-right:23px;width:206px;background:url(../images/Ar6K0o_04bw.gif) 210px center no-repeat;background-color:#fff}
+.ego_contact_importer .contact_importer_widget.ci_webmail .unsupported .ci_login{background:url(../images/NS2OPUfKoJa.gif) 210px center no-repeat;background-color:#fff}
+.ego_image .img{vertical-align:bottom}
+.ego_image_tiny .img{height:32px;width:32px}
+.ego_image_small .img{height:50px;width:50px}
+.ego_image_medium .img{width:80px}
+.fbPageEdit #globalContainer #content{min-height:150px}
+.fbPageEdit #bottomContent{display:none}
+.fbPageEdit #mainContainer #contentArea{padding:0;width:799px}
+.fbPageEdit #leftCol{padding-top:59px}
+.fbPageEdit .grayArea{min-height:253px;border-top:1px solid #b3b3b3}
+.fbPageEdit .hasRightCol .grayArea{border-right:1px solid #b3b3b3}
+.fbPageEdit #pageFooter #contentCurve{background-color:#f2f2f2}
+.manage_deal td.data{padding-bottom:5px}
+#editProfileForm input[type=text],#editProfileForm textarea{box-sizing:border-box;-moz-box-sizing:border-box}
+#editProfileForm .profileSaveErrorWrap{padding-top:4px}
+.uiInfoTable .genderInterestRow .data{padding-top:8px}
+.profileLanguagesField .profileLanguagesFieldPrivacy{padding-top:4px}
+.profileEditText{width:100%}
+.profilePhoneCountry{width:160px;white-space:nowrap}
+.profileTextareaField .profileTextareaFieldPrivacy{padding-top:2px}
+.uiCheckbox input{vertical-align:middle}
+.uiInlineTokenizer{cursor:text;padding-left:2px;border:1px solid #bdc7d8}
+.uiInlineTokenizer .DOMControl_placeholder{margin-left:-2px}
+.uiInlineTokenizer .uiToken{top:2px}
+.uiInlineTokenizer .uiTypeahead{border:0;float:left}
+.uiInlineTokenizer .uiTypeahead .wrap{border:0}
+.uiInlineTokenizer .uiTypeaheadView{width:200px}
+.uiInlineTokenizer .textInput[disabled]{background:#fff}
+#profile_pic_upload_indicator{text-align:center;padding:10px 0}
+#profile_pic_upload_indicator .load_message{color:#333;font-size: 14px;font-weight:bold}
+.profile_pic_display_none{display:none}
+.profile_pic_upload .pfileselector{padding:8px 0 10px 0}
+#profile_pic_form .tos{border-top:1px solid #ccc;font-size: 10px;color:#555;padding:10px 0 0 0}
+.dialog_body #error{margin:0 0 10px 0}
+.profile_pic_camera .pop_content .dialog_body{border-bottom:none;padding:0}
+.profile_pic_camera .pop_content .dialog_buttons{border-top:1px solid #999}
+.profile_pic_new{padding:30px;width:400px;text-align:center}
+.profile_pic_new .tos{font-size: 10px;color:#555;padding:30px 0 10px}
+.profile_pic_new .profile_pic_upload{padding:10px 0}
+.profile_pic_new .overlap{background-color:#f2f2f2;color:#555;padding:0 10px}
+.profile_pic_new hr{margin:-8px 0 30px}
+.thumbnail_action{text-align:center;padding-top:5px}
+.NUXUploadPic{width:450px;margin:30px auto 0 auto}
+.NUXUploadPic img{float:left;width:212px}
+.NUXUploadPic div.options_container{width:210px;margin:25px auto 0 auto}
+.NUXUploadPic div.divider{background:transparent url(../images/VhUL9TRdhxw.gif) repeat-x center;width:200px;margin:0 auto 15px auto;text-align:center}
+.NUXUploadPic div.divider span{background-color:#ededed;color:#777;margin:0 auto 0 auto;width:20px;padding:0 4px 0 4px}
+.NUXUploadPic div.options{margin:0 auto 15px auto;padding:0 10px 0 0}
+.NUXUploadPic div.link{font-size: 16px;font-weight:bold;text-align:center}
+.NUXUploadPic div.desc{font-size: 14px;color:#777;text-align:center}
+.fbxPhoto .fbPhotoImageStage{width:100%;user-select:none;-moz-user-select:-moz-none}
+.fbxPhoto .fbPhotoImageStage .stageContainer,.fbxPhoto .fbPhotoImageStage .buttonsContainer{width:100%}
+.fbxPhoto .fbPhotoImageStage .fbPhotoPageError{text-align:left}
+.fbxPhoto .fbPhotoImageStage .fbPhotosPhotoButtons{bottom:30px}
+.fbxPhoto .fbPhotoImageStage .stageContainer{background-color:#f6f6f6;height:453px}
+.imageLoading .fbPhotoImageStage .stageContainer{background:#f6f6f6 url(../images/jKEcVPZFk-2.gif) no-repeat center center}
+.fbxPhoto .fbPhotoImageStage .stageWrapper{display:inline-block;position:relative}
+.fbxPhoto .fbPhotoImage img{display:inline-block;height:auto;image-rendering:optimizeQuality;vertical-align:middle;width:auto}
+.taggingMode .fbPhotoImage{cursor:crosshair}
+.fbxPhoto .fbPhotoImageStage .stageActions{cursor:pointer;height:0;left:0;position:absolute;top:0;width:0}
+.fbxPhoto .fbPhotoImageStage .stageButtons{position:relative;text-align:center;width:100%}
+.dataLoading .fbPhotoPageInfo .fbPhotoUfiCol *,.dataLoading .fbPhotoPageInfo .fbPhotoDataCol *{display:none}
+.draggingMode{-moz-user-select:none;user-select:none}
+.photocrop .bg,.photocrop .guard,.photocrop .wrapper,.photocrop .wrapper *{position:absolute}
+.photocrop .bg{background:#000;opacity:.6}
+.photocrop .guard{height:100%;left:0;top:0;width:100%}
+.photocrop .highlight{left:0;top:0}
+.photocrop .viewport{cursor:move}
+.photocrop .viewport div{background-color:#d8dfea;height:10px;opacity:.5;width:10px}
+.photocrop .viewport .nw{cursor:nw-resize;left:-5px;top:-5px}
+.photocrop .viewport .ne{cursor:ne-resize;right:-5px;top:-5px}
+.photocrop .viewport .se{cursor:se-resize;bottom:-5px;right:-5px}
+.photocrop .viewport .sw{cursor:sw-resize;bottom:-5px;left:-5px}
+.fbPhotoTagger{border:1px solid #000;cursor:crosshair;display:none;left:0;position:absolute;text-align:left;top:0;z-index:103}
+.taggingMode .fbPhotoTagger{display:block}
+.fbPhotoTagger .faceBox{border:4px solid #ccc;border-color:rgba(255, 255, 255, .8);height:90px;position:relative;width:90px}
+.fbPhotoTagger .typeaheadWrapper{cursor:default;left:50%;position:absolute;top:100%}
+.fbPhotoTagger .typeaheadContainer{left:-50%;position:relative;top:4px}
+.fbPhotoTagger .arrow{background-image:url(../images/D35il7x9CQ6.png);background-repeat:no-repeat;background-position:0 -365px;height:4px}
+.fbPhotoTagger .typeaheadLabel{color:#fff}
+.fbPhotoTagger .typeaheadBackdrop,.fbPhotoTagger .uiTypeaheadView{background:#000;padding:4px}
+.fbPhotoTagger .uiTypeaheadView{left:-4px;padding-top:0}
+.fbPhotoTagger .photoTagTypeahead,.fbPhotoTagger .photoTagTypeahead .wrap,.fbPhotoTagger .uiTypeaheadView .compact{border-color:#333}
+.fbPhotoTagger .uiTypeaheadView .compact{border-bottom-width:1px;margin-top:4px}
+.fbPhotoTagger .uiTypeaheadView .compact .hintText{cursor:default;height:14px;min-height:0;padding-left:6px}
+.fbPhotoTagger .photoTagTokenizer{width:212px}
+.fbPhotoTagger .tokenarea{display:none}
+.fbxPhoto .fbPhotoTagger .arrow{background-image:none;height:7px;position:absolute;top:-5px;width:100%;z-index:1}
+.fbxPhoto .fbPhotoTagger .arrow .nub{background-image:url(../images/SVwyOpBZwb2.png);background-repeat:no-repeat;background-position:-82px -126px;left:50%;margin-left:-6px;position:absolute;height:7px;top:0;width:11px}
+.fbxPhoto .fbPhotoTagger .typeaheadLabel{display:none}
+.fbxPhoto .fbPhotoTagger .typeaheadBackdrop,.fbxPhoto .fbPhotoTagger .uiTypeaheadView{background:#fff;border:#333 solid 1px}
+.fbxPhoto .fbPhotoTagger .typeaheadBackdrop{margin-top:6px}
+.fbxPhoto .fbPhotoTagger .uiTypeaheadView{border-top:0;left:-5px;margin-top:2px}
+.fbxPhoto .fbPhotoTagger .photoTagTypeahead,.fbxPhoto .fbPhotoTagger .photoTagTypeahead .wrap{border-color:#ccc}
+.fbxPhoto .fbPhotoTagger .uiTypeaheadView .compact{border:0}
+.bulkEditTagger{display:block}
+.bulkEditTagger .faceBox{border-width:3px;height:52px;width:52px}
+.fbxPhoto .newTagBox{height:99px;left:0;position:absolute;top:0;width:99px}
+.fbPhotoBulkEditor .newTagBox{height:60px;width:60px;z-index:2}
+.fbxPhoto .newTagBox .tag{top:105%}
+.uiButtonGroup{-moz-background-clip:padding;background-color:#fff;border:1px solid #a5a5a5;border-color:rgba(0, 0, 0, .35);-moz-border-radius:3px;-moz-box-shadow:0 1px 0 rgba(0, 0, 0, .1);display:inline-block;padding:0;white-space:nowrap}
+.uiButtonGroup .uiButtonGroupItem{border-left:1px solid #d9d9d9;border-color:rgba(0, 0, 0, .15);display:inline-block;vertical-align:top}
+.uiButtonGroup .firstItem{border-left:0}
+.uiButtonGroup .uiSelector,.uiButtonGroup .uiButton{-moz-box-shadow:none;vertical-align:top}
+.uiButtonGroup .selectorItem .uiSelector,.uiButtonGroup .buttonItem .uiButton{margin:-1px}
+.uiButtonGroup .uiButtonLarge{padding:2px 8px}
+.uiButtonGroup .uiButtonOverlay,.uiButtonGroupOverlay .uiButtonGroupItem .uiButtonDisabled,.uiButtonGroupOverlay .uiButtonGroupItem .uiButtonDisabled:hover,.uiButtonGroupOverlay .uiButtonGroupItem .uiButtonDisabled:active,.uiButtonGroupOverlay .uiButtonGroupItem .uiButtonDisabled:focus{-moz-background-clip:padding;border-color:transparent}
+.uiButtonGroup .selectorItem .openToggler .uiButton,.uiButtonGroup .buttonItem .uiButtonSpecial,.uiButtonGroup .buttonItem .uiButtonConfirm{position:relative;z-index:1}
+.uiButtonGroup span .uiButtonOverlay,.uiButtonGroup span .uiButtonOverlay:hover{background-image:url(../images/XueXQBBQklG.png);background-repeat:no-repeat;background-position:right -98px;background-color:transparent}
+.uiButtonGroup span .uiButtonOverlay:active,.uiButtonGroup span .uiButtonOverlay:focus{background-image:url(../images/XueXQBBQklG.png);background-repeat:no-repeat;background-position:right -147px;background-color:transparent}
+.uiButtonGroupOverlay span .uiButtonOverlay.uiButtonDisabled{background-image:url(../images/XueXQBBQklG.png);background-repeat:no-repeat;background-position:right -98px}
+.uiButtonGroup .buttonItem .uiButtonOverlay,.uiButtonGroup .buttonItem .uiButtonOverlay:hover{background-image:url(../images/XueXQBBQklG.png);background-repeat:no-repeat;background-position:0 0}
+.uiButtonGroup .buttonItem .uiButtonOverlay:active,.uiButtonGroup .buttonItem .uiButtonOverlay:focus{background-image:url(../images/XueXQBBQklG.png);background-repeat:no-repeat;background-position:0 -49px}
+.uiButtonGroupOverlay .buttonItem .uiButtonOverlay.uiButtonDisabled{background-image:url(../images/XueXQBBQklG.png);background-repeat:no-repeat;background-position:0 0}
+.uiButtonGroupOverlay .uiButton{-moz-border-radius:0}
+.uiButtonGroupOverlay > :first-child .uiButton{border-top-left-radius:3px;border-bottom-left-radius:3px}
+.uiButtonGroupOverlay > :last-child .uiButton{border-top-right-radius:3px;border-bottom-right-radius:3px}
+.uiStickyPlaceholderInput{display:inline-block;position:relative}
+.uiStickyPlaceholderInput input, .uiStickyPlaceholderInput textarea{background-color:transparent;position:relative}
+.uiStickyPlaceholderInput .placeholder{color:#999;cursor:text;display:none;height:100%;left:0;padding:4px 0 0 5px;position:absolute;top:0;width:100%}
+.uiTypeahead .uiStickyPlaceholderInput .placeholder{padding:3px 0 0 4px}
+div.uiStickyPlaceholderTextarea .placeholder{padding:6px 0 0 6px}
+div.uiStickyPlaceholderEmptyInput .placeholder{display:block}
+.uiTypeahead .uiStickyPlaceholderInput{width:100%}
+.uiClearableTypeahead .selected .uiStickyPlaceholderInput{margin-right:16px}
+.uiToken{background:#e2e6f0;border:1px solid #9daccc;-moz-border-radius:2px;color:#1c2a47;cursor:default;display:block;float:left;height:14px;margin:0 4px 4px 0;padding:0 3px;position:relative;white-space:nowrap}
+.uiToken .remove{margin:2px 0 -2px 1px;outline:none}
+.uiTokenSelected{background-color:#6d84b4;border-color:#3b5998;color:#fff}
+.uiTokenizer{background:#fff}
+.uiNormalTokenizer .uiTypeahead{width:100%}
+.uiNormalTokenizer .tokenarea{overflow:hidden;padding-top:6px}
+.fbHubsTokenizer{border-bottom:1px solid #bdc7d8;position:relative;width:100%}
+.fbHubsTokenizer .uiTypeahead{border-bottom-width:0}
+.fbHubsTokenizer .tokenarea{border-color:#ccc #bdc7d8;border-width:1px 1px 0;border-style:dashed solid;clear:both;overflow:hidden;padding:8px 5px}
+.fbHubsTokenizer .eventsInput{background:#fff;border:0;height:0;left:1px;outline:0;position:absolute;top:1px;width:0}
+.fbHubsTokenizer .drag{z-index:1}
+.fbHubsTokenizer .droppable_placeholder{background:#ebebeb;border:0;padding:0}
+.fbHubsTokenizer .hidden,
+.fbHubsTokenizer .hovered .droppable_placeholder{display:none}
+.fbHubsTokenizer .expanded .hidden,
+.fbHubsTokenizer .expanded .droppable_placeholder{display:block}
+.fbHubsPhotoTokenizer .tokenarea{background:url(../images/wErnZ_tAQMR.png) 10px 8px no-repeat;padding:8px 0 8px 10px}
+.fbHubsPhotoTokenizer .shown{background-color:transparent;border:0;color:#333;height:auto;margin:0;padding:0 10px 8px 0;width:62px;white-space:normal;word-wrap:break-word}
+.fbHubsPhotoTokenizer .shown .hubPhotoWrapper{background:#fff;display:block;margin-bottom:4px}
+.fbHubsPhotoTokenizer .shown .hubPhotoLoading{background:#f2f2f2;height:62px;width:62px}
+.fbHubsPhotoTokenizer .shown .hubPhoto{display:block;vertical-align:bottom}
+.fbHubsPhotoTokenizer .shown .text{display:block;height:28px;overflow:hidden}
+.fbHubsPhotoTokenizer .hidden .hubPhotoWrapper{display:none}
+.fbHubsPhotoTokenizer .uiTokenShownSelected{margin-top:-4px}
+.fbHubsPhotoTokenizer .uiTokenShownSelected .hubPhotoWrapper{border:3px solid #627aad;margin:0 -4px}
+.fbHubsPhotoTokenizer .uiTokenShownSelected .hubPhoto{border:1px solid #9daccb}
+.fbHubsPhotoTokenizer .shownPlaceholder{height:62px !important;margin:0 10px 40px 0;width:62px !important;background:#f2f2f2}
+.fbHubsPhotoTokenizer .hiddenPlaceholder{height:16px !important}
+.fbHubsPhotoTokenizer .divider{margin-left:-10px;border-top-width:0}
+.fbHubsPhotoTokenizer .noneShown .divider{background-color:transparent;padding-top:59px}
+.fbHubsPhotoTokenizer .hovered .divider{background:#6d84b4;padding-top:1px}
+.fbProfileEditPhilosophy .philosophyDescription{width:374px}
+.editLikesRow th.label{padding-top:7px}
+.editLikesRow div.audienceSelector{margin-top:3px}
+.fbProfileEditExperiences .hovered{background:#ececec;cursor:pointer}
+.sortableExperienceList .drag{width:619px;border-width:0}
+.fbEditProfileExperienceSection .addExperience{width:374px}
+.fbProfileEditExperiences .experience .profileImg{height:32px;width:32px}
+.fbProfileEditExperiences .experience .experienceTitle{border-bottom:1px solid #e0e0e0}
+.fbProfileEditExperiences .experience .editTableWrapper{padding-right:103px}
+.fbProfileEditExperiences .experience .experienceContent{padding-top:2px;vertical-align:top}
+.fbProfileEditExperiences .experience .experienceActions{padding:2px 0 0 0}
+.fbProfileEditExperiences .experience .experienceActions .edit{line-height:16px}
+.fbProfileEditExperiences .editExperienceForm{background:#ececec}
+.fbProfileEditExperiences .editFormLoading .fadeDuringLoad{opacity:.33}
+.fbProfileEditExperiences .editExperienceForm textarea,.fbProfileEditExperiences .editSubexperienceForm textarea{width:366px}
+.fbProfileEditExperiences .editingExperience{margin-bottom:5px}
+.fbProfileEditExperiences .editingExperience .editExperienceForm{display:block}
+.fbProfileEditExperiences .editingExperience .fbEditProfileViewExperience{display:none}
+.fbProfileEditExperiences .editTableWrapper td{padding-bottom:5px}
+.fbProfileEditExperiences .editExperienceActions{border-top:1px solid #e0e0e0}
+.fbProfileEditExperiences label.edit{padding-left:18px}
+.fbProfileEditExperiences .hovered label.edit{background:url(../images/4DVNAxs9NoZ.gif) no-repeat left -38px}
+.fbProfileEditExperiences label.edit input{padding-top:1px}
+.fbProfileEditExperiences .highlight{background-color:#fffbe4}
+.editExperienceActions .throbber{display:none}
+.async_saving .editExperienceActions .throbber{display:inline}
+.fbEditProfileSubexperiences{margin:0 0 10px 0}
+.fbEditProfileSubexperiences .subexperienceBullet{display:list-item;list-style-type:square;color:#3b5998;margin-left:12px}
+.fbEditProfileSubexperiences .subexperience{line-height:14px;padding:5px 5px 5px 47px}
+.fbEditProfileSubexperiences .editingExperience{border-top:1px solid #d5d5d5;list-style:none;padding:0}
+.fbEditProfileSubexperiences .editingExperience .subexperienceTitle{border-bottom:1px solid #e0e0e0;margin-bottom:3px}
+.fbEditProfileSubexperiences .editingExperience .subexperienceBullet{margin:-1px 0 0 54px}
+.fbEditProfileSubexperiences .editSubexperienceForm{background:#ececec}
+.fbEditProfileExperienceSection .audienceSelector{position:relative;float:right;margin-top:-27px;left:-182px}
+.fbEditProfileOtherSection .audienceSelector{margin-top:-1px}
+
+#bootloader_sxXST { height: 42px; }
