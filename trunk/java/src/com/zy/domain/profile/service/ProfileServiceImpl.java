@@ -99,25 +99,18 @@ public class ProfileServiceImpl implements ProfileService {
 		return profileDao.findProfileByEmail(email);
 	}
 	
-	public boolean checkProfileLogin(String email,String password){
+	public ZyProfile checkProfileLogin(String email,String password){
 		ZyProfile profile = this.findProfileByEmail(email);
-		if(profile==null){
-			return false;
-		}else{
-			String newPass = SecurityUtil.getMD5(password);
-			if(profile.getPasswd().equalsIgnoreCase(newPass)){
-				return true;
-			}else{
-				return false;
-			}
-		}
+		return profile;
 	}
 	
 	
 	public void insertProfile(ZyProfile profile){
 		profile.setRegistertime(new Date());
 		profile.setLastlogintime(new Date());
-		profile.setAvatar(Constants.LOGO_PATH+profile.getAvatar());
+		profile.setUpdatetime(new Date());
+		if(profile.getAvatar()!=null)
+			profile.setAvatar(Constants.LOGO_PATH+profile.getAvatar());
 		profile.setPasswd(SecurityUtil.getMD5(profile.getPasswd()));
 		profileDao.save(profile);
 	}

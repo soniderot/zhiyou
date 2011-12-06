@@ -1,11 +1,15 @@
 package com.zy.action.profile;
 
+import com.opensymphony.xwork2.ActionContext;
+import com.zy.Constants;
+import com.zy.common.model.ZyProfile;
 import com.zy.facade.ProfileFacade;
 
-public class LoginAction {
+public class LoginAction extends MemberAction{
 	private ProfileFacade profileFacade;
 	private String email;
-	private String pass;
+	private String password;
+
 	public ProfileFacade getProfileFacade() {
 		return profileFacade;
 	}
@@ -18,16 +22,29 @@ public class LoginAction {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPass() {
-		return pass;
+	
+	public String getPassword() {
+		return password;
 	}
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String execute(){
-		if(email.equals("1")){
+		if(email==null||password==null||email.trim().length()==0||password.trim().length()==0){
+			if(ActionContext.getContext().getSession().get(Constants.USER_SESSION_KEY)!=null){
+				return "login.welcome";
+			}
+			return "login.fail";
+		}
+		ZyProfile user = profileFacade.checkProfileLogin(email, password);
+		if(user!=null){
+			System.out.println("------------into welcome----------");
+			ActionContext.getContext().getSession().put(Constants.USER_SESSION_KEY, user);
+		    ActionContext.getContext().getSession().put(Constants.USERID_SESSION_KEY, user.getUserid());
+
 			return "login.welcome";
 		}else{
+			System.out.println("------------into fail----------");
 			return "login.fail";
 		}
 		

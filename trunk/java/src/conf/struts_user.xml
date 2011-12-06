@@ -1,12 +1,29 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE struts PUBLIC
-    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-    "http://struts.apache.org/dtds/struts-2.0.dtd">
-
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
+
+
+<package name="zy-default" namespace="/usr" extends="tiles-default,json-default">
+	<action name="landing" class="com.zy.action.profile.LandingAction">
+		<result name="public.welcome" >/WEB-INF/jsp/public/landing.jsp</result>
+	</action>
 	
-	<package name="user" namespace="/user" >
-		
-		
-	</package>
+	<action name="register" class="com.zy.action.profile.RegistrationAction">
+		<result name="input" >/WEB-INF/jsp/public/landing.jsp</result>
+		<result name="member.welcome" type="tiles" >tiles.login.welcome</result>
+	</action>
+	
+	<action name="login" class="com.zy.action.profile.LoginAction">
+		<result name="login.welcome" type="tiles">tiles.login.welcome</result>
+		<result name="login.fail" >/WEB-INF/jsp/public/login.jsp</result>
+	</action>
+	
+	<action name="header" class="com.zy.action.profile.MemberAction">
+		<result name="member.header">/WEB-INF/jsp/common/head.jsp</result>
+	</action>
+	
+	<action name="message" class="com.zy.action.message.MessageAction">
+		<result name="member.messages" type="tiles">tiles.member.message</result>
+	</action>
+</package>
 </struts>

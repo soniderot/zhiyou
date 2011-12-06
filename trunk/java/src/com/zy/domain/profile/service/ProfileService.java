@@ -9,7 +9,7 @@ import com.zy.common.model.ZySchool;
 public interface ProfileService {
 	public ZyProfile findProfileById(int profileId);
 	public ZyProfile findProfileByEmail(String email);
-	public boolean checkProfileLogin(String email,String password);
+	public ZyProfile checkProfileLogin(String email,String password);
 	
 	public void insertProfile(ZyProfile profile);
 	
