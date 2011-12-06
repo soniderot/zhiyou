@@ -1,0 +1,702 @@
+﻿<!DOCTYPE	html>
+<html	lang="zh"	id="facebook"	class="no_js">
+<head>
+	<meta	charset="utf-8"	/>
+	<meta	name="robots"	content="noodp,noydir" />
+	<meta	name="description" content="知友网	是一个以好友互动娱乐为主要功能的交友网站。围绕交友设计开发了包括美食点评、活动邀请、交友推荐、吃货配对、社交管家等线上线下互动功能，旨在促进网友间现实的互动和交流。"	/>
+	
+	<link href="../../../css/U0-0hkWO0Wp.css" rel="stylesheet" type="text/css"/>
+	<link href="../../../css/ejJoiNmHkkP.css" rel="stylesheet" type="text/css"/>
+	<link href="../../../css/mrLfwWIF5PY.css" rel="stylesheet" type="text/css"/>
+
+	<script type="text/javascript" language="javascript" src="../../../js/jquery.js"></script>
+	<script type="text/javascript" language="javascript" src="../../../js/jquery.autocomplete.js"></script>
+	<script type="text/javascript" language="javascript" src="../../../js/facebox.js"></script>
+
+	<title>基本信息</title>
+	<link	rel="shortcut	icon"	href="http://static.ak.fbcdn.net/rsrc.php/yi/r/q9U99v3_saj.ico"	/>
+	<style>
+		.sidebarMode #chatFriendsOnline,.sidebarMode #fbDockChatBuddylistNub.fbNub,.sidebarMode	#fbChatErrorNub{display:none}
+		.sidebarMode #pageHead,.sidebarMode	#globalContainer{left:-90px;position:relative}
+		.sidebarMode .liquid #globalContainer{margin:0 90px}
+		.sidebarMode .fbDockWrapper{right:175px}
+		.sidebarMode .timelineLayout .fbTimelineSideColumn{margin-right:-400px}
+		.sidebarMode .fbTimelineSideAds,.sidebarMode .fbTimelineScrubber{margin-right:-400px}
+		.sidebarMode .fbTimelineStickyHeader{right:310px}
+		.sidebarMode #fbPhotoTheater .container{margin-left:-570px}
+	</style>
+</head>
+
+<body	class="hasLeftCol fbPageEdit fbProfileEdit fbx hasSlimHeader ff3 win Locale_zh_CN">
+	<input type="hidden" autocomplete="off"	id="post_form_id"	name="post_form_id"	value="c0a81f7ab46455dde1e203435e599680" />
+	<div id="FB_HiddenContainer" style="position:absolute; top:-10000px; width:0px;	height:0px;"></div>
+	<div id="blueBarHolder"	class="slim">
+		<div id="blueBar">
+			<div class="clearfix slimHeader" id="pageHead" role="banner">
+				<h1	id="pageLogo">
+					<a href="http://www.facebook.com/?ref=logo"	title="首页"></a>
+				</h1>
+				
+				<div id="jewelContainer">
+					<div class="fbJewel" id="fbRequestsJewel">
+						<a class="jewelButton" rel="toggle"	name="requests"	data-target="fbRequestsFlyout" data-gt="&#123;&quot;ua_id&quot;:&quot;jewel:requests&quot;&#125;">
+							<span	class="jewelCount" id="requestsCountWrapper">
+								<span	id="requestsCountValue">0</span>
+							</span>
+						</a>
+					</div>
+					<div class="fbJewel" id="fbMessagesJewel">
+						<a class="jewelButton" rel="toggle"	name="messages"	data-target="fbMessagesFlyout" data-gt="&#123;&quot;ua_id&quot;:&quot;jewel:messages&quot;&#125;">
+							<span	class="jewelCount" id="messagesCountWrapper">
+								<span	id="messagesCountValue">0</span>
+							</span>
+						</a>
+					</div>
+					<div class="fbJewel" id="fbNotificationsJewel">
+						<a class="jewelButton" rel="toggle"	name="notifications" onclick="return run_with(this,	[&quot;min-notifications-jewel&quot;], function()	&#123;MinNotifications.bootstrap(this)&#125;);"	data-target="fbNotificationsFlyout"	data-gt="&#123;&quot;ua_id&quot;:&quot;jewel:notifications&quot;&#125;">
+							<span	class="jewelCount" id="notificationsCountWrapper">
+								<span	id="notificationsCountValue">0</span>
+							</span>
+						</a>
+					</div>
+					<div class="fbJewelCaseFlyoutContainer"	id="jewelFlyoutContainer">
+						<div class="fbJewelFlyout	toggleTargetClosed"	id="fbRequestsFlyout">
+							<div class="uiHeader uiHeaderBottomBorder	jewelHeader">
+								<div class="clearfix uiHeaderTop">
+									<a class="uiHeaderActions	rfloat"	href="http://www.facebook.com/?sk=ff">搜索朋友</a>
+									<div>
+										<h3	class="uiHeaderTitle">朋友请求</h3>
+									</div>
+								</div>
+							</div>
+							<ul	class="jewelItemList"	id="fbRequestsList">
+								<li	id="fbRequestsList_loading_indicator">
+									<img class="jewelLoading img"	src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif"	alt="" width="16"	height="11"	/>
+								</li>
+							</ul>
+						</div>
+						<div class="fbJewelFlyout	toggleTargetClosed"	id="fbMessagesFlyout">
+							<div class="uiHeader uiHeaderBottomBorder	jewelHeader">
+								<div class="clearfix uiHeaderTop">
+									<a class="uiHeaderActions	rfloat"	href="/ajax/messaging/composer.php"	onclick="window.Toggler	&amp;&amp; Toggler.hide();"	accesskey="m"	rel="dialog">发送新信息</a>
+									<div>
+										<h3	class="uiHeaderTitle">站内信息</h3>
+									</div>
+								</div>
+							</div>
+							<ul	class="jewelItemList jewelHighlight" id="fbMessagesItemList">
+								<li	id="fbMessagesItemList_loading_indicator">
+									<img class="jewelLoading img"	src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif"	alt="" width="16"	height="11"	/>
+								</li>
+							</ul>
+							<div class="jewelFooter">
+								<a class="seeMore" href="http://www.facebook.com/messages/?ref=mb">
+									<span>查看所有信息</span>
+									<span	class="seeMoreCount	fss	fwn	fcg" id="jewelOuterInboxCount">
+										<span	id="jewelInnerInboxCount">0</span> 条未读信息
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="fbJewelFlyout	toggleTargetClosed"	id="fbNotificationsFlyout">
+							<div class="uiHeader uiHeaderBottomBorder	jewelHeader">
+								<div class="clearfix uiHeaderTop">
+									<div><h3 class="uiHeaderTitle">通知</h3></div>
+								</div>
+							</div>
+							<ul	class="jewelItemList jewelHighlight" id="fbNotificationsList"	data-gt="&#123;&quot;ref&quot;:&quot;notif_jewel&quot;&#125;">
+								<li	id="fbNotificationsList_loading_indicator">
+									<img class="jewelLoading img"	src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif"	alt="" width="16"	height="11"	/>
+								</li>
+							</ul>
+							<div class="jewelFooter">
+								<a class="seeMore" href="http://www.facebook.com/notifications">
+									<span>查看所有通知</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="clearfix"	id="headNav">
+					<div class="lfloat">
+						<form	method="get" id="navSearch"	name="navSearch" action="http://www.facebook.com/search/results.php" role="search" onsubmit="return	Event.__inlineSubmit(this,event)">
+							<div class="uiTypeahead" id="upob5b_1">
+								<div class="wrap">
+									<input type="hidden" autocomplete="off"	class="hiddenInput"	/>
+									<div class="innerWrap">
+										<span	class="uiSearchInput textInput">
+											<span>
+												<input type="text" class="inputtext	DOMControl_placeholder"	maxlength="100"	accesskey="/"	id="q" name="q"	onclick="var q = $(&quot;q&quot;);if (q.value	== q.getAttribute(&quot;placeholder&quot;))	&#123;q.focus(); return	false;&#125;"	placeholder="搜索" autocomplete="off"	tabindex=""	onfocus="Bootloader.loadComponents(&quot;SearchBootloader&quot;, function()	&#123;$(&quot;search_first_focus&quot;).value	=	$(&quot;search_first_focus&quot;).value	|| +new	Date();	;JSCC.get(&#039;j4ec31fa49ef5616409038223&#039;).init([&quot;searchRecorderBasic&quot;,&quot;showLoadingIndicator&quot;,&quot;initFilters&quot;]);;;&#125;);"	spellcheck="false" value="搜索"	title="搜索" />
+												<button	type="submit"	onclick="var q = $(&quot;q&quot;);if (q.value	== q.getAttribute(&quot;placeholder&quot;))	&#123;q.focus(); return	false;&#125;"	title="搜索">
+													<span	class="hidden_elem">搜索</span>
+												</button>
+											</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<input type="hidden" name="init" id="init" value="quick" />
+							<input type="hidden" name="tas"	class="search_sid_input" value="search_preload"	/>
+							<input type="hidden" name="search_first_focus" id="search_first_focus" value=""	/>
+						</form>
+					</div>
+					<div class="rfloat">
+						<ul	id="pageNav" role="navigation">
+							<li	class="topNavLink	tinyman">
+								<a href="http://www.facebook.com/profile.php?id=1438697558&amp;ref=tn_tnmn"	title="个人主页">
+									<img class="uiProfilePhoto headerTinymanPhoto	uiProfilePhotoLarge	img" src="../../images/370142_1438697558_1584603112_q.jpg" alt=""	/>
+									<span	class="headerTinymanName">ま	か</span>
+								</a>
+							</li>
+							<li	class="topNavLink	middleLink">
+								<a href="http://www.facebook.com/?sk=ff">搜索朋友</a>
+							</li>
+							<li	class="topNavLink	middleLink">
+								<a href="http://www.facebook.com/?ref=tn_tnmn">首页</a>
+							</li>
+							<li	id="navAccount"	class="topNavLink">
+								<a id="navAccountLink" href="http://www.facebook.com/editaccount.php?ref=mb&amp;drop"	rel="toggle" role="button" aria-haspopup="1">
+									<div class="menuPulldown"></div>
+								</a>
+								<ul	class="navigation" role="navigation">
+									<li><a class="navSubmenu"	href="http://www.facebook.com/editaccount.php?ref=mb&amp;drop" accesskey="6">帐户设置</a></li>
+									<li><a class="navSubmenu"	href="http://www.facebook.com/settings/?tab=privacy&amp;ref=mb"	accesskey="7">隐私设置</a></li>
+									<li>
+										<form	id="logout_form" method="post" action="/logout.php"	onsubmit="return Event.__inlineSubmit(this,event)">
+											<input type="hidden" autocomplete="off"	name="post_form_id"	value="c0a81f7ab46455dde1e203435e599680" />
+											<input type="hidden" name="fb_dtsg"	value="AQAkl6kl" autocomplete="off"	/>
+											<input type="hidden" autocomplete="off"	name="ref" value="mb"	/>
+											<input type="hidden" autocomplete="off"	name="h" value="d36ba5fa7376c19311d9436bf72eebd6"	/>
+											<label class="uiLinkButton logoutButton	navSubmenu">
+												<input type="submit" value="退出"	/>
+											</label>
+										</form>
+									</li>
+									<li	class="menuDivider"></li>
+									<li>
+										<a class="navSubmenu"	href="http://www.facebook.com/help/?ref=drop"	id="navHelpCenter">
+											<div class="clearfix">
+												<div class="lfloat">帮助中心</div>
+												<img class="rfloat uiLoadingIndicatorAsync img"	src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif"	alt="" width="16"	height="11"	/>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="globalContainer">
+		<div class="fb_content clearfix" id="content" style="visibility: visible; min-height: 100px;" data-referrer="content">
+		  <div id="mainContainer">
+		    <div id="leftColContainer">
+		      <div id="leftCol">
+		        <div id="sideNav" class="uiFutureSideNav">
+		          <ul id="u2upm2_1" role="navigation" class="uiSideNav">
+		            <li id="navItem_basic" class="sideNavItem stat_elem selectedItem open">
+		              <div class="buttonWrap"></div>
+		              <a href="basic.html" class="item clearfix" style="">
+			              <div class="rfloat">
+			              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+			              </div>
+			              <div>
+			              	<span class="imgWrap">
+			              		<i class="img sp_9tlaa1 sx_a88c8c"></i>
+			              	</span>
+			                <div class="linkWrap noCount">基本信息 <span class="count hidden_elem uiSideNavCountText">(<span class="countValue fsm">0</span><span class="maxCountIndicator"></span>)</span></div>
+			              </div>
+		              </a>
+		            </li>
+		            <li id="navItem_picture" class="sideNavItem stat_elem">
+		              <div class="buttonWrap"></div>
+		              <a href="picture.html" class="item clearfix">
+			              <div class="rfloat">
+			              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+			              </div>
+			              <div>
+			              	<span class="imgWrap"><i class="img sp_9tlaa1 sx_68f922"></i></span>
+			                <div class="linkWrap noCount">个人头像 <span class="count hidden_elem uiSideNavCountText">(<span class="countValue fsm">0</span><span class="maxCountIndicator"></span>)</span></div>
+			              </div>
+		              </a>
+		            </li>
+		            <li id="navItem_eduwork" class="sideNavItem stat_elem open">
+		              <div class="buttonWrap"></div>
+		              <a href="career.html" class="item clearfix">
+			              <div class="rfloat">
+			              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+			              </div>
+			              <div>
+			              	<span class="imgWrap"><i class="img sp_dob1w7 sx_90212b"></i></span>
+			                <div class="linkWrap noCount">学历和工作经历 <span class="count hidden_elem uiSideNavCountText">(<span class="countValue fsm">0</span><span class="maxCountIndicator"></span>)</span></div>
+			              </div>
+		              </a>
+		            </li>
+		            <li id="navItem_entertainment" class="sideNavItem stat_elem">
+		              <div class="buttonWrap"></div>
+		              <a href="art.html" class="item clearfix">
+			              <div class="rfloat">
+			              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+			              </div>
+			              <div>
+			              	<span class="imgWrap"><i class="img sp_9tlaa1 sx_530651"></i></span>
+			                <div class="linkWrap noCount">艺术与娱乐 <span class="count hidden_elem uiSideNavCountText">(<span class="countValue fsm">0</span><span class="maxCountIndicator"></span>)</span></div>
+			              </div>
+		              </a>
+		            </li>
+		            <li id="navItem_sports" class="sideNavItem stat_elem">
+		              <div class="buttonWrap"></div>
+		              <a href="sports.html" class="item clearfix">
+			              <div class="rfloat"><img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/></div>
+			              <div>
+			              	<span class="imgWrap"><i class="img sp_8w31v1 sx_53012d"></i></span>
+			                <div class="linkWrap noCount">体育 <span class="count hidden_elem uiSideNavCountText">(<span class="countValue fsm">0</span><span class="maxCountIndicator"></span>)</span></div>
+			              </div>
+		              </a>
+		            </li>
+		            <li id="navItem_activities" class="sideNavItem stat_elem">
+		              <div class="buttonWrap"></div>
+		              <a href="interest.html" class="item clearfix">
+			              <div class="rfloat">
+			              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+			              </div>
+			              <div>
+			              	<span class="imgWrap"><i class="img sp_dob1w7 sx_7774a1"></i></span>
+			                <div class="linkWrap noCount">活动和爱好 <span class="count hidden_elem uiSideNavCountText">(<span class="countValue fsm">0</span><span class="maxCountIndicator"></span>)</span></div>
+			              </div>
+		              </a>
+		            </li>
+		            <li id="navItem_contact" class="sideNavItem stat_elem">
+		              <div class="buttonWrap"></div>
+		              <a href="contact.html" class="item clearfix">
+			              <div class="rfloat">
+			              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+			              </div>
+			              <div>
+			              	<span class="imgWrap"><i class="img sp_dob1w7 sx_b06a3e"></i></span>
+			                <div class="linkWrap noCount">联系信息 <span class="count hidden_elem uiSideNavCountText">(<span class="countValue fsm">0</span><span class="maxCountIndicator"></span>)</span></div>
+			              </div>
+		              </a>
+		            </li>
+		          </ul>
+		        </div>
+		        <div role="separator" class="uiHeader uiHeaderTopBorder uiHeaderNav uiHeaderNavEmpty">
+		          <div class="clearfix uiHeaderTop">
+		            <div>
+		              <h4 class="uiHeaderTitle"></h4>
+		            </div>
+		          </div>
+		        </div>
+		        <div class="phs fsm fwn fcg">你可以访问<a href="/settings/?tab=privacy">隐私偏好设定</a>网页，调整其他的隐私设定。</div>
+		      </div>
+		    </div>
+		    <div class="clearfix" id="contentCol">
+		      <div role="main" id="contentArea">
+		        <div class="uiHeader mhl uiHeaderPage">
+		          <div class="clearfix uiHeaderTop">
+		            <div class="uiHeaderActions rfloat">
+		            	<a href="http://www.facebook.com/mkk158?ref=profile&amp;v=info" role="button" class="uiButton">
+		            		<i class="mrs img sp_ah6icc sx_2efcc5"></i>
+		            		<span class="uiButtonText">查看个人主页</span>
+		            	</a>
+		            	<a href="http://www.facebook.com/mkk158?viewas=100000686899395" role="button" class="uiButton">
+		            		<span class="uiButtonText">以朋友身份查看…</span>
+		            	</a>
+		            </div>
+		            <div>
+		              <h2 class="uiHeaderTitle">ま か<i class="mhs img sp_4fkm6u sx_e93a7e"></i>编辑个人主页</h2>
+		            </div>
+		          </div>
+		        </div>
+		        <div class="pal grayArea uiBoxGray noborder">
+		          <div data-referrer="editProfileForm" id="editProfileForm">
+		            <form onsubmit="return Event.__inlineSubmit(this,event)" action="/editprofile.php?sk=basic" method="post" id="ep_form">
+		              <input type="hidden" value="28919a42cab825a462a76591f83e5fc1" name="post_form_id" autocomplete="off"/>
+		              <input type="hidden" autocomplete="off" value="AQCjyPru" name="fb_dtsg"/>
+		              <table class="uiInfoTable">
+		                <tbody>
+		                  <tr class="dataRow">
+		                    <th class="label">居住城市：</th>
+		                    <td class="data">
+		                    	<div>
+		                        <div id="u2urlx_8" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead">
+		                          <div class="wrap">
+		                            <label for="u2urlx_9" class="clear uiCloseButton">
+		                            	<input type="button" id="u2urlx_9" onclick="var c = JSCC.get('j4ed5ea087a85257699913026').getCore(); c.reset(); c.getElement().focus(); " title="删除"/>
+		                            </label>
+		                            <input type="hidden" value="0" name="current_city" class="hiddenInput" autocomplete="off"/>
+		                            <div class="innerWrap">
+		                              <input type="text" spellcheck="false" onfocus="return wait_for_load(this, event, function() {JSCC.get(&#39;j4ed5ea087a85257699913027&#39;).init(JSCC.get(&#39;j4ed5ea087a85257699913026&#39;));;JSCC.get(&#39;j4ed5ea087a85257699913026&#39;).init([&quot;requireSelection&quot;,&quot;setPhotoOnSelect&quot;]);;});" autocomplete="off" value="" class="inputtext textInput"/>
+		                            </div>
+		                            <i class="photo img sp_c0827g sx_c5d496"></i>
+		                          </div>
+		                        </div>
+		                      </div>
+		                    </td>
+		                    <td class="rightCol"></td>
+		                  </tr>
+		                  <tr class="dataRow">
+		                    <th class="label">家乡：</th>
+		                    <td class="data">
+		                    	<div>
+		                        <div id="u2urlx_10" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead">
+		                          <div class="wrap">
+		                            <label for="u2urlx_11" class="clear uiCloseButton">
+		                            	<input type="button" id="u2urlx_11" onclick="var c = JSCC.get('j4ed5ea087a85257699913029').getCore(); c.reset(); c.getElement().focus(); " title="删除"/>
+		                            </label>
+		                            <input type="hidden" value="0" name="hometown" class="hiddenInput" autocomplete="off"/>
+		                            <div class="innerWrap">
+		                              <input type="text" spellcheck="false" onfocus="return wait_for_load(this, event, function() {JSCC.get(&#39;j4ed5ea087a852576999130210&#39;).init(JSCC.get(&#39;j4ed5ea087a85257699913029&#39;));;JSCC.get(&#39;j4ed5ea087a85257699913029&#39;).init([&quot;requireSelection&quot;,&quot;setPhotoOnSelect&quot;]);;});" autocomplete="off" value="" class="inputtext textInput"/>
+		                            </div>
+		                            <i class="photo img sp_c0827g sx_c5d496"></i>
+		                          </div>
+		                        </div>
+		                      </div>
+		                    </td>
+		                    <td class="rightCol"></td>
+		                  </tr>
+		                  <tr class="spacer">
+		                    <td colspan="3"><hr/></td>
+		                  </tr>
+		                </tbody>
+		                <tbody>
+		                  <tr class="dataRow">
+		                    <th class="label">性别：</th>
+		                    <td class="data">
+		                    	<ul class="uiList">
+		                        <li class="uiListItem uiListVerticalItemBorder">
+		                          <select name="sex" id="sex">
+		                            <option value="1">女生</option>
+		                            <option selected="1" value="2">男生</option>
+		                          </select>
+		                        </li>
+		                        <li class="ptm uiListItem uiListVerticalItemBorder">
+		                          <div class="uiInputLabel">
+		                            <input type="checkbox" class="uiInputLabelCheckbox" id="sex_visibility" name="sex_visibility"/>
+		                            <label for="sex_visibility">在我的个人主页中显示我的性别</label>
+		                          </div>
+		                        </li>
+		                      </ul></td>
+		                    <td class="rightCol"></td>
+		                  </tr>
+		                  <tr class="spacer">
+		                    <td colspan="3"><hr/></td>
+		                  </tr>
+		                </tbody>
+		                <tbody>
+		                  <tr class="dataRow">
+		                    <th class="label">生日：</th>
+		                    <td class="data">
+		                    	<ul class="uiList">
+		                        <li class="uiListItem uiListVerticalItemBorder">
+		                          <select onchange='CSS.show($("birthday_popup"));($("birthday_confirmation")).checked="";return run_with(this, ["editor"], function() {$("birthday_confirmation_age").innerHTML=calculate_integer_age($("birthday_month").value+"/"+$("birthday_day").value+"/"+$("birthday_year").value,"11\/30\/2011")});;return run_with(this, ["editor"], function() {editor_date_month_change("birthday_month","birthday_day",this);});' class="" id="birthday_year" name="birthday_year">
+		                            <option value="2011">2011</option>
+		                            <option value="2010">2010</option>
+		                            <option value="2009">2009</option>
+		                            <option value="2008">2008</option>
+		                            <option value="2007">2007</option>
+		                            <option value="2006">2006</option>
+		                            <option value="2005">2005</option>
+		                            <option value="2004">2004</option>
+		                            <option value="2003">2003</option>
+		                            <option value="2002">2002</option>
+		                            <option value="2001">2001</option>
+		                            <option value="2000">2000</option>
+		                            <option value="1999">1999</option>
+		                            <option value="1998">1998</option>
+		                            <option value="1997">1997</option>
+		                            <option value="1996">1996</option>
+		                            <option value="1995">1995</option>
+		                            <option value="1994">1994</option>
+		                            <option value="1993">1993</option>
+		                            <option value="1992">1992</option>
+		                            <option value="1991">1991</option>
+		                            <option value="1990">1990</option>
+		                            <option value="1989">1989</option>
+		                            <option value="1988">1988</option>
+		                            <option value="1987">1987</option>
+		                            <option value="1986">1986</option>
+		                            <option selected="1" value="1985">1985</option>
+		                            <option value="1984">1984</option>
+		                            <option value="1983">1983</option>
+		                            <option value="1982">1982</option>
+		                            <option value="1981">1981</option>
+		                            <option value="1980">1980</option>
+		                            <option value="1979">1979</option>
+		                            <option value="1978">1978</option>
+		                            <option value="1977">1977</option>
+		                            <option value="1976">1976</option>
+		                            <option value="1975">1975</option>
+		                            <option value="1974">1974</option>
+		                            <option value="1973">1973</option>
+		                            <option value="1972">1972</option>
+		                            <option value="1971">1971</option>
+		                            <option value="1970">1970</option>
+		                            <option value="1969">1969</option>
+		                            <option value="1968">1968</option>
+		                            <option value="1967">1967</option>
+		                            <option value="1966">1966</option>
+		                            <option value="1965">1965</option>
+		                            <option value="1964">1964</option>
+		                            <option value="1963">1963</option>
+		                            <option value="1962">1962</option>
+		                            <option value="1961">1961</option>
+		                            <option value="1960">1960</option>
+		                            <option value="1959">1959</option>
+		                            <option value="1958">1958</option>
+		                            <option value="1957">1957</option>
+		                            <option value="1956">1956</option>
+		                            <option value="1955">1955</option>
+		                            <option value="1954">1954</option>
+		                            <option value="1953">1953</option>
+		                            <option value="1952">1952</option>
+		                            <option value="1951">1951</option>
+		                            <option value="1950">1950</option>
+		                            <option value="1949">1949</option>
+		                            <option value="1948">1948</option>
+		                            <option value="1947">1947</option>
+		                            <option value="1946">1946</option>
+		                            <option value="1945">1945</option>
+		                            <option value="1944">1944</option>
+		                            <option value="1943">1943</option>
+		                            <option value="1942">1942</option>
+		                            <option value="1941">1941</option>
+		                            <option value="1940">1940</option>
+		                            <option value="1939">1939</option>
+		                            <option value="1938">1938</option>
+		                            <option value="1937">1937</option>
+		                            <option value="1936">1936</option>
+		                            <option value="1935">1935</option>
+		                            <option value="1934">1934</option>
+		                            <option value="1933">1933</option>
+		                            <option value="1932">1932</option>
+		                            <option value="1931">1931</option>
+		                            <option value="1930">1930</option>
+		                            <option value="1929">1929</option>
+		                            <option value="1928">1928</option>
+		                            <option value="1927">1927</option>
+		                            <option value="1926">1926</option>
+		                            <option value="1925">1925</option>
+		                            <option value="1924">1924</option>
+		                            <option value="1923">1923</option>
+		                            <option value="1922">1922</option>
+		                            <option value="1921">1921</option>
+		                            <option value="1920">1920</option>
+		                            <option value="1919">1919</option>
+		                            <option value="1918">1918</option>
+		                            <option value="1917">1917</option>
+		                            <option value="1916">1916</option>
+		                            <option value="1915">1915</option>
+		                            <option value="1914">1914</option>
+		                            <option value="1913">1913</option>
+		                            <option value="1912">1912</option>
+		                            <option value="1911">1911</option>
+		                            <option value="1910">1910</option>
+		                            <option value="1909">1909</option>
+		                            <option value="1908">1908</option>
+		                            <option value="1907">1907</option>
+		                            <option value="1906">1906</option>
+		                            <option value="1905">1905</option>
+		                          </select>
+		                          <select onchange='CSS.show($("birthday_popup"));($("birthday_confirmation")).checked="";return run_with(this, ["editor"], function() {$("birthday_confirmation_age").innerHTML=calculate_integer_age($("birthday_month").value+"/"+$("birthday_day").value+"/"+$("birthday_year").value,"11\/30\/2011")});;return run_with(this, ["editor"], function() {editor_date_month_change(this, "birthday_day", "birthday_year");});' class="" id="birthday_month" name="birthday_month">
+		                            <option value="1">1</option>
+		                            <option value="2">2</option>
+		                            <option value="3">3</option>
+		                            <option value="4">4</option>
+		                            <option value="5">5</option>
+		                            <option value="6">6</option>
+		                            <option value="7">7</option>
+		                            <option value="8">8</option>
+		                            <option value="9">9</option>
+		                            <option value="10">10</option>
+		                            <option value="11">11</option>
+		                            <option selected="1" value="12">12</option>
+		                          </select>
+		                          <select onchange='CSS.show($("birthday_popup"));($("birthday_confirmation")).checked="";return run_with(this, ["editor"], function() {$("birthday_confirmation_age").innerHTML=calculate_integer_age($("birthday_month").value+"/"+$("birthday_day").value+"/"+$("birthday_year").value,"11\/30\/2011")});;' class="" id="birthday_day" name="birthday_day">
+		                            <option value="1">1</option>
+		                            <option value="2">2</option>
+		                            <option value="3">3</option>
+		                            <option value="4">4</option>
+		                            <option value="5">5</option>
+		                            <option value="6">6</option>
+		                            <option value="7">7</option>
+		                            <option value="8">8</option>
+		                            <option value="9">9</option>
+		                            <option selected="1" value="10">10</option>
+		                            <option value="11">11</option>
+		                            <option value="12">12</option>
+		                            <option value="13">13</option>
+		                            <option value="14">14</option>
+		                            <option value="15">15</option>
+		                            <option value="16">16</option>
+		                            <option value="17">17</option>
+		                            <option value="18">18</option>
+		                            <option value="19">19</option>
+		                            <option value="20">20</option>
+		                            <option value="21">21</option>
+		                            <option value="22">22</option>
+		                            <option value="23">23</option>
+		                            <option value="24">24</option>
+		                            <option value="25">25</option>
+		                            <option value="26">26</option>
+		                            <option value="27">27</option>
+		                            <option value="28">28</option>
+		                            <option value="29">29</option>
+		                            <option value="30">30</option>
+		                            <option value="31">31</option>
+		                          </select>
+		                        </li>
+		                        <li class="ptm uiListItem uiListVerticalItemBorder">
+		                        	<span id="birthday_popup" class="hidden_elem">
+		                          <div>Note: you can only change your birthday a limited number of times.</div>
+		                          <div>
+		                            <label for="birthday_confirmation" class="uiCheckbox">
+		                            	<input type="checkbox" checked="1" value="1" id="birthday_confirmation" name="birthday_confirmation"/>
+		                            	I confirm my age is <span id="birthday_confirmation_age">X</span>.
+		                            </label>
+		                          </div>
+		                          </span>
+		                        </li>
+		                        <li class="ptm uiListItem uiListVerticalItemBorder">
+		                          <select name="birthday_visibility" id="u2urlx_1">
+		                            <option selected="1" value="1">在个人主页中显示我的完整出生日期。</option>
+		                            <option value="2">我的个人主页仅显示月份和日期。</option>
+		                            <option value="3">不要在个人主页中显示我的生日。</option>
+		                          </select>
+		                        </li>
+		                      </ul>
+		                    </td>
+		                    <td class="rightCol"></td>
+		                  </tr>
+		                  <tr class="spacer">
+		                    <td colspan="3"><hr/></td>
+		                  </tr>
+		                </tbody>
+		                <tbody>
+		                  <tr class="dataRow">
+		                    <th class="label">血型：</th>
+		                    <td class="data">
+		                    	<select name="blood_type" id="blood_type">
+		                        <option value="0">选择一项：</option>
+		                        <option value="1">A型</option>
+		                        <option value="2">B型</option>
+		                        <option value="3">O型</option>
+		                        <option value="4">AB型</option>
+		                      </select>
+		                    </td>
+		                    <td class="rightCol"></td>
+		                  </tr>
+		                  <tr class="spacer">
+		                    <td colspan="3"><hr/></td>
+		                  </tr>
+		                </tbody>
+		                <tbody>
+		                  <tr class="genderInterestRow dataRow">
+		                    <th class="label">兴趣对象：</th>
+		                    <td class="data">
+		                    	<div class="uiInputLabel inlineBlock">
+		                        <input type="checkbox" class="uiInputLabelCheckbox" id="meeting_sex1" name="meeting_sex1"/>
+		                        <label for="meeting_sex1">女性</label>
+		                      </div>
+		                      <div class="uiInputLabel inlineBlock">
+		                        <input type="checkbox" class="uiInputLabelCheckbox" id="meeting_sex2" name="meeting_sex2"/>
+		                        <label for="meeting_sex2">男性</label>
+		                      </div>
+		                    </td>
+		                    <td class="rightCol"></td>
+		                  </tr>
+		                  <tr class="spacer">
+		                    <td colspan="3"><hr/></td>
+		                  </tr>
+		                </tbody>
+		                <tbody class="profileLanguagesField">
+		                  <tr class="dataRow">
+		                    <th class="label">语言：</th>
+		                    <td class="data">
+		                    	<div id="u2urlx_3" onclick="$('u2urlx_6').focus();" class="clearfix uiTokenizer uiInlineTokenizer">
+		                        <div id="u2urlx_5" class="tokenarea hidden_elem"></div>
+		                        <div id="u2urlx_4" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead">
+		                          <div class="wrap">
+		                            <label for="u2urlx_12" class="clear uiCloseButton">
+		                            	<input type="button" id="u2urlx_12" onclick="var c = JSCC.get('j4ed5ea087a85257699913023').getCore(); c.reset(); c.getElement().focus(); " title="删除"/>
+		                            </label>
+		                            <input type="hidden" class="hiddenInput" autocomplete="off"/>
+		                            <div class="innerWrap">
+		                              <input type="text" spellcheck="false" onfocus="return wait_for_load(this, event, function() {;JSCC.get(&#39;j4ed5ea087a85257699913023&#39;).init([&quot;requireSelection&quot;,&quot;setPhotoOnSelect&quot;]);;});" autocomplete="off" id="u2urlx_6" value="" class="inputtext textInput" size="1" title="" placeholder=""/>
+		                            </div>
+		                            <i class="photo img sp_dob1w7 sx_33eb13"></i></div>
+		                          <div class="uiTypeaheadView"></div>
+		                        </div>
+		                      </div>
+		                    </td>
+		                    <td class="rightCol"></td>
+		                  </tr>
+		                  <tr class="spacer">
+		                    <td colspan="3"><hr/></td>
+		                  </tr>
+		                </tbody>
+		                <tbody class="profileTextareaField">
+		                  <tr class="dataRow">
+		                    <th class="label">自我简介：</th>
+		                    <td class="data"><textarea rows="5" name="about_me" class="profileEditText"></textarea></td>
+		                    <td class="rightCol"></td>
+		                  </tr>
+		                  <tr class="spacer">
+		                    <td colspan="3"><hr/></td>
+		                  </tr>
+		                </tbody>
+		                <tfoot>
+		                  <tr>
+		                    <th class="label"/>
+		                    <td colspan="2" class="data"><table cellspacing="0" cellpadding="0" class="uiGrid">
+		                        <tbody>
+		                          <tr>
+		                            <td class="vTop"><input type="hidden" value="1" name="save" autocomplete="off"/>
+		                              <label for="u2urlx_7" class="uiButton uiButtonConfirm">
+		                              <input type="submit" id="u2urlx_7" value="保存更改"/>
+		                              </label></td>
+		                            <td class="vTop plm profileSaveErrorWrap"><span class="inline_err_msg"/></td>
+		                          </tr>
+		                        </tbody>
+		                      </table></td>
+		                  </tr>
+		                </tfoot>
+		              </table>
+		            </form>
+		          </div>
+		        </div>
+		      </div>
+		      <div id="bottomContent"/>
+		    </div>
+		  </div>
+		</div>
+			
+		<div id="pageFooter" data-referrer="page_footer">
+			<div id="contentCurve"></div>
+			<div class="clearfix"	id="footerContainer">
+				<div class="mrl	lfloat"	role="contentinfo">
+					<div class="fsm	fwn	fcg">
+						<span> Facebook	?	2011</span>
+						·	<a rel="dialog"	href="/ajax/intl/language_dialog.php?uri=http%3A%2F%2Fwww.facebook.com%2F" title="更换语言">中文(简体)</a>
+					</div>
+				</div>
+				<div class="navigation fsm fwn fcg"	role="navigation">
+					<a href="http://www.facebook.com/facebook" accesskey="8" title="阅读我们的博客，在资源中心里探索，同时寻找属于你的工作机会。">关于</a>
+					·	<a href="http://www.facebook.com/campaign/landing.php?placement=pf&amp;campaign_id=402047449186&amp;extra_1=auto"	title="在 Facebook	上做广告。">做广告</a>
+					·	<a href="http://www.facebook.com/pages/create.php?ref_type=sitefooter" title="创建专页">创建专页</a>
+					·	<a href="http://developers.facebook.com/?ref=pf" title="在我们的平台上开发。">开发人员</a>
+					·	<a href="http://www.facebook.com/careers/?ref=pf"	title="请把你的下一个工作机会瞄准我们这个最优秀的公司。">招聘</a>
+					·	<a href="http://www.facebook.com/privacy/explanation"	title="了解	Facebook 和你的隐私权。">隐私政策</a>
+					·	<a href="http://www.facebook.com/terms.php?ref=pf" accesskey="9" title="查看我们的服务条款。">条款</a>
+					·	<a href="http://www.facebook.com/help/?ref=pf" accesskey="0" title="访问我们的帮助中心。">帮助中心</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>
