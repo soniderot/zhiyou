@@ -1,0 +1,124 @@
+﻿/*1322007557,176833974*/
+
+#address_book_selector .uiHeaderPage{padding-bottom:0}
+#address_book_selector .instructions{font-size: 14px}
+#address_book_selector h2{font-size: 17px}
+#all_or_some_selector{margin:10px 0 10px -15px}
+#all_or_some_selector .editor{margin:0}
+.contact_wrapper .invite_selector_header{background:#eee url(../images/zR5rPVu7Dbe.png) repeat 0 0;border:solid 1px #999;border-bottom:none;line-height:normal !important;vertical-align:middle;white-space:nowrap;margin-top:5px}
+.contact_wrapper .preview_link{font-size: 14px}
+.contact_wrapper .ci_disclaimer{border-top:solid 1px #ccc}
+.invite_selector_header a{color:gray}
+.invite_selector_header td,.invite_selector_table td{font-size: 14px;padding:5px}
+.fixed_height .invite_selector_table_wrapper{height:270px;overflow:auto}
+.invite_selector_table,.invite_selector_header{table-layout:fixed}
+.invite_selector_table td{overflow:hidden}
+.invite_selector_table td.checkbox,.invite_selector_header td.checkbox{width:24px}
+.invite_selector_table td.picture{width:55px}
+.invite_selector_table td.auxinfo{width:200px}
+.invite_selector_table td.addfriend{text-align:right}
+td.addfriend .uiButton{position:static;margin-right:20px}
+.invite_selector_table td.name{width:160px;white-space:nowrap}
+.invite_selector_table td.already_friend{width:100px}
+.invite_selector_table .email{width:auto;border:none;font-family:inherit;background:inherit}
+.invite_selector_table td.email{color:gray;white-space:nowrap}
+.invite_selector_table span.login_credential{display:none}
+.invite_selector_table tr:hover{background-color:#eff2f7}
+.invite_selector_table tr.selected{background-color:#d8dfea}
+.invite_selector_table td.name,.invite_selector_table td.email,.invite_selector_table td.picture,.invite_selector_table td.auxinfo,.invite_selector_table td.userinfo{cursor:pointer}
+.invite_selector_table_wrapper{border:solid 1px #bbb;background-color:#fff}
+.invite_selector_footer .language_selector{white-space:nowrap}
+.invite_selector_footer .standard_status_element{margin:6px}
+#befriend_selector .invite_selector_table td{border-bottom:1px solid #eee}
+#befriend_selector .invite_selector_table li{padding-top:0}
+#befriend_selector .invite_selector_table td.checkbox,#befriend_selector .invite_selector_header td.checkbox{width:25px}
+#befriend_selector .guest tr:hover{background-color:inherit}
+#befriend_selector .guest td{cursor:default}
+#befriend_selector .ci_mf_link{color:inherit}
+#befriend_selector .ciProfileChooser{border:solid 1px #bbb;border-top:none;background-color:#fff}
+#befriend_selector .fbProfileBrowserResult{height:270px;overflow:auto}
+#befriend_selector .ciProfileChooser .photo{float:left;margin-right:10px}
+#befriend_selector .ciProfileChooser .network{padding-top:5px}
+#befriend_selector .ciProfileChooser .multiColumnCheckable{width:284px}
+#wizard_step #befriend_selector .ciProfileChooser .multiColumnCheckable{width:247px}
+#pagelet_friends #befriend_selector .ciProfileChooser .multiColumnCheckable{width:231px}
+#befriend_selector .ciProfileChooser .text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:178px}
+#wizard_step #befriend_selector .ciProfileChooser .text{width:141px}
+#pagelet_friends #befriend_selector .ciProfileChooser .text{width:125px}
+#wizard_step #befriend_selector .ciProfileChooser .uiSelectorBigButtonLabel
+.uiButtonText{width:140px}
+#pagelet_friends #befriend_selector .ciProfileChooser .uiSelectorBigButtonLabel
+.uiButtonText{width:120px}
+#wizard_step #befriend_selector .ciProfileChooser .uiSelectorButton
+.uiButtonText{max-width:140px}
+#pagelet_friends #befriend_selector .ciProfileChooser .uiSelectorButton
+.uiButtonText{max-width:120px}
+#importer_frame #new_ff{min-height:450px}
+.lang_select{margin:5px 0}
+.lang_select select{margin-right:5px}
+.lang_select p{margin-bottom:0}
+.lang_init #add_another_link,
+.lang_init #conjunction,
+.lang_init #first_lang,
+.lang_init #second_lang,
+.one_lang #change_lang_link,
+.one_lang #conjunction,
+.one_lang #second_lang,
+.two_lang #add_another_link,
+.two_lang #change_lang_link{display:none}
+.one_lang #first_lang,
+.one_lang #add_another_link,
+.two_lang #conjunction,
+.two_lang #second_lang{display:inline}
+.invite_history .footer_sector{padding-bottom:20px}
+.invite_history .header{padding:20px 20px 0;margin:0}
+.invite_history .header h2{background-image:url(../images/HhuARCoWAr9.gif);background-position:left center;background-repeat:no-repeat;line-height:18px;padding:0 15px 0 25px;float:left}
+.invite_history .invite_history_stats{background:#d8dfea;border-top:#3b5998 1px solid;padding:5px 20px}
+.invite_history .invite_history_stats a.see_all{margin-left:16px;margin-right:6px}
+.invite_history .invite_history_stats p{padding:0;margin:0;float:left;width:420px}
+.invite_history .invite_more{float:right}
+.invite_history .invite_more a{font-weight:bold;background:url(../images/13u1rkslvsF.gif) right 4px no-repeat;padding-right:10px}
+.invite_history .subheader{color:#666;font-size: 12px;line-height:16px;margin:10px 0 20px 46px}
+.invite_history .menu_block{background:#F7F7F7 none repeat scroll 0;border-top:1px solid #d8dfea;border-bottom:1px solid #e4e4e4;padding:5px 20px}
+.invite_history .pagerpro{margin-right:-9px}
+.invite_history #mv{margin-left:5px}
+.invite_history .menu_buttons{float:left;padding-left:5px}
+.invite_history .menu_buttons li{float:left}
+.invite_history .menu_buttons li a{padding:4px 5px 4px 5px;display:block}
+.invite_history .menu_buttons .menu_disabled a{color:#aaa}
+.invite_history .menu_buttons .menu_disabled a:hover{cursor:default;text-decoration:none}
+.invite_history .select_filter{float:left;padding-left:1px}
+.invite_history .sort_filter{float:right}
+.invite_history .summary_bar{border-bottom:none;padding:11px 19px 0}
+.invite_history #empty_invite_list{padding:20px 10px 10px;text-align:center}
+.invite_history .header_column{float:left;font-weight:bold;border-right:1px solid #ccc;padding-left:8px;text-align:left}
+.invite_history .header_first{border-left:1px solid #ccc}
+.invite_history .invite_list .ic_cb{margin:-2px 0 0 14px;width:20px}
+.invite_list .invite_list_column .invite_name{font-size: 13px;padding-right:15px}
+.invite_list .invite_list_column .invite_email{float:left;padding:0;color:#777}
+.invite_list .ic_to{width:325px}
+.invite_list .imported_id,.invite_list .imported_position{display:none}
+.invite_list .actions{padding-top:1px;float:left}
+.invite_list .action_link{float:left;font-size: 11px}
+.invite_list .ic_status{text-align:left}
+.invite_list .ic_action{white-space:nowrap}
+.invite_list .ic_action a{padding-right:12px}
+.invite_list .hot_signup{background:url(../images/Ar6K0o_04bw.gif) no-repeat top left;padding-left:17px;color:#428218;width:108px}
+.invite_list .no_signup{width:125px}
+.invite_list .ic_date{padding:0;text-align:right;width:115px}
+.invite_list{background:#FFF none repeat scroll 0;border-top:1px solid #e4e4e4;text-align:left}
+.invite_list .invite_list_row{text-align:left;padding-bottom:10px;padding-top:10px;border-bottom:1px solid #e4e4e4}
+.invite_list .invite_list_column{margin-left:9px;float:left}
+.invite_list .menu_block .summary_title{text-align:center;font-weight:bold;font-size: 15px}
+.invite_list .menu_block .summary_col{float:left;width:200px}
+.invite_list .menu_block .summary_col_val{font-weight:bold}
+.invite_list .summary_bar .summary{font-size: 11px}
+.invite_history label{color:#333;font-weight:normal}
+.rem_confirmation{padding:10px;margin:0}
+.rem_confirmation .rem_recipients{margin:0 0 10px 0}
+.rem_confirmation .rem_label{float:left;width:60px;margin:0 10px 0 0;padding:0;font-weight:bold}
+.rem_confirmation span.optional{color:#777;font-weight:normal}
+.rem_confirmation .names{font-weight:bold}
+.rem_confirmation textarea{width:320px}
+
+#bootloader_CxEjT { height: 42px; }
