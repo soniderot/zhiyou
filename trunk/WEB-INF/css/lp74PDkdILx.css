@@ -61,6 +61,33 @@ position:relative;
 top:-4px;
 }
 .searchArea {
+	padding-top:2px;
+	background-color:#F2F2F2;
+}
+.head td{
+	text-align: center;
+	height: 50px;
+}
+
+.head .left{
+	width: 280px;
+}
+.head .image{
+	width: 450px;
+}
+.slideImage{
+	width:250px;
+	height:250px;
+	padding-left:100px;
+	overflow:hidden;
+}
+.updateButton {
+	padding-left:50px;
+}
+.searchBody {
+	height:250px;
+}
+.searchArea label{
 	color: #333333;
 	font-weight: normal;
 }
