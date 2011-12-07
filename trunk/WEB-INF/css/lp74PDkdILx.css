@@ -1,4 +1,4 @@
-﻿/*1320708195,176820666*/
+/*1320708195,176820666*/
 
 .sp_9dewam{background-image:url(../images/X6Vt9PtofgU.png);background-repeat:no-repeat;display:inline-block;height:16px;width:31px}
 .sx_83050b{width:32px;height:32px;background-position:-0px -0px}
@@ -99,4 +99,31 @@ position:relative;
 .uiScaledImageContainer {
 overflow:hidden;
 position:relative;
+}
+#reg_form_box .editor {
+margin:0 0 7px;
+}
+#reg_box #reg div.large_form td.label {
+font-size:14px;
+padding-right:3px;
+width:105px;
+}
+#reg_box .label {
+color:#1D2A5B;
+padding-right:3px;
+text-align:right;
+width:90px;
+}
+#reg_box div.large_form div.field_container input {
+font-size:17px;
+padding:6px;
+width:250px;
+}
+.DOMControl_placeholder {
+color:#777777;
+}
+#reg_box div.large_form td.label {
+font-size:14px;
+padding-right:3px;
+width:105px;
 }
