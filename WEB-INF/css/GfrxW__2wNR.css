@@ -1024,7 +1024,7 @@ body.fixedBody{overflow-x:hidden}
 .home #leftCol{min-height:600px}
 .home #rightCol .home_right_column{padding-top:44px}
 .home #rightCol .friend_list_right_column_header{height:44px}
-.bookmarksMenuButton .uiCloseButton{background-image:url(../images/fIv5vjcQcd-.png);background-repeat:no-repeat;background-position:-20px -486px}
+.bookmarksMenuButton .uiCloseButton{background-position:-20px -486px}
 .bookmarksMenuButton .uiCloseButton:hover,.bookmarksMenuButton .openToggler .uiCloseButton{background-image:url(../images/fIv5vjcQcd-.png);background-repeat:no-repeat;background-position:-36px -486px}
 .uiSideNav .mover{display:none;left:-18px;overflow:hidden;position:absolute;text-align:right;top:3px;z-index:2}
 .uiSideNav .placeholder{border:2px dashed gray}
