@@ -90,9 +90,17 @@ public class ProfileServiceImpl implements ProfileService {
 	
 	public ZyProfile findProfileById(int profileId){
 		ZyProfile profile = profileDao.load(profileId);
-		profile.setCityname(cityService.getCity(profile.getCityid()).getCityname());
+		try{
+			profile.setCityname(cityService.getCity(profile.getCityid()).getCityname());
+		}catch(Exception ex){
+			
+		}
 		profile.setCountryname("中国");
-		profile.setRegionname(regionService.getRegion(profile.getRegionid()).getRegionname());
+		try{
+			profile.setRegionname(regionService.getRegion(profile.getRegionid()).getRegionname());
+		}catch(Exception ex){
+			
+		}
 		return profile;
 	}
 	public ZyProfile findProfileByEmail(String email){

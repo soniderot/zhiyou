@@ -1,18 +1,23 @@
 package com.zy.common.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.sf.jml.MsnContact;
 import net.sf.jml.MsnMessenger;
 import net.sf.jml.MsnProtocol;
 import net.sf.jml.MsnUserStatus;
 import net.sf.jml.impl.MsnMessengerFactory;
+import octazen.addressbook.Contact;
 
 public class MsnContactsTool {
 	private static MsnMessenger messenger;
 
-	public static void main(String[] args) {
+	public static List<Contact> getAddress(String email,String password) {
+		List<Contact> contacts = new ArrayList<Contact>();
 		try {
 			messenger = MsnMessengerFactory.createMsnMessenger(
-					"kelvin_shpd@hotmail.com","hahawhoami");
+					email,password);
 			messenger
 					.setSupportedProtocol(new MsnProtocol[] { MsnProtocol.MSNP11 });
 			messenger.getOwner().setInitStatus(MsnUserStatus.ONLINE);
@@ -38,14 +43,20 @@ public class MsnContactsTool {
 				if (con.getDisplayName() != null && con.getEmail() != null) {
 					System.out.println(con.getDisplayName());
 					System.out.println(con.getEmail().toString());
+					//String str = new String(con.getDisplayName().getBytes("gbk"),"utf-8");
+					Contact contact = new Contact(con.getDisplayName(),con.getEmail().toString());
+					contacts.add(contact);
 				}
 			}
 			messenger.logout();
-			//System.exit(0);
-			return;
+			
 		} catch (Throwable ex) {
 			ex.printStackTrace();
-			System.exit(0);
 		}
+		return contacts;
+	}
+	
+	public static void main(String[] args){
+		getAddress("kelvin_shpd@hotmail.com","hahawhoami");
 	}
 }

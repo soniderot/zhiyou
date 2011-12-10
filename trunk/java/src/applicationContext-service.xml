@@ -7,4 +7,13 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="profileDao" ref="profileDao"/>
 	</bean>
 	
+	<bean name="snsService" class="com.zy.domain.sns.service.SNSServiceImpl">
+		<property name="friendDao" ref="friendDao"/>
+		<property name="snsGroupDao" ref="snsGroupDao"/>
+		<property name="zyFollowDao" ref="zyFollowDao"/>
+		<property name="zyIntroduceDao" ref="zyIntroduceDao"/>
+		<property name="inviteByAddressDao" ref="inviteByAddressDao"/>
+		<property name="profileService" ref="profileService"/>
+	</bean>
+	
 </beans>

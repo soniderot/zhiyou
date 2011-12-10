@@ -162,6 +162,9 @@ public class ZyProfile implements java.io.Serializable {
 	}
 
 	public String getAvatar() {
+		if(avatar==null||avatar.length()==0){
+			return "/images/default.JPG";
+		}
 		return this.avatar;
 	}
 

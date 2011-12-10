@@ -42,7 +42,7 @@ public interface SNSService {
 	
 	public void manageSNSGroup(int userId,int snsGroupId,int profileIds[],int type);
 	
-	public void updateSNSGroup(int snsGroupId,String groupName);
+	public void updateSNSGroup(int userId,int snsGroupId,String groupName);
 	
 	public List<ZyFriendgroup> getFriendGroups(int userId);
 	

@@ -7,4 +7,9 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="profileService" ref="profileService"/>
 	</bean>
 	
+	<bean name="snsFacade" class="com.zy.facade.impl.SNSFacadeImpl"  >
+		<property name="profileService" ref="profileService"/>
+		<property name="snsService" ref="snsService"/>
+	</bean>
+	
 </beans>

@@ -9,11 +9,10 @@ import cern.colt.list.ObjectArrayList;
 import cern.colt.map.OpenLongObjectHashMap;
 
 import com.zy.common.db.HibernateDao;
-import com.zy.common.util.GetBeanUtil;
+import com.zy.common.util.JDBCUtil;
 import com.zy.domain.sns.service.Graph;
 import com.zy.domain.sns.service.GraphNetwork;
 import com.zy.domain.sns.service.GraphNode;
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class GraphDao extends HibernateDao implements Graph,java.io.Serializable{
 
@@ -30,9 +29,10 @@ public class GraphDao extends HibernateDao implements Graph,java.io.Serializable
 			throws SQLException {
 		
 		if(conn==null){
-			ComboPooledDataSource source = (ComboPooledDataSource)GetBeanUtil.getInstance().getBean("dataSource");
-			//conn = JDBCUtil.getConnection();
-			conn = source.getConnection();
+			//ComboPooledDataSource source = (ComboPooledDataSource)GetBeanUtil.getInstance().getBean("dataSource");
+			conn = JDBCUtil.getConnection();
+			//conn = source.getConnection();
+			//return this.getHibernateTemplate().getSessionFactory().openSession().connection().prepareStatement(sql);
 		}
 		return conn.prepareStatement(sql);
 	}

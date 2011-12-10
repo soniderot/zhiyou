@@ -1,11 +1,84 @@
 package com.zy.action.sns;
+import java.util.List;
+
+import octazen.addressbook.Contact;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
+import com.zy.common.util.Page;
 import com.zy.facade.SNSFacade;
-public class SNSActioin {
+public class SNSActioin extends ActionSupport{
 	private int friendId;
 	private int[] profileIds;
 	private SNSFacade snsFacade;
+	private List<Contact> contacts;
+	private String emailAddress;
+	private String emailPass;
+	private List<ZyProfile> profiles;
+	private Page page;
+	private int pageNo = 1;
+	private int pageSize = 12;
 	
+	
+	
+	
+	public int getPageNo() {
+		return pageNo;
+	}
+
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public Page getPage() {
+		return page;
+	}
+
+	public void setPage(Page page) {
+		this.page = page;
+	}
+
+	public List<ZyProfile> getProfiles() {
+		return profiles;
+	}
+
+	public void setProfiles(List<ZyProfile> profiles) {
+		this.profiles = profiles;
+	}
+
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+
+	public String getEmailPass() {
+		return emailPass;
+	}
+
+	public void setEmailPass(String emailPass) {
+		this.emailPass = emailPass;
+	}
+
+	public List<Contact> getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(List<Contact> contacts) {
+		this.contacts = contacts;
+	}
+
 	public int[] getProfileIds() {
 		return profileIds;
 	}
@@ -70,18 +143,55 @@ public class SNSActioin {
 		return null;
 	}
 	
-	private String getContactsFromAddressBook() {
-		return null;
+	public String getContactsFromAddressBook() {
+		contacts = snsFacade.importAddressBook(ActionUtil.getSessionUserId(), emailAddress, emailPass);
+		return "contacts";
+	}
+	
+	public void validateGetContactsFromAddressBook(){
+		if(emailAddress==null||emailAddress.trim().length()==0){
+			addFieldError("emailAddress", "email.required");
+		}
+		if(emailPass==null||emailPass.trim().length()==0){
+			addFieldError("emailPass", "pass.required");
+		}
+	}
+	
+	public String viewInvitePage() {
+		return "invite";
 	}
 	
 	//get peoples you want to know 
-	public String listPeopleYouMayWantKnow() {
-		return null;
+	public String listPeopleYouWantKnow() {
+		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		page = new Page(profiles.size(),pageNo,10,5);
+		if(profiles.size()>=pageSize*pageNo){
+			profiles = profiles.subList(pageSize*(pageNo-1),pageSize*pageNo);
+		}else{
+			profiles = profiles.subList(pageSize*(pageNo-1),profiles.size());
+		}
+		return "you.wanttoknow";
 	}
 	
 	//get peoples you may to know
 	public String listPeopleYouMayKnow() {
-		return null;
+		if(snsFacade.getAllFriendsByDegree(ActionUtil.getSessionUserId(),(short)1).size()==0){
+			return "you.mayknow";
+		}
+		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		return "you.mayknow";
+	}
+	
+	public String search(){
+		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		page = new Page(profiles.size(),pageNo,10,5);
+		if(profiles.size()>=pageSize*pageNo){
+			profiles = profiles.subList(pageSize*(pageNo-1),pageSize*pageNo);
+		}else{
+			profiles = profiles.subList(pageSize*(pageNo-1),profiles.size());
+		}
+		
+		return "search.result";
 	}
 	
 }

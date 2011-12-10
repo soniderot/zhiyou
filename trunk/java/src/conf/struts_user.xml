@@ -6,6 +6,11 @@
 <package name="zy-default" namespace="/usr" extends="tiles-default,json-default">
 	<action name="landing" class="com.zy.action.profile.LandingAction">
 		<result name="public.welcome" >/WEB-INF/jsp/public/landing.jsp</result>
+		<result name="member.welcome" type="tiles" >tiles.login.welcome</result>
+	</action>
+	
+	<action name="logout" class="com.zy.action.profile.LogoutAction">
+		<result name="public.welcome" >/WEB-INF/jsp/public/landing.jsp</result>
 	</action>
 	
 	<action name="register" class="com.zy.action.profile.RegistrationAction">
@@ -24,6 +29,10 @@
 	
 	<action name="message" class="com.zy.action.message.MessageAction">
 		<result name="member.messages" type="tiles">tiles.member.message</result>
+	</action>
+	
+	<action name="feed" class="com.zy.action.feed.FeedAction">
+		<result name="member.feeds" type="tiles">tiles.feed.list</result>
 	</action>
 </package>
 </struts>

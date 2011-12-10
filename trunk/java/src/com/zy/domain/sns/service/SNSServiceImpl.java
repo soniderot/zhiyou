@@ -360,7 +360,7 @@ public class SNSServiceImpl implements SNSService{
 							friend.setGroupid(ZyGroupId);
 						}
 						if(type==1){
-							friend.setGroupid(null);
+							friend.setGroupid(0);
 						}
 					}
 				}
@@ -383,7 +383,7 @@ public class SNSServiceImpl implements SNSService{
 		}
 	}
 	
-	public void updateSNSGroup(int ZyGroupId,String groupName){
+	public void updateSNSGroup(int userId,int ZyGroupId,String groupName){
 		snsGroupDao.load(ZyGroupId).setGroupname(groupName);
 	}
 	

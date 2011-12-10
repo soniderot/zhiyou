@@ -40,8 +40,7 @@ public class LoginAction extends MemberAction{
 		if(user!=null){
 			System.out.println("------------into welcome----------");
 			ActionContext.getContext().getSession().put(Constants.USER_SESSION_KEY, user);
-		    ActionContext.getContext().getSession().put(Constants.USERID_SESSION_KEY, user.getUserid());
-
+		    ActionContext.getContext().getSession().put(Constants.USERID_SESSION_KEY, user.getUserid());		    
 			return "login.welcome";
 		}else{
 			System.out.println("------------into fail----------");

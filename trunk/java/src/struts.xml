@@ -4,4 +4,6 @@
 <constant name="struts.devMode" value="true"/>
 <constant name="struts.custom.i18n.resources" value="message"></constant>
 <include file="conf/struts_user.xml"/>
+<include file="conf/struts_sns.xml"/>
+<include file="conf/struts_event.xml"/>
 </struts>

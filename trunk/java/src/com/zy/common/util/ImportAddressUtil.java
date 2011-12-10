@@ -186,62 +186,7 @@ public class ImportAddressUtil {
 
 	private static List<Contact> getMsnContacts(String email, String password)
 			throws Exception {
-		//if(true) return null;
-		BufferedReader br = null;
-		try {
-			ArrayList<Contact> contacts = new ArrayList<Contact>();
-
-			String classPath = Constants.BNSCLASSPATH;
-			String jmlPath = Constants.JMLPATH;
-			String separator = ":";
-			
-			if(System.getProperty("os.name")!=null&&System.getProperty("os.name").indexOf("Win")>=0){
-				separator = ";";
-			}
-			String command = "java -classpath " + jmlPath + separator
-					+ classPath
-					+ " com.m4g.bns.common.util.MsnContactsTool";
-			command = command + " " + email + " " + password;
-			
-			System.out.println(command);
-
-			// System.out.println(command);
-			Process p = Runtime.getRuntime().exec(command);
-			
-			BufferedInputStream in = new BufferedInputStream(p.getInputStream());
-			br = new BufferedReader(new InputStreamReader(in));
-
-			while (true) {
-				String name = br.readLine();
-				if (name == null) {
-					break;
-				}
-				String contactEmail = br.readLine();
-				if (contactEmail == null) {
-					break;
-				}
-				
-				Contact contact = new Contact(name, contactEmail);
-				//System.out.println("name=="+name1);
-				contacts.add(contact);
-				
-			}
-			if (contacts.size() == 0) {
-				throw new Exception("can't import msn account:" + email);
-			}
-			return contacts;
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			throw new Exception("can't import msn account:"+email);
-		}finally{
-			if(br!=null){
-				try{
-					br.close();
-				}catch(Throwable ex){
-					ex.printStackTrace();
-				}
-			}
-		}
+		return MsnContactsTool.getAddress(email, password);
 
 	}
 
