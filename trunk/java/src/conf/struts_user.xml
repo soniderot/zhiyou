@@ -13,6 +13,11 @@
 		<result name="public.welcome" >/WEB-INF/jsp/public/landing.jsp</result>
 	</action>
 	
+	<action name="checkEmail" class="com.zy.action.profile.ValidateAction" method="checkEmail">
+		<result name="input" >/WEB-INF/jsp/public/landing.jsp</result>
+		<result name="member.welcome" type="tiles" >tiles.login.welcome</result>
+	</action>
+	
 	<action name="register" class="com.zy.action.profile.RegistrationAction">
 		<result name="input" >/WEB-INF/jsp/public/landing.jsp</result>
 		<result name="member.welcome" type="tiles" >tiles.login.welcome</result>
