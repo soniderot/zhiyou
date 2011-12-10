@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+
+<package name="zy-profile" namespace="/profile" extends="tiles-default,json-default">
+	<action name="profile" class="com.zy.action.profile.ProfileAction">
+		<result name="profile.info" type="tiles">tiles.profile.info</result>
+	</action>
+</package>
+</struts>
