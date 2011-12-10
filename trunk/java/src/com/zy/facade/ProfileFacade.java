@@ -8,5 +8,5 @@ public interface ProfileFacade {
 	public ZyProfile checkProfileLogin(String email,String password);
 	public void addProfile(ZyProfile profile);
 	public ZyProfile findProfileByEmail(String email);
-	//public ZyProfile findProfileByUsername(String username);
+	public ZyProfile findProfileByName(String username);
 }
