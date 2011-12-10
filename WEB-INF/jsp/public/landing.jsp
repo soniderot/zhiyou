@@ -1,9 +1,11 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 
 <!DOCTYPE html>
-<html lang="zh" id="facebook" class="no_js">
+<html lang="zh" id="facebook">
 <head>
+
   <%@ include file="/WEB-INF/jsp/common/css.jsp"%>
+
 </head>
 
 <body class="fbIndex UIPage_LoggedOut ff3 win Locale_zh_CN">
@@ -79,7 +81,7 @@
                     </noscript>
                     <div id="simple_registration_container" class="simple_registration_container">
                       <div id="reg_box">
-                        <s:form action="register" namespace="/usr">
+                        <s:form action="register" namespace="/usr" onsubmit="return validateSignUp()">
                           <div id="reg_form_box" class="large_form">
                              <table class="uiGrid editor" cellspacing="0" cellpadding="1">
                               <tbody>
@@ -87,7 +89,7 @@
                                   <td class="label"><label for="firstname">用户名:</label></td>
                                   <td>
                                     <div class="field_container">
-                                      <s:textfield name="username" cssClass="inputtext DOMControl_placeholder" />
+                                      <s:textfield name="username" cssClass="inputtext DOMControl_placeholder" placeholder="请您输入用户名" tipstype="error" />
                                       <s:fielderror><s:param>username</s:param></s:fielderror>
                                     </div>
                                   </td>
@@ -98,7 +100,7 @@
                                   </td>
                                   <td>
                                     <div class="field_container">
-                                      <s:textfield name="email" cssClass="inputtext" />
+                                      <s:textfield name="email" cssClass="inputtext DOMControl_placeholder" placeholder="请您输入电子邮件" tipstype="error" />
                                     </div>
                                   </td>
                                 </tr>
@@ -109,7 +111,7 @@
                                   </td>
                                   <td>
                                     <div class="field_container">
-                                      <s:password name="password" cssClass="inputtext" />
+                                      <s:password name="password" cssClass="inputtext" tipstype="error" />
                                     </div>
                                   </td>
                                 </tr>
@@ -119,7 +121,7 @@
                                   </td>
                                   <td>
                                     <div class="field_container">
-                                      <s:password name="confirmpassword" cssClass="inputtext" />
+                                      <s:password name="confirmpassword" cssClass="inputtext" tipstype="error" />
                                     </div>
                                   </td>
                                 </tr>
@@ -127,7 +129,7 @@
                                   <td class="label">性别:</td>
                                   <td>
                                     <div class="field_container">
-                                      <s:select name="gender" list="#{'0':'选择性别', '1':'男', '2':'女'}"></s:select>
+                                      <s:select name="gender" list="#{'-1':'选择性别', '1':'男', '2':'女'}" tipstype="error"></s:select>
                                     </div>
                                   </td>
                                 </tr>
@@ -135,9 +137,9 @@
                                   <td class="label">生日:</td>
                                   <td>
                                     <div class="field_container">
-                                      <s:select name="year" list="#request.years" listKey="key"  listValue="value"></s:select>
-                                      <s:select name="month" list="#request.months" listKey="key"  listValue="value"></s:select>
-                                      <s:select name="day" list="#request.days" listKey="key"  listValue="value"></s:select>
+                                      <s:select name="year" list="#request.years" listKey="key"  listValue="value" tipstype="error"></s:select>
+                                      <s:select name="month" list="#request.months" listKey="key"  listValue="value" tipstype="error"></s:select>
+                                      <s:select name="day" list="#request.days" listKey="key"  listValue="value" tipstype="error"></s:select>
                                     </div>
                                   </td>
                                 </tr>
