@@ -47,5 +47,9 @@
 	<action name="feed" class="com.zy.action.feed.FeedAction">
 		<result name="member.feeds" type="tiles">tiles.feed.list</result>
 	</action>
+	
+	<action name="feed" class="com.zy.action.feed.FeedAction">
+		<result name="member.feeds" type="tiles">tiles.feed.list</result>
+	</action>
 </package>
 </struts>
