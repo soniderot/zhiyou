@@ -30,4 +30,8 @@ public class ProfileFacadeImpl implements ProfileFacade {
 	public ZyProfile findProfileByEmail(String email){
 		return profileService.findProfileByEmail(email);
 	}
+	
+	public ZyProfile findProfileByName(String userName){
+		return profileService.findProfileByName(userName);
+	}
 }
