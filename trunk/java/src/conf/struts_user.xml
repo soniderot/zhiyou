@@ -33,7 +33,15 @@
 	</action>
 	
 	<action name="message" class="com.zy.action.message.MessageAction">
-		<result name="member.messages" type="tiles">tiles.member.message</result>
+		<result name="member.messages" type="tiles">tiles.member.messages</result>
+	</action>
+	
+	<action name="request" class="com.zy.action.message.RequestAction">
+		<result name="member.requests" type="tiles">tiles.member.requests</result>
+	</action>
+	
+	<action name="notify" class="com.zy.action.message.NotificationAction">
+		<result name="member.notifications" type="tiles">tiles.member.notifications</result>
 	</action>
 	
 	<action name="feed" class="com.zy.action.feed.FeedAction">
