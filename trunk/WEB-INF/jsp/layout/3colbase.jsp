@@ -36,6 +36,8 @@
 						include right.jsp
 	
 					-->
+					<tiles:insertAttribute name="headline" ignore="true"/>
+					
 					<tiles:insertAttribute name="right" ignore="true"/>
 					<!-- 
 	
