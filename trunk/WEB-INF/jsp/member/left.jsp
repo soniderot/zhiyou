@@ -3,7 +3,7 @@
             <div id="pagelet_welcome_box" data-referrer="pagelet_welcome_box">
               <div class="UIImageBlock clearfix fbxWelcomeBox UIImageBlock_Entity">
                 <a tabindex="-1" aria-hidden="true" href="http://www.facebook.com/profile.php?id=1438697558" class="fbxWelcomeBoxBlock UIImageBlock_Image UIImageBlock_ENT_Image">
-                  <img alt="" src="http://i1.sinaimg.cn/ty/732/2009/0701/U2035P6T732D1F20667DT20111203075425.jpg" class="fbxWelcomeBoxImg img"/>
+                  <img alt="" src="<s:property value="#session.user.avatar"/>" class="fbxWelcomeBoxImg img"/>
                 </a>
                 <div class="prs UIImageBlock_Content UIImageBlock_ENT_Content">
                   <a href="http://www.facebook.com/profile.php?id=1438697558" class="fbxWelcomeBoxName"><s:property value="#session.user.username"/></a>
@@ -21,7 +21,7 @@
                       <ul data-gt='{"nav_items_count":"5","nav_section":"pinnedNav"}' role="navigation" class="uiSideNav">
                         <li id="navItem_app_156203961126022" class="sideNavItem stat_elem selectedItem open">
                           <div class="buttonWrap"></div>
-                          <a data-gt='{"bmid":"156203961126022","count":"0","coeff2_info":"AasM7zARnPgbgC_QyV1VyOv88p8dSL-UzGszpVbiurs-Ze51FDKAJBmNRk0XhUz0-Mi9HoXJsBeNarBIEVuaar6F","coeff2_registry_key":"0016","coeff2_action":"3","rank":"1"}' title="欢迎来到 知友" href="/?sk=welcome" class="item clearfix">
+                          <a data-gt='{"bmid":"156203961126022","count":"0","coeff2_info":"AasM7zARnPgbgC_QyV1VyOv88p8dSL-UzGszpVbiurs-Ze51FDKAJBmNRk0XhUz0-Mi9HoXJsBeNarBIEVuaar6F","coeff2_registry_key":"0016","coeff2_action":"3","rank":"1"}' title="欢迎来到 知友" href="/usr/landing.jhtml" class="item clearfix">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
@@ -56,7 +56,7 @@
                               </div>
                             </div>
                           </div>
-                          <a data-gt='{"bmid":"4748854339","count":"0","coeff2_info":"Aasb80t8kL0QLo_8OvmsvgTMV-IUsl33Qc4hL-Voy6mMUADa31aZbymtMtThn1d5mJQ","coeff2_registry_key":"0016","coeff2_action":"3","rank":"2"}' title="" href="http://www.facebook.com/" class="item clearfix" style="">
+                          <a data-gt='{"bmid":"4748854339","count":"0","coeff2_info":"Aasb80t8kL0QLo_8OvmsvgTMV-IUsl33Qc4hL-Voy6mMUADa31aZbymtMtThn1d5mJQ","coeff2_registry_key":"0016","coeff2_action":"3","rank":"2"}' title="" href="/usr/feed.jhtml" class="item clearfix" style="">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
@@ -96,7 +96,7 @@
                               </div>
                             </div>
                           </div>
-                          <a data-gt='{"bmid":"217974574879787","count":"0","coeff2_info":"Aaswb8c23rf7yV2wsauNLbjN3PTuDkcZ4O6pM5sUv-Z31EVolPbAyyn2l_khXf8l-PBFQ_poEjhITzENdALTSlRa","coeff2_registry_key":"0016","coeff2_action":"3","rank":"3"}' title="" href="/messages/" class="item clearfix sortableItem">
+                          <a data-gt='{"bmid":"217974574879787","count":"0","coeff2_info":"Aaswb8c23rf7yV2wsauNLbjN3PTuDkcZ4O6pM5sUv-Z31EVolPbAyyn2l_khXf8l-PBFQ_poEjhITzENdALTSlRa","coeff2_registry_key":"0016","coeff2_action":"3","rank":"3"}' title="" href="/usr/message.jhtml" class="item clearfix sortableItem">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
@@ -153,7 +153,7 @@
                               </div>
                             </div>
                           </div>
-                          <a data-gt='{"bmid":"2344061033","count":"0","coeff2_info":"Aas57PhE1Z0iK6Z02IMoWK9Qp8gnEQGdYCp_tpM1G14IzmQk-0bR9482p21bxlkle_A","coeff2_registry_key":"0016","coeff2_action":"3","rank":"4"}' title="" href="/events/" class="item clearfix sortableItem">
+                          <a data-gt='{"bmid":"2344061033","count":"0","coeff2_info":"Aas57PhE1Z0iK6Z02IMoWK9Qp8gnEQGdYCp_tpM1G14IzmQk-0bR9482p21bxlkle_A","coeff2_registry_key":"0016","coeff2_action":"3","rank":"4"}' title="" href="/event/event!getEvents.jhtml" class="item clearfix sortableItem">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
@@ -210,7 +210,7 @@
                               </div>
                             </div>
                           </div>
-                          <a data-gt='{"bmid":"2356318349","count":"0","coeff2_info":"Aaspwvb3buiDZvUxvLIoJf844ijN51XYfPV2qBK57VMyX7HDXQlQUK8qg6zj5xrPQGs","coeff2_registry_key":"0016","coeff2_action":"3","rank":"5"}' title="" href="http://www.facebook.com/?sk=ff" class="item clearfix sortableItem" style="">
+                          <a data-gt='{"bmid":"2356318349","count":"0","coeff2_info":"Aaspwvb3buiDZvUxvLIoJf844ijN51XYfPV2qBK57VMyX7HDXQlQUK8qg6zj5xrPQGs","coeff2_registry_key":"0016","coeff2_action":"3","rank":"5"}' title="" href="/sns/sns!viewInvitePage.jhtml" class="item clearfix sortableItem" style="">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
@@ -224,7 +224,10 @@
                                 <i class="img sp_7gl7wd sx_0b0f8c"></i>
                               </span>
                               <div class="linkWrap noCount">搜索朋友</div>
+                              
                             </div>
+                            
+                            
                           </a>
                           <span class="mover hidden_elem"></span>
                         </li>

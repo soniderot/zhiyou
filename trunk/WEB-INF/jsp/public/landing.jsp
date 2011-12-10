@@ -29,7 +29,7 @@
                   </tr>
                   <tr>
                     <td><input type="text" class="inputtext" name="email" id="email" value="" tabindex="1" /></td>
-                    <td><input type="password" class="inputtext" name="pass" id="pass" tabindex="2" /></td>
+                    <td><input type="password" class="inputtext" name="password" id="pass" tabindex="2" /></td>
                     <td><label class="uiButton uiButtonConfirm" for="ubyzxj_3"><input value="登录" tabindex="4" type="submit" id="ubyzxj_3" /></label></td></tr>
                   <tr>
                     <td class="login_form_label_field">

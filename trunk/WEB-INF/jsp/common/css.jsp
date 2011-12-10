@@ -3,16 +3,25 @@
   String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
   %>
   <base href="<%=basePath%>" />
-  <meta charset="utf-8" />
+
   <meta name="robots" content="noodp,noydir" />
   <meta name="description" content="知友网 是一个以好友互动娱乐为主要功能的交友网站。围绕交友设计开发了包括美食点评、活动邀请、交友推荐、吃货配对、社交管家等线上线下互动功能，旨在促进网友间现实的互动和交流。" />
   <link type="text/css" rel="stylesheet" href="css/GfrxW__2wNR.css" />
   <link type="text/css" rel="stylesheet" href="css/6JziMmtqgI9.css" />
   <link type="text/css" rel="stylesheet" href="css/oKInZho4Fq0.css" />
   <link type="text/css" rel="stylesheet" href="css/B2si-Z7yw-e.css" />
-
   <link type="text/css" rel="stylesheet" href="css/vhaqLt4m8pH.css" />
   <link type="text/css" rel="stylesheet" href="css/lp74PDkdILx.css" />
+  <link	type="text/css"	rel="stylesheet" href="css/IE/IhlLCbRnaR-.css" />
+  <link	type="text/css"	rel="stylesheet" href="css/-FVr7LJfXrK.css"	/>
+  <link	type="text/css"	rel="stylesheet" href="css/8oFRsy4_wEv.css"	/>
+  <link	type="text/css"	rel="stylesheet" href="css/CULs4eaJW7y.css"	/>
+  
+  <link type="text/css" rel="stylesheet" href="css/IE/IhlLCbRnaR-.css" />
+  <link type="text/css" rel="stylesheet" href="css/fkAcKjsqY28.css" />
+  <link type="text/css" rel="stylesheet" href="css/Kik3stz4LwG.css" />
+  <link type="text/css" rel="stylesheet" href="css/m-D37VXlUU0.css" />
+  <link	type="text/css"	rel="stylesheet" href="css/p__pch0d1gv.css"	/>
 
   <title>知友</title>
   <link rel="shortcut icon" href="#" />
@@ -53,3 +62,20 @@
   }
   request.setAttribute("days",days);
   %>
+  
+  <%
+  java.util.Map<Integer,String> beginAges = new java.util.LinkedHashMap<Integer,String>();
+  for(int i=18;i<45;i++){
+    beginAges.put(i,""+i);
+  }
+  request.setAttribute("beginAges",beginAges);
+  %>
+  
+  <%
+  java.util.Map<Integer,String> endAges = new java.util.LinkedHashMap<Integer,String>();
+  for(int i=18;i<45;i++){
+    endAges.put(i,""+i);
+  }
+  request.setAttribute("endAges",endAges);
+  %>
+  
