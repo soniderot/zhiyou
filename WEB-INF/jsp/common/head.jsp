@@ -9,7 +9,7 @@
         
         <div id="jewelContainer">
           <div id="fbRequestsJewel" class="fbJewel hasNew">
-            <a data-gt='{"ua_id":"jewel:requests"}' data-target="fbRequestsFlyout" href="usr/message.jhtml" name="requests" rel="toggle" class="jewelButton">
+            <a data-gt='{"ua_id":"jewel:requests"}' data-target="fbRequestsFlyout" href="usr/request.jhtml" name="requests" rel="toggle" class="jewelButton">
               <span id="requestsCountWrapper" class="jewelCount">
                 <span id="requestsCountValue"><s:property value="newrequestcnt"/></span>
               </span>
@@ -25,7 +25,7 @@
           
           
           <div id="fbNotificationsJewel" class="fbJewel hasNew">
-            <a data-gt='{"ua_id":"jewel:notifications"}' data-target="fbNotificationsFlyout" href="usr/message.jhtml" name="notifications" rel="toggle" class="jewelButton">
+            <a data-gt='{"ua_id":"jewel:notifications"}' data-target="fbNotificationsFlyout" href="usr/notify.jhtml" name="notifications" rel="toggle" class="jewelButton">
               <span id="notificationsCountWrapper" class="jewelCount">
                 <span id="notificationsCountValue"><s:property value="newnotificationcnt"/></span>
               </span>

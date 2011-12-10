@@ -223,7 +223,7 @@
                               <span class="imgWrap">
                                 <i class="img sp_7gl7wd sx_0b0f8c"></i>
                               </span>
-                              <div class="linkWrap noCount">搜索朋友</div>
+                              <div class="linkWrap noCount">邀请朋友</div>
                               
                             </div>
                             
