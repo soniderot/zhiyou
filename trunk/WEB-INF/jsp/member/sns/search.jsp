@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <div role="main" id="contentArea">
 					  <div data-referrer="pagelet_search_results_spellcheck" id="pagelet_search_results_spellcheck">
 					    <div class="search_spell_check"></div>

@@ -1,5 +1,8 @@
-<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
-
+﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%
+request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");
+%>
   <div class="slim" id="blueBarHolder">
     <div id="blueBar">
       <div role="banner" id="pageHead" class="clearfix slimHeader">
