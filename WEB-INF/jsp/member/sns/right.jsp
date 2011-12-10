@@ -1,4 +1,4 @@
-      <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+﻿      <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
           <div role="complementary" id="rightCol">
             <div class="home_right_column">
               <div class="rightColumnWrapper">

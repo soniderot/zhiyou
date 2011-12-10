@@ -1,4 +1,4 @@
-<div id="headerArea">
+﻿<div id="headerArea">
 				    <div data-referrer="pagelet_header" id="pagelet_header">
 				      <div data-referrer="pagelet_above_header" id="pagelet_above_header"></div>
 				      <div data-referrer="pagelet_header_personal" id="pagelet_header_personal">
