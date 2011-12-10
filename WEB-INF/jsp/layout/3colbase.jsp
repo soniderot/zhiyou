@@ -1,5 +1,4 @@
-﻿<%@page trimDirectiveWhitespaces="true"%>
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@page trimDirectiveWhitespaces="true"%>
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="zh" id="facebook" class="no_js">
@@ -43,8 +42,13 @@
 						include center.jsp
 	
 					-->
+					
 					<tiles:insertAttribute name="center" ignore="true"/>
+					
+					
 					<div id="bottomContent"></div>
+					
+					
 				</div>
 			</div>
 		</div>
