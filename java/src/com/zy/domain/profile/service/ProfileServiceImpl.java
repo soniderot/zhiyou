@@ -202,4 +202,9 @@ public class ProfileServiceImpl implements ProfileService {
 			educationDAO.save(education);
 		}
 	}
+
+	@Override
+	public ZyProfile findProfileByName(String userName) {
+		return profileDao.findProfileByName(userName);
+	}
 }
