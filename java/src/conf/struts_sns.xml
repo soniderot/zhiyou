@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+
+<package name="zy-sns" namespace="/sns" extends="tiles-default,json-default">
+	<action name="sns" class="com.zy.action.sns.SNSActioin">
+		<result name="input" type="tiles">tiles.sns.invite</result>
+		<result name="contacts" type="tiles">tiles.sns.contacts</result>
+		<result name="invite" type="tiles">tiles.sns.invite</result>
+		<result name="you.mayknow" >/WEB-INF/jsp/member/sns/right.jsp</result>
+		<result name="you.wanttoknow" >/WEB-INF/jsp/member/sns/welcome.jsp</result>
+		<result name="search.result" type="tiles">tiles.sns.search</result>
+	</action>
+	
+	
+</package>
+</struts>

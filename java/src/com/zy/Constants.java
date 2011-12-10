@@ -21,7 +21,7 @@ public class Constants {
 	//public static String PAYMENTRETURNDOMAIN = "http://116.247.118.82:8888/";
     private static Properties pro = new Properties();
     static {
-        InputStream in = Constants.class.getClassLoader().getResourceAsStream("bns.properties");
+        InputStream in = Constants.class.getClassLoader().getResourceAsStream("zy.properties");
         pro = new Properties();
         try {
             pro.load(in);

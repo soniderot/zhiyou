@@ -5,4 +5,11 @@
 
 <bean id="profileDao" class="com.zy.domain.profile.dao.ProfileDaoImpl" parent="baseDao" />
 
+
+<bean id="friendDao" class="com.zy.domain.sns.dao.FriendDaoImpl" parent="baseDao" />
+<bean id="snsGroupDao" class="com.zy.domain.sns.dao.SNSGroupDaoImpl" parent="baseDao" />
+<bean id="zyFollowDao" class="com.zy.domain.sns.dao.FollowDaoImpl" parent="baseDao" />
+<bean id="zyIntroduceDao" class="com.zy.domain.sns.dao.SNSIntroduceDaoImpl" parent="baseDao" />
+<bean id="inviteByAddressDao" class="com.zy.domain.sns.dao.InviteByAddressDaoImpl" parent="baseDao" />
+
 </beans>
