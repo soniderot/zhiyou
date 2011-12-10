@@ -53,7 +53,7 @@
     </context-param>    
     <context-param>
 		<param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
-		<param-value>/WEB-INF/classes/tiles-event.xml,/WEB-INF/classes/tiles-user.xml,/WEB-INF/classes/tiles-sns.xml</param-value>
+		<param-value>/WEB-INF/classes/tiles-secondary.xml,/WEB-INF/classes/tiles-event.xml,/WEB-INF/classes/tiles-user.xml,/WEB-INF/classes/tiles-sns.xml</param-value>
     </context-param>
 	
 	<filter>
