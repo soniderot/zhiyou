@@ -16,12 +16,13 @@ function showPopup(dialog, profileId) {
 }
 
 function sendAddFriendRequest() {
+
   $(".dialog_body").hide();
   $(".dialog_buttons").hide();
   $(".dialog_buttons div").hide();
   $(".dialog_loading").show();
   var to = $("#userid").val();
-  var content = $("#content").val();
+  var content = $("input[id=content]").val();
   $.ajax({
    type: "GET",
    url: "usr/request!addFriendRequest.jhtml",
@@ -58,7 +59,7 @@ function sendAddFriendRequest() {
                     <tr class="dataRow">
                       <th class="label">请求内容：</th>
                       <td class="data">
-                        <input type="text" id="content" class="inputtext textInput requesttext" placeholder="" value="Hi, 我想加你为好友，可以吗?" />
+                        <input type="text" id="content" class="inputtext textInput requesttext" placeholder="" value="Hi" />
                       </td>
                     </tr>
                   </tbody>
