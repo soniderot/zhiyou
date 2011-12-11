@@ -7,6 +7,10 @@ function hidePopup(dialog) {
   $("#" + dialog).hide(1000);
 }
 function showPopup(dialog, profileId) {
+  $(".dialog_body").show();
+  $(".dialog_buttons").show();
+  $(".dialog_buttons div").show();
+  $(".dialog_loading").hide();
   $("#" + dialog).show(1000);
   $("#userid").val(profileId);
 }
