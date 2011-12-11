@@ -10,18 +10,16 @@
   <link type="text/css" rel="stylesheet" href="css/6JziMmtqgI9.css" />
   <link type="text/css" rel="stylesheet" href="css/oKInZho4Fq0.css" />
   <link type="text/css" rel="stylesheet" href="css/B2si-Z7yw-e.css" />
-  <link type="text/css" rel="stylesheet" href="css/vhaqLt4m8pH.css" />
+  <link type="text/css" rel="stylesheet" href="css/jquery.tipsy.css"/>
   <link type="text/css" rel="stylesheet" href="css/lp74PDkdILx.css" />
-  <link	type="text/css"	rel="stylesheet" href="css/IE/IhlLCbRnaR-.css" />
-  <link	type="text/css"	rel="stylesheet" href="css/-FVr7LJfXrK.css"	/>
-  <link	type="text/css"	rel="stylesheet" href="css/8oFRsy4_wEv.css"	/>
-  <link	type="text/css"	rel="stylesheet" href="css/CULs4eaJW7y.css"	/>
+  <link type="text/css" rel="stylesheet" href="css/vhaqLt4m8pH.css" />
   
-  <link type="text/css" rel="stylesheet" href="css/IE/IhlLCbRnaR-.css" />
-  <link type="text/css" rel="stylesheet" href="css/fkAcKjsqY28.css" />
-  <link type="text/css" rel="stylesheet" href="css/Kik3stz4LwG.css" />
-  <link type="text/css" rel="stylesheet" href="css/m-D37VXlUU0.css" />
-  <link	type="text/css"	rel="stylesheet" href="css/p__pch0d1gv.css"	/>
+  <script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" language="javascript" src="js/jquery.autocomplete.js"></script>
+  <script type="text/javascript" language="javascript" src="js/facebox.js"></script>
+  <script type="text/javascript" language="javascript" src="js/util.js"></script>
+  <script type="text/javascript" language="javascript" src="js/jquery.tipsy.js"></script>
+  <script type="text/javascript" language="javascript" src="js/tools.js"></script>
 
   <title>知友</title>
   <link rel="shortcut icon" href="#" />
