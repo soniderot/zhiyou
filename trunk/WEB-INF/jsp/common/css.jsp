@@ -3,8 +3,9 @@
   String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
   %>
   <base href="<%=basePath%>" />
-
+  <%@page contentType="textml;charset=utf-8" pageEncoding="utf-8"%>
   <meta name="robots" content="noodp,noydir" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <meta name="description" content="知友网 是一个以好友互动娱乐为主要功能的交友网站。围绕交友设计开发了包括美食点评、活动邀请、交友推荐、吃货配对、社交管家等线上线下互动功能，旨在促进网友间现实的互动和交流。" />
   <link type="text/css" rel="stylesheet" href="css/GfrxW__2wNR.css" />
   <link type="text/css" rel="stylesheet" href="css/6JziMmtqgI9.css" />
