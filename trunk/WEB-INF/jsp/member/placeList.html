@@ -1,0 +1,427 @@
+﻿<!DOCTYPE	html>
+<html	lang="zh"	id="facebook"	class="no_js">
+<head>
+	<meta	charset="utf-8"	/>
+	<meta	name="robots"	content="noodp,noydir" />
+	<meta	name="description" content="知友网	是一个以好友互动娱乐为主要功能的交友网站。围绕交友设计开发了包括美食点评、活动邀请、交友推荐、吃货配对、社交管家等线上线下互动功能，旨在促进网友间现实的互动和交流。"	/>
+	
+	<link	type="text/css"	rel="stylesheet" href="../../css/GfrxW__2wNR.css"	/>
+	<link	type="text/css"	rel="stylesheet" href="../../css/6JziMmtqgI9.css"	/>
+	<link	type="text/css"	rel="stylesheet" href="../../css/oKInZho4Fq0.css"	/>
+	<link	type="text/css"	rel="stylesheet" href="../../css/B2si-Z7yw-e.css"	/>
+	
+	<link	type="text/css"	rel="stylesheet" href="../../css/U0-0hkWO0Wp.css" />
+	<link	type="text/css"	rel="stylesheet" href="../../css/lp74PDkdILx.css" />
+	
+	<script type="text/javascript" language="javascript" src="../../js/jquery.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/jquery.autocomplete.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/facebox.js"></script>
+
+	
+	
+	
+	
+	
+	<title>推荐场所</title>
+	<link	rel="shortcut	icon"	href="http://static.ak.fbcdn.net/rsrc.php/yi/r/q9U99v3_saj.ico"	/>
+	<style>
+		.sidebarMode #chatFriendsOnline,.sidebarMode #fbDockChatBuddylistNub.fbNub,.sidebarMode	#fbChatErrorNub{display:none}
+		.sidebarMode #pageHead,.sidebarMode	#globalContainer{left:-90px;position:relative}
+		.sidebarMode .liquid #globalContainer{margin:0 90px}
+		.sidebarMode .fbDockWrapper{right:175px}
+		.sidebarMode .timelineLayout .fbTimelineSideColumn{margin-right:-400px}
+		.sidebarMode .fbTimelineSideAds,.sidebarMode .fbTimelineScrubber{margin-right:-400px}
+		.sidebarMode .fbTimelineStickyHeader{right:310px}
+		.sidebarMode #fbPhotoTheater .container{margin-left:-570px}
+	</style>
+</head>
+
+<body	class="fbx hasSlimHeader ff3 win Locale_zh_CN defaultScrollbar">
+	<input type="hidden" autocomplete="off"	id="post_form_id"	name="post_form_id"	value="c0a81f7ab46455dde1e203435e599680" />
+	<div id="FB_HiddenContainer" style="position:absolute; top:-10000px; width:0px;	height:0px;"></div>
+	<div id="blueBarHolder"	class="slim">
+		<div id="blueBar">
+			<div class="clearfix slimHeader" id="pageHead" role="banner">
+				<h1	id="pageLogo">
+					<a href="http://www.facebook.com/?ref=logo"	title="首页"></a>
+				</h1>
+				
+				<div id="jewelContainer">
+					<div class="fbJewel" id="fbRequestsJewel">
+						<a class="jewelButton" rel="toggle"	name="requests"	data-target="fbRequestsFlyout" data-gt="&#123;&quot;ua_id&quot;:&quot;jewel:requests&quot;&#125;">
+							<span	class="jewelCount" id="requestsCountWrapper">
+								<span	id="requestsCountValue">0</span>
+							</span>
+						</a>
+					</div>
+					<div class="fbJewel" id="fbMessagesJewel">
+						<a class="jewelButton" rel="toggle"	name="messages"	data-target="fbMessagesFlyout" data-gt="&#123;&quot;ua_id&quot;:&quot;jewel:messages&quot;&#125;">
+							<span	class="jewelCount" id="messagesCountWrapper">
+								<span	id="messagesCountValue">0</span>
+							</span>
+						</a>
+					</div>
+					<div class="fbJewel" id="fbNotificationsJewel">
+						<a class="jewelButton" rel="toggle"	name="notifications" onclick="return run_with(this,	[&quot;min-notifications-jewel&quot;], function()	&#123;MinNotifications.bootstrap(this)&#125;);"	data-target="fbNotificationsFlyout"	data-gt="&#123;&quot;ua_id&quot;:&quot;jewel:notifications&quot;&#125;">
+							<span	class="jewelCount" id="notificationsCountWrapper">
+								<span	id="notificationsCountValue">0</span>
+							</span>
+						</a>
+					</div>
+					<div class="fbJewelCaseFlyoutContainer"	id="jewelFlyoutContainer">
+						<div class="fbJewelFlyout	toggleTargetClosed"	id="fbRequestsFlyout">
+							<div class="uiHeader uiHeaderBottomBorder	jewelHeader">
+								<div class="clearfix uiHeaderTop">
+									<a class="uiHeaderActions	rfloat"	href="http://www.facebook.com/?sk=ff">搜索朋友</a>
+									<div>
+										<h3	class="uiHeaderTitle">朋友请求</h3>
+									</div>
+								</div>
+							</div>
+							<ul	class="jewelItemList"	id="fbRequestsList">
+								<li	id="fbRequestsList_loading_indicator">
+									<img class="jewelLoading img"	src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif"	alt="" width="16"	height="11"	/>
+								</li>
+							</ul>
+						</div>
+						<div class="fbJewelFlyout	toggleTargetClosed"	id="fbMessagesFlyout">
+							<div class="uiHeader uiHeaderBottomBorder	jewelHeader">
+								<div class="clearfix uiHeaderTop">
+									<a class="uiHeaderActions	rfloat"	href="/ajax/messaging/composer.php"	onclick="window.Toggler	&amp;&amp; Toggler.hide();"	accesskey="m"	rel="dialog">发送新信息</a>
+									<div>
+										<h3	class="uiHeaderTitle">站内信息</h3>
+									</div>
+								</div>
+							</div>
+							<ul	class="jewelItemList jewelHighlight" id="fbMessagesItemList">
+								<li	id="fbMessagesItemList_loading_indicator">
+									<img class="jewelLoading img"	src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif"	alt="" width="16"	height="11"	/>
+								</li>
+							</ul>
+							<div class="jewelFooter">
+								<a class="seeMore" href="http://www.facebook.com/messages/?ref=mb">
+									<span>查看所有信息</span>
+									<span	class="seeMoreCount	fss	fwn	fcg" id="jewelOuterInboxCount">
+										<span	id="jewelInnerInboxCount">0</span> 条未读信息
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="fbJewelFlyout	toggleTargetClosed"	id="fbNotificationsFlyout">
+							<div class="uiHeader uiHeaderBottomBorder	jewelHeader">
+								<div class="clearfix uiHeaderTop">
+									<div><h3 class="uiHeaderTitle">通知</h3></div>
+								</div>
+							</div>
+							<ul	class="jewelItemList jewelHighlight" id="fbNotificationsList"	data-gt="&#123;&quot;ref&quot;:&quot;notif_jewel&quot;&#125;">
+								<li	id="fbNotificationsList_loading_indicator">
+									<img class="jewelLoading img"	src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif"	alt="" width="16"	height="11"	/>
+								</li>
+							</ul>
+							<div class="jewelFooter">
+								<a class="seeMore" href="http://www.facebook.com/notifications">
+									<span>查看所有通知</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="clearfix"	id="headNav">
+					<div class="lfloat">
+						<form	method="get" id="navSearch"	name="navSearch" action="http://www.facebook.com/search/results.php" role="search" onsubmit="return	Event.__inlineSubmit(this,event)">
+							<div class="uiTypeahead" id="upob5b_1">
+								<div class="wrap">
+									<input type="hidden" autocomplete="off"	class="hiddenInput"	/>
+									<div class="innerWrap">
+										<span	class="uiSearchInput textInput">
+											<span>
+												<input type="text" class="inputtext	DOMControl_placeholder"	maxlength="100"	accesskey="/"	id="q" name="q"	onclick="var q = $(&quot;q&quot;);if (q.value	== q.getAttribute(&quot;placeholder&quot;))	&#123;q.focus(); return	false;&#125;"	placeholder="搜索" autocomplete="off"	tabindex=""	onfocus="Bootloader.loadComponents(&quot;SearchBootloader&quot;, function()	&#123;$(&quot;search_first_focus&quot;).value	=	$(&quot;search_first_focus&quot;).value	|| +new	Date();	;JSCC.get(&#039;j4ec31fa49ef5616409038223&#039;).init([&quot;searchRecorderBasic&quot;,&quot;showLoadingIndicator&quot;,&quot;initFilters&quot;]);;;&#125;);"	spellcheck="false" value="搜索"	title="搜索" />
+												<button	type="submit"	onclick="var q = $(&quot;q&quot;);if (q.value	== q.getAttribute(&quot;placeholder&quot;))	&#123;q.focus(); return	false;&#125;"	title="搜索">
+													<span	class="hidden_elem">搜索</span>
+												</button>
+											</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<input type="hidden" name="init" id="init" value="quick" />
+							<input type="hidden" name="tas"	class="search_sid_input" value="search_preload"	/>
+							<input type="hidden" name="search_first_focus" id="search_first_focus" value=""	/>
+						</form>
+					</div>
+					<div class="rfloat">
+						<ul	id="pageNav" role="navigation">
+							<li	class="topNavLink	tinyman">
+								<a href="http://www.facebook.com/profile.php?id=1438697558&amp;ref=tn_tnmn"	title="个人主页">
+									<img class="uiProfilePhoto headerTinymanPhoto	uiProfilePhotoLarge	img" src="../../images/370142_1438697558_1584603112_q.jpg" alt=""	/>
+									<span	class="headerTinymanName">ま	か</span>
+								</a>
+							</li>
+							<li	class="topNavLink	middleLink">
+								<a href="http://www.facebook.com/?sk=ff">搜索朋友</a>
+							</li>
+							<li	class="topNavLink	middleLink">
+								<a href="http://www.facebook.com/?ref=tn_tnmn">首页</a>
+							</li>
+							<li	id="navAccount"	class="topNavLink">
+								<a id="navAccountLink" href="http://www.facebook.com/editaccount.php?ref=mb&amp;drop"	rel="toggle" role="button" aria-haspopup="1">
+									<div class="menuPulldown"></div>
+								</a>
+								<ul	class="navigation" role="navigation">
+									<li><a class="navSubmenu"	href="http://www.facebook.com/editaccount.php?ref=mb&amp;drop" accesskey="6">帐户设置</a></li>
+									<li><a class="navSubmenu"	href="http://www.facebook.com/settings/?tab=privacy&amp;ref=mb"	accesskey="7">隐私设置</a></li>
+									<li>
+										<form	id="logout_form" method="post" action="/logout.php"	onsubmit="return Event.__inlineSubmit(this,event)">
+											<input type="hidden" autocomplete="off"	name="post_form_id"	value="c0a81f7ab46455dde1e203435e599680" />
+											<input type="hidden" name="fb_dtsg"	value="AQAkl6kl" autocomplete="off"	/>
+											<input type="hidden" autocomplete="off"	name="ref" value="mb"	/>
+											<input type="hidden" autocomplete="off"	name="h" value="d36ba5fa7376c19311d9436bf72eebd6"	/>
+											<label class="uiLinkButton logoutButton	navSubmenu">
+												<input type="submit" value="退出"	/>
+											</label>
+										</form>
+									</li>
+									<li	class="menuDivider"></li>
+									<li>
+										<a class="navSubmenu"	href="http://www.facebook.com/help/?ref=drop"	id="navHelpCenter">
+											<div class="clearfix">
+												<div class="lfloat">帮助中心</div>
+												<img class="rfloat uiLoadingIndicatorAsync img"	src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif"	alt="" width="16"	height="11"	/>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="globalContainer">
+		<div id="content"	class="fb_content	clearfix">
+			<div id="toolbarContainer"></div>
+			<div id="mainContainer">
+				
+				<div id="leftColContainer">
+				</div>
+				
+				
+				<div class="hasRightCol" id="contentCol" style="min-height:	100px;"	data-referrer="contentCol">
+					<div id="headerArea"></div>
+					
+					<div role="complementary" id="rightCol">
+						<div data-referrer="pagelet_friendlist_sidecol" id="pagelet_friendlist_sidecol">
+							<div id="friend_list_sidecol">
+								<div id="friend_list_members_box">
+									<div id="u29f2l_22" class="fbFriendListMemberBox empty">
+										<div class="uiHeader uiHeaderTopAndBottomBorder uiHeaderSection fbFriendListMemberBoxTitle">
+											<div class="clearfix uiHeaderTop">
+												<div><h3 class="uiHeaderTitle">此列表中的朋友</h3></div>
+											</div>
+										</div>
+										<div class="phs">
+											<div class="fbFriendListMemberBoxContent">
+												<div class="pvm fbFriendListNoMembersMessage fcg">该列表目前没有成员。</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="friendListTypeaheadBox">
+									<i class="plusIcon img sp_7ujetv sx_f8abc9"></i>
+									<div id="u29f2l_24" class="uiTypeahead mbl mls friendListAddTypeahead">
+										<div class="wrap">
+											<input type="hidden" class="hiddenInput" autocomplete="off"/>
+											<div class="innerWrap">
+												<input type="text" title="将朋友添至此列表中" value="将朋友添至此列表中" spellcheck="false" onfocus="return wait_for_load(this, event, function() {;JSCC.get('j4eccac2eb2ad70f319243753').init([]);;});" autocomplete="off" placeholder="将朋友添至此列表中" class="inputtext textInput DOMControl_placeholder"/>
+											
+											</div>
+										</div>
+									</div>
+								</div>
+								<div data-referrer="pagelet_friend_list_suggestions" id="pagelet_friend_list_suggestions">
+									<div data-referrer="pagelet_ads_when_no_friend_list_suggestions" id="pagelet_ads_when_no_friend_list_suggestions">
+										<div class="ego_column">
+											<div class="ego_section">
+												<div class="uiHeader uiHeaderTopAndBottomBorder mbs uiSideHeader">
+													<div class="clearfix uiHeaderTop">
+														<a href="/ads/adboard/?type=normal" class="uiHeaderActions rfloat">显示全部</a>
+														<div>
+															<h4 class="uiHeaderTitle">赞助链接</h4>
+														</div>
+													</div>
+												</div>
+												<div class="phs">
+													<div class="ego_unit">
+														<div id="6003134108645-id_4eccac2ee83726917895597" class="fbEmu fbEmuBlock fbEmuEgo">
+															<div id="u29f2l_25" class="uiSelector inlineBlock emu_x emuEventfad_hide fbEmuLink uiSelectorRight">
+																<div class="wrap">
+																	<a onmouseover="window.Selector &amp;&amp; onloadRegister(Selector.loadMenu.curry($('u29f2l_25')));" aria-haspopup="1" role="button" href="#" ajaxify="/ajax/emu/end.php?eid=AQL3oL3riYSZ_4NmMv09ACm9ZkyVB2CpLcBgB3D0Oud7u-1rMCNzu9cdoTyhFMyDxciVd4xCAbdbAumhokVI240R2GtenSX8jBz69KvyVQk7zWdfwoVs7fPoX30m9MCrnX9Csbxv5pJ30ZluCM1pFaDnIgov_t_dG-u4GQUbDMCCgw3FWbLUKIfiMqwemH-PLE3_K_z3E9NN7_yKzRlg4YWa9u_-GDeaEzs-LpTR3SXA8YWGGgP-0GtXmk-EYG2Lx44a_pA34R_sUol62-sIjL0toBBe90YAaEE9oUxNRJpui5cE6gGBd1NXFsMPv_rGtP8AMy_YAIqTvSwhnM2mgo00yz6u5T6MwncXMd5CiAMW-O3Azi9Tzg_PzShlP8dI-_9cPfncd1cCCH28NGGdvNBaar6scNDaqVDJTRIEATWPsDCfSnGZxhP84JwG_-V2y8A56HjqErHLHqHMNZYh83tY6dkMcfJIkT26srewu3RP2bDF59VEz0NE6h5DJPEJM4fYq2L1gLgHzKMQwFpmTL2VViXoo0d-2PbmI-ywXTRRRJp46_vuvqk55M6btlMFRz3bDPMdEYaOTHDQSojLxTUCpYuI3XxgvG0ithzgpuTaujsw5EVFXboFBGLkRIfNJZuExhtmBW5fn2aRibOwQ3UzPVOrfACz68OX-8U2g2FRdRrmASd4FRr9yQf51a1DPhs8uM59TM89EWXutpkjQQNYkURuyfUfjgG-1XJNcTWqwm_d4AMMcu2fgcyD-xGVrmVKXma27x7BWsVhc23Z1FfsmOVNJEo0ozseBXwyxqPs_xqIVyFtmLdZu7F2eQ9mJu93Ycke8rJPXXKfKg9h6f3H&amp;f=0&amp;ui=6003134108645-id_4eccac2ee83726917895597&amp;en=fad_hide&amp;ed=true&amp;a=1" rel="toggle" title="举报这则广告" class="uiSelectorButton uiCloseButton uiCloseButtonSmall"/>
+																</div>
+															</div>
+															<div class="title">
+																<a onmousedown='var attribute = "href";var ms = this.getAttribute(attribute).match(/([\?|&amp;]f=)([^&amp;]*)/);if (ms) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]f=[^&amp;]*/,ms[1] + 0)); };var attribute = "href";var sig = this.getAttribute(attribute).match(/([\?|&amp;]sig=)([^&amp;]*)/);if (sig) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]sig=[^&amp;]*/, sig[1]+(Math.floor(Math.random()*65535)+65536))); };' target="_blank" href="/ajax/emu/end.php?eid=AQL3oL3riYSZ_4NmMv09ACm9ZkyVB2CpLcBgB3D0Oud7u-1rMCNzu9cdoTyhFMyDxciVd4xCAbdbAumhokVI240R2GtenSX8jBz69KvyVQk7zWdfwoVs7fPoX30m9MCrnX9Csbxv5pJ30ZluCM1pFaDnIgov_t_dG-u4GQUbDMCCgw3FWbLUKIfiMqwemH-PLE3_K_z3E9NN7_yKzRlg4YWa9u_-GDeaEzs-LpTR3SXA8YWGGgP-0GtXmk-EYG2Lx44a_pA34R_sUol62-sIjL0toBBe90YAaEE9oUxNRJpui5cE6gGBd1NXFsMPv_rGtP8AMy_YAIqTvSwhnM2mgo00yz6u5T6MwncXMd5CiAMW-O3Azi9Tzg_PzShlP8dI-_9cPfncd1cCCH28NGGdvNBaar6scNDaqVDJTRIEATWPsDCfSnGZxhP84JwG_-V2y8A56HjqErHLHqHMNZYh83tY6dkMcfJIkT26srewu3RP2bDF59VEz0NE6h5DJPEJM4fYq2L1gLgHzKMQwFpmTL2VViXoo0d-2PbmI-ywXTRRRJp46_vuvqk55M6btlMFRz3bDPMdEYaOTHDQSojLxTUCpYuI3XxgvG0ithzgpuTaujsw5EVFXboFBGLkRIfNJZuExhtmBW5fn2aRibOwQ3UzPVOrfACz68OX-8U2g2FRdRrmASd4FRr9yQf51a1DPhs8uM59TM89EWXutpkjQQNYkURuyfUfjgG-1XJNcTWqwm_d4AMMcu2fgcyD-xGVrmVKXma27x7BWsVhc23Z1FfsmOVNJEo0ozseBXwyxqPs_xqIVyFtmLdZu7F2eQ9mJu93Ycke8rJPXXKfKg9h6f3H&amp;f=1&amp;ui=6003134108645-id_4eccac2ee83726917895597&amp;en=1&amp;a=0&amp;sig=65571" class="forceLTR emuEvent1 fbEmuLink">香港"18區"交友網</a>
+															</div>
+															<div class="adInfo">
+																<a onmousedown='var attribute = "href";var ms = this.getAttribute(attribute).match(/([\?|&amp;]f=)([^&amp;]*)/);if (ms) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]f=[^&amp;]*/,ms[1] + 0)); };var attribute = "href";var sig = this.getAttribute(attribute).match(/([\?|&amp;]sig=)([^&amp;]*)/);if (sig) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]sig=[^&amp;]*/, sig[1]+(Math.floor(Math.random()*65535)+65536))); };' target="_blank" href="/ajax/emu/end.php?eid=AQL3oL3riYSZ_4NmMv09ACm9ZkyVB2CpLcBgB3D0Oud7u-1rMCNzu9cdoTyhFMyDxciVd4xCAbdbAumhokVI240R2GtenSX8jBz69KvyVQk7zWdfwoVs7fPoX30m9MCrnX9Csbxv5pJ30ZluCM1pFaDnIgov_t_dG-u4GQUbDMCCgw3FWbLUKIfiMqwemH-PLE3_K_z3E9NN7_yKzRlg4YWa9u_-GDeaEzs-LpTR3SXA8YWGGgP-0GtXmk-EYG2Lx44a_pA34R_sUol62-sIjL0toBBe90YAaEE9oUxNRJpui5cE6gGBd1NXFsMPv_rGtP8AMy_YAIqTvSwhnM2mgo00yz6u5T6MwncXMd5CiAMW-O3Azi9Tzg_PzShlP8dI-_9cPfncd1cCCH28NGGdvNBaar6scNDaqVDJTRIEATWPsDCfSnGZxhP84JwG_-V2y8A56HjqErHLHqHMNZYh83tY6dkMcfJIkT26srewu3RP2bDF59VEz0NE6h5DJPEJM4fYq2L1gLgHzKMQwFpmTL2VViXoo0d-2PbmI-ywXTRRRJp46_vuvqk55M6btlMFRz3bDPMdEYaOTHDQSojLxTUCpYuI3XxgvG0ithzgpuTaujsw5EVFXboFBGLkRIfNJZuExhtmBW5fn2aRibOwQ3UzPVOrfACz68OX-8U2g2FRdRrmASd4FRr9yQf51a1DPhs8uM59TM89EWXutpkjQQNYkURuyfUfjgG-1XJNcTWqwm_d4AMMcu2fgcyD-xGVrmVKXma27x7BWsVhc23Z1FfsmOVNJEo0ozseBXwyxqPs_xqIVyFtmLdZu7F2eQ9mJu93Ycke8rJPXXKfKg9h6f3H&amp;f=1&amp;ui=6003134108645-id_4eccac2ee83726917895597&amp;en=1&amp;a=0&amp;sig=100342" class="identity emuEvent1 fbEmuLink"></a>
+															</div>
+															<div class="UIImageBlock clearfix image_body_block">
+																<a aria-hidden="true" tabindex="-1" onmousedown='var attribute = "href";var ms = this.getAttribute(attribute).match(/([\?|&amp;]f=)([^&amp;]*)/);if (ms) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]f=[^&amp;]*/,ms[1] + 0)); };var attribute = "href";var sig = this.getAttribute(attribute).match(/([\?|&amp;]sig=)([^&amp;]*)/);if (sig) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]sig=[^&amp;]*/, sig[1]+(Math.floor(Math.random()*65535)+65536))); };' target="_blank" href="/ajax/emu/end.php?eid=AQL3oL3riYSZ_4NmMv09ACm9ZkyVB2CpLcBgB3D0Oud7u-1rMCNzu9cdoTyhFMyDxciVd4xCAbdbAumhokVI240R2GtenSX8jBz69KvyVQk7zWdfwoVs7fPoX30m9MCrnX9Csbxv5pJ30ZluCM1pFaDnIgov_t_dG-u4GQUbDMCCgw3FWbLUKIfiMqwemH-PLE3_K_z3E9NN7_yKzRlg4YWa9u_-GDeaEzs-LpTR3SXA8YWGGgP-0GtXmk-EYG2Lx44a_pA34R_sUol62-sIjL0toBBe90YAaEE9oUxNRJpui5cE6gGBd1NXFsMPv_rGtP8AMy_YAIqTvSwhnM2mgo00yz6u5T6MwncXMd5CiAMW-O3Azi9Tzg_PzShlP8dI-_9cPfncd1cCCH28NGGdvNBaar6scNDaqVDJTRIEATWPsDCfSnGZxhP84JwG_-V2y8A56HjqErHLHqHMNZYh83tY6dkMcfJIkT26srewu3RP2bDF59VEz0NE6h5DJPEJM4fYq2L1gLgHzKMQwFpmTL2VViXoo0d-2PbmI-ywXTRRRJp46_vuvqk55M6btlMFRz3bDPMdEYaOTHDQSojLxTUCpYuI3XxgvG0ithzgpuTaujsw5EVFXboFBGLkRIfNJZuExhtmBW5fn2aRibOwQ3UzPVOrfACz68OX-8U2g2FRdRrmASd4FRr9yQf51a1DPhs8uM59TM89EWXutpkjQQNYkURuyfUfjgG-1XJNcTWqwm_d4AMMcu2fgcyD-xGVrmVKXma27x7BWsVhc23Z1FfsmOVNJEo0ozseBXwyxqPs_xqIVyFtmLdZu7F2eQ9mJu93Ycke8rJPXXKfKg9h6f3H&amp;f=1&amp;ui=6003134108645-id_4eccac2ee83726917895597&amp;en=1&amp;a=0&amp;sig=80853" class="emuEvent1 fbEmuLink image UIImageBlock_Image UIImageBlock_SMALL_Image">
+																	<img alt="" src="http://creative.ak.fbcdn.net/v41818/flyers/9/22/13094243841487255343_1_a8183fac.jpg" class="img"/>
+																</a>
+																<div class="UIImageBlock_Content UIImageBlock_SMALL_Content">
+																	<div class="body">
+																		<a onmousedown='var attribute = "href";var ms = this.getAttribute(attribute).match(/([\?|&amp;]f=)([^&amp;]*)/);if (ms) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]f=[^&amp;]*/,ms[1] + 0)); };var attribute = "href";var sig = this.getAttribute(attribute).match(/([\?|&amp;]sig=)([^&amp;]*)/);if (sig) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]sig=[^&amp;]*/, sig[1]+(Math.floor(Math.random()*65535)+65536))); };' target="_blank" href="/ajax/emu/end.php?eid=AQL3oL3riYSZ_4NmMv09ACm9ZkyVB2CpLcBgB3D0Oud7u-1rMCNzu9cdoTyhFMyDxciVd4xCAbdbAumhokVI240R2GtenSX8jBz69KvyVQk7zWdfwoVs7fPoX30m9MCrnX9Csbxv5pJ30ZluCM1pFaDnIgov_t_dG-u4GQUbDMCCgw3FWbLUKIfiMqwemH-PLE3_K_z3E9NN7_yKzRlg4YWa9u_-GDeaEzs-LpTR3SXA8YWGGgP-0GtXmk-EYG2Lx44a_pA34R_sUol62-sIjL0toBBe90YAaEE9oUxNRJpui5cE6gGBd1NXFsMPv_rGtP8AMy_YAIqTvSwhnM2mgo00yz6u5T6MwncXMd5CiAMW-O3Azi9Tzg_PzShlP8dI-_9cPfncd1cCCH28NGGdvNBaar6scNDaqVDJTRIEATWPsDCfSnGZxhP84JwG_-V2y8A56HjqErHLHqHMNZYh83tY6dkMcfJIkT26srewu3RP2bDF59VEz0NE6h5DJPEJM4fYq2L1gLgHzKMQwFpmTL2VViXoo0d-2PbmI-ywXTRRRJp46_vuvqk55M6btlMFRz3bDPMdEYaOTHDQSojLxTUCpYuI3XxgvG0ithzgpuTaujsw5EVFXboFBGLkRIfNJZuExhtmBW5fn2aRibOwQ3UzPVOrfACz68OX-8U2g2FRdRrmASd4FRr9yQf51a1DPhs8uM59TM89EWXutpkjQQNYkURuyfUfjgG-1XJNcTWqwm_d4AMMcu2fgcyD-xGVrmVKXma27x7BWsVhc23Z1FfsmOVNJEo0ozseBXwyxqPs_xqIVyFtmLdZu7F2eQ9mJu93Ycke8rJPXXKfKg9h6f3H&amp;f=1&amp;ui=6003134108645-id_4eccac2ee83726917895597&amp;en=1&amp;a=0&amp;sig=86131" class="forceLTR emuEvent1 fbEmuLink">
+																			認識, 在同區工作或居住的朋友, 銅鑼灣,旺角,北角,沙田,屯門,荃灣,黃大仙
+																		</a>
+																	</div>
+																</div>
+															</div>
+															<div class="inline">
+																<div class="action">
+																	<span class="fbEmuEmptyContext"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="fbEmuEgoUnit ego_unit">
+														<div id="6003665066312-id_4eccac2ee83954293955043" class="fbEmu fbEmuBlock fbEmuEgo">
+															<div id="u29f2l_26" class="uiSelector inlineBlock emu_x emuEventfad_hide fbEmuLink uiSelectorRight">
+																<div class="wrap">
+																	<a onmouseover="window.Selector &amp;&amp; onloadRegister(Selector.loadMenu.curry($('u29f2l_26')));" aria-haspopup="1" role="button" href="#" ajaxify="/ajax/emu/end.php?eid=AQIvQdyz9LLuSFgZHJtoZ9lb2NG3lkBpZfc270IsF-VVhd4nxBAnjovgzxRw29l-6yepxUrSj3Qu02Bd_yUVKSy4oc3xmgFm2-hfKDMUKSNx-Ljz7W6EJZQ0LhZxseElVcQEq4DdNI21XZ6mxWJRfu6OqCmcgN1-MylJH3_qd-d7DC71mwYwS49f7IwCnShD8srQuJ5f7qrYA6B68HDAreI-Lr7PmlA53Pl9W7FPFuNW7EE-M4X8h0IcufWVvL0yKxCiTWp6r_591_zC82S8fNTvYSwL7auc38bSPvMrk65KQyq5SlU35Lcvhfa9U_SmIXB43iHDzXq7EkNlWb1Vgi-5LjfWbtFWlveyggXxU7YMehfdIwNxu-SO6c_k8OgZRfdnd1VaF3Y4dzEYKUN0Kw_n9UcgQJIzJmjBttG38ZA9NA-5NNBtxHvSbBz43_6PbnV8r3bHt2TqE4FkGuHfJbuS5jS3V5zOKjaMThIdzXezXdcl0Jhv-TAQMky7ho4Dyl843RTbUpWTF2zBuIqh1U4ISbaaX_GUo3EuyCbp9ISJdkMtx3TOOnnFgASQnnFtHtPNqK2B6-vlrxet2bSE6f53-WGrWsq92w4RPxI8tCD2haufZuXpQfjYirXqC_xftjR1CiXhr7pcWwzZnZI5AHOXPy1Rjxq1_3ZlnibtKouBpNt6CYzPLQtW4_MOhV4LvMPpD8FUPdppZF14e2z6nT7JkprQj39G3l4RfjbmHMFL0Yku87thb0W2iKudyo37AyQY7NbQ3LZvO-dOS3TNe-TwctfS4-hHO3IiJDNfTsOyvtaPINl58lhvWWviogfHmgP-jMMq06hjb9Dl25laLvcI&amp;f=0&amp;ui=6003665066312-id_4eccac2ee83954293955043&amp;en=fad_hide&amp;ed=true&amp;a=1" rel="toggle" title="举报这则广告" class="uiSelectorButton uiCloseButton uiCloseButtonSmall"></a>
+																</div>
+															</div>
+															<div class="title">
+																<a onmousedown='var attribute = "href";var ms = this.getAttribute(attribute).match(/([\?|&amp;]f=)([^&amp;]*)/);if (ms) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]f=[^&amp;]*/,ms[1] + 0)); };var attribute = "href";var sig = this.getAttribute(attribute).match(/([\?|&amp;]sig=)([^&amp;]*)/);if (sig) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]sig=[^&amp;]*/, sig[1]+(Math.floor(Math.random()*65535)+65536))); };' target="_blank" href="/ajax/emu/end.php?eid=AQIvQdyz9LLuSFgZHJtoZ9lb2NG3lkBpZfc270IsF-VVhd4nxBAnjovgzxRw29l-6yepxUrSj3Qu02Bd_yUVKSy4oc3xmgFm2-hfKDMUKSNx-Ljz7W6EJZQ0LhZxseElVcQEq4DdNI21XZ6mxWJRfu6OqCmcgN1-MylJH3_qd-d7DC71mwYwS49f7IwCnShD8srQuJ5f7qrYA6B68HDAreI-Lr7PmlA53Pl9W7FPFuNW7EE-M4X8h0IcufWVvL0yKxCiTWp6r_591_zC82S8fNTvYSwL7auc38bSPvMrk65KQyq5SlU35Lcvhfa9U_SmIXB43iHDzXq7EkNlWb1Vgi-5LjfWbtFWlveyggXxU7YMehfdIwNxu-SO6c_k8OgZRfdnd1VaF3Y4dzEYKUN0Kw_n9UcgQJIzJmjBttG38ZA9NA-5NNBtxHvSbBz43_6PbnV8r3bHt2TqE4FkGuHfJbuS5jS3V5zOKjaMThIdzXezXdcl0Jhv-TAQMky7ho4Dyl843RTbUpWTF2zBuIqh1U4ISbaaX_GUo3EuyCbp9ISJdkMtx3TOOnnFgASQnnFtHtPNqK2B6-vlrxet2bSE6f53-WGrWsq92w4RPxI8tCD2haufZuXpQfjYirXqC_xftjR1CiXhr7pcWwzZnZI5AHOXPy1Rjxq1_3ZlnibtKouBpNt6CYzPLQtW4_MOhV4LvMPpD8FUPdppZF14e2z6nT7JkprQj39G3l4RfjbmHMFL0Yku87thb0W2iKudyo37AyQY7NbQ3LZvO-dOS3TNe-TwctfS4-hHO3IiJDNfTsOyvtaPINl58lhvWWviogfHmgP-jMMq06hjb9Dl25laLvcI&amp;f=1&amp;ui=6003665066312-id_4eccac2ee83954293955043&amp;en=1&amp;a=0&amp;sig=67900" class="forceLTR emuEvent1 fbEmuLink">【一球成名】新服再開！ </a>
+															</div>
+															<div class="adInfo">
+																<a onmousedown='var attribute = "href";var ms = this.getAttribute(attribute).match(/([\?|&amp;]f=)([^&amp;]*)/);if (ms) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]f=[^&amp;]*/,ms[1] + 0)); };var attribute = "href";var sig = this.getAttribute(attribute).match(/([\?|&amp;]sig=)([^&amp;]*)/);if (sig) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]sig=[^&amp;]*/, sig[1]+(Math.floor(Math.random()*65535)+65536))); };' target="_blank" href="/ajax/emu/end.php?eid=AQIvQdyz9LLuSFgZHJtoZ9lb2NG3lkBpZfc270IsF-VVhd4nxBAnjovgzxRw29l-6yepxUrSj3Qu02Bd_yUVKSy4oc3xmgFm2-hfKDMUKSNx-Ljz7W6EJZQ0LhZxseElVcQEq4DdNI21XZ6mxWJRfu6OqCmcgN1-MylJH3_qd-d7DC71mwYwS49f7IwCnShD8srQuJ5f7qrYA6B68HDAreI-Lr7PmlA53Pl9W7FPFuNW7EE-M4X8h0IcufWVvL0yKxCiTWp6r_591_zC82S8fNTvYSwL7auc38bSPvMrk65KQyq5SlU35Lcvhfa9U_SmIXB43iHDzXq7EkNlWb1Vgi-5LjfWbtFWlveyggXxU7YMehfdIwNxu-SO6c_k8OgZRfdnd1VaF3Y4dzEYKUN0Kw_n9UcgQJIzJmjBttG38ZA9NA-5NNBtxHvSbBz43_6PbnV8r3bHt2TqE4FkGuHfJbuS5jS3V5zOKjaMThIdzXezXdcl0Jhv-TAQMky7ho4Dyl843RTbUpWTF2zBuIqh1U4ISbaaX_GUo3EuyCbp9ISJdkMtx3TOOnnFgASQnnFtHtPNqK2B6-vlrxet2bSE6f53-WGrWsq92w4RPxI8tCD2haufZuXpQfjYirXqC_xftjR1CiXhr7pcWwzZnZI5AHOXPy1Rjxq1_3ZlnibtKouBpNt6CYzPLQtW4_MOhV4LvMPpD8FUPdppZF14e2z6nT7JkprQj39G3l4RfjbmHMFL0Yku87thb0W2iKudyo37AyQY7NbQ3LZvO-dOS3TNe-TwctfS4-hHO3IiJDNfTsOyvtaPINl58lhvWWviogfHmgP-jMMq06hjb9Dl25laLvcI&amp;f=1&amp;ui=6003665066312-id_4eccac2ee83954293955043&amp;en=1&amp;a=0&amp;sig=94469" class="identity emuEvent1 fbEmuLink"></a>
+															</div>
+															<div class="UIImageBlock clearfix image_body_block">
+																<a aria-hidden="true" tabindex="-1" onmousedown='var attribute = "href";var ms = this.getAttribute(attribute).match(/([\?|&amp;]f=)([^&amp;]*)/);if (ms) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]f=[^&amp;]*/,ms[1] + 0)); };var attribute = "href";var sig = this.getAttribute(attribute).match(/([\?|&amp;]sig=)([^&amp;]*)/);if (sig) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]sig=[^&amp;]*/, sig[1]+(Math.floor(Math.random()*65535)+65536))); };' target="_blank" href="/ajax/emu/end.php?eid=AQIvQdyz9LLuSFgZHJtoZ9lb2NG3lkBpZfc270IsF-VVhd4nxBAnjovgzxRw29l-6yepxUrSj3Qu02Bd_yUVKSy4oc3xmgFm2-hfKDMUKSNx-Ljz7W6EJZQ0LhZxseElVcQEq4DdNI21XZ6mxWJRfu6OqCmcgN1-MylJH3_qd-d7DC71mwYwS49f7IwCnShD8srQuJ5f7qrYA6B68HDAreI-Lr7PmlA53Pl9W7FPFuNW7EE-M4X8h0IcufWVvL0yKxCiTWp6r_591_zC82S8fNTvYSwL7auc38bSPvMrk65KQyq5SlU35Lcvhfa9U_SmIXB43iHDzXq7EkNlWb1Vgi-5LjfWbtFWlveyggXxU7YMehfdIwNxu-SO6c_k8OgZRfdnd1VaF3Y4dzEYKUN0Kw_n9UcgQJIzJmjBttG38ZA9NA-5NNBtxHvSbBz43_6PbnV8r3bHt2TqE4FkGuHfJbuS5jS3V5zOKjaMThIdzXezXdcl0Jhv-TAQMky7ho4Dyl843RTbUpWTF2zBuIqh1U4ISbaaX_GUo3EuyCbp9ISJdkMtx3TOOnnFgASQnnFtHtPNqK2B6-vlrxet2bSE6f53-WGrWsq92w4RPxI8tCD2haufZuXpQfjYirXqC_xftjR1CiXhr7pcWwzZnZI5AHOXPy1Rjxq1_3ZlnibtKouBpNt6CYzPLQtW4_MOhV4LvMPpD8FUPdppZF14e2z6nT7JkprQj39G3l4RfjbmHMFL0Yku87thb0W2iKudyo37AyQY7NbQ3LZvO-dOS3TNe-TwctfS4-hHO3IiJDNfTsOyvtaPINl58lhvWWviogfHmgP-jMMq06hjb9Dl25laLvcI&amp;f=1&amp;ui=6003665066312-id_4eccac2ee83954293955043&amp;en=1&amp;a=0&amp;sig=82977" class="emuEvent1 fbEmuLink image UIImageBlock_Image UIImageBlock_SMALL_Image">
+																	<img alt="" src="http://creative.ak.fbcdn.net/v41818/flyers/83/5/13218591481304180634_1_3e63f78e.jpg" class="img"/>
+																</a>
+																<div class="UIImageBlock_Content UIImageBlock_SMALL_Content">
+																	<div class="body">
+																		<a onmousedown='var attribute = "href";var ms = this.getAttribute(attribute).match(/([\?|&amp;]f=)([^&amp;]*)/);if (ms) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]f=[^&amp;]*/,ms[1] + 0)); };var attribute = "href";var sig = this.getAttribute(attribute).match(/([\?|&amp;]sig=)([^&amp;]*)/);if (sig) { this.setAttribute(attribute, this.getAttribute(attribute).replace(/[\?|&amp;]sig=[^&amp;]*/, sig[1]+(Math.floor(Math.random()*65535)+65536))); };' target="_blank" href="/ajax/emu/end.php?eid=AQIvQdyz9LLuSFgZHJtoZ9lb2NG3lkBpZfc270IsF-VVhd4nxBAnjovgzxRw29l-6yepxUrSj3Qu02Bd_yUVKSy4oc3xmgFm2-hfKDMUKSNx-Ljz7W6EJZQ0LhZxseElVcQEq4DdNI21XZ6mxWJRfu6OqCmcgN1-MylJH3_qd-d7DC71mwYwS49f7IwCnShD8srQuJ5f7qrYA6B68HDAreI-Lr7PmlA53Pl9W7FPFuNW7EE-M4X8h0IcufWVvL0yKxCiTWp6r_591_zC82S8fNTvYSwL7auc38bSPvMrk65KQyq5SlU35Lcvhfa9U_SmIXB43iHDzXq7EkNlWb1Vgi-5LjfWbtFWlveyggXxU7YMehfdIwNxu-SO6c_k8OgZRfdnd1VaF3Y4dzEYKUN0Kw_n9UcgQJIzJmjBttG38ZA9NA-5NNBtxHvSbBz43_6PbnV8r3bHt2TqE4FkGuHfJbuS5jS3V5zOKjaMThIdzXezXdcl0Jhv-TAQMky7ho4Dyl843RTbUpWTF2zBuIqh1U4ISbaaX_GUo3EuyCbp9ISJdkMtx3TOOnnFgASQnnFtHtPNqK2B6-vlrxet2bSE6f53-WGrWsq92w4RPxI8tCD2haufZuXpQfjYirXqC_xftjR1CiXhr7pcWwzZnZI5AHOXPy1Rjxq1_3ZlnibtKouBpNt6CYzPLQtW4_MOhV4LvMPpD8FUPdppZF14e2z6nT7JkprQj39G3l4RfjbmHMFL0Yku87thb0W2iKudyo37AyQY7NbQ3LZvO-dOS3TNe-TwctfS4-hHO3IiJDNfTsOyvtaPINl58lhvWWviogfHmgP-jMMq06hjb9Dl25laLvcI&amp;f=1&amp;ui=6003665066312-id_4eccac2ee83954293955043&amp;en=1&amp;a=0&amp;sig=89108" class="forceLTR emuEvent1 fbEmuLink">ＧＯＡＬ！！！！！！ＧＯＡＬ！！！！！！ＧＯＡＬ！！！！！！ＧＯＡＬ！！！！！！ＧＯＡＬ！！！！！！</a>
+																	</div>
+																</div>
+															</div>
+															<div class="inline">
+																<div class="action">
+																	<span class="fbEmuEmptyContext"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<span id="egoRefreshAds"></span>
+										<span>
+											<span class="muffin_tracking_pixel_start"></span>
+											<iframe height="0" frameborder="0" width="0" scrolling="no" class="fbEmuTracking" src="/ai.php?aed=AQIUtLAsZ2TQNTe7Le7B4dUWqiN5fCHUZvPbqyCTx-kZTrxaWNNPvc8RSMv8ZQOfRWJl0ohwbo9Uz_aF2cYOCkd6u71xP1VJGhH-5zzFwFPDWSCnB-GMpQyPlHUCu6x9zz5QCJRwri-U18aPoaGwaiPOldVchK-Iq5HYboABg3vXJWDYEEhWY6SmyuXDJETdJeQedZyfHT9sKFoBDMvgqZDqrjc9Su42rzBwQHxRDrzyTCo5xJ9_k-XM5TynKvmjXMaoAA1GqydmeRa9SqKX3g-vani4dF03jYEkD66N2O1Pl2pGXvH7-aXQ6AIeJi2AvMLwd3Hp51p2mQYus2V-0PstActpFZ3vZ2rXB5KFPhTsWk7giEOl0Ay_xMBOc6WKQdcEQssuplvxYAGY0Cmf36FwpfTHEuX9BPcdVkDeIGSMgxkr77BbJnQ-EfPVbFHv45T6jp4cjhhhwfHjtqJefWRHe7OtjBm_-zlZftS02yndoPG70AHRhdFDjykt4leUB8eGtev1tBM_iY7VOjIzppC9Foiaq4oqf9xYZ-DpIqPgm3EwWJQqqIsikwDCcOCLNvwFeKTnCjzaUAxgsngoBoEFVGv6F51vVWOa1CHNRKQubahmgp45vZz38AUdF2E_hUie0NCFxoYTNvmI9XoiL9r0C8GQ6Le62mvpjYc9kZVsxvnYCuMbCWTFTCA77iR9eFb_f9bVnCL0f3bdb3xwKO0zULc0-2IQHZOu6iGuZ0KoWSFYOGvGLUelKrR2O4XUUB06O_q_TXBmOOTp3nba9xnMRDfGEOO2qzH1K4SGL3dNpX7R2xvdpWXfeMbNSaLiPwk"></iframe>
+											<span class="muffin_tracking_pixel_end"></span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+					<div role="main" id="contentArea">
+					  <div id="reqs_standard_status">
+					    <div style="display: none;" class="UIMessageBox UIMessageBoxStatus" id="standard_status">
+					      <h2 class="main_message"> </h2>
+					      <p class="sub_message"> </p>
+					    </div>
+					  </div>
+					  <input type="hidden" value="b50e3113c7e3f36cf692cf0f46669ff2" name="post_form_id" id="post_form_id" autocomplete="off"/>
+					  <div class="uiHeader uiHeaderTopAndBottomBorder mbm uiHeaderSection">
+					    <div class="clearfix uiHeaderTop">
+					      <div>
+					        <h3 class="uiHeaderTitle">推荐场所</h3>
+					      </div>
+					    </div>
+					  </div>
+					  <div class="fbRequestList">
+					    <ul class="uiList">
+					      <li id="100003206989957_1_req" class="objectListItem uiListItem uiListLight uiListVerticalItemBorder">
+					        <div class="UIImageBlock clearfix">
+					        	<a tabindex="-1" href="http://www.facebook.com/profile.php?id=100003206989957" class="UIImageBlock_Image UIImageBlock_SMALL_Image">
+						          <div class="uiScaledImageContainer uiProfilePhotoHuge">
+						          	<img alt="" style="left: -29.37%;" src="../../images/mingzhu.jpg" class="img"/>
+						          </div>
+					          </a>
+					          <div class="requestStatus UIImageBlock_Content UIImageBlock_SMALL_Content" id="100003206989957_1_req_status">
+					            <div class="clearfix">
+					              <div class="rfloat">
+					                <div id="100003206989957_1_req_aux" class="auxiliary">
+					                  <form onsubmit="return Event.__inlineSubmit(this,event)" method="post" action="/ajax/reqs.php" rel="async">
+					                    <input type="hidden" value="b50e3113c7e3f36cf692cf0f46669ff2" name="post_form_id" autocomplete="off"/>
+					                    <div class="actions">
+					                      <label for="ul7tes_1" class="uiButton uiButtonConfirm">
+					                      	<input type="submit" id="ul7tes_1" name="actions[accept]" value="选择"/>
+					                      </label>
+					                      <label for="ul7tes_2" class="uiButton">
+					                      	<input type="submit" id="ul7tes_2" title="去看看" name="actions[hide]" value="去看看"/>
+					                      </label>
+					                    </div>
+					                  </form>
+					                </div>
+					              </div>
+					              <div>
+					                <div>
+					                	<span class="title fsl fwb fcb"><a href="http://www.facebook.com/profile.php?id=100003206989957">东方明珠</a></span>
+					                </div>
+					                <div class="networkContextWrapper"><br />
+					                	已有<font color="red">1282</font>人选择<br />
+					                	地址：延平路98号<br />
+					                	简介：旋转餐厅，让您享受巴黎的浪漫，感受中国的魅力。
+					                </div>
+					              </div>
+					            </div>
+					            <div class="fsm fwn fcg"></div>
+					          </div>
+					        </div>
+					      </li>
+					      <li class="uiListItem uiListLight uiListVerticalItemBorder">
+					        <div class="pam hidden_elem uiBoxLightblue">没有新请求</div>
+					      </li>
+					    </ul>
+					  </div>
+
+					</div>
+					
+					<div id="bottomContent"></div>
+				</div>
+			</div>
+		</div>
+			
+		<div id="pageFooter" data-referrer="page_footer">
+			<div id="contentCurve"></div>
+			<div class="clearfix"	id="footerContainer">
+				<div class="mrl	lfloat"	role="contentinfo">
+					<div class="fsm	fwn	fcg">
+						<span> Facebook	?	2011</span>
+						·	<a rel="dialog"	href="/ajax/intl/language_dialog.php?uri=http%3A%2F%2Fwww.facebook.com%2F" title="更换语言">中文(简体)</a>
+					</div>
+				</div>
+				<div class="navigation fsm fwn fcg"	role="navigation">
+					<a href="http://www.facebook.com/facebook" accesskey="8" title="阅读我们的博客，在资源中心里探索，同时寻找属于你的工作机会。">关于</a>
+					·	<a href="http://www.facebook.com/campaign/landing.php?placement=pf&amp;campaign_id=402047449186&amp;extra_1=auto"	title="在 Facebook	上做广告。">做广告</a>
+					·	<a href="http://www.facebook.com/pages/create.php?ref_type=sitefooter" title="创建专页">创建专页</a>
+					·	<a href="http://developers.facebook.com/?ref=pf" title="在我们的平台上开发。">开发人员</a>
+					·	<a href="http://www.facebook.com/careers/?ref=pf"	title="请把你的下一个工作机会瞄准我们这个最优秀的公司。">招聘</a>
+					·	<a href="http://www.facebook.com/privacy/explanation"	title="了解	Facebook 和你的隐私权。">隐私政策</a>
+					·	<a href="http://www.facebook.com/terms.php?ref=pf" accesskey="9" title="查看我们的服务条款。">条款</a>
+					·	<a href="http://www.facebook.com/help/?ref=pf" accesskey="0" title="访问我们的帮助中心。">帮助中心</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>
