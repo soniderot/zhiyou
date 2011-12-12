@@ -1,4 +1,8 @@
-﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<div class="hidden_elem" id="headerArea"></div>
+          <div role="complementary" id="rightCol">   </div>
+          <div role="main" id="contentArea">
+            <div data-referrer="pagelet_titan" id="pagelet_titan">
               <div id="MessagingDashboard">
                 <div id="MessagingFrame" class="clearfix">
                   <div class="hidden_elem"></div>
@@ -101,4 +105,6 @@
                   </div>
                  </div>
               </div>
+            </div>
+          </div>
           
