@@ -1,4 +1,8 @@
-﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<div class="hidden_elem" id="headerArea"></div>
+          <div role="complementary" id="rightCol">   </div>
+          <div role="main" id="contentArea">
+            <div data-referrer="pagelet_titan" id="pagelet_titan">
               <div id="MessagingDashboard">
                 <div id="MessagingFrame" class="clearfix">
                   <div class="hidden_elem"></div>
@@ -9,7 +13,7 @@
                       </div>
                       <div>
                         <h2 class="uiHeaderTitle">
-                          <i class="uiHeaderImage img sp_1md9rt sx_73fc1d"></i>请求
+                          <i class="uiHeaderImage img sp_7gl7wd sx_0b0f8c"></i>请求
                         </h2>
                       </div>
                     </div>
@@ -67,4 +71,6 @@
                   </div>
                  </div>
               </div>
+            </div>
+          </div>
           
