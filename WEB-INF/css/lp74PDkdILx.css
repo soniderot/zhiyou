@@ -24,7 +24,7 @@ border-right-width:0;
 cursor:pointer;
 }
 .uiDatepicker .dateBox .textField {
-background:#FFFFFF url(http://static.ak.fbcdn.net/rsrc.php/v1/yA/r/saFg5U_7LMd.png) no-repeat scroll right 50%;
+background:#FFFFFF url(../images/saFg5U_7LMd.png) no-repeat scroll right 50%;
 border:0 none;
 color:#3B5998;
 width:95px;
@@ -100,30 +100,115 @@ position:relative;
 overflow:hidden;
 position:relative;
 }
-#reg_form_box .editor {
-margin:0 0 7px;
-}
-#reg_box #reg div.large_form td.label {
-font-size:14px;
-padding-right:3px;
-width:105px;
-}
-#reg_box .label {
-color:#1D2A5B;
-padding-right:3px;
-text-align:right;
-width:90px;
-}
-#reg_box div.large_form div.field_container input {
-font-size:17px;
-padding:6px;
-width:250px;
-}
 .DOMControl_placeholder {
 color:#777777;
 }
-#reg_box div.large_form td.label {
-font-size:14px;
-padding-right:3px;
-width:105px;
+.requesttext {
+width:200px;
+}
+
+.sp_9bp6bo {
+background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yP/r/1VzOGqFg-DH.png);
+background-repeat:no-repeat;
+display:inline-block;
+height:16px;
+width:16px;
+}
+.sx_35b899 {
+background-position:-11px -221px;
+height:14px;
+width:11px;
+}
+.event_upload_image {
+width:179px;
+}
+.event_upload_image {
+width:179px;
+}
+
+.grayArea {
+border-top:1px solid #B3B3B3;
+min-height:253px;
+}
+.eventInviteLayout .fullWidth {
+width:85%;
+}
+.profileBrowserDialog .fbProfileBrowserResult {
+height:353px;
+overflow-y:auto;
+position:relative;
+}
+.profileBrowserDialog .filterBox {
+border-bottom:1px solid #CCCCCC;
+border-top:medium none;
+}
+.profileBrowserDialog .fbProfileBrowserListContainer li:first-child {
+border-top:medium none;
+}
+.profileBrowserDialog .listView {
+height:353px;
+}
+.threeColumns .multiColumnCheckable {
+width:173px;
+}
+.multiColumnCheckable {
+float:left;
+margin:5px 0 0 5px;
+overflow:hidden;
+width:262px;
+}
+.selectedCheckable, .selectedCheckable .anchor:hover {
+background:#E3E7F1 none repeat scroll 0 0;
+}
+.multiColumnCheckable.selectedCheckable .anchor {
+background-color:#D8DFEA;
+border-color:#C3CCE1;
+}
+.threeColumns .multiColumnCheckable .anchor {
+padding:2px;
+}
+.multiColumnCheckable .anchor {
+border-color:#FFFFFF;
+border-style:solid;
+border-width:1px 0;
+display:block;
+outline-color:-moz-use-text-color;
+outline-style:none;
+outline-width:medium;
+padding:6px;
+}
+a {
+color:#3B5998;
+cursor:pointer;
+outline-style:none;
+text-decoration:none;
+}
+.multiColumnCheckable .anchor {
+border-style:solid;
+}
+.threeColumns .multiColumnCheckable .photo {
+height:30px;
+margin-right:5px;
+width:30px;
+}
+.UIImageBlock_Image {
+float:left;
+margin-right:5px;
+}
+img {
+border:0 none;
+}
+.threeColumns .multiColumnCheckable .checkbox {
+margin:12px 6px 0;
+}
+.multiColumnCheckable .checkbox {
+float:left;
+margin:23px 8px 0 6px;
+}
+.multiColumnCheckable.selectedCheckable .anchor {
+background-color:#D8DFEA;
+border-color:#C3CCE1;
+}
+.threeColumns .multiColumnCheckable .content {
+height:29px;
 }
