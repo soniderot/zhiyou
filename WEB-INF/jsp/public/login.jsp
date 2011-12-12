@@ -40,7 +40,7 @@
           </div>
           <div class="phl ptm uiInterstitialContent">
             <div class="login_form_container">
-              <s:form action="/usr/login.jhtml" method="post" id="login_form" onsubmit="return Event.__inlineSubmit(this,event)">
+              <s:form action="/usr/login.jhtml" method="post" id="login_form">
               
                 <input type="hidden" name="charset_test" value="&euro;,&acute;,€,′,水,Д,?" />
                 <input type="hidden" name="lsd" value="_9Sn9" autocomplete="off" />

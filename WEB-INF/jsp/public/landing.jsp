@@ -1,11 +1,12 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 
 <!DOCTYPE html>
-<html lang="zh" id="facebook">
+<html id="facebook">
 <head>
-
+  <%@page contentType="textml;charset=utf-8" pageEncoding="utf-8"%>
+  <meta name="robots" content="noodp,noydir" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <%@ include file="/WEB-INF/jsp/common/css.jsp"%>
-
 </head>
 
 <body class="fbIndex UIPage_LoggedOut ff3 win Locale_zh_CN">
@@ -17,7 +18,7 @@
           <a class="lfloat" href="/" title="转到Facebook首页"><img class="fb_logo img" src="#" alt="Facebook 商标" width="170" height="36" /></a>
           <div class="rfloat">
             <div class="menu_login_container">
-              <form method="POST" action="/usr/login.jhtml" id="login_form" onsubmit="return Event.__inlineSubmit(this,event)">
+              <form method="POST" action="usr/login.jhtml" id="login_form">
                 <input type="hidden" name="lsd" value="Y0F8N" autocomplete="off" />
                 <input type="hidden" autocomplete="off" id="locale" name="locale" value="zh_CN" />
                 <table cellspacing="0">
