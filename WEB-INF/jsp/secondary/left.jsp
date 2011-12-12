@@ -1,4 +1,4 @@
-﻿<div id="leftCol">
+<div id="leftCol">
 					  <div data-referrer="pagelet_left_column" id="pagelet_left_column">
 					    <div data-referrer="pagelet_profile_picture" id="pagelet_profile_picture">
 					      <div class="profile-picture">

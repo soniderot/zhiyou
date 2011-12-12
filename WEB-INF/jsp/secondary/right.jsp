@@ -1,4 +1,4 @@
-﻿<div id="rightCol" role="complementary">
+<div id="rightCol" role="complementary">
 				    <div id="pagelet_right_sidebar" data-referrer="pagelet_right_sidebar">
 				      <div id="pagelet_contextual_help" data-referrer="pagelet_contextual_help"></div>
 				      <div id="pagelet_ego_pane" data-referrer="pagelet_ego_pane">
