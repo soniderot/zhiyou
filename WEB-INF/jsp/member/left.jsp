@@ -1,4 +1,4 @@
-﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
           <div id="leftCol">
             <div id="pagelet_welcome_box" data-referrer="pagelet_welcome_box">
               <div class="UIImageBlock clearfix fbxWelcomeBox UIImageBlock_Entity">
