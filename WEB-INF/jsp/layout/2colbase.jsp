@@ -19,17 +19,9 @@
 					<tiles:insertAttribute name="left" ignore="true"/>
 				</div>
 				<div class="" id="contentCol" style="min-height: 100px;" data-referrer="contentCol">
-					<div class="hidden_elem" id="headerArea"></div>
-					<div role="complementary" id="rightCol">   </div>
-					<div role="main" id="contentArea">
-						<div data-referrer="pagelet_titan" id="pagelet_titan">
-							<tiles:insertAttribute name="content" ignore="true"/>
-							
-						</div>
-					</div>
-					<div id="bottomContent"></div>
+				  <tiles:insertAttribute name="content" ignore="true"/>
+                  <div id="bottomContent"></div>
 				</div>
-				
 			</div>
 		</div>
 		
