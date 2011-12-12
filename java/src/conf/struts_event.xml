@@ -5,5 +5,8 @@
 	<action name="event" class="com.zy.action.event.EventAction">
 		<result name="member.events" type="tiles">tiles.event.list</result>
 	</action>
+	<action name="createOrUpdate" class="com.zy.action.event.EventAction">
+		<result name="member.cteateOrUpdateEvent" type="tiles">tiles.event.createOrUpdate</result>
+	</action>
 </package>
 </struts>
