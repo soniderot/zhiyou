@@ -1,4 +1,4 @@
-﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <s:if test="page.totalPage> 1">
 <div class="pages">
 <s:if test="page.getIsPrev()">

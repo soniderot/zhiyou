@@ -1,4 +1,4 @@
-﻿    <div id="pageFooter" data-referrer="page_footer">
+    <div id="pageFooter" data-referrer="page_footer">
       <div id="contentCurve"></div>
       <div class="clearfix" id="footerContainer">
         <div class="mrl lfloat" role="contentinfo">
