@@ -1,4 +1,43 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<script type="text/javascript" language="javascript">
+$(function(){
+  $.ajax({
+   type: "GET",
+   url: "usr/header!getNewrequestcnt.jhtml",
+   dataType: 'text',
+   success: function(data){
+     if (data > 0) {
+        $("#fbRequestsJewel").addClass("hasNew");
+        $("#requestsCountValue").text(data);
+     }
+   }
+  });
+  
+  $.ajax({
+   type: "GET",
+   url: "usr/header!getNewmessagecnt.jhtml",
+   dataType: 'text',
+   success: function(data){
+     if (data > 0) {
+        $("#fbMessagesJewel").addClass("hasNew");
+        $("#messagesCountValue").text(data);
+     }
+   }
+  });
+  
+  $.ajax({
+   type: "GET",
+   url: "usr/header!getNewnotificationcnt.jhtml",
+   dataType: 'text',
+   success: function(data){
+     if (data > 0) {
+        $("#fbNotificationsJewel").addClass("hasNew");
+        $("#notificationsCountValue").text(data);
+     }
+   }
+  });
+});
+</script>
 
   <div class="slim" id="blueBarHolder">
     <div id="blueBar">
@@ -8,32 +47,29 @@
         </h1>
         
         <div id="jewelContainer">
-          <div id="fbRequestsJewel" class="fbJewel hasNew">
+          <div id="fbRequestsJewel" class="fbJewel">
             <a data-gt='{"ua_id":"jewel:requests"}' data-target="fbRequestsFlyout" href="usr/request.jhtml" name="requests" rel="toggle" class="jewelButton">
               <span id="requestsCountWrapper" class="jewelCount">
-                <span id="requestsCountValue"><s:property value="newrequestcnt"/></span>
+                <span id="requestsCountValue"></span>
               </span>
             </a>
           </div>
-          <div id="fbMessagesJewel" class="fbJewel hasNew">
+          <div id="fbMessagesJewel" class="fbJewel">
             <a data-gt='{"ua_id":"jewel:messages"}' data-target="fbMessagesFlyout" name="messages" rel="toggle" href = "usr/message.jhtml" class="jewelButton">
               <span id="messagesCountWrapper" class="jewelCount">
-                <span id="messagesCountValue"><s:property value="newmessagecnt"/></span>
+                <span id="messagesCountValue"></span>
               </span>
             </a>
           </div>
-          
-          
-          <div id="fbNotificationsJewel" class="fbJewel hasNew">
+          <div id="fbNotificationsJewel" class="fbJewel">
             <a data-gt='{"ua_id":"jewel:notifications"}' data-target="fbNotificationsFlyout" href="usr/notify.jhtml" name="notifications" rel="toggle" class="jewelButton">
               <span id="notificationsCountWrapper" class="jewelCount">
-                <span id="notificationsCountValue"><s:property value="newnotificationcnt"/></span>
+                <span id="notificationsCountValue"></span>
               </span>
             </a>
           </div>
          
         </div>
-        
         <div id="headNav" class="clearfix">
          
           <div class="rfloat">
