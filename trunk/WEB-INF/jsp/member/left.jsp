@@ -1,3 +1,4 @@
+<%@page contentType="text/html; charset=UTF-8"%>
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
           <div id="leftCol">
             <div id="pagelet_welcome_box" data-referrer="pagelet_welcome_box">
