@@ -1,5 +1,6 @@
 package com.zy.action.profile;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -94,13 +95,9 @@ public class RegistrationAction extends ActionSupport {
 
 	
 	public String execute() {
-		Date birthDate = new Date();
-		birthDate.setHours(0);
-		birthDate.setMinutes(0);
-		birthDate.setSeconds(0);
-		birthDate.setYear(year);
-		birthDate.setMonth(month);
-		birthDate.setDate(day);
+		Calendar cal = Calendar.getInstance();
+		cal.set(year, month - 1, day);
+		Date birthDate = cal.getTime();
 		ZyProfile profile = new ZyProfile();
 		profile.setUsername(username);
 		profile.setEmail(email);
@@ -110,9 +107,9 @@ public class RegistrationAction extends ActionSupport {
 		profileFacade.addProfile(profile);
 		System.out.println("newprofile.userid========"+profile.getUserid());
 		ActionContext.getContext().getSession().put(Constants.USER_SESSION_KEY, profile);
-	    ActionContext.getContext().getSession().put(Constants.USERID_SESSION_KEY, profile.getUserid());
+	  ActionContext.getContext().getSession().put(Constants.USERID_SESSION_KEY, profile.getUserid());
 
-		return "member.welcome";
+		return "member.basic";
 	}
 
 	public void validate() {
@@ -145,4 +142,5 @@ public class RegistrationAction extends ActionSupport {
 			addFieldError("email", "email.exist");
 		}
 	}
+
 }
