@@ -1,6 +1,7 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
-<%@page contentType="textml;charset=utf-8" pageEncoding="utf-8"%>
+<%@page pageEncoding="utf-8"%>
 <!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <html id="facebook">
 <head>
   <%@ include file="/WEB-INF/jsp/common/css.jsp"%>
