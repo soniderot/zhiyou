@@ -1,9 +1,11 @@
-<%@page trimDirectiveWhitespaces="true"%>
+<%@page contentType="textml;charset=utf-8" pageEncoding="utf-8"%>
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="zh" id="facebook" class="no_js">
 <head>
-	<tiles:insertAttribute name="css" ignore="true"/>
+  <meta name="robots" content="noodp,noydir" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <tiles:insertAttribute name="css" ignore="true"/>
 </head>
 
 <body class="hasLeftCol home fbx hasSlimHeader ff3 win Locale_zh_CN">
