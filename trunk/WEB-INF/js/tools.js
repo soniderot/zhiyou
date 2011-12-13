@@ -3,7 +3,7 @@ function validateSignUp() {
 	result = checkUsername($("#register_username"))&&result;
 	result = checkEmail($("#register_email"))&&result;
 	result = checkPassword($("#register_password"))&&result;
-	result = checkPassword2($("#register_confirmpassword"))&&result;
+	result = checkPassword2($("#register_confirmpassword"), $("#register_password"))&&result;
 	result = checkGender($("#register_gender"))&&result;
 	result = checkBirth($("#register_year"), $("#register_month"), $("#register_day"))&&result;
 	return result;
@@ -35,7 +35,7 @@ function checkEmail(obj) {
 		$(obj).focus();
 		return false;
 	}
-	
+	var result = true;
 	$.ajax({
 	    url: 'usr/checkEmail.jhtml',
 	    type: 'GET',
@@ -46,12 +46,12 @@ function checkEmail(obj) {
 	    	if (data=='true') {
 				$(obj).attr("tooltip","邮件地址已经被注册，请直接登录。");
 				$(obj).tipsy("show");
-				setFocus(obj);	
-				return false;
+				setFocus(obj);
+				result = false;
 	    	}
 	    }
 	});
-	return true;
+	return result;
 }
 
 function checkPassword(obj) {
