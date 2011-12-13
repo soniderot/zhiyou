@@ -1,4 +1,4 @@
-﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <div role="main" id="contentArea">
 						<div data-referrer="pagelet_friends" id="pagelet_friends">
 							<div class="uiHeader uiHeaderWithImage uiHeaderPage">
