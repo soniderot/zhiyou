@@ -1,4 +1,4 @@
-<%@page contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
+<%@page pageEncoding="utf-8"%>
 <script>
 $(function(){
   $("#dialog_0").hide();
@@ -12,6 +12,7 @@ function showPopup(dialog, profileId) {
   $(".dialog_buttons").show();
   $(".dialog_buttons div").show();
   $(".dialog_loading").hide();
+  $("#" + dialog).removeClass("hidden_elem");
   $("#" + dialog).show(1000);
   $("#userid").val(profileId);
 }
@@ -41,7 +42,7 @@ function sendAddFriendRequest() {
 </script>
 
 
-<div class="generic_dialog pop_dialog confirm_dialog generic_dialog_modal generic_dialog_fixed_overflow" id="dialog_0">
+<div class="generic_dialog pop_dialog confirm_dialog generic_dialog_modal generic_dialog_fixed_overflow hidden_elem" id="dialog_0">
   <div class="generic_dialog_popup" style="top: 40px;">
     <div class="pop_container_advanced">
       <div id="pop_content" class="pop_content" tabindex="0" role="alertdialog">
