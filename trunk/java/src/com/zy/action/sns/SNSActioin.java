@@ -170,6 +170,9 @@ public class SNSActioin extends ActionSupport{
 		}else{
 			profiles = profiles.subList(pageSize*(pageNo-1),profiles.size());
 		}
+		for (int i = 0; i < profiles.size(); i++) {
+			System.out.println(profiles.get(i).getUserid() + " : " + profiles.get(i).getUsername());
+		}
 		return "you.wanttoknow";
 	}
 	
