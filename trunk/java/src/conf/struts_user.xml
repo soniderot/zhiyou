@@ -21,6 +21,7 @@
 	<action name="register" class="com.zy.action.profile.RegistrationAction">
 		<result name="input" >/WEB-INF/jsp/public/landing.jsp</result>
 		<result name="member.welcome" type="tiles" >tiles.login.welcome</result>
+		<result name="member.basic" type="tiles" >tiles.member.basic</result>
 	</action>
 	
 	<action name="login" class="com.zy.action.profile.LoginAction">
@@ -48,8 +49,5 @@
 		<result name="member.feeds" type="tiles">tiles.feed.list</result>
 	</action>
 	
-	<action name="feed" class="com.zy.action.feed.FeedAction">
-		<result name="member.feeds" type="tiles">tiles.feed.list</result>
-	</action>
 </package>
 </struts>
