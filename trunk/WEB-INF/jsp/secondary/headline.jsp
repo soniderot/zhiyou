@@ -1,3 +1,5 @@
+<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <div id="headerArea">
 				    <div data-referrer="pagelet_header" id="pagelet_header">
 				      <div data-referrer="pagelet_above_header" id="pagelet_above_header"></div>

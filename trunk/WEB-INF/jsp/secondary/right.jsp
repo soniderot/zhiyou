@@ -1,3 +1,5 @@
+<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <div id="rightCol" role="complementary">
 				    <div id="pagelet_right_sidebar" data-referrer="pagelet_right_sidebar">
 				      <div id="pagelet_contextual_help" data-referrer="pagelet_contextual_help"></div>

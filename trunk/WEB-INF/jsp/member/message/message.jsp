@@ -1,4 +1,5 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <div class="hidden_elem" id="headerArea"></div>
           <div role="complementary" id="rightCol">   </div>
           <div role="main" id="contentArea">

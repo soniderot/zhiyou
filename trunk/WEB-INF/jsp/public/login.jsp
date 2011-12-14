@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="zh" id="facebook" class="no_js">
 <head>

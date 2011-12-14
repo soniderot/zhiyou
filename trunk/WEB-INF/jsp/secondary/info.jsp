@@ -1,3 +1,5 @@
+<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@page contentType="text/html; charset=UTF-8"%>
   <div role="main" id="contentArea" style="min-height: 100px;" data-referrer="contentArea">
 				    <div data-referrer="pagelet_main_column" id="pagelet_main_column">
 				      <div data-referrer="pagelet_main_column_personal_info" id="pagelet_main_column_personal">
