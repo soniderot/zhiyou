@@ -3,6 +3,7 @@ package com.zy.domain.message.bean;
 import java.util.Date;
 
 import com.zy.Constants;
+import com.zy.common.model.ZyProfile;
 
 public class NotificationBean {
 	
@@ -11,7 +12,15 @@ public class NotificationBean {
 	private Date createtime;
 	private String content;
 	
+	private ZyProfile profile;
 	
+	public ZyProfile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(ZyProfile profile) {
+		this.profile = profile;
+	}
 
 	public Integer getId() {
 		return id;

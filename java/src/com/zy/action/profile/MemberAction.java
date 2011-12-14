@@ -1,85 +1,51 @@
 package com.zy.action.profile;
 
-import java.io.PrintWriter;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.struts2.ServletActionContext;
-
 import com.opensymphony.xwork2.ActionSupport;
+import com.zy.common.util.ActionUtil;
+import com.zy.facade.NotifyFacade;
+import com.zy.facade.RequestFacade;
 
 public class MemberAction extends ActionSupport{
+	private int newrequestcnt = 0;
+	private int newnotificationcnt =0;
+	private int newmessagecnt = 0;
+	private RequestFacade requestFacade;
+	private NotifyFacade notifyFacade;
+	
 
-	public String getNewrequestcnt() {
-		try {
-    	HttpServletRequest request = ServletActionContext.getRequest();
-    	// 取得新请求个数
-    	int requestCnt = 0;
-      //获取原始的PrintWriter对象,以便输出响应结果,而不用跳转到某个试图    
-      HttpServletResponse response = ServletActionContext.getResponse();    
-      //设置字符集
-      response.setCharacterEncoding("UTF-8");
-      PrintWriter out = response.getWriter();
-      //直接输入响应的内容
-
-      out.print(requestCnt);
-      out.flush();    
-      out.close();    
-
-    } catch (Exception e) {
-        e.printStackTrace();    
-    }    
-    return null; 
+	public NotifyFacade getNotifyFacade() {
+		return notifyFacade;
 	}
-
-	public String getNewnotificationcnt() {
-		try {
-    	HttpServletRequest request = ServletActionContext.getRequest();
-    	// 取得新通知个数
-    	int notificationCnt = 11;
-      //获取原始的PrintWriter对象,以便输出响应结果,而不用跳转到某个试图    
-      HttpServletResponse response = ServletActionContext.getResponse();    
-      //设置字符集
-      response.setCharacterEncoding("UTF-8");
-      PrintWriter out = response.getWriter();
-      //直接输入响应的内容
-
-      out.print(notificationCnt);
-      out.flush();    
-      out.close();    
-
-    } catch (Exception e) {
-        e.printStackTrace();    
-    }    
-    return null; 
+	public void setNotifyFacade(NotifyFacade notifyFacade) {
+		this.notifyFacade = notifyFacade;
 	}
-
-	public String getNewmessagecnt() {
-		try {
-    	HttpServletRequest request = ServletActionContext.getRequest();
-    	// 取得新信息个数
-    	int messageCnt = 12;
-      //获取原始的PrintWriter对象,以便输出响应结果,而不用跳转到某个试图    
-      HttpServletResponse response = ServletActionContext.getResponse();    
-      //设置字符集
-      response.setCharacterEncoding("UTF-8");
-      PrintWriter out = response.getWriter();
-      //直接输入响应的内容
-
-      out.print(messageCnt);
-      out.flush();    
-      out.close();    
-
-    } catch (Exception e) {
-        e.printStackTrace();    
-    }    
-    return null; 
+	public RequestFacade getRequestFacade() {
+		return requestFacade;
 	}
-
+	public void setRequestFacade(RequestFacade requestFacade) {
+		this.requestFacade = requestFacade;
+	}
+	public int getNewrequestcnt() {
+		return newrequestcnt;
+	}
+	public void setNewrequestcnt(int newrequestcnt) {
+		this.newrequestcnt = newrequestcnt;
+	}
+	public int getNewnotificationcnt() {
+		return newnotificationcnt;
+	}
+	public void setNewnotificationcnt(int newnotificationcnt) {
+		this.newnotificationcnt = newnotificationcnt;
+	}
+	public int getNewmessagecnt() {
+		return newmessagecnt;
+	}
+	public void setNewmessagecnt(int newmessagecnt) {
+		this.newmessagecnt = newmessagecnt;
+	}
 	public String execute(){
+		newrequestcnt = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(),1,10000).size();
+		newnotificationcnt = notifyFacade.countForNewNotification(ActionUtil.getSessionUserId());
 		return "member.header";
 	}
-	
-	
 }

@@ -12,6 +12,9 @@ public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements Fe
 	@Override
 	public List<ZyNewsfeed> getNewsFeed(String ids, String handles, int pageNo, int pageSize) {
 		String hql = "from ZyNewsfeed where userid in(" + ids + ") and handle in(" + handles + ") order by id desc ";
+		if(handles==null){
+			hql = "from ZyNewsfeed where userid in(" + ids + ")  order by id desc ";
+		}
 		// LogUtil.info(hql);
 		return this.loadByPagenation(hql, pageNo, pageSize);
 	}

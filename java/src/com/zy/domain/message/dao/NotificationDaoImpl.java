@@ -12,9 +12,12 @@ import com.zy.common.model.ZyNotification;
 public class NotificationDaoImpl extends HibernateDao <ZyNotification, Integer> implements NotificationDao  {
 
 	@Override
-	public List<ZyNotification> getUserNotification(int userid,int pageSize, int pageNo) {
+	public List<ZyNotification> getUserNotification(int userid,int pageNo, int pageSize) {
+		System.out.println("userid--"+userid);
 		String hql="from ZyNotification where receiverid=? and isdeleted is null order by id desc";
 		return this.loadByPagenation(hql, pageNo, pageSize, new Object[] { userid});
+		//System.out.println(this.find(hql).size());
+		//return this.loadByPagenation(hql, pageNo, pageSize);
 	}
 	
 	@Override

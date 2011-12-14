@@ -12,4 +12,13 @@
 <bean id="zyIntroduceDao" class="com.zy.domain.sns.dao.SNSIntroduceDaoImpl" parent="baseDao" />
 <bean id="inviteByAddressDao" class="com.zy.domain.sns.dao.InviteByAddressDaoImpl" parent="baseDao" />
 
+<bean id="requestDao" class="com.zy.domain.message.dao.RequestDaoImpl" parent="baseDao" />
+<bean id="requestTypeDao" class="com.zy.domain.message.dao.RequestTypeDaoImpl" parent="baseDao" />
+<bean id="notificationTypeDao" class="com.zy.domain.message.dao.NotificationTypeDaoImpl" parent="baseDao" />
+<bean id="notificationDao" class="com.zy.domain.message.dao.NotificationDaoImpl" parent="baseDao" />
+
+<bean id="eventDao" class="com.zy.domain.event.dao.EventDaoImpl" parent="baseDao" />
+<bean id="feedDao" class="com.zy.domain.feed.dao.FeedDaoImpl" parent="baseDao" />
+<bean id="feedTypeDao" class="com.zy.domain.feed.dao.FeedTypeDaoImpl" parent="baseDao" />
+<bean id="feedCommentDao" class="com.zy.domain.feed.dao.FeedCommentDaoImpl" parent="baseDao" />
 </beans>

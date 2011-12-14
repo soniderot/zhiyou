@@ -124,9 +124,10 @@ public class SNSFacadeImpl implements SNSFacade{
 	
 	public List<ZyProfile> getProfilesYouMayKnow(long userId){
 		List<ZyProfile> list = new ArrayList<ZyProfile>();
-		for(int i=0;i<20;i++){
+		for(int i=0;i<10;i++){
 		list.add(profileService.findProfileById(2));
 		list.add(profileService.findProfileById(3));
+		list.add(profileService.findProfileById(4));
 		}
 		return list;
 	}

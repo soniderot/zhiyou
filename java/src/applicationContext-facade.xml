@@ -12,4 +12,19 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="snsService" ref="snsService"/>
 	</bean>
 	
+	<bean name="requestFacade" class="com.zy.facade.impl.RequestFacadeImpl"  >
+		<property name="requestService" ref="requestService"/>
+		<property name="snsFacade" ref="snsFacade"/>
+	</bean>
+	
+	<bean name="notifyFacade" class="com.zy.facade.impl.NotifyFacadeImpl"  >
+		<property name="notificationService" ref="notificationService"/>
+	</bean>
+	
+	<bean name="feedFacade" class="com.zy.facade.impl.FeedFacadeImpl"  >
+		<property name="profileService" ref="profileService"/>
+		<property name="feedService" ref="feedService"/>
+		<property name="eventService" ref="eventService"/>
+	</bean>
+	
 </beans>

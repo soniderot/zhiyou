@@ -1,5 +1,7 @@
 package com.zy.domain.event.service;
 
-public interface EventService {
+import com.zy.common.model.ZyEvent;
 
+public interface EventService {
+	public ZyEvent getEvent(int id);
 }

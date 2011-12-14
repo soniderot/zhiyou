@@ -7,4 +7,5 @@
 <include file="conf/struts_sns.xml"/>
 <include file="conf/struts_event.xml"/>
 <include file="conf/struts_secondary.xml"/>
+<include file="conf/struts_photo.xml"/>
 </struts>

@@ -71,63 +71,6 @@ public class NotificationServiceImpl implements NotificationService{
 				case 1:
 					para = p[0].toString();
 					break;
-				case 2:
-					para = p[0]+","+p[1]+","+p[2];
-					break;
-				case 3:
-					para = p[0]+","+p[1];
-					break;
-				case 4:
-					para = p[0].toString();
-					break;
-				case 5:
-					para = p[0].toString();
-					break;
-				case 6:
-					para = p[0]+","+p[1];
-					break;
-				case 7:
-					para = p[0].toString();
-					break;
-				case 8:
-					para = p[0].toString();
-					break;
-				case 9:
-					para = p[0]+","+p[1];
-					break;
-				case 10:
-					para = p[0]+","+p[1]+","+p[2];
-					break;
-				case 11:
-					para = p[0]+","+p[1]+","+p[2];
-					break;
-				case 12:
-					para = p[0]+","+p[1]+","+p[2];
-					break;
-				case 13:
-					para = p[0]+","+p[1]+","+p[2];
-					break;
-				case 14:
-					para = p[0].toString();
-					break;
-				case 15:
-					para = p[0].toString();
-					break;
-				case 16:
-					para = p[0].toString();
-					break;
-				case 17:
-					para = p[0]+","+p[1];
-					break;
-				case 18:
-					para = p[0]+","+p[1];
-					break;
-				case 19:
-					para = p[0]+","+p[1];
-					break;
-				case 20:
-					para = p[0]+","+p[1];
-					break;
 			}
 			ntf.setParameters(para);			
 			ntf.setIsread(null);
@@ -140,12 +83,14 @@ public class NotificationServiceImpl implements NotificationService{
 	
 	public List<NotificationBean> getUserNotification(int userId,int pageSize,int pageNo){
 		List<ZyNotification> notifications=notificationDao.getUserNotification(userId,pageSize,pageNo);
+		System.out.println("-----------notify2.size---"+notifications.size());
 		List<NotificationBean>  notificationsbean= new ArrayList<NotificationBean>();
 		if(!flag){
 			fetchTemplate();
 		}
 		ZyProfile u = profileService.findProfileById(userId);
 		for(ZyNotification ntf: notifications){
+			System.out.println("^^^^^^^^^^^^^^^^^^^^^");
 			String content="";
 			NotificationBean bean=new NotificationBean();
 			if(ntf.getParameters() == null){continue;}
@@ -154,6 +99,7 @@ public class NotificationServiceImpl implements NotificationService{
 			//if(u.getLocale().equals("zh_CN")){
 				if(temp == 1){
 					ZyProfile user = profileService.findProfileById(Integer.parseInt(p[0]));
+					bean.setProfile(user);
 					content = MessageFormat.format(n1_zh_CN.getContent(),user.getUsername());
 				}
 				
