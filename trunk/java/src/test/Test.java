@@ -2,11 +2,11 @@ package test;
 
 import java.util.List;
 
-import octazen.addressbook.Contact;
-
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zy.common.model.ZyProfile;
+import com.zy.common.util.ActionUtil;
+import com.zy.domain.feed.bean.FeedBean;
+import com.zy.facade.FeedFacade;
 import com.zy.facade.SNSFacade;
 
 public class Test {
@@ -18,15 +18,15 @@ public class Test {
 		//GraphDao dao = new GraphDao();
 		//dao.loadObject();
 		
+		/*
 		SNSFacade snsFacade = (SNSFacade)appContext.getBean("snsFacade");
 		snsFacade.addFriend(2,3);
-		//Thread.sleep(5000);
+	
 		List<Integer> list = snsFacade.getAllFriendsByDegree(1,(short)2);
 		for(int i=0;i<list.size();i++){
 			System.out.println(list.get(i));
 		}
-		//snsFacade.addSNSGroup(1,"mynew group");
-		//snsFacade.removeSNSGroup(1,0);
+		
 		
 		int[] array = new int[]{2};
 		snsFacade.manageSNSGroup(1,2,array,0);
@@ -46,5 +46,51 @@ public class Test {
 			System.out.println(list3.get(i).getName()+"------"+list3.get(i).getEmail());
 		}
 		snsFacade.getProfilesYouMayKnow(1);
+		*/
+		
+		/*
+		RequestFacade requestFacade = (RequestFacade)appContext.getBean("requestFacade");
+		requestFacade.sendRequest_tx(1,2, (short)1,0,"hello",null);
+		List<RequestBean> list = requestFacade.getUserRequestInbox(2,1,100);
+		System.out.println(list.size());
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i).getContent());
+			System.out.println(list.get(i).getFormatedMsg());
+			System.out.println(list.get(i).getProfile().getUsername());
+		}
+		requestFacade.approveRequest_tx(3);*/
+		/*
+		NotifyFacade notifyFacade = (NotifyFacade)appContext.getBean("notifyFacade");
+		List<NotificationBean> list = notifyFacade.getUserNotification(1,1,10000);
+		System.out.println("notify.size--"+list.size());
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i).getId());
+			System.out.println(list.get(i).getContent());
+		}*/
+		
+		//notifyFacade.systemSendNotification_tx(1,(short)1,new Object[]{2});
+		
+		FeedFacade feedFacade = (FeedFacade)appContext.getBean("feedFacade");
+		//feedFacade.addNewFriendNewsFeed(1,2);
+		//feedFacade.addNewBlogNewsFeed(1,"大家好！");
+		List<FeedBean> list = feedFacade.getNewsFeed("1,2,3,4",null,1, 1000);
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i).getUser().getUsername());
+			System.out.println(list.get(i).getFeed().getBody());
+		}
+		
+		
+		SNSFacade snsFacade = (SNSFacade)appContext.getBean("snsFacade");
+		List<Integer> ids = snsFacade.getAllFriendsByDegree(1,(short)1);
+		//ids.add(ActionUtil.getSessionUserId());
+		String str = "1"+",";
+		for(int i=0;i<ids.size();i++){
+			if(i!=ids.size()-1){
+				str = str+ids.get(i)+",";
+			}else{
+				str = str+ids.get(i);
+			}
+		}
+		System.out.println(str);
 	}
 }

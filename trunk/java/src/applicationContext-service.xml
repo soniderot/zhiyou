@@ -16,4 +16,26 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="profileService" ref="profileService"/>
 	</bean>
 	
+	<bean name="requestService" class="com.zy.domain.message.service.RequestServiceImpl">
+		<property name="requestDao" ref="requestDao"/>
+		<property name="requestTypeDao" ref="requestTypeDao"/>
+		<property name="profileService" ref="profileService"/>
+	</bean>
+	
+	<bean name="notificationService" class="com.zy.domain.message.service.NotificationServiceImpl">
+		<property name="notificationDao" ref="notificationDao"/>
+		<property name="notificationTypeDao" ref="notificationTypeDao"/>
+		<property name="profileService" ref="profileService"/>
+	</bean>
+	
+	<bean name="eventService" class="com.zy.domain.event.service.EventServiceImpl">
+		<property name="eventDao" ref="eventDao"/>
+	</bean>
+	
+	<bean name="feedService" class="com.zy.domain.feed.service.FeedServiceImpl">
+		<property name="newsFeedDao" ref="feedDao"/>
+		<property name="newsFeedTypeDao" ref="feedTypeDao"/>
+		<property name="newsFeedCommentDao" ref="feedCommentDao"/>
+	</bean>
+	
 </beans>

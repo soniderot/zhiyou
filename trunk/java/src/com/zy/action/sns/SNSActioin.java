@@ -178,9 +178,9 @@ public class SNSActioin extends ActionSupport{
 	
 	//get peoples you may to know
 	public String listPeopleYouMayKnow() {
-		if(snsFacade.getAllFriendsByDegree(ActionUtil.getSessionUserId(),(short)1).size()==0){
-			return "you.mayknow";
-		}
+		//if(snsFacade.getAllFriendsByDegree(ActionUtil.getSessionUserId(),(short)1).size()==0){
+			//return "you.mayknow";
+		//}
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 		return "you.mayknow";
 	}

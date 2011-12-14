@@ -86,13 +86,11 @@ public class RequestServiceImpl implements RequestService {
 				paras = request.getParameters().split(",");
 			}
 
-			if (request.getEventkey() == 2) {
-				ZyProfile user = profileService.findProfileById(Integer
-						.valueOf(paras[0]));
-				ZyProfile user2 = profileService.findProfileById(Integer
-						.valueOf(paras[1]));
-				bean.setContent(MessageFormat.format(r2.getTemplate(), user
-						.getUsername(), user2.getUsername()));
+			if (request.getEventkey() == 1) {
+				ZyProfile user = profileService.findProfileById(request.getSenderid());
+				bean.setProfile(user);
+				
+				bean.setContent(MessageFormat.format(r1.getTemplate(),user.getUserid(),user.getUsername()));
 			}
 
 			requestBean.add(bean);
@@ -114,12 +112,12 @@ public class RequestServiceImpl implements RequestService {
 			if (request.getParameters() != null) {
 				paras = request.getParameters().split(",");
 			}
-
-			if (request.getEventkey() == 2) {
+System.out.println("------------into-----------");
+			if (request.getEventkey() == 1) {
 				ZyProfile user = profileService.findProfileById(Integer
-						.valueOf(paras[0]));
+						.valueOf(userid));
 				ZyProfile user2 = profileService.findProfileById(Integer
-						.valueOf(paras[1]));
+						.valueOf(request.getReceiverid()));
 				bean.setContent(MessageFormat.format(r2.getTemplate(), user
 						.getUsername(), user2.getUsername()));
 			}
@@ -221,6 +219,7 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	public boolean neglectRequest_tx(int id) {
+		System.out.println("reqid-----------------"+id);
 		ZyRequest request=requestDao.get(id);
 		request.setStatus(0+NEGLECTED_REQUEST);
 		requestDao.update(request);
