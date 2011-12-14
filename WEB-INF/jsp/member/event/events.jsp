@@ -1,4 +1,5 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <div role="main" id="contentArea">
   <div id="pagelet_events">
     <div class="uiHeader uiHeaderWithImage uiHeaderPage">

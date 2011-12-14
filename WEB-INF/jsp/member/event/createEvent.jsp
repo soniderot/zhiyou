@@ -1,4 +1,5 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <div role="main" id="contentArea" style="padding:0 0;width:799px;">
   <div class="uiHeader mhl pts pbl uiHeaderPage">
     <div class="clearfix uiHeaderTop">

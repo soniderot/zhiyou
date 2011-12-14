@@ -1,5 +1,5 @@
-  <%@page contentType="text/html; charset=UTF-8"%>
   <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+  <%@page contentType="text/html; charset=UTF-8"%>
   <div role="main" id="contentArea">
     <div data-referrer="pagelet_welcome" id="pagelet_welcome">
       <div class="uiHeader uiHeaderWithImage uiHeaderBottomBorder uiHeaderPage">
@@ -49,7 +49,7 @@
                         <s:iterator value="profiles">
                         <li class="pvm friendBrowserListUnit uiListItem uiListLight uiListVerticalItemBorder">
                           <div class="UIImageBlock clearfix">
-                            <a aria-hidden="true" tabindex="-1" href="http://www.facebook.com/profile.php?id=1649024971&amp;ref=pymk" class="UIImageBlock_Image UIImageBlock_MED_Image">
+                            <a aria-hidden="true" tabindex="-1" href="/profile/profile!viewProfileInfo.jhtml?userid=${userid}" class="UIImageBlock_Image UIImageBlock_MED_Image">
                             <div class="friendBrowserPhotoWrapper">
                               <div class="friendBrowserPhotoCrop">
                                 <img style="left: -24px;" alt="" src="${avatar }" class="fbProfileLargePortraitImgScaleHeight img"/>
@@ -74,7 +74,7 @@
                             </div>
                             <div class="friendBrowserContentAlignMiddle UIImageBlock_Content UIImageBlock_MED_Content">
                               <div class="fsl fwb fcb">
-                                <a data-hovercard="/ajax/hovercard/hovercard.php?id=1649024971" data-gt='{"engagement":{"eng_type":"1","eng_src":"1","eng_tid":"1649024971","eng_data":[]}}' href="http://www.facebook.com/profile.php?id=1649024971&amp;ref=pymk">${username}</a>
+                                <a data-hovercard="/ajax/hovercard/hovercard.php?id=1649024971" data-gt='{"engagement":{"eng_type":"1","eng_src":"1","eng_tid":"1649024971","eng_data":[]}}' href="/profile/profile!viewProfileInfo.jhtml?userid=${userid}">${username}</a>
                               </div>
                               
                               <div class="fsm fwn fcg">

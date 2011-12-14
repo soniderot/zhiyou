@@ -1,4 +1,5 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <div id="leftCol" style="min-height:100px;">
   <img alt="" src="http://profile.ak.fbcdn.net/static-ak/rsrc.php/v1/yn/r/5uwzdFmIMKQ.png" class="mbm event_upload_image img"/>
   <div id="event_profile_guest_info">

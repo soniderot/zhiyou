@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <%@page pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
