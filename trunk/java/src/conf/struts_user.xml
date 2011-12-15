@@ -24,6 +24,10 @@
 		<result name="member.basic" type="tiles" >tiles.member.basic</result>
 	</action>
 	
+	<action name="update" class="com.zy.action.profile.RegistrationAction">
+		<result name="member.picture" type="tiles" >tiles.member.picture</result>
+	</action>
+	
 	<action name="login" class="com.zy.action.profile.LoginAction">
 		<result name="login.welcome" type="tiles">tiles.login.welcome</result>
 		<result name="login.fail" >/WEB-INF/jsp/public/login.jsp</result>
@@ -47,6 +51,7 @@
 	
 	<action name="feed" class="com.zy.action.feed.FeedAction">
 		<result name="member.feeds" type="tiles">tiles.feed.list</result>
+		<result name="member.addfeed.ajax">/WEB-INF/jsp/member/feed/addfeedajax.jsp</result>
 	</action>
 	
 	<action name="upload" class="com.zy.action.profile.UploadAction">
