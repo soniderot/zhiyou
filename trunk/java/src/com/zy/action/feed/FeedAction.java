@@ -1,7 +1,14 @@
 package com.zy.action.feed;
 
+import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.FeedFacade;
@@ -15,7 +22,27 @@ public class FeedAction {
 	private short pageNo = 1;
 	private short pageSize = 12;
 	
+	private String feedmessage;
+	private int messagegroup;
 	
+	
+
+	public String getFeedmessage() {
+		return feedmessage;
+	}
+
+	public int getMessagegroup() {
+		return messagegroup;
+	}
+
+	public void setFeedmessage(String feedmessage) {
+		this.feedmessage = feedmessage;
+	}
+
+	public void setMessagegroup(int messagegroup) {
+		this.messagegroup = messagegroup;
+	}
+
 	public short getPageNo() {
 		return pageNo;
 	}
@@ -72,4 +99,9 @@ public class FeedAction {
 		return "member.feeds";
 	}
 	
+	public String updateStatusAjax() {
+		
+
+		return "member.addfeed.ajax";
+	}
 }
