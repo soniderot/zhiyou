@@ -12,7 +12,26 @@ public class FeedAction {
 	private SNSFacade snsFacade;
 	private List<FeedBean> feeds;
 	
+	private short pageNo = 1;
+	private short pageSize = 12;
 	
+	
+	public short getPageNo() {
+		return pageNo;
+	}
+
+	public void setPageNo(short pageNo) {
+		this.pageNo = pageNo;
+	}
+
+	public short getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(short pageSize) {
+		this.pageSize = pageSize;
+	}
+
 	public List<FeedBean> getFeeds() {
 		return feeds;
 	}
@@ -49,7 +68,7 @@ public class FeedAction {
 				str = str+ids.get(i);
 			}
 		}
-		feeds = feedFacade.getNewsFeed(str,null,1,10);
+		feeds = feedFacade.getNewsFeed(str,null,pageNo,pageSize);
 		return "member.feeds";
 	}
 	

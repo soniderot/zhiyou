@@ -12,6 +12,25 @@ public class NotificationAction {
 	private List<NotificationBean> notifys;
 	private int notifyId;
 	
+	private short pageNo = 1;
+	private short pageSize = 12;
+	
+
+	public short getPageNo() {
+		return pageNo;
+	}
+
+	public void setPageNo(short pageNo) {
+		this.pageNo = pageNo;
+	}
+
+	public short getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(short pageSize) {
+		this.pageSize = pageSize;
+	}
 
 	public int getNotifyId() {
 		return notifyId;
@@ -38,7 +57,7 @@ public class NotificationAction {
 	}
 
 	public String execute(){
-		notifys = notifyFacade.getUserNotification(1,1,10000);
+		notifys = notifyFacade.getUserNotification(1,pageNo,pageSize);
 		List<Integer> list = new ArrayList<Integer>();
 		for(int i=0;i<notifys.size();i++){
 			if("T".equals(notifys.get(i).getIsread())){
@@ -53,7 +72,7 @@ public class NotificationAction {
 	
 	public String deleteNotify(){
 		notifyFacade.userDeleteNotification_tx(notifyId,ActionUtil.getSessionUserId());
-		notifys = notifyFacade.getUserNotification(1,1,10000);
+		notifys = notifyFacade.getUserNotification(1,pageNo,pageSize);
 		return "member.notifications";
 	}
 }

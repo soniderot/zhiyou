@@ -34,4 +34,8 @@ public class ProfileFacadeImpl implements ProfileFacade {
 	public ZyProfile findProfileByName(String userName){
 		return profileService.findProfileByName(userName);
 	}
+	
+	public void updateProfile(ZyProfile profile){
+		profileService.updateProfile(profile);
+	}
 }

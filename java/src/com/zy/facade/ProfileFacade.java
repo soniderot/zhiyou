@@ -9,4 +9,6 @@ public interface ProfileFacade {
 	public void addProfile(ZyProfile profile);
 	public ZyProfile findProfileByEmail(String email);
 	public ZyProfile findProfileByName(String username);
+	public void updateProfile(ZyProfile profile);
+	
 }
