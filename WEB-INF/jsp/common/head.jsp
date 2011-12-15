@@ -42,7 +42,7 @@ response.setCharacterEncoding("UTF-8");
           <div class="rfloat">
             <ul role="navigation" id="pageNav">
               <li class="topNavLink tinyman">
-                <a title="个人主页" href="/usr/update.jhtml">
+                <a title="个人主页" href="http://localhost:8080/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="#session.user.userid"/>">
                   <span class="headerTinymanName"><s:property value="#session.user.username"/></span>
                 </a>
               </li>
