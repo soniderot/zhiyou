@@ -10,7 +10,7 @@ import com.zy.facade.RequestFacade;
 public class RequestAction extends ActionSupport{
 	private int profileId;
 	private String content;
-	private int pageNo;
+	private int pageNo = 1;
 	private int pageSize = 200;
 	private RequestFacade requestFacade;
 	

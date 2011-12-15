@@ -37,8 +37,15 @@ public class LoginAction extends MemberAction{
 			return "login.fail";
 		}
 		ZyProfile user = profileFacade.checkProfileLogin(email, password);
+		
 		if(user!=null){
-			System.out.println("------------into welcome----------");
+			System.out.println("------------into welcome----------"+user.getAvatar());
+			if(user.getAvatar()==null||user.getAvatar().equalsIgnoreCase("/images/DEFAULT.JPG")||user.getAvatar().equalsIgnoreCase("//images/DEFAULT.JPG")){
+				ActionContext.getContext().getSession().put("userlogo",null);
+			}else{
+				ActionContext.getContext().getSession().put("userlogo",user.getAvatar());
+			}
+			
 			ActionContext.getContext().getSession().put(Constants.USER_SESSION_KEY, user);
 		    ActionContext.getContext().getSession().put(Constants.USERID_SESSION_KEY, user.getUserid());		    
 			return "login.welcome";

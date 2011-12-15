@@ -49,5 +49,9 @@
 		<result name="member.feeds" type="tiles">tiles.feed.list</result>
 	</action>
 	
+	<action name="upload" class="com.zy.action.profile.UploadAction">
+		<result name="member.landing" type="redirect">/usr/landing.jhtml</result>
+	</action>
+	
 </package>
 </struts>

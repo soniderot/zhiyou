@@ -101,17 +101,21 @@ public class FileUtil {
 	 * @param fn
 	 * @return
 	 */
-	public static boolean copy(File src, String rp, String fn) {
+	public static String copy(File src, String rp, String fn) {
 		boolean result = false;
 		InputStream in = null;
 		OutputStream out = null;
+		String filename = null;
 		try {
 			String datedir = DateUtil.formatDate(new Date());
+			//String datedir = "";
 			File dstFile = new File(rp + File.separator + datedir);
+			System.out.println(dstFile.getAbsolutePath());
 			if (!dstFile.exists()) {
 				dstFile.mkdirs();
 			}
 			dstFile = new File(rp + File.separator + datedir + File.separator + fn);
+			filename = dstFile.getAbsolutePath();
 			in = new BufferedInputStream(new FileInputStream(src), BUFFER_SIZE);
 			out = new BufferedOutputStream(new FileOutputStream(dstFile), BUFFER_SIZE);
 			byte[] buffer = new byte[BUFFER_SIZE];
@@ -139,7 +143,7 @@ public class FileUtil {
 				}
 			}
 		}
-		return result;
+		return filename;
 	}
 
 	/**

@@ -26,6 +26,7 @@ public class DateUtil {
 	public final static SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 	public static Date BEGIN=null;
 	public static Date END=null;
+	/*
 	public static Map<Integer,String> map=new HashMap<Integer,String>(){
 		{			
 		  put(1, getText("common.one"));
@@ -36,7 +37,7 @@ public class DateUtil {
   		  put(6, getText("common.six"));
   		  put(7, getText("common.seven"));
 		}
-	};
+	};*/
 	public static Date getDateTimeByString(String dtstring){
 		return getDate(dtstring,patternDateTime);
 	}

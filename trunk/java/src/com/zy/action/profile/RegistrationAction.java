@@ -107,8 +107,8 @@ public class RegistrationAction extends ActionSupport {
 		profileFacade.addProfile(profile);
 		System.out.println("newprofile.userid========"+profile.getUserid());
 		ActionContext.getContext().getSession().put(Constants.USER_SESSION_KEY, profile);
-	  ActionContext.getContext().getSession().put(Constants.USERID_SESSION_KEY, profile.getUserid());
-
+		ActionContext.getContext().getSession().put(Constants.USERID_SESSION_KEY, profile.getUserid());
+		ActionContext.getContext().getSession().put("userlogo",null);
 		return "member.basic";
 	}
 
