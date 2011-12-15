@@ -3,11 +3,17 @@
           <div id="leftCol">
             <div id="pagelet_welcome_box" data-referrer="pagelet_welcome_box">
               <div class="UIImageBlock clearfix fbxWelcomeBox UIImageBlock_Entity">
-                <a tabindex="-1" aria-hidden="true" href="http://www.facebook.com/profile.php?id=1438697558" class="fbxWelcomeBoxBlock UIImageBlock_Image UIImageBlock_ENT_Image">
-                  <img alt="" src="<s:property value="#session.user.avatar"/>" class="fbxWelcomeBoxImg img"/>
+                <a tabindex="-1" aria-hidden="true" href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="#session.user.userid"/>" class="fbxWelcomeBoxBlock UIImageBlock_Image UIImageBlock_ENT_Image">
+               
+                  <s:if test="#session.userlogo!=null">   
+                  <img alt="" src="<s:property value="#session.userlogo"/>" class="fbxWelcomeBoxImg img"/>
+                	 </s:if>   
+                	 <s:else>
+                	 	<img alt="" src="images/DEFAULT.JPG" class="fbxWelcomeBoxImg img"/>
+                	</s:else>
                 </a>
                 <div class="prs UIImageBlock_Content UIImageBlock_ENT_Content">
-                  <a href="http://www.facebook.com/profile.php?id=1438697558" class="fbxWelcomeBoxName"><s:property value="#session.user.username"/></a>
+                  <a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="#session.user.userid"/>" class="fbxWelcomeBoxName"><s:property value="#session.user.username"/></a>
                 </div>
               </div>
             </div>

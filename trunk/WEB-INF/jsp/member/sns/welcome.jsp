@@ -13,25 +13,33 @@
         </div>
       </div>
       <ul id="welcome_dashboard">
-      <s:if test="(#session.user.avatar==null)||(#session.user.avatar=='/images/default.JPG')"> 
+      <s:if test="(#session.userlogo==null)"> 
+      	<s:form action="/usr/upload.jhtml" method="post" enctype="multipart/form-data" >
         <li class="clearfix step">
           <h3 class="step_indicator">1</h3>
           <div class="welcome_task welcomeTaskProfilePic">
             <h3>上传个人头像</h3>
             <div class="clearfix NUXUploadPic">
-              <div class="lfloat"><img src="../../images/nuxwizard_profile_picture.gif" id="profile_pic_nux"/></div>
+            	
+              <div class="lfloat"><img src="/images/nuxwizard_profile_picture.gif" id="profile_pic_nux"/></div>
               <div class="options_container">
                 <div class="options">
-                  <div class="desc"><input type="file" name="pic" id="profile_picture_post_file" class="inputfile"/></div>
+                  <div class="desc"><input type="file" name="logo" id="profile_picture_post_file" class="inputfile"/></div>
+                </div>
+                <br>
+                <br>
+                 <div class="options">
+                  <div class="desc"><input value="上传" tabindex="4" type="submit" id="ubyzxj_3" /></div>
                 </div>
               </div>
             </div>
           </div>
         </li>
+      </s:form>
        </s:if>     
         <li class="clearfix step last">
         
-        <s:if test="(#session.user.avatar==null)||(#session.user.avatar=='/images/default.JPG')"> 
+        <s:if test="(#session.userlogo==null)"> 
           <h3 class="step_indicator active_step">2</h3>
            </s:if>     
            <s:else>   
