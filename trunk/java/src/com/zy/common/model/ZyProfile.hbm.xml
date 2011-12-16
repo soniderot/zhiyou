@@ -34,6 +34,9 @@
   <property generated="never" lazy="false" name="gender" type="java.lang.Short">
    <column name="GENDER"/>
   </property>
+  <property generated="never" lazy="false" name="objectgender" type="java.lang.Short">
+   <column name="OBJECTGENDER"/>
+  </property>
   <property generated="never" lazy="false" name="countryid" type="java.lang.Integer">
    <column name="COUNTRYID"/>
   </property>
@@ -42,6 +45,9 @@
   </property>
   <property generated="never" lazy="false" name="cityid" type="java.lang.Integer">
    <column name="CITYID"/>
+  </property>
+  <property generated="never" lazy="false" name="hometownid" type="java.lang.Integer">
+   <column name="HOMETOWNID"/>
   </property>
   <property generated="never" lazy="false" name="level" type="java.lang.Short">
    <column name="LEVEL"/>
