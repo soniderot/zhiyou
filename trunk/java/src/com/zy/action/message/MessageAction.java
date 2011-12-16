@@ -2,16 +2,38 @@ package com.zy.action.message;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.domain.message.bean.MessageBean;
 import com.zy.facade.MessageFacade;
+import com.zy.facade.SNSFacade;
 
 public class MessageAction {
 	private MessageFacade messageFacade;
 	private short pageNo = 1;
 	private short pageSize = 12;
 	private List<MessageBean> messages;
-	
+	private List<ZyProfile> friends;
+	private SNSFacade snsFacade;
+
+	public SNSFacade getSnsFacade() {
+		return snsFacade;
+	}
+
+	public void setSnsFacade(SNSFacade snsFacade) {
+		this.snsFacade = snsFacade;
+	}
+	public List<ZyProfile> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(List<ZyProfile> friends) {
+		this.friends = friends;
+	}
 
 	public List<MessageBean> getMessages() {
 		return messages;
@@ -46,6 +68,7 @@ public class MessageAction {
 	}
 
 	public String execute(){
+		friends = snsFacade.getAllFriends(1, 0, (short)1);
 		return "member.messages";
 	}
 	
@@ -54,9 +77,14 @@ public class MessageAction {
 		return null;
 	}
 	
-	//send message
-	public String sendMessage(){
-		return null;
+	public String sendMessageAjax(){
+
+    	HttpServletRequest request = ServletActionContext.getRequest();
+    	String recipients = request.getParameter("recipients");
+    	String message = request.getParameter("message");
+    	// send message here
+
+    	return "member.message.sent";  
 	}
 	
 	public String getMessageInbox() {
@@ -71,4 +99,5 @@ public class MessageAction {
 	public String deleteMessage(){
 		return null;
 	}
+
 }
