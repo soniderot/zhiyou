@@ -104,7 +104,37 @@
             </li>
           </ul>
         </div>
-       </div>
+        <table cellspacing="0" cellpadding="0" class="uiGrid mts footerActionBar">
+          <tbody>
+            <tr>
+              <td class="vTop">
+                <ul class="uiList uiListHorizontal clearfix">
+                  <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
+                    <div class="clearfix mts"><div class="mrs lfloat fsm fwn fcg">
+                      <strong>查看：</strong>
+                    </div>
+                    <div class="footerActionLinks rfloat fsm fwn fcg">
+                      <a href="/messages/?query=is%3Aunread">未读</a>
+                       · <a href="/messages/?query=is%3Aarchived">已存档</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="pll uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
+                    <div class="clearfix mts">
+                      <div class="mrs lfloat fsm fwn fcg">
+                        <strong>设置：</strong>
+                      </div>
+                      <div class="footerActionLinks rfloat fsm fwn fcg">
+                        <a href="/messages/?setup&amp;nocache&amp;setup_panel=sms">短信</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
