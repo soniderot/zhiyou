@@ -17,17 +17,18 @@ function showPopup(dialog) {
 function sendMessage(form) {
 
   var message = $("textarea[name=message_body]").val();
-  var friends = "{";
+  var friends = "";
   var index = 0;
   $("input[name=selectedFriends]").each(function() {
     if (index == 0) {
-      friends = friends + index + ":" + $(this).val();
+      friends = friends + "[" + $(this).val();
     } else {
-      friends = friends + "," + index + ":" + $(this).val(); 
+      friends = friends + "," + $(this).val(); 
     }
     index = index + 1;
   });
-  friends = friends + "}"
+  friends = friends + "]";
+  alert(friends);
 
   $.post("usr/message!sendMessageAjax.jhtml", {
       message : form.message_body.value,
@@ -44,20 +45,21 @@ function selectFriendsPop() {
   showPopup("dialog_friends");
 }
 function saveFriends() {
-  var html = "";
   $("input[name='checkableitems']:checked").each(function (){
     var friendId = $(this).val();
     var nameInput = "input[name='name_" + friendId + "']";
     var friendName = $(nameInput).val();
     var idInput = "input[id='id_" + friendId + "']";
     var obj = $("#ugxgvx_4").find(idInput);
+    var html = "";
     if (obj.val() == undefined) {
       html = "<span title='Fei Wang' class='removable uiToken'>" + friendName
       html = html + "<input type='hidden' value="+friendId+" name='selectedFriends' id='id_"+friendId+"' />"
       html = html + "<a href='#' title='删除" + friendName +"' class='remove uiCloseButton uiCloseButtonSmall' onclick='return removeSelectdFriend(this)'></a>"
     }
+    $("#ugxgvx_4").append(html);
   });
-  $("#ugxgvx_4").append(html);
+
   hidePopup("dialog_friends");
   showPopup("dialog_add_message");
 }
