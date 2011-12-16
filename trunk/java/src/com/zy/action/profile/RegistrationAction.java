@@ -19,7 +19,7 @@ public class RegistrationAction extends ActionSupport {
 	private int year;
 	private int month;
 	private int day;
-	
+
 
 	public ProfileFacade getProfileFacade() {
 		return profileFacade;
@@ -93,7 +93,6 @@ public class RegistrationAction extends ActionSupport {
 		this.username = username;
 	}
 
-	
 	public String execute() {
 		Calendar cal = Calendar.getInstance();
 		cal.set(year, month - 1, day);
@@ -110,37 +109,6 @@ public class RegistrationAction extends ActionSupport {
 		ActionContext.getContext().getSession().put(Constants.USERID_SESSION_KEY, profile.getUserid());
 		ActionContext.getContext().getSession().put("userlogo",null);
 		return "member.basic";
-	}
-
-	public void validate() {
-		if (getUsername() == null || getUsername().trim().equals("")) {
-			addFieldError("username", "user.required");
-		}
-		if (email == null || email.trim().equals("")) {
-			addFieldError("email", "email.required");
-		}
-		if (password == null || password.trim().equals("")) {
-			addFieldError("password", "email.required");
-		}
-		if (password.equals(confirmpassword) == false) {
-			addFieldError("confirmpassword", "email.notsame");
-		}
-		if (gender==0) {
-			addFieldError("gender", "gender.required");
-		}
-		if (year < 0 || month < 0 || day < 0) {
-			addFieldError("year", "birthdate.required");
-		}
-		if (month == 2 && day > 29) {
-			addFieldError("day", "birthdate.notvalid");
-		}
-		if (month == 2 && year % 4 == 0 && day > 29) {
-			addFieldError("day", "birthdate.notvalid");
-		}
-		
-		if(profileFacade.findProfileByEmail(email)!=null){
-			addFieldError("email", "email.exist");
-		}
 	}
 
 }
