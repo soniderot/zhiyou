@@ -27,6 +27,7 @@
   <script type="text/javascript" language="javascript" src="js/util.js"></script>
   <script type="text/javascript" language="javascript" src="js/jquery.tipsy.js"></script>
   <script type="text/javascript" language="javascript" src="js/tools.js"></script>
+  <script type="text/javascript" language="javascript" src="js/placeholder.js"></script>
 
   <title>知友</title>
   <link rel="shortcut icon" href="#" />
