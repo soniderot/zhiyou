@@ -11,35 +11,11 @@
           <div class="clearfix uiHeaderTop">
             <div class="uiToolbar uiToolbarUnbordered mlm uiHeaderActions rfloat">
               <div class="clearfix uiToolbarContent">
-                <div>
+                <div style="padding-right:200px;">
                   <a class="uiToolbarItem uiButton" role="button" href="#" rel="dialog" onclick="return showPopup('dialog_add_message')">
                     <i class="mrs img sp_7gl7wd sx_61da04"></i>
                     <span class="uiButtonText">新信息</span>
                   </a>
-                  <form class="pls uiToolbarItem" method="get" onsubmit="return function(event){$(&quot;MessagingQuery&quot;).blur();}.call(this,event)!==false &amp;&amp; Event.__inlineSubmit(this,event)" id="MessagingSearch" action="/">
-                    <input type="hidden" autocomplete="off" name="sk" value="inbox">
-                    <div class="uiComboInput MessagingSearchFilter">
-                      <div class="uiSelector inlineBlock comboButton" id="us2d05_1">
-                        <div class="wrap">
-                          <a class="uiSelectorButton uiButton uiButtonNoText" role="button" href="#" aria-haspopup="1" rel="toggle">
-                            <i class="mrs customimg img sp_d1pr3k sx_030ce0"></i>
-                            <span class="uiButtonText"></span>
-                          </a>
-                          
-                        </div>
-                        <select title="Filter Messages">
-                          <option value=""></option>
-                          <option value="搜索：">搜索：</option>
-                          <option value="is:unread">未读消息</option>
-                          <option value="is:archived">已存档信息</option>
-                          <option value="is:sent">已发送信息</option>
-                          <option value="is:email">仅适用于邮件</option>
-                          <option value="is:spam">垃圾信息</option>
-                        </select>
-                      </div>
-                     
-                    </div>
-                  </form>
                 </div>
               </div>
             </div>
@@ -116,16 +92,6 @@
                     <div class="footerActionLinks rfloat fsm fwn fcg">
                       <a href="/messages/?query=is%3Aunread">未读</a>
                        · <a href="/messages/?query=is%3Aarchived">已存档</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="pll uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-                    <div class="clearfix mts">
-                      <div class="mrs lfloat fsm fwn fcg">
-                        <strong>设置：</strong>
-                      </div>
-                      <div class="footerActionLinks rfloat fsm fwn fcg">
-                        <a href="/messages/?setup&amp;nocache&amp;setup_panel=sms">短信</a>
                       </div>
                     </div>
                   </li>
