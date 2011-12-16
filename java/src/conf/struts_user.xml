@@ -24,7 +24,7 @@
 		<result name="member.basic" type="tiles" >tiles.member.basic</result>
 	</action>
 	
-	<action name="update" class="com.zy.action.profile.RegistrationAction">
+	<action name="update" class="com.zy.action.profile.UpdateProfileAction">
 		<result name="member.picture" type="tiles" >tiles.member.picture</result>
 	</action>
 	
