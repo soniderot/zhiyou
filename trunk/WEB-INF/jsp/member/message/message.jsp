@@ -26,6 +26,26 @@
             </div>
           </div>
         </div>
+        <table cellspacing="0" cellpadding="0" class="uiGrid mts footerActionBar">
+          <tbody>
+            <tr>
+              <td class="vTop">
+                <ul class="uiList uiListHorizontal clearfix">
+                  <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
+                    <div class="clearfix mts"><div class="mrs lfloat fsm fwn fcg">
+                      <strong>查看：</strong>
+                    </div>
+                    <div class="footerActionLinks rfloat fsm fwn fcg">
+                      <a href="/messages/?query=is%3Aunread">未读</a>
+                       · <a href="/messages/?query=is%3Aarchived">已存档</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
         <div class="mbs clearfix" id="MessagingMainContent">
           <ul class="uiList" id="MessagingThreadlist">
             <li class="threadRow noDraft uiListItem uiListLight uiListVerticalItemBorder" id="id.237791252950736">
@@ -36,7 +56,12 @@
                       <a class="threadLink" href="/messages/?action=read&amp;tid=id.237791252950736" rel="ignore">
                         <div class="UIImageBlock clearfix pvs">
                           <img class="uiProfilePhoto UIImageBlock_Image UIImageBlock_MED_Image uiProfilePhotoLarge img" src="http://profile.ak.fbcdn.net/hprofile-ak-ash2/370142_1438697558_1584603112_q.jpg" alt="">
-                          
+                          <div class="right UIImageBlock_Ext">
+                            <label class="draft">草稿</label>
+                            <span class="timestamp">
+                              <abbr class="timestamp" data-date="Fri, 18 Nov 2011 02:25:01 -0800" title="2011年11月18日18:25">星期五</abbr>
+                            </span>
+                          </div>
                           <div class="content UIImageBlock_Content UIImageBlock_MED_Content">
                             <div class="authorsWrapper">
                               <strong class="authors">ま か</strong>
@@ -80,26 +105,6 @@
             </li>
           </ul>
         </div>
-        <table cellspacing="0" cellpadding="0" class="uiGrid mts footerActionBar">
-          <tbody>
-            <tr>
-              <td class="vTop">
-                <ul class="uiList uiListHorizontal clearfix">
-                  <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-                    <div class="clearfix mts"><div class="mrs lfloat fsm fwn fcg">
-                      <strong>查看：</strong>
-                    </div>
-                    <div class="footerActionLinks rfloat fsm fwn fcg">
-                      <a href="/messages/?query=is%3Aunread">未读</a>
-                       · <a href="/messages/?query=is%3Aarchived">已存档</a>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>
