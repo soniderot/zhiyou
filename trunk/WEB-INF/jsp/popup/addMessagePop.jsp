@@ -14,20 +14,29 @@ function showPopup(dialog) {
   return false;
 }
 
-function sendMessage() {
+function sendMessage(form) {
 
-  var recipients = $("input[id=recipients]").val();
   var message = $("textarea[name=message_body]").val();
-  $.ajax({
-   type: "GET",
-   url: "usr/message!sendMessageAjax.jhtml",
-   dataType: 'text',
-   data: "recipients="+recipients+"&message="+message,
-   success: function(data){
+  var friends = "{";
+  var index = 0;
+  $("input[name=selectedFriends]").each(function() {
+    if (index == 0) {
+      friends = friends + index + ":" + $(this).val();
+    } else {
+      friends = friends + "," + index + ":" + $(this).val(); 
+    }
+    index = index + 1;
+  });
+  friends = friends + "}"
+
+  $.post("usr/message!sendMessageAjax.jhtml", {
+      message : form.message_body.value,
+      selectedFriends : friends
+    }, function (data) {
       hidePopup("dialog_add_message");
       $("#MessagingThreadlist").prepend(data);
-   }
-  });
+    });
+    return false;
 }
 
 function selectFriendsPop() {
@@ -44,7 +53,7 @@ function saveFriends() {
     var obj = $("#ugxgvx_4").find(idInput);
     if (obj.val() == undefined) {
       html = "<span title='Fei Wang' class='removable uiToken'>" + friendName
-      html = html + "<input type='hidden' value="+friendId+" name='selectedFriends[]' id='id_"+friendId+"' />"
+      html = html + "<input type='hidden' value="+friendId+" name='selectedFriends' id='id_"+friendId+"' />"
       html = html + "<a href='#' title='删除" + friendName +"' class='remove uiCloseButton uiCloseButtonSmall' onclick='return removeSelectdFriend(this)'></a>"
     }
   });
@@ -64,6 +73,7 @@ function removeSelectdFriend(obj) {
     <div class="pop_container_advanced">
       <div id="pop_content" class="pop_content" tabindex="0" role="alertdialog">
         <h2 class="dialog_title" id="title_dialog_0"><span>新消息！</span></h2>
+        <s:form action="message!sendMessageAjax" namespace="/usr" onsubmit="return sendMessage(this)">
         <div class="dialog_content">
           <div class="dialog_summary hidden_elem"></div>
           <div class="dialog_body">
@@ -131,7 +141,7 @@ function removeSelectdFriend(obj) {
             <div class="dialog_buttons_msg"></div>
             <div>
               <label class="uiButton uiButtonLarge uiButtonConfirm">
-                <input type="button" name="send" value="发送" onclick="sendMessage()" />
+                <input type="submit" name="send" value="发送" />
               </label>
               <label class="uiButton uiButtonLarge">
                 <input type="button" name="cancel" value="取消" onclick="hidePopup('dialog_add_message')" />
@@ -140,6 +150,7 @@ function removeSelectdFriend(obj) {
           </div>
           <div class="dialog_footer hidden_elem"></div>
         </div>
+        </s:form>
         <div class="dialog_loading">加载中...</div>
       </div>
     </div>
