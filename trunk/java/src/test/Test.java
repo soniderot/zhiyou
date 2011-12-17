@@ -1,12 +1,12 @@
 package test;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zy.common.util.ActionUtil;
-import com.zy.domain.feed.bean.FeedBean;
-import com.zy.facade.FeedFacade;
+import com.zy.common.model.ZyEvent;
+import com.zy.facade.EventFacade;
 import com.zy.facade.SNSFacade;
 
 public class Test {
@@ -70,19 +70,18 @@ public class Test {
 		
 		//notifyFacade.systemSendNotification_tx(1,(short)1,new Object[]{2});
 		
-		FeedFacade feedFacade = (FeedFacade)appContext.getBean("feedFacade");
+		//FeedFacade feedFacade = (FeedFacade)appContext.getBean("feedFacade");
 		//feedFacade.addNewFriendNewsFeed(1,2);
 		//feedFacade.addNewBlogNewsFeed(1,"大家好！");
-		List<FeedBean> list = feedFacade.getNewsFeed("1,2,3,4",null,1, 1000);
-		for(int i=0;i<list.size();i++){
-			System.out.println(list.get(i).getUser().getUsername());
-			System.out.println(list.get(i).getFeed().getBody());
-		}
+		//List<FeedBean> list = feedFacade.getNewsFeed("1,2,3,4",null,1, 1000);
+		//for(int i=0;i<list.size();i++){
+		//	System.out.println(list.get(i).getUser().getUsername());
+		//	System.out.println(list.get(i).getFeed().getBody());
+		//}
 		
-		
+		/*
 		SNSFacade snsFacade = (SNSFacade)appContext.getBean("snsFacade");
 		List<Integer> ids = snsFacade.getAllFriendsByDegree(1,(short)1);
-		//ids.add(ActionUtil.getSessionUserId());
 		String str = "1"+",";
 		for(int i=0;i<ids.size();i++){
 			if(i!=ids.size()-1){
@@ -91,6 +90,30 @@ public class Test {
 				str = str+ids.get(i);
 			}
 		}
-		System.out.println(str);
+		System.out.println(str);*/
+		
+		/*
+		MessageFacade messageFacade = (MessageFacade)appContext.getBean("messageFacade");
+		List<MessageBean> list = messageFacade.getMessageInbox(1,(short)1, (short)100);
+		System.out.println(list.size());*/
+		
+		SNSFacade snsFacade = (SNSFacade)appContext.getBean("snsFacade");
+		List<Integer> ids = snsFacade.getAllFriendsByDegree(3,(short)1);
+		for(int i=0;i<ids.size();i++){
+			System.out.println(ids.get(i));
+		}
+		
+		
+		EventFacade eventFacade = (EventFacade)appContext.getBean("eventFacade");
+		ZyEvent event = new ZyEvent();
+		event.setAddress("南京东路");
+		event.setBegintime(new Date());
+		event.setEndtime(new Date());
+		event.setCityid(8843);
+		event.setCreateuserid(1);
+		event.setCreatetime(new Date());
+		event.setEventname("唱歌比赛");
+		event.setUpdatetime(new Date());
+		eventFacade.createEvent(event);
 	}
 }

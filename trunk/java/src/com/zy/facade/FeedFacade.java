@@ -11,7 +11,7 @@ public interface FeedFacade {
 	
 	public void addNewEventNewsFeed(int userId,int enentId);
 	
-	public void addNewBlogNewsFeed(int userId,String message);
+	public FeedBean addNewBlogNewsFeed(int userId,String message);
 	
 	public void addAcceptEventInviteNewsFeed(int userId,int eventId);
 	

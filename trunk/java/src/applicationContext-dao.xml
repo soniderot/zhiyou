@@ -18,7 +18,12 @@
 <bean id="notificationDao" class="com.zy.domain.message.dao.NotificationDaoImpl" parent="baseDao" />
 
 <bean id="eventDao" class="com.zy.domain.event.dao.EventDaoImpl" parent="baseDao" />
+<bean id="eventInviteDao" class="com.zy.domain.event.dao.EventInviteDaoImpl" parent="baseDao" />
+<bean id="eventMemberDao" class="com.zy.domain.event.dao.EventMemberDaoImpl" parent="baseDao" />
 <bean id="feedDao" class="com.zy.domain.feed.dao.FeedDaoImpl" parent="baseDao" />
 <bean id="feedTypeDao" class="com.zy.domain.feed.dao.FeedTypeDaoImpl" parent="baseDao" />
 <bean id="feedCommentDao" class="com.zy.domain.feed.dao.FeedCommentDaoImpl" parent="baseDao" />
+
+<bean id="messageDao" class="com.zy.domain.message.dao.MessageDaoImpl" parent="baseDao" />
+
 </beans>

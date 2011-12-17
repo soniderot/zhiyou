@@ -88,9 +88,17 @@ public class ZyMessage implements java.io.Serializable {
 	public void setReceiverid(Integer receiverid) {
 		this.receiverid = receiverid;
 	}
+	
+	public String getFormattedSubject() {
+		return HtmlUtil.getFormattedContent(subject);
+	}
+	
+	public String getFormattedBody() {
+		return HtmlUtil.getFormattedContent(body);
+	}
 
 	public String getSubject() {
-		return HtmlUtil.getFormattedContent(subject);
+		return subject;
 	}
 
 	public void setSubject(String subject) {
@@ -98,7 +106,7 @@ public class ZyMessage implements java.io.Serializable {
 	}
 
 	public String getBody() {
-		return HtmlUtil.getFormattedContent(body);
+		return body;
 	}
 
 	public void setBody(String body) {

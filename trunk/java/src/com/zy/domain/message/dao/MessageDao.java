@@ -6,7 +6,7 @@ import java.util.List;
 import com.zy.common.db.BaseDao;
 import com.zy.common.model.ZyMessage;
 
-public interface MessageDao  extends BaseDao<ZyMessage, Long> {
+public interface MessageDao  extends BaseDao<ZyMessage, Integer> {
 	
 	public void save(ZyMessage message);
 

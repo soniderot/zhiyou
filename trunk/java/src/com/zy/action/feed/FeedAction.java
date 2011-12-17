@@ -25,7 +25,16 @@ public class FeedAction {
 	private String feedmessage;
 	private int messagegroup;
 	
+	private FeedBean feedBean;
+
 	
+	public FeedBean getFeedBean() {
+		return feedBean;
+	}
+
+	public void setFeedBean(FeedBean feedBean) {
+		this.feedBean = feedBean;
+	}
 
 	public String getFeedmessage() {
 		return feedmessage;
@@ -100,8 +109,8 @@ public class FeedAction {
 	}
 	
 	public String updateStatusAjax() {
-		
-
+		System.out.println("------------------into update status ajax-------------");
+		feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), feedmessage);
 		return "member.addfeed.ajax";
 	}
 }

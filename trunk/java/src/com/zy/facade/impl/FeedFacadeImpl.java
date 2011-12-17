@@ -69,13 +69,18 @@ public class FeedFacadeImpl implements FeedFacade{
 		feedService.addNewsFeed(feed);
 	}
 	
-	public void addNewBlogNewsFeed(int userId,String message){
+	public FeedBean addNewBlogNewsFeed(int userId,String message){
 		ZyNewsfeed feed = new ZyNewsfeed();
 		feed.setUserid(userId);
 		feed.setCreated(new Date());
 		feed.setHandle("sns.publish.text");
 		feed.setBody(message);
 		feedService.addNewsFeed(feed);
+		
+		FeedBean bean = new FeedBean();
+		bean.setFeed(feed);
+		bean.setUser(profileService.findProfileById(feed.getUserid()));
+		return bean;
 	}
 	
 	public void addAcceptEventInviteNewsFeed(int userId,int eventId){
@@ -104,7 +109,7 @@ public class FeedFacadeImpl implements FeedFacade{
 			if(feeds.get(i).getHandle().equals("sns.event.create")){
 				int id = Integer.valueOf(feeds.get(i).getBody());
 				bean.setEvent(eventService.getEvent(id));
-				
+				System.out.println(bean.getEvent().getEventname());
 			}
 			
 			//add new friend
