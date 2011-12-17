@@ -41,7 +41,7 @@
 				            </div>
 				          </div>
 				          <div class="profileHeaderMain">
-				            <h1><span class="profileName fn ginormousProfileName fwb">Yu Li</span></h1>
+				            <h1><span class="profileName fn ginormousProfileName fwb"><s:property value="profile.username"/></span></h1>
 				          </div>
 				        </div>
 				      </div>

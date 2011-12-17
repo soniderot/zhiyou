@@ -1,4 +1,5 @@
-
+<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <script>
 $(function(){
   $("#dialog_0").hide();
@@ -73,14 +74,17 @@ function saveFriends() {
                             <input type="checkbox" class="checkbox" name="checkableitems" value="<s:property value='#friend.userid' />" />
                             <a class="anchor" href="#" tabindex="-1">
                               <div class="UIImageBlock UIImageBlock_Entity clearfix">
-                                <img src="http://profile.ak.fbcdn.net/hprofile-ak-snc4/187103_100000897150377_1981128_q.jpg" class="photo UIImageBlock_Image img UIImageBlock_ENT_Image"/>
+                                <img src="<s:property value="#friend.avatar" />" class="photo UIImageBlock_Image img UIImageBlock_ENT_Image"/>
                                 <div class="content UIImageBlock_Content">
                                   <div class="fcb fwb text"><s:property value="#friend.username" /> </div>
                                   <div class="fcg text subtitle"></div>
                                 </div>
                               </div>
                             </a>
+                            
+                            
                           </li>
+                          
                           </s:iterator>
                         </ul>
                       </div>

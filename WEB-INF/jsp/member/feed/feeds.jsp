@@ -396,6 +396,11 @@
                           href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>">
                           <s:property value="user.username" />
                         </a>
+                        
+                         <s:if test="feed.handle=='sns.event.create'">创建了一个活动
+                       
+                         </s:if>
+                        
                         <s:if test="feed.handle=='sns.share.connection'">   
                           和<a
                             href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>">
@@ -417,7 +422,19 @@
 
 
                     </h6>
-
+										<span class="uiStreamFooter">
+																<span class="UIActionLinks UIActionLinks_bottom" data-ft="{&quot;type&quot;:&quot;20&quot;}">
+																	
+																	<label class="uiLinkButton comment_link" title="发表留言">
+																	 	<input type="button" data-ft="{&quot;type&quot;:24}" value="评论" onclick="return fc_click(this);">
+																	 </label> · 
+																</span>
+																<span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
+																	
+																		<abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp"><s:date name="feed.created" format="yyyy-MM-dd HH:mm" /></abbr>
+																	
+																</span>
+										 </span>
                   </div>
                 </div>
               </div>

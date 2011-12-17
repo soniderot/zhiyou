@@ -21,6 +21,7 @@
 					<tiles:insertAttribute name="left" ignore="true"/>
 				</div>
 				<div class="" id="contentCol" style="min-height: 100px;" data-referrer="contentCol">
+					<tiles:insertAttribute name="headline" ignore="true"/>
 				  <tiles:insertAttribute name="content" ignore="true"/>
                   <div id="bottomContent"></div>
 				</div>

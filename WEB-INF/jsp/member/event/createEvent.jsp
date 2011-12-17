@@ -9,14 +9,15 @@
     </div>
   </div>
   <div class="pal grayArea uiBoxGray noborder">
-    <form onsubmit="return Event.__inlineSubmit(this,event)" id="event_info_form" action="http://www.facebook.com/events/create/" method="post" class="eventEditForm">
+  	<s:form action="/event/event!saveEvent.jhtml" method="post" enctype="multipart/form-data" >
+   
       <input type="hidden" value="d987c72246020e1891443953e9b5b41b" name="post_form_id" autocomplete="off"/>
       <input type="hidden" autocomplete="off" value="AQCwdyla" name="fb_dtsg"/>
       <table class="uiInfoTable mtm mll noBorder">
         <tbody>
           <tr class="dataRow">
             <th class="label">事件名称：</th>
-            <td class="data"><input type="text" name="name" id="name" class="inputtext"/></td>
+            <td class="data"><s:textfield name="eventname" cssClass="inputtext"   /></td>
             <td class="rightCol"></td>
           </tr>
           <tr id="event_time_row" class="dataRow">
@@ -38,15 +39,7 @@
                                   <td colspan="5" class="monthTitle"></td>
                                   <td class="nextMonth"><i class="img sp_b8po3p sx_3fd0d2"></i></td>
                                 </tr>
-                                <tr>
-                                  <th style="width: 14.2857%;" class="first">日</th>
-                                  <th style="width: 14.2857%;" class="">一</th>
-                                  <th style="width: 14.2857%;" class="">二</th>
-                                  <th style="width: 14.2857%;" class="">三</th>
-                                  <th style="width: 14.2857%;" class="">四</th>
-                                  <th style="width: 14.2857%;" class="">五</th>
-                                  <th style="width: 14.2857%;" class="last">六</th>
-                                </tr>
+                               
                                 <tr>
                                   <td class="days" colspan="7">
                                     <table>
@@ -128,65 +121,26 @@
           </tr>
           <tr class="dataRow">
             <th class="label">地点：</th>
-            <td class="data">
-              <div id="u5hu7k_3" class="uiTypeahead uiClearableTypeahead">
-                <div class="wrap">
-                  <label for="u5hu7k_7" class="clear uiCloseButton">
-                    <input type="button" id="u5hu7k_7" onclick="var c = JSCC.get('j4edc70bb69e6b7e076659742').getCore(); c.reset(); c.getElement().focus(); " title="删除"/>
-                  </label>
-                  <input type="hidden" name="place_page_id" class="hiddenInput" autocomplete="off"/>
-                  <div class="innerWrap">
-                    <input type="text" spellcheck="false" onfocus="return wait_for_load(this, event, function() {;JSCC.get('j4edc70bb69e6b7e076659742').init([]);;});" autocomplete="off" name="location" class="inputtext textInput"/>
-                  </div>
-                </div>
-                <div id="u5hu7k_2" style="width: 381px;" class="uiTypeaheadView PlacesTypeaheadView hidden_elem">
-                  <div id="u5hu7k_8" style="width: 381px;" class="uiScrollableArea nofade">
-                    <div class="uiScrollableAreaWrap scrollable">
-                      <div style="width: 371px;" class="uiScrollableAreaBody">
-                        <div class="uiScrollableAreaContent">
-                          <div class="PlacesTypeaheadViewList"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="uiScrollableAreaTrack">
-                      <div class="uiScrollableAreaGripper hidden_elem"></div>
-                    </div>
-                  </div>
-                  <div id="u5hu7k_6" style="height: 150px; width: 381px;" class="uiMap2 PlacesTokenizerMap hidden_elem">
-                    <iframe height="381" frameborder="0" width="150" scrolling="no" src="http://www.facebook.com/places/map2_iframe.php?locale=zh_CN&amp;id=u5hu7k_6&amp;controller=0" id="u5hu7k_9" class="uiMap2Iframe"></iframe>
-                  </div>
-                </div>
-              </div>
-            </td>
+            <td class="data"> <s:textfield name="address" cssClass="inputtext"  /></td>
             <td class="rightCol"></td>
           </tr>
-          <tr id="street_row" class="dataRow hidden_elem">
-            <th class="label">街道：</th>
-            <td class="data"><input type="text" name="street" value="" class="inputtext"/></td>
-            <td class="rightCol"></td>
-          </tr>
-          <tr id="geo_row" class="dataRow hidden_elem">
-            <th class="label">市/县：</th>
-            <td class="data">
-              <div id="u5hu7k_4" class="uiTypeahead">
-                <div class="wrap">
-                  <input type="hidden" name="geo_id" class="hiddenInput" autocomplete="off"/>
-                  <div class="innerWrap">
-                    <input type="text" spellcheck="false" onfocus="return wait_for_load(this, event, function() {;JSCC.get('j4edc70bb69e6b7e076659744').init([]);;});" autocomplete="off" value="" id="geo_sq" name="geo_sq" class="inputtext textInput"/>
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td class="rightCol"></td>
-          </tr>
+         
+        
+         
           <tr>
             <th class="label"></th>
             <td class="data"><a href="#">推荐场所</a></td>
             <td class="rightCol"></td>
           </tr>
+          
+            <tr class="dataRow">
+            <th class="label">图片：</th>
+            <td class="data"> <input type="file" name="logo" id="profile_picture_post_file" class="inputfile"/></td>
+            <td class="rightCol"></td>
+          </tr>
           <tr class="dataRow">
             <th class="label">详细信息：</th>
-            <td class="data"><textarea id="event_desc" name="desc" rows="2"></textarea></td>
+            <td class="data"><s:textarea name="detail" rows="2" cols="40"  /></td>
             <td class="rightCol"></td>
           </tr>
           <tr class="dataRow">
@@ -247,10 +201,8 @@
           </tr>
         </tfoot>
       </table>
-      <input type="hidden" name="new"/>
-      <input type="hidden" value="1323069627" name="session_id" autocomplete="off"/>
-      <input type="hidden" name="submitting"/>
-    </form>
+      
+    </s:form>
   </div>
 </div>
 

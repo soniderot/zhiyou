@@ -52,7 +52,14 @@
 				                <tbody>
 				                  <tr>
 				                    <th class="label">性别</th>
+				                    <s:if test="profile.gender==1">   
+				                    <td class="data">男</td>
+				                    </s:if>   
+				                    
+				                     <s:if test="profile.gender==2">   
 				                    <td class="data">女</td>
+				                    </s:if>   
+				                    
 				                  </tr>
 				                </tbody>
 				              </table>
@@ -85,17 +92,7 @@
 				                    <td colspan="2"><hr/></td>
 				                  </tr>
 				                </tbody>
-				                <tbody>
-				                  <tr>
-				                    <th class="label">Facebook</th>
-				                    <td class="data">
-				                    	<a href="http://www.facebook.com/yinluotianse" class="url">
-				                    		<span>http://facebook.com/</span>
-				                    		<wbr /><span class="word_break"></span>yinluotianse
-				                    	</a>
-				                    </td>
-				                  </tr>
-				                </tbody>
+				               
 				              </table>
 				            </div>
 				          </div>

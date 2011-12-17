@@ -6,19 +6,19 @@
 													href="http://www.facebook.com/event.php?eid=224019977664870"
 													class="UIImageBlock_Image UIImageBlock_SMALL_Image"> <img
 														alt=""
-														src="<s:property value="user.avatar"/>"
+														src="/images/event.jpg"
 														class="uiProfilePhoto uiProfilePhotoLarge img" /> </a>
 												<div class="UIImageBlock_Content UIImageBlock_SMALL_Content">
 													<div class="mbs">
 														<strong><a
-															href="http://www.facebook.com/event.php?eid=224019977664870">林荫新路钓鱼</a>
+															href="http://www.facebook.com/event.php?eid=224019977664870"><s:property value="event.eventname"/></a>
 														</strong>
 													</div>
 													<div class="fsm fwn fcg">
-														2011年11月19日 8:00
+														<s:date name="event.begintime" format="yyyy-MM-dd HH:mm" />
 													</div>
 													<div class="fsm fwn fcg">
-														林荫新路
+														<s:property value="event.address"/>
 													</div>
 												</div>
 											</div>

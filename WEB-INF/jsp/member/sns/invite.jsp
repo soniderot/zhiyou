@@ -169,7 +169,6 @@
 										</div>
 									</div>
 								</li>
-								<li id="ua7fzy_3"
 									class="pvs ci_module uiListItem uiListMedium uiListVerticalItemBorder">
 									<div
 										onclick="JSCC.get(&#39;j4eca1bb8cf8e935727335251&#39;).handleClick(&quot;ua7fzy_3&quot;); return false"
