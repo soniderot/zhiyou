@@ -19,6 +19,7 @@ public class MessageFacadeImpl implements MessageFacade{
 	}
 
 	public boolean sendMessage(ZyMessage message){
+		System.out.println(message.getSubject());
 		return messageService.sendMessage(message);
 	}
 	
@@ -30,15 +31,15 @@ public class MessageFacadeImpl implements MessageFacade{
 		return messageService.getMessageOutbox(userId, pagenumber, pagesize);
 	}
 
-	public boolean senderDeleteMessage(long message){
+	public boolean senderDeleteMessage(int message){
 		return messageService.senderDeleteMessage(message);
 	}
 	
-	public boolean receiverDeleteMessage(long messageId){
+	public boolean receiverDeleteMessage(int messageId){
 		return messageService.receiverDeleteMessage(messageId);
 	}
 	
-	public boolean readMessage_tx(long messageId, int userid){
+	public boolean readMessage_tx(int messageId, int userid){
 		return messageService.readMessage_tx(messageId, userid);
 	}
 	
@@ -46,7 +47,7 @@ public class MessageFacadeImpl implements MessageFacade{
 
 	//public List<ReplyBean> getMessageReply(long messageId);
 	
-	public ZyMessage getMessageById(long messageId){
+	public ZyMessage getMessageById(int messageId){
 		return messageService.getMessageById(messageId);
 	}
 	

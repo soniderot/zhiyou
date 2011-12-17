@@ -12,17 +12,17 @@ public boolean sendMessage(ZyMessage message);
 	
 	public List<MessageBean> getMessageOutbox(int userId,short pagenumber,short pagesize);
 
-	public boolean senderDeleteMessage(long message);
+	public boolean senderDeleteMessage(int message);
 	
-	public boolean receiverDeleteMessage(long messageId);
+	public boolean receiverDeleteMessage(int messageId);
 	
-	public boolean readMessage_tx(long messageId, int userid);
+	public boolean readMessage_tx(int messageId, int userid);
 	
-	//public boolean unReadMessage_tx(long[] messageId);
+	//public boolean unReadMessage_tx(int[] messageId);
 
-	//public List<ReplyBean> getMessageReply(long messageId);
+	//public List<ReplyBean> getMessageReply(int messageId);
 	
-	public ZyMessage getMessageById(long messageId);
+	public ZyMessage getMessageById(int messageId);
 	
 	public int countForInbox(int userid);
 	

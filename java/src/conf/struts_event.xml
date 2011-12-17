@@ -4,6 +4,7 @@
 <package name="zy-event" namespace="/event" extends="tiles-default,json-default">
 	<action name="event" class="com.zy.action.event.EventAction">
 		<result name="member.events" type="tiles">tiles.event.list</result>
+		<result name="view.event.detail" type="tiles">tiles.event.detail</result>
 	</action>
 	<action name="createOrUpdate" class="com.zy.action.event.EventAction">
 		<result name="member.cteateOrUpdateEvent" type="tiles">tiles.event.createOrUpdate</result>

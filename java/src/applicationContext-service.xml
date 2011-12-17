@@ -30,12 +30,19 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	
 	<bean name="eventService" class="com.zy.domain.event.service.EventServiceImpl">
 		<property name="eventDao" ref="eventDao"/>
+		<property name="eventInviteDao" ref="eventInviteDao"/>
+		<property name="eventMemberDao" ref="eventMemberDao"/>
 	</bean>
 	
 	<bean name="feedService" class="com.zy.domain.feed.service.FeedServiceImpl">
 		<property name="newsFeedDao" ref="feedDao"/>
 		<property name="newsFeedTypeDao" ref="feedTypeDao"/>
 		<property name="newsFeedCommentDao" ref="feedCommentDao"/>
+	</bean>
+	
+	<bean name="messageService" class="com.zy.domain.message.service.MessageServiceImpl">
+		<property name="messageDao" ref="messageDao"/>
+		<property name="profileService" ref="profileService"/>
 	</bean>
 	
 </beans>

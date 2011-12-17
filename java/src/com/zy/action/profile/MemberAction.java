@@ -2,6 +2,7 @@ package com.zy.action.profile;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.zy.common.util.ActionUtil;
+import com.zy.facade.MessageFacade;
 import com.zy.facade.NotifyFacade;
 import com.zy.facade.RequestFacade;
 
@@ -11,8 +12,15 @@ public class MemberAction extends ActionSupport{
 	private int newmessagecnt = 0;
 	private RequestFacade requestFacade;
 	private NotifyFacade notifyFacade;
+	private MessageFacade messageFacade;
 	
 
+	public MessageFacade getMessageFacade() {
+		return messageFacade;
+	}
+	public void setMessageFacade(MessageFacade messageFacade) {
+		this.messageFacade = messageFacade;
+	}
 	public NotifyFacade getNotifyFacade() {
 		return notifyFacade;
 	}
@@ -44,8 +52,13 @@ public class MemberAction extends ActionSupport{
 		this.newmessagecnt = newmessagecnt;
 	}
 	public String execute(){
+		try{
 		newrequestcnt = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(),1,10000).size();
 		newnotificationcnt = notifyFacade.countForNewNotification(ActionUtil.getSessionUserId());
+		newmessagecnt = messageFacade.countForNewInbox(ActionUtil.getSessionUserId());
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
 		return "member.header";
 	}
 }

@@ -27,4 +27,13 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="eventService" ref="eventService"/>
 	</bean>
 	
+	<bean name="messageFacade" class="com.zy.facade.impl.MessageFacadeImpl"  >
+		<property name="messageService" ref="messageService"/>
+	</bean>
+	
+	<bean name="eventFacade" class="com.zy.facade.impl.EventFacadeImpl"  >
+		<property name="eventService" ref="eventService"/>
+		<property name="profileService" ref="profileService"/>
+	</bean>
+	
 </beans>

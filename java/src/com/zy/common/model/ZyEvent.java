@@ -21,8 +21,27 @@ public class ZyEvent implements java.io.Serializable {
 	private Date createtime;
 	private Integer createuserid;
 	private Date updatetime;
+	
+	private String detail;
+	private String logo;	
 
 	// Constructors
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
 
 	/** default constructor */
 	public ZyEvent() {

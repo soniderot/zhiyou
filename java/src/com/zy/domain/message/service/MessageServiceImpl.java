@@ -49,10 +49,11 @@ public class MessageServiceImpl implements MessageService {
 	public List<MessageBean> getMessageInbox(int userId,short pagenumber,short pagesize){
 		List<ZyMessage> msgs = messageDao.loadForInbox(userId, pagenumber,
 				pagesize);
-
+System.out.println("-------msg.size---"+msgs.size());
 		List<MessageBean> messagebean = new ArrayList<MessageBean>();
 
 		for (ZyMessage msg : msgs) {
+			System.out.println(msg.getBody());
 			MessageBean bean = new MessageBean();
 			bean.setMessage(msg);
 			bean.setProfile(profileService.findProfileById(msg.getSenderid()));
@@ -77,21 +78,21 @@ public class MessageServiceImpl implements MessageService {
 		return messagebean;
 	}
 
-	public boolean senderDeleteMessage(long messageId){
+	public boolean senderDeleteMessage(int messageId){
 		ZyMessage message = messageDao.load(messageId);
 		message.setDeletedbysender("T");
 		messageDao.saveOrUpdate(message);
 		return true;
 	}
 	
-	public boolean receiverDeleteMessage(long messageId){
+	public boolean receiverDeleteMessage(int messageId){
 		ZyMessage message = messageDao.load(messageId);
 		message.setDeletedbyreceiver("T");
 		messageDao.saveOrUpdate(message);
 		return true;
 	}
 	
-	public boolean readMessage_tx(long messageId, int userid){
+	public boolean readMessage_tx(int messageId, int userid){
 		ZyMessage message = messageDao.load(messageId);
 		if (message.getReceiverid() == userid) {
 			message.setIsread("T");
@@ -100,7 +101,7 @@ public class MessageServiceImpl implements MessageService {
 		return true;
 	}
 	
-	public boolean unReadMessage_tx(long[] messageIds){
+	public boolean unReadMessage_tx(int[] messageIds){
 		for (int i = 0; i < messageIds.length; i++) {
 			ZyMessage message = messageDao.get(messageIds[i]);
 			message.setIsread(null);
@@ -109,7 +110,7 @@ public class MessageServiceImpl implements MessageService {
 		return true;
 	}
 	
-	public ZyMessage getMessageById(long messageId){
+	public ZyMessage getMessageById(int messageId){
 		return messageDao.load(messageId);
 	}
 	
@@ -128,28 +129,14 @@ public class MessageServiceImpl implements MessageService {
 	public boolean sendMessage(ZyMessage message){
 		message.setIsread(null);
 		message.setCreatetime(new Date());
+		//message.setSubject("测试");
+		System.out.println("-----------message-----"+message.getSubject());
 		messageDao.save(message);
 		// Email notification to be done
 		ZyProfile sender = profileService.findProfileById(message.getSenderid());
 		ZyProfile receiver = profileService.findProfileById(message.getReceiverid());
 
-		//String link = Constants.USHI_DOMAINNAME+ "/msg/message!getMessageInbox.jhtml";
-		try {
-			String subject = MessageFormat.format(TextUtil.getText("email_message_sendmessage_notification",Locale.CHINA),new String[]{sender.getUsername()});
-			Map root = new HashMap();
-			root.put("senderName", sender.getUsername());
-			root.put("sendtime", DateUtil.formatDate(message.getCreatetime(),
-					DateUtil.patternDateTime));
-			root.put("subject", message.getSubject());
-			root.put("content", message.getBody());
-			//root.put("siteurl", Constants.USHI_DOMAINNAME);
-			root.put("messageid",message.getId());
-//			root.put("link", link);
-			mailqueueService.sendFormatEmail_tx(sender.getEmail(), sender.getUsername(), receiver.getEmail(),receiver.getUsername(), subject, "sendMessage", root, false);
-			//LocaleUtil.getUserLocale() change to database TABLE BNS_PROFILE locale
-		} catch (Exception e) {
-
-		}
+		
 		return true;
 	}
 	
