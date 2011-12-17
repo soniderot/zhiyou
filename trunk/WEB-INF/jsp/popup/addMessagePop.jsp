@@ -181,13 +181,15 @@ function removeSelectdFriend(obj) {
                     <div id="uawg93_2" class="fbProfileBrowserResult scrollable threeColumns hideSummary">
                       <div class="fbProfileBrowserListContainer">
                         <ul class="">
+                        	
+                        
                           <s:iterator value="friends" id="friend">
                           <li class="multiColumnCheckable checkableListItem">
                             <input type="checkbox" class="checkbox" name="checkableitems" value="<s:property value='#friend.userid' />" />
                             <input type="hidden" name="name_<s:property value='#friend.userid' />" value="<s:property value="#friend.username" />" />
                             <a class="anchor" href="#" tabindex="-1">
                               <div class="UIImageBlock UIImageBlock_Entity clearfix">
-                                <img src="http://profile.ak.fbcdn.net/hprofile-ak-snc4/187103_100000897150377_1981128_q.jpg" class="photo UIImageBlock_Image img UIImageBlock_ENT_Image"/>
+                                <img src="<s:property value='#friend.avatar' />" class="photo UIImageBlock_Image img UIImageBlock_ENT_Image"/>
                                 <div class="content UIImageBlock_Content">
                                   <div class="fcb fwb text"><s:property value="#friend.username" /> </div>
                                   <div class="fcg text subtitle"></div>

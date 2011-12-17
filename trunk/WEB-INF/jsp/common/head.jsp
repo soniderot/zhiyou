@@ -7,7 +7,7 @@ response.setCharacterEncoding("UTF-8");
     <div id="blueBar">
       <div role="banner" id="pageHead" class="clearfix slimHeader">
         <h1 id="pageLogo">
-          <a title="首页" href="http://www.facebook.com/?ref=logo"/>
+          <a  title="首页" href="/usr/landing.jhtml"/>
         </h1>
         
         <div id="jewelContainer">
@@ -41,9 +41,12 @@ response.setCharacterEncoding("UTF-8");
          
           <div class="rfloat">
             <ul role="navigation" id="pageNav">
+            	<li class="topNavLink middleLink">
+                <a href="/usr/landing.jhtml">首页</a>
+              </li>
               <li class="topNavLink tinyman">
                 <a title="个人主页" href="http://localhost:8080/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="#session.user.userid"/>">
-                  <span class="headerTinymanName"><s:property value="#session.user.username"/></span>
+                  <span class="headerTinymanName">个人信息</span>
                 </a>
               </li>
               <li class="topNavLink middleLink">
