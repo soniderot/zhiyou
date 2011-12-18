@@ -13,6 +13,11 @@ public class CityDaoImpl extends HibernateDao<ZyCity, Integer> implements CityDa
 		return this.find(hql, new Object[] { regionId});
 	}
 	
+	public List<ZyCity> getCitiesByKey(String key) {
+		String hql = "from ZyCity where citypinyin like ? order by citypinyin";
+		return this.find(hql, new Object[] {key + "%"});
+	}
+	
 	public ZyCity getCity(int cityId) {
 		return this.load(cityId);
 	}
