@@ -14,6 +14,7 @@ public class ZyCity implements java.io.Serializable {
 	private Integer countryid;
 	private Integer regionid;
 	private String cityname;
+	private String citypinyin;
 	private Integer sortorder;
 
 	// Constructors
@@ -24,10 +25,12 @@ public class ZyCity implements java.io.Serializable {
 
 	/** full constructor */
 	public ZyCity(Integer countryid, Integer regionid, String cityname,
+			String citypinyin,
 			Integer sortorder) {
 		this.countryid = countryid;
 		this.regionid = regionid;
 		this.cityname = cityname;
+		this.citypinyin = citypinyin;
 		this.sortorder = sortorder;
 	}
 
@@ -71,6 +74,14 @@ public class ZyCity implements java.io.Serializable {
 
 	public void setSortorder(Integer sortorder) {
 		this.sortorder = sortorder;
+	}
+
+	public String getCitypinyin() {
+		return citypinyin;
+	}
+
+	public void setCitypinyin(String citypinyin) {
+		this.citypinyin = citypinyin;
 	}
 
 }
