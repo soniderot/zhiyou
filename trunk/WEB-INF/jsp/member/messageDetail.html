@@ -1,0 +1,910 @@
+﻿<!DOCTYPE html>
+<html lang="zh" id="facebook" class="no_js">
+<head>
+	<meta charset="utf-8" />
+	<meta name="robots" content="noodp,noydir" />
+	<meta name="description" content="知友网 是一个以好友互动娱乐为主要功能的交友网站。围绕交友设计开发了包括美食点评、活动邀请、交友推荐、吃货配对、社交管家等线上线下互动功能，旨在促进网友间现实的互动和交流。" />
+	<link rel="alternate" media="handheld" href="http://www.facebook.com/" />
+  <link type="text/css" rel="stylesheet" href="../../css/GfrxW__2wNR.css" />
+  <link type="text/css" rel="stylesheet" href="../../css/6JziMmtqgI9.css" />
+  <link type="text/css" rel="stylesheet" href="../../css/oKInZho4Fq0.css" />
+  <link type="text/css" rel="stylesheet" href="../../css/B2si-Z7yw-e.css" />
+  
+  <link type="text/css" rel="stylesheet" href="../../css/IE/IhlLCbRnaR-.css" />
+
+  <title>Facebook</title>
+  <link rel="shortcut icon" href="http://static.ak.fbcdn.net/rsrc.php/yi/r/q9U99v3_saj.ico" />
+  <style>
+		.sidebarMode #chatFriendsOnline,.sidebarMode #fbDockChatBuddylistNub.fbNub,.sidebarMode #fbChatErrorNub{display:none}
+		.sidebarMode #pageHead,.sidebarMode #globalContainer{left:-90px;position:relative}
+		.sidebarMode .liquid #globalContainer{margin:0 90px}
+		.sidebarMode .fbDockWrapper{right:175px}
+		.sidebarMode .timelineLayout .fbTimelineSideColumn{margin-right:-400px}
+		.sidebarMode .fbTimelineSideAds,.sidebarMode .fbTimelineScrubber{margin-right:-400px}
+		.sidebarMode .fbTimelineStickyHeader{right:310px}
+		.sidebarMode #fbPhotoTheater .container{margin-left:-570px}
+	</style>
+</head>
+
+<body class="hasLeftCol home fbx hasSlimHeader ff3 win Locale_zh_CN">
+	<input type="hidden" autocomplete="off" id="post_form_id" name="post_form_id" value="c0a81f7ab46455dde1e203435e599680" />
+	<div id="FB_HiddenContainer" style="position:absolute; top:-10000px; width:0px; height:0px;"></div>
+	<div id="blueBarHolder" class="slim">
+		<div id="blueBar">
+			<div class="clearfix slimHeader" id="pageHead" role="banner">
+				<h1 id="pageLogo">
+					<a href="http://www.facebook.com/?ref=logo" title="首页"></a>
+				</h1>
+				
+				<div id="jewelContainer">
+					<div class="fbJewel" id="fbRequestsJewel">
+						<a class="jewelButton" rel="toggle" name="requests" data-target="fbRequestsFlyout" data-gt="&#123;&quot;ua_id&quot;:&quot;jewel:requests&quot;&#125;">
+							<span class="jewelCount" id="requestsCountWrapper">
+								<span id="requestsCountValue">0</span>
+							</span>
+						</a>
+					</div>
+					<div class="fbJewel" id="fbMessagesJewel">
+						<a class="jewelButton" rel="toggle" name="messages" data-target="fbMessagesFlyout" data-gt="&#123;&quot;ua_id&quot;:&quot;jewel:messages&quot;&#125;">
+							<span class="jewelCount" id="messagesCountWrapper">
+								<span id="messagesCountValue">0</span>
+							</span>
+						</a>
+					</div>
+					<div class="fbJewel" id="fbNotificationsJewel">
+						<a class="jewelButton" rel="toggle" name="notifications" onclick="return run_with(this, [&quot;min-notifications-jewel&quot;], function() &#123;MinNotifications.bootstrap(this)&#125;);" data-target="fbNotificationsFlyout" data-gt="&#123;&quot;ua_id&quot;:&quot;jewel:notifications&quot;&#125;">
+							<span class="jewelCount" id="notificationsCountWrapper">
+								<span id="notificationsCountValue">0</span>
+							</span>
+						</a>
+					</div>
+					<div class="fbJewelCaseFlyoutContainer" id="jewelFlyoutContainer">
+						<div class="fbJewelFlyout toggleTargetClosed" id="fbRequestsFlyout">
+							<div class="uiHeader uiHeaderBottomBorder jewelHeader">
+								<div class="clearfix uiHeaderTop">
+									<a class="uiHeaderActions rfloat" href="http://www.facebook.com/?sk=ff">搜索朋友</a>
+									<div>
+										<h3 class="uiHeaderTitle">朋友请求</h3>
+									</div>
+								</div>
+							</div>
+							<ul class="jewelItemList" id="fbRequestsList">
+								<li id="fbRequestsList_loading_indicator">
+									<img class="jewelLoading img" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" alt="" width="16" height="11" />
+								</li>
+							</ul>
+						</div>
+						<div class="fbJewelFlyout toggleTargetClosed" id="fbMessagesFlyout">
+							<div class="uiHeader uiHeaderBottomBorder jewelHeader">
+								<div class="clearfix uiHeaderTop">
+									<a class="uiHeaderActions rfloat" href="/ajax/messaging/composer.php" onclick="window.Toggler &amp;&amp; Toggler.hide();" accesskey="m" rel="dialog">发送新信息</a>
+									<div>
+										<h3 class="uiHeaderTitle">站内信息</h3>
+									</div>
+								</div>
+							</div>
+							<ul class="jewelItemList jewelHighlight" id="fbMessagesItemList">
+								<li id="fbMessagesItemList_loading_indicator">
+									<img class="jewelLoading img" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" alt="" width="16" height="11" />
+								</li>
+							</ul>
+							<div class="jewelFooter">
+								<a class="seeMore" href="http://www.facebook.com/messages/?ref=mb">
+									<span>查看所有信息</span>
+									<span class="seeMoreCount fss fwn fcg" id="jewelOuterInboxCount">
+										<span id="jewelInnerInboxCount">0</span> 条未读信息
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="fbJewelFlyout toggleTargetClosed" id="fbNotificationsFlyout">
+							<div class="uiHeader uiHeaderBottomBorder jewelHeader">
+								<div class="clearfix uiHeaderTop">
+									<div><h3 class="uiHeaderTitle">通知</h3></div>
+								</div>
+							</div>
+							<ul class="jewelItemList jewelHighlight" id="fbNotificationsList" data-gt="&#123;&quot;ref&quot;:&quot;notif_jewel&quot;&#125;">
+								<li id="fbNotificationsList_loading_indicator">
+									<img class="jewelLoading img" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" alt="" width="16" height="11" />
+								</li>
+							</ul>
+							<div class="jewelFooter">
+								<a class="seeMore" href="http://www.facebook.com/notifications">
+									<span>查看所有通知</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="clearfix" id="headNav">
+					<div class="lfloat">
+						<form method="get" id="navSearch" name="navSearch" action="http://www.facebook.com/search/results.php" role="search" onsubmit="return Event.__inlineSubmit(this,event)">
+							<div class="uiTypeahead" id="upob5b_1">
+								<div class="wrap">
+									<input type="hidden" autocomplete="off" class="hiddenInput" />
+									<div class="innerWrap">
+										<span class="uiSearchInput textInput">
+											<span>
+												<input type="text" class="inputtext DOMControl_placeholder" maxlength="100" accesskey="/" id="q" name="q" onclick="var q = $(&quot;q&quot;);if (q.value == q.getAttribute(&quot;placeholder&quot;)) &#123;q.focus(); return false;&#125;" placeholder="搜索" autocomplete="off" tabindex="" onfocus="Bootloader.loadComponents(&quot;SearchBootloader&quot;, function() &#123;$(&quot;search_first_focus&quot;).value = $(&quot;search_first_focus&quot;).value || +new Date(); ;JSCC.get(&#039;j4ec31fa49ef5616409038223&#039;).init([&quot;searchRecorderBasic&quot;,&quot;showLoadingIndicator&quot;,&quot;initFilters&quot;]);;;&#125;);" spellcheck="false" value="搜索" title="搜索" />
+												<button type="submit" onclick="var q = $(&quot;q&quot;);if (q.value == q.getAttribute(&quot;placeholder&quot;)) &#123;q.focus(); return false;&#125;" title="搜索">
+													<span class="hidden_elem">搜索</span>
+												</button>
+											</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<input type="hidden" name="init" id="init" value="quick" />
+							<input type="hidden" name="tas" class="search_sid_input" value="search_preload" />
+							<input type="hidden" name="search_first_focus" id="search_first_focus" value="" />
+						</form>
+					</div>
+					<div class="rfloat">
+						<ul id="pageNav" role="navigation">
+							<li class="topNavLink tinyman">
+								<a href="http://www.facebook.com/profile.php?id=1438697558&amp;ref=tn_tnmn" title="个人主页">
+									<img class="uiProfilePhoto headerTinymanPhoto uiProfilePhotoLarge img" src="http://profile.ak.fbcdn.net/hprofile-ak-ash2/370142_1438697558_1584603112_q.jpg" alt="" />
+									<span class="headerTinymanName">ま か</span>
+								</a>
+							</li>
+							<li class="topNavLink middleLink">
+								<a href="http://www.facebook.com/?sk=ff">搜索朋友</a>
+							</li>
+							<li class="topNavLink middleLink">
+								<a href="http://www.facebook.com/?ref=tn_tnmn">首页</a>
+							</li>
+							<li id="navAccount" class="topNavLink">
+								<a id="navAccountLink" href="http://www.facebook.com/editaccount.php?ref=mb&amp;drop" rel="toggle" role="button" aria-haspopup="1">
+									<div class="menuPulldown"></div>
+								</a>
+								<ul class="navigation" role="navigation">
+									<li><a class="navSubmenu" href="http://www.facebook.com/editaccount.php?ref=mb&amp;drop" accesskey="6">帐户设置</a></li>
+									<li><a class="navSubmenu" href="http://www.facebook.com/settings/?tab=privacy&amp;ref=mb" accesskey="7">隐私设置</a></li>
+									<li>
+										<form id="logout_form" method="post" action="/logout.php" onsubmit="return Event.__inlineSubmit(this,event)">
+											<input type="hidden" autocomplete="off" name="post_form_id" value="c0a81f7ab46455dde1e203435e599680" />
+											<input type="hidden" name="fb_dtsg" value="AQAkl6kl" autocomplete="off" />
+											<input type="hidden" autocomplete="off" name="ref" value="mb" />
+											<input type="hidden" autocomplete="off" name="h" value="d36ba5fa7376c19311d9436bf72eebd6" />
+											<label class="uiLinkButton logoutButton navSubmenu">
+												<input type="submit" value="退出" />
+											</label>
+										</form>
+									</li>
+									<li class="menuDivider"></li>
+									<li>
+										<a class="navSubmenu" href="http://www.facebook.com/help/?ref=drop" id="navHelpCenter">
+											<div class="clearfix">
+												<div class="lfloat">帮助中心</div>
+												<img class="rfloat uiLoadingIndicatorAsync img" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" alt="" width="16" height="11" />
+											</div>
+										</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="globalContainer">
+		<div id="content" class="fb_content clearfix">
+			<div id="toolbarContainer"></div>
+			<div id="mainContainer">
+				<div id="leftColContainer">
+					<div id="leftCol">
+						<div id="pagelet_welcome_box" data-referrer="pagelet_welcome_box">
+							<div class="UIImageBlock clearfix fbxWelcomeBox UIImageBlock_Entity">
+								<a tabindex="-1" aria-hidden="true" href="http://www.facebook.com/profile.php?id=1438697558" class="fbxWelcomeBoxBlock UIImageBlock_Image UIImageBlock_ENT_Image">
+									<img alt="" src="http://profile.ak.fbcdn.net/hprofile-ak-ash2/370142_1438697558_1584603112_q.jpg" class="fbxWelcomeBoxImg img"/>
+								</a>
+								<div class="prs UIImageBlock_Content UIImageBlock_ENT_Content">
+									<a href="http://www.facebook.com/profile.php?id=1438697558" class="fbxWelcomeBoxName">ま か</a>
+								</div>
+							</div>
+						</div>
+						
+						<div id="pagelet_navigation" data-referrer="pagelet_navigation">
+							<div id="sideNav" data-gt='{"ref":"bookmarks"}' class="uiFutureSideNav">
+								
+								<div id="pagelet_pinned_nav" data-referrer="pagelet_pinned_nav">
+									<div id="pinnedNav" class="homeSideNav">
+										<div class="navHeader">最爱</div>
+										<div class="mts mbm droppableNav">
+											<ul data-gt='{"nav_items_count":"5","nav_section":"pinnedNav"}' role="navigation" class="uiSideNav">
+												<li id="navItem_app_156203961126022" class="sideNavItem stat_elem selectedItem open">
+													<div class="buttonWrap"></div>
+													<a data-gt='{"bmid":"156203961126022","count":"0","coeff2_info":"AasM7zARnPgbgC_QyV1VyOv88p8dSL-UzGszpVbiurs-Ze51FDKAJBmNRk0XhUz0-Mi9HoXJsBeNarBIEVuaar6F","coeff2_registry_key":"0016","coeff2_action":"3","rank":"1"}' title="欢迎来到 知友" href="welcome.html" class="item clearfix">
+														<div class="rfloat">
+															<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+															<span class="count hidden_elem uiSideNavCount">
+																<span class="countValue fss">0</span>
+																<span class="maxCountIndicator"></span>
+															</span>
+														</div>
+														<div>
+															<span class="imgWrap">
+																<i class="img sp_enac13 sx_89179c"></i>
+															</span>
+															<div class="linkWrap noCount">欢迎来到 知友</div>
+														</div>
+													</a>
+												</li>
+												<li id="navItem_app_4748854339" class="sideNavItem stat_elem">
+													<div class="buttonWrap">
+														<div class="uiSelector inlineBlock mas bookmarksMenuButton uiSideNavEditButton">
+															<div class="wrap">
+																<a rel="toggle" aria-haspopup="1" role="button" href="#" title="" class="uiSelectorButton uiCloseButton"></a>
+																<div class="uiSelectorMenuWrapper uiToggleFlyout">
+																	<div class="uiMenu uiSelectorMenu" role="menu">
+																		<ul class="uiMenuInner">
+																			<li data-label="编辑" class="uiMenuItem">
+																				<a rel="dialog" href="/ajax/feed/edit_options_dialog.php" tabindex="0" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">编辑</span>
+																				</a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<a data-gt='{"bmid":"4748854339","count":"0","coeff2_info":"Aasb80t8kL0QLo_8OvmsvgTMV-IUsl33Qc4hL-Voy6mMUADa31aZbymtMtThn1d5mJQ","coeff2_registry_key":"0016","coeff2_action":"3","rank":"2"}' title="" href="main.html" class="item clearfix" style="">
+														<div class="rfloat">
+															<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+															<span class="count hidden_elem uiSideNavCount">
+																<span class="countValue fss">0</span>
+																<span class="maxCountIndicator"></span>
+															</span>
+														</div>
+														<div>
+															<span class="imgWrap">
+																<i class="img sp_7gl7wd sx_efd21b"></i>
+															</span>
+															<div class="linkWrap noCount">动态汇总</div>
+														</div>
+													</a>
+												</li>
+												<li id="navItem_app_217974574879787" class="sideNavItem stat_elem">
+													<div class="buttonWrap">
+														<div class="uiSelector inlineBlock mas bookmarksMenuButton uiSideNavEditButton">
+															<div class="wrap">
+																<a rel="toggle" aria-haspopup="1" role="button" href="#" title="" class="uiSelectorButton uiCloseButton"/>
+																<div class="uiSelectorMenuWrapper uiToggleFlyout">
+																	<div class="uiMenu uiSelectorMenu" role="menu">
+																		<ul class="uiMenuInner">
+																			<li data-label="从最喜欢的中移除" class="uiMenuItem favorite">
+																				<a rel="ignore" href="#" tabindex="0" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">从最喜欢的中移除</span>
+																				</a>
+																			</li>
+																			<li data-label="重新排列" class="uiMenuItem rearrange">
+																				<a rel="ignore" href="#" tabindex="-1" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">重新排列</span>
+																				</a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<a data-gt='{"bmid":"217974574879787","count":"0","coeff2_info":"Aaswb8c23rf7yV2wsauNLbjN3PTuDkcZ4O6pM5sUv-Z31EVolPbAyyn2l_khXf8l-PBFQ_poEjhITzENdALTSlRa","coeff2_registry_key":"0016","coeff2_action":"3","rank":"3"}' title="" href="message.html" class="item clearfix sortableItem">
+														<div class="rfloat">
+															<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+															<span class="count hidden_elem uiSideNavCount">
+																<span class="countValue fss">0</span>
+															</span>
+															<span class="grip"></span>
+														</div>
+														<div>
+															<span class="imgWrap">
+																<i class="img sp_1md9rt sx_73fc1d"></i>
+															</span>
+															<div class="linkWrap noCount">消息</div>
+														</div>
+													</a>
+													<ul>
+														<li id="navItem_other">
+															<a href="/messages/other/" class="subitem clearfix">
+																<div class="rfloat">
+																	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+																	<span class="count uiSideNavCount">
+																		<span class="countValue fss">1</span>
+																		<span class="maxCountIndicator"></span>
+																	</span>
+																</div>
+																<div>
+																	<div class="linkWrap hasCount">其它</div>
+																</div>
+															</a>
+														</li>
+													</ul>
+													<span class="mover hidden_elem"></span>
+												</li>
+												<li id="navItem_app_2344061033" class="sideNavItem stat_elem">
+													<div class="buttonWrap">
+														<div class="uiSelector inlineBlock mas bookmarksMenuButton uiSideNavEditButton">
+															<div class="wrap">
+																<a rel="toggle" aria-haspopup="1" role="button" href="#" title="" class="uiSelectorButton uiCloseButton"/>
+																<div class="uiSelectorMenuWrapper uiToggleFlyout">
+																	<div class="uiMenu uiSelectorMenu" role="menu">
+																		<ul class="uiMenuInner">
+																			<li data-label="从最喜欢的中移除" class="uiMenuItem favorite">
+																				<a rel="ignore" href="#" tabindex="0" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">从最喜欢的中移除</span>
+																				</a>
+																			</li>
+																			<li data-label="重新排列" class="uiMenuItem rearrange">
+																				<a rel="ignore" href="#" tabindex="-1" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">重新排列</span>
+																				</a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<a data-gt='{"bmid":"2344061033","count":"0","coeff2_info":"Aas57PhE1Z0iK6Z02IMoWK9Qp8gnEQGdYCp_tpM1G14IzmQk-0bR9482p21bxlkle_A","coeff2_registry_key":"0016","coeff2_action":"3","rank":"4"}' title="" href="createActivity.html" class="item clearfix sortableItem">
+														<div class="rfloat">
+															<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+															<span class="count hidden_elem uiSideNavCount">
+																<span class="countValue fss">0</span>
+																<span class="maxCountIndicator"></span>
+															</span>
+															<span class="grip"></span>
+														</div>
+														<div>
+															<span class="imgWrap">
+																<i class="img sp_6h8b4g sx_70f090"></i>
+															</span>
+															<div class="linkWrap noCount">活动</div>
+														</div>
+													</a>
+													<ul>
+														<li id="navItem_fe">
+															<a href="friendsActivities.html" class="subitem clearfix">
+																<div class="rfloat">
+																	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+																	<span class="count hidden_elem uiSideNavCount">
+																		<span class="countValue fss">0</span>
+																	</span>
+																</div>
+																<div>
+																	<div class="linkWrap noCount">朋友的活动</div>
+																</div>
+															</a>
+														</li>
+													</ul>
+													<span class="mover hidden_elem"></span>
+												</li>
+												<li id="navItem_app_2356318349" class="sideNavItem stat_elem">
+													<div class="buttonWrap">
+														<div class="uiSelector inlineBlock mas bookmarksMenuButton uiSideNavEditButton">
+															<div class="wrap">
+																<a rel="toggle" aria-haspopup="1" role="button" href="#" title="" class="uiSelectorButton uiCloseButton"/>
+																<div class="uiSelectorMenuWrapper uiToggleFlyout">
+																	<div class="uiMenu uiSelectorMenu" role="menu">
+																		<ul class="uiMenuInner">
+																			<li data-label="从最喜欢的中移除" class="uiMenuItem favorite">
+																				<a rel="ignore" href="#" tabindex="0" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">从最喜欢的中移除</span>
+																				</a>
+																			</li>
+																			<li data-label="重新排列" class="uiMenuItem rearrange">
+																				<a rel="ignore" href="#" tabindex="-1" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">重新排列</span>
+																				</a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<a data-gt='{"bmid":"2356318349","count":"0","coeff2_info":"Aaspwvb3buiDZvUxvLIoJf844ijN51XYfPV2qBK57VMyX7HDXQlQUK8qg6zj5xrPQGs","coeff2_registry_key":"0016","coeff2_action":"3","rank":"5"}' title="" href="inviteFriends.html" class="item clearfix sortableItem" style="">
+														<div class="rfloat">
+															<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+															<span class="count hidden_elem uiSideNavCount">
+																<span class="countValue fss">0</span>
+																<span class="maxCountIndicator"></span>
+															</span>
+															<span class="grip"></span>
+														</div>
+														<div>
+															<span class="imgWrap">
+																<i class="img sp_7gl7wd sx_0b0f8c"></i>
+															</span>
+															<div class="linkWrap noCount">搜索朋友</div>
+														</div>
+													</a>
+													<span class="mover hidden_elem"></span>
+												</li>
+											</ul>
+											<div class="actionLinks stat_elem">
+												<a data-endpoint="/ajax/bookmark/edit/" href="#" class="navEditDone">
+													<span class="navEdit">编辑</span>
+													<span class="navDone">完成</span>
+												</a>
+												<span class="loadingIndicator"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div id="pagelet_bookmark_nav" data-referrer="pagelet_bookmark_nav">
+									<div>
+										<div id="listsNav" class="homeSideNav">
+											<div class="navHeader">
+												<a href="/bookmarks/lists">
+													<div class="clearfix">
+														<div class="lfloat">好友名单</div>
+														<span class="mrm rfloat">
+															<div class="bookmarksNavSeeAll">更多</div>
+															<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+														</span>
+													</div>
+												</a>
+											</div>
+											<ul data-gt='{"nav_items_count":"2","nav_section":"listsNav"}' role="navigation" class="uiSideNav mts mbm nonDroppableNav">
+												<li id="navItem_fl_2634661952657" class="sideNavItem stat_elem">
+													<div class="buttonWrap">
+														<div class="uiSelector inlineBlock mas bookmarksMenuButton uiSideNavEditButton">
+															<div class="wrap">
+																<a rel="toggle" aria-haspopup="1" role="button" href="#" title="" class="uiSelectorButton uiCloseButton"></a>
+																<div class="uiSelectorMenuWrapper uiToggleFlyout">
+																	<div class="uiMenu uiSelectorMenu" role="menu">
+																		<ul class="uiMenuInner">
+																			<li data-label="添加为最喜欢的" class="uiMenuItem favorite">
+																				<a rel="ignore" href="#" tabindex="0" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">添加为最喜欢的</span>
+																				</a>
+																			</li>
+																			<li data-label="重新排列" class="uiMenuItem rearrange">
+																				<a rel="ignore" href="#" tabindex="-1" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">重新排列</span>
+																				</a>
+																			</li>
+																			<li class="uiMenuSeparator hideSeparator"></li>
+																			<li data-label="隐藏" class="uiMenuItem hideOption">
+																				<a rel="async-post" ajaxify="/ajax/bookmark/hide/?id=fl_2634661952657" href="#" tabindex="-1" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">隐藏</span>
+																				</a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<a data-gt='{"bmid":"2634661952657","count":"0","coeff2_info":"AatJTHR-AJBfw_7yYaQBE-KE2v9rqUbgBsHedfV-KC2Bk0X7wv-hNwMz3WjaR69RBf5WbHX1nfAy8n4IPApXVzpr","coeff2_registry_key":"0016","coeff2_action":"3","rank":"1"}' title="" href="friends.html" class="item clearfix sortableItem">
+														<div class="rfloat">
+															<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+															<span class="count hidden_elem uiSideNavCount">
+																<span class="countValue fss">0</span>
+																<span class="maxCountIndicator"></span>
+															</span>
+															<span class="grip"></span>
+														</div>
+														<div>
+															<span class="imgWrap">
+																<i class="img sp_7gl7wd sx_357d0f"></i>
+															</span>
+															<div class="linkWrap noCount">挚友</div>
+														</div>
+													</a>
+													<span class="mover hidden_elem"></span>
+												</li>
+												<li id="navItem_fl_2634662072660" class="sideNavItem stat_elem">
+													<div class="buttonWrap">
+														<div class="uiSelector inlineBlock mas bookmarksMenuButton uiSideNavEditButton">
+															<div class="wrap">
+																<a rel="toggle" aria-haspopup="1" role="button" href="#" title="" class="uiSelectorButton uiCloseButton"/>
+																<div class="uiSelectorMenuWrapper uiToggleFlyout">
+																	<div class="uiMenu uiSelectorMenu" role="menu">
+																		<ul class="uiMenuInner">
+																			<li data-label="添加为最喜欢的" class="uiMenuItem favorite">
+																				<a rel="ignore" href="#" tabindex="0" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">添加为最喜欢的</span>
+																				</a>
+																			</li>
+																			<li data-label="重新排列" class="uiMenuItem rearrange">
+																				<a rel="ignore" href="#" tabindex="-1" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">重新排列</span>
+																				</a>
+																			</li>
+																			<li class="uiMenuSeparator hideSeparator"></li>
+																			<li data-label="隐藏" class="uiMenuItem hideOption">
+																				<a rel="async-post" ajaxify="/ajax/bookmark/hide/?id=fl_2634662072660" href="#" tabindex="-1" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">隐藏</span>
+																				</a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<a data-gt='{"bmid":"2634662072660","count":"0","coeff2_info":"AasBG67cxuKgDbFuw51bkDyN1-YaNDsR3JNDcGuFXPl9QHIZOQNJlq3pULq209uUmztfJ5Y3mIoBh3adU6tXkBcv","coeff2_registry_key":"0016","coeff2_action":"3","rank":"2"}' title="" href="family.html" class="item clearfix sortableItem">
+														<div class="rfloat">
+															<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+															<span class="count hidden_elem uiSideNavCount">
+																<span class="countValue fss">0</span>
+																<span class="maxCountIndicator"></span>
+															</span>
+															<span class="grip"></span>
+														</div>
+														<div>
+															<span class="imgWrap">
+																<i class="img sp_7gl7wd sx_0a8b75"></i>
+															</span>
+															<div class="linkWrap noCount">家人</div>
+														</div>
+													</a>
+													<span class="mover hidden_elem"></span>
+												</li>
+											</ul>
+										</div>
+										<div id="appsNav" class="homeSideNav">
+											<div class="navHeader">
+												<a href="/bookmarks/apps">
+													<div class="clearfix">
+														<div class="lfloat">应用程序</div>
+														<span class="mrm rfloat">
+															<div class="bookmarksNavSeeAll">更多</div>
+															<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+														</span>
+													</div>
+												</a>
+											</div>
+											<ul data-gt='{"nav_items_count":"5","nav_section":"appsNav"}' role="navigation" class="uiSideNav mts mbm nonDroppableNav">
+												<li id="navItem_app_2305272732" class="sideNavItem stat_elem">
+													<div class="buttonWrap">
+														<div class="uiSelector inlineBlock mas bookmarksMenuButton uiSideNavEditButton">
+															<div class="wrap">
+																<a rel="toggle" aria-haspopup="1" role="button" href="#" title="" class="uiSelectorButton uiCloseButton"></a>
+																<div class="uiSelectorMenuWrapper uiToggleFlyout">
+																	<div class="uiMenu uiSelectorMenu" role="menu">
+																		<ul class="uiMenuInner">
+																			<li data-label="添加为最喜欢的" class="uiMenuItem favorite">
+																				<a rel="ignore" href="#" tabindex="0" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">添加为最喜欢的</span>
+																				</a>
+																			</li>
+																			<li data-label="重新排列" class="uiMenuItem rearrange">
+																				<a rel="ignore" href="#" tabindex="-1" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">重新排列</span>
+																				</a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<a data-gt='{"bmid":"2305272732","count":"0","coeff2_info":"AavlFDtX3Zh1sRcSv6cXUkzN2msD6OSwuDo1LJvCn9BD5qZIaApSrOUUBaHXCVG5Em0","coeff2_registry_key":"0016","coeff2_action":"3","rank":"1"}' title="" href="/?sk=app_2305272732_2392950137" class="item clearfix sortableItem">
+														<div class="rfloat">
+															<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+															<span class="count hidden_elem uiSideNavCount">
+																<span class="countValue fss">0</span>
+																<span class="maxCountIndicator"></span>
+															</span>
+															<span class="grip"></span>
+														</div>
+														<div>
+															<span class="imgWrap">
+																<i class="img sp_6h8b4g sx_282f2a"></i>
+															</span>
+															<div class="linkWrap noCount">照片</div>
+														</div>
+													</a>
+													<span class="mover hidden_elem"></span>
+												</li>
+												<li id="navItem_app_10150110253435258" class="sideNavItem stat_elem">
+													<div class="buttonWrap">
+														<div class="uiSelector inlineBlock mas bookmarksMenuButton uiSideNavEditButton">
+															<div class="wrap">
+																<a rel="toggle" aria-haspopup="1" role="button" href="#" title="" class="uiSelectorButton uiCloseButton"></a>
+																<div class="uiSelectorMenuWrapper uiToggleFlyout">
+																	<div class="uiMenu uiSelectorMenu" role="menu">
+																		<ul class="uiMenuInner">
+																			<li data-label="添加为最喜欢的" class="uiMenuItem favorite">
+																				<a rel="ignore" href="#" tabindex="0" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">添加为最喜欢的</span>
+																				</a>
+																			</li>
+																			<li data-label="重新排列" class="uiMenuItem rearrange">
+																				<a rel="ignore" href="#" tabindex="-1" role="menuitem" class="itemAnchor">
+																					<span class="itemLabel fsm">重新排列</span>
+																				</a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<a data-gt='{"bmid":"10150110253435258","count":"0","coeff2_info":"AascNaC5GNX94bXmRL8InEKxGm-39eQ5SfwNcUulSMDReSQ6rlnBwPOk7AFx62cEoqpRxf1oT7GtQr9FuMTffZXQ","coeff2_registry_key":"0016","coeff2_action":"3","rank":"5"}' title="" href="http://www.facebook.com/questions/friends/" class="item clearfix sortableItem" style="">
+														<div class="rfloat">
+															<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+															<span class="count hidden_elem uiSideNavCount">
+																<span class="countValue fss">0</span>
+																<span class="maxCountIndicator"></span>
+															</span>
+															<span class="grip"></span>
+														</div>
+														<div>
+															<span class="imgWrap">
+																<i class="img sp_7gl7wd sx_97759f"></i>
+															</span>
+															<div class="linkWrap noCount">问题</div>
+														</div>
+													</a>
+													<span class="mover hidden_elem"></span>
+												</li>
+											</ul>
+										</div>
+										<div id="groupsNav" class="homeSideNav">
+											<div class="navHeader hidden_elem">群组</div>
+											<ul data-gt='{"nav_items_count":"0","nav_section":"groupsNav"}' role="navigation" class="uiSideNav mts mbm nonDroppableNav"></ul>
+										</div>
+										<div id="pagesNav" class="homeSideNav">
+											<div class="navHeader hidden_elem">专页</div>
+											<ul data-gt='{"nav_items_count":"0","nav_section":"pagesNav"}' role="navigation" class="uiSideNav mts mbm nonDroppableNav"></ul>
+										</div>
+									</div>
+								</div>
+									
+								
+							</div>
+						</div>
+						<div id="pagelet_friends_online" data-referrer="pagelet_friends_online"></div>
+					</div>
+				</div>
+				
+				
+				<div class="clearfix hasRightCol" id="contentCol">
+					<div role="complementary" id="rightCol">
+						<div class="home_right_column">
+							<div class="rightColumnWrapper">
+								<div data-referrer="pagelet_chbox" id="pagelet_chbox"></div>
+								<div data-referrer="pagelet_ego_pane_w" id="pagelet_ego_pane_w">
+									<div class="ego_column egoOrganicColumn">
+										<div class="ego_section">
+											<div class="uiHeader uiHeaderTopAndBottomBorder mbs uiSideHeader">
+												<div class="clearfix uiHeaderTop">
+													<a href="/l.php?u=%2Ffind-friends%2Fbrowser%2F%3Fref%3Dpsa&amp;h=mAQEl7miD&amp;cb=3&amp;p=AT6YmGpyC61GFOqpL1z1SAgrqzJ3tBYp1BVWvPDIiNUVHC7HCXy5-TpjnD0ccPM5gXw49jNjlkaI8KFSqNrtUAS8FD35PyyGL17TmFEl4eHNVACx" class="uiHeaderActions rfloat">显示全部</a>
+													<div><h4 class="uiHeaderTitle">你可能认识的人</h4></div>
+												</div>
+											</div>
+											<div class="phs">
+												<div class="UIImageBlock clearfix ego_unit">
+													<a aria-hidden="true" tabindex="-1" data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1376605282","eng_data":{"ego_service":"pymk","ego_pos":"1"}}}' href="/l.php?u=http%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D1376605282%26ref%3Dpymk&amp;h=OAQHlqW0t&amp;cb=3&amp;p=AT6ZEJdVa_Rqdto4sxEByn_k3isUcludWq2jj20e3cocg4N5gXuleLbQe28sHRAIMcdx9s12tpojJiEB_KZeuffI2Vtzv3KeBeJxrbmYU0liu8FQ" class="UIImageBlock_Image UIImageBlock_SMALL_Image">
+														<img alt="" src="http://profile.ak.fbcdn.net/hprofile-ak-snc4/161388_1376605282_1619302_q.jpg" class="uiProfilePhoto uiProfilePhotoLarge img"/>
+													</a>
+													<div class="egoProfileTemplate UIImageBlock_Content UIImageBlock_SMALL_Content">
+														<a title="删除" href="#" rel="async-post" ajaxify="/ajax/eh.php?p=AT5h597cpoOrd6lEEoQxhChoxgYQAJ4eqKqMscTGA5lKmWs6OXnAV1PqFfbJL16vj3Nv21WwCqfPQde3cSPz9FH6vAf6T5trhlHWI1I0sq3frEg8MxGBrnpEs8jVhN9FV7pjLGiD4tGQ7QvRvtF4-NCz6gAfuO1sj5CzdjJLOS7u-3eH&amp;xids=%7B%221376605282%22%3A1%2C%221147506336%22%3A1%2C%22709329294%22%3A1%2C%221372884330%22%3A1%7D" class="ego_x uiCloseButton uiCloseButtonSmall"></a>
+														<a data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1376605282","eng_data":{"ego_service":"pymk","ego_pos":"1"}}}' href="/l.php?u=http%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D1376605282%26ref%3Dpymk&amp;h=PAQE0n7jr&amp;cb=3&amp;p=AT56gHUKwyw1eGxH41t_wVfhCJmIANWZWJKCSjXXqfhDmN1W4fcX-ZXwhQb0s-qfcMTXcNAps5rgBEDZ9WJLC-0G-NvLHCP4zwpgPQDXD7eZlkFI" class="ego_title">K-bata Tak</a>
+														<div class="ego_action">
+															<a rel="async-post" ajaxify="/ajax/eh.php?p=AT4Mibp_Rq4iQ2WGrb8n92r1tk2mCsoirF8AUr4Xbi36Hm_NccmErTIQjjZNKG6DG6iPsS5wdg_TwtZd6oon7AJrwbc-x96-fEAyqTcZvddpjhRbGTjvkC95iIslThYGuL7VXGQzXQCMKJhQSWve5Ou177-OlAlCn6DfuA&amp;xids=%7B%221376605282%22%3A1%2C%221147506336%22%3A1%2C%22709329294%22%3A1%2C%221372884330%22%3A1%7D" style="padding-left: 18px;" class="uiIconText">
+																<i style="top: 2px;" class="img sp_6h8b4g sx_c4a0c4"></i>加为好友
+															</a>
+														</div>
+													</div>
+												</div>
+												<div class="UIImageBlock clearfix ego_unit">
+													<a aria-hidden="true" tabindex="-1" data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1147506336","eng_data":{"ego_service":"pymk","ego_pos":"2"}}}' href="/l.php?u=http%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D1147506336%26ref%3Dpymk&amp;h=yAQHeJx1B&amp;cb=3&amp;p=AT4A6NEo1z4dB-ulnOyOjSzjTKBF03gUaSBsvfMzsa6rTmQaqFktFHbPIYftogLYjoGSiD4BT0-Yh0MndhddrCxC3Y69ULSviXnwKlnS9VcbACzr" class="UIImageBlock_Image UIImageBlock_SMALL_Image">
+														<img alt="" src="http://profile.ak.fbcdn.net/static-ak/rsrc.php/v1/yo/r/UlIqmHJn-SK.gif" class="uiProfilePhoto uiProfilePhotoLarge img"/>
+													</a>
+													<div class="egoProfileTemplate UIImageBlock_Content UIImageBlock_SMALL_Content">
+														<a title="删除" href="#" rel="async-post" ajaxify="/ajax/eh.php?p=AT7Jmr1-rUH1BmOjxXB6_iLEP5iNbyjb5qfGMx2l0WwYM1buZ0CHEvHwo1d0EPSuvxhVCNRHdmaDc-ySCUdAzK0lsvw9iaEqDQbd72GJ7IXI3pT85xF8rboLhy-ZzUqMq3nItq060NWFUeGCBU2qgpE07HijalLjzxxcY80loRquhxbZ&amp;xids=%7B%221376605282%22%3A1%2C%221147506336%22%3A1%2C%22709329294%22%3A1%2C%221372884330%22%3A1%7D" class="ego_x uiCloseButton uiCloseButtonSmall"></a>
+														<a data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1147506336","eng_data":{"ego_service":"pymk","ego_pos":"2"}}}' href="/l.php?u=http%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D1147506336%26ref%3Dpymk&amp;h=bAQE6Zgvx&amp;cb=3&amp;p=AT4A7dg5rerI8GQwJ78lz1pZ5Vru-0oHhCvwKDQ7_ZI1dtndL4X3_5-lWIkg0QjL0TW6WVgoQ7A5VYtAliYPiWepipWkvtDIs0YtlAfmkCQsNMDD" class="ego_title">Jason He</a>
+														<div class="ego_action">
+															<a rel="async-post" ajaxify="/ajax/eh.php?p=AT4RAzB6ITZhCHQzQwCTqx19bZ9R6WZoZdJNnTOl_V1FF5yIRY6eziv7tc7s-MHUFjbqi2-3Un2gfaGqZDJcSaoXx2-60lt8Aam0cIVqCNWVJHS6f62TQaEbZ61gv64QsTTZs7q0z_K7lbhSN7Qd2RYfYo8MM_WRmDavnA&amp;xids=%7B%221376605282%22%3A1%2C%221147506336%22%3A1%2C%22709329294%22%3A1%2C%221372884330%22%3A1%7D" style="padding-left: 18px;" class="uiIconText">
+																<i style="top: 2px;" class="img sp_6h8b4g sx_c4a0c4"></i>加为好友
+															</a>
+														</div>
+													</div>
+												</div>
+												<div class="UIImageBlock clearfix ego_unit">
+													<a aria-hidden="true" tabindex="-1" data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"709329294","eng_data":{"ego_service":"pymk","ego_pos":"3"}}}' href="/l.php?u=http%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D709329294%26ref%3Dpymk&amp;h=0AQFeoTMZ&amp;cb=3&amp;p=AT5kfYBuY5-arnKaKlx7Z4YS6LcAvlLKlF_sleLBH6qv9tevR2SAnl_mdV_9XY0mkNSFeR8Ti-T4cTsXQOodJopSmB1cKuwUhZL6kxChf21uBIoW" class="UIImageBlock_Image UIImageBlock_SMALL_Image">
+														<img alt="" src="http://profile.ak.fbcdn.net/hprofile-ak-snc4/174480_709329294_5720671_q.jpg" class="uiProfilePhoto uiProfilePhotoLarge img"/>
+													</a>
+													<div class="egoProfileTemplate UIImageBlock_Content UIImageBlock_SMALL_Content">
+														<a title="删除" href="#" rel="async-post" ajaxify="/ajax/eh.php?p=AT54d5rDo9nm6xNXHIrbnZuNS6lW0pJNrUe0HIAXZALNut9sS_tn9oGEhovUMgR4t4oXipupXXBUMhQcW6iehlMgZRn7X8KEqrb2ghcKTxEK_IQp9-qulWNKi2uHOk-bNM5TD0IIrRM5o0fkaimMJFx_gL3w229RNqdLq-fKAq5nTsmw&amp;xids=%7B%221376605282%22%3A1%2C%221147506336%22%3A1%2C%22709329294%22%3A1%2C%221372884330%22%3A1%7D" class="ego_x uiCloseButton uiCloseButtonSmall"></a>
+														<a data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"709329294","eng_data":{"ego_service":"pymk","ego_pos":"3"}}}' href="/l.php?u=http%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D709329294%26ref%3Dpymk&amp;h=pAQGTHYsZ&amp;cb=3&amp;p=AT7datXtUDFtpz8HTPNUXr32iP9T6pJyMO8Y-MTrtaS32nrMkQSQPYB83PBCV1F5nkfSlXN0_LTujDWx5sUETUshRaOI530ZqARPC31D9tmP4f_3" class="ego_title">Federica Cortezzi Lapthorne</a>
+														<div class="ego_action">
+															<a rel="async-post" ajaxify="/ajax/eh.php?p=AT4Mj0-XRSy11ouWZgpf3O4vtR8QPsGdQMmcIpJJ1Ax_hLp-6Tx9dHOo2eauuNHqkGRUt9sglyUH3oMtyUXytxwsXBNleaJbFMsBy8jwxris6PIB36dOH22XxjK25TrOg1RegWdeXa2SzChAWidrCAx1oKFmUTB1ryUC4w&amp;xids=%7B%221376605282%22%3A1%2C%221147506336%22%3A1%2C%22709329294%22%3A1%2C%221372884330%22%3A1%7D" style="padding-left: 18px;" class="uiIconText">
+																<i style="top: 2px;" class="img sp_6h8b4g sx_c4a0c4"></i>加为好友
+															</a>
+														</div>
+													</div>
+												</div>
+												<div class="UIImageBlock clearfix ego_unit">
+													<a aria-hidden="true" tabindex="-1" data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1372884330","eng_data":{"ego_service":"pymk","ego_pos":"4"}}}' href="/l.php?u=http%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D1372884330%26ref%3Dpymk&amp;h=hAQGxW-rE&amp;cb=3&amp;p=AT7Zsd7HEO5HNDrHCHxcNHOHxwnedFFtRSikBsemMO1dEi-1lI0m-OfA6ItpfPHZ0VGbnP_mMSXCrwGvNuteIWVnnsG24f_peAT6dxI9pF-TdIrE" class="UIImageBlock_Image UIImageBlock_SMALL_Image"><img alt="" src="http://profile.ak.fbcdn.net/static-ak/rsrc.php/v1/y9/r/IB7NOFmPw2a.gif" class="uiProfilePhoto uiProfilePhotoLarge img"/></a>
+													<div class="egoProfileTemplate UIImageBlock_Content UIImageBlock_SMALL_Content">
+														<a title="删除" href="#" rel="async-post" ajaxify="/ajax/eh.php?p=AT69LTTiV2ZE7h3ybq3UCitZi7zJgMMzqp9doORxYMn_fLj_jPiByGNXFLdAA-rBuSFR7yO8b_unB7YRnLCJY4Xw_MfjSW1dCyOUt1ymUdp2PyD-s_zM2Li8RRsGVny_62et2Y1m9Bqk05G10rfLWcxGqXX2FAW3021gNkozeSZyw8Q_&amp;xids=%7B%221376605282%22%3A1%2C%221147506336%22%3A1%2C%22709329294%22%3A1%2C%221372884330%22%3A1%7D" class="ego_x uiCloseButton uiCloseButtonSmall"></a>
+														<a data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1372884330","eng_data":{"ego_service":"pymk","ego_pos":"4"}}}' href="/l.php?u=http%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D1372884330%26ref%3Dpymk&amp;h=BAQFwHuGE&amp;cb=3&amp;p=AT6TAx0hYWhN2fTaZy0J622ggO0MPfSwAvQF3ZdQxuqOYWRIBfSIWJ47_DK-xENbKbiv4P6v8ge424wLCuGT2xM4CMjjUcQvKVuelvrU8Hq4gPq2" class="ego_title">张焉</a>
+														<div class="ego_action"><a rel="async-post" ajaxify="/ajax/eh.php?p=AT40NdOtMrgtwvu4JKgo5VHEGidrTZ-sB-WdjBy8W1aWculkjgHbDN1ZEr7TJ0MCM2moWiqZtDrL0zakSFQBgdg_-qZVcgk-C7U869a3z5wolGJd6rCM4zvTWlsMrqzWuneDBHbnySqOk58A698NV-F6N2CpjFGQqZMfAMR2Iq9aNNtK&amp;xids=%7B%221376605282%22%3A1%2C%221147506336%22%3A1%2C%22709329294%22%3A1%2C%221372884330%22%3A1%7D" style="padding-left: 18px;" class="uiIconText">
+															<i style="top: 2px;" class="img sp_6h8b4g sx_c4a0c4"></i>加为好友</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div role="main" id="contentArea">
+						<div data-referrer="pagelet_welcome" id="pagelet_welcome">
+							<div class="uiHeader uiHeaderWithImage uiHeaderBottomBorder uiHeaderPage">
+								<div class="clearfix uiHeaderTop">
+									<div class="uiHeaderActions rfloat"></div>
+									<div>
+										<h2 class="uiHeaderTitle">
+											<i class="uiHeaderImage img sp_1md9rt sx_73fc1d"></i>
+											<span id="MessagingReadParticipants">
+												<a data-hovercard="#" href="#">Mark  Ma</a>
+											</span>
+										</h2>
+									</div>
+								</div>
+							</div>
+							<ul class="uiList">
+							  <li class="MessagingMessage uiListItem uiListLight uiListVerticalItemBorder">
+							    <div class="clearfix main">
+							      <div class="UIImageBlock clearfix">
+							      	<a data-hovercard="/ajax/hovercard/hovercard.php?id=1438697558" aria-hidden="true" tabindex="-1" href="http://www.facebook.com/mkk158" class="UIImageBlock_Image UIImageBlock_SMALL_Image">
+							      		<img alt="ま か" src="http://profile.ak.fbcdn.net/hprofile-ak-ash2/370142_1438697558_1584603112_q.jpg" class="uiProfilePhoto uiProfilePhotoLarge img"/>
+							      	</a>
+							        <div class="UIImageBlock_Content UIImageBlock_SMALL_Content">
+							          <div>
+							            <div class="rfloat">
+							            	<abbr class="timestamp timestamp livetimestamp" data-utime="1324209929" title="2011年12月18日20:05">22分钟前发布</abbr>
+							            	<a href="#" onmouseout="this.blur();" class="mls uiTooltip sourceTooltip">
+							            		<i class="img sp_3rokp3 sx_b6f17a"></i>
+							            		<span class="uiTooltipWrap middle left leftmiddle">
+							            			<span class="uiTooltipText">来自聊天室</span>
+							            		</span>
+							            	</a>
+							            </div>
+							            <strong><a data-hovercard="/ajax/hovercard/hovercard.php?id=1438697558" href="http://www.facebook.com/mkk158">ま か</a></strong>
+							          </div>
+							          <div>
+							            <ul class="uiList body contentListWidth">
+							              <li class="uiListItem uiListVerticalItemBorder">
+							                <div class="subject hidden_elem"></div>
+							                <div id="id.176654635766755" class="content noh">
+							                  <p>你好</p>
+							                </div>
+							              </li>
+							            </ul>
+							          </div>
+							        </div>
+							      </div>
+							    </div>
+							  </li>
+							  <li class="MessagingMessage uiListItem uiListLight uiListVerticalItemBorder">
+							    <div class="clearfix main">
+							      <div class="UIImageBlock clearfix">
+							      	<a data-hovercard="/ajax/hovercard/hovercard.php?id=100003175668442" aria-hidden="true" tabindex="-1" href="http://www.facebook.com/profile.php?id=100003175668442" class="UIImageBlock_Image UIImageBlock_SMALL_Image">
+							      		<img alt="Mark  Ma" src="http://profile.ak.fbcdn.net/hprofile-ak-snc4/372577_100003175668442_1734471697_q.jpg" class="uiProfilePhoto uiProfilePhotoLarge img"/>
+							      	</a>
+							        <div class="UIImageBlock_Content UIImageBlock_SMALL_Content">
+							          <div>
+							            <div class="rfloat">
+							            	<abbr class="timestamp timestamp livetimestamp" data-utime="1324209978" title="2011年12月18日20:06">21分钟前发布</abbr>
+							            </div>
+							            <strong><a data-hovercard="/ajax/hovercard/hovercard.php?id=100003175668442" href="http://www.facebook.com/profile.php?id=100003175668442">Mark  Ma</a></strong>
+							            <a id="100003175668442_id.295200187189494" onclick='Chat.openTab("100003175668442"); return false;' href="#" class="mls MessagingOnlineIndicator" title="离线"></a>
+							          </div>
+							          <div>
+							            <ul class="uiList body contentListWidth">
+							              <li class="uiListItem uiListVerticalItemBorder">
+							                <div class="subject hidden_elem"></div>
+							                <div id="id.295200187189494" class="content noh">
+							                  <p>去你的</p>
+							                </div>
+							              </li>
+							            </ul>
+							          </div>
+							        </div>
+							      </div>
+							    </div>
+							  </li>
+							  <li class="MessagingMessage uiListItem uiListLight uiListVerticalItemBorder">
+							    <div class="clearfix main">
+							      <div class="UIImageBlock clearfix">
+							      	<a data-hovercard="/ajax/hovercard/hovercard.php?id=1438697558" aria-hidden="true" tabindex="-1" href="http://www.facebook.com/mkk158" class="UIImageBlock_Image UIImageBlock_SMALL_Image">
+							      		<img alt="ま か" src="http://profile.ak.fbcdn.net/hprofile-ak-ash2/370142_1438697558_1584603112_q.jpg" class="uiProfilePhoto uiProfilePhotoLarge img"/>
+							      	</a>
+							        <div class="UIImageBlock_Content UIImageBlock_SMALL_Content">
+							          <div>
+							            <div class="rfloat">
+							            	<abbr class="timestamp timestamp livetimestamp" data-utime="1324209990" title="2011年12月18日20:06">21分钟前发布</abbr>
+							            	<a href="#" onmouseout="this.blur();" class="mls uiTooltip sourceTooltip">
+							            		<i class="img sp_3rokp3 sx_b6f17a"></i>
+							            		<span class="uiTooltipWrap middle left leftmiddle">
+							            			<span class="uiTooltipText">来自聊天室</span>
+							            		</span>
+							            	</a>
+							            </div>
+							            <strong><a data-hovercard="/ajax/hovercard/hovercard.php?id=1438697558" href="http://www.facebook.com/mkk158">ま か</a></strong>
+							          </div>
+							          <div>
+							            <ul class="uiList body contentListWidth">
+							              <li class="uiListItem uiListVerticalItemBorder">
+							                <div class="subject hidden_elem"></div>
+							                <div id="id.249792425088617" class="content noh">
+							                  <p>你是白痴吗</p>
+							                </div>
+							              </li>
+							            </ul>
+							          </div>
+							        </div>
+							      </div>
+							    </div>
+							  </li>
+							</ul>
+						</div>
+						<div id="MessagingShelf" class="">
+							<div id="MessagingShelfContent" class="clearfix uiBoxGray topborder">
+								<div class="MessagingComposer" id="MessagingInlineComposer">
+									<div class="MessagingComposerForm">
+										<table cellspacing="0" cellpadding="0" class="uiGrid">
+											<tbody>
+												<tr>
+													<td class="vTop prs MessagingComposerFormLeft">
+														<textarea placeholder="回复..." rows="1" name="message_body" title="回复..." class="MessagingComposerBody DOMControl_placeholder" style="height: 15px;">回复...</textarea>
+													</td>
+													<td class="vTop pls">
+														<label for="u1czie_7" id="MessagingSendReplyButton" class="uiButton uiButtonConfirm">
+															<input type="submit" id="u1czie_7" value="回复"/>
+														</label>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<input type="hidden" id="MessagingComposerReplyID" value="id.249792425088617"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="bottomContent"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="pageFooter" data-referrer="page_footer">
+			<div id="contentCurve"></div>
+			<div class="clearfix" id="footerContainer">
+				<div class="mrl lfloat" role="contentinfo">
+					<div class="fsm fwn fcg">
+						<span> Facebook ? 2011</span>
+						· <a rel="dialog" href="/ajax/intl/language_dialog.php?uri=http%3A%2F%2Fwww.facebook.com%2F" title="更换语言">中文(简体)</a>
+					</div>
+				</div>
+				<div class="navigation fsm fwn fcg" role="navigation">
+					<a href="http://www.facebook.com/facebook" accesskey="8" title="阅读我们的博客，在资源中心里探索，同时寻找属于你的工作机会。">关于</a>
+					· <a href="http://www.facebook.com/campaign/landing.php?placement=pf&amp;campaign_id=402047449186&amp;extra_1=auto" title="在 Facebook 上做广告。">做广告</a>
+					· <a href="http://www.facebook.com/pages/create.php?ref_type=sitefooter" title="创建专页">创建专页</a>
+					· <a href="http://developers.facebook.com/?ref=pf" title="在我们的平台上开发。">开发人员</a>
+					· <a href="http://www.facebook.com/careers/?ref=pf" title="请把你的下一个工作机会瞄准我们这个最优秀的公司。">招聘</a>
+					· <a href="http://www.facebook.com/privacy/explanation" title="了解 Facebook 和你的隐私权。">隐私政策</a>
+					· <a href="http://www.facebook.com/terms.php?ref=pf" accesskey="9" title="查看我们的服务条款。">条款</a>
+					· <a href="http://www.facebook.com/help/?ref=pf" accesskey="0" title="访问我们的帮助中心。">帮助中心</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+</body>
+</html>
