@@ -212,3 +212,13 @@ border-color:#C3CCE1;
 .threeColumns .multiColumnCheckable .content {
 height:29px;
 }
+#MessagingInlineComposer{padding-left:45px}
+#MessagingInlineComposer .MessagingComposerBody{width:100%}
+#MessagingInlineComposer .MessagingComposerForm{max-width:406px}
+#MessagingInlineComposer .MessagingComposerFormLeft{width:100%}
+#MessagingInlineComposer textarea{border-color:#899bc1;font-size: 12px;height:14px;margin-right:6px;overflow:hidden;width:100%;max-width:342px}
+#MessagingComposerOptions{margin-top:2px;max-width:350px}
+#MessagingInlineComposer .checkboxes{margin-top:2px}
+#MessagingNoReplyContent, #MessagingShelfContent {
+padding:8px 10px 23px;
+}
