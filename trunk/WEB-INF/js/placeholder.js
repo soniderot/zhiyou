@@ -5,6 +5,11 @@ $(document).ready(
      	 		$(this).val($(this).attr("placeholder"));
      	 }
    	 });
+   	 $("textarea").each(function() {
+     	 if ($(this).attr("placeholder") != undefined) {
+     	 		$(this).val($(this).attr("placeholder"));
+     	 }
+   	 });
      make.placeholder("DOMControl_placeholder", "placeholder");  
    });  
    
