@@ -19,6 +19,9 @@
         <property name="cityname" type="java.lang.String">
             <column name="CITYNAME" length="64" not-null="true" />
         </property>
+		<property name="citypinyin" type="java.lang.String">
+            <column name="CITYPINYIN" length="64" />
+        </property>
         <property name="sortorder" type="java.lang.Integer">
             <column name="SORTORDER" not-null="true" />
         </property>
