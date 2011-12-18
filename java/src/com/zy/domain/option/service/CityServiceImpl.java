@@ -21,6 +21,10 @@ public class CityServiceImpl implements CityService {
 		return this.cityDao.getCitiesByRegionId(regionId);
 	}
 	
+	public List<ZyCity> getCitiesByKey(String key) {
+		return this.cityDao.getCitiesByKey(key);
+	}
+	
 	public ZyCity getCity(int cityId){
 		return this.cityDao.getCity(cityId);
 	}
