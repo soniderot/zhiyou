@@ -1,10 +1,6 @@
 package com.zy.action.profile;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Calendar;
-import java.util.Date;
-
-import org.apache.commons.beanutils.BeanUtils;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -36,23 +32,28 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 		this.profileFacade = profileFacade;
 	}
 
+	public String basic() {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(profileform.getBirthdate());
+		profileform.setYear(calendar.get(Calendar.YEAR));
+		profileform.setMonth(calendar.get(Calendar.MONTH) + 1);
+		profileform.setDay(calendar.get(Calendar.DAY_OF_MONTH));
+		return "member.basic";
+	}
+	
 	public String execute() {
 		int profileId = ActionUtil.getSessionUserId();
 		ZyProfile profile = profileFacade.findProfileById(profileId);
-		try {
-			BeanUtils.copyProperties(profile, profileform);
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			e.printStackTrace();
-		}
+		ActionUtil.copyProperties(profile, profileform);
 		profileFacade.updateProfile(profile);
+		ActionContext.getContext().getSession().put(Constants.USER_SESSION_KEY, profile);
 		return "member.picture";
 	}
 
 	@Override
 	public Profile getModel() {
-		// TODO Auto-generated method stub
+		ZyProfile profile = (ZyProfile) ActionContext.getContext().getSession().get(Constants.USER_SESSION_KEY);
+		ActionUtil.copyProperties(profileform, profile);
 		return profileform;
 	}
 
