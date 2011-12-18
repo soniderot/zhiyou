@@ -23,7 +23,6 @@
 <bean id="feedDao" class="com.zy.domain.feed.dao.FeedDaoImpl" parent="baseDao" />
 <bean id="feedTypeDao" class="com.zy.domain.feed.dao.FeedTypeDaoImpl" parent="baseDao" />
 <bean id="feedCommentDao" class="com.zy.domain.feed.dao.FeedCommentDaoImpl" parent="baseDao" />
-
 <bean id="messageDao" class="com.zy.domain.message.dao.MessageDaoImpl" parent="baseDao" />
-
+<bean id="cityDao" class="com.zy.domain.option.dao.CityDaoImpl" parent="baseDao" />
 </beans>
