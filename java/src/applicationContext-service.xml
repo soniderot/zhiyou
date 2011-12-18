@@ -45,4 +45,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="profileService" ref="profileService"/>
 	</bean>
 	
+	<bean name="cityService" class="com.zy.domain.option.service.CityServiceImpl">
+		<property name="cityDao" ref="cityDao"/>
+	</bean>
 </beans>
