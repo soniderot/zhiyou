@@ -2,12 +2,14 @@ package com.zy.common.util;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.zy.Constants;
@@ -105,4 +107,15 @@ public class ActionUtil {
 	    return getRequest().getSession().getServletContext().getRealPath("/");
 	}
 	
+	public static void copyProperties(Object distObj, Object srcObj) {
+		try {
+			PropertyUtils.copyProperties(distObj, srcObj);
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		}
+	}
 }
