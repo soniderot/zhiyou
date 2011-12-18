@@ -36,4 +36,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="profileService" ref="profileService"/>
 	</bean>
 	
+	<bean name="locationFacade" class="com.zy.facade.impl.LocationFacadeImpl"  >
+		<property name="cityService" ref="cityService"/>
+	</bean>
 </beans>
