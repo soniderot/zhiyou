@@ -21,10 +21,11 @@
 	<action name="register" class="com.zy.action.profile.RegistrationAction">
 		<result name="input" >/WEB-INF/jsp/public/landing.jsp</result>
 		<result name="member.welcome" type="tiles" >tiles.login.welcome</result>
-		<result name="member.basic" type="tiles" >tiles.member.basic</result>
+		<result name="member.basic" type="redirect" >/usr/update!basic.jhtml</result>
 	</action>
 	
 	<action name="update" class="com.zy.action.profile.UpdateProfileAction">
+		<result name="member.basic" type="tiles" >tiles.member.basic</result>
 		<result name="member.picture" type="tiles" >tiles.member.picture</result>
 	</action>
 	
@@ -57,6 +58,10 @@
 	
 	<action name="upload" class="com.zy.action.profile.UploadAction">
 		<result name="member.landing" type="redirect">/usr/landing.jhtml</result>
+	</action>
+	
+	<action name="location" class="com.zy.action.location.LocationAction">
+		<result name="location.city">/WEB-INF/jsp/public/locationAjax.jsp</result>
 	</action>
 	
 </package>
