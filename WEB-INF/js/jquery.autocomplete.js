@@ -38,14 +38,13 @@
     if (options && options.serviceUrl) {
     	this.serviceUrl = options.serviceUrl;
     } else {
-    	this.serviceUrl = "/locationquery.jhtml";
+    	this.serviceUrl = "usr/location.jhtml";
     }
 
-		this.onClear = options && options.onClear? options.onClear : null;
+	this.onClear = options && options.onClear? options.onClear : null;
     this.notFound = options && options.notFound? options.notFound : null;
 
     this.options = {
-    	action: "cityBestMatchesJSON",
       autoSubmit: false,
       minChars: 2,
       maxHeight: 300,
@@ -256,7 +255,6 @@
         me = this;
         me.options.params.term = q;
         me.options.params.suggestLength = me.options.suggestLength;
-        me.options.params.action = me.options.action;
         me.options.params.rand = Math.random();
         this.el.addClass("inputloading");
         $.post(this.serviceUrl, me.options.params, function(txt) { me.processResponse(txt); }, 'text');
