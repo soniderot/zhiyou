@@ -9,6 +9,7 @@ import com.zy.common.model.ZyEventmember;
 import com.zy.domain.event.dao.EventDao;
 import com.zy.domain.event.dao.EventInviteDao;
 import com.zy.domain.event.dao.EventMemberDao;
+import com.zy.facade.vo.EventVO;
 
 public class EventServiceImpl implements EventService{
 	private EventDao eventDao;
@@ -69,5 +70,17 @@ public class EventServiceImpl implements EventService{
 		entity.setEventid(eventId);
 		entity.setUserid(userId);
 		eventMemberDao.save(entity);
+	}
+	
+	public void updateEvent(ZyEvent event){
+		eventDao.update(event);
+	}
+	
+	public List<EventVO> getEvents(String userIds,int pageNo,int pageSize){
+		return eventDao.getEvents(userIds,pageNo,pageSize);
+	}
+	
+	public void removeMember(int userId,int eventId){
+		eventMemberDao.removeMember(userId, eventId);
 	}
 }

@@ -16,8 +16,11 @@ public class ZyEventmember implements java.io.Serializable {
 	private Integer userid;
 	private Integer eventid;
 	private Date createtime;
+	
 
 	// Constructors
+
+	
 
 	/** default constructor */
 	public ZyEventmember() {

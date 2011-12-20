@@ -1,12 +1,8 @@
 package test;
 
-import java.util.Date;
-import java.util.List;
-
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zy.common.model.ZyEvent;
-import com.zy.facade.EventFacade;
+import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
 
 public class Test {
@@ -98,13 +94,24 @@ public class Test {
 		System.out.println(list.size());*/
 		
 		SNSFacade snsFacade = (SNSFacade)appContext.getBean("snsFacade");
-		List<Integer> ids = snsFacade.getAllFriendsByDegree(3,(short)1);
-		for(int i=0;i<ids.size();i++){
-			System.out.println(ids.get(i));
-		}
+		//List<Integer> ids = snsFacade.getAllFriendsByDegree(3,(short)1);
+		//for(int i=0;i<ids.size();i++){
+		//	System.out.println(ids.get(i));
+		//}
+		
+		/*
+		List<ZyProfile> profiles = snsFacade.getProfilesYouMayKnow(1);
+		for(int i=0;i<profiles.size();i++){
+			System.out.println(profiles.get(i).getUsername());
+		}*/
 		
 		
-		EventFacade eventFacade = (EventFacade)appContext.getBean("eventFacade");
+		RequestFacade requestFacade = (RequestFacade)appContext.getBean("requestFacade");
+		requestFacade.sendRequest_tx(1,2,(short)1,0, "hihi", null);
+		
+		//EventFacade eventFacade = (EventFacade)appContext.getBean("eventFacade");
+		//eventFacade.removeMember(1, 6);
+		/*
 		ZyEvent event = new ZyEvent();
 		event.setAddress("南京东路");
 		event.setBegintime(new Date());
@@ -114,6 +121,6 @@ public class Test {
 		event.setCreatetime(new Date());
 		event.setEventname("唱歌比赛");
 		event.setUpdatetime(new Date());
-		eventFacade.createEvent(event);
+		eventFacade.createEvent(event);*/
 	}
 }

@@ -207,4 +207,8 @@ public class ProfileServiceImpl implements ProfileService {
 	public ZyProfile findProfileByName(String userName) {
 		return profileDao.findProfileByName(userName);
 	}
+	
+	public List<ZyProfile> findProfileByPoint(String userIds){
+		return profileDao.findProfileByPoint(userIds);
+	}
 }

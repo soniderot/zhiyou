@@ -45,6 +45,16 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="profileService" ref="profileService"/>
 	</bean>
 	
+	<bean name="luceneIndexService" class="com.zy.domain.search.service.LuceneIndexServiceImpl">
+		<property name="indexDao" ref="indexDao"/>
+		<property name="indexLogDao" ref="indexLogDao"/>
+	</bean>
+	
+	<bean name="searchService" class="com.zy.domain.search.service.SearchServiceImpl">
+		<property name="indexLogDao" ref="indexLogDao"/>
+	</bean>
+	
+
 	<bean name="cityService" class="com.zy.domain.option.service.CityServiceImpl">
 		<property name="cityDao" ref="cityDao"/>
 	</bean>

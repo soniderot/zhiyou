@@ -123,12 +123,21 @@ public class SNSFacadeImpl implements SNSFacade{
 	}
 	
 	public List<ZyProfile> getProfilesYouMayKnow(long userId){
+		String userIds = ""+userId;
 		List<ZyProfile> list = new ArrayList<ZyProfile>();
+		/*
 		for(int i=0;i<10;i++){
 		list.add(profileService.findProfileById(2));
 		list.add(profileService.findProfileById(3));
 		list.add(profileService.findProfileById(4));
+		}*/
+		List<Integer> list1 = this.getAllFriendsByDegree((int)userId,(short)1);
+		List<Integer> list2 = this.getAllFriendsByDegree((int)userId,(short)2);
+		list1.addAll(list2);
+		for(int i=0;i<list1.size();i++){
+			userIds = userIds +","+list1.get(i);
 		}
-		return list;
+		System.out.println("userIds--------"+userIds);
+		return profileService.findProfileByPoint(userIds);
 	}
 }

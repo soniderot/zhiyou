@@ -1,4 +1,5 @@
 package com.zy.action.sns;
+import java.util.ArrayList;
 import java.util.List;
 
 import octazen.addressbook.Contact;
@@ -8,6 +9,7 @@ import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.Page;
 import com.zy.facade.SNSFacade;
+import com.zy.facade.vo.ProfileVO;
 public class SNSActioin extends ActionSupport{
 	private int friendId;
 	private int[] profileIds;
@@ -18,11 +20,30 @@ public class SNSActioin extends ActionSupport{
 	private List<ZyProfile> profiles;
 	private Page page;
 	private int pageNo = 1;
-	private int pageSize = 12;
+	private int pageSize = 10;
 	
 	
+	private List<ZyProfile> friends;
 	
+	private List<ProfileVO> profilesVO;
 	
+
+	public List<ProfileVO> getProfilesVO() {
+		return profilesVO;
+	}
+
+	public void setProfilesVO(List<ProfileVO> profilesVO) {
+		this.profilesVO = profilesVO;
+	}
+
+	public List<ZyProfile> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(List<ZyProfile> friends) {
+		this.friends = friends;
+	}
+
 	public int getPageNo() {
 		return pageNo;
 	}
@@ -105,7 +126,9 @@ public class SNSActioin extends ActionSupport{
 	
 	//remove friend from sns friends list
 	public String removeFriend() {
-		return null;
+		snsFacade.removeFriend(ActionUtil.getSessionUserId(), friendId);
+		profiles = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)1);
+		return "friends.list";
 	}
 	
 	// user create a new sns group
@@ -163,7 +186,12 @@ public class SNSActioin extends ActionSupport{
 	
 	//get peoples you want to know 
 	public String listPeopleYouWantKnow() {
-		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		profiles = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)2);
+		if(profiles.size()<10){
+			List<ZyProfile> list = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+			profiles.addAll(list);
+		}
+		
 		page = new Page(profiles.size(),pageNo,10,5);
 		if(profiles.size()>=pageSize*pageNo){
 			profiles = profiles.subList(pageSize*(pageNo-1),pageSize*pageNo);
@@ -172,6 +200,16 @@ public class SNSActioin extends ActionSupport{
 		}
 		for (int i = 0; i < profiles.size(); i++) {
 			System.out.println(profiles.get(i).getUserid() + " : " + profiles.get(i).getUsername());
+		}
+		
+		
+		profilesVO = new ArrayList<ProfileVO>();
+		for(int i=0;i<profiles.size();i++){
+			ProfileVO vo = new ProfileVO();
+			vo.setProfile(profiles.get(i));
+			List<ZyProfile> list = snsFacade.getMutualFriends(ActionUtil.getSessionUserId(),profiles.get(i).getUserid());
+			vo.setMuFriends(list);
+			profilesVO.add(vo);
 		}
 		return "you.wanttoknow";
 	}
@@ -195,6 +233,12 @@ public class SNSActioin extends ActionSupport{
 		}
 		
 		return "search.result";
+	}
+	
+	public String getFriendsList(){
+		friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)1);
+		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		return "friends.list";
 	}
 	
 }
