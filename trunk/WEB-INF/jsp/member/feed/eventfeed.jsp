@@ -3,15 +3,15 @@
 										<div class="clearfix">
 											<div data-ft='{"type":40}' class="UIImageBlock clearfix">
 												<a aria-hidden="1" tabindex="-1"
-													href="http://www.facebook.com/event.php?eid=224019977664870"
+													href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>"
 													class="UIImageBlock_Image UIImageBlock_SMALL_Image"> <img
 														alt=""
-														src="/images/event.jpg"
+														src="<s:property value="event.logo"/>"
 														class="uiProfilePhoto uiProfilePhotoLarge img" /> </a>
 												<div class="UIImageBlock_Content UIImageBlock_SMALL_Content">
 													<div class="mbs">
 														<strong><a
-															href="http://www.facebook.com/event.php?eid=224019977664870"><s:property value="event.eventname"/></a>
+															href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>"><s:property value="event.eventname"/></a>
 														</strong>
 													</div>
 													<div class="fsm fwn fcg">

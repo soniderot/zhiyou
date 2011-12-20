@@ -67,7 +67,7 @@
                                 
                                 <div class="snippet fsm fwn fcg">
                                         <i class="mrs indicator img sp_d1pr3k sx_18fadf"></i>
-                                        <span id="snippet_id.237791252950736"><s:property value="content"/><s:if test="formatedMsg!=null"><s:property value="content"/>(<s:property value="formatedMsg"/>)</s:if></span>
+                                        <span id="snippet_id.237791252950736"><s:property value="content"/><s:if test="formatedMsg!=null">(<s:property value="formatedMsg"/>)</s:if></span>
                                  </div>
                               </td>
                               
