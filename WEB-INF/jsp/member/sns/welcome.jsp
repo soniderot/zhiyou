@@ -54,23 +54,23 @@
                   <div class="friendBrowserCheckboxResults">
                     <div class="friendBrowserCheckboxContentGrid">
                       <ul class="uiList">
-                        <s:iterator value="profiles">
+                        <s:iterator value="profilesVO">
                         <li class="pvm friendBrowserListUnit uiListItem uiListLight uiListVerticalItemBorder">
                           <div class="UIImageBlock clearfix">
-                            <a aria-hidden="true" tabindex="-1" href="/profile/profile!viewProfileInfo.jhtml?userid=${userid}" class="UIImageBlock_Image UIImageBlock_MED_Image">
+                            <a aria-hidden="true" tabindex="-1" href="/profile/profile!viewProfileInfo.jhtml?userid=${profile.userid}" class="UIImageBlock_Image UIImageBlock_MED_Image">
                             <div class="friendBrowserPhotoWrapper">
                               <div class="friendBrowserPhotoCrop">
-                                <img style="left: -24px;" alt="" src="${avatar }" class="fbProfileLargePortraitImgScaleHeight img"/>
+                                <img  alt="" src="${profile.avatar }" class="fbProfileLargePortraitImgScaleHeight img"/>
                               </div>
                             </div>
                             </a>
                             <div class="UIImageBlock_Ext">
                               <div id="friend_browser_unit_1649024971" class="friendBrowserUnit friendBrowserAuxAlignMiddle">
                                 <div id="friendBrowserActionId_1649024971" class="friendBrowserAddAsFriend stat_elem">
-                                  <div id="div_${userid}" class="FriendButton">
-                                    <label for="addFriendBtn_${userid}" class="FriendRequestAdd addButton uiButton">
+                                  <div id="div_${profile.userid}" class="FriendButton">
+                                    <label for="addFriendBtn_${profile.userid}" class="FriendRequestAdd addButton uiButton">
                                       <i class="mrs img sp_9bp6bo sx_35b899"></i>
-                                      <input type="button" id="addFriendBtn_${userid}" value="加为好友" onclick="showPopup('dialog_0', ${userid})"/>
+                                      <input type="button" id="addFriendBtn_${profile.userid}" value="加为好友" onclick="showPopup('dialog_0', ${profile.userid})"/>
                                     </label>
                                     <a data-flloc="friend_browser_wd" data-profileid="1649024971" href="#" role="button" class="FriendRequestOutgoing enableFriendListFlyout hidden_elem outgoingButton uiButton">
                                       <i class="mrs img sp_9bp6bo sx_35b899"></i>
@@ -82,12 +82,15 @@
                             </div>
                             <div class="friendBrowserContentAlignMiddle UIImageBlock_Content UIImageBlock_MED_Content">
                               <div class="fsl fwb fcb">
-                                <a data-hovercard="/ajax/hovercard/hovercard.php?id=1649024971" data-gt='{"engagement":{"eng_type":"1","eng_src":"1","eng_tid":"1649024971","eng_data":[]}}' href="/profile/profile!viewProfileInfo.jhtml?userid=${userid}">${username}</a>
+                                <a data-hovercard="/ajax/hovercard/hovercard.php?id=1649024971" data-gt='{"engagement":{"eng_type":"1","eng_src":"1","eng_tid":"1649024971","eng_data":[]}}' href="/profile/profile!viewProfileInfo.jhtml?userid=${profile.userid}">${profile.username}</a>
                               </div>
                               
                               <div class="fsm fwn fcg">
                                 <div class="friendBrowserMarginTopTiny">
-                                  <div>共同朋友 <a href="http://www.facebook.com/profile.php?id=100002966365120">Flora Tang</a> 。</div>
+                                	<s:if test="muFriends.size()>0">  
+                                  <div><s:property value="muFriends.size()"/>位共同朋友</div>
+                                </s:if>  
+                                
                                 </div>
                               </div>
                             </div>

@@ -4,13 +4,21 @@
   <div class="uiHeader mhl pts pbl uiHeaderPage">
     <div class="clearfix uiHeaderTop">
       <div>
+      	<s:if test="eventname==null">
         <h2 class="uiHeaderTitle">创建活动</h2>
+        </s:if>
+        
+        <s:else>
+        	<h2 class="uiHeaderTitle">更新活动</h2>
+      </s:else>
+      
+     
       </div>
     </div>
   </div>
   <div class="pal grayArea uiBoxGray noborder">
   	<s:form action="/event/event!saveEvent.jhtml" method="post" enctype="multipart/form-data" >
-   
+   	  <input type="hidden" value="<s:property value="eventId" />" name="eventId"/>
       <input type="hidden" value="d987c72246020e1891443953e9b5b41b" name="post_form_id" autocomplete="off"/>
       <input type="hidden" autocomplete="off" value="AQCwdyla" name="fb_dtsg"/>
       <table class="uiInfoTable mtm mll noBorder">
@@ -194,7 +202,13 @@
             <td colspan="2" class="data">
               <div class="clearfix">
                 <label for="u5hu7k_12" class="lfloat uiButton uiButtonConfirm uiButtonLarge">
-                  <input type="submit" id="u5hu7k_12" name="save" value="创建活动"/>
+                	<s:if test="eventname==null">
+        					<input type="submit" id="u5hu7k_12" name="save" value="创建活动"/>
+        					</s:if>
+        
+        					<s:else>
+                  <input type="submit" id="u5hu7k_12" name="save" value="更新活动"/>
+                </s:else>
                 </label>
               </div>
             </td>

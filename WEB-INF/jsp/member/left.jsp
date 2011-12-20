@@ -138,6 +138,31 @@
                           </a>
                           <span class="mover hidden_elem"></span>
                         </li>
+                        
+                         <li id="navItem_app_2356318349" class="sideNavItem stat_elem">
+                         
+                          <a data-gt='{"bmid":"2356318349","count":"0","coeff2_info":"Aaspwvb3buiDZvUxvLIoJf844ijN51XYfPV2qBK57VMyX7HDXQlQUK8qg6zj5xrPQGs","coeff2_registry_key":"0016","coeff2_action":"3","rank":"5"}' title="" href="/sns/sns!getFriendsList.jhtml" class="item clearfix sortableItem" style="">
+                            <div class="rfloat">
+                              <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+                              <span class="count hidden_elem uiSideNavCount">
+                                <span class="countValue fss">0</span>
+                                <span class="maxCountIndicator"></span>
+                              </span>
+                              <span class="grip"></span>
+                            </div>
+                            <div>
+                              <span class="imgWrap">
+                                <i class="img sp_7gl7wd sx_0b0f8c"></i>
+                              </span>
+                              <div class="linkWrap noCount">好友</div>
+                              
+                            </div>
+                            
+                            
+                          </a>
+                          <span class="mover hidden_elem"></span>
+                        </li>
+                        
                       </ul>
                     
                     </div>
@@ -146,9 +171,10 @@
                 
                 <div id="pagelet_bookmark_nav" data-referrer="pagelet_bookmark_nav">
                   <div>
+                  	<!----
                     <div id="listsNav" class="homeSideNav">
                       <div class="navHeader">
-                        <a href="/sns/sns!listfriends.jhtml">
+                        <a href="/sns/sns!getFriendsList.jhtml">
                           <div class="clearfix">
                             <div class="lfloat">好友名单</div>
                             <span class="mrm rfloat">
@@ -200,7 +226,7 @@
                           <span class="mover hidden_elem"></span>
                         </li>
                       </ul>
-                    </div>
+                    </div>----->
                     <div id="appsNav" class="homeSideNav">
                       <div class="navHeader">
                         

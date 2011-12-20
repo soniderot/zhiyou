@@ -3,7 +3,7 @@
 <div id="headerArea">
 						<div class="clearfix profileHeader" id="event_profile_header">
 							<div class="rfloat">
-								<a class="mls uiButton" role="button" href="/events/create/?eid=241236155939386">
+								<a class="mls uiButton" role="button" href="/event/createOrUpdate!createOrUpdate.jhtml?eventId=<s:property value="event.id" />">
 									<i class="mrs img sp_7gl7wd sx_167a57"></i>
 									<span class="uiButtonText">编辑活动资讯</span>
 								</a>
