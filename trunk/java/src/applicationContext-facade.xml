@@ -36,7 +36,19 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="profileService" ref="profileService"/>
 	</bean>
 	
+	<bean name="luceneIndexFacade" class="com.zy.facade.impl.LuceneIndexFacadeImpl"  >
+		<property name="luceneIndexService" ref="luceneIndexService"/>
+		<property name="profileService" ref="profileService"/>
+	</bean>
+	
+	<bean name="searchFacade" class="com.zy.facade.impl.SearchFacadeImpl"  >
+		<property name="snsService" ref="snsService"/>
+		<property name="profileService" ref="profileService"/>
+		<property name="searchService" ref="searchService"/>
+	</bean>
+	
 	<bean name="locationFacade" class="com.zy.facade.impl.LocationFacadeImpl"  >
 		<property name="cityService" ref="cityService"/>
 	</bean>
+
 </beans>

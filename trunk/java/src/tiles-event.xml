@@ -6,9 +6,19 @@
 	<put-attribute name="head" value="/usr/header.jhtml"/>
 	<put-attribute name="left" value="/WEB-INF/jsp/member/left.jsp"/>
 	<put-attribute name="right" value="/sns/sns!listPeopleYouMayKnow.jhtml"/>
+	<put-attribute name="center" value="/WEB-INF/jsp/member/event/eventslist.jsp"/>
+	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
+</definition>
+
+<definition name="tiles.event.emptylist" template="/WEB-INF/jsp/layout/3colbase.jsp" >
+	<put-attribute name="css" value="/WEB-INF/jsp/common/css.jsp"/>
+	<put-attribute name="head" value="/usr/header.jhtml"/>
+	<put-attribute name="left" value="/WEB-INF/jsp/member/left.jsp"/>
+	<put-attribute name="right" value="/sns/sns!listPeopleYouMayKnow.jhtml"/>
 	<put-attribute name="center" value="/WEB-INF/jsp/member/event/events.jsp"/>
 	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
 </definition>
+
 <definition name="tiles.event.createOrUpdate" template="/WEB-INF/jsp/layout/2colbase.jsp" >
 	<put-attribute name="css" value="/WEB-INF/jsp/common/css.jsp"/>
 	<put-attribute name="head" value="/usr/header.jhtml"/>

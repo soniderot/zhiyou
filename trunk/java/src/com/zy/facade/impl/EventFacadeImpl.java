@@ -9,6 +9,7 @@ import com.zy.common.model.ZyProfile;
 import com.zy.domain.event.service.EventService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.facade.EventFacade;
+import com.zy.facade.vo.EventVO;
 
 public class EventFacadeImpl implements EventFacade{
 	private EventService eventService;
@@ -54,5 +55,29 @@ public class EventFacadeImpl implements EventFacade{
 	}
 	public ZyEvent getEvent(int eventId){
 		return eventService.getEvent(eventId);
+	}
+	
+	public void updateEvent(ZyEvent event){
+		eventService.updateEvent(event);
+	}
+	
+	public List<EventVO> getEvents(int userId,String userIds,int pageNo,int pageSize){
+		List<EventVO> list = eventService.getEvents(userIds,pageNo,pageSize);
+		for(int i=0;i<list.size();i++){
+			list.get(i).setProfile(profileService.findProfileById(list.get(i).getMember().getUserid()));
+			List<ZyProfile> profiles = this.getEventMembers(list.get(i).getEvent().getId());
+			list.get(i).setMembers(profiles);
+			for(int m=0;m<profiles.size();m++){
+				if(profiles.get(m).getUserid()==userId){
+					list.get(i).setJoined(true);
+					break;
+				}
+			}
+		}
+		return list;
+	}
+	
+	public void removeMember(int userId,int eventId){
+		eventService.removeMember(userId, eventId);
 	}
 }

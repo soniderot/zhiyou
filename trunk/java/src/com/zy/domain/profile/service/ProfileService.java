@@ -35,4 +35,6 @@ public interface ProfileService {
 	public ZyEducation getByEductioinId(Integer id);
 	public List<ZyEducation> findByEducationsUserId(Integer userId);
 	public void updateEducation(ZyEducation education);
+	
+	public List<ZyProfile> findProfileByPoint(String userIds);
 }

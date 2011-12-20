@@ -113,7 +113,8 @@ public class RequestAction extends ActionSupport{
 		System.out.println("---to---"+ActionUtil.getRequest().getParameter("to"));
 		System.out.println("---t2---"+ActionUtil.getRequest().getParameter("content"));
 		ActionUtil.printStr("true");
-		return SUCCESS;
+		requestFacade.sendRequest_tx(ActionUtil.getSessionUserId(),Integer.valueOf(ActionUtil.getRequest().getParameter("to")).intValue(),(short)1,0, ActionUtil.getRequest().getParameter("content"), null);
+		return NONE;
 	}
 	
 	public String deleteRequest(){

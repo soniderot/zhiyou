@@ -7,4 +7,5 @@ import com.zy.common.model.ZyEventmember;
 
 public interface EventMemberDao extends BaseDao<ZyEventmember,Integer>{
 	public List<ZyEventmember> getMembers(int eventId);
+	public void removeMember(int userId,int eventId);
 }

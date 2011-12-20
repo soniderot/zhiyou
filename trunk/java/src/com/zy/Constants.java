@@ -29,21 +29,8 @@ public class Constants {
             e.printStackTrace();
         }
     }
-    public static final short prizes1 = 1;
-    public static final short prizes2 = 2;
-    public static final short prizes3 = 3;
-    public static final short prizes4 = 4;
-    public static final short prizes5 = 5;
-    public static final short prizes6 = 6;
-    public static final short prizes7 = 7;
-    public static final short prizes8 = 8;
-    public static final short prizes9 = 9;
-    public static final short prizes10 = 10;
-    public static final short prizes11 = 11;
-    public static final short prizes12 = 12;
     
-    public static String PAYMENTRETURNDOMAIN =  pro.getProperty("PAYMENTRETURNDOMAIN", "http://www.ushi.com/");
-
+    
     public static String EMAIL_SENDNAME = "site.name";
     
 	public static final int MAIL_PRIORITY_HIGH = 1;
@@ -92,31 +79,8 @@ public class Constants {
 	public static final short PAYMANT_NOPAIED = 1;
 	public static final short PAYMENT_PAIED = 0;
 
-	public static final short PAYMENT_TYPE_PACKAGE = 0; // upgrade
-	public static final short PAYMENT_TYPE_COINS = 1;
-	public static final short PAYMENT_TYPE_PACKAGE_EXTEND = 2; // extend
-	public static final short PAYMENT_TYPE_PAY_FOR_ACTIVITY = 3; // simple pay
 	
-	public static final short PAYMENTWAY_WORLDPAY = 1;
-	public static final short PAYMENTWAY_PAYPAL = 2;
-	public static final short PAYMENTWAY_ALIPAY = 3;
-	public static final short PAYMENTWAY_99BILL = 4;
-
-	public static final String COINS_PAYMENT_RETURNURL = PAYMENTRETURNDOMAIN + "/currency/Coins!chargeList.jhtml";
-	public static final String UPGRADE_PAYMENT_RETURNURL = PAYMENTRETURNDOMAIN + "/user/setting.jhtml";
-	// alipay
-	public static final String ALIPAY_REQUESTURL = "https://www.alipay.com/cooperate/gateway.do?";
-    public static final String ALIPAY_RECEIVEEMAIL = "alipay@ushi.cn";
-    public static final String ALIPAY_PARTNER = "2088502040669705";
-    public static final String ALIPAY_KEY = "5gr3obfyv3uw0stpyzm1m8ykmxrjfa5u";
-	public static final String ALIPAY_CALLBACKURL = PAYMENTRETURNDOMAIN + "/c/Payment!alipay.jhtml";
-	// 99bill
-	public static final String BILL99_REQUESTURL = "https://www.99bill.com/gateway/recvMerchantInfoAction.htm?";
-	public static final String BILL99_MERCHANTACCTID = "1000835780701";
-	public static final String BILL99_KEY = "N4RWGH5ZDGRG8QL2";
-	public static final String BILL99_CALLBACKURL = PAYMENTRETURNDOMAIN + "/c/Payment!bill99.jhtml";
-	// ----- payment end -------------------------
-
+	
 	public static final short MEMBERSHIP_COMMON = 0;
 	public static final short MEMBERSHIP_PLATINUM = 1;
 	public static final short MEMBERSHIP_DIAMOND = 2;
@@ -669,7 +633,7 @@ public class Constants {
 		INDEX_DIR_VERIFIEDSCHOOL = pro.getProperty("INDEX_DIR_VERIFIEDSCHOOL", "");
 		INDEX_DIR_VERIFIEDCOMPANY = pro.getProperty("INDEX_DIR_VERIFIEDCOMPANY", "");
 		INDEX_DIR_PROFILE_MASTER = pro.getProperty("INDEX_DIR_PROFILE_MASTER", "");
-		INDEX_DIR_PROFILE_LIVE = pro.getProperty("INDEX_DIR_PROFILE_LIVE", "");
+		//INDEX_DIR_PROFILE_LIVE = pro.getProperty("INDEX_DIR_PROFILE_LIVE", "");
 		INDEX_DIR_JOB_MASTER = pro.getProperty("INDEX_DIR_JOB_MASTER", "");
 		INDEX_DIR_JOB_LIVE = pro.getProperty("INDEX_DIR_JOB_LIVE", "");
 		INDEX_DIR_JOBCOMPANY = pro.getProperty("INDEX_DIR_JOBCOMPANY", "");
@@ -711,24 +675,6 @@ public class Constants {
 		}
 		PROMOTION_MACRO = pro.getProperty("PROMOTION_MACRO");
 		
-		JOB_APPLY_QUOTA = Integer.parseInt(pro.getProperty("JOB_APPLY_QUOTA"));
-		JOB_APPLY_START_PRESENT = DateUtil.getDateByString(pro.getProperty("JOB_APPLY_START_PRESENT"));
-		JOB_APPLY_END_PRESENT = DateUtil.getDateByString(pro.getProperty("JOB_APPLY_END_PRESENT"));
-		
-		//Email Tracking
-		TRK_URL_PREFIX = pro.getProperty("TRK_URL_PREFIX", "http://localhost:9999");
-		String[] aInviteKeyword = pro.getProperty("EMAIL_TRACK_INVITATION_KEYWORDS").split(",");
-		EMAIL_TRACK_INVITE_KEYWORDS = new String[aInviteKeyword.length];
-		for(int i=0; i<aInviteKeyword.length; i++){
-			EMAIL_TRACK_INVITE_KEYWORDS[i] = aInviteKeyword[i];
-		}
-		
-		cmStartDate = pro.getProperty("CM_START_DATE");
-		cmEndDate = pro.getProperty("CM_END_DATE");
-		
-		SMS_SENDMODE= Boolean.parseBoolean(pro.getProperty("SMS_SENDMODE", ""));
-		SMS_APINAME = pro.getProperty("SMS_APINAME");
-		SMS_PWD = pro.getProperty("SMS_PWD");
 		
 		MESSAGE_USERNAME = pro.getProperty("MESSAGE_USERNAME");
 		MESSAGE_PASSWORD = pro.getProperty("MESSAGE_PASSWORD");
@@ -742,8 +688,6 @@ public class Constants {
 		RECOMMEND_DB_DS = pro.getProperty("RECOMMEND_DB_DS");
 		OPEN_REG_RELEASE_DATE = DateUtil.getDate(pro.getProperty("OPEN_REG_RELEASE_DATE"), DateUtil.patternDate);
 		
-		SNS_INVITE_QUALITY = Double.parseDouble(pro.getProperty("SNS_INVITE_QUALITY"));
-		EMAIL_ANALY_URL = pro.getProperty("EMAIL_ANALY_URL");
 		
 		String sameCityEventMainCities = pro.getProperty("SAME_CITY_EVENT_MAIN_CITIES");
 		if(sameCityEventMainCities != null){
@@ -1026,20 +970,7 @@ public class Constants {
 	 * recommend based on email domain initialization
 	 */
 	public static final Set<String> excludedEMails4Recommend = new HashSet<String>();
-	static {
-        InputStream inStream = Constants.class.getClassLoader().getResourceAsStream("ExcludedEMails4Recommend.properties");
-        Properties tempPro = new Properties();
-        try {
-            tempPro.load(inStream);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String mailString = tempPro.getProperty("key");
-        String[] mails = mailString.split("\\|");
-        for (int i = 0; i < mails.length; i++) {
-            excludedEMails4Recommend.add(mails[i]);
-        }
-	}
+	
 
 	// Message
 	public final static short MESSAGE_REPLIED = 1;
@@ -1241,63 +1172,7 @@ public class Constants {
     /*
      * static block used to initialize Chinese family name set
      */
-	static {
-	    InputStream in = null;
-	    try {
-	        // File file = new File(ActionUtil.getWebappPath() + "\\WEB-INF\\classes\\ChineseFamilyNames.txt");
-	    	in = Constants.class.getClassLoader().getResourceAsStream("ChineseFamilyNames.txt");
-	        BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
-	        String line = null;
-	        while ((line = reader.readLine()) != null) {
-	            chineseFamilyNameSet.add(line);
-	        }
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-	}
-	
-    /*
-     * static block used to initialize Chinese forbidden words set
-     */
-	static {
-	    InputStream in = null;
-        try {
-            // File file = new File(ActionUtil.getWebappPath() + "\\WEB-INF\\classes\\ForbiddenWords.txt");
-            in = Constants.class.getClassLoader().getResourceAsStream("ForbiddenWords.txt");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
-            String line = null;
-            while ((line = reader.readLine()) != null) {
-                forbiddenWordSet.add(line);
-            }
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-	
+		
 	public final static int DEFAULT_PUBLIC_M_BLOG_LOAD_SIZE = 600;
 	public final static int DEFAULT_PUBLIC_M_BLOG_LENGTH = 500;
 	
@@ -1307,13 +1182,7 @@ public class Constants {
 	public final static short REQUEST_TYPE_1D_INVITE_REQUEST = 1;
 	public final static short REQUEST_TYPE_GROUP_INVITE_REQUEST = 4;
 	
-	public final static int GROUP_LIMIT_FREE = 20;
-	public final static int GROUP_LIMIT_PLATINUM = 100;
-	public final static int GROUP_LIMIT_DIAMOND = 100;
-	public final static int GROUP_LIMIT_USHITONG=50;
-	public final static int GROUP_LIMIT_REQUEST_COUNT = 5;
-	public final static int PENDING_RESEND_INTERVAL =10;
-
+	
 	public final static short APPLY_TO_JOIN_APPLY=0;
 	public final static short APPLY_TO_JOIN_APROVE=1;
 	public final static short APPLY_TO_JOIN_REJECT=2;

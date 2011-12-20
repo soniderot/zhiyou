@@ -14,11 +14,14 @@ import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
 import com.zy.facade.EventFacade;
+import com.zy.facade.FeedFacade;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.SNSFacade;
+import com.zy.facade.vo.EventVO;
 
 public class EventAction {
 	private SNSFacade snsFacade;
+	private FeedFacade feedFacade;
 	
 	private List<ZyProfile> friends;
 	
@@ -43,9 +46,53 @@ public class EventAction {
 	private List<ZyProfile> members;
 	
 	private ProfileFacade profileFacade;
+	private int pageNo = 1;
+	private int pageSize = 12;
+	private List<EventVO> userevents;
+	
+	private boolean friendFlag;
 	
 	
-	
+	public FeedFacade getFeedFacade() {
+		return feedFacade;
+	}
+
+	public void setFeedFacade(FeedFacade feedFacade) {
+		this.feedFacade = feedFacade;
+	}
+
+	public boolean isFriendFlag() {
+		return friendFlag;
+	}
+
+	public void setFriendFlag(boolean friendFlag) {
+		this.friendFlag = friendFlag;
+	}
+
+	public List<EventVO> getUserevents() {
+		return userevents;
+	}
+
+	public void setUserevents(List<EventVO> userevents) {
+		this.userevents = userevents;
+	}
+
+	public int getPageNo() {
+		return pageNo;
+	}
+
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+
 	public ZyProfile getCreateUser() {
 		return createUser;
 	}
@@ -177,10 +224,22 @@ public class EventAction {
 	
 	public String getEvents(){
 		System.out.println("--------------into-------------activitys");
-		return "member.events";
+		userevents = eventFacade.getEvents(ActionUtil.getSessionUserId(),""+ActionUtil.getSessionUserId(), pageNo, pageSize);
+		System.out.println("----------------events.size----------"+userevents.size());
+		if(userevents.size()==0){
+			return "member.emtyevents";
+		}else{
+			return "member.events";
+		}
 	}
 	
 	public String createOrUpdate() {
+		if(eventId>0){
+			ZyEvent event = eventFacade.getEvent(eventId);
+			eventname = event.getEventname();
+			address = event.getAddress();
+			detail = event.getDetail();
+		}
 		friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(), 0, (short)1);
 		return "member.cteateOrUpdateEvent";
 	}
@@ -190,7 +249,13 @@ public class EventAction {
 		
 		System.out.println("---------event.name------"+eventname);
 		System.out.println(ActionUtil.getRequest().getParameter("invitees"));
+		
 		ZyEvent event = new ZyEvent();
+		
+		if(eventId>0){
+			event.setLogo(eventFacade.getEvent(eventId).getLogo());
+		}
+		
 		event.setAddress(address);
 		event.setCreatetime(new Date());
 		event.setBegintime(new Date());
@@ -216,9 +281,18 @@ public class EventAction {
 			
 			System.out.println(str);
 			event.setLogo("/photos/event/"+str);
+		}else{
+			event.setLogo("/images/event.jpg");
 		}
 		
-		eventFacade.createEvent(event);
+		if(eventId>0){
+			event.setId(eventId);
+			eventFacade.updateEvent(event);
+		}else{
+			eventFacade.createEvent(event);
+			eventFacade.addMember(event.getCreateuserid(), event.getId());
+			feedFacade.addNewEventNewsFeed(ActionUtil.getSessionUserId(), event.getId());
+		}
 		
 		if(invitees!=null&&invitees.length()>0){
 			String[] array = invitees.split(" ");
@@ -230,9 +304,8 @@ public class EventAction {
 			eventFacade.sendEventInvites(event, list);
 		}
 		
-		eventFacade.addMember(event.getCreateuserid(), event.getId());
 		
-		return "member.events";
+		return "my.events";
 	}
 	
 	public String viewEvent(){
@@ -240,6 +313,37 @@ public class EventAction {
 		createUser = profileFacade.findProfileById(event.getCreateuserid());
 		members = eventFacade.getEventMembers(eventId);
 		return "view.event.detail";
+	}
+	
+	public String quitEvent(){
+		eventFacade.removeMember(ActionUtil.getSessionUserId(), eventId);
+		return "my.events";
+	}
+	
+	public String joinEvent(){
+		eventFacade.addMember(ActionUtil.getSessionUserId(), eventId);
+		return "my.events";
+	}
+	
+	public String getFriendsEvents(){
+		friendFlag = true;
+		String str = "";
+		List<Integer> friendIds = snsFacade.getAllFriendsByDegree(ActionUtil.getSessionUserId(),(short)1);
+		for(int i=0;i<friendIds.size();i++){
+			if(i!=friendIds.size()-1){
+				str = str+friendIds.get(i)+",";
+			}else{
+				str = str+friendIds.get(i);
+			}
+		}
+		System.out.println("--------------into---friends----------activitys");
+		userevents = eventFacade.getEvents(ActionUtil.getSessionUserId(),str, pageNo, pageSize);
+		System.out.println("----------------events.size----------"+userevents.size());
+		if(userevents.size()==0){
+			return "member.emtyevents";
+		}else{
+			return "member.events";
+		}
 	}
 
 }
