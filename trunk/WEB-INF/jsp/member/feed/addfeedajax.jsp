@@ -1,4 +1,5 @@
 ﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<div id="addfeed">
 <li id="stream_story_4ec37b3fd947b3232640247" data-ft='{"qid":"5675515467749930831","mf_story_key":"2652098748566","c":"m"}' class="pvm uiUnifiedStory uiStreamStory genericStreamStory aid_1438697558 uiListItem uiListLight uiListVerticalItemBorder">
   <div class="storyHighlightIndicatorWrapper"></div>
   <div class="storyContent">
@@ -30,3 +31,7 @@
     </div>
   </div>
 </li>
+</div>
+<script type="text/javascript">
+  parent.updateCallback(document.getElementById('addfeed').innerHTML);
+</script>
