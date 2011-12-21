@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.zy.Constants;
 
@@ -26,18 +24,7 @@ public class DateUtil {
 	public final static SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 	public static Date BEGIN=null;
 	public static Date END=null;
-	/*
-	public static Map<Integer,String> map=new HashMap<Integer,String>(){
-		{			
-		  put(1, getText("common.one"));
-  		  put(2, getText("common.two"));
-  		  put(3, getText("common.three"));
-  		  put(4, getText("common.four"));
-  		  put(5, getText("common.five"));
-  		  put(6, getText("common.six"));
-  		  put(7, getText("common.seven"));
-		}
-	};*/
+
 	public static Date getDateTimeByString(String dtstring){
 		return getDate(dtstring,patternDateTime);
 	}
@@ -64,16 +51,9 @@ public class DateUtil {
 	public static String formatDate(Date date) {
 		return format.format(date);
 	}
-	/**
-	 * 
-	 * 2011-1-11
-	 * @param date
-	 * @param reg #精确到时分 
-	 * @return
-	 */
+
 	public static String getPrettyDate(Date date,String reg)
 	{
-		//return new PrettyDateFormat("#h点", "hh:mm").format(date);
 		  long curTime = System.currentTimeMillis();   
 		  
 	      long diffDay = 0L;   
@@ -135,19 +115,7 @@ public class DateUtil {
 	      
 	      return replacement;
 	}
-	/**
-	 * Bing
-	 * "#aH点" 省略今天
-	 * "##aH点" 包含今天
-	 * 一分钟内：xxx秒前 
-		一小时内：xxx分钟前 
-		24小时内：xxx小时前 
-		7天以内：x天前 HH:ii 
-		7天以外：YYYY-mm-dd HH:ii
-	 * return 
-	 * @param date
-	 * @return
-	 */
+
 	public static String getPrettyDate(Date date)
 	{
 		return getPrettyDate(date,"#");
@@ -226,13 +194,7 @@ public class DateUtil {
     	DateUtil.BEGIN=beginday;
     	DateUtil.END=endday;
     }
-    /**
-     * 下一周
-     * 返回下周的开始日期和结束日期
-     * 2010-12-29
-     * @param date
-     * @see DateUtil.Begin ,DateUtil.END
-     */
+
     public static void calcNextWeek(Date date)
 	{
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -269,12 +231,7 @@ public class DateUtil {
     	DateUtil.BEGIN=beginday;
     	DateUtil.END=endday;
 	}
-    /**
-     * 日期是否在本周
-     * 2010-12-29
-     * @param date
-     * @return
-     */
+
     public static boolean inCurrentWeek(Date date)
     {
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -313,11 +270,7 @@ public class DateUtil {
 		}
 		return false;
     }
-    /**
-     * 得到本月最后一天
-     * 
-     * @return
-     */
+ 
     public static Date getLastDateOfMonth(Date dt)
     {
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -335,12 +288,7 @@ public class DateUtil {
 		}
 		return null;
     }
-    /**
-     * 得到本周最后一天
-     * 2011-2-21
-     * @param dt
-     * @return
-     */
+
     public static Date getLastDateOfWeek(Date dt)
     {
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -358,11 +306,7 @@ public class DateUtil {
 		}
 		return null;
     }
-    /**
-     * 得到本月第一天
-     * 
-     * @return
-     */
+
     public static Date getFristDateOfMonth(Date dt)
     {
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
