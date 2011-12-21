@@ -1,5 +1,6 @@
 package com.zy.action.feed;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -24,6 +25,8 @@ public class FeedAction {
 	
 	private String feedmessage;
 	private int messagegroup;
+	private File feedphoto;
+	private String feedtype;
 	
 	private FeedBean feedBean;
 
@@ -92,6 +95,22 @@ public class FeedAction {
 		this.feedFacade = feedFacade;
 	}
 
+	public File getFeedphoto() {
+		return feedphoto;
+	}
+
+	public String getFeedtype() {
+		return feedtype;
+	}
+
+	public void setFeedphoto(File feedphoto) {
+		this.feedphoto = feedphoto;
+	}
+
+	public void setFeedtype(String feedtype) {
+		this.feedtype = feedtype;
+	}
+	
 	public String execute(){
 		System.out.println("--------------into-------------feed");
 		List<Integer> ids = snsFacade.getAllFriendsByDegree(ActionUtil.getSessionUserId(),(short)1);
@@ -110,7 +129,19 @@ public class FeedAction {
 	
 	public String updateStatusAjax() {
 		System.out.println("------------------into update status ajax-------------");
-		feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), feedmessage);
+		System.out.println(feedtype);
+		if ("status".equals(feedtype)) {
+			feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), feedmessage);
+		} else if ("photo".equals(feedtype)) {
+			// add photo here
+			
+			feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), feedmessage);
+		} else {
+			// add question here
+			
+			feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), feedmessage);
+		}
 		return "member.addfeed.ajax";
 	}
+
 }
