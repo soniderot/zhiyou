@@ -27,6 +27,9 @@
 	<action name="update" class="com.zy.action.profile.UpdateProfileAction">
 		<result name="member.basic" type="tiles" >tiles.member.basic</result>
 		<result name="member.picture" type="tiles" >tiles.member.picture</result>
+		<result name="member.career" type="tiles" >tiles.member.career</result>
+		<result name="member.contact" type="tiles" >tiles.member.contact</result>
+		<result name="member.interest" type="tiles" >tiles.member.interest</result>
 	</action>
 	
 	<action name="login" class="com.zy.action.profile.LoginAction">
