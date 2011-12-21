@@ -74,6 +74,7 @@
       <s:form action="update" namespace="/usr" id="ep_form">
         <input type="hidden" id="selectedCity" name="profileform.cityid" autocomplete="off"/>
         <input type="hidden" id="selectedHometown" name="profileform.hometownid" autocomplete="off"/>
+        <input type="hidden" id="selectedHometown" name="profileform.pageIndex" autocomplete="off"/>
         <table class="uiInfoTable">
           <tbody>
             <tr class="dataRow">
