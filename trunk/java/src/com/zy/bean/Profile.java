@@ -47,9 +47,18 @@ public class Profile implements java.io.Serializable {
 	private Integer month;
 	private Integer day;
 	private String introduce;
+	private Integer pageIndex = 0;
 
 
 	// Constructors
+
+	public Integer getPageIndex() {
+		return pageIndex;
+	}
+
+	public void setPageIndex(Integer pageIndex) {
+		this.pageIndex = pageIndex;
+	}
 
 	public void setCityname(String cityname) {
 		this.cityname = cityname;
