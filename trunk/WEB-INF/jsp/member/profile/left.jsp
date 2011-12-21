@@ -5,7 +5,7 @@
     <ul id="u2upm2_1" role="navigation" class="uiSideNav">
       <li id="navItem_basic" class="sideNavItem stat_elem selectedItem open">
         <div class="buttonWrap"></div>
-        <a href="basic.html" class="item clearfix" style="">
+        <a href="/usr/update!basic.jhtml?profileform.pageIndex=0" class="item clearfix" style="">
           <div class="rfloat">
             <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
@@ -19,7 +19,7 @@
       </li>
       <li id="navItem_picture" class="sideNavItem stat_elem">
         <div class="buttonWrap"></div>
-        <a href="picture.html" class="item clearfix">
+        <a href="/usr/update!basic.jhtml?profileform.pageIndex=1" class="item clearfix">
           <div class="rfloat">
             <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
@@ -31,7 +31,7 @@
       </li>
       <li id="navItem_eduwork" class="sideNavItem stat_elem open">
         <div class="buttonWrap"></div>
-        <a href="career.html" class="item clearfix">
+        <a href="/usr/update!basic.jhtml?profileform.pageIndex=2" class="item clearfix">
           <div class="rfloat">
             <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
@@ -43,7 +43,7 @@
       </li>
       <li id="navItem_entertainment" class="sideNavItem stat_elem">
         <div class="buttonWrap"></div>
-        <a href="art.html" class="item clearfix">
+        <a href="/usr/update!basic.jhtml?profileform.pageIndex=3" class="item clearfix">
           <div class="rfloat">
             <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
@@ -55,7 +55,7 @@
       </li>
       <li id="navItem_sports" class="sideNavItem stat_elem">
         <div class="buttonWrap"></div>
-        <a href="sports.html" class="item clearfix">
+        <a href="/usr/update!basic.jhtml?profileform.pageIndex=4" class="item clearfix">
           <div class="rfloat"><img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/></div>
           <div>
             <span class="imgWrap"><i class="img sp_8w31v1 sx_53012d"></i></span>
@@ -65,7 +65,7 @@
       </li>
       <li id="navItem_activities" class="sideNavItem stat_elem">
         <div class="buttonWrap"></div>
-        <a href="interest.html" class="item clearfix">
+        <a href="/usr/update!basic.jhtml?profileform.pageIndex=5" class="item clearfix">
           <div class="rfloat">
             <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
@@ -77,7 +77,7 @@
       </li>
       <li id="navItem_contact" class="sideNavItem stat_elem">
         <div class="buttonWrap"></div>
-        <a href="contact.html" class="item clearfix">
+        <a href="/usr/update!basic.jhtml?profileform.pageIndex=6" class="item clearfix">
           <div class="rfloat">
             <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
