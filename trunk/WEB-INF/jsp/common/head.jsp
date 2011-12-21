@@ -45,7 +45,7 @@ response.setCharacterEncoding("UTF-8");
                 <a href="/usr/landing.jhtml">首页</a>
               </li>
               <li class="topNavLink tinyman">
-                <a title="个人主页" href="http://localhost:8080/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="#session.user.userid"/>">
+                <a title="个人主页" href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="#session.user.userid"/>">
                   <span class="headerTinymanName">个人信息</span>
                 </a>
               </li>
