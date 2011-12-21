@@ -38,7 +38,21 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 		profileform.setYear(calendar.get(Calendar.YEAR));
 		profileform.setMonth(calendar.get(Calendar.MONTH) + 1);
 		profileform.setDay(calendar.get(Calendar.DAY_OF_MONTH));
-		return "member.basic";
+		int pageIndex = profileform.getPageIndex();
+		pageIndex ++;
+		if (pageIndex == 1) {
+			return "member.basic";
+		} else if (pageIndex == 2) {
+			return "member.picture";
+		} else if (pageIndex == 3) {
+			return "member.career";
+		} else if (pageIndex == 4) {
+			return "member.sports";
+		} else if (pageIndex == 5) {
+			return "member.interest";
+		} else {
+			return "member.contack";
+		}
 	}
 	
 	public String execute() {
