@@ -33,5 +33,5 @@
 </li>
 </div>
 <script type="text/javascript">
-  parent.updateCallback(document.getElementById('addfeed').innerHTML);
+  parent.updateCallback('${feedtype}', document.getElementById('addfeed').innerHTML);
 </script>

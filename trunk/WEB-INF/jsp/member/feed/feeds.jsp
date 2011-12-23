@@ -2,8 +2,7 @@
 <div role="main" id="contentArea">
   <div data-referrer="pagelet_roosters" id="pagelet_roosters"></div>
   <div data-referrer="pagelet_stream_header" id="pagelet_stream_header">
-    <div
-      class="uiHeader uiHeaderWithImage uiHeaderPage  fbx_stream_header">
+    <div class="uiHeader uiHeaderWithImage uiHeaderPage  fbx_stream_header">
       <div class="clearfix uiHeaderTop">
         <div class="uiHeaderActions  rfloat fsl fwb fcb">
           <a href="/?sk=h"><span class="fwn">热门消息</span> </a> ·
@@ -91,57 +90,53 @@
       onclick="Bootloader.loadComponents(&quot;Composer&quot;, function() { JSCC.get(&#39;j4ec37b3f908df06889566482&#39;) });"
       class="uiComposer uiComposerHideContent stat_elem uiMetaComposer uiComposerTopBorder uiComposerOpen uiComposerHideContent uiComposerWhiteMessageBox">
       <div class="focus_target">
-        <form onsubmit="return updateStatus(this)" method="get" action="/" class="attachmentSelectForm"
-          rel="async">
-          <ul class="uiList uiListHorizontal clearfix uiComposerAttachments">
-            <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-              <span data-endpoint="/ajax/metacomposer/attachment/status/status.php" id="composerTourStart"
-                class="uiComposerAttachment statusAttachment uiComposerAttachmentSelected attachmentAcceptsLink">
-                <a href="#" tabindex="0" class="uiIconText attachmentLink normal" onclick="changeStatus(this, 'status'); return false;">
-                  <i class="img sp_7gl7wd sx_bd619c"></i>
-                  <strong class="attachmentName">更新信息</strong>
-                </a> 
-                <span class="uiIconText">
-                  <i class="img sp_7gl7wd sx_bd619c"></i>
-                  <strong class="attachmentName">更新信息<i class="nub"></i></strong>
-                </span>
+        <ul class="uiList uiListHorizontal clearfix uiComposerAttachments">
+          <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
+            <span data-endpoint="/ajax/metacomposer/attachment/status/status.php" id="composerTourStart"
+              class="uiComposerAttachment statusAttachment uiComposerAttachmentSelected attachmentAcceptsLink">
+              <a href="#" tabindex="0" class="uiIconText attachmentLink normal" onclick="changeStatus(this, 'status'); return false;">
+                <i class="img sp_7gl7wd sx_bd619c"></i>
+                <strong class="attachmentName">更新信息</strong>
+              </a> 
+              <span class="uiIconText">
+                <i class="img sp_7gl7wd sx_bd619c"></i>
+                <strong class="attachmentName">更新信息<i class="nub"></i></strong>
               </span>
-            </li>
-            <li class="plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-              <span data-endpoint="/ajax/metacomposer/attachment/photo/photo.php" id="u3mxyl_4" class="uiComposerAttachment photoAttachment">
-               <a href="#" tabindex="0" class="uiIconText attachmentLink normal" onclick="changeStatus(this, 'photo'); return false;">
-                <i class="img sp_6h8b4g sx_282f2a"></i>
-                <strong class="attachmentName">添加照片</strong>
-               </a>
-               <span class="uiIconText selected">
-                <i class="img sp_6h8b4g sx_282f2a"></i>
-                <strong class="attachmentName">添加照片<i class="nub"></i></strong>
-               </span>
+            </span>
+          </li>
+          <li class="plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
+            <span data-endpoint="/ajax/metacomposer/attachment/photo/photo.php" id="u3mxyl_4" class="uiComposerAttachment photoAttachment">
+             <a href="#" tabindex="0" class="uiIconText attachmentLink normal" onclick="changeStatus(this, 'photo'); return false;">
+              <i class="img sp_6h8b4g sx_282f2a"></i>
+              <strong class="attachmentName">添加照片</strong>
+             </a>
+             <span class="uiIconText selected">
+              <i class="img sp_6h8b4g sx_282f2a"></i>
+              <strong class="attachmentName">添加照片<i class="nub"></i></strong>
+             </span>
+            </span>
+          </li>
+          <li class="plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
+            <span data-endpoint="/ajax/metacomposer/attachment/question/question.php?create_eigenpoll=1&amp;source=composer" id="u3mxyl_5" class="uiComposerAttachment">
+              <a href="#" tabindex="0" class="uiIconText attachmentLink normal" onclick="changeStatus(this, 'question'); return false;">
+                <i class="img sp_7gl7wd sx_97759f"></i>
+                <strong class="attachmentName">提问</strong>
+              </a>
+              <span class="uiIconText selected">
+                <i class="img sp_7gl7wd sx_97759f"></i>
+                <strong class="attachmentName">提问<i class="nub"></i></strong>
               </span>
-            </li>
-            <li class="plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-              <span data-endpoint="/ajax/metacomposer/attachment/question/question.php?create_eigenpoll=1&amp;source=composer" id="u3mxyl_5" class="uiComposerAttachment">
-                <a href="#" tabindex="0" class="uiIconText attachmentLink normal" onclick="changeStatus(this, 'question'); return false;">
-                  <i class="img sp_7gl7wd sx_97759f"></i>
-                  <strong class="attachmentName">提问</strong>
-                </a>
-                <span class="uiIconText selected">
-                  <i class="img sp_7gl7wd sx_97759f"></i>
-                  <strong class="attachmentName">提问<i class="nub"></i></strong>
-                </span>
-              </span>
-            </li>
-            <li class="showWhenLoading attachmentLoader plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-              <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img" />
-            </li>
-          </ul>
-          <input type="hidden" value="1438697558" name="targetid" autocomplete="off" />
-          <input type="submit" name="xhpc" class="hidden_elem" />
-        </form>
+            </span>
+          </li>
+          <li class="showWhenLoading attachmentLoader plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
+            <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img" />
+          </li>
+        </ul>
+
         <div class="showWhenOpen mutableContent uiComposerMetaContainer">
-          <s:form onsubmit="return updateStatus(this)" method="post" action="usr/feed!updateStatusAjax.jhtml" target="u3jjus_1" enctype="multipart/form-data">
+          <s:form method="post" action="usr/feed!updateStatusAjax.jhtml" target="u3jjus_1" enctype="multipart/form-data">
             <input type="hidden" value="c0a81f7ab46455dde1e203435e599680" name="post_form_id" autocomplete="off" />
-            <input type="hidden" name="feedtype" autocomplete="off" />
+            <input type="hidden" name="feedtype" autocomplete="off" value="status" />
             <div class="attachmentFrame">
               <div class="attachmentContent"></div>
             </div>
@@ -323,20 +318,17 @@
         $(this).next().hide();
       }
     });
-    
   }
   
   function expandInput(container) {
     $("#" + container).find("div:first").addClass("child_was_focused");
   }
   
-  function updateStatus(form) {
-    $(form).submit();
-  }
-  
-  function updateCallback(data) {
+  function updateCallback(feedtype, data) {
     $("#home_stream").prepend(data);
-    $("#submitBtn").parent().addClass("uiButtonDisabled");
+    if ("photo" == feedtype) {
+      $("#submitBtn").parent().addClass("uiButtonDisabled");
+    }
   }
   
   function enableSubmitBtn() {
