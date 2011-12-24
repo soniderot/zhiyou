@@ -2,12 +2,11 @@ package com.zy.domain.sns.service;
 import java.util.List;
 
 import com.zy.common.exception.GraphIsInitializingException;
-import com.zy.common.model.ZyProfile;
-import com.zy.common.model.ZyFriendDetail;
 import com.zy.common.model.ZyFollow;
-import com.zy.common.model.ZyFriend;
+import com.zy.common.model.ZyFriendDetail;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyFriendintroduce;
+import com.zy.common.model.ZyProfile;
 
 
 public interface SNSService {

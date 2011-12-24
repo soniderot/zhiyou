@@ -1,5 +1,6 @@
 package com.zy.domain.profile.dao;
 import java.util.List;
+
 import com.zy.common.db.BaseDao;
 import com.zy.common.model.ZyMemo;
 public interface MemoDao extends BaseDao<ZyMemo, Integer> {

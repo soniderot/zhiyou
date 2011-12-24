@@ -7,7 +7,7 @@ import com.zy.domain.feed.bean.FeedBean;
 public interface FeedFacade {
 	public void addNewFriendNewsFeed(int userId,int friendId);
 	
-	public void addNewPhotoNewsFeed(int userId,int photoId);
+	public FeedBean addNewPhotoNewsFeed(int userId,int photoId);
 	
 	public void addNewEventNewsFeed(int userId,int enentId);
 	

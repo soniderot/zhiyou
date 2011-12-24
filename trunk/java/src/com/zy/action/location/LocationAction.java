@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
+
 import com.zy.common.model.ZyCity;
 import com.zy.facade.LocationFacade;
 

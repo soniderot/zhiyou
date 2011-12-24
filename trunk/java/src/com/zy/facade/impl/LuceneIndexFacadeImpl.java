@@ -15,14 +15,12 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
 import org.apache.commons.lang.StringUtils;
 
 import com.zy.Constants;
-import com.zy.common.model.ZyCity;
 import com.zy.common.model.ZyIndexlog;
 import com.zy.common.model.ZyIndexqueue;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
 import com.zy.common.util.LogUtil;
-import com.zy.domain.option.service.CityService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.search.service.LuceneIndexService;
 import com.zy.facade.LuceneIndexFacade;
@@ -100,8 +98,11 @@ public class LuceneIndexFacadeImpl implements LuceneIndexFacade {
 				} else {
 					profile.setFullName(p.getUsername());
 				}
-
+				profile.setGender(p.getGender());
 				profile.setRegTime(DateUtil.formatDate(p.getRegistertime(),
+						DateUtil.lucenedate));
+				
+				profile.setBirthDate(DateUtil.formatDate(p.getBirthdate(),
 						DateUtil.lucenedate));
 
 				// country region city

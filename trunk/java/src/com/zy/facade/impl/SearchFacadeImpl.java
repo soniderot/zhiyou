@@ -9,7 +9,6 @@ import org.apache.commons.lang.StringUtils;
 import com.zy.Constants;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.LogUtil;
-import com.zy.domain.option.service.SchoolService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.search.IndexField;
 import com.zy.domain.search.service.SearchService;
@@ -102,6 +101,7 @@ public class SearchFacadeImpl implements SearchFacade{
 			form.generateQuery();
 			// recent 14 days
 			if (StringUtils.isNotBlank(form.getStart()) && StringUtils.isNotBlank(form.getEnd())) {
+				System.out.println("-------------into range query------------");
 				vos = this.searchService.getSearchProfileId(form.getFields(), form.getValues(), form.getFlags(),form.getStart(),form.getEnd(), limitNum);
 			} else {
 				vos = this.searchService.getSearchProfileId(form.getFields(), form.getValues(), form.getFlags(), limitNum);

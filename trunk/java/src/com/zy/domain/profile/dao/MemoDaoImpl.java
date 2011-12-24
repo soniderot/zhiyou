@@ -1,7 +1,8 @@
 package com.zy.domain.profile.dao;
 import java.util.List;
-import com.zy.common.model.ZyMemo;
+
 import com.zy.common.db.HibernateDao;
+import com.zy.common.model.ZyMemo;
 public class MemoDaoImpl extends HibernateDao<ZyMemo,Integer> implements MemoDao {
 	public List<ZyMemo> findMemoByUserId(int userId,int pageNo,int pageSize) {
 		String hql="from BnsMemo where userId=?";

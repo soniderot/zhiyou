@@ -50,6 +50,17 @@ public class SearchFormVo implements Serializable {
 	private String[] fields;
 	private String[] values;
 	private BooleanClause.Occur[] flags;
+	
+	
+	private short gender;
+
+	public short getGender() {
+		return gender;
+	}
+
+	public void setGender(short gender) {
+		this.gender = gender;
+	}
 
 	public boolean isExclude1d() {
 		return exclude1d;
@@ -110,6 +121,13 @@ public class SearchFormVo implements Serializable {
 			values.add(this.getCountryId() + "");
 			flags.add(BooleanClause.Occur.MUST);
 		}
+		
+		if (this.getGender() > 0) {
+			fields.add(IndexField.Profile.GENDER);
+			values.add(this.getGender() + "");
+			flags.add(BooleanClause.Occur.MUST);
+		}
+		
 		if (this.getRegionId() > 0) {
 			fields.add(IndexField.Profile.REGION);
 			values.add(this.getRegionId() + "");

@@ -15,6 +15,8 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	<bean name="requestFacade" class="com.zy.facade.impl.RequestFacadeImpl"  >
 		<property name="requestService" ref="requestService"/>
 		<property name="snsFacade" ref="snsFacade"/>
+		<property name="feedFacade" ref="feedFacade"/>
+		<property name="eventService" ref="eventService"/>
 	</bean>
 	
 	<bean name="notifyFacade" class="com.zy.facade.impl.NotifyFacadeImpl"  >
@@ -25,6 +27,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="profileService" ref="profileService"/>
 		<property name="feedService" ref="feedService"/>
 		<property name="eventService" ref="eventService"/>
+		<property name="photoService" ref="photoService"/>
 	</bean>
 	
 	<bean name="messageFacade" class="com.zy.facade.impl.MessageFacadeImpl"  >
@@ -47,8 +50,8 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="searchService" ref="searchService"/>
 	</bean>
 	
-	<bean name="locationFacade" class="com.zy.facade.impl.LocationFacadeImpl"  >
-		<property name="cityService" ref="cityService"/>
+	<bean name="photoFacade" class="com.zy.facade.impl.PhotoFacadeImpl"  >
+		<property name="photoService" ref="photoService"/>
 	</bean>
 
 </beans>

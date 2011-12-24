@@ -1,7 +1,9 @@
 package com.zy.domain.search.service;
 
 import java.util.List;
+
 import org.apache.lucene.search.BooleanClause;
+
 import com.zy.facade.vo.SearchResultVo;
 
 public interface SearchService {

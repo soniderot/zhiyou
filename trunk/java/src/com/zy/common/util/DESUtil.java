@@ -6,13 +6,13 @@ package com.zy.common.util;
 import java.security.Key;
 import java.security.SecureRandom;
 
-import javax.crypto.*;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
-
-import com.zy.common.util.BASE64Util;
 
 /**
  * @author Steele

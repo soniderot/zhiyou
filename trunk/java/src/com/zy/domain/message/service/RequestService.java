@@ -59,4 +59,6 @@ public interface RequestService {
 	
 	public List<Integer> findAllNewRequestId(int userid, short eventkey);
 	
+	public List<ZyRequest> getRequest(int receiverid, short eventkey, int referenceid);
+	
 }

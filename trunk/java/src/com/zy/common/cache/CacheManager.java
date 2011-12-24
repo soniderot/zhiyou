@@ -1,6 +1,5 @@
 package com.zy.common.cache;
 
-import java.io.Serializable;
 import java.util.Map;
 
 public class CacheManager {

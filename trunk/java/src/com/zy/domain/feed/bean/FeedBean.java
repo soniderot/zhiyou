@@ -5,6 +5,7 @@ import java.util.List;
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
+import com.zy.common.model.ZyPhoto;
 import com.zy.common.model.ZyProfile;
 
 public class FeedBean {
@@ -13,8 +14,14 @@ public class FeedBean {
 	private ZyEvent event;
 	private ZyProfile user;
 	private ZyProfile friend;
+	private ZyPhoto photo;
 	
-	
+	public ZyPhoto getPhoto() {
+		return photo;
+	}
+	public void setPhoto(ZyPhoto photo) {
+		this.photo = photo;
+	}
 	public ZyProfile getUser() {
 		return user;
 	}

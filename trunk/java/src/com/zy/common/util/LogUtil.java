@@ -1,7 +1,9 @@
 package com.zy.common.util;
-import org.apache.log4j.Logger;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.apache.log4j.Level;
-import java.io.*;
+import org.apache.log4j.Logger;
 	
 	public class LogUtil {
 	    private static final String LINE_SEP = System.getProperty("line.separator");

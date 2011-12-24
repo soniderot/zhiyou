@@ -58,4 +58,9 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	<bean name="cityService" class="com.zy.domain.option.service.CityServiceImpl">
 		<property name="cityDao" ref="cityDao"/>
 	</bean>
+	
+	<bean name="photoService" class="com.zy.domain.photo.service.PhotoServiceImpl">
+		<property name="photoDao" ref="photoDao"/>
+		<property name="albumDao" ref="albumDao"/>
+	</bean>
 </beans>

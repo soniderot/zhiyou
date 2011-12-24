@@ -1,6 +1,5 @@
 package com.zy.common.util;
 
-import java.io.IOException;
 import java.util.Iterator;
 
 import org.apache.commons.lang.StringUtils;

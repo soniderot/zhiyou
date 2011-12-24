@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.zy.Constants;
 import com.zy.common.model.ZyNotification;
 import com.zy.common.model.ZyNotificationtype;
 import com.zy.common.model.ZyProfile;

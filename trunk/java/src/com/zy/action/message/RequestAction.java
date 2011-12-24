@@ -5,6 +5,7 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 import com.zy.common.util.ActionUtil;
 import com.zy.domain.message.bean.RequestBean;
+import com.zy.facade.FeedFacade;
 import com.zy.facade.RequestFacade;
 
 public class RequestAction extends ActionSupport{
@@ -13,6 +14,7 @@ public class RequestAction extends ActionSupport{
 	private int pageNo = 1;
 	private int pageSize = 200;
 	private RequestFacade requestFacade;
+	private FeedFacade feedFacade;
 	
 	private List<RequestBean> requests;
 	private short eventkey;

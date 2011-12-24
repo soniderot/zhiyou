@@ -13,8 +13,6 @@ import com.zy.common.model.ZyFriendDetail;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyFriendintroduce;
 import com.zy.common.model.ZyProfile;
-import com.zy.common.model.ZyRequest;
-import com.zy.common.util.SignatureGenerator;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.sns.dao.FollowDao;
 import com.zy.domain.sns.dao.FriendDao;

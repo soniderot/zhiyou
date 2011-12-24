@@ -1,6 +1,8 @@
 package com.zy.action.event;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,12 +12,14 @@ import org.apache.commons.lang.StringUtils;
 
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyRequest;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
 import com.zy.facade.EventFacade;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.ProfileFacade;
+import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
 import com.zy.facade.vo.EventVO;
 
@@ -23,12 +27,19 @@ public class EventAction {
 	private SNSFacade snsFacade;
 	private FeedFacade feedFacade;
 	
+	private RequestFacade requestFacade;
+	
 	private List<ZyProfile> friends;
 	
 	//private ZyEvent event;
 	
-	private String event_start;
-	private String start_time_min;
+	private String startDate;
+	private String startHour;
+	
+	private String endDate;
+	private String endHour;
+	
+	
 	private String detail;
 	private String address;
 	private String eventname;
@@ -53,6 +64,46 @@ public class EventAction {
 	private boolean friendFlag;
 	
 	
+	public RequestFacade getRequestFacade() {
+		return requestFacade;
+	}
+
+	public void setRequestFacade(RequestFacade requestFacade) {
+		this.requestFacade = requestFacade;
+	}
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getStartHour() {
+		return startHour;
+	}
+
+	public void setStartHour(String startHour) {
+		this.startHour = startHour;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getEndHour() {
+		return endHour;
+	}
+
+	public void setEndHour(String endHour) {
+		this.endHour = endHour;
+	}
+
 	public FeedFacade getFeedFacade() {
 		return feedFacade;
 	}
@@ -189,24 +240,6 @@ public class EventAction {
 		this.eventname = eventname;
 	}
 
-	public String getEvent_start() {
-		return event_start;
-	}
-
-	public void setEvent_start(String event_start) {
-		this.event_start = event_start;
-	}
-
-	public String getStart_time_min() {
-		return start_time_min;
-	}
-
-	public void setStart_time_min(String start_time_min) {
-		this.start_time_min = start_time_min;
-	}
-
-	
-
 	public SNSFacade getSnsFacade() {
 		return snsFacade;
 	}
@@ -235,10 +268,24 @@ public class EventAction {
 	
 	public String createOrUpdate() {
 		if(eventId>0){
+			SimpleDateFormat dateformat1=new SimpleDateFormat("yyyy/MM/dd");
+			
+			SimpleDateFormat dateformat2=new SimpleDateFormat("HH:mm");
+			
 			ZyEvent event = eventFacade.getEvent(eventId);
 			eventname = event.getEventname();
 			address = event.getAddress();
 			detail = event.getDetail();
+			startDate = dateformat1.format(event.getBegintime());
+			startHour = dateformat2.format(event.getBegintime());
+			if(startHour.indexOf("0")==0){
+				startHour = startHour.substring(1);
+			}
+			endDate = dateformat1.format(event.getEndtime());
+			endHour =  dateformat2.format(event.getEndtime());
+			if(endHour.indexOf("0")==0){
+				endHour = endHour.substring(1);
+			}
 		}
 		friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(), 0, (short)1);
 		return "member.cteateOrUpdateEvent";
@@ -257,9 +304,43 @@ public class EventAction {
 		}
 		
 		event.setAddress(address);
+		
+		
 		event.setCreatetime(new Date());
 		event.setBegintime(new Date());
 		event.setEndtime(new Date());
+		
+		if(startDate!=null&&startDate.trim().length()>0){
+			try{
+				String begin = startDate+" "+startHour;
+				System.out.println("----------------begin----------"+begin);
+				String pattern = "yyyy/MM/dd HH:mm";
+				DateFormat df = new SimpleDateFormat(pattern);
+				System.out.println(df.parse(begin));
+				event.setBegintime(df.parse(begin));
+			}catch(Exception ex){
+				
+			}
+		}
+		
+		
+		if(endDate!=null&&endDate.trim().length()>0){
+			try{
+				String end = endDate+" "+endHour;
+				System.out.println("----------------end----------"+end);
+				String pattern = "yyyy/MM/dd HH:mm";
+				DateFormat df = new SimpleDateFormat(pattern);
+				System.out.println(df.parse(end));
+				event.setEndtime(df.parse(end));
+			}catch(Exception ex){
+				
+			}
+		}
+		
+		if(endDate!=null&&endDate.trim().length()>0){
+			String end = endDate+" "+endHour;
+		}
+		
 		event.setCityid(8843);
 		event.setCreateuserid(ActionUtil.getSessionUserId());
 		event.setUpdatetime(new Date());
@@ -295,13 +376,15 @@ public class EventAction {
 		}
 		
 		if(invitees!=null&&invitees.length()>0){
+			System.out.println("----------begin to send invites----------");
 			String[] array = invitees.split(" ");
 			List<Integer> list = new ArrayList<Integer>();
 			for(int i=0;i<array.length;i++){
-				list.add(Integer.valueOf(array[i]));
+				requestFacade.sendRequest_tx(ActionUtil.getSessionUserId(), Integer.valueOf(array[i]), (short)5, event.getId(),null, null);
+				//list.add(Integer.valueOf(array[i]));
 			}
-			System.out.println("----------begin to send invites----------");
-			eventFacade.sendEventInvites(event, list);
+			
+			//eventFacade.sendEventInvites(event, list);
 		}
 		
 		
@@ -322,6 +405,15 @@ public class EventAction {
 	
 	public String joinEvent(){
 		eventFacade.addMember(ActionUtil.getSessionUserId(), eventId);
+		List<ZyRequest> list = requestFacade.getRequest(ActionUtil.getSessionUserId(), (short)5, eventId);
+		for(int i=0;i<list.size();i++){
+			requestFacade.approveRequest_tx(list.get(i).getId());
+		}
+		
+		if(list.size()==0){
+			feedFacade.addAcceptEventInviteNewsFeed(ActionUtil.getSessionUserId(), eventId);
+		}
+		
 		return "my.events";
 	}
 	
@@ -346,4 +438,12 @@ public class EventAction {
 		}
 	}
 
+	public static void main(String[] args) throws Exception{
+		String str = "2011/12/12 12:00:00";
+		String pattern = "yyyy/MM/dd HH:mm:ss";
+		DateFormat df = new SimpleDateFormat(pattern);
+		System.out.println(df.parse(str));
+	}
+	
+	
 }

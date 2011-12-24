@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.struts2.ServletActionContext;
 
-import com.zy.Constants;
 import com.opensymphony.xwork2.ActionContext;
+import com.zy.Constants;
 
 public class ActionUtil {
 

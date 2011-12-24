@@ -32,6 +32,27 @@ public class LuceneProfileVo implements Serializable {
 	private String verifiedCompanyId = "";
 	private String verifiedSchoolId = "";
 	
+	private Short gender;
+	private String birthDate;
+	
+	
+	
+	public String getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public Short getGender() {
+		return gender;
+	}
+
+	public void setGender(Short gender) {
+		this.gender = gender;
+	}
+
 	public String getRegTime() {
 		return regTime;
 	}

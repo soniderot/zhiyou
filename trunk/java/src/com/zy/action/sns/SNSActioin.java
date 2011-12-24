@@ -8,8 +8,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.Page;
+import com.zy.facade.ProfileFacade;
 import com.zy.facade.SNSFacade;
+import com.zy.facade.SearchFacade;
 import com.zy.facade.vo.ProfileVO;
+import com.zy.facade.vo.SearchFormVo;
+import com.zy.facade.vo.SearchResultVo;
 public class SNSActioin extends ActionSupport{
 	private int friendId;
 	private int[] profileIds;
@@ -27,6 +31,64 @@ public class SNSActioin extends ActionSupport{
 	
 	private List<ProfileVO> profilesVO;
 	
+	
+	private int startAge = 20;
+	private int endAge = 25;
+	
+	private SearchFacade searchFacade;
+	private ProfileFacade profileFacade;
+	
+	private String keyword;
+	private short gender ;
+	
+
+	public short getGender() {
+		return gender;
+	}
+
+	public void setGender(short gender) {
+		this.gender = gender;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	public ProfileFacade getProfileFacade() {
+		return profileFacade;
+	}
+
+	public void setProfileFacade(ProfileFacade profileFacade) {
+		this.profileFacade = profileFacade;
+	}
+
+	public SearchFacade getSearchFacade() {
+		return searchFacade;
+	}
+
+	public void setSearchFacade(SearchFacade searchFacade) {
+		this.searchFacade = searchFacade;
+	}
+
+	public int getStartAge() {
+		return startAge;
+	}
+
+	public void setStartAge(int startAge) {
+		this.startAge = startAge;
+	}
+
+	public int getEndAge() {
+		return endAge;
+	}
+
+	public void setEndAge(int endAge) {
+		this.endAge = endAge;
+	}
 
 	public List<ProfileVO> getProfilesVO() {
 		return profilesVO;
@@ -186,7 +248,12 @@ public class SNSActioin extends ActionSupport{
 	
 	//get peoples you want to know 
 	public String listPeopleYouWantKnow() {
-		profiles = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)2);
+		profiles = new ArrayList<ZyProfile>();
+		List<Integer> ids = snsFacade.getAllFriendsByDegree(ActionUtil.getSessionUserId(),(short)2);
+		for(int i=0;i<ids.size();i++){
+			profiles.add(profileFacade.findProfileById(ids.get(i)));
+		}
+		//profiles = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)2);
 		if(profiles.size()<10){
 			List<ZyProfile> list = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 			profiles.addAll(list);
@@ -224,7 +291,21 @@ public class SNSActioin extends ActionSupport{
 	}
 	
 	public String search(){
-		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		SearchFormVo vo = new SearchFormVo();
+		if(keyword!=null&&keyword.trim().length()>0){
+			vo.setKeyword(keyword);
+		}
+		if(gender>0){
+			vo.setGender(gender);
+		}
+		//vo.setKeyWordSearch(true);
+		List<SearchResultVo> results = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(),vo,500);
+		profiles = new ArrayList<ZyProfile>();
+		for(int i=0;i<results.size();i++){
+			profiles.add(profileFacade.findProfileById(results.get(i).getProfileId()));
+		}
+		
+		//profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 		page = new Page(profiles.size(),pageNo,10,5);
 		if(profiles.size()>=pageSize*pageNo){
 			profiles = profiles.subList(pageSize*(pageNo-1),pageSize*pageNo);

@@ -1,8 +1,9 @@
 package com.zy.domain.sns.dao;
+import java.util.List;
+
+import com.zy.Constants;
 import com.zy.common.db.HibernateDao;
 import com.zy.common.model.ZyFriendintroduce;
-import com.zy.Constants;
-import java.util.List;
 public class SNSIntroduceDaoImpl extends HibernateDao<ZyFriendintroduce,Integer> implements SNSIntroduceDao {
 	public List<ZyFriendintroduce> getAllIntroduces(int userId){
 		String hql = "from ZyFriendintroduce where userid=? ";
