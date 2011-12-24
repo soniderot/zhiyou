@@ -5,14 +5,19 @@
     <div class="uiHeader uiHeaderWithImage uiHeaderPage  fbx_stream_header">
       <div class="clearfix uiHeaderTop">
         <div class="uiHeaderActions  rfloat fsl fwb fcb">
-          <a href="/?sk=h"><span class="fwn">热门消息</span> </a> ·
+        	
+          <a href="usr/feed.jhtml?handle=sns.event.create,sns.event.join"><span class="fwn">活动动态</span> </a> ·
+          
+          <a href="usr/feed.jhtml?handle=sns.share.connection"><span class="fwn">交友动态</span> </a> ·
+        
           <div id="u3mxyl_1"
             class="uiSelector inlineBlock filterListSelector  uiSelectorRight  uiSelectorNormal uiSelectorDynamicLabel">
             <div class="wrap">
+            	<!--
               <a rel="toggle" data-length="30" aria-haspopup="1"
                 href="#" role="button"
                 class="uiSelectorButton  uiButton"> <span
-                class="uiButtonText">最新消息</span> </a>
+                class="uiButtonText">最新消息</span> </a>-->
               <div class="uiSelectorMenuWrapper  uiToggleFlyout">
                 <div class="uiMenu uiSelectorMenu" role="menu">
                   <ul class="uiMenuInner">
@@ -79,7 +84,7 @@
         </div>
         <div>
           <h2 class="uiHeaderTitle">
-            <i class="uiHeaderImage  img  sp_7gl7wd  sx_efd21b"></i>动态汇总
+            <i class="uiHeaderImage  img  sp_7gl7wd  sx_efd21b"></i><s:if test="handle=='sns.publish.photo'">照片</s:if><s:else>动态</s:else>汇总
           </h2>
         </div>
       </div>
@@ -234,9 +239,14 @@
                       <div data-ft='{"type":2}' class="actorDescription actorName">
                         <a data-hovercard="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>" href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>">
                           <s:property value="user.username" />
+                          	 
                         </a>
                         
                         <s:if test="feed.handle=='sns.event.create'">创建了一个活动</s:if>
+                        
+                        <s:if test="feed.handle=='sns.event.join'">参加了一个活动</s:if>
+                        
+                        <s:if test="feed.handle=='sns.publish.photo'">发布了照片</s:if>
                         
                         <s:if test="feed.handle=='sns.share.connection'">   
                                                   和<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>">
@@ -250,8 +260,12 @@
                         </span>
                       </s:if>
 
-                      <s:if test="feed.handle=='sns.event.create'">
+                      <s:if test="(feed.handle=='sns.event.create')||(feed.handle=='sns.event.join')">
                         <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
+                      </s:if>
+                      
+                       <s:if test="feed.handle=='sns.publish.photo'">
+                        <%@ include file="/WEB-INF/jsp/member/feed/photofeed.jsp"%>
                       </s:if>
                     </h6>
                     <span class="uiStreamFooter">

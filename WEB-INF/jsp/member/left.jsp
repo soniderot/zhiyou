@@ -242,7 +242,7 @@
                       <ul data-gt='{"nav_items_count":"5","nav_section":"appsNav"}' role="navigation" class="uiSideNav mts mbm nonDroppableNav">
                         <li id="navItem_app_2305272732" class="sideNavItem stat_elem">
                          
-                          <a data-gt='{"bmid":"2305272732","count":"0","coeff2_info":"AavlFDtX3Zh1sRcSv6cXUkzN2msD6OSwuDo1LJvCn9BD5qZIaApSrOUUBaHXCVG5Em0","coeff2_registry_key":"0016","coeff2_action":"3","rank":"1"}' title="" href="/photo/photo!getAlbum.jhtml" class="item clearfix sortableItem">
+                          <a data-gt='{"bmid":"2305272732","count":"0","coeff2_info":"AavlFDtX3Zh1sRcSv6cXUkzN2msD6OSwuDo1LJvCn9BD5qZIaApSrOUUBaHXCVG5Em0","coeff2_registry_key":"0016","coeff2_action":"3","rank":"1"}' title="" href="usr/feed.jhtml?handle=sns.publish.photo" class="item clearfix sortableItem">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">

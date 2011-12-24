@@ -67,7 +67,12 @@
                                 
                                 <div class="snippet fsm fwn fcg">
                                         <i class="mrs indicator img sp_d1pr3k sx_18fadf"></i>
+                                         <s:if test="request.eventkey==1">
                                         <span id="snippet_id.237791252950736"><s:property value="content"/><s:if test="formatedMsg!=null">(<s:property value="formatedMsg"/>)</s:if></span>
+                                 			</s:if>
+                                 			 <s:if test="request.eventkey==5">
+                                        <span id="snippet_id.237791252950736"><s:property value="content"/><a title="dota" href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>"><s:property value="event.eventname"/></a></span>
+                                 			</s:if>
                                  </div>
                               </td>
                               

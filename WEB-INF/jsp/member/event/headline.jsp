@@ -14,7 +14,7 @@
 									<span class="profileName fn fsxl fwb"><s:property value="event.eventname" /></span>
 								</h1>
 								<div class="fsm fwn fcg">
-									<span class="fsl">你<a rel="dialog" href="/ajax/events/rsvp.php?eid=241236155939386&amp;inline&amp;allow_removal">确定参加</a></span> · 
+									<span class="fsl">你<a rel="dialog" href="event/event!joinEvent.jhtml?eventId=<s:property value="event.id" />">确定参加</a></span> · 
 									
 								</div>
 							</div>

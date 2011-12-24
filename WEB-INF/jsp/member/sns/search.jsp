@@ -20,9 +20,9 @@
 					              </td>
 					              <td>
 					              	From&nbsp;
-					              	<s:select name="startAge" list="#request.beginAges" listKey="key"  listValue="value"></s:select>
+					              	<s:select name="startAge" list="#request.beginAges" listKey="key"  listValue="value" ></s:select>
 					                  &nbsp;&nbsp;To&nbsp;
-					                 <s:select name="endAge" list="#request.endAges" listKey="key"  listValue="value"></s:select>
+					                 <s:select name="endAge" list="#request.endAges" listKey="key"  listValue="value" ></s:select>
 					              </td>
 					              
 					              <td>
@@ -42,7 +42,7 @@
 					            </tr>
 					            <tr id="u9ikxu_15">
 					              <td>
-					              	学校：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					              	关键字：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					              </td>
 					              <td>
 					              	<div id="u9ikxu_18">
@@ -50,7 +50,10 @@
 					                    <div class="wrap">
 					                      <input type="hidden" name="wk" class="hiddenInput" autocomplete="off"/>
 					                      <div class="innerWrap">
-					                        <input type="text" title="键入大学名称" spellcheck="false" onfocus="return wait_for_load(this, event, function() {;JSCC.get(&#39;j4edc8b1c8101672034723769&#39;).init([&quot;defaultToText&quot;,&quot;submitOnChange&quot;]);;});" autocomplete="off" value="键入大学名称" size="35" placeholder="键入大学名称" class="inputtext textInput DOMControl_placeholder"/>
+					                      	<s:textfield name="keyword" cssClass="inputtext DOMControl_placeholder"  />
+					                      		<!--
+					                        <input type="text" title="键入关键字" spellcheck="false" onfocus="return wait_for_load(this, event, function() {;JSCC.get(&#39;j4edc8b1c8101672034723769&#39;).init([&quot;defaultToText&quot;,&quot;submitOnChange&quot;]);;});" autocomplete="off" value="键入关键字" size="35" placeholder="键入关键字" class="inputtext textInput DOMControl_placeholder"/>
+					                     		-->
 					                      </div>
 					                    </div>
 					                  </div>
@@ -59,6 +62,21 @@
 					              <td>
 					              </td>
 					            </tr>
+					            
+					              <tr id="u9ikxu_14">
+					               <td>
+					              	
+					              </td>
+					              
+					              <td>
+					              	
+					               	 <div class="options">
+                  					<div class="desc"><input value="搜索" tabindex="4" type="submit" id="ubyzxj_3" /></div>
+                					</div>
+					              </td>
+					             
+					            </tr>
+					            
 					          </tbody>
 					          <tbody class="fbSearchAdvancedFiltersHidden hidden_elem"></tbody>
 					        </table>
