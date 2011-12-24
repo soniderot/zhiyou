@@ -24,12 +24,12 @@
       <table class="uiInfoTable mtm mll noBorder">
         <tbody>
           <tr class="dataRow">
-            <th class="label">事件名称：</th>
+            <th class="label">活动名称：</th>
             <td class="data"><s:textfield name="eventname" cssClass="inputtext"   /></td>
             <td class="rightCol"></td>
           </tr>
           <tr id="event_time_row" class="dataRow">
-            <th class="label">日期与时间：</th>
+            <th class="label">开始时间：</th>
             <td class="data">
               <table cellspacing="0" cellpadding="0" class="uiGrid">
                 <tbody>
@@ -37,7 +37,7 @@
                     <td class="prs">
                       <div id="u5hu7k_1" class="uiDatepicker clearfix">
                         <div class="dateBox">
-                          <input type="text" title="日期。适当的格式是月份/日期/年份。" autocomplete="off" size="10" name="event_startIntlDisplay" value="12/5/2011" class="inputtext textField"/>
+                          <s:textfield name="startDate" cssClass="inputtext textField"  size="10"/>
                           <input type="hidden" value="12/5/2011" name="event_start" class="hiddenField" autocomplete="off"/>
                           <div class="calendarWrapper">
                             <table cellspacing="0" border="0">
@@ -62,56 +62,8 @@
                       </div>
                     </td>
                     <td class="phs">
-                      <select id="start_time_min" name="start_time_min">
-                        <option value="0">0:00</option>
-                        <option value="30">0:30</option>
-                        <option value="60">1:00</option>
-                        <option value="90">1:30</option>
-                        <option value="120">2:00</option>
-                        <option value="150">2:30</option>
-                        <option value="180">3:00</option>
-                        <option value="210">3:30</option>
-                        <option value="240">4:00</option>
-                        <option value="270">4:30</option>
-                        <option value="300">5:00</option>
-                        <option value="330">5:30</option>
-                        <option value="360">6:00</option>
-                        <option value="390">6:30</option>
-                        <option value="420">7:00</option>
-                        <option value="450">7:30</option>
-                        <option value="480">8:00</option>
-                        <option value="510">8:30</option>
-                        <option value="540">9:00</option>
-                        <option value="570">9:30</option>
-                        <option value="600">10:00</option>
-                        <option value="630">10:30</option>
-                        <option value="660">11:00</option>
-                        <option value="690">11:30</option>
-                        <option value="720">12:00</option>
-                        <option value="750">12:30</option>
-                        <option value="780">13:00</option>
-                        <option value="810">13:30</option>
-                        <option value="840">14:00</option>
-                        <option value="870">14:30</option>
-                        <option value="900">15:00</option>
-                        <option value="930">15:30</option>
-                        <option value="960">16:00</option>
-                        <option value="990">16:30</option>
-                        <option value="1020">17:00</option>
-                        <option value="1050">17:30</option>
-                        <option value="1080">18:00</option>
-                        <option value="1110">18:30</option>
-                        <option value="1140">19:00</option>
-                        <option value="1170">19:30</option>
-                        <option selected="selected" value="1200">20:00</option>
-                        <option value="1230">20:30</option>
-                        <option value="1260">21:00</option>
-                        <option value="1290">21:30</option>
-                        <option value="1320">22:00</option>
-                        <option value="1350">22:30</option>
-                        <option value="1380">23:00</option>
-                        <option value="1410">23:30</option>
-                      </select>
+                      <s:select name="startHour" list="#request.hours" listKey="key"  listValue="value" ></s:select>
+                     
                     </td>
                     <td class="pls">
                       
@@ -122,11 +74,57 @@
             </td>
             <td class="rightCol"></td>
           </tr>
-          <tr id="end_time_row" class="dataRow hidden_elem">
+         
+         
+         
+         <tr id="event_time_row" class="dataRow">
             <th class="label">结束时间：</th>
-            <td class="data"><div id="end_time_row_content"></div></td>
+            <td class="data">
+              <table cellspacing="0" cellpadding="0" class="uiGrid">
+                <tbody>
+                  <tr>
+                    <td class="prs">
+                      <div id="u5hu7k_1" class="uiDatepicker clearfix">
+                        <div class="dateBox">
+                          <s:textfield name="endDate" cssClass="inputtext textField"  size="10"/>
+                          <input type="hidden" value="12/5/2011" name="event_start" class="hiddenField" autocomplete="off"/>
+                          <div class="calendarWrapper">
+                            <table cellspacing="0" border="0">
+                              <tbody>
+                                <tr>
+                                  <td class="prevMonth"><i class="img sp_b8po3p sx_4e5fd4"></i></td>
+                                  <td colspan="5" class="monthTitle"></td>
+                                  <td class="nextMonth"><i class="img sp_b8po3p sx_3fd0d2"></i></td>
+                                </tr>
+                               
+                                <tr>
+                                  <td class="days" colspan="7">
+                                    <table>
+                                      <tbody class="dayTable"></tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="phs">
+                       <s:select name="endHour" list="#request.hours" listKey="key"  listValue="value" ></s:select>
+                    </td>
+                    <td class="pls">
+                      
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
             <td class="rightCol"></td>
           </tr>
+         
+         
+         
           <tr class="dataRow">
             <th class="label">地点：</th>
             <td class="data"> <s:textfield name="address" cssClass="inputtext"  /></td>
@@ -167,18 +165,22 @@
             <th class="label"></th>
             <td class="data">
               <ul class="uiList">
+              	<!--
                 <li class="uiListItem uiListVerticalItemBorder">
                   <label for="privacy_type" class="uiCheckbox">
                     <input type="checkbox" checked="1" onchange="CSS.conditionShow($('u5hu7k_5'), !this.checked);CSS.conditionShow(null, this.checked);" name="privacy_type" id="privacy_type"/>
                   </label>
                   <label for="privacy_type">Make this event public (anyone can see and join)</label>
-                </li>
+                </li>-->
                 <li id="u5hu7k_5" class="pll hidden_elem uiListItem uiListVerticalItemBorder">
                   <label for="friend_invites" class="uiCheckbox">
                     <input type="checkbox" name="friend_invites" id="friend_invites"/>
                   </label>
                   <label for="friend_invites">Let guests invite friends</label>
                 </li>
+                
+                
+                <!---
                 <li class="uiListItem uiListVerticalItemBorder">
                   <label for="guest_list" class="uiCheckbox">
                     <input type="checkbox" checked="1" name="guest_list" id="guest_list"/>
@@ -189,6 +191,8 @@
                   <input type="checkbox" checked="1" name="connections_can_post" id="connections_can_post"/>
                   <label for="connections_can_post">非管理员可以在涂鸦墙上发贴</label>
                 </li>
+                --->
+                
               </ul></td>
             <td class="rightCol"></td>
           </tr>

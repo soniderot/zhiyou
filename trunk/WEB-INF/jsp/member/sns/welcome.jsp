@@ -60,7 +60,7 @@
                             <a aria-hidden="true" tabindex="-1" href="/profile/profile!viewProfileInfo.jhtml?userid=${profile.userid}" class="UIImageBlock_Image UIImageBlock_MED_Image">
                             <div class="friendBrowserPhotoWrapper">
                               <div class="friendBrowserPhotoCrop">
-                                <img  alt="" src="${profile.avatar }" class="fbProfileLargePortraitImgScaleHeight img"/>
+                                <img  alt="" src="${profile.avatar }" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgSmall img"/>
                               </div>
                             </div>
                             </a>
