@@ -1,7 +1,5 @@
 package com.zy.domain.feed.dao;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.zy.Constants;

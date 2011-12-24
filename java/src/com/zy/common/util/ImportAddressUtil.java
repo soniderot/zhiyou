@@ -1,9 +1,5 @@
 package com.zy.common.util;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 
 import octazen.addressbook.Contact;
@@ -11,7 +7,6 @@ import octazen.addressbook.SimpleAddressBookImporter;
 
 import com.huangzhimin.contacts.ContactsImporter;
 import com.huangzhimin.contacts.ContactsImporterFactory;
-import com.zy.Constants;
 
 
 public class ImportAddressUtil {

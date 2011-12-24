@@ -25,6 +25,7 @@ public class IndexField {
 	//profile
 	public static class Profile {
 		public final static String USER_ID = "userId";
+		public final static String GENDER = "gender";
 		//keywords
 		public final static String FULL_NAME = "fullName";
 		public final static String FULL_NAME_PINYIN = "fullNamePinyin";
@@ -52,5 +53,7 @@ public class IndexField {
 		public final static String REG_TIME="regTime"; 
 		public final static String VERIFIED_COMPANY="verifiedCompanyId";
 		public final static String VERIFIED_SCHOOL="verifiedSchoolId";
+		
+		public final static String BIRTHDATE="birthDate"; 
 	}
 }

@@ -1,10 +1,7 @@
 package com.zy.domain.message.bean;
 
-import java.util.List;
-
 import com.zy.common.model.ZyMessage;
 import com.zy.common.model.ZyProfile;
-import com.zy.common.util.HtmlUtil;
 
 public class MessageBean {
 	private ZyProfile profile;

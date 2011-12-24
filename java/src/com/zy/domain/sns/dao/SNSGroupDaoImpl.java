@@ -1,9 +1,6 @@
 package com.zy.domain.sns.dao;
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.transform.Transformers;
-
 import com.zy.common.db.HibernateDao;
 import com.zy.common.model.ZyFriendgroup;
 

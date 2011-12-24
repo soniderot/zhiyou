@@ -1,9 +1,7 @@
 package com.zy.domain.sns.dao;
 
-import java.util.Date;
 import java.util.List;
 
-import com.zy.Constants;
 import com.zy.common.db.HibernateDao;
 import com.zy.common.model.ZyExternalinvite;
 

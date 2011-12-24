@@ -29,4 +29,7 @@
 <bean id="indexLogDao" class="com.zy.domain.search.dao.IndexLogDaoImpl" parent="baseDao" />
 
 <bean id="cityDao" class="com.zy.domain.option.dao.CityDaoImpl" parent="baseDao" />
+
+<bean id="photoDao" class="com.zy.domain.photo.dao.PhotoDaoImpl" parent="baseDao" />
+<bean id="albumDao" class="com.zy.domain.photo.dao.AlbumDaoImpl" parent="baseDao" />
 </beans>

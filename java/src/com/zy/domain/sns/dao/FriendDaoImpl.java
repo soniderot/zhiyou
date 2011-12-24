@@ -1,13 +1,10 @@
 package com.zy.domain.sns.dao;
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.transform.Transformers;
-
 import com.zy.common.db.HibernateDao;
-import com.zy.common.model.ZyProfile;
-import com.zy.common.model.ZyFriendDetail;
 import com.zy.common.model.ZyFriend;
+import com.zy.common.model.ZyFriendDetail;
+import com.zy.common.model.ZyProfile;
 
 public class FriendDaoImpl extends HibernateDao<ZyFriend,Integer> implements FriendDao {
 	public List<ZyFriend> getFriends(int userId,int friendId) {

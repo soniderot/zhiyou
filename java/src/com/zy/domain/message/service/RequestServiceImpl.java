@@ -26,6 +26,7 @@ public class RequestServiceImpl implements RequestService {
 
 	private ZyRequesttype r1 = null;
 	private ZyRequesttype r2 = null;
+	private ZyRequesttype r5 = null;
 
 	public RequestDao getRequestDao() {
 		return requestDao;
@@ -67,6 +68,8 @@ public class RequestServiceImpl implements RequestService {
 				r1 = requesttype;
 			} else if (requesttype.getEventkey() == 2) {
 				r2 = requesttype;
+			} else if (requesttype.getEventkey() == 5) {
+				r5 = requesttype;
 			}
 		}
 	}
@@ -85,12 +88,21 @@ public class RequestServiceImpl implements RequestService {
 			if (request.getParameters() != null) {
 				paras = request.getParameters().split(",");
 			}
-
+			
+			//new friend invite
 			if (request.getEventkey() == 1) {
 				ZyProfile user = profileService.findProfileById(request.getSenderid());
 				bean.setProfile(user);
 				
 				bean.setContent(MessageFormat.format(r1.getTemplate(),user.getUserid(),user.getUsername()));
+			}
+			
+			//new event invite
+			if (request.getEventkey() == 5) {
+				ZyProfile user = profileService.findProfileById(request.getSenderid());
+				bean.setProfile(user);
+				
+				bean.setContent(MessageFormat.format(r5.getTemplate(),user.getUserid(),user.getUsername()));
 			}
 
 			requestBean.add(bean);
@@ -302,5 +314,9 @@ System.out.println("------------into-----------");
 
 	public List<Integer> findAllNewRequestId(int userid, short eventkey) {
 		return this.requestDao.findAllNewRequestId(userid, eventkey);
+	}
+	
+	public List<ZyRequest> getRequest(int receiverid, short eventkey, int referenceid){
+		return this.requestDao.getRequest(receiverid, eventkey, referenceid);
 	}
 }

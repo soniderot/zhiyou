@@ -2,8 +2,8 @@ package com.zy.domain.sns.dao;
 import java.util.List;
 
 import com.zy.common.db.BaseDao;
-import com.zy.common.model.ZyFriendDetail;
 import com.zy.common.model.ZyFriend;
+import com.zy.common.model.ZyFriendDetail;
 
 public interface FriendDao extends BaseDao<ZyFriend, Integer>{
 	public List<ZyFriend> getFriends(int userId,int friendId);

@@ -3,11 +3,8 @@ package com.zy.domain.sns.service;
 import java.io.Serializable;
 import java.util.List;
 
-
-import com.zy.common.model.ZyProfile;
-import com.zy.common.util.LongDataListAccessor;
-import com.zy.common.util.SimpleLongDataList;
 import com.zy.common.exception.GraphIsInitializingException;
+import com.zy.common.util.LongDataListAccessor;
 
 public class UserNetwork
     extends GraphNetwork

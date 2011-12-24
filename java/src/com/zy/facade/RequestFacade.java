@@ -2,6 +2,7 @@ package com.zy.facade;
 
 import java.util.List;
 
+import com.zy.common.model.ZyRequest;
 import com.zy.domain.message.bean.RequestBean;
 
 public interface RequestFacade {
@@ -13,4 +14,6 @@ public interface RequestFacade {
 	public boolean neglectRequest_tx(int id);
 	
 	public List<RequestBean> getUserRequestInbox(int userid, int pageNo, int pageSize);
+	
+	public List<ZyRequest> getRequest(int receiverid, short eventkey, int referenceid);
 }

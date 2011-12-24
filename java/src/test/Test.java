@@ -106,8 +106,8 @@ public class Test {
 		}*/
 		
 		
-		RequestFacade requestFacade = (RequestFacade)appContext.getBean("requestFacade");
-		requestFacade.sendRequest_tx(1,2,(short)1,0, "hihi", null);
+		//RequestFacade requestFacade = (RequestFacade)appContext.getBean("requestFacade");
+		//requestFacade.sendRequest_tx(1,2,(short)1,0, "hihi", null);
 		
 		//EventFacade eventFacade = (EventFacade)appContext.getBean("eventFacade");
 		//eventFacade.removeMember(1, 6);
@@ -122,5 +122,10 @@ public class Test {
 		event.setEventname("唱歌比赛");
 		event.setUpdatetime(new Date());
 		eventFacade.createEvent(event);*/
+		
+		
+		
+		RequestFacade requestFacade = (RequestFacade)appContext.getBean("requestFacade");
+		requestFacade.sendRequest_tx(1,2,(short)5,19,"",null);
 	}
 }

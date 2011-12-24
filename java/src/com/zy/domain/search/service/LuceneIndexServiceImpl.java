@@ -88,6 +88,8 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
 				Document doc = new Document();
 				doc.add(new Field(IndexField.Profile.USER_ID, profile
 						.getUserId(), Store.YES, Index.ANALYZED));
+				doc.add(new Field(IndexField.Profile.GENDER, ""+profile.getGender(), Store.YES, Index.ANALYZED));
+				doc.add(new Field(IndexField.Profile.BIRTHDATE, profile.getBirthDate(), Store.YES, Index.ANALYZED));
 				doc.add(new Field(IndexField.Profile.FULL_NAME, profile
 						.getFullName(), Store.NO, Index.ANALYZED));
 				doc.add(new Field(IndexField.Profile.CAREER_BRIEF, profile
@@ -144,6 +146,10 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
 					doc.add(new Field(IndexField.Profile.VERIFIED_SCHOOL,
 							profile.getVerifiedSchoolId(), Store.YES,
 							Index.ANALYZED));
+				
+				System.out.println("profile.birthdate==="+profile.getBirthDate());
+				
+				
 				writer.addDocument(doc);
 			}
 			LogUtil.info("Optimizing...");

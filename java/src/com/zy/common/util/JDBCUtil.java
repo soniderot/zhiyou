@@ -8,10 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
-import java.util.regex.Pattern;
-
-import com.mysql.jdbc.PreparedStatement;
 
 public class JDBCUtil {
 

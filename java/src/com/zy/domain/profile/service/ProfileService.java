@@ -5,7 +5,6 @@ import java.util.List;
 import com.zy.common.model.ZyEducation;
 import com.zy.common.model.ZyMemo;
 import com.zy.common.model.ZyProfile;
-import com.zy.common.model.ZySchool;
 public interface ProfileService {
 	
 	public ZyProfile findProfileById(int profileId);

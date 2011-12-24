@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 
+import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRequest;
 import com.zy.common.model.ZyRequesttype;
@@ -24,7 +25,16 @@ public class RequestBean {
 	private short requestOption;
 	private String requestNote;
 	
+	private ZyEvent event;
 	
+	public ZyEvent getEvent() {
+		return event;
+	}
+
+	public void setEvent(ZyEvent event) {
+		this.event = event;
+	}
+
 	public String getFormatedMsg() {
 		if(request.getMessage()==null){
 			return null;

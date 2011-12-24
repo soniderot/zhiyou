@@ -2,7 +2,6 @@ package com.zy.domain.message.dao;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -291,6 +290,12 @@ public class RequestDaoImpl extends HibernateDao <ZyRequest, Integer> implements
 		}
 		Query query  = this.getSession().createQuery(hql);
 		return (List<Integer>)query.list();
+	}
+	
+	public List<ZyRequest> getRequest(int receiverid, short eventkey, int referenceid){
+		String hql="from ZyRequest where receiverid=? and eventkey=? and referenceid=? order by id desc";		
+		List<ZyRequest> list= this.find(hql, new Object[] {receiverid, eventkey, referenceid});
+		return list;
 	}
 
 }

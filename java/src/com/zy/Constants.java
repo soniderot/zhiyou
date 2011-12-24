@@ -1,11 +1,7 @@
 package com.zy;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -60,44 +56,14 @@ public class Constants {
 	public static final short REQUEST_STATUS_WAITING = 1;
 	public static final short REQUEST_STATUS_IGNORED = 2;
 	public static final short REQUEST_STATUS_SYSTEM_IGNORED = 3;
-	//table BNS_PRIVACY column REQUESTSETTING
-    public static final short REQUEST_SETTING_ACCETP_LOW = -2;
-    public static final short REQUEST_SETTING_ACCETP_MEDIUM = -1;
-    public static final short REQUEST_SETTING_ACCETP_HIGH = 0;
-    public static final short REQUEST_SETTING_ACCETP_HIGH_SCHOOLMATE = 1;
-    public static final short REQUEST_SETTING_ACCETP_HIGH_COLLEAGUE = 2;
-    public static final short REQUEST_SETTING_ACCETP_HIGH_COOPERATION = 3;
-    public static final short REQUEST_SETTING_ACCETP_HIGH_EMAIL = 4;
-    public static final short REQUEST_SETTING_ACCETP_HIGH_MEETING = 5;
-    public static final short REQUEST_SETTING_ACCETP_HIGH_UNKNOWN = 6; // includes referral and introduction
-//    public static final short REQUEST_SETTING_ACCETP_HIGH_REFERED = 7;
-//    public static final short REQUEST_SETTING_ACCETP_HIGH_INTRODUCE = 8;
-	
-
-	// ----- Payment begin -------------------------
-	public static final int COINS_EXCHANGERATE = 1;
-	public static final short PAYMANT_NOPAIED = 1;
-	public static final short PAYMENT_PAIED = 0;
-
-	
+		
 	
 	public static final short MEMBERSHIP_COMMON = 0;
 	public static final short MEMBERSHIP_PLATINUM = 1;
 	public static final short MEMBERSHIP_DIAMOND = 2;
 	public static final short MEMBERSHIP_USHITONG=3;
 	
-	public static final short MEMBERSHIP_COMMON_SEARCH_LIMIT = 150;
-	public static final short MEMBERSHIP_USHITONG_SEARCH_LIMIT = 300;
-    public static final short MEMBERSHIP_PLATINUM_SEARCH_LIMIT = 500;
-    public static final short MEMBERSHIP_DIAMOND_SEARCH_LIMIT = 500;
-    
-    public static final short NOTIFICATIONTYPE_MEMBERSHIP_EXPIRING = 23;
-    public static final short NOTIFICATIONTYPE_MEMBERSHIP_EXPIRED = 57;
-    public static final short NOTIFICATIONTYPE_MEMBERSHIP_EXTEND = 24;
-    public static final short NOTIFICATIONTYPE_MEMBERSHIP_UPGRADE = 26;
-    public static final short NOTIFICATIONTYPE_LIMITATION_A=28;
-	public static final short NOTIFICATIONTYPE_LIMITATION_B=29;
-
+	
 	public static final short PROFILE_FILLPERCENT_CAREER = 1;
 	public static final short PROFILE_FILLPERCENT_EDUCATION = 2;
 	public static final short PROFILE_FILLPERCENT_AVATAR = 4;
@@ -108,53 +74,7 @@ public class Constants {
 	public static final short SNS_REQUESTSTATUS_ACTIVE = 1;
 	public static final short SNS_REQUESTSTATUS_INACTIVE = 0;
 
-	public static  int MSGQUOTA_PLATINUM_PERMONTH = 15;
-	public static  int MSGQUOTA_DIAMOND_PERMONTH = 150;
-	public static  int MSGQUOTA_USHITONG_PREMONTH=10;
-
-	public static final int COINSEVENT_SENDDIRECTMAIL = 1;
-	public static final int COINSEVENT_INTRODUCE = 2;
-	public static final int COINSEVENT_RECEIVEINVITEREGISTE = 3;
-	public static final int COINSEVENT_INVITEREGISTE = 4;
-	public static final int COINSEVENT_FILLCAREERLIST = 5;
-	public static final int COINSEVENT_FILLEDUCATION = 6;
-	public static final int COINSEVENT_FILLCAREERSUM = 7;
-	public static final int COINSEVENT_FILLCONTACT = 8;
-	public static final int COINSEVENT_UPLOADAVATAR = 9;
-	 public static final int COINSEVENT_NEWUSERGUIDE = 14;
-	 
-	public static final int REWARDEVENT_RECEIVEINVITEREGISTE = 1;
-	public static final int REWARDEVENT_FILLCAREERLIST = 2;
-	public static final int REWARDEVENT_FILLEDUCATION = 4;
-	public static final int REWARDEVENT_FILLCAREERSUM = 8;
-	public static final int REWARDEVENT_FILLCONTACT = 16;
-	public static final int REWARDEVENT_UPLOADAVATAR = 32;
-	public static final int REWARDEVENT_INVITEREGISTE_1 = 128;
-	public static final int REWARDEVENT_INVITEREGISTE_2 = 256;
-	public static final int REWARDEVENT_INVITEREGISTE_3 = 512;
-	public static final int REWARDEVENT_INVITEREGISTE_4 = 1024;
-	public static final int REWARDEVENT_INVITEREGISTE_5 = 2048;
-	public static final int REWARDEVENT_INVITEREGISTE_6 = 4096;
-
-	public static final int CONTACTPRICYSETTING_MEMBER = 0;
-	public static final int CONTACTPRICYSETTING_1DEGREE = 1;
-	public static final int CONTACTPRICYSETTING_SPECIALGROUP = 2;
-	public static final int CONTACTPRICYSETTING_PRIVATE = 3;
-
-	public static final int BIRTHDAYSETTING_MEMBER = 0;
-	public static final int BIRTHDAYSETTING_MONTHDAY = 1;
-	public static final int BIRTHDAYSETTING_PRIVATE = 2;
-
-	// privacy
-	public static final int CONTACTINFO_MOBILE = 1;
-	public static final int CONTACTINFO_BIZPHONE = 2;
-	public static final int CONTACTINFO_PERSONALPHONE = 3;
-	public static final int CONTACTINFO_IM1 = 4;
-	public static final int CONTACTINFO_IM2 = 5;
-	public static final int CONTACTINFO_IM3 = 6;
-	public static final int CONTACTINFO_IM4 = 7;
-	public static final int CONTACTINFO_IM5 = 8;
-
+	
 	public static class Group {
 		public final static String SESSION_GROUP_NAME = "sessionGroupName";
 		public static int CACHETIMESECONDS = 3600 * 10;
@@ -1589,11 +1509,6 @@ public class Constants {
 	public static String MAIL_TEMPLATE_CAREER_UPDATE = "career_update";
 	public static String MAIL_TEMPLATE_CAREER_ANNUAL = "career_annual";
 	
-	public static int[] COINS_EVENT_SHOW = {COINSEVENT_FILLCAREERLIST, COINSEVENT_FILLEDUCATION, COINSEVENT_UPLOADAVATAR, 
-		COINSEVENT_FILLCAREERSUM, COINSEVENT_FILLCONTACT, COINSEVENT_INVITEREGISTE};
-	public static int[] COINS_EVENT_NOTICIFICATION = {COINSEVENT_FILLCAREERLIST, COINSEVENT_FILLEDUCATION, COINSEVENT_UPLOADAVATAR, 
-		COINSEVENT_FILLCAREERSUM, COINSEVENT_FILLCONTACT, COINSEVENT_INVITEREGISTE, COINSEVENT_NEWUSERGUIDE};
-	
 	//SNS_BLOCKLIST column status
 	public final static short BLOCK_LIST_NORMAL = 0;
 	public final static short BLOCK_LIST_DELETED = -1;
@@ -1710,17 +1625,7 @@ public class Constants {
 	//sso可以绕过邮箱验证，所以在SESSION加一个CHECK MAIL的信息来对首页进行显示
 	public static final String USER_VERIFY_EMAIL_KEY_SSO = "verifyemailsso";
     
-    //sso
-    public static String SSO_PROFILE_TEMP_PASSWORD = "1qaz2wsx";
-    public final static int SSO_SINA_USER_LOGO = 180;
-    public final static String SSO_TYPE_SINA="sina";
-    public final static String SSO_INVITE_TYPE="ssoinvitetype";
-    public final static String SSO_INVITE_ID="ssoinviteid";
-    public final static String SSO_IS_SNSINVITE="ssoissnsinvite";
-    public final static String SSO_ADD_1STDEGREE="ssoadd1stdegree";
-    public final static String SSO_USERID="ssouserid";
-    public final static String SSO_EVENT_RETURN_URL="ssoeventreturnurl";
-
+    
     public static String M2_BADGE_PRIZE_START_DATE = "2011-09-13";
     
     //FROM HERE!!

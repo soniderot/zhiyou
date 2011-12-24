@@ -6,12 +6,16 @@ import java.util.List;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.CorruptIndexException;
+import org.apache.lucene.index.Term;
 import org.apache.lucene.queryParser.MultiFieldQueryParser;
 import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanQuery;
+import org.apache.lucene.search.Filter;
 import org.apache.lucene.search.Query;
+import org.apache.lucene.search.QueryFilter;
+import org.apache.lucene.search.RangeQuery;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.Searcher;
 import org.apache.lucene.search.TopScoreDocCollector;
@@ -25,10 +29,6 @@ import com.zy.domain.search.IndexField;
 import com.zy.domain.search.SearcherController;
 import com.zy.domain.search.dao.IndexLogDao;
 import com.zy.facade.vo.SearchResultVo;
-import org.apache.lucene.index.Term;
-import org.apache.lucene.search.RangeQuery;
-import org.apache.lucene.search.QueryFilter;
-import org.apache.lucene.search.Filter;
 
 public class SearchServiceImpl implements SearchService{
 	private IndexLogDao indexLogDao;
@@ -44,7 +44,7 @@ public class SearchServiceImpl implements SearchService{
 	private List<SearchResultVo> generateSearchResultVo(Searcher searcher, ScoreDoc[] hits) throws CorruptIndexException, IOException {
 		List<SearchResultVo> list = new ArrayList<SearchResultVo>();
 		for (int i = 0; i < hits.length; i++) {
-			// LogUtil.info("----------hits doc----" + i);
+			LogUtil.info("----------hits doc----" + i);
 			Document doc = searcher.doc(hits[i].doc);
 			SearchResultVo vo = new SearchResultVo();
 			vo.setProfileId(Integer.parseInt(doc.get(IndexField.Profile.USER_ID)));
@@ -133,10 +133,11 @@ public class SearchServiceImpl implements SearchService{
 			BooleanQuery.setMaxClauseCount(Integer.MAX_VALUE);
 			Query query = MultiFieldQueryParser.parse(Version.LUCENE_CURRENT, values, fields, flags, BnsAnalyzer.SEARCH_ANALYZER);
 			LogUtil.info(query + "------searcher-----" + searcher + "----------" + current_path);
-			Term startTerm = new Term(IndexField.Profile.REG_TIME,start);
-			Term endTerm = new Term(IndexField.Profile.REG_TIME,end);
+			Term startTerm = new Term(IndexField.Profile.BIRTHDATE,start);
+			Term endTerm = new Term(IndexField.Profile.BIRTHDATE,end);
 			Query rangeQuery = new RangeQuery(startTerm, endTerm, true);
 			Filter filter = new QueryFilter(rangeQuery);
+			System.out.println(filter);
 			searcher.search(query,filter,collector);
 			return generateSearchResultVo(searcher, collector.topDocs().scoreDocs);
 		} catch (IOException e) {

@@ -3,7 +3,6 @@ package com.zy.action.profile;
 import java.util.List;
 
 import com.zy.common.model.ZyProfile;
-import com.zy.common.util.ActionUtil;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.SNSFacade;
 

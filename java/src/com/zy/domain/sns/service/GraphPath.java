@@ -5,9 +5,9 @@ import java.util.Date;
 import cern.colt.list.LongArrayList;
 import cern.colt.list.ObjectArrayList;
 
+import com.zy.common.exception.GraphIsInitializingException;
 import com.zy.common.util.LongDataList;
 import com.zy.common.util.SimpleLongDataList;
-import com.zy.common.exception.GraphIsInitializingException;
      
 public class GraphPath implements java.io.Serializable
 {

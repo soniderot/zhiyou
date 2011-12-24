@@ -9,6 +9,7 @@ import com.zy.common.model.ZyNewsfeed;
 import com.zy.domain.event.service.EventService;
 import com.zy.domain.feed.bean.FeedBean;
 import com.zy.domain.feed.service.FeedService;
+import com.zy.domain.photo.service.PhotoService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.facade.FeedFacade;
 
@@ -16,8 +17,17 @@ public class FeedFacadeImpl implements FeedFacade{
 	private FeedService feedService;
 	private EventService eventService;
 	private ProfileService profileService;
+	private PhotoService photoService;
 	
 	
+	public PhotoService getPhotoService() {
+		return photoService;
+	}
+
+	public void setPhotoService(PhotoService photoService) {
+		this.photoService = photoService;
+	}
+
 	public ProfileService getProfileService() {
 		return profileService;
 	}
@@ -51,13 +61,18 @@ public class FeedFacadeImpl implements FeedFacade{
 		feedService.addNewsFeed(feed);
 	}
 	
-	public void addNewPhotoNewsFeed(int userId,int photoId){
+	public FeedBean addNewPhotoNewsFeed(int userId,int photoId){
+		FeedBean bean = new FeedBean();
 		ZyNewsfeed feed = new ZyNewsfeed();
 		feed.setUserid(userId);
 		feed.setCreated(new Date());
-		feed.setHandle("sns.share.photo");
+		feed.setHandle("sns.publish.photo");
 		feed.setBody(""+photoId);
 		feedService.addNewsFeed(feed);
+		bean.setFeed(feed);
+		bean.setUser(profileService.findProfileById(feed.getUserid()));
+		bean.setPhoto(photoService.getPhoto(photoId));
+		return bean;
 	}
 	
 	public void addNewEventNewsFeed(int userId,int enentId){
@@ -85,6 +100,10 @@ public class FeedFacadeImpl implements FeedFacade{
 	
 	public void addAcceptEventInviteNewsFeed(int userId,int eventId){
 		ZyNewsfeed feed = new ZyNewsfeed();
+		feed.setUserid(userId);
+		feed.setCreated(new Date());
+		feed.setHandle("sns.event.join");
+		feed.setBody(""+eventId);
 		feedService.addNewsFeed(feed);
 	}
 	
@@ -106,7 +125,7 @@ public class FeedFacadeImpl implements FeedFacade{
 			bean.setFeed(feeds.get(i));
 			bean.setUser(profileService.findProfileById(feeds.get(i).getUserid()));
 			//new event feed
-			if(feeds.get(i).getHandle().equals("sns.event.create")){
+			if(feeds.get(i).getHandle().equals("sns.event.create")||feeds.get(i).getHandle().equals("sns.event.join")){
 				int id = Integer.valueOf(feeds.get(i).getBody());
 				bean.setEvent(eventService.getEvent(id));
 				System.out.println(bean.getEvent().getEventname());
@@ -116,6 +135,12 @@ public class FeedFacadeImpl implements FeedFacade{
 			if(feeds.get(i).getHandle().equals("sns.share.connection")){
 				int id = Integer.valueOf(feeds.get(i).getBody());
 				bean.setFriend(profileService.findProfileById(id));
+			}
+			
+			//add new photo
+			if(feeds.get(i).getHandle().equals("sns.publish.photo")){
+				int id = Integer.valueOf(feeds.get(i).getBody());
+				bean.setPhoto(photoService.getPhoto(id));
 			}
 			results.add(bean);
 		}

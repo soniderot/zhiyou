@@ -1,9 +1,11 @@
 package com.zy.common.cache;
 
 import java.util.Map;
-import com.zy.Constants;
-import net.spy.memcached.MemcachedClient;
+
 import net.spy.memcached.AddrUtil;
+import net.spy.memcached.MemcachedClient;
+
+import com.zy.Constants;
 
 public class MemCache implements Cache{
 	private static MemcachedClient memcachedClient = null;
