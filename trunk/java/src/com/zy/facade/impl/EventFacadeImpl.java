@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.zy.common.model.ZyEvent;
+import com.zy.common.model.ZyEventcategory;
 import com.zy.common.model.ZyEventmember;
 import com.zy.common.model.ZyProfile;
 import com.zy.domain.event.service.EventService;
@@ -79,5 +80,9 @@ public class EventFacadeImpl implements EventFacade{
 	
 	public void removeMember(int userId,int eventId){
 		eventService.removeMember(userId, eventId);
+	}
+	
+	public List<ZyEventcategory> getEventCategorys(){
+		return eventService.getEventCategorys();
 	}
 }

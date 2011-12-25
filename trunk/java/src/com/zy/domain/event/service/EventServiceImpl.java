@@ -4,8 +4,10 @@ import java.util.Date;
 import java.util.List;
 
 import com.zy.common.model.ZyEvent;
+import com.zy.common.model.ZyEventcategory;
 import com.zy.common.model.ZyEventinvite;
 import com.zy.common.model.ZyEventmember;
+import com.zy.domain.event.dao.EventCategoryDao;
 import com.zy.domain.event.dao.EventDao;
 import com.zy.domain.event.dao.EventInviteDao;
 import com.zy.domain.event.dao.EventMemberDao;
@@ -15,7 +17,17 @@ public class EventServiceImpl implements EventService{
 	private EventDao eventDao;
 	private EventInviteDao eventInviteDao;
 	private EventMemberDao eventMemberDao;
+	private EventCategoryDao eventCategoryDao;
 	
+	
+	public EventCategoryDao getEventCategoryDao() {
+		return eventCategoryDao;
+	}
+
+	public void setEventCategoryDao(EventCategoryDao eventCategoryDao) {
+		this.eventCategoryDao = eventCategoryDao;
+	}
+
 	public EventMemberDao getEventMemberDao() {
 		return eventMemberDao;
 	}
@@ -82,5 +94,9 @@ public class EventServiceImpl implements EventService{
 	
 	public void removeMember(int userId,int eventId){
 		eventMemberDao.removeMember(userId, eventId);
+	}
+	
+	public List<ZyEventcategory> getEventCategorys(){
+		return eventCategoryDao.getEventCategorys();
 	}
 }
