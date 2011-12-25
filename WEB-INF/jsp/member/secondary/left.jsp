@@ -14,7 +14,7 @@
 					          <ul role="navigation" class="uiSideNav">
 					            <li id="navItem_wall" class="sideNavItem stat_elem">
 					              <div class="buttonWrap"></div>
-					              <a href="feeds.html" class="item clearfix" style="">
+					              <a href="profile/profile!viewProfileFeeds.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
 						              <div class="rfloat">
 						              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
 						              </div>
@@ -26,7 +26,7 @@
 					            </li>
 					            <li id="navItem_info" class="sideNavItem stat_elem selectedItem open">
 					              <div class="buttonWrap"></div>
-					              <a href="info.html" class="item clearfix" style="">
+					              <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
 						              <div class="rfloat">
 						              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
 						              </div>
@@ -38,7 +38,7 @@
 					            </li>
 					            <li id="navItem_photos" class="sideNavItem stat_elem">
 					              <div class="buttonWrap"></div>
-					              <a href="photos.html" class="item clearfix" style="">
+					              <a href="photo/photo!getAlbum.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
 						              <div class="rfloat">
 						              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
 						              </div>
@@ -50,7 +50,7 @@
 					            </li>
 					            <li id="navItem_friends" class="sideNavItem stat_elem">
 					              <div class="buttonWrap"></div>
-					              <a href="friends.html" class="item clearfix" style="">
+					              <a href="profile/profile!viewProfileFriends.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
 						              <div class="rfloat">
 						              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
 						              </div>
