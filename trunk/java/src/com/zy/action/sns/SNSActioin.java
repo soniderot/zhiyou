@@ -41,6 +41,16 @@ public class SNSActioin extends ActionSupport{
 	private String keyword;
 	private short gender ;
 	
+	private ZyProfile profile;
+	
+
+	public ZyProfile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(ZyProfile profile) {
+		this.profile = profile;
+	}
 
 	public short getGender() {
 		return gender;
@@ -317,6 +327,7 @@ public class SNSActioin extends ActionSupport{
 	}
 	
 	public String getFriendsList(){
+		profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
 		friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)1);
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 		return "friends.list";
