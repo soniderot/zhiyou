@@ -7,4 +7,5 @@ import com.zy.common.model.ZyRecommplace;
 
 public interface RecommPlaceDao extends BaseDao<ZyRecommplace,Integer>{
 	public List<ZyRecommplace> getRecommPlaces(int districtid,int subcategoryid);
+	public List<ZyRecommplace> getRecommPlaces(int subcategoryid);
 }
