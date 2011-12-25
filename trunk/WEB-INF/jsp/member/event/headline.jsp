@@ -13,10 +13,12 @@
 								<h1>
 									<span class="profileName fn fsxl fwb"><s:property value="event.eventname" /></span>
 								</h1>
+								<s:if test="joined==false">
 								<div class="fsm fwn fcg">
 									<span class="fsl">你<a rel="dialog" href="event/event!joinEvent.jhtml?eventId=<s:property value="event.id" />">确定参加</a></span> · 
 									
 								</div>
+							</s:if>
 							</div>
 						</div>
 					</div>
