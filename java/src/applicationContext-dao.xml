@@ -32,4 +32,5 @@
 
 <bean id="photoDao" class="com.zy.domain.photo.dao.PhotoDaoImpl" parent="baseDao" />
 <bean id="albumDao" class="com.zy.domain.photo.dao.AlbumDaoImpl" parent="baseDao" />
+<bean id="eventCategoryDao" class="com.zy.domain.event.dao.EventCategoryDaoImpl" parent="baseDao" />
 </beans>

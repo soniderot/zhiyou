@@ -3,6 +3,7 @@ package com.zy.domain.event.service;
 import java.util.List;
 
 import com.zy.common.model.ZyEvent;
+import com.zy.common.model.ZyEventcategory;
 import com.zy.common.model.ZyEventmember;
 import com.zy.facade.vo.EventVO;
 
@@ -16,4 +17,6 @@ public interface EventService {
 	public void updateEvent(ZyEvent event);
 	public List<EventVO> getEvents(String userIds,int pageNo,int pageSize);
 	public void removeMember(int userId,int eventId);
+	
+	public List<ZyEventcategory> getEventCategorys();
 }
