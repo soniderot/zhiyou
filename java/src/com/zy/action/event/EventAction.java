@@ -62,8 +62,17 @@ public class EventAction {
 	private List<EventVO> userevents;
 	
 	private boolean friendFlag;
+	private boolean joined;
 	
 	
+	public boolean isJoined() {
+		return joined;
+	}
+
+	public void setJoined(boolean joined) {
+		this.joined = joined;
+	}
+
 	public RequestFacade getRequestFacade() {
 		return requestFacade;
 	}
@@ -395,6 +404,12 @@ public class EventAction {
 		event = eventFacade.getEvent(eventId);
 		createUser = profileFacade.findProfileById(event.getCreateuserid());
 		members = eventFacade.getEventMembers(eventId);
+		for(int i=0;i<members.size();i++){
+			if(ActionUtil.getSessionUserId()==members.get(i).getUserid().intValue()){
+				joined = true;
+				break;
+			}
+		}
 		return "view.event.detail";
 	}
 	

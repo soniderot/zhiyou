@@ -6,6 +6,8 @@
 <package name="zy-profile" namespace="/profile" extends="tiles-default,json-default">
 	<action name="profile" class="com.zy.action.profile.ProfileAction">
 		<result name="profile.info" type="tiles">tiles.profile.info</result>
+		<result name="profile.friends" type="tiles">tiles.profile.friends</result>
+		<result name="profile.feeds" type="tiles">tiles.profile.feeds</result>
 	</action>
 </package>
 </struts>

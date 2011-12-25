@@ -3,6 +3,8 @@ package com.zy.action.profile;
 import java.util.List;
 
 import com.zy.common.model.ZyProfile;
+import com.zy.domain.feed.bean.FeedBean;
+import com.zy.facade.FeedFacade;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.SNSFacade;
 
@@ -13,8 +15,44 @@ public class ProfileAction {
 	private List<ZyProfile> friends;
 	private List<ZyProfile> profiles;
 	private SNSFacade snsFacade;
+	private List<FeedBean> feeds;
+	private int pageNo = 1;
+	private int pageSize = 10;
 	
+	private FeedFacade feedFacade;
 	
+
+	public FeedFacade getFeedFacade() {
+		return feedFacade;
+	}
+
+	public void setFeedFacade(FeedFacade feedFacade) {
+		this.feedFacade = feedFacade;
+	}
+
+	public int getPageNo() {
+		return pageNo;
+	}
+
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public List<FeedBean> getFeeds() {
+		return feeds;
+	}
+
+	public void setFeeds(List<FeedBean> feeds) {
+		this.feeds = feeds;
+	}
 
 	public SNSFacade getSnsFacade() {
 		return snsFacade;
@@ -76,11 +114,18 @@ public class ProfileAction {
 		return "profile.photo";
 	}
 	
-	public String viewProfileFeed(){
-		return "profile.feed";
+	public String viewProfileFeeds(){
+		feeds = feedFacade.getNewsFeed(""+userid,null,pageNo,pageSize);
+		profile = profileFacade.findProfileById(userid);
+		profiles = snsFacade.getProfilesYouMayKnow(userid);
+		return "profile.feeds";
 	}
 	
 	public String viewProfileFriends(){
-		return "profile.friend";
+		profile = profileFacade.findProfileById(userid);
+		friends = snsFacade.getAllFriends(userid,0,(short)1);
+		
+		profiles = snsFacade.getProfilesYouMayKnow(userid);
+		return "profile.friends";
 	}
 }

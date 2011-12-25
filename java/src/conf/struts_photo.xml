@@ -4,7 +4,7 @@
 
 
 <package name="zy-photo" namespace="/photo" extends="tiles-default,json-default">
-	<action name="photo" class="com.zy.action.profile.PhotoAction">
+	<action name="photo" class="com.zy.action.photo.PhotoAction">
 		<result name="member.albumlist" type="tiles">tiles.member.albumlist</result>
 	</action>
 </package>
