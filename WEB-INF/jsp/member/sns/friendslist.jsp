@@ -29,12 +29,17 @@
 					                          	</a>
 					                            <div class="UIImageBlock_Ext">
 					                              <div class="FriendButton mhs" id="ur7504_28">
+					                              	<s:if test="(#session.userid==profile.userid)"> 
 					                                <label class="FriendRequestAdd addButton uiButton" for="ur7504_29">
-					                                	<i class="mrs img sp_51cg4r sx_2aaf46"></i>
+					                                	
+					                                	
+					                                		<i class="mrs img sp_51cg4r sx_2aaf46"></i>
 					                                	<a href="sns/sns!removeFriend.jhtml?friendId=<s:property value="userid"/>">删除好友</a>
+					                               
 					                                	<!--
 					                                	<input type="button" value="删除好友" id="ur7504_29">-->
 					                                </label>
+					                                 </s:if> 
 					                                <a class="FriendRequestOutgoing enableFriendListFlyout hidden_elem outgoingButton uiButton" role="button" href="#" data-profileid="100000298238485" data-flloc="profile_browser">
 					                                	<i class="mrs img sp_51cg4r sx_2aaf46"></i>
 					                                	<span class="uiButtonText">朋友请求已传送。</span>
