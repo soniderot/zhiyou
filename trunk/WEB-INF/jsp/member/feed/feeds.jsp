@@ -433,7 +433,7 @@
   function commentSubmit(form) {
     $.post("usr/feed!addFeedCommentAjax.jhtml", {
       feedId : form.feedId.value,
-      feedComment : form.feedId.feedComment
+      feedComment : form.feedComment.value
     }, function (data) {
       $(form).find(".commentList").append(data);
     });
