@@ -37,9 +37,31 @@ $(document).ready(
            });  
            // initialize placeholder  
            $this.blur();  
-         }  
-       });  
-     }  
+         }
+       });
+       
+       $("textarea").each(function() {  
+         var $this = $(this);  
+         if ($this.attr(attributeName) != undefined) {  
+           // deactivate placeholder  
+           $this.focus(function() {
+             if ($this.val() == $this.attr(attributeName)) {  
+               $this.removeClass(placeholderClassName);  
+               $this.val("");  
+             }  
+           });  
+           // activate placeholder  
+           $this.blur(function() {  
+             if ($this.val() == "") {  
+               $this.addClass(placeholderClassName);  
+               $this.val($this.attr(attributeName));
+             }  
+           });  
+           // initialize placeholder  
+           $this.blur();  
+         }
+       });
+     }
    };  
    window.make = make;
  })(); 
