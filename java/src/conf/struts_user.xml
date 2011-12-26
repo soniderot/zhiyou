@@ -57,6 +57,7 @@
 	<action name="feed" class="com.zy.action.feed.FeedAction">
 		<result name="member.feeds" type="tiles">tiles.feed.list</result>
 		<result name="member.addfeed.ajax">/WEB-INF/jsp/member/feed/addfeedajax.jsp</result>
+		<result name="member.addfeedcomment.ajax">/WEB-INF/jsp/member/feed/addfeedcommentajax.jsp</result>
 	</action>
 	
 	<action name="upload" class="com.zy.action.profile.UploadAction">
