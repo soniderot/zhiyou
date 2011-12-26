@@ -9,7 +9,6 @@ function sendFriendRequest(obj, userId) {
    data: "to="+userId+"&content="+content,
    success: function(data){
      if ("true" == data) {
-     alert(1);
         var objParent = $(obj).parent();
         $(obj).fadeOut("fast");
         $(objParent).html("好友请求已经发送");
