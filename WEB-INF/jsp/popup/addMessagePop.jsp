@@ -28,7 +28,6 @@ function sendMessage(form) {
     index = index + 1;
   });
   friends = friends + "]";
-  alert(friends);
 
   $.post("usr/message!sendMessageAjax.jhtml", {
       message : form.message_body.value,
