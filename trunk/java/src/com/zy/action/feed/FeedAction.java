@@ -40,6 +40,26 @@ public class FeedAction {
 	
 	private String handle;
 	
+	private int feedId;
+	
+	private String feedComment;
+	
+	public int getFeedId() {
+		return feedId;
+	}
+
+	public String getFeedComment() {
+		return feedComment;
+	}
+
+	public void setFeedId(int feedId) {
+		this.feedId = feedId;
+	}
+
+	public void setFeedComment(String feedComment) {
+		this.feedComment = feedComment;
+	}
+
 	public String getHandle() {
 		return handle;
 	}
@@ -210,6 +230,12 @@ public class FeedAction {
 		feeds = new ArrayList<FeedBean>();
 		feeds.add(feedBean);
 		return "member.addfeed.ajax";
+	}
+	
+	public String addFeedCommentAjax() {
+		// save this.feedId this.feedComment here
+		
+		return "member.addfeedcomment.ajax";
 	}
 	
 	public static void main(String[] args){
