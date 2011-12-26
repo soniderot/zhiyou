@@ -5,7 +5,7 @@
     <div class="uiHeader uiHeaderWithImage uiHeaderPage  fbx_stream_header">
       <div class="clearfix uiHeaderTop">
         <div class="uiHeaderActions  rfloat fsl fwb fcb">
-        	
+          
           <a href="usr/feed.jhtml?handle=sns.event.create,sns.event.join"><span class="fwn">活动动态</span> </a> ·
           
           <a href="usr/feed.jhtml?handle=sns.share.connection"><span class="fwn">交友动态</span> </a> ·
@@ -13,7 +13,7 @@
           <div id="u3mxyl_1"
             class="uiSelector inlineBlock filterListSelector  uiSelectorRight  uiSelectorNormal uiSelectorDynamicLabel">
             <div class="wrap">
-            	<!--
+              <!--
               <a rel="toggle" data-length="30" aria-haspopup="1"
                 href="#" role="button"
                 class="uiSelectorButton  uiButton"> <span
@@ -232,22 +232,16 @@
                   class="actorPhoto UIImageBlock_Image UIImageBlock_MED_Image">
                   <img alt="" src="<s:property value="user.avatar"/>" class="uiProfilePhoto profilePic uiProfilePhotoLarge img" />
                 </a>
-                <div
-                  class="storyInnerContent UIImageBlock_Content UIImageBlock_MED_Content">
+                <div class="storyInnerContent UIImageBlock_Content UIImageBlock_MED_Content">
                   <div class="mainWrapper">
-                    <h6 data-ft='{"type":1}' class="uiStreamMessage">
-                      <div data-ft='{"type":2}' class="actorDescription actorName">
-                        <a data-hovercard="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>" href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>">
+                    <h6 class="uiStreamMessage">
+                      <div class="actorDescription actorName">
+                        <a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>">
                           <s:property value="user.username" />
-                          	 
                         </a>
-                        
                         <s:if test="feed.handle=='sns.event.create'">创建了一个活动</s:if>
-                        
                         <s:if test="feed.handle=='sns.event.join'">参加了一个活动</s:if>
-                        
                         <s:if test="feed.handle=='sns.publish.photo'">发布了照片</s:if>
-                        
                         <s:if test="feed.handle=='sns.share.connection'">   
                               和<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>">
                             <s:property value="friend.username" />
@@ -268,18 +262,83 @@
                         <%@ include file="/WEB-INF/jsp/member/feed/photofeed.jsp"%>
                       </s:if>
                     </h6>
-                    <span class="uiStreamFooter">
-                      <span class="UIActionLinks UIActionLinks_bottom" data-ft="{&quot;type&quot;:&quot;20&quot;}">
-                        <label class="uiLinkButton comment_link" title="发表留言">
-                          <input type="button" data-ft="{&quot;type&quot;:24}" value="评论" onclick="return fc_click(this);">
-                        </label> · 
+                    
+                    <s:form onsubmit="return commentSubmit(this);" action="usr/feed!addFeedComment.jhtml" method="post" cssClass="live_134080203373504_131325686911214 commentable_item autoexpand_mode">
+                      <input type="hidden" name="feedId" value="<s:property value='feed.id' />" />
+                      <span class="uiStreamFooter">
+                        <span class="UIActionLinks UIActionLinks_bottom">
+                          <label class="uiLinkButton comment_link" title="发表留言">
+                            <input type="button" data-ft="{&quot;type&quot;:24}" value="评论" onclick="return fc_click(this);">
+                          </label> · 
+                        </span>
+                        <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
+                          <abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp">
+                            <s:date name="feed.created" format="yyyy-MM-dd HH:mm" />
+                          </abbr>
+                        </span>
                       </span>
-                      <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
-                        <abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp">
-                          <s:date name="feed.created" format="yyyy-MM-dd HH:mm" />
-                        </abbr>
-                      </span>
-                    </span>
+                      
+                      <div>
+                        <ul class="uiList uiUfi focus_target fbUfi child_was_focused">
+                          <li class="ufiNub uiListItem uiListVerticalItemBorder"><i></i></li>
+                          <li class="uiUfiComments uiListItem uiListVerticalItemBorder">
+                            <ul class="commentList">
+                              <li class="uiUfiComment comment_5136102 ufiItem ufiItem uiUfiUnseenItem">
+                                <div class="UIImageBlock clearfix uiUfiActorBlock">
+                                  <a href="http://www.facebook.com/profile.php?id=100003145753118" tabindex="-1" class="actorPic UIImageBlock_Image UIImageBlock_SMALL_Image">
+                                    <img alt="" src="http://profile.ak.fbcdn.net/hprofile-ak-ash2/371058_100003145753118_499376168_q.jpg" class="uiProfilePhoto uiProfilePhotoMedium img"/>
+                                  </a>
+                                  <label for="u3ft9v_1" class="deleteAction stat_elem UIImageBlock_Ext uiCloseButton">
+                                    <input type="submit" id="u3ft9v_1" name="showDelCommentPop('dialog_delFeedCmt', 5136102)" title="删除"/>
+                                  </label>
+                                  <div class="commentContent UIImageBlock_Content UIImageBlock_SMALL_Content">
+                                    <a href="http://www.facebook.com/profile.php?id=100003145753118" class="actorName">Bill  Tian</a>
+                                    <span class="commentBody">bucuo o</span>
+                                    <div class="commentActions fsm fwn fcg">
+                                      <abbr class="timestamp livetimestamp" title="2011年12月26日14:15">3分钟前发布</abbr> · 
+                                      <span class="comment_like_5136102 fsm fwn fcg">
+                                        <button title="喜欢此评论" value="5136102" name="like_comment_id[5136102]" type="submit" class="stat_elem as_link cmnt_like_link">
+                                          <span class="default_message">赞</span>
+                                          <span class="saving_message">取消</span>
+                                        </button>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="uiUfiAddComment clearfix uiUfiSmall ufiItem ufiItem uiListItem uiListVerticalItemBorder uiUfiAddCommentCollapsed">
+                            <div class="UIImageBlock clearfix mentionsAddComment">
+                              <img alt="" src="http://profile.ak.fbcdn.net/hprofile-ak-ash2/371058_100003145753118_499376168_q.jpg" class="uiProfilePhoto actorPic UIImageBlock_Image UIImageBlock_ICON_Image uiProfilePhotoMedium img"/>
+                              <div class="commentArea UIImageBlock_Content UIImageBlock_ICON_Content">
+                                <div class="commentBox">
+                                  <div id="u3aqpf_8" class="uiMentionsInput textBoxContainer">
+                                    <div class="highlighter" style="direction: ltr; text-align: left;">
+                                      <div style="width: 340px;"><span class="highlighterContent"/></div>
+                                    </div>
+                                    <div id="u3aqpf_9" class="uiTypeahead mentionsTypeahead" style="height: auto;">
+                                      <div class="wrap">
+                                        <input type="hidden" class="hiddenInput" autocomplete="off"/>
+                                        <div class="innerWrap">
+                                          <s:textarea name="feedComment" onfocus="commentFocus(this)" onkeypress="enterKeypress(this, event)" placeholder="留段话吧..." title="留段话吧..." cssClass="enter_submit uiTextareaNoResize uiTextareaAutogrow textBox mentionsTextarea textInput DOMControl_placeholder"></s:textarea>
+                                        </div>
+                                      </div>
+                                      <div class="uiTypeaheadView hidden_elem"/>
+                                    </div>
+                                    <input type="hidden" class="mentionsHidden" autocomplete="off" name="add_comment_text" value=""/>
+                                  </div>
+                                </div>
+                                <label for="u3aqpf_10" class="mts commentBtn stat_elem hidden_elem optimistic_submit uiButton uiButtonConfirm">
+                                  <input type="submit" id="u3aqpf_10" name="commentBtn" class="enter_submit_target" value="评论"/>
+                                </label>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </s:form>
+                    
                   </div>
                 </div>
               </div>
@@ -352,5 +411,32 @@
   
   function enableSubmitBtn() {
     $("#submitBtn").parent().removeClass("uiButtonDisabled");
+  }
+  
+  // comment focus
+  function commentFocus(obj) {
+    $(obj).parents("ul").addClass("child_is_active child_is_focused");
+    return false;
+  }
+  
+  function enterKeypress(obj, event) {
+    if ("" == $(obj).val()) {
+      return false;
+    }
+    if(event.keyCode == 13)
+    {      
+      $(obj).parents("form").submit();
+    }
+    return false;
+  }
+  
+  function commentSubmit(form) {
+    $.post("usr/feed!addFeedCommentAjax.jhtml", {
+      feedId : form.feedId.value,
+      feedComment : form.feedId.feedComment
+    }, function (data) {
+      $(form).find(".commentList").append(data);
+    });
+    return false;
   }
 </script>
