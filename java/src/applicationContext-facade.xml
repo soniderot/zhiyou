@@ -53,5 +53,9 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	<bean name="photoFacade" class="com.zy.facade.impl.PhotoFacadeImpl"  >
 		<property name="photoService" ref="photoService"/>
 	</bean>
+	
+	<bean name="optionFacade" class="com.zy.facade.impl.OptionFacadeImpl"  >
+		<property name="districtService" ref="districtService"/>
+	</bean>
 
 </beans>
