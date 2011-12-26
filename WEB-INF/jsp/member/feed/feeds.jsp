@@ -161,8 +161,8 @@
                             <div class="wrap">
                               <input type="hidden" class="hiddenInput" autocomplete="off" />
                               <div class="innerWrap">
-                                <textarea onfocus="expandInput('u3mxyl_2')" placeholder="你在想什么？"  name="feedmessage" title="你在想什么？"
-                                  class="DOMControl_placeholder uiTextareaAutogrow input mentionsTextarea textInput"></textarea>
+                                <s:textarea name="feedmessage" placeholder="你在想什么？" onfocus="expandInput('u3mxyl_2')" 
+                                  cssClass="DOMControl_placeholder uiTextareaAutogrow input mentionsTextarea textInput"></s:textarea>
                               </div>
                             </div>
                           </div>
@@ -249,7 +249,7 @@
                         <s:if test="feed.handle=='sns.publish.photo'">发布了照片</s:if>
                         
                         <s:if test="feed.handle=='sns.share.connection'">   
-                                                  和<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>">
+                              和<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>">
                             <s:property value="friend.username" />
                           </a>变为朋友
                         </s:if>
@@ -286,20 +286,15 @@
             </div>
           </li>
         </s:iterator>
-
-
       </ul>
 
       <div>
         <div id="pagelet_stream_pager"
           data-referrer="pagelet_stream_pager">
           <div class="clearfix mts uiMorePager stat_elem fbStreamPager">
-            <a href="/ajax/feed/edit_options_dialog.php?filter_key=lf"
-              rel="dialog" class="uiMorePagerSecondary rfloat">编辑选项</a>
+            <a href="/ajax/feed/edit_options_dialog.php?filter_key=lf" rel="dialog" class="uiMorePagerSecondary rfloat">编辑选项</a>
             <div>
-              <div class="pam uiBoxLightblue uiMorePagerPrimary">
-                目前没有更多动态可显示。
-              </div>
+              <div class="pam uiBoxLightblue uiMorePagerPrimary">目前没有更多动态可显示。</div>
             </div>
           </div>
         </div>
@@ -318,7 +313,17 @@
     if (feedtype == "photo") {
       $(".attachmentMetaArea").html(attach);
       $("#submitBtn").parent().addClass("uiButtonDisabled");
+      $("textarea[name='feedmessage']").attr("placeholder", "说点什么吧!");
+      $("textarea[name='feedmessage']").val("说点什么吧!");
+
+    } else if(feedtype == "question") {
+      $("textarea[name='feedmessage']").attr("placeholder", "提个问题试试!");
+      $("textarea[name='feedmessage']").val("提个问题试试!");
+      $(".attachmentMetaArea").empty();
+      $("#submitBtn").parent().removeClass("uiButtonDisabled");
     } else {
+      $("textarea[name='feedmessage']").attr("placeholder", "你在想什么？");
+      $("textarea[name='feedmessage']").val("你在想什么？");
       $(".attachmentMetaArea").empty();
       $("#submitBtn").parent().removeClass("uiButtonDisabled");
     }
