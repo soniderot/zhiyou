@@ -169,18 +169,9 @@
 										</div>
 									</div>
 								</li>
-									class="pvs ci_module uiListItem uiListMedium uiListVerticalItemBorder">
-									<div
-										onclick="JSCC.get(&#39;j4eca1bb8cf8e935727335251&#39;).handleClick(&quot;ua7fzy_3&quot;); return false"
-										class="UIImageBlock clearfix">
-										<i
-											class="UIImageBlock_Image UIImageBlock_MED_Image img sp_apfmrz sx_0f535d"></i>
-										<a href="#" class="expand_link UIImageBlock_Ext">搜寻朋友</a>
-										<div
-											class="ci_module_header UIImageBlock_Content UIImageBlock_MED_Content fwb">
-											Yahoo!
-										</div>
-									</div>
+									
+							
+									
 									<div class="ci_module_content hidden_elem">
 										<div class="contact_importer_widget ci_webmail">
 											<div class="api" id="ua7fzy_13_ci_webmail">
