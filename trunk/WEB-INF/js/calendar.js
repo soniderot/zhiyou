@@ -141,7 +141,7 @@ function getCalendar(year, month, day) {
           var day = $(this).html();
           var date = month + "/" + day + "/" + year
           $("#u5hu7k_1").removeClass("openToggler");
-          $("input[name='eventStart']").val(date);
+          $("input[name='startDate']").val(date);
       });
     });
   }
