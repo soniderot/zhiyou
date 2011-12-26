@@ -1,5 +1,6 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <%@page contentType="text/html; charset=UTF-8"%>
+<script type="text/javascript" language="javascript" src="js/calendar.js"></script>
 <div role="main" id="contentArea" style="padding:0 0;width:799px;">
   <div class="uiHeader mhl pts pbl uiHeaderPage">
     <div class="clearfix uiHeaderTop">
@@ -37,21 +38,31 @@
                     <td class="prs">
                       <div id="u5hu7k_1" class="uiDatepicker clearfix">
                         <div class="dateBox">
-                          <s:textfield name="startDate" cssClass="inputtext textField"  size="10"/>
+                          <s:textfield name="startDate" cssClass="inputtext textField"  size="10" onclick="showCalendar(this)" />
                           <input type="hidden" value="12/5/2011" name="event_start" class="hiddenField" autocomplete="off"/>
                           <div class="calendarWrapper">
                             <table cellspacing="0" border="0">
                               <tbody>
                                 <tr>
-                                  <td class="prevMonth"><i class="img sp_b8po3p sx_4e5fd4"></i></td>
+                                  <td class="prevMonth"><i class="img sp_ewmg90 sx_0e145b" onclick="lowerMonth(this)"></i></td>
                                   <td colspan="5" class="monthTitle"></td>
-                                  <td class="nextMonth"><i class="img sp_b8po3p sx_3fd0d2"></i></td>
+                                  <td class="nextMonth"><i class="img sp_ewmg90 sx_91cd4d" onclick="highterMonth(this)"></i></td>
                                 </tr>
-                               
+                                <tr>
+                                  <th style="width: 14.2857%;" class="first">日</th>
+                                  <th style="width: 14.2857%;" class="">一</th>
+                                  <th style="width: 14.2857%;" class="">二</th>
+                                  <th style="width: 14.2857%;" class="">三</th>
+                                  <th style="width: 14.2857%;" class="">四</th>
+                                  <th style="width: 14.2857%;" class="">五</th>
+                                  <th style="width: 14.2857%;" class="last">六</th>
+                                </tr>
                                 <tr>
                                   <td class="days" colspan="7">
                                     <table>
-                                      <tbody class="dayTable"></tbody>
+                                      <tbody class="dayTable">
+                                      
+                                      </tbody>
                                     </table>
                                   </td>
                                 </tr>
@@ -74,9 +85,6 @@
             </td>
             <td class="rightCol"></td>
           </tr>
-         
-         
-         
          <tr id="event_time_row" class="dataRow">
             <th class="label">结束时间：</th>
             <td class="data">
@@ -122,9 +130,6 @@
             </td>
             <td class="rightCol"></td>
           </tr>
-         
-         
-         
           <tr class="dataRow">
             <th class="label">地点：</th>
             <td class="data"> <s:textfield name="address" cssClass="inputtext"  /></td>
@@ -206,13 +211,12 @@
             <td colspan="2" class="data">
               <div class="clearfix">
                 <label for="u5hu7k_12" class="lfloat uiButton uiButtonConfirm uiButtonLarge">
-                	<s:if test="eventname==null">
-        					<input type="submit" id="u5hu7k_12" name="save" value="创建活动"/>
-        					</s:if>
-        
-        					<s:else>
-                  <input type="submit" id="u5hu7k_12" name="save" value="更新活动"/>
-                </s:else>
+                  <s:if test="eventname==null">
+        			<input type="submit" id="u5hu7k_12" name="save" value="创建活动"/>
+        		  </s:if>
+          		  <s:else>
+                    <input type="submit" id="u5hu7k_12" name="save" value="更新活动"/>
+                  </s:else>
                 </label>
               </div>
             </td>
