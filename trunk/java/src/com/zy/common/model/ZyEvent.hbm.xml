@@ -42,5 +42,13 @@
          <property name="logo" type="java.lang.String">
             <column name="LOGO" length="150"  />
         </property>
+        
+        <property name="districtid" type="java.lang.Integer">
+            <column name="DISTRICTID"  />
+        </property>
+        
+        <property name="subcategoryid" type="java.lang.Integer">
+            <column name="SUBCATEGORYID"  />
+        </property>
     </class>
 </hibernate-mapping>

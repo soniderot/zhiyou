@@ -20,13 +20,16 @@
             <column name="SUBCATEGORYID" not-null="true" />
         </property>
         <property name="avatar" type="java.lang.String">
-            <column name="AVATAR" not-null="true" />
+            <column name="AVATAR"  />
         </property>
         <property name="summary" type="java.lang.String">
             <column name="SUMMARY" />
         </property>
         <property name="createtime" type="java.util.Date">
             <column name="CREATETIME" length="0" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
         </property>
     </class>
 </hibernate-mapping>

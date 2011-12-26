@@ -24,9 +24,15 @@ public class ZyEvent implements java.io.Serializable {
 	
 	private String detail;
 	private String logo;	
+	
+	private Integer districtid;
+	private Integer subcategoryid;
+	
+	
 
 	// Constructors
 
+	
 	public String getLogo() {
 		return logo;
 	}
@@ -145,5 +151,22 @@ public class ZyEvent implements java.io.Serializable {
 	public void setUpdatetime(Date updatetime) {
 		this.updatetime = updatetime;
 	}
+
+	public Integer getDistrictid() {
+		return districtid;
+	}
+
+	public void setDistrictid(Integer districtid) {
+		this.districtid = districtid;
+	}
+
+	public Integer getSubcategoryid() {
+		return subcategoryid;
+	}
+
+	public void setSubcategoryid(Integer subcategoryid) {
+		this.subcategoryid = subcategoryid;
+	}
+
 
 }

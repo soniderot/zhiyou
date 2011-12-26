@@ -10,7 +10,9 @@ import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
 
+import com.zy.common.model.ZyDistrict;
 import com.zy.common.model.ZyEvent;
+import com.zy.common.model.ZyEventcategory;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRequest;
 import com.zy.common.util.ActionUtil;
@@ -18,6 +20,7 @@ import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
 import com.zy.facade.EventFacade;
 import com.zy.facade.FeedFacade;
+import com.zy.facade.OptionFacade;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
@@ -63,8 +66,63 @@ public class EventAction {
 	
 	private boolean friendFlag;
 	private boolean joined;
+	private List<ZyEventcategory> eventCategorys;
+	private int eventCategory;
+	private OptionFacade optionFacade;
+	private List<ZyDistrict> districts;
+	private int districtId;
+	private int subcateGoryId;
 	
 	
+	
+	public int getDistrictId() {
+		return districtId;
+	}
+
+	public void setDistrictId(int districtId) {
+		this.districtId = districtId;
+	}
+
+	public int getSubcateGoryId() {
+		return subcateGoryId;
+	}
+
+	public void setSubcateGoryId(int subcateGoryId) {
+		this.subcateGoryId = subcateGoryId;
+	}
+
+	public List<ZyDistrict> getDistricts() {
+		return districts;
+	}
+
+	public void setDistricts(List<ZyDistrict> districts) {
+		this.districts = districts;
+	}
+
+	public OptionFacade getOptionFacade() {
+		return optionFacade;
+	}
+
+	public void setOptionFacade(OptionFacade optionFacade) {
+		this.optionFacade = optionFacade;
+	}
+
+	public int getEventCategory() {
+		return eventCategory;
+	}
+
+	public void setEventCategory(int eventCategory) {
+		this.eventCategory = eventCategory;
+	}
+
+	public List<ZyEventcategory> getEventCategorys() {
+		return eventCategorys;
+	}
+
+	public void setEventCategorys(List<ZyEventcategory> eventCategorys) {
+		this.eventCategorys = eventCategorys;
+	}
+
 	public boolean isJoined() {
 		return joined;
 	}
@@ -276,6 +334,10 @@ public class EventAction {
 	}
 	
 	public String createOrUpdate() {
+		eventCategorys = eventFacade.getEventCategorys();
+		int userid = ActionUtil.getSessionUserId();
+		int cityid = profileFacade.findProfileById(userid).getCityid();
+		districts = optionFacade.getDistricts(cityid);
 		if(eventId>0){
 			SimpleDateFormat dateformat1=new SimpleDateFormat("yyyy/MM/dd");
 			
@@ -318,6 +380,9 @@ public class EventAction {
 		event.setCreatetime(new Date());
 		event.setBegintime(new Date());
 		event.setEndtime(new Date());
+		
+		//event.setSubcateGoryId(subcateGoryId);
+		//event.setDistrictId(districtId);
 		
 		if(startDate!=null&&startDate.trim().length()>0){
 			try{
@@ -451,6 +516,10 @@ public class EventAction {
 		}else{
 			return "member.events";
 		}
+	}
+	
+	public String getRecommPlaces(){
+		return "recommend.places";
 	}
 
 	public static void main(String[] args) throws Exception{

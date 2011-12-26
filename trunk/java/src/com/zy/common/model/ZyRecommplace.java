@@ -19,8 +19,18 @@ public class ZyRecommplace implements java.io.Serializable {
 	private String avatar;
 	private String summary;
 	private Date createtime;
+	private String address;
+	
 
 	// Constructors
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	/** default constructor */
 	public ZyRecommplace() {
@@ -28,11 +38,12 @@ public class ZyRecommplace implements java.io.Serializable {
 
 	/** minimal constructor */
 	public ZyRecommplace(Integer cityid, Integer districtid,
-			Integer subcategoryid, String avatar) {
+			Integer subcategoryid, String avatar,String address) {
 		this.cityid = cityid;
 		this.districtid = districtid;
 		this.subcategoryid = subcategoryid;
 		this.avatar = avatar;
+		this.address = address;
 	}
 
 	/** full constructor */
