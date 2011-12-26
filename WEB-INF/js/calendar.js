@@ -84,17 +84,19 @@ function getCalendar(year, month, day) {
     var year = myDate.getFullYear();
     var month = myDate.getMonth() + 1;
     var day = myDate.getDate();
-    $(".monthTitle").html(month + "月 " + year);
+    var calRoot = $(obj).parents(".uiDatepicker");
+    calRoot.find(".monthTitle").html(month + "月 " + year);
+    
     var calendar = getCalendar(year, month, day);
-    $(".dayTable").html(calendar);
-    bindClick(year, month);
+    calRoot.find(".dayTable").html(calendar);
+    bindClick(year, month, calRoot);
     $("#contentCol").bind("click", function(evt){
 	     var evtObj = evt.srcElement ? evt.srcElement : evt.target;
     	if(out && evtObj != obj) {
-    		$("#u5hu7k_1").removeClass("openToggler");
+    		calRoot.removeClass("openToggler");
     	}
     });
-    $("#u5hu7k_1").addClass("openToggler");
+    calRoot.addClass("openToggler");
  
     return false;
   }
@@ -110,10 +112,11 @@ function getCalendar(year, month, day) {
       month = 12;
       year = year - 1;
     }
-    $(".monthTitle").html(month + "月 " + year);
+    var calRoot = $(obj).parents(".uiDatepicker");
+    calRoot.find(".monthTitle").html(month + "月 " + year);
     var calendar = getCalendar(year, month, day);
-    $(".dayTable").html(calendar);
-    bindClick(year, month);
+    calRoot.find(".dayTable").html(calendar);
+    bindClick(year, month, calRoot);
     return false;
   }
   function highterMonth(obj) {
@@ -131,17 +134,17 @@ function getCalendar(year, month, day) {
     $(".monthTitle").html(month + "月 " + year);
     var calendar = getCalendar(year, month, day);
     $(".dayTable").html(calendar);
-    bindClick(year, month);
+    bindClick(year, month, calRoot);
     return false;
   }
   
-  function bindClick(year, month) {
-    $(".dayCell").each(function(){
+  function bindClick(year, month, calRoot) {
+    calRoot.find(".dayCell").each(function(){
       $(this).bind("click", function (){
           var day = $(this).html();
           var date = month + "/" + day + "/" + year
-          $("#u5hu7k_1").removeClass("openToggler");
-          $("input[name='startDate']").val(date);
+          calRoot.removeClass("openToggler");
+          calRoot.find("input[name$='Date']").val(date);
       });
     });
   }
