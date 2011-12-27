@@ -9,6 +9,7 @@ import java.util.UUID;
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
+import com.opensymphony.xwork2.ActionSupport;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyPhoto;
 import com.zy.common.model.ZyProfile;
@@ -21,7 +22,7 @@ import com.zy.facade.PhotoFacade;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.SNSFacade;
 
-public class FeedAction {
+public class FeedAction extends ActionSupport{
 	private FeedFacade feedFacade;
 	private ProfileFacade profileFacade;
 	private SNSFacade snsFacade;
@@ -280,6 +281,11 @@ public class FeedAction {
 		
 		System.out.println("--------before return------------");
 		return "member.addfeedcomment.ajax";
+	}
+	
+	public String sharedFeed(){
+		feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), feedId);
+		return NONE;
 	}
 	
 	public static void main(String[] args){
