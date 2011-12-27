@@ -14,6 +14,13 @@
 		<result name="friends.list" type="tiles">tiles.sns.friendslist</result>
 	</action>
 	
+	<action name="match" class="com.zy.action.sns.QuickMatchAction">
+		<result name="match.search" type="tiles">tiles.sns.match</result>
+	</action>
+	
+	<action name="search" class="com.zy.action.search.SearchAction">
+		<result name="match.search.ajax">/WEB-INF/jsp/member/sns/matchAjax.jsp</result>
+	</action>
 	
 </package>
 </struts>
