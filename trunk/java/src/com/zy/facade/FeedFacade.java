@@ -22,7 +22,9 @@ public interface FeedFacade {
 
 	public List<FeedBean> getNewsFeed(String ids,String handles,int pageNo,int pageSize);
 	
-	public FeedBean shareNewsFeed(int userId,int feedId);
+	public FeedBean shareNewsFeed_tx(int userId,int feedId);
 	
 	public void addComment(ZyNewsfeedcomment comment);
+	
+	public void removeComment(int userid,int commentid);
 }

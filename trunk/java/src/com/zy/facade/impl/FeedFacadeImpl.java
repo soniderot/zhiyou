@@ -145,6 +145,20 @@ public class FeedFacadeImpl implements FeedFacade{
 				bean.setPhoto(photoService.getPhoto(id));
 			}
 			
+			if(feeds.get(i).getHandle().equals("sns.share.text")){
+				int id = Integer.valueOf(feeds.get(i).getBody());
+				bean.setOldFeed(feedService.getFeedById(id));
+				bean.setFriend(profileService.findProfileById(feedService.getFeedById(id).getUserid()));
+			}
+			
+			if(feeds.get(i).getHandle().equals("sns.share.photo")){
+				int id = Integer.valueOf(feeds.get(i).getBody());
+				bean.setOldFeed(feedService.getFeedById(id));
+				int photoId = Integer.valueOf(feedService.getFeedById(id).getBody());
+				bean.setPhoto(photoService.getPhoto(photoId));
+				bean.setFriend(profileService.findProfileById(feedService.getFeedById(id).getUserid()));
+			}
+			
 			List<ZyNewsfeedcomment> comments = feedService.getCommentsByFeedId(bean.getFeed().getId());
 			List<CommentBean> commentBeans = new ArrayList<CommentBean>();
 			for(int j=0;j<comments.size();j++){
@@ -159,21 +173,33 @@ public class FeedFacadeImpl implements FeedFacade{
 		return results;
 	}
 	
-	public FeedBean shareNewsFeed(int userId,int feedId){
+	public FeedBean shareNewsFeed_tx(int userId,int feedId){
+		ZyNewsfeed oldFeed = feedService.getFeedById(feedId);
 		FeedBean bean = new FeedBean();
 		ZyNewsfeed feed = new ZyNewsfeed();
 		feed.setUserid(userId);
 		feed.setCreated(new Date());
-		feed.setHandle("sns.shared.feed");
+		if("sns.publish.text".equalsIgnoreCase(oldFeed.getHandle())){
+			feed.setHandle("sns.share.text");
+		}
+		if("sns.publish.photo".equalsIgnoreCase(oldFeed.getHandle())){
+			feed.setHandle("sns.share.photo");
+		}
+		
+		
 		feed.setBody(""+feedId);
 		feedService.addNewsFeed(feed);
 		bean.setFeed(feed);
 		bean.setUser(profileService.findProfileById(feed.getUserid()));
-		
+		bean.setOldFeed(feedService.getFeedById(feedId));
 		return bean;
 	}
 	
 	public void addComment(ZyNewsfeedcomment comment){
 		feedService.addComment(comment);
+	}
+	
+	public void removeComment(int userid,int commentid){
+		feedService.removeComment(commentid);
 	}
 }
