@@ -15,7 +15,16 @@ public class FeedBean {
 	private ZyProfile user;
 	private ZyProfile friend;
 	private ZyPhoto photo;
+	private ZyNewsfeed oldFeed;
+	//private ZyProfile oldUser;
 	
+	
+	public ZyNewsfeed getOldFeed() {
+		return oldFeed;
+	}
+	public void setOldFeed(ZyNewsfeed oldFeed) {
+		this.oldFeed = oldFeed;
+	}
 	public ZyPhoto getPhoto() {
 		return photo;
 	}
