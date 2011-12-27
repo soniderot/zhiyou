@@ -239,6 +239,8 @@
                         <a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>">
                           <s:property value="user.username" />
                         </a>
+                         <s:if test="feed.handle=='sns.publish.text'">发布了评论</s:if>
+                         <s:if test="feed.handle=='sns.event.create'">创建了一个活动</s:if>
                         <s:if test="feed.handle=='sns.event.create'">创建了一个活动</s:if>
                         <s:if test="feed.handle=='sns.event.join'">参加了一个活动</s:if>
                         <s:if test="feed.handle=='sns.publish.photo'">发布了照片</s:if>
@@ -247,10 +249,19 @@
                             <s:property value="friend.username" />
                           </a>变为朋友
                         </s:if>
+                        
+                        <s:if test="feed.handle=='sns.share.text'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的评论</s:if>
+                        	<s:if test="feed.handle=='sns.share.photo'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的照片</s:if>
                       </div>
                       <s:if test="feed.handle=='sns.publish.text'">
                         <span data-ft='{"type":3}' class="messageBody">
                           <s:property value="feed.body" />
+                        </span>
+                      </s:if>
+                      
+                       <s:if test="feed.handle=='sns.share.text'">
+                        <span data-ft='{"type":3}' class="messageBody">
+                          <s:property value="oldFeed.body" />
                         </span>
                       </s:if>
 
@@ -258,7 +269,7 @@
                         <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
                       </s:if>
                       
-                       <s:if test="feed.handle=='sns.publish.photo'">
+                       <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.share.photo')">
                         <%@ include file="/WEB-INF/jsp/member/feed/photofeed.jsp"%>
                       </s:if>
                     </h6>
@@ -269,6 +280,7 @@
                         <span class="UIActionLinks UIActionLinks_bottom">
                           <label class="uiLinkButton comment_link" title="发表留言">
                             <input type="button" data-ft="{&quot;type&quot;:24}" value="评论" onclick="return fc_click(this);">
+                            <input type="button" data-ft="{&quot;type&quot;:24}" value="分享" onclick="return;">
                           </label> · 
                         </span>
                         <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
