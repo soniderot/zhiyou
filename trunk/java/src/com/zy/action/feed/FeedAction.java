@@ -9,17 +9,21 @@ import java.util.UUID;
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
+import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyPhoto;
+import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
 import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.PhotoFacade;
+import com.zy.facade.ProfileFacade;
 import com.zy.facade.SNSFacade;
 
 public class FeedAction {
 	private FeedFacade feedFacade;
+	private ProfileFacade profileFacade;
 	private SNSFacade snsFacade;
 	private List<FeedBean> feeds;
 	
@@ -44,6 +48,34 @@ public class FeedAction {
 	
 	private String feedComment;
 	
+	private ZyNewsfeedcomment comment;
+	private ZyProfile user;
+	
+	
+	public ZyProfile getUser() {
+		return user;
+	}
+
+	public void setUser(ZyProfile user) {
+		this.user = user;
+	}
+
+	public ProfileFacade getProfileFacade() {
+		return profileFacade;
+	}
+
+	public void setProfileFacade(ProfileFacade profileFacade) {
+		this.profileFacade = profileFacade;
+	}
+
+	public ZyNewsfeedcomment getComment() {
+		return comment;
+	}
+
+	public void setComment(ZyNewsfeedcomment comment) {
+		this.comment = comment;
+	}
+
 	public int getFeedId() {
 		return feedId;
 	}
@@ -234,7 +266,19 @@ public class FeedAction {
 	
 	public String addFeedCommentAjax() {
 		// save this.feedId this.feedComment here
+		System.out.println("----feedid------"+feedId);
+		System.out.println("----feedComment------"+feedComment);
 		
+		comment = new ZyNewsfeedcomment();
+		comment.setNewsfeedid(feedId);
+		comment.setContent(feedComment);
+		comment.setCreated(new Date());
+		comment.setUserid(ActionUtil.getSessionUserId());
+		feedFacade.addComment(comment);
+		
+		user = profileFacade.findProfileById(comment.getUserid());
+		
+		System.out.println("--------before return------------");
 		return "member.addfeedcomment.ajax";
 	}
 	

@@ -10,7 +10,7 @@ import com.zy.common.model.ZyProfile;
 
 public class FeedBean {
 	private ZyNewsfeed feed;
-	private List<ZyNewsfeedcomment> comments;
+	private List<CommentBean> comments;
 	private ZyEvent event;
 	private ZyProfile user;
 	private ZyProfile friend;
@@ -40,10 +40,12 @@ public class FeedBean {
 	public void setFeed(ZyNewsfeed feed) {
 		this.feed = feed;
 	}
-	public List<ZyNewsfeedcomment> getComments() {
+	
+	
+	public List<CommentBean> getComments() {
 		return comments;
 	}
-	public void setComments(List<ZyNewsfeedcomment> comments) {
+	public void setComments(List<CommentBean> comments) {
 		this.comments = comments;
 	}
 	public ZyEvent getEvent() {
