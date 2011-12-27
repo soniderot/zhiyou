@@ -33,6 +33,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="eventInviteDao" ref="eventInviteDao"/>
 		<property name="eventMemberDao" ref="eventMemberDao"/>
 		<property name="eventCategoryDao" ref="eventCategoryDao"/>
+		<property name="recommPlaceDao" ref="recommPlaceDao"/>
 	</bean>
 	
 	<bean name="feedService" class="com.zy.domain.feed.service.FeedServiceImpl">

@@ -7,10 +7,12 @@ import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyEventcategory;
 import com.zy.common.model.ZyEventinvite;
 import com.zy.common.model.ZyEventmember;
+import com.zy.common.model.ZyRecommplace;
 import com.zy.domain.event.dao.EventCategoryDao;
 import com.zy.domain.event.dao.EventDao;
 import com.zy.domain.event.dao.EventInviteDao;
 import com.zy.domain.event.dao.EventMemberDao;
+import com.zy.domain.event.dao.RecommPlaceDao;
 import com.zy.facade.vo.EventVO;
 
 public class EventServiceImpl implements EventService{
@@ -18,8 +20,17 @@ public class EventServiceImpl implements EventService{
 	private EventInviteDao eventInviteDao;
 	private EventMemberDao eventMemberDao;
 	private EventCategoryDao eventCategoryDao;
+	private RecommPlaceDao recommPlaceDao;
 	
 	
+	public RecommPlaceDao getRecommPlaceDao() {
+		return recommPlaceDao;
+	}
+
+	public void setRecommPlaceDao(RecommPlaceDao recommPlaceDao) {
+		this.recommPlaceDao = recommPlaceDao;
+	}
+
 	public EventCategoryDao getEventCategoryDao() {
 		return eventCategoryDao;
 	}
@@ -98,5 +109,9 @@ public class EventServiceImpl implements EventService{
 	
 	public List<ZyEventcategory> getEventCategorys(){
 		return eventCategoryDao.getEventCategorys();
+	}
+	
+	public List<ZyRecommplace> getRecommPlaces(int districtid,int subcategoryid){
+		return recommPlaceDao.getRecommPlaces(districtid, subcategoryid);
 	}
 }

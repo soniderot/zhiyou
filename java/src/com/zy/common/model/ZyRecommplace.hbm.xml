@@ -31,5 +31,8 @@
         <property name="address" type="java.lang.String">
             <column name="ADDRESS" />
         </property>
+         <property name="placename" type="java.lang.String">
+            <column name="PLACENAME" />
+        </property>
     </class>
 </hibernate-mapping>

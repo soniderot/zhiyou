@@ -5,6 +5,7 @@ import java.util.List;
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyEventcategory;
 import com.zy.common.model.ZyEventmember;
+import com.zy.common.model.ZyRecommplace;
 import com.zy.facade.vo.EventVO;
 
 public interface EventService {
@@ -19,4 +20,5 @@ public interface EventService {
 	public void removeMember(int userId,int eventId);
 	
 	public List<ZyEventcategory> getEventCategorys();
+	public List<ZyRecommplace> getRecommPlaces(int districtid,int subcategoryid);
 }

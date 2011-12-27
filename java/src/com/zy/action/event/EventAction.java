@@ -14,6 +14,7 @@ import com.zy.common.model.ZyDistrict;
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyEventcategory;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyRecommplace;
 import com.zy.common.model.ZyRequest;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
@@ -72,9 +73,16 @@ public class EventAction {
 	private List<ZyDistrict> districts;
 	private int districtId;
 	private int subcateGoryId;
+	private List<ZyRecommplace> places;
 	
-	
-	
+	public List<ZyRecommplace> getPlaces() {
+		return places;
+	}
+
+	public void setPlaces(List<ZyRecommplace> places) {
+		this.places = places;
+	}
+
 	public int getDistrictId() {
 		return districtId;
 	}
@@ -339,7 +347,7 @@ public class EventAction {
 		int cityid = profileFacade.findProfileById(userid).getCityid();
 		districts = optionFacade.getDistricts(cityid);
 		if(eventId>0){
-			SimpleDateFormat dateformat1=new SimpleDateFormat("yyyy/MM/dd");
+			SimpleDateFormat dateformat1=new SimpleDateFormat("MM/dd/yyyy");
 			
 			SimpleDateFormat dateformat2=new SimpleDateFormat("HH:mm");
 			
@@ -388,7 +396,7 @@ public class EventAction {
 			try{
 				String begin = startDate+" "+startHour;
 				System.out.println("----------------begin----------"+begin);
-				String pattern = "yyyy/MM/dd HH:mm";
+				String pattern = "MM/dd/yyyy HH:mm";
 				DateFormat df = new SimpleDateFormat(pattern);
 				System.out.println(df.parse(begin));
 				event.setBegintime(df.parse(begin));
@@ -402,7 +410,7 @@ public class EventAction {
 			try{
 				String end = endDate+" "+endHour;
 				System.out.println("----------------end----------"+end);
-				String pattern = "yyyy/MM/dd HH:mm";
+				String pattern = "MM/dd/yyyy HH:mm";
 				DateFormat df = new SimpleDateFormat(pattern);
 				System.out.println(df.parse(end));
 				event.setEndtime(df.parse(end));
@@ -519,6 +527,7 @@ public class EventAction {
 	}
 	
 	public String getRecommPlaces(){
+		places = eventFacade.getRecommPlaces(1,1);
 		return "recommend.places";
 	}
 

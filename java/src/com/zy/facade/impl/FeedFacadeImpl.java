@@ -6,7 +6,9 @@ import java.util.List;
 
 import com.zy.Constants;
 import com.zy.common.model.ZyNewsfeed;
+import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.domain.event.service.EventService;
+import com.zy.domain.feed.bean.CommentBean;
 import com.zy.domain.feed.bean.FeedBean;
 import com.zy.domain.feed.service.FeedService;
 import com.zy.domain.photo.service.PhotoService;
@@ -142,8 +144,36 @@ public class FeedFacadeImpl implements FeedFacade{
 				int id = Integer.valueOf(feeds.get(i).getBody());
 				bean.setPhoto(photoService.getPhoto(id));
 			}
+			
+			List<ZyNewsfeedcomment> comments = feedService.getCommentsByFeedId(bean.getFeed().getId());
+			List<CommentBean> commentBeans = new ArrayList<CommentBean>();
+			for(int j=0;j<comments.size();j++){
+				CommentBean commentBean = new CommentBean();
+				commentBean.setComment(comments.get(j));
+				commentBean.setUser(profileService.findProfileById(comments.get(j).getUserid()));
+				commentBeans.add(commentBean);
+			}
+			bean.setComments(commentBeans);
 			results.add(bean);
 		}
 		return results;
+	}
+	
+	public FeedBean shareNewsFeed(int userId,int feedId){
+		FeedBean bean = new FeedBean();
+		ZyNewsfeed feed = new ZyNewsfeed();
+		feed.setUserid(userId);
+		feed.setCreated(new Date());
+		feed.setHandle("sns.shared.feed");
+		feed.setBody(""+feedId);
+		feedService.addNewsFeed(feed);
+		bean.setFeed(feed);
+		bean.setUser(profileService.findProfileById(feed.getUserid()));
+		
+		return bean;
+	}
+	
+	public void addComment(ZyNewsfeedcomment comment){
+		feedService.addComment(comment);
 	}
 }

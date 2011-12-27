@@ -163,7 +163,7 @@ public class MessageAction extends ActionSupport{
 	
 	public String deleteMessage(){
 		ZyMessage message = messageFacade.getMessageById(messageId);
-		if(message.getSenderid()==messageId){
+		if(message.getSenderid()==message.getSenderid()){
 			messageFacade.senderDeleteMessage(messageId);
 		}else{
 			messageFacade.receiverDeleteMessage(messageId);

@@ -7,6 +7,7 @@ import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyEventcategory;
 import com.zy.common.model.ZyEventmember;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyRecommplace;
 import com.zy.domain.event.service.EventService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.facade.EventFacade;
@@ -84,5 +85,9 @@ public class EventFacadeImpl implements EventFacade{
 	
 	public List<ZyEventcategory> getEventCategorys(){
 		return eventService.getEventCategorys();
+	}
+	
+	public List<ZyRecommplace> getRecommPlaces(int districtid,int subcategoryid){
+		return eventService.getRecommPlaces(districtid, subcategoryid);
 	}
 }
