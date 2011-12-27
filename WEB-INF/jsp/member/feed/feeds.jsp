@@ -122,7 +122,7 @@
             </span>
           </li>
           <li class="plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-            <span data-endpoint="/ajax/metacomposer/attachment/question/question.php?create_eigenpoll=1&amp;source=composer" id="u3mxyl_5" class="uiComposerAttachment">
+            <span id="u3mxyl_5" class="uiComposerAttachment">
               <a href="#" tabindex="0" class="uiIconText attachmentLink normal" onclick="changeStatus(this, 'question'); return false;">
                 <i class="img sp_7gl7wd sx_97759f"></i>
                 <strong class="attachmentName">提问</strong>
@@ -274,12 +274,12 @@
                       </s:if>
                     </h6>
                     
-                    <s:form onsubmit="return commentSubmit(this);" action="usr/feed!addFeedComment.jhtml" method="post" cssClass="live_134080203373504_131325686911214 commentable_item autoexpand_mode">
+                    <s:form onsubmit="return commentSubmit(this);" action="usr/feed!addFeedComment.jhtml" method="post" cssClass="commentable_item autoexpand_mode collapsed_comments">
                       <input type="hidden" name="feedId" value="<s:property value='feed.id' />" />
                       <span class="uiStreamFooter">
                         <span class="UIActionLinks UIActionLinks_bottom">
                           <label class="uiLinkButton comment_link" title="发表留言">
-                            <input type="button" data-ft="{&quot;type&quot;:24}" value="评论" onclick="return fc_click(this);">
+                            <input type="button" data-ft="{&quot;type&quot;:24}" value="评论" onclick="return showComments(this);">
                             <input type="button" data-ft="{&quot;type&quot;:24}" value="分享" onclick="return;">
                           </label> · 
                         </span>
@@ -291,13 +291,11 @@
                       </span>
                       
                       <div>
-                        <ul class="uiList uiUfi focus_target fbUfi child_was_focused">
+                        <ul class="uiList uiUfi focus_target fbUfi">
                           <li class="ufiNub uiListItem uiListVerticalItemBorder"><i></i></li>
-                          
-                         <s:iterator value="comments">
-                          
                           <li class="uiUfiComments uiListItem uiListVerticalItemBorder">
                             <ul class="commentList">
+                            <s:iterator value="comments"> 
                               <li class="uiUfiComment comment_5136102 ufiItem ufiItem uiUfiUnseenItem">
                                 <div class="UIImageBlock clearfix uiUfiActorBlock">
                                   <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid" />" tabindex="-1" class="actorPic UIImageBlock_Image UIImageBlock_SMALL_Image">
@@ -325,12 +323,9 @@
                                   </div>
                                 </div>
                               </li>
+                              </s:iterator>
                             </ul>
                           </li>
-                          
-                          
-                        </s:iterator>
-                          
                           <li class="uiUfiAddComment clearfix uiUfiSmall ufiItem ufiItem uiListItem uiListVerticalItemBorder uiUfiAddCommentCollapsed">
                             <div class="UIImageBlock clearfix mentionsAddComment">
                               <img alt="" src="<s:property value="#session.userlogo"/>" class="uiProfilePhoto actorPic UIImageBlock_Image UIImageBlock_ICON_Image uiProfilePhotoMedium img"/>
@@ -437,7 +432,13 @@
     $("#submitBtn").parent().removeClass("uiButtonDisabled");
   }
   
-  // comment focus
+  // show comment
+  function showComments(obj) {
+    $(obj).parents("form").removeClass("collapsed_comments");
+    $(obj).parents("ul").addClass("child_was_focused");
+    return false;
+  }
+  
   function commentFocus(obj) {
     $(obj).parents("ul").addClass("child_is_active child_is_focused");
     return false;
