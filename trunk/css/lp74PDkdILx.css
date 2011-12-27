@@ -1,4 +1,4 @@
-﻿/*1320708195,176820666*/
+/*1320708195,176820666*/
 
 .sp_9dewam{background-image:url(../images/X6Vt9PtofgU.png);background-repeat:no-repeat;display:inline-block;height:16px;width:31px}
 .sx_83050b{width:32px;height:32px;background-position:-0px -0px}
@@ -6,3 +6,332 @@
 .sx_48249a{background-position:-0px -50px}
 
 #bootloader_OvN0F { height: 42px; }
+.uiPagerTopBorder {
+border-top:1px solid #EEEEEE;
+padding:15px 0 0;
+}
+.profilePictureNuxHighlightLink {
+display:block;
+}
+.profilePictureNuxHighlight {
+background-color:#ECEFF5;
+border:1px solid #C5CDE1;
+}
+.fbPageEdit .profilePictureNuxHighlight {
+border-right-width:0;
+}
+.uiDatepicker{position:relative}
+.uiDatepicker .dateBox{border:1px solid #bdc7d8;float:left;padding-right:4px}
+.uiDatepicker .dateBox .textField{background:#fff url(../images/saFg5U_7LMd.png) right 50% no-repeat;border:0;color:#3b5998;width:95px}
+.uiDatepickerGray .dateBox .textField{background-image:url(../images/fw7mhaWuh3r.png)}
+.uiDatepicker .calendarWrapper{display:none;left:0;position:absolute;top:25px;z-index:4}
+.openToggler .calendarWrapper{display:block;min-width:210px}
+.uiDatepicker table{width:100%}
+.uiDatepicker .prevMonth,.uiDatepicker .nextMonth,.uiDatepicker .monthTitle{background:#6d84b7;border-top:1px solid #3a589b;color:#fff;font-weight:bold;padding-top:1px;text-align:center}
+.uiDatepicker .prevMonth{border-left:1px solid #3a589b}
+.uiDatepicker .nextMonth{border-right:1px solid #3a589b}
+.uiDatepicker th.first{border-left:1px solid #777}
+.uiDatepicker th.last{border-right:1px solid #777}
+.uiDatepicker .days{border:1px solid #777;border-top:none;border-bottom:2px solid #293e6c}
+.uiDatepicker .days table{background:#fff;border-collapse:separate}
+.uiDatepicker .prevMonth,.uiDatepicker .nextMonth,.uiDatepicker .dateBox .textField,.uiDatepicker .dayCell{cursor:pointer}
+.uiDatepicker .prevMonth{border-left-width:1px}
+.uiDatepicker .nextMonth{border-right-width:1px}
+.uiDatepicker th{color:#555;background:#f2f2f2;border-bottom:1px solid #bbb;font-size: 10px;font-weight:bold;padding:3px 1px;text-align:center;word-break:break-word}
+.uiDatepicker td{height:20px;padding:0;text-align:center}
+.uiDatepicker .dayTable td{border:1px solid #fff;color:#999;width:14.29%}
+.uiDatepicker .dayTable td.dayCell{color:#666}
+.uiDatepicker .dayCell:hover{color:#3b5998;border-color:#bec8dd;background-color:#dfe4ee;text-decoration:none}
+.uiDatepicker .selected{background-color:#ddd;font-weight:bold}
+
+.detailedsearch_feature_header {
+background-color:#E9E9E9;
+border:0 none;
+height:7px;
+margin-bottom:10px;
+padding:0;
+text-align:center;
+}
+.detailedsearch_feature_header span {
+background-color:#FFFFFF;
+color:gray;
+font-weight:bold;
+padding:0 5px;
+position:relative;
+top:-4px;
+}
+.searchArea {
+	padding-top:2px;
+	background-color:#F2F2F2;
+}
+.head td{
+	text-align: center;
+	height: 50px;
+}
+
+.head .left{
+	width: 280px;
+}
+.head .image{
+	width: 450px;
+}
+.updateButton {
+	padding-left:50px;
+}
+.searchBody {
+	height:250px;
+}
+.searchArea label{
+	color: #333333;
+	font-weight: normal;
+}
+.uiScaledImageContainer img {
+height:100%;
+min-height:100%;
+position:relative;
+}
+.uiScaledImageContainer {
+overflow:hidden;
+position:relative;
+}
+.DOMControl_placeholder {
+color:#777777;
+}
+.requesttext {
+width:200px;
+}
+
+.sp_9bp6bo {
+background-image:url(../images/1VzOGqFg-DH.png);
+background-repeat:no-repeat;
+display:inline-block;
+height:16px;
+width:16px;
+}
+.sx_35b899 {
+background-position:-11px -221px;
+height:14px;
+width:11px;
+}
+.event_upload_image {
+width:179px;
+}
+.event_upload_image {
+width:179px;
+}
+
+.grayArea {
+border-top:1px solid #B3B3B3;
+min-height:253px;
+}
+.eventInviteLayout .fullWidth {
+width:85%;
+}
+.profileBrowserDialog .fbProfileBrowserResult {
+height:353px;
+overflow-y:auto;
+position:relative;
+}
+.profileBrowserDialog .filterBox {
+border-bottom:1px solid #CCCCCC;
+border-top:medium none;
+}
+.profileBrowserDialog .fbProfileBrowserListContainer li:first-child {
+border-top:medium none;
+}
+.profileBrowserDialog .listView {
+height:353px;
+}
+.threeColumns .multiColumnCheckable {
+width:173px;
+}
+.multiColumnCheckable {
+float:left;
+margin:5px 0 0 5px;
+overflow:hidden;
+width:262px;
+}
+.selectedCheckable, .selectedCheckable .anchor:hover {
+background:#E3E7F1 none repeat scroll 0 0;
+}
+.multiColumnCheckable.selectedCheckable .anchor {
+background-color:#D8DFEA;
+border-color:#C3CCE1;
+}
+.threeColumns .multiColumnCheckable .anchor {
+padding:2px;
+}
+.multiColumnCheckable .anchor {
+border-color:#FFFFFF;
+border-style:solid;
+border-width:1px 0;
+display:block;
+outline-color:-moz-use-text-color;
+outline-style:none;
+outline-width:medium;
+padding:6px;
+}
+a {
+color:#3B5998;
+cursor:pointer;
+outline-style:none;
+text-decoration:none;
+}
+.multiColumnCheckable .anchor {
+border-style:solid;
+}
+.threeColumns .multiColumnCheckable .photo {
+height:30px;
+margin-right:5px;
+width:30px;
+}
+.UIImageBlock_Image {
+float:left;
+margin-right:5px;
+}
+img {
+border:0 none;
+}
+.threeColumns .multiColumnCheckable .checkbox {
+margin:12px 6px 0;
+}
+.multiColumnCheckable .checkbox {
+float:left;
+margin:23px 8px 0 6px;
+}
+.multiColumnCheckable.selectedCheckable .anchor {
+background-color:#D8DFEA;
+border-color:#C3CCE1;
+}
+.threeColumns .multiColumnCheckable .content {
+height:29px;
+}
+.MessagingComposerBody {
+border-color:#6D84B4;
+height:30px;
+max-height:280px;
+outline-color:-moz-use-text-color;
+outline-style:none;
+outline-width:medium;
+overflow-y:auto !important;
+width:335px;
+}
+
+.MessagingComposerTypeaheadWrapper .uiInlineTokenizer {
+border-color:#6D84B4;
+}
+.uiCloseButtonSmall {
+background-image:url(../images/ogYrclupeJV.png);
+height:11px;
+margin-top:1px;
+width:11px;
+}
+
+.uiToken{background:#e2e6f0;border:1px solid #9daccc;-moz-border-radius:2px;color:#1c2a47;cursor:default;display:block;float:left;height:14px;margin:0 4px 4px 0;padding:0 3px;position:relative;white-space:nowrap}
+.uiToken .remove{margin:2px 0 -2px 1px;outline:none}
+.uiTokenSelected{background-color:#6d84b4;border-color:#3b5998;color:#fff}
+.uiTokenizer {background:#FFFFFF none repeat scroll 0 0;}
+.uiNormalTokenizer .uiTypeahead{width:100%}
+.uiNormalTokenizer .tokenarea{overflow:hidden;padding-top:6px}
+.uiInlineTokenizer .uiToken {top:2px;}
+.uiInlineTokenizer {border:1px solid #BDC7D8;cursor:text;padding-left:2px;}
+.uiInlineTokenizer{cursor:text;padding-left:2px;border:1px solid #bdc7d8}
+.uiInlineTokenizer .DOMControl_placeholder{margin-left:-2px}
+.uiInlineTokenizer .uiToken{top:2px}
+.uiInlineTokenizer .uiTypeahead{border:0;float:left}
+.uiInlineTokenizer .uiTypeahead .wrap{border:0}
+.uiInlineTokenizer .uiTypeaheadView{width:200px}
+.uiInlineTokenizer .textInput[disabled]{background:#fff}
+
+#MessagingDashboard .footerActionBar {
+width:100%;
+}
+.threadRow .snippet{max-width:430px;overflow:hidden;position:absolute;text-overflow:ellipsis;white-space:nowrap}
+.threadRow .snippet .indicator,#fbMessagesItemList .snippet .indicator{vertical-align:middle}
+.threadRow .authorsWrapper{max-width:500px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.threadRow .authors{font-size: 14px}
+.threadRow .threadLink:hover{text-decoration:none}
+.threadRow .threadLink:hover .authors{text-decoration:underline}
+.threadRow .content{line-height:16px;padding-top:8px}
+.threadRow .timestamp,.threadRow .mutualFriends{color:#aaa}
+.threadRow .emote_img{margin-bottom:-4px}
+.threadRow .unarchiveLink .uiCloseButton{background:url(../images/ij5EGgoOSQ3.png) right top}
+.threadRow .unarchiveLink .uiCloseButton:hover{background-position:left top}
+.threadRow .right{padding-top:18px}
+.threadRow .draft{padding-right:12px;vertical-align:top;color:#a2b2cf;font-weight:normal}
+.threadRow.unread{background-color:#ebeef4}
+.threadRow .unarchiveLink,.threadRow .markAsReadLink,.threadRow.archived .archiveLink,.threadRow.unread .markAsUnreadLink{display:none}
+.threadRow .archiveLink,.threadRow .markAsUnreadLink,.threadRow.archived .unarchiveLink,.threadRow.unread .markAsReadLink{display:block}
+.threadRow.unread,.threadRow.unread + .threadRow{border-color:#dce2ec;margin:0 -20px;padding:0 20px}
+.threadRow.unread .snippet,.threadRow.unread .timestamp{color:#6d84b4}
+.threadRow.unread .mutualFriends{color:#9c9c9c}
+.threadRow .readState{vertical-align:middle}
+.threadRow .markunread,.threadRow .markread{display:inline-block;height:11px;width:11px}
+.threadRow .markunread{background-image:url(../images/tQ9ZmNntlJm.png);background-repeat:no-repeat;background-position:-11px -38px}
+.threadRow .markunread:hover{background-image:url(../images/tQ9ZmNntlJm.png);background-repeat:no-repeat;background-position:0 -38px}
+.threadRow .markread{background-image:url(../images/tQ9ZmNntlJm.png);background-repeat:no-repeat;background-position:-34px -38px}
+.threadRow .markread:hover{background-image:url(../images/tQ9ZmNntlJm.png);background-repeat:no-repeat;background-position:0 -38px}
+.threadRow.noDraft .draft {display:none;}
+
+.webComposerPhotoUpload{text-align:center}
+.uiMetaComposer .webComposerPhotoUpload{border-top:1px dashed #ccc;margin-top:4px;padding:5px 5px 10px 5px;text-align:left}
+.uiMetaComposer .webComposerPhotoUpload .photoUploadPrompt{margin-top:7px}
+.uiMetaComposer .webComposerPhotoUpload input{margin-left:0}
+.uiMetaComposer .webComposerPhotoPreviewArea{display:inline-block;position:relative}
+.uiMetaComposer .webComposerPhotoPreviewArea .imgPreview{border:1px solid #ccc;display:block;float:left;margin-right:5px;padding:3px}
+.uiMetaComposer .webComposerPhotoPreviewArea .uiCloseButton{position:absolute;right:-14px}
+.uiMetaComposer .webComposerPhotoPreviewArea.removeButtonOnTop .uiCloseButton{right:11px;top:6px}
+
+#bootloader__kMvU { height: 42px; }
+.openToggler .calendarWrapper{display:block;min-width:210px}
+
+.sp_ewmg90 {
+background-image:url(../images/-yHMk9PyW87.png);
+background-repeat:no-repeat;
+display:inline-block;
+height:16px;
+width:16px;
+}
+.sx_0e145b {background-position:-17px -62px;height:12px;width:6px;}
+.sx_91cd4d {background-position:-24px -62px;height:12px;width:6px;}
+
+.arrowLeft a,.arrowRight a{background-image:url(../images/77uboGPzRks.png);background-position:10px 9px;background-repeat:no-repeat;cursor:pointer;height:30px;opacity:1;padding:0;width:31px}
+.arrowLeft a,.arrowRight a{opacity:.65;border-color:#a2a2a2;border-color:rgba(162, 162, 162, .55)}
+.arrowLeft a:hover,.arrowRight a:hover{border-color:#7489b6;border-color:rgba(59, 89, 152, .55)}
+.arrowRight a{background-image:url(../images/KsODvVMV-0n.png)}
+.arrowLeft a:hover{background-image:url(../images/B_qduFj1etl.png)}
+.arrowRight a:hover{background-image:url(../images/lWUUm37r11D.png)}
+.arrowLeft a:active{background-image:url(../images/U1-etAWzQ4t.png)}
+.arrowRight a:active{background-image:url(../images/wU__r0m45JU.png)}
+
+.prev {
+left:320px;
+position:absolute;
+top:240px;
+}
+.next {
+left:650px;
+position:absolute;
+top:240px;
+}
+.slidewrap {
+  display:table;
+  background-color:#F2F2F2;
+  width:250px;
+  height:250px;
+  _position:relative;
+  overflow:hidden;
+  text-align:center;
+  margin:0 auto;
+}
+.slidesubwrap {
+  vertical-align:middle;
+  display:table-cell;
+  _position:absolute;
+  _top:50%;
+}
+.slidecontent {
+  _position:relative;
+  _top:-50%;
+}
+

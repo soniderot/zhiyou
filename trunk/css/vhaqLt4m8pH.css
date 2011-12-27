@@ -1,4 +1,4 @@
-﻿/*1320729724,169776318*/
+/*1320729724,169776318*/
 
 table.component_table{padding-left:5px;padding-top:5px}
 table.component_table td.icons{width:20px;text-align:center;vertical-align:middle}
@@ -184,18 +184,18 @@ table.component_table td.actions{padding-left:10px;text-align:left;vertical-alig
 .simple_registration_container .tos_container{margin-top:12px}
 .registration .tos_container{margin-left:22px}
 #reg_email__{direction:ltr}
-#reg_box #reg div.password_confirm td.label{width:108px}
-#reg_box #reg div.password_confirm div.reg_btn{margin:0 0 0 110px}
-#reg_box #reg div.large_form{padding-left:0}
-#reg_box #reg div.large_form td.label{font-size: 14px;width:105px;padding-right:3px}
-#reg_box #reg div.large_form div.field_container input{padding:6px;font-size: 17px;width:250px}
-#reg_box #reg div.large_form div.field_container select{font-size: 14px;padding:5px;height:30px}
+#reg_box div.password_confirm td.label{width:108px}
+#reg_box div.password_confirm div.reg_btn{margin:0 0 0 110px}
+#reg_box div.large_form{padding-left:0}
+#reg_box div.large_form td.label{font-size: 14px;width:105px;padding-right:3px}
+#reg_box div.large_form div.field_container input{padding:6px;font-size: 17px;width:250px}
+#reg_box div.large_form div.field_container select{font-size: 14px;padding:5px;height:30px}
 .field_container{display:inline-block;position:relative;width:auto}
-#reg_box #reg div.large_form #birthday_warning{font-size: 12px}
-#reg_box #reg div.large_form div.reg_btn{margin:0 0 0 110px}
-#reg_box #reg div.large_form.password_confirm div.reg_btn{margin:0 0 0 130px}
-#reg_box #reg div.reg_btn label input{font-size: 14px;padding:3px 25px 5px}
-#reg_box #reg div.large_form.password_confirm td.label{width:125px}
+#reg_box div.large_form #birthday_warning{font-size: 12px}
+#reg_box div.large_form div.reg_btn{margin:0 0 0 110px}
+#reg_box div.large_form.password_confirm div.reg_btn{margin:0 0 0 130px}
+#reg_box div.reg_btn label input{font-size: 14px;padding:3px 25px 5px}
+#reg_box div.large_form.password_confirm td.label{width:125px}
 .uiWashLayoutOffsetWash{padding-bottom:80px}
 .uiWashLayoutWashContent{margin-left:auto;margin-right:auto}
 .uiWashLayoutBlueWash{background-color:#eceff5;border-bottom:1px solid #d8dfea}
