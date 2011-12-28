@@ -9,6 +9,13 @@ function validateSignUp() {
 	return result;
 }
 
+function validateCreateEvent(form) {
+	var result = true;
+	result = checkEventName($("input[name='eventname']"))&&result;
+	result = checkEventType($("select[name='eventCategory']"))&&result;
+	result = checkEventDistrict($("select[name='districtid']"))&&result;
+	return result;
+}
 
 function checkUsername(obj) {
 	$(obj).tipsy("hide");
@@ -108,6 +115,46 @@ function checkBirth(yearObj, monthObj, dayObj) {
 		$(dayObj).attr("tooltip", "请您输入完整的日期。");
 		$(dayObj).tipsy("show");
 		setFocus(dayObj);
+		return false;
+	}
+	return true;
+}
+
+function checkEventName(obj) {
+	$(obj).tipsy("hide");
+	var fieldVal = $(obj).val();
+	var regexp = new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5]+$");
+	var tmpStr = fieldVal.replace(/[^x00-xff]/g, "aa");
+	var len = tmpStr.length;
+	var placeHolder = $(obj).attr("placeholder");
+	if (!fieldVal.match(regexp) || fieldVal == placeHolder || len < 6 || len > 100) {
+		$(obj).attr("tooltip", "活动名称必须是汉字、字母或数字，字数在3-50之间。");
+		$(obj).tipsy("show");
+		setFocus(obj);
+		return false;
+	}
+	return true;
+}
+
+function checkEventType(obj) {
+	$(obj).tipsy("hide");
+	var type = $(obj).val();
+	if (type < 0) {
+		$(obj).attr("tooltip", "请您选择活动类别。");
+		$(obj).tipsy("show");
+		setFocus(obj);
+		return false;
+	}
+	return true;
+}
+
+function checkEventDistrict(obj) {
+	$(obj).tipsy("hide");
+	var district = $(obj).val();
+	if (district < 0) {
+		$(obj).attr("tooltip", "请您选择区域。");
+		$(obj).tipsy("show");
+		setFocus(obj);
 		return false;
 	}
 	return true;
