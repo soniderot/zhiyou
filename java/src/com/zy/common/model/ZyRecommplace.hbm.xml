@@ -34,5 +34,8 @@
          <property name="placename" type="java.lang.String">
             <column name="PLACENAME" />
         </property>
+        <property name="hot" type="java.lang.Integer">
+            <column name="HOT" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>
