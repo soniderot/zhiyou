@@ -21,7 +21,7 @@ public class ZyRecommplace implements java.io.Serializable {
 	private Date createtime;
 	private String address;
 	private String placename;
-	
+	private Integer hot;
 	
 	
 
@@ -41,6 +41,14 @@ public class ZyRecommplace implements java.io.Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public Integer getHot() {
+		return hot;
+	}
+
+	public void setHot(Integer hot) {
+		this.hot = hot;
 	}
 
 	/** default constructor */
