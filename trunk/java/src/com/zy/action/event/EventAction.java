@@ -10,6 +10,8 @@ import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
 
+import com.opensymphony.xwork2.ActionContext;
+import com.zy.Constants;
 import com.zy.common.model.ZyDistrict;
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyEventcategory;
@@ -346,11 +348,11 @@ public class EventAction {
 		int userid = ActionUtil.getSessionUserId();
 		int cityid = profileFacade.findProfileById(userid).getCityid();
 		districts = optionFacade.getDistricts(cityid);
+		SimpleDateFormat dateformat1=new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat dateformat2=new SimpleDateFormat("HH:mm");
+		startDate = dateformat1.format(new Date());
+		endDate = dateformat1.format(new Date());
 		if(eventId>0){
-			SimpleDateFormat dateformat1=new SimpleDateFormat("MM/dd/yyyy");
-			
-			SimpleDateFormat dateformat2=new SimpleDateFormat("HH:mm");
-			
 			ZyEvent event = eventFacade.getEvent(eventId);
 			eventname = event.getEventname();
 			address = event.getAddress();
@@ -383,14 +385,9 @@ public class EventAction {
 		}
 		
 		event.setAddress(address);
-		
-		
 		event.setCreatetime(new Date());
 		event.setBegintime(new Date());
 		event.setEndtime(new Date());
-		
-		//event.setSubcateGoryId(subcateGoryId);
-		//event.setDistrictId(districtId);
 		
 		if(startDate!=null&&startDate.trim().length()>0){
 			try{
@@ -404,8 +401,7 @@ public class EventAction {
 				
 			}
 		}
-		
-		
+
 		if(endDate!=null&&endDate.trim().length()>0){
 			try{
 				String end = endDate+" "+endHour;
@@ -419,11 +415,10 @@ public class EventAction {
 			}
 		}
 		
-		if(endDate!=null&&endDate.trim().length()>0){
-			String end = endDate+" "+endHour;
-		}
-		
-		event.setCityid(8843);
+		ZyProfile user = (ZyProfile)ActionUtil.getSession().get(Constants.USER_SESSION_KEY);
+		event.setCityid(user.getCityid());
+		event.setSubcategoryid(subcateGoryId);
+		event.setDistrictid(districtId);
 		event.setCreateuserid(ActionUtil.getSessionUserId());
 		event.setUpdatetime(new Date());
 		event.setEventname(eventname);
@@ -473,7 +468,7 @@ public class EventAction {
 		return "my.events";
 	}
 	
-	public String viewEvent(){
+	public String viewEvent() {
 		event = eventFacade.getEvent(eventId);
 		createUser = profileFacade.findProfileById(event.getCreateuserid());
 		members = eventFacade.getEventMembers(eventId);
