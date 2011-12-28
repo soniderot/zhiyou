@@ -7,11 +7,8 @@
         <div class="uiHeaderActions  rfloat fsl fwb fcb">
           
           <a href="usr/feed.jhtml?handle=sns.event.create,sns.event.join"><span class="fwn">活动动态</span> </a> ·
-          
           <a href="usr/feed.jhtml?handle=sns.share.connection"><span class="fwn">交友动态</span> </a> ·
-        
-          <div id="u3mxyl_1"
-            class="uiSelector inlineBlock filterListSelector  uiSelectorRight  uiSelectorNormal uiSelectorDynamicLabel">
+          <div id="u3mxyl_1" class="uiSelector inlineBlock filterListSelector  uiSelectorRight  uiSelectorNormal uiSelectorDynamicLabel">
             <div class="wrap">
               <!--
               <a rel="toggle" data-length="30" aria-haspopup="1"
@@ -37,14 +34,12 @@
                         </span>
                       </a>
                     </li>
-                    <li data-label="专页"
-                      class="uiMenuItem  uiMenuItemRadio  uiSelectorOption">
-                      <a href="/?sk=pp" aria-checked="false"
-                        tabindex="-1" role="menuitemradio"
-                        class="itemAnchor"> <span
-                        class="itemLabel fsm"> <i
-                          class="mrs  img  sp_6h8b4g  sx_6bbf39"></i>专页
-                      </span> </a>
+                    <li data-label="专页" class="uiMenuItem  uiMenuItemRadio  uiSelectorOption">
+                      <a href="/?sk=pp" aria-checked="false" tabindex="-1" role="menuitemradio" class="itemAnchor">
+                        <span class="itemLabel fsm">
+                          <i class="mrs  img  sp_6h8b4g  sx_6bbf39"></i>专页
+                        </span>
+                      </a>
                     </li>
                     <li data-label="提问" class="uiMenuItem  uiMenuItemRadio  uiSelectorOption">
                       <a href="/?sk=app_10150110253435258" aria-checked="false" tabindex="-1" role="menuitemradio" class="itemAnchor">
@@ -68,7 +63,7 @@
             <select>
               <option value=""></option>
               <option selected="1" value="lf">
-                            最新消息
+                最新消息
               </option>
               <option value="app_2915120374">
                 状态更新
@@ -218,14 +213,12 @@
     <div id="c4ec37b3fc7e022d58174072" class="UIIntentionalStream UIStream">
       <ul id="home_stream" class="uiList uiStream UIIntentionalStream_Content" data-referrer="home_stream" style="min-height: 100px;">
         <s:iterator value="feeds">
-          <li id="stream_story_4ec37b3fd947b3232640247"
-            data-ft='{"qid":"5675515467749930831","mf_story_key":"2652098748566","c":"m"}'
+          <li id="stream_story_4ec37b3fd947b3232640247" data-ft='{"qid":"5675515467749930831","mf_story_key":"2652098748566","c":"m"}'
             class="pvm uiUnifiedStory uiStreamStory genericStreamStory aid_1438697558 uiListItem uiListLight uiListVerticalItemBorder">
             <div class="storyHighlightIndicatorWrapper"></div>
             <div class="storyContent">
               <div class="UIImageBlock clearfix">
-                <a
-                  data-hovercard="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>"
+                <a data-hovercard="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>"
                   aria-hidden="true" data-ft='{"type":60}'
                   href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>"
                   tabindex="-1"
@@ -249,9 +242,8 @@
                             <s:property value="friend.username" />
                           </a>变为朋友
                         </s:if>
-                        
                         <s:if test="feed.handle=='sns.share.text'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的评论</s:if>
-                        	<s:if test="feed.handle=='sns.share.photo'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的照片</s:if>
+                        <s:if test="feed.handle=='sns.share.photo'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的照片</s:if>
                       </div>
                       <s:if test="feed.handle=='sns.publish.text'">
                         <span data-ft='{"type":3}' class="messageBody">
@@ -279,17 +271,10 @@
                       <span class="uiStreamFooter">
                         <span class="UIActionLinks UIActionLinks_bottom">
                           <label class="uiLinkButton comment_link" title="发表留言">
-                            <input type="button" data-ft="{&quot;type&quot;:24}" value="评论" onclick="return showComments(this);">
-                           
-                         
-                          </label> · 
-                          
-                          <label class="uiLinkButton comment_link" title="分享">
-                           
-                           
+                            <input type="button" value="评论" onclick="return showComments(this);">
                             <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
-                            <input type="button" data-ft="{&quot;type&quot;:24}" value="分享" onclick="return;">
-                          </s:if >
+                              <input type="button" value="分享" onclick="return;">
+                            </s:if >
                           </label> · 
                         </span>
                         <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
