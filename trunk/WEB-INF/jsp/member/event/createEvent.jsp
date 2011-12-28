@@ -18,15 +18,25 @@
     </div>
   </div>
   <div class="pal grayArea uiBoxGray noborder">
-  	<s:form action="/event/event!saveEvent.jhtml" method="post" enctype="multipart/form-data" >
-   	  <input type="hidden" value="<s:property value="eventId" />" name="eventId"/>
-      <input type="hidden" value="d987c72246020e1891443953e9b5b41b" name="post_form_id" autocomplete="off"/>
-      <input type="hidden" autocomplete="off" value="AQCwdyla" name="fb_dtsg"/>
+  	<s:form onsubmit="return validateCreateEvent(this);" action="/event/event!saveEvent.jhtml" method="post" enctype="multipart/form-data" >
+   	  <input type="hidden" name="eventId" value="<s:property value="eventId" />"/>
+      <input type="hidden" name="post_form_id" value="d987c72246020e1891443953e9b5b41b" autocomplete="off"/>
+      <input type="hidden" name="districtId" id="districtId" autocomplete="off"/>
       <table class="uiInfoTable mtm mll noBorder">
         <tbody>
           <tr class="dataRow">
             <th class="label">活动名称：</th>
-            <td class="data"><s:textfield name="eventname" cssClass="inputtext"   /></td>
+            <td class="data"><s:textfield name="eventname" cssClass="inputtext" tipstype="error"/></td>
+            <td class="rightCol"></td>
+          </tr>
+          <tr class="dataRow">
+            <th class="label">活动类型：</th>
+            <td class="data"><s:select name="eventCategory" list="eventCategorys" listKey="id"  listValue="name" cssClass="activity" headerKey="-1" headerValue="" tipstype="error" /></td>
+            <td class="rightCol"></td>
+          </tr>
+	      <tr class="dataRow">
+            <th class="label">区域：</th>
+            <td class="data"> <s:select name="districtid" list="districts" listKey="id"  listValue="districtname" cssClass="activity" headerKey="-1" headerValue="" tipstype="error" /></td>
             <td class="rightCol"></td>
           </tr>
           <tr id="event_time_row" class="dataRow">
@@ -39,7 +49,6 @@
                       <div id="u5hu7k_1" class="uiDatepicker clearfix">
                         <div class="dateBox">
                           <s:textfield name="startDate" cssClass="inputtext textField"  size="10" onclick="showCalendar(this)" />
-                          <input type="hidden" value="12/5/2011" name="event_start" class="hiddenField" autocomplete="off"/>
                           <div class="calendarWrapper">
                             <table cellspacing="0" border="0">
                               <tbody>
@@ -74,7 +83,6 @@
                     </td>
                     <td class="phs">
                       <s:select name="startHour" list="#request.hours" listKey="key"  listValue="value" ></s:select>
-                     
                     </td>
                     <td class="pls">
                       
@@ -95,7 +103,6 @@
                       <div id="u5hu7k_2" class="uiDatepicker clearfix">
                         <div class="dateBox">
                           <s:textfield name="endDate" cssClass="inputtext textField" size="10" onclick="showCalendar(this)"/>
-                          <input type="hidden" value="12/5/2011" name="event_start" class="hiddenField" autocomplete="off"/>
                           <div class="calendarWrapper">
                             <table cellspacing="0" border="0">
                               <tbody>
@@ -142,15 +149,13 @@
           </tr>
           <tr class="dataRow">
             <th class="label">地点：</th>
-            <td class="data"> <s:textfield name="address" cssClass="inputtext"  /></td>
+            <td class="data"><s:textfield name="address" cssClass="inputtext" id="address" /></td>
             <td class="rightCol"></td>
           </tr>
          
-        
-         
           <tr>
             <th class="label"></th>
-            <td class="data"><a href="#">推荐场所</a></td>
+            <td class="data"><a href="javascript:void(0);" onclick="return openWindow();">推荐场所</a></td>
             <td class="rightCol"></td>
           </tr>
           
@@ -170,8 +175,6 @@
               <div id="u5hu7k_11">
                 <a id="u5hu7k_10" href="#" role="button" class="uiButton" onclick="return showPopup('dialog_0')"><span class="uiButtonText">选择宾客</span></a>
                 <input type="hidden" value="" name="invitees" class="invitees" autocomplete="off"/>
-                <input type="hidden" value="" name="emails" class="emails" autocomplete="off"/>
-                <input type="hidden" name="message" class="message" autocomplete="off"/>
               </div>
             </td>
             <td class="rightCol"><span class="hidden_elem" id="event_info_hidden_inputs"></span></td>
@@ -237,5 +240,12 @@
     </s:form>
   </div>
 </div>
-
+<script type="text/javascript">
+  function openWindow() {
+    window.open("event/event!getRecommPlaces.jhtml"
+    , "newwindow"
+    , "height=600, width=800, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+    return false;
+  }
+</script>
 <%@ include file="/WEB-INF/jsp/popup/inviteEventFriends.jsp"%>
