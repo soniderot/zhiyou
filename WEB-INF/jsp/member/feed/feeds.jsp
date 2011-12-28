@@ -280,7 +280,16 @@
                         <span class="UIActionLinks UIActionLinks_bottom">
                           <label class="uiLinkButton comment_link" title="发表留言">
                             <input type="button" data-ft="{&quot;type&quot;:24}" value="评论" onclick="return showComments(this);">
+                           
+                         
+                          </label> · 
+                          
+                          <label class="uiLinkButton comment_link" title="分享">
+                           
+                           
+                            <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
                             <input type="button" data-ft="{&quot;type&quot;:24}" value="分享" onclick="return;">
+                          </s:if >
                           </label> · 
                         </span>
                         <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
