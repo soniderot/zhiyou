@@ -249,6 +249,12 @@ public class RequestDaoImpl extends HibernateDao <ZyRequest, Integer> implements
 		
 	}
 
+	public List<ZyRequest> getRequests(int referenceid){
+		String hql="from ZyRequest where referenceid=?";
+		List<ZyRequest> requests= this.find(hql, new Object[] {referenceid});
+		return requests;
+		
+	}
 	
 	@Override
 	public List<Integer> findAggressiveSenderId(Date calculateStartDate, Date calculateEndDate) {
