@@ -336,3 +336,4 @@ top:240px;
 }
 .collapsed_comments .uiUfi{display:none}
 .activity{width:129px; overflow:hidden}
+.disabledCheckable .anchor,.disabledCheckable .anchor:hover{background:#fff;cursor:default;opacity:.3;outline:none}
