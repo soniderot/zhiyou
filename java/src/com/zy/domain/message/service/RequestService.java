@@ -42,7 +42,9 @@ public interface RequestService {
 	
 	public ZyRequest getRequest(int senderid, int receiverid, short eventkey);	
 	
-	public List<ZyRequest> getRequests(int senderid, int receiverid, short eventkey);	
+	public List<ZyRequest> getRequests(int senderid, int receiverid, short eventkey);
+	
+	public List<ZyRequest> getRequests(int referenceid);
 	
 	public ZyRequest getRequest(int senderid, int receiverid, short eventkey, int referenceid,short status);
 	public ZyRequest getRequest(int senderid, int receiverid, short eventkey,short status);

@@ -297,6 +297,10 @@ System.out.println("------------into-----------");
 		return this.requestDao.getRequests(senderid, receiverid, eventkey);
 	}
 
+	public List<ZyRequest> getRequests(int referenceid) {
+		return this.requestDao.getRequests(referenceid);
+	}
+	
 	public ZyRequest getRequest(int senderid, int receiverid, short eventkey,
 			int referenceid, short status) {
 		return this.requestDao.getRequest(senderid, receiverid, eventkey,referenceid);
