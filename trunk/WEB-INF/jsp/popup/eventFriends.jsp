@@ -1,39 +1,10 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <%@page contentType="text/html; charset=UTF-8"%>
-<script>
-$(function(){
-  $("#dialog_0").hide();
-});
 
-function hidePopup(dialog) {
-  $("#" + dialog).hide();
-}
-function showPopup(dialog) {
-  $("#" + dialog).show();
-  $("#" + dialog).removeClass("hidden_elem");
-  return false;
-}
-
-function saveFriends() {
-
-  var invitees = "";
-  $("input[name='checkableitems']:checked").each(function (){
-    invitees = invitees + $(this).val() + " ";
-  });
-  $("input[name='invitees']").val(invitees);
-  var num = $("input[name='checkableitems']:checked").size();
-  if(num > 0) {
-    $("#customerSelect").find("span").html("选择更多宾客 " + num);
-  }
-  hidePopup('dialog_0');
-}
-</script>
-
-
-<div class="generic_dialog pop_dialog profileBrowserDialog full_bleed generic_dialog_fixed_overflow hidden_elem" id="dialog_0" style="">
+<div class="generic_dialog pop_dialog profileBrowserDialog full_bleed generic_dialog_fixed_overflow" id="dialog_0" style="">
   <div class="generic_dialog_popup" style="top: 40px; width: 577px;">
     <div class="pop_container_advanced">
-      <div id="pop_content" class="pop_content" tabindex="0" role="alertdialog">
+      <div id="pop_content" class="pop_content">
         <h2 class="dialog_title" id="title_dialog_0"><span>邀请朋友</span></h2>
         <div class="dialog_content">
           <div class="dialog_summary hidden_elem"></div>
@@ -50,12 +21,8 @@ function saveFriends() {
                         <td class="fullWidth">
                           <div id="uawg93_3" class="uiTypeahead uiClearableTypeahead fbProfileBrowserTypeahead">
                             <div class="wrap">
-                              <label for="uawg93_11" class="clear uiCloseButton">
-                              <input type="button" id="uawg93_11" onclick="var c = JSCC.get('j4ee5ce28edab28e651303442').getCore(); c.reset(); c.getElement().focus(); " title="删除"/>
-                              </label>
-                              <input type="hidden" name="profileChooserItems" class="hiddenInput" autocomplete="off" value="{}"/>
                               <div class="innerWrap">
-                                <input type="text" title="寻找全部朋友" value="寻找全部朋友" spellcheck="false" onfocus="return wait_for_load(this, event, function() {;JSCC.get('j4ee5ce28edab28e651303442').init([]);;});" autocomplete="off" placeholder="寻找全部朋友" class="inputtext textInput DOMControl_placeholder"/>
+                                <input type="text" name="inviteMessage" title="邀请信息..." placeholder="邀请信息..." class="inputtext textInput DOMControl_placeholder"/>
                               </div>
                             </div>
                           </div>
@@ -74,29 +41,26 @@ function saveFriends() {
                     <div id="uawg93_2" class="fbProfileBrowserResult scrollable threeColumns hideSummary">
                       <div class="fbProfileBrowserListContainer">
                         <ul class="">
-                          <s:iterator value="friends" id="friend">
-                          <li class="multiColumnCheckable checkableListItem">
-                            <input type="checkbox" class="checkbox" name="checkableitems" value="<s:property value='#friend.userid' />" />
+                          <s:iterator value="userevents">
+                          <li class="multiColumnCheckable checkableListItem <s:if test='joined'>disabledCheckable</s:if>">
+                            <input type="checkbox" class="checkbox" name="checkableitems" value="<s:property value='profile.userid' />" />
                             <a class="anchor" href="#" tabindex="-1">
                               <div class="UIImageBlock UIImageBlock_Entity clearfix">
-                                <img src="<s:property value="#friend.avatar" />" class="photo UIImageBlock_Image img UIImageBlock_ENT_Image"/>
+                                <img src="<s:property value="#profile.avatar" />" class="photo UIImageBlock_Image img UIImageBlock_ENT_Image"/>
                                 <div class="content UIImageBlock_Content">
-                                  <div class="fcb fwb text"><s:property value="#friend.username" /> </div>
+                                  <div class="fcb fwb text"><s:property value="profile.username" /> </div>
                                   <div class="fcg text subtitle"></div>
                                 </div>
                               </div>
                             </a>
-                            
-                            
                           </li>
-                          
                           </s:iterator>
                         </ul>
                       </div>
                     </div>
                   </div>
                 </div>
-                <input type="hidden" name="eid" autocomplete="off"/>
+                <input type="hidden" name="eventId" value="<s:property value='eventId' />" />
               </div>
             </div>
           </div>
@@ -104,7 +68,7 @@ function saveFriends() {
             <div class="dialog_buttons_msg"></div>
             <div>
               <label class="uiButton uiButtonLarge uiButtonConfirm inputsubmit">
-              <input type="button" name="ok" value="保存后关闭" onclick="saveFriends()"/>
+              <input type="button" name="ok" value="保存后关闭" onclick="sendInviteRequest()"/>
               </label>
             </div>
           </div>
@@ -115,3 +79,41 @@ function saveFriends() {
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+
+function hidePopup(dialog) {
+  $("#" + dialog).remove();
+}
+function showPopup(dialog) {
+  $("#" + dialog).show();
+  $("#" + dialog).removeClass("hidden_elem");
+  return false;
+}
+
+function sendInviteRequest() {
+  var invitees = "";
+  $("input[name='checkableitems']:checked").each(function (){
+    invitees = invitees + $(this).val() + " ";
+  });
+  var eid = $("input[name='eventId']").val();
+  var message = $("input[name='inviteMessage']").val();
+  if(message == $("input[name='inviteMessage']").attr("placeholder")) {
+    message = "";
+  }
+  if (invitees == "") {
+    hidePopup("dialog_0");
+    return false;
+  }
+  $("#pop_content").addClass("dialog_loading_shown");
+  $.get("event/event!inviteFriendsAjax.jhtml", {invitees: invitees, eventId: eid, inviteMessage: message}, function(data){
+    if(data == "true") {
+      $(".dialog_body").html("<div class='pam uiBoxYellow noborder'>你的邀请已发送。</div>");
+    } else {
+      $(".dialog_body").html("<div class='pam uiBoxYellow noborder'>请求发送失败，请重新发送。</div>");
+    }
+    $(".inputsubmit").html("<input type='button' name='ok' value='关闭' onclick=\"hidePopup('dialog_0')\"/>");
+    $("#pop_content").removeClass("dialog_loading_shown");
+  }, "text");
+}
+</script>
