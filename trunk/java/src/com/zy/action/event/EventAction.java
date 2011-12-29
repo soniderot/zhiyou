@@ -1,6 +1,7 @@
 package com.zy.action.event;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -8,7 +9,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.lang.StringUtils;
+import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.zy.Constants;
@@ -526,6 +531,37 @@ public class EventAction {
 		return "recommend.places";
 	}
 
+	public String getEventFriendsAjax() {
+		userevents = eventFacade.getEventFriends(ActionUtil.getSessionUserId(), eventId);
+		return "member.friends";
+	}
+	
+	public String inviteFriendsAjax() {
+		boolean result = false;
+		String message = ActionUtil.getRequest().getParameter("inviteMessage");
+		if(invitees != null && invitees.length() > 0){
+			String[] array = invitees.split(" ");
+			for(int i = 0; i < array.length; i++){
+				requestFacade.sendRequest_tx(ActionUtil.getSessionUserId(), Integer.valueOf(array[i]), (short)5, eventId, message, null);
+			}
+			result = true;
+		}
+    try {
+      HttpServletResponse response = ServletActionContext.getResponse();
+      response.setCharacterEncoding("UTF-8");
+      PrintWriter out = response.getWriter();
+      out.print(result+"");
+      out.flush();    
+      out.close();    
+    } catch (Exception e) {  
+      e.printStackTrace();    
+    }
+		return null;
+	}
+	
+	
+	
+	
 	public static void main(String[] args) throws Exception{
 		String str = "2011/12/12 12:00:00";
 		String pattern = "yyyy/MM/dd HH:mm:ss";
