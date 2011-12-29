@@ -1,20 +1,20 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <%@page contentType="text/html; charset=UTF-8"%>
 <div id="leftCol" style="min-height:100px;">
-	<s:if test="(event!=null)&&(event.logo!=null)">
+  <s:if test="(event!=null)&&(event.logo!=null)">
   	<img alt="" src="<s:property value="event.logo"/>" class="pbs fbEventPhoto profile-picture img"/>
   </s:if>
   <s:else>
   	<img alt="" src="images/event.jpg" class="pbs fbEventPhoto profile-picture img"/>
-</s:else>
+  </s:else>
   <div id="event_profile_guest_info">
-    <div data-referrer="pagelet_nav_visitors" id="pagelet_nav_visitors"></div>
-     <s:if test="(event!=null)">
-    <a ajaxify="/ajax/choose/?type=event&amp;eid=241236155939386&amp;send_invites_on_close=1" rel="dialog-post" href="/events/create/?eid=241236155939386" role="button" class="mbs uiButton">
+    <div id="pagelet_nav_visitors"></div>
+    <s:if test="(event!=null)">
+    <a rel="dialog-post" href="javascript:void(0);" onclick="return inviteFriends(<s:property value='event.id' />);" class="mbs uiButton">
       <i class="mrs img sp_7gl7wd sx_61da04"></i>
       <span class="uiButtonText">选择你要邀请的朋友</span>
     </a>
-     </s:if>
+    </s:if>
     <div>
       <div class="event_guestlist mbm">
       	<s:if test="(event!=null)">
@@ -46,3 +46,10 @@
     
   </div>
 </div>
+<script type="text/javascript">
+  function inviteFriends(eventId) {
+    $.get("event/event!getEventFriendsAjax.jhtml", {eventId: eventId}, function(data) {
+      $("body").append(data);
+    });
+  }
+</script>
