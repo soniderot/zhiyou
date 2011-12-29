@@ -19,4 +19,6 @@ public interface EventFacade {
 	public List<EventVO> getEvents(int userId,String userIds,int pageNo,int pageSize);
 	public List<ZyEventcategory> getEventCategorys();
 	public List<ZyRecommplace> getRecommPlaces(int districtid,int subcategoryid);
+	public List<EventVO> getEventFriends(int userId, int eventId);
+	public List<ZyProfile> getRequestSentTo(int eventId);
 }
