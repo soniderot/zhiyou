@@ -41,7 +41,7 @@
             <column name="CONTENT2" />
         </property>
         <property name="message" type="java.lang.String">
-            <column name="MESSAGE" not-null="true" />
+            <column name="MESSAGE" not-null="false"/>
         </property>
     </class>
 </hibernate-mapping>
