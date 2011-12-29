@@ -1,12 +1,15 @@
 package com.zy.facade.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.zy.common.model.ZyEvent;
+import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRequest;
 import com.zy.domain.event.service.EventService;
 import com.zy.domain.message.bean.RequestBean;
 import com.zy.domain.message.service.RequestService;
+import com.zy.domain.profile.service.ProfileService;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
@@ -17,7 +20,6 @@ public class RequestFacadeImpl implements RequestFacade{
 	private FeedFacade feedFacade;
 	
 	private EventService eventService;
-	
 	
 	public EventService getEventService() {
 		return eventService;
@@ -89,4 +91,5 @@ public class RequestFacadeImpl implements RequestFacade{
 	public List<ZyRequest> getRequest(int receiverid, short eventkey, int referenceid){
 		return requestService.getRequest(receiverid, eventkey, referenceid);
 	}
+	
 }
