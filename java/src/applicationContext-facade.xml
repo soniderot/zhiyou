@@ -37,6 +37,8 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	<bean name="eventFacade" class="com.zy.facade.impl.EventFacadeImpl"  >
 		<property name="eventService" ref="eventService"/>
 		<property name="profileService" ref="profileService"/>
+		<property name="snsService" ref="snsService"/>
+		<property name="requestService" ref="requestService"/>
 	</bean>
 	
 	<bean name="luceneIndexFacade" class="com.zy.facade.impl.LuceneIndexFacadeImpl"  >
