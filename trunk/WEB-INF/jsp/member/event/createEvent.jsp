@@ -173,7 +173,9 @@
             <th class="label">邀请了谁？：</th>
             <td class="data">
               <div id="u5hu7k_11">
-                <a id="u5hu7k_10" href="#" role="button" class="uiButton" onclick="return showPopup('dialog_0')"><span class="uiButtonText">选择宾客</span></a>
+                <a id="customerSelect" href="#" role="button" class="uiButton" onclick="return showPopup('dialog_0')">
+                  <span class="uiButtonText">选择宾客</span>
+                </a>
                 <input type="hidden" value="" name="invitees" class="invitees" autocomplete="off"/>
               </div>
             </td>
