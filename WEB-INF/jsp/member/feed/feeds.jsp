@@ -234,7 +234,7 @@
                         </a>
                          <s:if test="feed.handle=='sns.publish.text'">发布了评论</s:if>
                          <s:if test="feed.handle=='sns.event.create'">创建了一个活动</s:if>
-                        <s:if test="feed.handle=='sns.event.create'">创建了一个活动</s:if>
+                        
                         <s:if test="feed.handle=='sns.event.join'">参加了一个活动</s:if>
                         <s:if test="feed.handle=='sns.publish.photo'">发布了照片</s:if>
                         <s:if test="feed.handle=='sns.share.connection'">   
