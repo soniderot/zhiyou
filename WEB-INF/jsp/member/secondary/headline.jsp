@@ -5,6 +5,8 @@
 				      <div data-referrer="pagelet_above_header" id="pagelet_above_header"></div>
 				      <div data-referrer="pagelet_header_personal" id="pagelet_header_personal">
 				        <div class="clearfix profileHeader">
+				        	
+				        	<s:if test="profile.userid!=#session.user.userid">   
 				          <div class="rfloat">
 				            <div id="ucyftu_4" class="FriendButton profileHeaderButton">
 				              <label for="ucyftu_5" class="FriendRequestAdd addButton uiButton">
@@ -40,6 +42,7 @@
 				              </div>
 				            </div>
 				          </div>
+				        </s:if>
 				          <div class="profileHeaderMain">
 				            <h1><span class="profileName fn ginormousProfileName fwb"><s:property value="profile.username"/></span></h1>
 				          </div>

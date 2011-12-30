@@ -94,21 +94,25 @@
             </div>
           </li>
         </s:iterator>
-
-
+				<s:if test="feeds.size()==0">  
+				<div>
+              <div class="pam uiBoxLightblue uiMorePagerPrimary">
+                目前没有更多动态可显示。
+              </div>
+            </div>
+			</s:if>  
       </ul>
 
       <div>
         <div id="pagelet_stream_pager"
           data-referrer="pagelet_stream_pager">
           <div class="clearfix mts uiMorePager stat_elem fbStreamPager">
-            <a href="/ajax/feed/edit_options_dialog.php?filter_key=lf"
-              rel="dialog" class="uiMorePagerSecondary rfloat">编辑选项</a>
+             <!--
             <div>
               <div class="pam uiBoxLightblue uiMorePagerPrimary">
                 目前没有更多动态可显示。
               </div>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>

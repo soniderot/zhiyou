@@ -56,7 +56,9 @@
 						              </div>
 						              <div>
 						              	<span class="imgWrap"><i class="img sp_ah6icc sx_b23266"></i></span>
+						              	
 						                <div class="linkWrap noCount">朋友 <span class="count hidden_elem uiSideNavCountText">(<span class="countValue fsm">0</span><span class="maxCountIndicator"></span>)</span></div>
+						             	
 						              </div>
 					              </a>
 					            </li>
@@ -70,7 +72,7 @@
 					        <div class="uiHeader uiHeaderTopBorder uiHeaderNav">
 					          <div class="clearfix uiHeaderTop">
 					            <div>
-					              <h5 class="uiHeaderTitle"><span class="fcg"><a href="http://www.facebook.com/yinluotianse?sk=friends&amp;v=friends">朋友 <s:if test="friends.size()>0">   (<s:property value="friends.size()"/>)</s:if> </a></span></h5>
+					              <h5 class="uiHeaderTitle"><span class="fcg"><a href="http://www.facebook.com/yinluotianse?sk=friends&amp;v=friends"> <s:if test="friends.size()>0">  朋友 (<s:property value="friends.size()"/>)</s:if> </a></span></h5>
 					            </div>
 					          </div>
 					        </div>
