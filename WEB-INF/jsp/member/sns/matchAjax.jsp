@@ -1,10 +1,11 @@
 ﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@page pageEncoding="utf-8"%>
 <s:iterator value="profileList" id="profile">
   <div class="userinfo hidden_elem">
     <div class="slidewrap">
   <div class="slidesubwrap">
     <div class="slidecontent">
-      <img src="images/250x250.jpg"/>
+      <img width=250 height=250 src="<s:property value='avatar' />"/>
     </div>
   </div>
   </div>
