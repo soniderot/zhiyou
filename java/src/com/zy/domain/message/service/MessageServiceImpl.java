@@ -139,4 +139,8 @@ System.out.println("-------msg.size---"+msgs.size());
 	//public short getMessageForbidStatus(int userId, short useQuoteCoin);
 	
 	//public void spamMessage(long messageId);
+	
+	public List<ZyMessage> getMessagesByIds(String ids){
+		return messageDao.getMessagesByIds(ids);
+	}
 }

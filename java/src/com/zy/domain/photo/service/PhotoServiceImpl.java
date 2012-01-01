@@ -30,7 +30,7 @@ public class PhotoServiceImpl implements PhotoService{
 	public List<ZyAlbum> getAlbumList(int userId){
 		List<ZyAlbum> results = albumDao.getAlbumList(userId);
 		for(int i=0;i<results.size();i++){
-			int cnt = photoDao.getPhotosInAlbum(results.get(i).getId()).size();
+			int cnt = photoDao.getPhotosInAlbum(results.get(i).getId(),1,Integer.MAX_VALUE).size();
 			results.get(i).setPhotosCnt(cnt);
 		}
 		return results;
@@ -43,5 +43,31 @@ public class PhotoServiceImpl implements PhotoService{
 	public void createPhoto(ZyPhoto photo){
 		System.out.println("------------begin to save---------");
 		photoDao.save(photo);
+	}
+	
+	public List<ZyPhoto> getPhotoList(int albumId,int pageNo,int pageSize){
+		return photoDao.getPhotosInAlbum(albumId,pageNo,pageSize);
+	}
+	public ZyAlbum getAlbum(int albumId){
+		return albumDao.load(albumId);
+	}
+	
+	public void createAlbum(ZyAlbum album){
+		albumDao.save(album);
+	}
+	
+	public void deleteAlbum(int albumId){
+		albumDao.deleteByKey(albumId);
+	}
+	
+	public void deletePhoto(int photoId){
+		photoDao.deleteByKey(photoId);
+	}
+	public void updateAlbum(ZyAlbum album){
+		albumDao.update(album);
+	}
+	
+	public void updatePhoto(ZyPhoto photo){
+		photoDao.update(photo);
 	}
 }

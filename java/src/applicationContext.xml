@@ -53,6 +53,7 @@
 		<tx:attributes>
 			<tx:method name="send*" propagation="REQUIRED"/>
 			<tx:method name="*Delete*" propagation="REQUIRED"/>
+			<tx:method name="delete*" propagation="REQUIRED"/>
 			<tx:method name="add*" propagation="REQUIRED"/>
 			<tx:method name="create*" propagation="REQUIRED"/>
 			<tx:method name="update*"  propagation="REQUIRED"/>

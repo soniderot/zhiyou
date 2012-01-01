@@ -245,7 +245,7 @@ public class FeedAction extends ActionSupport{
 			System.out.println(str);
 			ZyPhoto photo = new ZyPhoto();
 			photo.setFilename("/photos/album/"+str);
-			photo.setAlbumno(1);
+			//photo.setAlbumno(0);
 			photo.setCreatetime(new Date());
 			photo.setUserid(ActionUtil.getSessionUserId());
 			photoFacade.createPhoto(photo);

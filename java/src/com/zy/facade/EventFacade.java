@@ -21,4 +21,5 @@ public interface EventFacade {
 	public List<ZyRecommplace> getRecommPlaces(int districtid,int subcategoryid);
 	public List<EventVO> getEventFriends(int userId, int eventId);
 	public List<ZyProfile> getRequestSentTo(int eventId);
+	public boolean isMemberInEvent(int memberId,int eventId);
 }

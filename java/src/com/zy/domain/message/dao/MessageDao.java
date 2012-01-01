@@ -23,4 +23,6 @@ public interface MessageDao  extends BaseDao<ZyMessage, Integer> {
 	
 	public int countForNewInbox(int userid);
 	
+	public List<ZyMessage> getMessagesByIds(String ids);
+	
 }
