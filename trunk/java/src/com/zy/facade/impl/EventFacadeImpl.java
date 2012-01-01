@@ -138,5 +138,15 @@ public class EventFacadeImpl implements EventFacade{
 		}
 		return profiles;
 	}
+	
+	public boolean isMemberInEvent(int memberId,int eventId){
+		List<ZyProfile> list = this.getEventMembers(eventId);
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).getUserid()==memberId){
+				return true;
+			}
+		}
+		return false;
+	}
 
 }

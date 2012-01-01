@@ -37,5 +37,8 @@
         <property name="createtime" type="java.util.Date">
             <column name="CREATETIME" length="0" />
         </property>
+         <property name="parentids" type="java.lang.String">
+            <column name="PARENTIDS" />
+        </property>
     </class>
 </hibernate-mapping>

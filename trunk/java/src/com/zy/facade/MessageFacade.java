@@ -29,5 +29,7 @@ public boolean sendMessage(ZyMessage message);
 	public int countForOutbox(int userid);
 	
 	public int countForNewInbox(int userid);
+	
+	public List<MessageBean> getMessagesByIds(String ids);
 
 }

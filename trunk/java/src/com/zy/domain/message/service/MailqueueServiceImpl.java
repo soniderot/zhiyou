@@ -41,7 +41,7 @@ public class MailqueueServiceImpl implements MailqueueService {
 				mailThread.setSenderName(senderName);
 				mailThread.setTo(to);
 				mailThread.setSubject(subject);
-				mailThread.setTemplateName(templateName + "_"  + ".ftl");
+				mailThread.setTemplateName(templateName + ""  + ".ftl");
 				mailThread.setRoot(root);
 				new Thread(mailThread).start();
 			} else {

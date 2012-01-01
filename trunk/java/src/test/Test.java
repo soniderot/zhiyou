@@ -1,8 +1,14 @@
 package test;
 
+import java.util.List;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zy.facade.RequestFacade;
+import com.zy.common.model.ZyAlbum;
+import com.zy.common.model.ZyMessage;
+import com.zy.common.model.ZyPhoto;
+import com.zy.facade.MessageFacade;
+import com.zy.facade.PhotoFacade;
 import com.zy.facade.SNSFacade;
 
 public class Test {
@@ -125,7 +131,39 @@ public class Test {
 		
 		
 		
-		RequestFacade requestFacade = (RequestFacade)appContext.getBean("requestFacade");
-		requestFacade.sendRequest_tx(1,2,(short)5,19,"",null);
+		//RequestFacade requestFacade = (RequestFacade)appContext.getBean("requestFacade");
+		//requestFacade.sendRequest_tx(1,2,(short)5,19,"",null);
+		
+		/*
+		EventFacade eventFacade = (EventFacade)appContext.getBean("eventFacade");
+		List<ZyRecommplace> list = eventFacade.getRecommPlaces(1,1);
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i).getAddress());
+		}*/
+		
+		//FeedFacade feedFacade = (FeedFacade)appContext.getBean("feedFacade");
+		//feedFacade.shareNewsFeed_tx(2,122);
+		/*
+		MailqueueService mailqueueService = (MailqueueService)appContext.getBean("mailqueueService");
+		Map map = new HashMap();
+		map.put("country","美国");
+		mailqueueService.sendFormatEmail_tx("bill.tian@meta4-group.com","bill","bill.tian@meta4-group.com","xiaobill", "test", "test_en_US",map , true);
+		*/
+		
+		
+		PhotoFacade photoFacade = (PhotoFacade)appContext.getBean("photoFacade");
+		System.out.println(photoFacade.getAlbumList(1).size());
+		List<ZyAlbum> list = photoFacade.getAlbumList(1);
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i).getAlbumname());
+			System.out.println(list.get(i).getPhotosCnt());
+		}
+		
+		List<ZyPhoto> list1 = photoFacade.getPhotoList(1,1,100);
+		for(int i=0;i<list1.size();i++){
+			System.out.println(list1.get(i).getFilename());
+		}
+		
+		
 	}
 }

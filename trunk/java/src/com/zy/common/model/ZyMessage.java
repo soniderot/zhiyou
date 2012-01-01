@@ -24,8 +24,19 @@ public class ZyMessage implements java.io.Serializable {
 	private String deletedbysender;
 	private String deletedbyreceiver;
 	private Date createtime;
+	
+	private String parentids;
+	
 
 	// Constructors
+
+	public String getParentids() {
+		return parentids;
+	}
+
+	public void setParentids(String parentids) {
+		this.parentids = parentids;
+	}
 
 	/** default constructor */
 	public ZyMessage() {

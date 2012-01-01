@@ -9,10 +9,12 @@ import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.domain.message.bean.MessageBean;
 import com.zy.facade.MessageFacade;
+import com.zy.facade.ProfileFacade;
 import com.zy.facade.SNSFacade;
 
 public class MessageAction extends ActionSupport{
 	private MessageFacade messageFacade;
+	private ProfileFacade profileFacade;
 	private short pageNo = 1;
 	private short pageSize = 12;
 	private List<MessageBean> messages;
@@ -24,6 +26,16 @@ public class MessageAction extends ActionSupport{
 	//private int[] selectedFriends;
 	private String message;
 	private String selectedFriends;
+	
+	private List<MessageBean> zyMessages;
+	
+	private ZyProfile sender;
+	private ZyProfile receiver;
+	
+	private String replyMessage;
+	private int receiverId;
+	
+	
 	
 	/*
 	public int[] getSelectedFriends() {
@@ -37,6 +49,66 @@ public class MessageAction extends ActionSupport{
 
 
 	
+	public int getReceiverId() {
+		return receiverId;
+	}
+
+
+	public void setReceiverId(int receiverId) {
+		this.receiverId = receiverId;
+	}
+
+
+	public String getReplyMessage() {
+		return replyMessage;
+	}
+
+
+	public void setReplyMessage(String replyMessage) {
+		this.replyMessage = replyMessage;
+	}
+
+
+	public ProfileFacade getProfileFacade() {
+		return profileFacade;
+	}
+
+
+	public void setProfileFacade(ProfileFacade profileFacade) {
+		this.profileFacade = profileFacade;
+	}
+
+
+	public ZyProfile getSender() {
+		return sender;
+	}
+
+
+	public void setSender(ZyProfile sender) {
+		this.sender = sender;
+	}
+
+
+	public ZyProfile getReceiver() {
+		return receiver;
+	}
+
+
+	public void setReceiver(ZyProfile receiver) {
+		this.receiver = receiver;
+	}
+
+
+	public List<MessageBean> getZyMessages() {
+		return zyMessages;
+	}
+
+
+	public void setZyMessages(List<MessageBean> zyMessages) {
+		this.zyMessages = zyMessages;
+	}
+
+
 	public String getMessage() {
 		return message;
 	}
@@ -163,7 +235,7 @@ public class MessageAction extends ActionSupport{
 	
 	public String deleteMessage(){
 		ZyMessage message = messageFacade.getMessageById(messageId);
-		if(message.getSenderid()==message.getSenderid()){
+		if(message.getSenderid()==ActionUtil.getSessionUserId()){
 			messageFacade.senderDeleteMessage(messageId);
 		}else{
 			messageFacade.receiverDeleteMessage(messageId);
@@ -173,7 +245,37 @@ public class MessageAction extends ActionSupport{
 		return "member.messages";
 	}
 
+	public String viewMessage(){
+		ZyMessage message = messageFacade.getMessageById(messageId);
+		sender = profileFacade.findProfileById(message.getSenderid());
+		receiver = profileFacade.findProfileById(message.getReceiverid());
+		zyMessages = messageFacade.getMessagesByIds(message.getParentids());
+		MessageBean bean = new MessageBean();
+		bean.setMessage(message);
+		bean.setProfile(sender);
+		zyMessages.add(bean);
+		return "member.messagedetail";
+	}
 
+	public String replyMessage(){
+		System.out.println("replymessage--------------"+replyMessage);
+		ZyMessage message = new ZyMessage();
+		message.setBody(replyMessage);
+		message.setSubject(replyMessage);
+		message.setCreatetime(new Date());
+		message.setParentid(0);
+		message.setReceiverid(receiverId);
+		message.setSenderid(ActionUtil.getSessionUserId());
+		
+		ZyMessage oldMessage = messageFacade.getMessageById(messageId);
+		if(oldMessage.getParentids()!=null&&oldMessage.getParentids().trim().length()>0){
+			message.setParentids(oldMessage.getParentids()+","+messageId);
+		}else{
+			message.setParentids(""+messageId);
+		}
+		messageFacade.sendMessage(message);
+		return "to.member.inboxmessages";
+	}
 	public String getSelectedFriends() {
 		return selectedFriends;
 	}

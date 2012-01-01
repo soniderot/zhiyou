@@ -1,15 +1,26 @@
 package com.zy.facade.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.zy.common.model.ZyMessage;
 import com.zy.domain.message.bean.MessageBean;
 import com.zy.domain.message.service.MessageService;
+import com.zy.domain.profile.service.ProfileService;
 import com.zy.facade.MessageFacade;
 
 public class MessageFacadeImpl implements MessageFacade{
 	private MessageService messageService;
+	private ProfileService profileService;
 	
+	public ProfileService getProfileService() {
+		return profileService;
+	}
+
+	public void setProfileService(ProfileService profileService) {
+		this.profileService = profileService;
+	}
+
 	public MessageService getMessageService() {
 		return messageService;
 	}
@@ -63,4 +74,15 @@ public class MessageFacadeImpl implements MessageFacade{
 		return messageService.countForNewInbox(userid);
 	}
 
+	public List<MessageBean> getMessagesByIds(String ids){
+		List<ZyMessage> messages = messageService.getMessagesByIds(ids);
+		List<MessageBean> results = new ArrayList<MessageBean>();
+		for(int i=0;i<messages.size();i++){
+			MessageBean bean = new MessageBean();
+			bean.setMessage(messages.get(i));
+			bean.setProfile(profileService.findProfileById(messages.get(i).getSenderid()));
+			results.add(bean);
+		}
+		return results;
+	}
 }

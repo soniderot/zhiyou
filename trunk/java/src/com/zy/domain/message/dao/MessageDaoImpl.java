@@ -33,7 +33,12 @@ public class MessageDaoImpl extends HibernateDao <ZyMessage, Integer>  implement
 	public int countForOutbox(int userid){
 		String hql = "select count(*) from ZyMessage where senderid =? and deletedbysender is null";
 		return this.getTotalRows(hql, new Object[] { userid});
-	}	
+	}
+	
+	public List<ZyMessage> getMessagesByIds(String ids){
+		String hql = "from ZyMessage where id in ("+ids+") order by id";
+		return this.find(hql);
+	}
 	
 }
 

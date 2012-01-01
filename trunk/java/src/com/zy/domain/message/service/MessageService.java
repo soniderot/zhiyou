@@ -35,4 +35,6 @@ public interface MessageService {
 	//public short getMessageForbidStatus(int userId, short useQuoteCoin);
 	
 	//public void spamMessage(int messageId);
+	
+	public List<ZyMessage> getMessagesByIds(String ids);
 }

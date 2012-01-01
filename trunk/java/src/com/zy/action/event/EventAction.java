@@ -492,6 +492,9 @@ public class EventAction {
 	}
 	
 	public String joinEvent(){
+		if(eventFacade.isMemberInEvent(ActionUtil.getSessionUserId(), eventId)){
+			return "my.events";
+		}
 		eventFacade.addMember(ActionUtil.getSessionUserId(), eventId);
 		List<ZyRequest> list = requestFacade.getRequest(ActionUtil.getSessionUserId(), (short)5, eventId);
 		for(int i=0;i<list.size();i++){

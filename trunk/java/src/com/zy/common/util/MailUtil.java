@@ -30,6 +30,7 @@ public class MailUtil {
 	public static void send(String from, String senderName, String to,
 			String subject, String message) {
 		String l_host = Constants.SMTP_SERVER;
+		l_host = "smtp.hungryforwords.com";
 		Properties l_props = System.getProperties();
 		l_props.put("mail.smtp.host", l_host);
 		l_props.put("mail.smtp.auth","false");
@@ -97,6 +98,7 @@ public class MailUtil {
 
 	public static void sendFormatEmail(String from, String senderName,
 			String to, String subject, String templateName, Map root) {
+		System.out.println("-----------templateName-----"+templateName);
 		String message = merge(templateName, root);
 //		System.out.println("from:" + from + ";\n senderName:" + senderName
 //				+ ";\n to:" + to + ";\n subject:" + subject + ";\n message:"
@@ -121,16 +123,17 @@ public class MailUtil {
 		Map root = new HashMap();
 		root.put("country", "中国");
 
+		/*
 		MailThread mailThread = new MailThread();
 		mailThread.setFrom("test@abc.com");
 		mailThread.setSenderName("测试w");
-		mailThread.setTo("steele@meta4-group.com");
+		mailThread.setTo("bill.tian@meta4-group.com");
 		mailThread.setSubject("测试");
 		mailThread.setTemplateName("test_en_US.ftl");
 		mailThread.setRoot(root);
-		new Thread(mailThread).start();
+		//new Thread(mailThread).start();*/
 		MailUtil.sendFormatEmail("test@abc.com", "test",
-				"steele@meta4-group.com", "测试", "test_en_US.ftl", root);
+				"bill.tian@meta4-group.com", "测试", "test_en_US.ftl", root);
 
 	}
 }

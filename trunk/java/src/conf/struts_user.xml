@@ -43,6 +43,8 @@
 	
 	<action name="message" class="com.zy.action.message.MessageAction">
 		<result name="member.messages" type="tiles">tiles.member.messages</result>
+		<result name="to.member.inboxmessages" type="redirect">/usr/message.jhtml</result>
+		<result name="member.messagedetail" type="tiles">tiles.member.messagedetail</result>
 		<result name="member.message.sent">/WEB-INF/jsp/member/message/addMessageAjax.jsp</result>
 	</action>
 	

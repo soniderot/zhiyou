@@ -69,4 +69,8 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	<bean name="districtService" class="com.zy.domain.option.service.DistrictServiceImpl">
 		<property name="districtDao" ref="districtDao"/>
 	</bean>
+	
+	<bean name="mailqueueService" class="com.zy.domain.message.service.MailqueueServiceImpl">
+		<property name="mailqueueDao" ref="mailqueueDao"/>
+	</bean>
 </beans>

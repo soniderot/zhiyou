@@ -35,4 +35,6 @@
 <bean id="eventCategoryDao" class="com.zy.domain.event.dao.EventCategoryDaoImpl" parent="baseDao" />
 <bean id="districtDao" class="com.zy.domain.option.dao.DistrictDaoImpl" parent="baseDao" />
 <bean id="recommPlaceDao" class="com.zy.domain.event.dao.RecommPlaceDaoImpl" parent="baseDao" />
+
+<bean id="mailqueueDao" class="com.zy.domain.message.dao.MailqueueDaoImpl" parent="baseDao" />
 </beans>
