@@ -1,7 +1,6 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <%@page contentType="text/html; charset=UTF-8"%>
-<div class="hidden_elem" id="headerArea"></div>
-<div role="complementary" id="rightCol">   </div>
+
 <div role="main" id="contentArea">
   <div data-referrer="pagelet_titan" id="pagelet_titan">
     <div id="MessagingDashboard">
@@ -77,15 +76,17 @@
                 <tbody>
                   <tr>
                     <td class="threadMainCol">
-                      <a class="threadLink" href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="profile.userid"/>" rel="ignore">
+                      <a class="threadLink" href="/usr/message!viewMessage.jhtml?messageId=<s:property value="message.id"/>" rel="ignore">
                         <div class="UIImageBlock clearfix pvs">
                           <img class="uiProfilePhoto UIImageBlock_Image UIImageBlock_MED_Image uiProfilePhotoLarge img" src="<s:property value="profile.avatar"/>" alt="">
                           <div class="right UIImageBlock_Ext">
                             <label class="draft">草稿</label>
                             <span class="timestamp">
-                              <abbr class="timestamp" data-date="Fri, 18 Nov 2011 02:25:01 -0800" title="2011年11月18日18:25">星期五</abbr>
+                              <abbr class="timestamp" data-date="Fri, 18 Nov 2011 02:25:01 -0800" title="<s:date name="message.createtime" format="yyyy-MM-dd HH:mm" />"><s:date name="message.createtime" format="yyyy-MM-dd HH:mm" /></abbr>
                             </span>
                           </div>
+                          
+                         
                           <div class="content UIImageBlock_Content UIImageBlock_MED_Content">
                             <div class="authorsWrapper">
                               <strong class="authors"><s:property value="profile.username"/></strong>
@@ -100,20 +101,23 @@
                       </a>
                     </td>
                     <td class="plm">
-                      <a class="uiTooltip markAsReadLink" onmouseout="this.blur();" href="#" ajaxify="/ajax/messaging/async.php?action=markRead&amp;tids%5B0%5D=id.237791252950736" rel="async-post">
-                        <span class="readState markread"></span>
-                        <span class="uiTooltipWrap top right righttop">
-                          <span class="uiTooltipText">标记为已读</span>
-                        </span>
-                      </a>
-                      <a class="uiTooltip markAsUnreadLink" onmouseout="this.blur();" href="#" ajaxify="/ajax/messaging/async.php?action=markUnread&amp;tids%5B0%5D=id.237791252950736" rel="async-post">
-                        <span class="readState markunread"></span>
-                        <span class="uiTooltipWrap top right righttop">
-                          <span class="uiTooltipText">标记为未读</span>
-                        </span>
-                      </a>
-                    </td>
+																<a class="uiTooltip markAsReadLink" onmouseout="this.blur();" href="#" ajaxify="/ajax/messaging/async.php?action=markRead&amp;tids%5B0%5D=id.237791252950736" rel="async-post">
+																	<span class="readState markread"></span>
+																	<span class="uiTooltipWrap top right righttop">
+																		<span class="uiTooltipText">标记为已读</span>
+																	</span>
+																</a>
+																<a class="uiTooltip markAsUnreadLink" onmouseout="this.blur();" href="#" ajaxify="/ajax/messaging/async.php?action=markUnread&amp;tids%5B0%5D=id.237791252950736" rel="async-post">
+																	<span class="readState markunread"></span>
+																	<span class="uiTooltipWrap top right righttop">
+																		<span class="uiTooltipText">标记为未读</span>
+																	</span>
+																</a>
+															</td>
                     <td class="pls">
+                    	
+                    	
+                    	
                       <a class="uiTooltip archiveLink" onmouseout="this.blur();"  href="/usr/message!deleteMessage.jhtml?messageId=<s:property value="message.id"/>" rel="async-post">
                         <label class="uiCloseButton uiCloseButtonSmall" for="up3vb3_4">
                           <input type="button" title="" id="up3vb3_4">
@@ -123,6 +127,8 @@
                         </span>
                       </a>
                     </td>
+                    
+                    
                   </tr>
                 </tbody>
               </table>
@@ -135,4 +141,5 @@
   </div>
 </div>
           
+
 <%@ include file="/WEB-INF/jsp/popup/addMessagePop.jsp"%>

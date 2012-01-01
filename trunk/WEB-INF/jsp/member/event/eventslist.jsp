@@ -110,6 +110,7 @@
 					          </div>
 					        </div>
 					      </div>
+					      <!--
 					      <div class="rfloat">
 					      	<a class="prev uiButtonDisabled uiButton uiButtonNoText" role="button" data-href="/?sk=fe&amp;s=-1">
 					      		<i class="mrs customimg img sp_9dewam sx_48249a"></i>
@@ -119,7 +120,7 @@
 					      		<i class="mrs customimg img sp_9dewam sx_ce0533"></i>
 					      		<span class="uiButtonText"></span>
 					      	</a>
-					      </div>
+					      </div>-->
 					    </div>
 					  </div>
 					</div>
