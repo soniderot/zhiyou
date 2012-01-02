@@ -7,4 +7,6 @@ import com.zy.common.model.ZySchool;
 public interface SchoolService {
 	public ZySchool getSchoolById(int id);
 	public List<ZySchool> getSchools();
+	public List<ZySchool> getAllSchools();
+	public List<ZySchool> getSchoolsByKey(String key);
 }
