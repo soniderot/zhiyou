@@ -1,0 +1,1 @@
+alter table zy_photo add column deleted CHAR(1) DEFAULT NULL AFTER SUMMARY;
