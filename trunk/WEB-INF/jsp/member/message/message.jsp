@@ -20,7 +20,12 @@
             </div>
             <div>
               <h2 class="uiHeaderTitle">
-                <i class="uiHeaderImage img sp_1md9rt sx_73fc1d"></i>消息
+              	<s:if test="(type=='outbox')"> 
+              		<i class="uiHeaderImage img sp_1md9rt sx_73fc1d"></i>发出的消息
+              </s:if> 
+              <s:else> 
+                <i class="uiHeaderImage img sp_1md9rt sx_73fc1d"></i>收到的消息
+              </s:else> 
               </h2>
             </div>
           </div>
@@ -35,8 +40,8 @@
                       <strong>查看：</strong>
                     </div>
                     <div class="footerActionLinks rfloat fsm fwn fcg">
-                      <a href="/messages/?query=is%3Aunread">未读</a>
-                       · <a href="/messages/?query=is%3Aarchived">已存档</a>
+                      <a href="usr/message.jhtml?type=inbox" >收件箱</a>
+                       · <a href="usr/message.jhtml?type=outbox">发件箱</a>
                       </div>
                     </div>
                   </li>
@@ -100,23 +105,45 @@
                         </div>
                       </a>
                     </td>
+                    <s:if test="(type!='outbox')"> 
                     <td class="plm">
+                    						
 																<a class="uiTooltip markAsReadLink" onmouseout="this.blur();" href="#" ajaxify="/ajax/messaging/async.php?action=markRead&amp;tids%5B0%5D=id.237791252950736" rel="async-post">
 																	<span class="readState markread"></span>
 																	<span class="uiTooltipWrap top right righttop">
 																		<span class="uiTooltipText">标记为已读</span>
 																	</span>
 																</a>
+															
+															
+															</td>
+									</s:if> 
+									
+									
+									
+                   
+										
+										
+										  <td class="plm">
+                    						
+																<a class="uiTooltip markAsReadLink" onmouseout="this.blur();" href="#" ajaxify="/ajax/messaging/async.php?action=markRead&amp;tids%5B0%5D=id.237791252950736" rel="async-post">
+																	<span class="readState markread"></span>
+																	<span class="uiTooltipWrap top right righttop">
+																		<span class="uiTooltipText">标记为已读</span>
+																	</span>
+																</a>
+															
 																<a class="uiTooltip markAsUnreadLink" onmouseout="this.blur();" href="#" ajaxify="/ajax/messaging/async.php?action=markUnread&amp;tids%5B0%5D=id.237791252950736" rel="async-post">
 																	<span class="readState markunread"></span>
 																	<span class="uiTooltipWrap top right righttop">
-																		<span class="uiTooltipText">标记为未读</span>
+																		<span class="uiTooltipText">标记为已读</span>
 																	</span>
 																</a>
-															</td>
+														
+										</td>
+									
+									
                     <td class="pls">
-                    	
-                    	
                     	
                       <a class="uiTooltip archiveLink" onmouseout="this.blur();"  href="/usr/message!deleteMessage.jhtml?messageId=<s:property value="message.id"/>" rel="async-post">
                         <label class="uiCloseButton uiCloseButtonSmall" for="up3vb3_4">
@@ -136,10 +163,37 @@
           </s:iterator>
           </ul>
         </div>
+        
+         
+      
+        
       </div>
     </div>
   </div>
+  
 </div>
           
+          <div>
+            	<s:if test="messages.size()>0">
+            	<jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
+            </s:if>
+            <s:else>
+              <div class="pam uiBoxLightblue uiMorePagerPrimary">目前没有更多消息可显示。</div>
+            </s:else>
+            </div>
+          
+         
+ 
+<script>
+function topage(pageNo) {
+	<s:if test="(type=='outbox')"> 
+  location.href = "usr/message.jhtml?type=outbox&pageNo="+pageNo
+  </s:if>
+  <s:else>
+  location.href = "usr/message.jhtml?pageNo="+pageNo
+  </s:else>
+  return false;
+}
+</script>
 
 <%@ include file="/WEB-INF/jsp/popup/addMessagePop.jsp"%>
