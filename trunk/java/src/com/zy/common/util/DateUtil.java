@@ -368,7 +368,7 @@ public class DateUtil {
     }
     
     
-    public static void main(String []args){
+    public static void main11(String []args){
     	System.out.println("---"+getPrDate());
     	System.out.println("---"+getPrWeek());
     }
@@ -451,6 +451,43 @@ public class DateUtil {
         String iso8601DateTime=PSUEDO_ISO8601_DATETIME_FORMAT_TZ.format(dateTime);
         return iso8601DateTime;
     }
+	 
+	
+	 public static int computeAge(Date date) {
+	        if (date == null) {
+	            return 0;
+	        }
+	        Calendar currentDate = new GregorianCalendar();
+	        Calendar birthDate = new GregorianCalendar();
+	        birthDate.setTime(date);
+	        Calendar testDate = new GregorianCalendar();
+	        testDate.setTime(date);
+	        int approximateAge = currentDate.get(Calendar.YEAR) - birthDate.get(Calendar.YEAR);
+	        testDate.add(Calendar.YEAR, approximateAge);
+	        return (testDate.after(currentDate)) ? approximateAge - 1 : approximateAge;
+	 }
 
+	 public static Date computeBirthDate(int age) {
+	        Calendar cal = new GregorianCalendar();
+	        cal.add(Calendar.YEAR, -age);
+	        normalizeCalendar(cal);
+	        return cal.getTime();
+	 }
      
+	 private static void normalizeCalendar(Calendar cal) {
+	        if (cal == null) {
+	            return;
+	        }
+	        cal.clear(Calendar.HOUR);
+	        cal.clear(Calendar.HOUR_OF_DAY);
+	        cal.clear(Calendar.MINUTE);
+	        cal.clear(Calendar.SECOND);
+	        cal.clear(Calendar.MILLISECOND);
+	  }
+	 
+	 public static void main(String[] args){
+		 DateFormat df = new SimpleDateFormat("yyyyMMdd");
+		 System.out.println(df.format(DateUtil.computeBirthDate(25)));
+		 System.out.println(DateUtil.computeBirthDate(25));
+	 }
 }
