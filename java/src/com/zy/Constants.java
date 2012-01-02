@@ -26,31 +26,33 @@ public class Constants {
         }
     }
     
-    
-    public static String EMAIL_SENDNAME = "site.name";
-    
-	public static final int MAIL_PRIORITY_HIGH = 1;
-	public static final int MAIL_PRIORITY_MIDDLE = 2;
-	public static final int MAIL_PRIORITY_LOW = 3;
-	
-	// request quality control settings
-	//table BNS_REQUEST column PRIORITY
-	public static final short REQUEST_PRIORITY_LOW = 0;
-	public static final short REQUEST_PRIORITY_HIGH = 1;
-	// table BNS_REQUEST column FLAG
-	public static final short REQUEST_RULE_DEFAULT = 0;
-    public static final short REQUEST_RULE_EMAIL = 1; //4.通过输入对方邮件地址形式发送一度人脉请求时， 正常情况下为高优先级（高）
-    public static final short REQUEST_RULE_INTRO = 2; //5.通过引荐和主动介绍的一度人脉请求正常情况下为高优先级（高）
-    public static final short REQUEST_RULE_PREF_UNMATCH = 3; //7.当用户设置一度申请为“高”级别时，不满足用户自定义设置的一度人脉请求条件的一度申请（例如朋友介绍），被标记为低优先级（高）
-    public static final short REQUEST_RULE_FEW_CONN = 4; //1.向一度人脉少于10的用户发送的一度人脉请求正常情况下被标记为高优先级（中）
-    public static final short REQUEST_RULE_MATCH_PYMK = 5; //3.向推荐体系中权重指数非5,6,7,8,9,14推荐出来的用户发送一度人脉请求，正常情况下被标记为高优先级（中）
-    public static final short REQUEST_RULE_SCHOOL_MATE = 6; //4.用户发送一度人脉请求时选择我们是同学，但是所填教育经历中没有与被请求者相同的学校（有相同学校，但是时间无重合时可以视为同学）时，可能被标记为低优先级（中）
-    public static final short REQUEST_RULE_IGNORED_MANY = 7; //1.目前一度请求发送规则中发送的一度人脉请求被接收者主动忽略5次后，今后14天再发起的一度人脉请求将可能被标记为低优先级（中）
-    public static final short REQUEST_RULE_REQUEST_MANY = 8; //2.当天一度人脉请求次数大于50次后，当天再发送的一度人脉请求将可能被标记为低优先级（中）
-    public static final short REQUEST_RULE_VIP = 9; //2.付费用户发起的一度人脉请求正常情况下被标记为高优先级（低）
-    public static final short REQUEST_RULE_DEFAULT_TEXT = 10; //6.发送一度人脉请求时，使用个性化的简短留言时，正常情况下为高优先级（低）
-    public static final short REQUEST_RULE_SPAM = 11; //2.当天一度人脉请求次数大于50次后，当天再发送的一度人脉请求将可能被标记为低优先级（中）
-    public static final short REQUEST_RULE_14DAYS = 12; //如果在14天，直接低优先级
+		public final static short MALEORFEMALE = 0;
+		public final static short MALE = 1;
+		public final static short FEMALE = 2;
+	  public static String EMAIL_SENDNAME = "site.name";
+	    
+		public static final int MAIL_PRIORITY_HIGH = 1;
+		public static final int MAIL_PRIORITY_MIDDLE = 2;
+		public static final int MAIL_PRIORITY_LOW = 3;
+		
+		// request quality control settings
+		//table BNS_REQUEST column PRIORITY
+		public static final short REQUEST_PRIORITY_LOW = 0;
+		public static final short REQUEST_PRIORITY_HIGH = 1;
+		// table BNS_REQUEST column FLAG
+		public static final short REQUEST_RULE_DEFAULT = 0;
+    public static final short REQUEST_RULE_EMAIL = 1; //4.閫氳繃杈撳叆瀵规柟閭欢鍦板潃褰㈠紡鍙戦�佷竴搴︿汉鑴夎姹傛椂锛� 姝ｅ父鎯呭喌涓嬩负楂樹紭鍏堢骇锛堥珮锛�
+    public static final short REQUEST_RULE_INTRO = 2; //5.閫氳繃寮曡崘鍜屼富鍔ㄤ粙缁嶇殑涓�搴︿汉鑴夎姹傛甯告儏鍐典笅涓洪珮浼樺厛绾э紙楂橈級
+    public static final short REQUEST_RULE_PREF_UNMATCH = 3; //7.褰撶敤鎴疯缃竴搴︾敵璇蜂负鈥滈珮鈥濈骇鍒椂锛屼笉婊¤冻鐢ㄦ埛鑷畾涔夎缃殑涓�搴︿汉鑴夎姹傛潯浠剁殑涓�搴︾敵璇凤紙渚嬪鏈嬪弸浠嬬粛锛夛紝琚爣璁颁负浣庝紭鍏堢骇锛堥珮锛�
+    public static final short REQUEST_RULE_FEW_CONN = 4; //1.鍚戜竴搴︿汉鑴夊皯浜�10鐨勭敤鎴峰彂閫佺殑涓�搴︿汉鑴夎姹傛甯告儏鍐典笅琚爣璁颁负楂樹紭鍏堢骇锛堜腑锛�
+    public static final short REQUEST_RULE_MATCH_PYMK = 5; //3.鍚戞帹鑽愪綋绯讳腑鏉冮噸鎸囨暟闈�5,6,7,8,9,14鎺ㄨ崘鍑烘潵鐨勭敤鎴峰彂閫佷竴搴︿汉鑴夎姹傦紝姝ｅ父鎯呭喌涓嬭鏍囪涓洪珮浼樺厛绾э紙涓級
+    public static final short REQUEST_RULE_SCHOOL_MATE = 6; //4.鐢ㄦ埛鍙戦�佷竴搴︿汉鑴夎姹傛椂閫夋嫨鎴戜滑鏄悓瀛︼紝浣嗘槸鎵�濉暀鑲茬粡鍘嗕腑娌℃湁涓庤璇锋眰鑰呯浉鍚岀殑瀛︽牎锛堟湁鐩稿悓瀛︽牎锛屼絾鏄椂闂存棤閲嶅悎鏃跺彲浠ヨ涓哄悓瀛︼級鏃讹紝鍙兘琚爣璁颁负浣庝紭鍏堢骇锛堜腑锛�
+    public static final short REQUEST_RULE_IGNORED_MANY = 7; //1.鐩墠涓�搴﹁姹傚彂閫佽鍒欎腑鍙戦�佺殑涓�搴︿汉鑴夎姹傝鎺ユ敹鑰呬富鍔ㄥ拷鐣�5娆″悗锛屼粖鍚�14澶╁啀鍙戣捣鐨勪竴搴︿汉鑴夎姹傚皢鍙兘琚爣璁颁负浣庝紭鍏堢骇锛堜腑锛�
+    public static final short REQUEST_RULE_REQUEST_MANY = 8; //2.褰撳ぉ涓�搴︿汉鑴夎姹傛鏁板ぇ浜�50娆″悗锛屽綋澶╁啀鍙戦�佺殑涓�搴︿汉鑴夎姹傚皢鍙兘琚爣璁颁负浣庝紭鍏堢骇锛堜腑锛�
+    public static final short REQUEST_RULE_VIP = 9; //2.浠樿垂鐢ㄦ埛鍙戣捣鐨勪竴搴︿汉鑴夎姹傛甯告儏鍐典笅琚爣璁颁负楂樹紭鍏堢骇锛堜綆锛�
+    public static final short REQUEST_RULE_DEFAULT_TEXT = 10; //6.鍙戦�佷竴搴︿汉鑴夎姹傛椂锛屼娇鐢ㄤ釜鎬у寲鐨勭畝鐭暀瑷�鏃讹紝姝ｅ父鎯呭喌涓嬩负楂樹紭鍏堢骇锛堜綆锛�
+    public static final short REQUEST_RULE_SPAM = 11; //2.褰撳ぉ涓�搴︿汉鑴夎姹傛鏁板ぇ浜�50娆″悗锛屽綋澶╁啀鍙戦�佺殑涓�搴︿汉鑴夎姹傚皢鍙兘琚爣璁颁负浣庝紭鍏堢骇锛堜腑锛�
+    public static final short REQUEST_RULE_14DAYS = 12; //濡傛灉鍦�14澶╋紝鐩存帴浣庝紭鍏堢骇
 	// table BNS_REQUEST column status
 	public static final short REQUEST_STATUS_APPROVED = 0;
 	public static final short REQUEST_STATUS_WAITING = 1;
@@ -297,8 +299,8 @@ public class Constants {
 	 * 
 	 * Privacy setting contact request and feed setting
 	 * 
-	 * Profile settting 1:基本信息 2:头像 4:职业概述 8:职业总结 16:工作经历 32:仅显示当前工作经历 64:教育经历
-	 * 128:仅显示最新教育经历 256:兴趣爱好 512:荣誉奖励 1024:群组信息
+	 * Profile settting 1:鍩烘湰淇℃伅 2:澶村儚 4:鑱屼笟姒傝堪 8:鑱屼笟鎬荤粨 16:宸ヤ綔缁忓巻 32:浠呮樉绀哄綋鍓嶅伐浣滅粡鍘� 64:鏁欒偛缁忓巻
+	 * 128:浠呮樉绀烘渶鏂版暀鑲茬粡鍘� 256:鍏磋叮鐖卞ソ 512:鑽ｈ獕濂栧姳 1024:缇ょ粍淇℃伅
 	 */
 
 	public static short PRIVACY_PUBPROFILE_BASIC = 1;
@@ -324,7 +326,7 @@ public class Constants {
 	// public final static int[] PRIVACY_FEED_ALL_TYPE_OPTIONS = new int[] { 1,
 	// 2, 4, 8, 16, 32, 64, 128, 256 };
 	
-	//为了增加活动动态，添加16384, 32768
+	//涓轰簡澧炲姞娲诲姩鍔ㄦ�侊紝娣诲姞16384, 32768
 	public final static int[] PRIVACY_FEED_ALL_TYPE_OPTIONS = new int[] { 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768,65536, 131072, 524288 };
 //	public final static int[] PRIVACY_FEED_ALL_TYPE_OPTIONS = new int[] { 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192};
 	public final static int[] PRIVACY_FEED_ALL_TYPE_OPTIONS_SETTING = new int[] { 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072,262144, 524288,1048576 };
@@ -531,10 +533,10 @@ public class Constants {
     //mail optimized
     public static double SNS_INVITE_QUALITY;
     public static String EMAIL_ANALY_URL;
-    //同城活动相关start
+    //鍚屽煄娲诲姩鐩稿叧start
     public static Integer[] SAME_CITY_EVENT_MAIN_CITIES=new Integer[0];
     public static Integer[] SAME_CITY_EVENT_DIRECT_CITIES=new Integer[0];
-    //同城活动相关end
+    //鍚屽煄娲诲姩鐩稿叧end
 	static {
 //		InputStream in = Constants.class.getClassLoader().getResourceAsStream("bns.properties");
 //		pro = new Properties();
@@ -677,10 +679,10 @@ public class Constants {
 	public final static String EVENT_SHARE_TEXT = "event.share.text";
 	public final static String EVENT_SHARE_DOCUMENT = "event.share.document";
 	public final static String EVENT_SHARE_LINKURL = "event.share.linkurl";
-    public final static String SNS_SHARE_EXTERNAL = "sns.share.external"; //该常量在BNS_NEWSFEEDTYPE中也存在
+    public final static String SNS_SHARE_EXTERNAL = "sns.share.external"; //璇ュ父閲忓湪BNS_NEWSFEEDTYPE涓篃瀛樺湪
 	
 	// add for endorse
-    public final static String GROUP_SHARE_TOPIC = "group.share.topic";//群组分享
+    public final static String GROUP_SHARE_TOPIC = "group.share.topic";//缇ょ粍鍒嗕韩
 	public final static String SNS_ENDORSE_SEND = "sns.endorse.send";
 	public final static String SNS_ENDORSE_RECEIVE = "sns.endorse.receive";
 	public final static String SNS_SHARE_BADGE = "sns.share.badge";
@@ -745,8 +747,8 @@ public class Constants {
 	/*
 	 * table: bns_recommendprofile, column: flag
 	 */
-	// 0 屏蔽 1 邀请列表名单中 2 IP 3 和教育经历 4 有相同的工作经历 5 与当前用户重合的好友多于5个 100 天使用户，公众的商业人物
-	// 101 一度朋友所关注最多的用户   6:当前职业头衔相同
+	// 0 灞忚斀 1 閭�璇峰垪琛ㄥ悕鍗曚腑 2 IP 3 鍜屾暀鑲茬粡鍘� 4 鏈夌浉鍚岀殑宸ヤ綔缁忓巻 5 涓庡綋鍓嶇敤鎴烽噸鍚堢殑濂藉弸澶氫簬5涓� 100 澶╀娇鐢ㄦ埛锛屽叕浼楃殑鍟嗕笟浜虹墿
+	// 101 涓�搴︽湅鍙嬫墍鍏虫敞鏈�澶氱殑鐢ㄦ埛   6:褰撳墠鑱屼笟澶磋鐩稿悓
     public final static int RECOMMEND_PROFILE_ERROR = -1; //only used in Bns_Recommendqueue flag column
 //    public final static int RECOMMEND_PROFILE_DISABLE = 0; // user 2nd time disable
 //    public final static int RECOMMEND_PROFILE_DISABLE_TEMP = -2; // user 1st time disable 
@@ -823,10 +825,10 @@ public class Constants {
     public final static int RECOMMEND_JOB_NOCURRENTCAREER = 3;
     public final static int RECOMMEND_JOB_INDUSTRY = 4;
     public final static int RECOMMEND_JOB_GENERALINDUSTRY = 5;
-    public final static int RECOMMEND_JOB_CLICKED_COMMON = 11; //普通用户点击
-    public final static int RECOMMEND_JOB_FAVORITE_COMMON = 12; //普通用户收藏
-    public final static int RECOMMEND_JOB_BROWSED_PAYED = 13; //付费用户浏览
-    public final static int RECOMMEND_JOB_FAVORITE_PAYED = 14; //付费用户收藏
+    public final static int RECOMMEND_JOB_CLICKED_COMMON = 11; //鏅�氱敤鎴风偣鍑�
+    public final static int RECOMMEND_JOB_FAVORITE_COMMON = 12; //鏅�氱敤鎴锋敹钘�
+    public final static int RECOMMEND_JOB_BROWSED_PAYED = 13; //浠樿垂鐢ㄦ埛娴忚
+    public final static int RECOMMEND_JOB_FAVORITE_PAYED = 14; //浠樿垂鐢ㄦ埛鏀惰棌
     public final static int RECOMMEND_JOB_APPLIED = 15;
     public final static int RECOMMEND_JOB_APPLY_SUCCESS = 16;
     public final static int RECOMMEND_JOB_SEARCHCLICK = 17;
@@ -882,7 +884,7 @@ public class Constants {
 
 	// group recommend
 	public final static short RECOMMEND_GROUP_DISABLE = 0;
-	// 0 屏蔽,1 教育经历相同 2 一度好友参与最多的群组
+	// 0 灞忚斀,1 鏁欒偛缁忓巻鐩稿悓 2 涓�搴﹀ソ鍙嬪弬涓庢渶澶氱殑缇ょ粍
 	public final static short RECOMMEND_GROUP_ENDUCATION = 1;
 	public final static short RECOMMEND_GROUP_1DEGREEJOIN = 2;
 	
@@ -920,9 +922,9 @@ public class Constants {
     
     public final static short NOTIFICATION_DISPLAY_TIME_LIMIT = 30; // DAYS
 	// 3 all 2 3d 1 1d for search scope
-	public final static int SEARCH_SCOPE_ALL = 5;//所有人脉
-	public final static int SEARCH_SCOPE_3MD = 4;//3度人脉及以上
-	public final static int SEARCH_SCOPE_3D = 3;//3度
+	public final static int SEARCH_SCOPE_ALL = 5;//鎵�鏈変汉鑴�
+	public final static int SEARCH_SCOPE_3MD = 4;//3搴︿汉鑴夊強浠ヤ笂
+	public final static int SEARCH_SCOPE_3D = 3;//3搴�
 	public final static int SEARCH_SCOPE_2D = 2;
 	public final static int SEARCH_SCOPE_1D = 1;
 
@@ -984,7 +986,7 @@ public class Constants {
 	public final static int BADGE_EVENT_MOBILE_USHI = 11;
 	public final static int BADGE_EVENT_MEMBER_IN_GOOD_STANDING =12;
 	public final static int BADGE_EVENT_OUTSTANDING_CONTRIBUTION =13;
-	public final static int BADGE_EVENT_EVENT_INVITE =14;	//发布活动大于3个，3个活动大于等于5人参加
+	public final static int BADGE_EVENT_EVENT_INVITE =14;	//鍙戝竷娲诲姩澶т簬3涓紝3涓椿鍔ㄥぇ浜庣瓑浜�5浜哄弬鍔�
 	public final static short NOTIFICATION_TYPE_BADGE = 19;
 
 	public final static short[] BADGE_EVENT_LEVEL = { 1, 2, 3 };
@@ -1050,7 +1052,7 @@ public class Constants {
 	public final static short MICROBLOG_SYNCHRONOUS_FROM_SINA=1;
 	public final static short MICROBLOG_SYNCHRONOUS_FROM_163=2;
 	public final static short MICROBLOG_SYNCHRONOUS_FROM_SOHU=3;
-	public final static short MICROBLOG_SYNCHRONOUS_FROM_PHONE=4;//优士手机版
+	public final static short MICROBLOG_SYNCHRONOUS_FROM_PHONE=4;//浼樺＋鎵嬫満鐗�
 	
 	public final static short MICROBLOG_EXTSOURCE_STATUS_NORMAL=0;
 	public final static short MICROBLOG_EXTSOURCE_STATUS_PAUSE=1;
@@ -1115,17 +1117,17 @@ public class Constants {
 	public final static short JOB_MYPOST_TYPE_APPLY = 1;
 	public final static short JOB_MYPOST_TYPE_FAVORITE = 2;
 	
-	// 免费体验活动专用，每月免费申请次数
+	// 鍏嶈垂浣撻獙娲诲姩涓撶敤锛屾瘡鏈堝厤璐圭敵璇锋鏁�
 	public final static short JOB_MYPOST_MONTHS_FREECNT = 10;
-	// 免费体验活动截至日期
+	// 鍏嶈垂浣撻獙娲诲姩鎴嚦鏃ユ湡
 	public final static int JOB_MYPOST_MONTHS_DEADLINE = 20110630;
-	// 品尚优士专用，每月免费申请5次
+	// 鍝佸皻浼樺＋涓撶敤锛屾瘡鏈堝厤璐圭敵璇�5娆�
 	public final static short JOB_MYPOST_PSUSER_FREECNT = 5;
-	// 完美档案专用，每月免费申请5次
+	// 瀹岀編妗ｆ涓撶敤锛屾瘡鏈堝厤璐圭敵璇�5娆�
 	public final static short JOB_MYPOST_PERCENTAGE_FREECNT = 15;
 	public final static String JOB_MYPOST_FREEFLG = "flag";
 	public final static String JOB_MYPOST_FREECOUNT = "count";
-	// 20110520活动
+	// 20110520娲诲姩
 	public final static short JOB_HR_CNT = 5;
 	public final static short JOB_HUNTER_CNT = 10;
 	public final static short JOB_PLATINUM_MONTHS = 3;
@@ -1146,8 +1148,8 @@ public class Constants {
 	public final static short JOB_COMPANY_STATUS_FAILED = 3;
 	public final static short JOB_DETAIL_STATUS_VERIFY_FAILED = 1;
 	public final static short JOB_DETAIL_STATUS_UNVERIFY = 2;
-	public final static short JOB_DETAIL_STATUS_OFF = 3; // 下架
-	public final static short JOB_DETAIL_STATUS_ON = 4; // 上架
+	public final static short JOB_DETAIL_STATUS_OFF = 3; // 涓嬫灦
+	public final static short JOB_DETAIL_STATUS_ON = 4; // 涓婃灦
 	public final static short JOB_DETAIL_STATUS_REMOVED = 0;
 	public final static short JOB_DETAIL_STATUS_UNRESUME = 5;
 	public final static short JOB_APPLY_STATUS_REMOVED = 0;
@@ -1368,23 +1370,23 @@ public class Constants {
     public final static int PROMOTION_GUIDE = 9999; //special usage of BNS_PROMOTION table for new user guide
 
 	// optimize user experience
-	public final static String IT_INTERNET = "8,4,10,12,7,49,154,3,13,9,5,6";//IT网络
-	public final static String FINANCIAL = "64,66,65,63,154,152,61,60,67";//金融投资
-	public final static String MARKET_ADVERTISEMENT  = "22,24,49,43,154,44,41,23,50";//市场与广告
-	public final static String CULTURE_ART = "47,52,53,54,82,153,154";//文化艺术
-	public final static String LAW_CONSULTING = "16,18,20,21,27,28,69,76,77,122,154";//法律与咨询服务
-	public final static String REAL_ESTATE = "62,96,97,100,154";//房地产
-	public final static String MANUFACTURING = "89,91,104,105,106,107,109,137";//制造
-	public final static String HOSPITAL_MEDICAL = "32,33,34,154";//医院医疗
+	public final static String IT_INTERNET = "8,4,10,12,7,49,154,3,13,9,5,6";//IT缃戠粶
+	public final static String FINANCIAL = "64,66,65,63,154,152,61,60,67";//閲戣瀺鎶曡祫
+	public final static String MARKET_ADVERTISEMENT  = "22,24,49,43,154,44,41,23,50";//甯傚満涓庡箍鍛�
+	public final static String CULTURE_ART = "47,52,53,54,82,153,154";//鏂囧寲鑹烘湳
+	public final static String LAW_CONSULTING = "16,18,20,21,27,28,69,76,77,122,154";//娉曞緥涓庡挩璇㈡湇鍔�
+	public final static String REAL_ESTATE = "62,96,97,100,154";//鎴垮湴浜�
+	public final static String MANUFACTURING = "89,91,104,105,106,107,109,137";//鍒堕��
+	public final static String HOSPITAL_MEDICAL = "32,33,34,154";//鍖婚櫌鍖荤枟
 	
-	public final static int IT_INTERNET_TYPE = 1;//IT网络
-	public final static int FINANCIAL_TYPE = 2;//金融投资
-	public final static int MARKET_ADVERTISEMENT_TYPE  = 3;//市场与广告
-	public final static int CULTURE_ART_TYPE = 4;//文化艺术
-	public final static int LAW_CONSULTING_TYPE = 5;//法律与咨询服务
-	public final static int REAL_ESTATE_TYPE = 6;//房地产
-	public final static int MANUFACTURING_TYPE = 7;//制造
-	public final static int HOSPITAL_MEDICAL_TYPE = 8;//医院医疗
+	public final static int IT_INTERNET_TYPE = 1;//IT缃戠粶
+	public final static int FINANCIAL_TYPE = 2;//閲戣瀺鎶曡祫
+	public final static int MARKET_ADVERTISEMENT_TYPE  = 3;//甯傚満涓庡箍鍛�
+	public final static int CULTURE_ART_TYPE = 4;//鏂囧寲鑹烘湳
+	public final static int LAW_CONSULTING_TYPE = 5;//娉曞緥涓庡挩璇㈡湇鍔�
+	public final static int REAL_ESTATE_TYPE = 6;//鎴垮湴浜�
+	public final static int MANUFACTURING_TYPE = 7;//鍒堕��
+	public final static int HOSPITAL_MEDICAL_TYPE = 8;//鍖婚櫌鍖荤枟
 	
 
 	//limitation of first friend
@@ -1432,46 +1434,46 @@ public class Constants {
 	public final static short JOB_COMPANY_VERIFY_FAIL_NOTIFICATION = 33;
 	public final static short JOB_DETAIL_VERIFY_FAIL_NOTIFICATION = 34;
 	
-	// 您提交的{0}公司信息已经通过审核! 
+	// 鎮ㄦ彁浜ょ殑{0}鍏徃淇℃伅宸茬粡閫氳繃瀹℃牳! 
 	public final static short JOB_COMPANY_VERIFY_SUCCESS_NOTIFICATION = 43;
-	// 您提交的{0}职位已经通过审核
+	// 鎮ㄦ彁浜ょ殑{0}鑱屼綅宸茬粡閫氳繃瀹℃牳
 	public final static short JOB_DETAIL_VERIFY_SUCCESS_NOTIFICATION = 44;
-	// 您提交的{0}职位已经过期！
+	// 鎮ㄦ彁浜ょ殑{0}鑱屼綅宸茬粡杩囨湡锛�
 	public final static short JOB_DETAIL_VERIFY_EXPIRES_NOTIFICATION = 45;
-	// {0}申请您发布的{1}职位
+	// {0}鐢宠鎮ㄥ彂甯冪殑{1}鑱屼綅
 	public final static short JOB_DETAIL_APPLE_NOTIFICATION = 46;
-	// {0}申请您发布的{1}职位
+	// {0}鐢宠鎮ㄥ彂甯冪殑{1}鑱屼綅
 	public final static short JOB_PLATINUM_NOTIFICATION = 59;
 	public static String MODULE_EVENT = "EVENT";
 	
-	public static short TAG_MODE_CATEGORY = 3;  //分类标签
-	public static short TAG_MODE_SYSTEM = 1;	//系统关联的标签
-	public static short TAG_MODE_MANUAL = 2;	//用户自己关联的标签
-	public static short TAG_MODE_ALL = 999;		//用于查询时全部查询
-	public static short TAG_TYPE_SYSTEM = 1;	//系统标签
-	public static short TAG_TYPE_USER = 2;		//用户自定义标签
-	public static short TAG_STATE_NORMAL = 1;	//正常状态的标签
-	public static short TAG_STATE_DELETE = 1;	//已经删除的标签
+	public static short TAG_MODE_CATEGORY = 3;  //鍒嗙被鏍囩
+	public static short TAG_MODE_SYSTEM = 1;	//绯荤粺鍏宠仈鐨勬爣绛�
+	public static short TAG_MODE_MANUAL = 2;	//鐢ㄦ埛鑷繁鍏宠仈鐨勬爣绛�
+	public static short TAG_MODE_ALL = 999;		//鐢ㄤ簬鏌ヨ鏃跺叏閮ㄦ煡璇�
+	public static short TAG_TYPE_SYSTEM = 1;	//绯荤粺鏍囩
+	public static short TAG_TYPE_USER = 2;		//鐢ㄦ埛鑷畾涔夋爣绛�
+	public static short TAG_STATE_NORMAL = 1;	//姝ｅ父鐘舵�佺殑鏍囩
+	public static short TAG_STATE_DELETE = 1;	//宸茬粡鍒犻櫎鐨勬爣绛�
 	
-	public static int DROP_DOWN_SIZE_EVENT = 3;	//向下匹配的个数
+	public static int DROP_DOWN_SIZE_EVENT = 3;	//鍚戜笅鍖归厤鐨勪釜鏁�
 	
 	public static short REQUEST_EVENTKEY_EVENT_INVITE = 5;
 	
 	public static class Event {
 		public static short NORMAL = 1;
 		public static short CANCEL = 0;
-		public static short TAGTYPE = 3;//分类标签
+		public static short TAGTYPE = 3;//鍒嗙被鏍囩
 		
-		public static short EVENTUSER_TO_GO = 1;//未签到
-		public static short EVENTUSER_SIGNIN = 2;//签到
+		public static short EVENTUSER_TO_GO = 1;//鏈鍒�
+		public static short EVENTUSER_SIGNIN = 2;//绛惧埌
 		
-		public static short ACTION_TO_GO = 1;//我要参加
-		public static short ACTION_NOT_TO_GO = 2;//我不去了
-		public static short ACTION_TO_SIGNIN = 3;//现场签到
-		public static short ACTION_CANCEL = 4;//已经被删除
+		public static short ACTION_TO_GO = 1;//鎴戣鍙傚姞
+		public static short ACTION_NOT_TO_GO = 2;//鎴戜笉鍘讳簡
+		public static short ACTION_TO_SIGNIN = 3;//鐜板満绛惧埌
+		public static short ACTION_CANCEL = 4;//宸茬粡琚垹闄�
 		
 		public static int DETAILPAGE_USER_SHOW_SIZE = 30;
-		public static int DETAILPAGE_JOIN_SIZE = 3;	//参加这个活动的人也参加了-活动个数
+		public static int DETAILPAGE_JOIN_SIZE = 3;	//鍙傚姞杩欎釜娲诲姩鐨勪汉涔熷弬鍔犱簡-娲诲姩涓暟
 		public static int LISTPAGE_USER_SHOW_SIZE = 10;
 		public static int PAGE_USER_SHOW_ALL = 0;
 		
@@ -1550,10 +1552,10 @@ public class Constants {
     public final static short NOTIFICATION_TYPE_CM2 = 47;
     public final static short NOTIFICATIONTYPE_EVENT_BADGEPRIZE = 67;
     
-    public static short M2_PRIZE_TYPE_DAILY = 1;		//徽章奖励,每日的
-    public static short M2_PRIZE_TYPE_LEVEL_1 = 2;		//徽章奖励,总结算出仕类
-    public static short M2_PRIZE_TYPE_LEVEL_2 = 3;		//徽章奖励,总结算将臣类
-    public static short M2_PRIZE_TYPE_LEVEL_3 = 4;		//徽章奖励,总结算王者类
+    public static short M2_PRIZE_TYPE_DAILY = 1;		//寰界珷濂栧姳,姣忔棩鐨�
+    public static short M2_PRIZE_TYPE_LEVEL_1 = 2;		//寰界珷濂栧姳,鎬荤粨绠楀嚭浠曠被
+    public static short M2_PRIZE_TYPE_LEVEL_2 = 3;		//寰界珷濂栧姳,鎬荤粨绠楀皢鑷ｇ被
+    public static short M2_PRIZE_TYPE_LEVEL_3 = 4;		//寰界珷濂栧姳,鎬荤粨绠楃帇鑰呯被
     
     // group newsfeed status
     public final static short GRP_NEWSFEED_STATUS_NORMAL = 0;
@@ -1577,13 +1579,13 @@ public class Constants {
     public static int REQUEST_LOW_TYPE_DAY_LIMIT = 14;
     public static int SNS_REQUEST_TYPE_FRIEND = 7;
     
-      //手机所有feed
+      //鎵嬫満鎵�鏈塮eed
 	public final static int[] MOBILPHONE_FEED_ALL_TYPE = new int[] {1,2,8};
-	//手机人脉 feed
+	//鎵嬫満浜鸿剦 feed
 	public final static int[] MOBILPHONE_FEED_CONNECTIONS_TYPE = new int[] {8};
-	//手机档案feed
+	//鎵嬫満妗ｆfeed
 	public final static int[] MOBILPHONE_FEED_PROFILE_TYPE = new int[] {2};
-	//手机微博feed
+	//鎵嬫満寰崥feed
 	public final static int[] MOBILPHONE_FEED_MICROBLOG_TYPE = new int[] {1};
 	
 	public final static String MOBILPHONE_FEED_MYSELF_NEWS_ALL_TYPE = "'" + SNS_SHARE_TEXT + "','" + SNS_SHARE_LINKURL + "','" + EVENT_SHARE_TEXT + "','" + EVENT_SHARE_LINKURL +"'";
@@ -1602,17 +1604,17 @@ public class Constants {
     public final static ThreadLocal<Integer> OPEN_REG_GROUP_ID = new ThreadLocal<Integer>();
     public final static ThreadLocal<Boolean> OPEN_REG_LOGIN_UNVERIFY = new ThreadLocal<Boolean>();
     public static String NEWSFEED_TYPE_SETTING_WENDA = "-1";
-    public static String FEED_HANDLE_Q_TO_T = "wenda.q.to.t";	//-	问题A  被添加到 话题B
-    public static String FEED_HANDLE_ADD_A = "wenda.add.a"; //-	用户A 回答了 问题B
-    public static String FEED_HANDLE_DELETE_Q = "wenda.delete.q"; //-	用户A 删除了 问题B
-    public static String FEED_HANDLE_ADD_Q = "wenda.add.q"; //-	用户A 添加了 问题B
-    public static String FEED_HANDLE_SUBSCRIBE_QUESTION = "wenda.subscribe.question"; //-	用户A 关注了 问题B
-    public static String FEED_HANDLE_SUBSCRIBE_TAG = "wenda.subscribe.tag"; //-	用户A 关注了 话题B
-    public static String FEED_HANDLE_SUBSCRIBE_USER = "wenda.subscribe.user"; //-	用户A 关注了 用户B
+    public static String FEED_HANDLE_Q_TO_T = "wenda.q.to.t";	//-	闂A  琚坊鍔犲埌 璇濋B
+    public static String FEED_HANDLE_ADD_A = "wenda.add.a"; //-	鐢ㄦ埛A 鍥炵瓟浜� 闂B
+    public static String FEED_HANDLE_DELETE_Q = "wenda.delete.q"; //-	鐢ㄦ埛A 鍒犻櫎浜� 闂B
+    public static String FEED_HANDLE_ADD_Q = "wenda.add.q"; //-	鐢ㄦ埛A 娣诲姞浜� 闂B
+    public static String FEED_HANDLE_SUBSCRIBE_QUESTION = "wenda.subscribe.question"; //-	鐢ㄦ埛A 鍏虫敞浜� 闂B
+    public static String FEED_HANDLE_SUBSCRIBE_TAG = "wenda.subscribe.tag"; //-	鐢ㄦ埛A 鍏虫敞浜� 璇濋B
+    public static String FEED_HANDLE_SUBSCRIBE_USER = "wenda.subscribe.user"; //-	鐢ㄦ埛A 鍏虫敞浜� 鐢ㄦ埛B
     
     public static int PRIVACY_FEED_WENDA = 1048576;
     
-    public static long FEED_MERGE_MINUTE = 5 * 60 * 1000;	//long类型
+    public static long FEED_MERGE_MINUTE = 5 * 60 * 1000;	//long绫诲瀷
     //mail optimize
     public final static ThreadLocal<Boolean> MAIL_OPTIMIZE_PRIORITY_OVER_USER = new ThreadLocal<Boolean>();
     public final static ThreadLocal<Integer> MAIL_OPTIMIZE_USER_ID = new ThreadLocal<Integer>();
@@ -1622,7 +1624,7 @@ public class Constants {
     public final static int MAIL_OPTIMIZE_MAX_INVITE_MAIL_ONCE = 2000;
     public final static int MAIL_OPTIMIZE_MAX_INVITE_MAIL_DAY = 5000;
     
-	//sso可以绕过邮箱验证，所以在SESSION加一个CHECK MAIL的信息来对首页进行显示
+	//sso鍙互缁曡繃閭楠岃瘉锛屾墍浠ュ湪SESSION鍔犱竴涓狢HECK MAIL鐨勪俊鎭潵瀵归椤佃繘琛屾樉绀�
 	public static final String USER_VERIFY_EMAIL_KEY_SSO = "verifyemailsso";
     
     
