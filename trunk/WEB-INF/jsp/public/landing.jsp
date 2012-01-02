@@ -80,7 +80,7 @@
                     </noscript>
                     <div id="simple_registration_container" class="simple_registration_container">
                       <div id="reg_box">
-                        <s:form action="register" namespace="/usr" >
+                        <s:form action="register" namespace="/usr" onsubmit="return validateSignUp();">
                           <div id="reg_form_box" class="large_form">
                              <table class="uiGrid editor" cellspacing="0" cellpadding="1">
                               <tbody>
