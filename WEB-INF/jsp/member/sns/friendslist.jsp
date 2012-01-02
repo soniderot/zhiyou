@@ -58,12 +58,24 @@
 					                      </ul>
 					                    </div>
 					                    <div class="clearfix uiMorePager stat_elem morePager uiMorePagerCenter" id="ur7504_25">
+					                    	<div>
+										            	<s:if test="friends.size()>0">
+										            	<jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
+										            </s:if>
+										            <s:else>
+										              <div class="pam uiBoxLightblue uiMorePagerPrimary">目前没有更多朋友可显示。</div>
+										            </s:else>
+										            </div>
+					                    	
+					                    	<!--
 					                      <div>
 					                      	<a class="pam uiBoxLightblue uiMorePagerPrimary" id="ur7504_26" href="#" rel="async">查看更多</a>
 					                      	<span class="uiMorePagerLoader pam uiBoxLightblue">
 					                      		<img width="16" height="11" class="img" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" alt="">
 					                      	</span>
 					                      </div>
+					                      -->
+					                      
 					                    </div>
 					                  </div>
 					                </div>
@@ -86,3 +98,9 @@
 					</div>
 				  <div id="bottomContent"></div>
 				</div>
+<script>
+function topage(pageNo) {
+  location.href = "sns/sns!getFriendsList.jhtml?pageNo="+pageNo
+  return false;
+}
+</script>
