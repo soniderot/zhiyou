@@ -24,4 +24,14 @@ public class SchoolServiceImpl implements SchoolService{
 	public List<ZySchool> getSchools() {
 		return this.schoolDao.getApprovedSchools();
 	}
+
+	@Override
+	public List<ZySchool> getSchoolsByKey(String key) {
+		return this.schoolDao.getSchoolsByKey(key);
+	}
+
+	@Override
+	public List<ZySchool> getAllSchools() {
+		return this.schoolDao.getAllSchools();
+	}
 }
