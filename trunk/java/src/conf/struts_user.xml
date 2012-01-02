@@ -30,6 +30,8 @@
 		<result name="member.career" type="tiles" >tiles.member.career</result>
 		<result name="member.contact" type="tiles" >tiles.member.contact</result>
 		<result name="member.interest" type="tiles" >tiles.member.interest</result>
+		<result name="member.update" type="redirect" >/usr/update!basic.jhtml?profileform.pageIndex=${profileform.pageIndex}</result>
+		<result name="member.info" type="redirect" >/profile/profile!viewProfileInfo.jhtml?userid=${userid}</result>
 	</action>
 	
 	<action name="login" class="com.zy.action.profile.LoginAction">
@@ -68,6 +70,10 @@
 	
 	<action name="location" class="com.zy.action.location.LocationAction">
 		<result name="location.city">/WEB-INF/jsp/public/locationAjax.jsp</result>
+	</action>
+		
+	<action name="school" class="com.zy.action.location.SchoolAction">
+		<result name="location.school">/WEB-INF/jsp/public/schoolAjax.jsp</result>
 	</action>
 	
 </package>
