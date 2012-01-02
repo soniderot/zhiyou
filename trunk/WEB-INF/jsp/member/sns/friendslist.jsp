@@ -100,7 +100,12 @@
 				</div>
 <script>
 function topage(pageNo) {
-  location.href = "sns/sns!getFriendsList.jhtml?pageNo="+pageNo
+	<s:if test="(userid>0)"> 
+ location.href = "profile/profile!viewProfileFriends.jhtml?userid=${profile.userid}&pageNo="+pageNo
+  </s:if>
+  <s:else>
+   location.href = "sns/sns!getFriendsList.jhtml?pageNo="+pageNo
+  </s:else>
   return false;
 }
 </script>

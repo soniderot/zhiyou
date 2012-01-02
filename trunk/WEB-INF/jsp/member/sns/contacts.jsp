@@ -4,7 +4,7 @@
 						<div data-referrer="pagelet_friends" id="pagelet_friends">
 							<div class="uiHeader uiHeaderWithImage uiHeaderPage">
 								<div class="clearfix uiHeaderTop">
-									<a href="/friends/edit/" role="button" class="uiHeaderActions rfloat uiButton">
+									<a href="sns/sns!getFriendsList.jhtml" role="button" class="uiHeaderActions rfloat uiButton">
 										<span class="uiButtonText">管理朋友列表</span>
 									</a>
 									<div>
@@ -23,12 +23,12 @@
 									<div id="invite">
 										<div id="address_book_selector" class="mbl">
 											<div class="UIImageBlock clearfix">
-												<img height="36" width="35" alt="" src="https://s-static.ak.facebook.com/rsrc.php/v1/yT/r/UHkKDRwgbaw.png" class="UIImageBlock_Image UIImageBlock_MED_Image img"/>
+												<img height="36" width="35" alt="" src="images/UHkKDRwgbaw.png" class="UIImageBlock_Image UIImageBlock_MED_Image img"/>
 												<div class="uiHeader uiHeaderPage UIImageBlock_Content UIImageBlock_MED_Content">
 													<div class="clearfix uiHeaderTop">
 														<div class="uiHeaderActions rfloat"></div>
 														<div>
-															<h2 class="uiHeaderTitle">邀请朋友和家人加入Facebook</h2>
+															<h2 class="uiHeaderTitle">邀请朋友和家人加入</h2>
 														</div>
 													</div>
 												</div>
@@ -107,22 +107,24 @@
 																	
 																</td>
 																<td class="vTop hRght">
-																	<img height="11" width="16" alt="" src="../../images/GsNJNwuI-UM.gif" class="mhm mts uiLoadingIndicatorAsync img"/>
+																	<img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="mhm mts uiLoadingIndicatorAsync img"/>
 																	<label for="uydez6_1" class="uiButton uiButtonConfirm uiButtonLarge">
 																		<input type="submit" id="uydez6_1" onclick='__UIControllerRegistry["c4ecc92aab86ee3542164333"].sendInvites("friend_finder_invite_form"); return false;' value="Send Invites"/>
 																	</label>
-																	<label for="uydez6_2" class="uiButton uiButtonLarge">
-																		<input type="submit" id="uydez6_2" onclick='__UIControllerRegistry["c4ecc92aab86ee3542164333"].skipInviteRequest(function() {window.location = "https:\/\/www.facebook.com\/find-friends\/index.php?ref=invite_step"; return false;}); return false;' value="跳过"/>
+																	<label class="uiButton uiButtonConfirm uiButtonLarge" for="ur7504_29">
+																				
+																				<a href="sns/sns!getFriendsList.jhtml">跳过</a>
 																	</label>
 																</td>
 															</tr>
 														</tbody>
 													</table>
+													<!--
 													<div class="mvl uiP fsm fcg">
 														请只邀请你认识，并且愿意接受邀请的人。第一次邀请发出后，我们会自动提醒对方最多两次。
 														<a href="/ajax/invite/learn_more.php" rel="dialog">了解更多</a>或
 														<a href="/ajax/invite/invite_example.php?pm=0" rel="dialog">查看范例</a>。
-													</div>
+													</div>-->
 												</div>
 											</form>
 										</div>

@@ -60,7 +60,10 @@
           <span class="fbProfileBylineIconContainer">
             <i class="mrs fbProfileBylineIcon img sp_9brcjp sx_450ec4"></i>
           </span><span class="fbProfileBylineLabel"><s:date name="profile.birthdate" format="yyyy年MM月dd日" /></span>
+          
+          <s:if test="profile.userid == #session.user.userid">
         </span><a href="usr/update!basic.jhtml" class="fbProfileEditLink fbEditProfileLink">编辑个人主页</a>
+        </s:if>
       </div>
     </div>
   </div>

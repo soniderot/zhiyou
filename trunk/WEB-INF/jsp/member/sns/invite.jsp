@@ -4,7 +4,7 @@
 	<div data-referrer="pagelet_friends" id="pagelet_friends">
 		<div class="uiHeader uiHeaderWithImage uiHeaderPage">
 			<div class="clearfix uiHeaderTop">
-				<a href="/friends/edit/" role="button"
+				<a href="sns/sns!getFriendsList.jhtml" role="button"
 					class="uiHeaderActions rfloat uiButton"> <span
 					class="uiButtonText">管理朋友列表</span> </a>
 				<div>
