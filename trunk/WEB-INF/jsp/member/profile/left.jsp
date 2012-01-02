@@ -5,7 +5,7 @@
     <ul id="u2upm2_1" role="navigation" class="uiSideNav">
       <li id="navItem_basic" class="sideNavItem stat_elem selectedItem open">
         <div class="buttonWrap"></div>
-        <a href="/usr/update!basic.jhtml?profileform.pageIndex=0" class="item clearfix" style="">
+        <a href="usr/update!basic.jhtml?profileform.pageIndex=0" class="item clearfix" style="">
           <div class="rfloat">
             <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
@@ -19,7 +19,7 @@
       </li>
       <li id="navItem_picture" class="sideNavItem stat_elem">
         <div class="buttonWrap"></div>
-        <a href="/usr/update!basic.jhtml?profileform.pageIndex=1" class="item clearfix">
+        <a href="usr/update!basic.jhtml?profileform.pageIndex=1" class="item clearfix">
           <div class="rfloat">
             <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
@@ -29,7 +29,7 @@
           </div>
         </a>
       </li>
-      <li id="navItem_eduwork" class="sideNavItem stat_elem open">
+      <!--li id="navItem_eduwork" class="sideNavItem stat_elem open">
         <div class="buttonWrap"></div>
         <a href="/usr/update!basic.jhtml?profileform.pageIndex=2" class="item clearfix">
           <div class="rfloat">
@@ -62,10 +62,10 @@
             <div class="linkWrap noCount">体育 <span class="count hidden_elem uiSideNavCountText">(<span class="countValue fsm">0</span><span class="maxCountIndicator"></span>)</span></div>
           </div>
         </a>
-      </li>
+      </li-->
       <li id="navItem_activities" class="sideNavItem stat_elem">
         <div class="buttonWrap"></div>
-        <a href="/usr/update!basic.jhtml?profileform.pageIndex=5" class="item clearfix">
+        <a href="usr/update!basic.jhtml?profileform.pageIndex=2" class="item clearfix">
           <div class="rfloat">
             <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
@@ -77,7 +77,7 @@
       </li>
       <li id="navItem_contact" class="sideNavItem stat_elem">
         <div class="buttonWrap"></div>
-        <a href="/usr/update!basic.jhtml?profileform.pageIndex=6" class="item clearfix">
+        <a href="usr/update!basic.jhtml?profileform.pageIndex=3" class="item clearfix">
           <div class="rfloat">
             <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
