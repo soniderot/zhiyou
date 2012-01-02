@@ -97,4 +97,10 @@ public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements Fe
 		String hql = "select count(distinct n.id) from ZyNewsfeed n, ZyNewsfeedcomment c where (handle =? or handle =? or handle =?) and c.newsfeedid = n.id and c.userid = ?";
 		return this.getTotalRows(hql, new Object[] {Constants.SNS_SHARE_TEXT, Constants.SNS_SHARE_LINKURL, Constants.SNS_SHARE_DOCUMENT, userId });
 	}
+	
+	public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String body){
+		String hql = "from ZyNewsfeed where userid=? and handle= ? and body = ? ";
+		List<ZyNewsfeed> list = this.loadTopRows(hql, 1, new Object[] { userId, handle,body });
+		return list;
+	}
 }

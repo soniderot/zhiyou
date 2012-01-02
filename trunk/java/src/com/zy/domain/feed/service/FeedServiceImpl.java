@@ -206,6 +206,10 @@ public class FeedServiceImpl implements FeedService{
 		return this.newsFeedCommentDao.get(commentid);
 	}
 	
+	public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String body){
+		return this.newsFeedDao.getNewsFeed(userId, handle, body);
+	}
+	
 	/*
 	public ZyNewsfeed getShareFeed(String handle, int userId){
 		return null;

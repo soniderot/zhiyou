@@ -20,8 +20,18 @@ public class ZyPhoto implements java.io.Serializable {
 	private String filename;
 	
 	private String summary;
+	private String deleted;
+	
 	
 	// Constructors
+
+	public String getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(String deleted) {
+		this.deleted = deleted;
+	}
 
 	public String getSummary() {
 		return summary;

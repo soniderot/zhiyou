@@ -10,6 +10,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.zy.common.model.ZyAlbum;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyPhoto;
 import com.zy.common.model.ZyProfile;
@@ -261,7 +262,12 @@ public class FeedAction extends ActionSupport{
 			System.out.println(str);
 			ZyPhoto photo = new ZyPhoto();
 			photo.setFilename("/photos/album/"+str);
-			//photo.setAlbumno(0);
+			List<ZyAlbum> albums = photoFacade.getAlbumList(ActionUtil.getSessionUserId());
+			if(albums.size()>0){
+				photo.setAlbumno(albums.get(0).getId());
+			}else{
+				photo.setAlbumno(0);
+			}
 			photo.setCreatetime(new Date());
 			photo.setUserid(ActionUtil.getSessionUserId());
 			photoFacade.createPhoto(photo);
@@ -301,7 +307,8 @@ public class FeedAction extends ActionSupport{
 	
 	public String sharedFeed(){
 		feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), feedId);
-		return NONE;
+		//return NONE;
+		return "to.member.feeds";
 	}
 	
 	public String manageFeedCommentAjax() {

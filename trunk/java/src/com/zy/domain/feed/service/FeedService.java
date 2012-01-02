@@ -43,6 +43,8 @@ public interface FeedService {
 	
 	public ZyNewsfeedcomment getNewsfeedComment(int commentid);
 	
+	public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String body);
+	
 	//public ZyNewsfeed getShareFeed(String handle, int userId);
 	//public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String content,Date beginDate,Date endDate);
 }

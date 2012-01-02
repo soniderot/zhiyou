@@ -4,12 +4,8 @@ import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zy.common.model.ZyAlbum;
-import com.zy.common.model.ZyMessage;
-import com.zy.common.model.ZyPhoto;
-import com.zy.domain.message.bean.MessageBean;
-import com.zy.facade.MessageFacade;
-import com.zy.facade.PhotoFacade;
+import com.zy.common.model.ZyNewsfeed;
+import com.zy.facade.FeedFacade;
 import com.zy.facade.SNSFacade;
 
 public class Test {
@@ -164,11 +160,17 @@ public class Test {
 		for(int i=0;i<list1.size();i++){
 			System.out.println(list1.get(i).getFilename());
 		}*/
-		
+		/*
 		MessageFacade messageFacade = (MessageFacade)appContext.getBean("messageFacade");
 		List<MessageBean> messages = messageFacade.getMessageOutbox(1,(short)1,Integer.MAX_VALUE);
 		for(int i=0;i<messages.size();i++){
 			System.out.println(messages.get(i).getMessage().getSenderid()+"-----"+messages.get(i).getMessage().getReceiverid());
+		}*/
+		
+		FeedFacade feedFacade = (FeedFacade)appContext.getBean("feedFacade");
+		List<ZyNewsfeed> list = feedFacade.getNewsFeed(1,"sns.publish.photo", "56");
+		for(int i=0;i<list.size();i++){
+			System.out.println("feed.id----"+list.get(i).getId());
 		}
 	}
 }
