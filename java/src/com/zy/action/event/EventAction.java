@@ -353,7 +353,7 @@ public class EventAction {
 		System.out.println("--------------into-------------activitys");
 		userevents = eventFacade.getEvents(ActionUtil.getSessionUserId(),""+ActionUtil.getSessionUserId(), pageNo, pageSize);
 		System.out.println("----------------events.size----------"+userevents.size());
-		int count = eventFacade.getEvents(ActionUtil.getSessionUserId(),""+ActionUtil.getSessionUserId(), pageNo, Integer.MAX_VALUE).size();
+		int count = eventFacade.getEvents(ActionUtil.getSessionUserId(),""+ActionUtil.getSessionUserId(), 1, Integer.MAX_VALUE).size();
 		page = new Page(count,pageNo,10,5);
 		if(userevents.size()==0){
 			//return "member.emtyevents";
@@ -538,7 +538,7 @@ public class EventAction {
 		userevents = eventFacade.getEvents(ActionUtil.getSessionUserId(),str, pageNo, pageSize);
 		System.out.println("----------------events.size----------"+userevents.size());
 		
-		int count = eventFacade.getEvents(ActionUtil.getSessionUserId(),str, pageNo, Integer.MAX_VALUE).size();
+		int count = eventFacade.getEvents(ActionUtil.getSessionUserId(),str, 1, Integer.MAX_VALUE).size();
 		page = new Page(count,pageNo,10,5);
 		
 		if(userevents.size()==0){

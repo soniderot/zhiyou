@@ -61,7 +61,10 @@ public class PhotoServiceImpl implements PhotoService{
 	}
 	
 	public void deletePhoto(int photoId){
-		photoDao.deleteByKey(photoId);
+		ZyPhoto photo = photoDao.load(photoId);
+		photo.setDeleted("T");
+		photoDao.update(photo);
+		//photoDao.deleteByKey(photoId);
 	}
 	public void updateAlbum(ZyAlbum album){
 		albumDao.update(album);

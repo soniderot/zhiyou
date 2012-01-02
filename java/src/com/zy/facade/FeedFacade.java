@@ -2,6 +2,7 @@ package com.zy.facade;
 
 import java.util.List;
 
+import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.domain.feed.bean.FeedBean;
 
@@ -27,4 +28,6 @@ public interface FeedFacade {
 	public void addComment(ZyNewsfeedcomment comment);
 	
 	public void removeComment(int userid,int commentid);
+	
+	public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String body);
 }

@@ -206,10 +206,10 @@ public class MessageAction extends ActionSupport{
 		int count = 0;
 		if(type!=null&&type.equalsIgnoreCase("outbox")){
 			messages = messageFacade.getMessageOutbox(ActionUtil.getSessionUserId(), pageNo, pageSize);
-			count = messageFacade.getMessageOutbox(ActionUtil.getSessionUserId(), pageNo, Integer.MAX_VALUE).size();
+			count = messageFacade.getMessageOutbox(ActionUtil.getSessionUserId(), (short)1, Integer.MAX_VALUE).size();
 		}else{
 			messages = messageFacade.getMessageInbox(ActionUtil.getSessionUserId(), pageNo, pageSize);
-			count = messageFacade.getMessageInbox(ActionUtil.getSessionUserId(), pageNo, Integer.MAX_VALUE).size();
+			count = messageFacade.getMessageInbox(ActionUtil.getSessionUserId(), (short)1, Integer.MAX_VALUE).size();
 		}
 		System.out.println("-------------messages.size-----------"+messages.size());
 		friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(), 0, (short)1);

@@ -5,8 +5,11 @@ import java.util.Date;
 import java.util.List;
 
 import com.zy.Constants;
+import com.zy.common.model.ZyAlbum;
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
+import com.zy.common.model.ZyPhoto;
+import com.zy.common.util.ActionUtil;
 import com.zy.domain.event.service.EventService;
 import com.zy.domain.feed.bean.CommentBean;
 import com.zy.domain.feed.bean.FeedBean;
@@ -184,6 +187,22 @@ public class FeedFacadeImpl implements FeedFacade{
 		}
 		if("sns.publish.photo".equalsIgnoreCase(oldFeed.getHandle())){
 			feed.setHandle("sns.share.photo");
+			int photoId = Integer.valueOf(oldFeed.getBody());
+			ZyPhoto photo = new ZyPhoto();
+			ZyPhoto oldPhoto = photoService.getPhoto(photoId);
+			photo.setFilename(oldPhoto.getFilename());
+			photo.setSummary(oldPhoto.getSummary());
+			photo.setAlbumno(0);
+			photo.setCreatetime(new Date());
+			photo.setUserid(userId);
+			
+			List<ZyAlbum> albums = photoService.getAlbumList(userId);
+			if(albums.size()>0){
+				photo.setAlbumno(albums.get(0).getId());
+			}else{
+				photo.setAlbumno(0);
+			}
+			photoService.createPhoto(photo);
 		}
 		
 		
@@ -201,5 +220,9 @@ public class FeedFacadeImpl implements FeedFacade{
 	
 	public void removeComment(int userid,int commentid){
 		feedService.removeComment(commentid);
+	}
+	
+	public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String body){
+		return feedService.getNewsFeed(userId, handle, body);
 	}
 }

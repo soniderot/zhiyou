@@ -295,7 +295,31 @@ public class SNSActioin extends ActionSupport{
 		//if(snsFacade.getAllFriendsByDegree(ActionUtil.getSessionUserId(),(short)1).size()==0){
 			//return "you.mayknow";
 		//}
-		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		//profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		//return "you.mayknow";
+		
+		
+		profiles = new ArrayList<ZyProfile>();
+		List<Integer> ids = snsFacade.getAllFriendsByDegree(ActionUtil.getSessionUserId(),(short)2);
+		for(int i=0;i<ids.size();i++){
+			profiles.add(profileFacade.findProfileById(ids.get(i)));
+		}
+		//profiles = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)2);
+		if(profiles.size()<10){
+			List<ZyProfile> list = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+			profiles.addAll(list);
+		}
+		
+		page = new Page(profiles.size(),pageNo,pageSize,5);
+		if(profiles.size()>=pageSize*pageNo){
+			profiles = profiles.subList(pageSize*(pageNo-1),pageSize*pageNo);
+		}else{
+			profiles = profiles.subList(pageSize*(pageNo-1),profiles.size());
+		}
+		for (int i = 0; i < profiles.size(); i++) {
+			System.out.println(profiles.get(i).getUserid() + " : " + profiles.get(i).getUsername());
+		}
+		
 		return "you.mayknow";
 	}
 	

@@ -27,5 +27,9 @@
          <property name="summary" type="java.lang.String">
             <column name="summary" length="150"  />
         </property>
+        
+         <property name="deleted" type="java.lang.String">
+            <column name="deleted" length="1"  />
+        </property>
     </class>
 </hibernate-mapping>

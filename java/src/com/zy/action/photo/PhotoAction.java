@@ -14,6 +14,7 @@ import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
+import com.zy.common.util.Page;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.PhotoFacade;
 import com.zy.facade.ProfileFacade;
@@ -33,7 +34,7 @@ public class PhotoAction {
 	private int albumId;
 	
 	private int pageNo = 1;
-	private int pageSize = 50;
+	private int pageSize = 10;
 	
 	private List<ZyPhoto> userPhotos;
 	
@@ -49,9 +50,21 @@ public class PhotoAction {
 	private int albumlogo;
 	private int[] deletephotos;
 	private String newAlbumId;
+	private Page page;
+	
+	private int photoId;
+
 	
 	
-	
+	private String[] viewType = new String[]{"","","",""};
+
+	public String[] getViewType() {
+		return viewType;
+	}
+
+	public void setViewType(String[] viewType) {
+		this.viewType = viewType;
+	}
 
 	public String getNewAlbumId() {
 		return newAlbumId;
@@ -219,6 +232,7 @@ public class PhotoAction {
 		profile = profileFacade.findProfileById(userid);
 		albums = photoFacade.getAlbumList(userid);
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		viewType[2] = "selectedItem open";
 		return "member.albumlist";
 	}
 	
@@ -227,6 +241,9 @@ public class PhotoAction {
 		profile = profileFacade.findProfileById(userid);
 		userPhotos = photoFacade.getPhotoList(albumId, pageNo, pageSize);
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		int count = photoFacade.getPhotoList(albumId, 1, Integer.MAX_VALUE).size();
+		page = new Page(count,pageNo,pageSize,5);
+		viewType[2] = "selectedItem open";
 		return "member.photolist";
 	}
 	
@@ -353,7 +370,18 @@ public class PhotoAction {
 				newSummarys[i] = userPhotos.get(i).getSummary();
 			}
 		}
+		
+		int count = photoFacade.getPhotoList(albumId, 1, Integer.MAX_VALUE).size();
+		page = new Page(count,pageNo,pageSize,5);
+		
 		return "member.editphotos";
+	}
+	
+	public String sharePhoto(){
+		ZyPhoto photo = photoFacade.getPhoto(photoId);
+		int feedId = feedFacade.getNewsFeed(photo.getUserid(), "sns.publish.photo",""+photo.getUserid()).get(0).getId();
+		feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), feedId);
+		return "to.member.feeds";
 	}
 	
 	public SNSFacade getSnsFacade() {
@@ -370,5 +398,21 @@ public class PhotoAction {
 
 	public void setProfiles(List<ZyProfile> profiles) {
 		this.profiles = profiles;
+	}
+
+	public Page getPage() {
+		return page;
+	}
+
+	public void setPage(Page page) {
+		this.page = page;
+	}
+
+	public int getPhotoId() {
+		return photoId;
+	}
+
+	public void setPhotoId(int photoId) {
+		this.photoId = photoId;
 	}
 }

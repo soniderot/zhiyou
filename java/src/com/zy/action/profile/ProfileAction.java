@@ -3,6 +3,7 @@ package com.zy.action.profile;
 import java.util.List;
 
 import com.zy.common.model.ZyProfile;
+import com.zy.common.util.Page;
 import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.ProfileFacade;
@@ -20,7 +21,26 @@ public class ProfileAction {
 	private int pageSize = 10;
 	
 	private FeedFacade feedFacade;
+	private Page page;
 	
+	private String[] viewType = new String[]{"","","",""};
+	
+	
+	public Page getPage() {
+		return page;
+	}
+
+	public void setPage(Page page) {
+		this.page = page;
+	}
+
+	public String[] getViewType() {
+		return viewType;
+	}
+
+	public void setViewType(String[] viewType) {
+		this.viewType = viewType;
+	}
 
 	public FeedFacade getFeedFacade() {
 		return feedFacade;
@@ -107,6 +127,7 @@ public class ProfileAction {
 		friends = snsFacade.getAllFriends(userid,0,(short)1);
 		
 		profiles = snsFacade.getProfilesYouMayKnow(userid);
+		viewType[1] = "selectedItem open";
 		return "profile.info";
 	}
 	
@@ -118,6 +139,9 @@ public class ProfileAction {
 		feeds = feedFacade.getNewsFeed(""+userid,null,pageNo,pageSize);
 		profile = profileFacade.findProfileById(userid);
 		profiles = snsFacade.getProfilesYouMayKnow(userid);
+		viewType[0] = "selectedItem open";
+		int count = feedFacade.getNewsFeed(""+userid,null,1,Integer.MAX_VALUE).size();
+		page = new Page(count,pageNo,10,5);
 		return "profile.feeds";
 	}
 	
@@ -126,6 +150,16 @@ public class ProfileAction {
 		friends = snsFacade.getAllFriends(userid,0,(short)1);
 		
 		profiles = snsFacade.getProfilesYouMayKnow(userid);
+		viewType[3] = "selectedItem open";
+		
+		int count = friends.size();
+		if(friends.size()>=pageSize*pageNo){
+			friends = friends.subList(pageSize*(pageNo-1),pageSize*pageNo);
+		}else{
+			friends = friends.subList(pageSize*(pageNo-1),friends.size());
+		}
+		page = new Page(count,pageNo,pageSize,5);
+		
 		return "profile.friends";
 	}
 }
