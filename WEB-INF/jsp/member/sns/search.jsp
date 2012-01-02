@@ -7,6 +7,7 @@
 					  <div class="mbs detailedsearch_feature_header"><span>搜索朋友</span></div>
 					  <div class="mbm">
 					    <form  action="/sns/sns!search.jhtml" >
+					    	<input type="hidden" name="flag" value="1">
 					      <div class="mtm mrl detailedsearch_filter_loading_indicator_area">
 					      	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
 					      </div>
@@ -145,7 +146,12 @@
 					
 <script>
 function topage(pageNo) {
-	location.href = "/sns/sns!search.jhtml?pageNo="+pageNo
+	<s:if test="gender>0">
+	location.href = "/sns/sns!search.jhtml?startAge=${startAge}&endAge=${endAge}&gender=${gender}&pageNo="+pageNo
+	</s:if>
+	<s:else>
+	location.href = "/sns/sns!search.jhtml?startAge=${startAge}&endAge=${endAge}&pageNo="+pageNo
+	</s:else>
 	return false;
 }
 </script>	
