@@ -1,4 +1,6 @@
 package com.zy.action.sns;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +9,7 @@ import octazen.addressbook.Contact;
 import com.opensymphony.xwork2.ActionSupport;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
+import com.zy.common.util.DateUtil;
 import com.zy.common.util.Page;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.SNSFacade;
@@ -42,6 +45,16 @@ public class SNSActioin extends ActionSupport{
 	private short gender ;
 	
 	private ZyProfile profile;
+	
+	private String flag;
+
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
 
 	public ZyProfile getProfile() {
 		return profile;
@@ -324,6 +337,9 @@ public class SNSActioin extends ActionSupport{
 	}
 	
 	public String search(){
+		if(flag==null){
+			return "search.result";
+		}
 		SearchFormVo vo = new SearchFormVo();
 		if(keyword!=null&&keyword.trim().length()>0){
 			vo.setKeyword(keyword);
@@ -331,6 +347,12 @@ public class SNSActioin extends ActionSupport{
 		if(gender>0){
 			vo.setGender(gender);
 		}
+		
+		 DateFormat df = new SimpleDateFormat("yyyyMMdd");
+		 System.out.println(df.format(DateUtil.computeBirthDate(25)));
+		
+		vo.setEnd(df.format(DateUtil.computeBirthDate(startAge)));
+		vo.setStart(df.format(DateUtil.computeBirthDate(endAge)));
 		//vo.setKeyWordSearch(true);
 		List<SearchResultVo> results = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(),vo,500);
 		profiles = new ArrayList<ZyProfile>();
@@ -339,7 +361,7 @@ public class SNSActioin extends ActionSupport{
 		}
 		
 		//profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
-		page = new Page(profiles.size(),pageNo,10,5);
+		page = new Page(profiles.size(),pageNo,pageSize,5);
 		if(profiles.size()>=pageSize*pageNo){
 			profiles = profiles.subList(pageSize*(pageNo-1),pageSize*pageNo);
 		}else{

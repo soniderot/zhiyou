@@ -1,10 +1,13 @@
 package com.zy.action.search;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
+import com.zy.common.util.DateUtil;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.SearchFacade;
 import com.zy.facade.vo.SearchFormVo;
@@ -75,7 +78,12 @@ public class SearchAction {
 	public String execute() {
 		System.out.println("--------------into execute----------"+pageNo);
 		SearchFormVo vo = new SearchFormVo();
+		
+		 DateFormat df = new SimpleDateFormat("yyyyMMdd");
+		 System.out.println(df.format(DateUtil.computeBirthDate(25)));
+		
 		vo.setGender((short)1);
+		
 		List<SearchResultVo> results = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(),vo,500);
 		profileList = new ArrayList<ZyProfile>();
 		for(int i=0;i<results.size();i++){

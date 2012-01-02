@@ -126,6 +126,10 @@ public class SearchFormVo implements Serializable {
 			fields.add(IndexField.Profile.GENDER);
 			values.add(this.getGender() + "");
 			flags.add(BooleanClause.Occur.MUST);
+		}else{
+			fields.add(IndexField.Profile.GENDER);
+			values.add("1 2");
+			flags.add(BooleanClause.Occur.MUST);
 		}
 		
 		if (this.getRegionId() > 0) {
