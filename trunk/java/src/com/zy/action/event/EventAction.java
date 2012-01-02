@@ -26,6 +26,7 @@ import com.zy.common.model.ZyRequest;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
+import com.zy.common.util.Page;
 import com.zy.facade.EventFacade;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.OptionFacade;
@@ -69,7 +70,7 @@ public class EventAction {
 	
 	private ProfileFacade profileFacade;
 	private int pageNo = 1;
-	private int pageSize = 12;
+	private int pageSize = 10;
 	private List<EventVO> userevents;
 	
 	private boolean friendFlag;
@@ -82,6 +83,17 @@ public class EventAction {
 	private int subcateGoryId;
 	private List<ZyRecommplace> places;
 	
+	private Page page;
+	
+	
+	public Page getPage() {
+		return page;
+	}
+
+	public void setPage(Page page) {
+		this.page = page;
+	}
+
 	public List<ZyRecommplace> getPlaces() {
 		return places;
 	}
@@ -341,8 +353,11 @@ public class EventAction {
 		System.out.println("--------------into-------------activitys");
 		userevents = eventFacade.getEvents(ActionUtil.getSessionUserId(),""+ActionUtil.getSessionUserId(), pageNo, pageSize);
 		System.out.println("----------------events.size----------"+userevents.size());
+		int count = eventFacade.getEvents(ActionUtil.getSessionUserId(),""+ActionUtil.getSessionUserId(), pageNo, Integer.MAX_VALUE).size();
+		page = new Page(count,pageNo,10,5);
 		if(userevents.size()==0){
-			return "member.emtyevents";
+			//return "member.emtyevents";
+			return "member.events";
 		}else{
 			return "member.events";
 		}
@@ -522,8 +537,13 @@ public class EventAction {
 		System.out.println("--------------into---friends----------activitys");
 		userevents = eventFacade.getEvents(ActionUtil.getSessionUserId(),str, pageNo, pageSize);
 		System.out.println("----------------events.size----------"+userevents.size());
+		
+		int count = eventFacade.getEvents(ActionUtil.getSessionUserId(),str, pageNo, Integer.MAX_VALUE).size();
+		page = new Page(count,pageNo,10,5);
+		
 		if(userevents.size()==0){
-			return "member.emtyevents";
+			//return "member.emtyevents";
+			return "member.events";
 		}else{
 			return "member.events";
 		}

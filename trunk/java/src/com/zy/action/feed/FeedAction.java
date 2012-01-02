@@ -16,6 +16,7 @@ import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
+import com.zy.common.util.Page;
 import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.PhotoFacade;
@@ -51,8 +52,17 @@ public class FeedAction extends ActionSupport{
 	
 	private ZyNewsfeedcomment comment;
 	private ZyProfile user;
+	private Page page;
 	
 	
+	public Page getPage() {
+		return page;
+	}
+
+	public void setPage(Page page) {
+		this.page = page;
+	}
+
 	public ZyProfile getUser() {
 		return user;
 	}
@@ -209,12 +219,18 @@ public class FeedAction extends ActionSupport{
 				str = str+ids.get(i);
 			}
 		}
+		int count = 0;
 		if(handle==null||handle.trim().length()==0){
 			feeds = feedFacade.getNewsFeed(str,null,pageNo,pageSize);
+			count = feedFacade.getNewsFeed(str,null,1,Integer.MAX_VALUE).size();
 		}else{
 			String str1 = handle.replaceAll(",", "','");
 			feeds = feedFacade.getNewsFeed(str,"'"+str1+"'",pageNo,pageSize);
+			count = feedFacade.getNewsFeed(str,"'"+str1+"'",1,Integer.MAX_VALUE).size();
 		}
+		System.out.println("-------------count------------"+count);
+		page = new Page(count,pageNo,10,5);
+		
 		return "member.feeds";
 	}
 	
