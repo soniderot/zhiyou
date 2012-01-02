@@ -17,22 +17,22 @@
             <column name="USERID" not-null="true" />
         </property>
         <property name="major" type="java.lang.String">
-            <column name="MAJOR" length="64" not-null="true" />
+            <column name="MAJOR" length="64" not-null="false" />
         </property>
         <property name="degreeid" type="java.lang.Integer">
-            <column name="DEGREEID" not-null="true" />
+            <column name="DEGREEID" not-null="false" />
         </property>
         <property name="startyear" type="java.lang.Integer">
-            <column name="STARTYEAR" not-null="true" />
+            <column name="STARTYEAR" not-null="false" />
         </property>
         <property name="startmonth" type="java.lang.Integer">
-            <column name="STARTMONTH" not-null="true" />
+            <column name="STARTMONTH" not-null="false" />
         </property>
         <property name="endyear" type="java.lang.Integer">
-            <column name="ENDYEAR" not-null="true" />
+            <column name="ENDYEAR" not-null="false" />
         </property>
         <property name="endmonth" type="java.lang.Integer">
-            <column name="ENDMONTH" not-null="true" />
+            <column name="ENDMONTH" not-null="false" />
         </property>
         <property name="createtime" type="java.util.Date">
             <column name="CREATETIME" length="0" />
