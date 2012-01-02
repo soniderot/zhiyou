@@ -298,16 +298,16 @@
                           <li class="uiUfiComments uiListItem uiListVerticalItemBorder">
                             <ul class="commentList">
                             <s:iterator value="comments"> 
-                              <li class="uiUfiComment comment_5136102 ufiItem ufiItem uiUfiUnseenItem">
+                              <li class="uiUfiComment comment_<s:property value='comment.id' /> ufiItem ufiItem uiUfiUnseenItem">
                                 <div class="UIImageBlock clearfix uiUfiActorBlock">
                                   <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid" />" tabindex="-1" class="actorPic UIImageBlock_Image UIImageBlock_SMALL_Image">
-                                    <img alt="" src="<s:property value="user.avatar" />" class="uiProfilePhoto uiProfilePhotoMedium img"/>
+                                    <img alt="" src="<s:property value='user.avatar' />" class="uiProfilePhoto uiProfilePhotoMedium img"/>
                                   </a>
                                   <label for="u3ft9v_1" class="deleteAction stat_elem UIImageBlock_Ext uiCloseButton">
-                                    <input type="submit" id="u3ft9v_1" name="showDelCommentPop('dialog_delFeedCmt', 5136102)" title="删除"/>
+                                    <input type="button" id="u3ft9v_1" onclick="showDelCommentPop('dialog_delFeedCmt', <s:property value='comment.id' />)" title="删除"/>
                                   </label>
                                   <div class="commentContent UIImageBlock_Content UIImageBlock_SMALL_Content">
-                                    <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid" />" class="actorName"><s:property value="user.username" /></a>
+                                    <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value='user.userid' />" class="actorName"><s:property value="user.username" /></a>
                                     <span class="commentBody"><s:property value="comment.content" /></span>
                                     <div class="commentActions fsm fwn fcg">
                                       <abbr class="timestamp livetimestamp" title="<s:date name="comment.created" format="yyyy-MM-dd HH:mm" />"><s:date name="comment.created" format="yyyy-MM-dd HH:mm" />发布</abbr> 
@@ -479,3 +479,5 @@
   return false;
 }
 </script>
+
+<%@ include file="/WEB-INF/jsp/popup/delFeedCommentPop.jsp"%>
