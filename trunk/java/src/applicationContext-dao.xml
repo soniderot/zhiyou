@@ -4,7 +4,8 @@
  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 <bean id="profileDao" class="com.zy.domain.profile.dao.ProfileDaoImpl" parent="baseDao" />
-
+<bean id="educationDao" class="com.zy.domain.profile.dao.EducationDAOImpl" parent="baseDao" />
+<bean id="schoolDao" class="com.zy.domain.option.dao.SchoolDaoImpl" parent="baseDao" />
 
 <bean id="friendDao" class="com.zy.domain.sns.dao.FriendDaoImpl" parent="baseDao" />
 <bean id="snsGroupDao" class="com.zy.domain.sns.dao.SNSGroupDaoImpl" parent="baseDao" />
