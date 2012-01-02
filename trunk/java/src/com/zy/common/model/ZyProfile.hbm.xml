@@ -82,5 +82,14 @@
   <property generated="never" lazy="false" name="lastlogintime" type="java.util.Date">
    <column length="0" name="LASTLOGINTIME"/>
   </property>
+  <property generated="never" lazy="false" name="hobby" type="java.lang.String">
+   <column length="128" name="HOBBY"/>
+  </property>
+  <property generated="never" lazy="false" name="qq" type="java.lang.String">
+   <column length="20" name="QQ"/>
+  </property>
+  <property generated="never" lazy="false" name="address" type="java.lang.String">
+   <column length="256" name="ADDRESS"/>
+  </property>
  </class>
 </hibernate-mapping>

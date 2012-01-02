@@ -24,8 +24,8 @@ public class ZyProfile implements java.io.Serializable {
 	private Short objectgender;
 	private Integer countryid;
 	private Integer regionid;
-	private Integer cityid;
-	private Integer hometownid;
+	private Integer cityid = 0;
+	private Integer hometownid = 0;
 	private Short level;
 	private Float point;
 	private String ip;
@@ -37,7 +37,9 @@ public class ZyProfile implements java.io.Serializable {
 	private Date registertime;
 	private Date updatetime;
 	private Date lastlogintime;
-	
+	private String hobby;
+	private String qq;
+	private String address;
 	private String cityname;
 	private String regionname;
 	private String countryname;
@@ -307,6 +309,30 @@ public class ZyProfile implements java.io.Serializable {
 
 	public void setHometownid(Integer hometownid) {
 		this.hometownid = hometownid;
+	}
+
+	public String getHobby() {
+		return hobby;
+	}
+
+	public String getQq() {
+		return qq;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 }
