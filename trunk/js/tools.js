@@ -17,6 +17,13 @@ function validateCreateEvent(form) {
 	return result;
 }
 
+function validateUpdateContact(form) {
+	var result = true;
+	result = checkMobile($("input[name='profileform.mobile']"))&&result;
+	result = checkQQ($("input[name='profileform.qq']"))&&result;
+	return result;
+}
+
 function checkUsername(obj) {
 	$(obj).tipsy("hide");
 	var fieldVal = $(obj).val();
@@ -153,6 +160,31 @@ function checkEventDistrict(obj) {
 	var district = $(obj).val();
 	if (district < 0) {
 		$(obj).attr("tooltip", "请您选择区域。");
+		$(obj).tipsy("show");
+		setFocus(obj);
+		return false;
+	}
+	return true;
+}
+
+function checkMobile(obj) {
+	$(obj).tipsy("hide");
+	var fieldVal = $(obj).val();
+	var regexp = new RegExp("^(13[0-9]|15[0|3|6|7|8|9]|18[8|9])\d{8}$");
+	if (fieldVal!=="" && !fieldVal.match(regexp)) {
+		$(obj).attr("tooltip","请输入11位手机号码。");
+		$(obj).tipsy("show");
+		setFocus(obj);
+		return false;
+	}
+	return true;
+}
+function checkQQ(obj) {
+	$(obj).tipsy("hide");
+	var fieldVal = $(obj).val();
+	var regexp = new RegExp("^\\w{5,20}$");
+	if (fieldVal!== "" && !fieldVal.match(regexp)) {
+		$(obj).attr("tooltip","请输入5位以上QQ号码。");
 		$(obj).tipsy("show");
 		setFocus(obj);
 		return false;
