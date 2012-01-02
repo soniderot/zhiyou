@@ -304,6 +304,11 @@ public class FeedAction extends ActionSupport{
 		return NONE;
 	}
 	
+	public String manageFeedCommentAjax() {
+    //commentId : cmtId,
+    //manageType : manageType 1:delete
+		return null;
+	}
 	public static void main(String[] args){
 		String str = "sns.event.create,sns.event.join";
 		System.out.println(str.replaceAll(",", "','"));
