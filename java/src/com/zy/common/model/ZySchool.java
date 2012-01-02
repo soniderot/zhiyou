@@ -14,6 +14,7 @@ public class ZySchool implements java.io.Serializable {
 
 	private Integer id;
 	private String schoolname;
+	private String schoolpinyin;
 	private Date createtime;
 
 	// Constructors
@@ -57,6 +58,14 @@ public class ZySchool implements java.io.Serializable {
 
 	public void setCreatetime(Date createtime) {
 		this.createtime = createtime;
+	}
+
+	public String getSchoolpinyin() {
+		return schoolpinyin;
+	}
+
+	public void setSchoolpinyin(String schoolpinyin) {
+		this.schoolpinyin = schoolpinyin;
 	}
 
 }
