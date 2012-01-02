@@ -23,4 +23,6 @@ public interface SchoolDao extends BaseDao<ZySchool, Integer> {
 	
 	public ZySchool loadSchoolById(int id);
 	
+	public List<ZySchool> getSchoolsByKey(String key);
+	
 }
