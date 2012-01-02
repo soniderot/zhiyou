@@ -15,6 +15,7 @@
                 href="#" role="button"
                 class="uiSelectorButton  uiButton"> <span
                 class="uiButtonText">最新消息</span> </a>-->
+                <!--
               <div class="uiSelectorMenuWrapper  uiToggleFlyout">
                 <div class="uiMenu uiSelectorMenu" role="menu">
                   <ul class="uiMenuInner">
@@ -58,7 +59,7 @@
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div>-->
             </div>
             <select>
               <option value=""></option>
@@ -129,7 +130,7 @@
             </span>
           </li>
           <li class="showWhenLoading attachmentLoader plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-            <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img" />
+            <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img" />
           </li>
         </ul>
 
@@ -272,11 +273,18 @@
                         <span class="UIActionLinks UIActionLinks_bottom">
                           <label class="uiLinkButton comment_link" title="发表留言">
                             <input type="button" value="评论" onclick="return showComments(this);">
+                           
+                          </label> · 
+                        </span>
+                        
+                         <span class="UIActionLinks UIActionLinks_bottom">
+                          <label class="uiLinkButton comment_link" title="分享">
                             <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
                               <input type="button" value="分享" onclick="return;">
                             </s:if >
                           </label> · 
                         </span>
+                        
                         <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
                           <abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp">
                             <s:date name="feed.created" format="yyyy-MM-dd HH:mm" />
@@ -361,12 +369,19 @@
       </ul>
 
       <div>
+      	
         <div id="pagelet_stream_pager"
           data-referrer="pagelet_stream_pager">
+          
           <div class="clearfix mts uiMorePager stat_elem fbStreamPager">
-            <a href="/ajax/feed/edit_options_dialog.php?filter_key=lf" rel="dialog" class="uiMorePagerSecondary rfloat">编辑选项</a>
+          	
             <div>
+            	<s:if test="feeds.size()>0">
+            	<jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
+            </s:if>
+            <s:else>
               <div class="pam uiBoxLightblue uiMorePagerPrimary">目前没有更多动态可显示。</div>
+            </s:else>
             </div>
           </div>
         </div>
@@ -458,4 +473,9 @@
     });
     return false;
   }
+  
+  function topage(pageNo) {
+  location.href = "/usr/feed.jhtml?handle=<s:property value="handle" />&pageNo="+pageNo
+  return false;
+}
 </script>

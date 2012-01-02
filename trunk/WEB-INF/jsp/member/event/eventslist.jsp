@@ -110,6 +110,25 @@
 					          </div>
 					        </div>
 					      </div>
+					      
+					      
+					       <div id="pagelet_stream_pager"
+          data-referrer="pagelet_stream_pager">
+          
+          <div class="clearfix mts uiMorePager stat_elem fbStreamPager">
+          	
+            <div>
+            	<s:if test="userevents.size()>0">
+            	<jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
+            </s:if>
+            <s:else>
+              <div class="pam uiBoxLightblue uiMorePagerPrimary">目前没有更多活动可显示。</div>
+            </s:else>
+            </div>
+          </div>
+        </div>
+      </div>
+					      
 					      <!--
 					      <div class="rfloat">
 					      	<a class="prev uiButtonDisabled uiButton uiButtonNoText" role="button" data-href="/?sk=fe&amp;s=-1">
@@ -124,3 +143,15 @@
 					    </div>
 					  </div>
 					</div>
+					
+<script>
+function topage(pageNo) {
+	<s:if test="(friendFlag==false)"> 
+  location.href = "event/event!getEvents.jhtml?pageNo="+pageNo
+  </s:if>
+  <s:else>
+  location.href = "event/event!getFriendsEvents.jhtml?pageNo="+pageNo
+  </s:else>
+  return false;
+}
+</script>
