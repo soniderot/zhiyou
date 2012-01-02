@@ -8,9 +8,9 @@ import com.zy.domain.message.bean.MessageBean;
 public interface MessageService {
 	public boolean sendMessage(ZyMessage message);
 	
-	public List<MessageBean> getMessageInbox(int userId,short pagenumber,short pagesize);
+	public List<MessageBean> getMessageInbox(int userId,short pagenumber,int pagesize);
 	
-	public List<MessageBean> getMessageOutbox(int userId,short pagenumber,short pagesize);
+	public List<MessageBean> getMessageOutbox(int userId,short pagenumber,int pagesize);
 
 	public boolean senderDeleteMessage(int message);
 	
