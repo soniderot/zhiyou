@@ -2,6 +2,8 @@ package com.zy.bean;
 
 import java.util.Date;
 
+import com.zy.Constants;
+
 /**
  * ZyProfile entity.
  * 
@@ -39,18 +41,48 @@ public class Profile implements java.io.Serializable {
 	private Date lastlogintime;
 	
 	private String cityname;
+	private String hometownname;
 	private String regionname;
 	private String countryname;
-	private Integer meeting_sex1;
-	private Integer meeting_sex2;
+	private Boolean meeting_sex1;
+	private Boolean meeting_sex2;
 	private Integer year;
 	private Integer month;
 	private Integer day;
 	private String introduce;
-	private Integer pageIndex = 0;
+	private Integer pageIndex;
+	private Integer collegeid;
+	private String collegename;
+	private String hobby;
+	private String qq;
+	private String address;
 
 
 	// Constructors
+
+	public String getHobby() {
+		return hobby;
+	}
+
+	public String getQq() {
+		return qq;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	public Integer getPageIndex() {
 		return pageIndex;
@@ -310,12 +342,7 @@ public class Profile implements java.io.Serializable {
 	}
 
 	public Short getObjectgender() {
-		if (this.meeting_sex1 != null && this.meeting_sex2 == null) {
-			return (short)this.meeting_sex1.intValue();
-		} else if(this.meeting_sex1 == null && this.meeting_sex2 != null){
-			return (short)this.meeting_sex2.intValue();
-		}
-		return 0;
+		return objectgender;
 	}
 
 	public Integer getHometownid() {
@@ -330,19 +357,19 @@ public class Profile implements java.io.Serializable {
 		this.hometownid = hometownid;
 	}
 
-	public Integer getMeeting_sex1() {
+	public Boolean getMeeting_sex1() {
 		return meeting_sex1;
 	}
 
-	public Integer getMeeting_sex2() {
+	public Boolean getMeeting_sex2() {
 		return meeting_sex2;
 	}
 
-	public void setMeeting_sex1(Integer meeting_sex1) {
+	public void setMeeting_sex1(Boolean meeting_sex1) {
 		this.meeting_sex1 = meeting_sex1;
 	}
 
-	public void setMeeting_sex2(Integer meeting_sex2) {
+	public void setMeeting_sex2(Boolean meeting_sex2) {
 		this.meeting_sex2 = meeting_sex2;
 	}
 
@@ -376,6 +403,30 @@ public class Profile implements java.io.Serializable {
 
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
+	}
+
+	public String getHometownname() {
+		return hometownname;
+	}
+
+	public void setHometownname(String hometownname) {
+		this.hometownname = hometownname;
+	}
+
+	public Integer getCollegeid() {
+		return collegeid;
+	}
+
+	public String getCollegename() {
+		return collegename;
+	}
+
+	public void setCollegeid(Integer collegeid) {
+		this.collegeid = collegeid;
+	}
+
+	public void setCollegename(String collegename) {
+		this.collegename = collegename;
 	}
 
 }
