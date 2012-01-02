@@ -42,7 +42,6 @@ public class SNSActioin extends ActionSupport{
 	private short gender ;
 	
 	private ZyProfile profile;
-	
 
 	public ZyProfile getProfile() {
 		return profile;
@@ -330,6 +329,14 @@ public class SNSActioin extends ActionSupport{
 		profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
 		friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)1);
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		
+		int count = friends.size();
+		if(friends.size()>=pageSize*pageNo){
+			friends = friends.subList(pageSize*(pageNo-1),pageSize*pageNo);
+		}else{
+			friends = friends.subList(pageSize*(pageNo-1),friends.size());
+		}
+		page = new Page(count,pageNo,pageSize,5);
 		return "friends.list";
 	}
 	

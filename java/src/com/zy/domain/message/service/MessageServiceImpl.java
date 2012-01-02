@@ -40,7 +40,7 @@ public class MessageServiceImpl implements MessageService {
 		this.messageDao = messageDao;
 	}
 
-	public List<MessageBean> getMessageInbox(int userId,short pagenumber,short pagesize){
+	public List<MessageBean> getMessageInbox(int userId,short pagenumber,int pagesize){
 		List<ZyMessage> msgs = messageDao.loadForInbox(userId, pagenumber,
 				pagesize);
 System.out.println("-------msg.size---"+msgs.size());
@@ -56,7 +56,7 @@ System.out.println("-------msg.size---"+msgs.size());
 		return messagebean;
 	}
 	
-	public List<MessageBean> getMessageOutbox(int userId,short pagenumber,short pagesize){
+	public List<MessageBean> getMessageOutbox(int userId,short pagenumber,int pagesize){
 		List<ZyMessage> msgs = messageDao.loadForOutbox(userId, pagenumber,
 				pagesize);
 

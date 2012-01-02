@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.zy.common.model.ZyMessage;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
+import com.zy.common.util.Page;
 import com.zy.domain.message.bean.MessageBean;
 import com.zy.facade.MessageFacade;
 import com.zy.facade.ProfileFacade;
@@ -16,7 +17,7 @@ public class MessageAction extends ActionSupport{
 	private MessageFacade messageFacade;
 	private ProfileFacade profileFacade;
 	private short pageNo = 1;
-	private short pageSize = 12;
+	private short pageSize = 10;
 	private List<MessageBean> messages;
 
 	private int messageId;
@@ -35,6 +36,10 @@ public class MessageAction extends ActionSupport{
 	private String replyMessage;
 	private int receiverId;
 	
+	private Page page;
+	
+	private String type;
+	
 	
 	
 	/*
@@ -49,6 +54,26 @@ public class MessageAction extends ActionSupport{
 
 
 	
+	public String getType() {
+		return type;
+	}
+
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+
+	public Page getPage() {
+		return page;
+	}
+
+
+	public void setPage(Page page) {
+		this.page = page;
+	}
+
+
 	public int getReceiverId() {
 		return receiverId;
 	}
@@ -178,10 +203,17 @@ public class MessageAction extends ActionSupport{
 	}
 
 	public String execute(){
-
-		messages = messageFacade.getMessageInbox(ActionUtil.getSessionUserId(), pageNo, pageSize);
+		int count = 0;
+		if(type!=null&&type.equalsIgnoreCase("outbox")){
+			messages = messageFacade.getMessageOutbox(ActionUtil.getSessionUserId(), pageNo, pageSize);
+			count = messageFacade.getMessageOutbox(ActionUtil.getSessionUserId(), pageNo, Integer.MAX_VALUE).size();
+		}else{
+			messages = messageFacade.getMessageInbox(ActionUtil.getSessionUserId(), pageNo, pageSize);
+			count = messageFacade.getMessageInbox(ActionUtil.getSessionUserId(), pageNo, Integer.MAX_VALUE).size();
+		}
 		System.out.println("-------------messages.size-----------"+messages.size());
 		friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(), 0, (short)1);
+		page = new Page(count,pageNo,10,5);
 		return "member.messages";
 	}
 	
@@ -250,6 +282,7 @@ public class MessageAction extends ActionSupport{
 		sender = profileFacade.findProfileById(message.getSenderid());
 		receiver = profileFacade.findProfileById(message.getReceiverid());
 		zyMessages = messageFacade.getMessagesByIds(message.getParentids());
+		messageFacade.readMessage_tx(messageId,ActionUtil.getSessionUserId());
 		MessageBean bean = new MessageBean();
 		bean.setMessage(message);
 		bean.setProfile(sender);

@@ -34,11 +34,11 @@ public class MessageFacadeImpl implements MessageFacade{
 		return messageService.sendMessage(message);
 	}
 	
-	public List<MessageBean> getMessageInbox(int userId,short pagenumber,short pagesize){
+	public List<MessageBean> getMessageInbox(int userId,short pagenumber,int pagesize){
 		return messageService.getMessageInbox(userId, pagenumber, pagesize);
 	}
 	
-	public List<MessageBean> getMessageOutbox(int userId,short pagenumber,short pagesize){
+	public List<MessageBean> getMessageOutbox(int userId,short pagenumber,int pagesize){
 		return messageService.getMessageOutbox(userId, pagenumber, pagesize);
 	}
 
