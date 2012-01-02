@@ -1,5 +1,5 @@
 <%@page contentType="textml;charset=utf-8"%>
- <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
  
 <script type="text/javascript">
   $(document).ready(function() {
@@ -15,6 +15,12 @@
         notFound: notFoundMyHometown
       });
       
+     $('#schoolName').autocomplete({
+      serviceUrl: "usr/school.jhtml",
+      onSelect: selectMySchool,
+      onClear: clearMySchool,
+      notFound: notFoundMySchool
+    });
   });
   
   function selectMyCity(value, data) {
@@ -50,6 +56,24 @@
   function notFoundMyHometown() {
    clearMyHometown();
   }
+  
+  function selectMySchool(value, data) {
+    var schoolId = data.schoolId;
+    var schoolName = data.schoolName;
+    if (schoolId > 0) {
+      $("#schoolId").val(schoolId);
+      $("#schoolName").val(schoolName);
+    }
+  }
+  
+  function clearMySchool() {
+    $("#schoolId").val("");
+  }
+  
+  function notFoundMySchool() {
+   clearMySchool();
+  }
+  
 </script>
 
 <div role="main" id="contentArea">
@@ -70,11 +94,12 @@
     </div>
   </div>
   <div class="pal grayArea uiBoxGray noborder">
-    <div data-referrer="editprofileform" id="editprofileform">
+    <div id="editprofileform">
       <s:form action="update" namespace="/usr" id="ep_form">
-        <input type="hidden" id="selectedCity" name="profileform.cityid" autocomplete="off"/>
-        <input type="hidden" id="selectedHometown" name="profileform.hometownid" autocomplete="off"/>
-        <input type="hidden" id="selectedHometown" name="profileform.pageIndex" autocomplete="off"/>
+        <input type="hidden" id="selectedCity" name="profileform.cityid" />
+        <input type="hidden" id="selectedHometown" name="profileform.hometownid" />
+        <input type="hidden" id="schoolId" name="profileform.collegeid" />
+        <input type="hidden" name="profileform.pageIndex" value="1"/>
         <table class="uiInfoTable">
           <tbody>
             <tr class="dataRow">
@@ -84,8 +109,8 @@
                   <div id="u2urlx_8" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead uiTypeaheadFocused">
                     <div class="wrap">
                       <div class="innerWrap">
-                        <s:textfield id="mycity" name="mycity" cssClass="inputtext textInput DOMControl_placeholder" placeholder="请您输入所在城市" tipstype="error" />
-                      </div>
+                        <s:textfield id="mycity" name="profileform.cityname" cssClass="inputtext textInput DOMControl_placeholder" placeholder="请您输入所在城市" tipstype="error" />
+                      </div>${profileform.cityid}
                       <i class="photo img sp_c0827g sx_c5d496"></i>
                     </div>
                     <div class="uiTypeaheadView hidden_elem"></div>
@@ -101,7 +126,7 @@
                   <div id="u2urlx_10" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead">
                     <div class="wrap">
                       <div class="innerWrap">
-                        <s:textfield id="myhometown" name="myhometown" cssClass="inputtext textInput DOMControl_placeholder" placeholder="请您输入家乡城市" tipstype="error" />
+                        <s:textfield id="myhometown" name="profileform.hometownname" cssClass="inputtext textInput DOMControl_placeholder" placeholder="请您输入家乡城市" tipstype="error" />
                       </div>
                       <i class="photo img sp_c0827g sx_c5d496"></i>
                     </div>
@@ -164,11 +189,11 @@
               <th class="label">兴趣对象：</th>
               <td class="data">
                 <div class="uiInputLabel inlineBlock">
-                  <input type="checkbox" class="uiInputLabelCheckbox" id="meeting_sex1" name="profileform.meeting_sex2" value="2" />
+                  <s:checkbox cssClass="uiInputLabelCheckbox" id="meeting_sex1" name="profileform.meeting_sex2" />
                   <label for="meeting_sex1">女性</label>
                 </div>
                 <div class="uiInputLabel inlineBlock">
-                  <input type="checkbox" class="uiInputLabelCheckbox" id="meeting_sex2" name="profileform.meeting_sex1" value="1" />
+                  <s:checkbox cssClass="uiInputLabelCheckbox" id="meeting_sex2" name="profileform.meeting_sex1" />
                   <label for="meeting_sex2">男性</label>
                 </div>
               </td>
@@ -176,6 +201,27 @@
             </tr>
             <tr class="spacer">
               <td colspan="3"><hr/></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr class="dataRow">
+              <th class="label">学院/大学：</th>
+              <td class="data">
+                <div id="add_college" class="uiTypeahead uiClearableTypeahead photoTypeahead mbs addExperience stat_elem fbHubsTypeahead">
+                  <div class="wrap">
+                    <label for="u83nqz_5" class="clear uiCloseButton">
+                      <input type="button" id="u83nqz_5" onclick="var c = JSCC.get('j4ed60c7576e6211830524984').getCore(); c.reset(); c.getElement().focus(); " title="删除"/>
+                    </label>
+                    <div class="innerWrap">
+                      <s:textfield id="schoolName" name="profileform.collegename" title="你在哪儿念的大学？" placeholder="你在哪儿念的大学？" cssClass="inputtext textInput DOMControl_placeholder"/>
+                    </div>
+                    <i class="photo img sp_dob1w7 sx_33eb13"></i>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="spacer">
+              <td colspan="2"><hr/></td>
             </tr>
           </tbody>
           <tbody class="profileTextareaField">
@@ -196,7 +242,7 @@
               <td colspan="2" class="data"><table cellspacing="0" cellpadding="0" class="uiGrid">
                   <tbody>
                     <tr>
-                      <td class="vTop"><input type="hidden" value="1" name="save" autocomplete="off"/>
+                      <td class="vTop">
                         <label for="u2urlx_7" class="uiButton uiButtonConfirm">
                           <input type="submit" id="u2urlx_7" value="保存更改"/>
                         </label>

@@ -1,3 +1,5 @@
+<%@page contentType="textml;charset=utf-8"%>
+<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <div role="main" id="contentArea">
   <div class="uiHeader mhl uiHeaderPage">
     <div class="clearfix uiHeaderTop">
@@ -16,71 +18,70 @@
     </div>
   </div>
   <div class="pal grayArea uiBoxGray noborder">
-    <div data-referrer="editProfileForm" id="editProfileForm">
-      <table class="uiInfoTable fbEditProfileExperienceSection">
-        <tbody>
-          <tr class="dataRow">
-            <th class="label">工作单位：</th>
-            <td class="data">
-              <div id="add_work" class="uiTypeahead uiClearableTypeahead photoTypeahead mbs addExperience stat_elem fbHubsTypeahead">
-                <div class="wrap">
-                  <label for="u83nqz_4" class="clear uiCloseButton">
-                    <input type="button" id="u83nqz_4" onclick="var c = JSCC.get('j4ed60c7576e6211830524982').getCore(); c.reset(); c.getElement().focus(); " title="删除"/>
-                  </label>
-                  <input type="hidden" name="employer_id" class="hiddenInput" autocomplete="off"/>
-                  <div class="innerWrap">
-                    <input type="text" title="你曾经在哪就职？" value="你曾经在哪就职？" spellcheck="false" onfocus="return wait_for_load(this, event, function() {JSCC.get(&#39;j4ed60c7576e6211830524987&#39;).init(JSCC.get(&#39;j4ed60c7576e6211830524982&#39;));;JSCC.get(&#39;j4ed60c7576e6211830524982&#39;).init([&quot;setPhotoOnSelect&quot;]);;});" autocomplete="off" placeholder="你曾经在哪就职？" name="employer_name" class="inputtext textInput DOMControl_placeholder"/>
-                  </div>
-                  <i class="photo img sp_dob1w7 sx_33eb13"></i>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr class="spacer">
-            <td colspan="2"><hr/></td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr class="dataRow">
-            <th class="label">学院/大学：</th>
-            <td class="data">
-              <div id="add_college" class="uiTypeahead uiClearableTypeahead photoTypeahead mbs addExperience stat_elem fbHubsTypeahead">
-                <div class="wrap">
-                  <label for="u83nqz_5" class="clear uiCloseButton">
-                    <input type="button" id="u83nqz_5" onclick="var c = JSCC.get('j4ed60c7576e6211830524984').getCore(); c.reset(); c.getElement().focus(); " title="删除"/>
-                  </label>
-                  <input type="hidden" name="college_id" class="hiddenInput" autocomplete="off"/>
-                  <div class="innerWrap">
-                    <input type="text" title="你在哪儿念的大学？" value="你在哪儿念的大学？" spellcheck="false" onfocus="return wait_for_load(this, event, function() {JSCC.get(&#39;j4ed60c7576e6211830524988&#39;).init(JSCC.get(&#39;j4ed60c7576e6211830524984&#39;));;JSCC.get(&#39;j4ed60c7576e6211830524984&#39;).init([&quot;setPhotoOnSelect&quot;]);;});" autocomplete="off" placeholder="你在哪儿念的大学？" name="college_name" class="inputtext textInput DOMControl_placeholder"/>
-                  </div>
-                  <i class="photo img sp_dob1w7 sx_33eb13"></i>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr class="spacer">
-            <td colspan="2"><hr/></td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr class="dataRow">
-            <th class="label">高中：</th>
-            <td class="data">
-              <div id="add_high_school" class="uiTypeahead uiClearableTypeahead photoTypeahead mbs addExperience stat_elem fbHubsTypeahead">
-                <div class="wrap">
-                  <label for="u83nqz_6" class="clear uiCloseButton">
-                    <input type="button" id="u83nqz_6" onclick="var c = JSCC.get('j4ed60c7576e6211830524986').getCore(); c.reset(); c.getElement().focus(); " title="删除"/>
-                  </label>
-                  <input type="hidden" name="high_school_id" class="hiddenInput" autocomplete="off"/>
-                  <div class="innerWrap">
-                    <input type="text" title="你在哪儿读的高中？" value="你在哪儿读的高中？" spellcheck="false" onfocus="return wait_for_load(this, event, function() {JSCC.get(&#39;j4ed60c7576e6211830524989&#39;).init(JSCC.get(&#39;j4ed60c7576e6211830524986&#39;));;JSCC.get(&#39;j4ed60c7576e6211830524986&#39;).init([&quot;setPhotoOnSelect&quot;]);;});" autocomplete="off" placeholder="你在哪儿读的高中？" name="high_school_name" class="inputtext textInput DOMControl_placeholder"/>
-                  </div>
-                  <i class="photo img sp_dob1w7 sx_33eb13"></i></div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div id="editProfileForm">
+      <s:form method="post" action="update" namespace="/usr">
+        <input type="hidden" name="profileform.pageIndex" value="3" />
+        <ul class="uiList">
+          <li class="pbm fbEditProfileExperienceSection uiListItem uiListMedium uiListVerticalItemBorder">
+            <div class="err_msg"/>
+            <table class="uiInfoTable fbProfileEditExperiences noBorder">
+              <tbody>
+                <tr class="dataRow">
+                  <th class="label">活动爱好：</th>
+                  <td class="data">
+                    <div id="add_1002">
+                      <div id="u91etj_1" class="uiTypeahead uiClearableTypeahead photoTypeahead mbs addExperience fbHubsTypeahead">
+                        <div class="wrap">
+                          <div class="innerWrap">
+                            <s:textfield name="profileform.hobby" title="你喜欢做些什么？" placeholder="你喜欢做些什么？" cssClass="inputtext textInput DOMControl_placeholder" />
+                          </div>
+                          <img class="photo img sp_dob1w7 sx_33eb13"/>
+                        </div>
+                        <div class="uiTypeaheadView hidden_elem"></div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li class="pvm fbEditProfileExperienceSection uiListItem uiListMedium uiListVerticalItemBorder">
+            <table class="uiInfoTable noBorder">
+              <tbody id="u91etj_5" class="mrl">
+                <tr class="editLikesRow">
+                  <th class="label">兴趣：</th>
+                  <td class="data">
+                    <div class="uiTokenizer fbHubsTokenizer fbHubsPhotoTokenizer">
+                      <div id="u91etj_6" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead">
+                        <div class="wrap">
+                          <div class="innerWrap">
+                            <s:textfield name="profileform.interest" title="你对什么感兴趣？" placeholder="你对什么感兴趣？" cssClass="inputtext textInput DOMControl_placeholder" />
+                          </div>
+                          <img class="photo img sp_c0827g sx_753c9e"/>
+                        </div>
+                        <div class="uiTypeaheadView hidden_elem"></div>
+                      </div>
+                      <div id="u91etj_7" class="tokenarea expanded clearfix hidden_elem"></div>
+                      <input type="button" tabindex="-1" class="eventsInput"/>
+                    </div>
+                  </td>
+                  <td class="rightCol"></td>
+                </tr>
+                <tr class="spacer">
+                  <td colspan="3"><hr/></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="mtm fbMixedSaveButton stat_elem">
+              <label for="u91etj_4" class="saveButton uiButton uiButtonConfirm">
+                <input type="submit" id="u91etj_4" value="保存更改"/>
+              </label>
+              <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="mts mlm uiLoadingIndicatorAsync img"/>
+              <span class="mhm inline_err_msg"></span>
+            </div>
+          </li>
+        </ul>
+      </s:form>
     </div>
   </div>
 </div>

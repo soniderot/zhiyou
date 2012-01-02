@@ -79,6 +79,7 @@ function deletePhotoAjax() {
   <div class="pal grayArea uiBoxGray noborder">
     <div data-referrer="editProfileForm" id="editProfileForm">
       <iframe class="UIComposer_Upload_Iframe" name="profile_pic_iframe"></iframe>
+      <input type="hidden" name="profileform.pageIndex" value="2"/>
       <table style="border-collapse:collapse;height:210px;" class="center">
         <tbody>
           <tr>
