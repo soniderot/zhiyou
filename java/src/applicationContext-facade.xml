@@ -2,6 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	
+	<bean name="educationFacade" class="com.zy.facade.impl.EducationFacadeImpl"  >
+		<property name="educationService" ref="educationService"/>
+		<property name="schoolService" ref="schoolService"/>
+	</bean>
+	
+	<bean name="locationFacade" class="com.zy.facade.impl.LocationFacadeImpl"  >
+		<property name="cityService" ref="cityService"/>
+		<property name="schoolService" ref="schoolService"/>
+	</bean>
 	
 	<bean name="profileFacade" class="com.zy.facade.impl.ProfileFacadeImpl"  >
 		<property name="profileService" ref="profileService"/>
