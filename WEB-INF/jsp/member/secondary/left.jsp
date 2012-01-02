@@ -12,7 +12,7 @@
 					      <div id="sideNav" class="mvm uiFutureSideNav">
 					        <div id="ucx7gw_1" class="expandableSideNav expandedMode">
 					          <ul role="navigation" class="uiSideNav">
-					            <li id="navItem_wall" class="sideNavItem stat_elem">
+					            <li id="navItem_wall" class="sideNavItem stat_elem <s:property value="viewType[0]"/>">
 					              <div class="buttonWrap"></div>
 					              <a href="profile/profile!viewProfileFeeds.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
 						              <div class="rfloat">
@@ -24,7 +24,7 @@
 						              </div>
 					              </a>
 					            </li>
-					            <li id="navItem_info" class="sideNavItem stat_elem selectedItem open">
+					            <li id="navItem_info" class="sideNavItem <s:property value="viewType[1]"/>">
 					              <div class="buttonWrap"></div>
 					              <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
 						              <div class="rfloat">
@@ -36,7 +36,7 @@
 						              </div>
 					              </a>
 					            </li>
-					            <li id="navItem_photos" class="sideNavItem stat_elem">
+					            <li id="navItem_photos" class="sideNavItem stat_elem <s:property value="viewType[2]"/>">
 					              <div class="buttonWrap"></div>
 					              <a href="photo/photo!getAlbum.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
 						              <div class="rfloat">
@@ -48,7 +48,7 @@
 						              </div>
 					              </a>
 					            </li>
-					            <li id="navItem_friends" class="sideNavItem stat_elem">
+					            <li id="navItem_friends" class="sideNavItem stat_elem <s:property value="viewType[3]"/>">
 					              <div class="buttonWrap"></div>
 					              <a href="profile/profile!viewProfileFriends.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
 						              <div class="rfloat">

@@ -2,6 +2,29 @@
 <div role="main" id="contentArea">
   <div data-referrer="pagelet_roosters" id="pagelet_roosters"></div>
   <div data-referrer="pagelet_stream_header" id="pagelet_stream_header">
+  	
+  	<s:if test="userid>0">
+  	
+  	<div data-referrer="pagelet_composer" id="pagelet_composer">
+    <div id="u3mxyl_2"
+      onclick="Bootloader.loadComponents(&quot;Composer&quot;, function() { JSCC.get(&#39;j4ec37b3f908df06889566482&#39;) });"
+      class="uiComposer uiComposerHideContent stat_elem uiMetaComposer uiComposerTopBorder uiComposerOpen uiComposerHideContent uiComposerWhiteMessageBox">
+      <div class="focus_target">
+        <ul class="uiList uiListHorizontal clearfix uiComposerAttachments">
+         
+          <li class="showWhenLoading attachmentLoader plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
+            <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img" />
+          </li>
+        </ul>
+
+       
+      </div>
+    </div>
+  </div>
+</s:if>
+  	<s:else>
+  	
+  	
     <div class="uiHeader uiHeaderWithImage uiHeaderPage  fbx_stream_header">
       <div class="clearfix uiHeaderTop">
         <div class="uiHeaderActions  rfloat fsl fwb fcb">
@@ -171,6 +194,8 @@
                               <div class="mbs photoUploadPrompt fwb">从你的电脑上选择一个图像。</div>
                               <input type="file" name="feedphoto" onchange="enableSubmitBtn()" />
                             </div>
+                            
+                           
                             <div class="webComposerPhotoPreviewArea clearfix hidden_elem">
                               <label for="u3jjus_9" class="uiCloseButton uiCloseButtonDark">
                                 <input type="button" id="u3jjus_9" title="删除"/>
@@ -209,6 +234,12 @@
       </div>
     </div>
   </div>
+  
+</s:else>
+  
+  	
+  
+  
   <iframe style="width: 1px; height: 1px; position: absolute; top: -10000px;" name="u3jjus_1" class="fbUploadIframe"></iframe>
   <div data-gt='{"ref":"nf"}' data-referrer="pagelet_home_stream" id="pagelet_home_stream">
     <div id="c4ec37b3fc7e022d58174072" class="UIIntentionalStream UIStream">
@@ -277,6 +308,7 @@
                           </label> · 
                         </span>
                         
+                        <!--
                          <span class="UIActionLinks UIActionLinks_bottom">
                           <label class="uiLinkButton comment_link" title="分享">
                             <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
@@ -284,6 +316,18 @@
                             </s:if >
                           </label> · 
                         </span>
+                        --->
+                        
+                         <span class="UIActionLinks UIActionLinks_bottom">
+                          <label class="uiLinkButton comment_link" title="分享">
+                          	<s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
+                          	<a href="usr/feed!sharedFeed.jhtml?feedId=<s:property value="feed.id" />"><span class="fwn">分享</span> </a> 
+                          	</s:if >
+                          	<!--
+                              <input type="button" value="分享" onclick="return;">
+                             -->
+                          </label> · 
+                    			</span>
                         
                         <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
                           <abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp">

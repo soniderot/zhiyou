@@ -56,6 +56,16 @@
                       
                     </h6>
                     
+                     <span class="UIActionLinks UIActionLinks_bottom">
+                          <label class="uiLinkButton comment_link" title="分享">
+                          	<a href="photo/photo!sharePhoto.jhtml?photoId=<s:property value="id" />"><span class="fwn">分享</span> </a> 
+                          	<!--
+                              <input type="button" value="分享" onclick="return;">
+                             -->
+                          </label> · 
+                    </span>
+                    
+                    
                      <span class="uiStreamFooter">
                        
                         <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
@@ -73,6 +83,7 @@
         </s:iterator>
       </ul>
 
+<!--
       <div>
         <div id="pagelet_stream_pager"
           data-referrer="pagelet_stream_pager">
@@ -84,6 +95,33 @@
           </div>
         </div>
       </div>
+ --->     
+      
+      
+       <div id="pagelet_stream_pager"
+          data-referrer="pagelet_stream_pager">
+          
+          <div class="clearfix mts uiMorePager stat_elem fbStreamPager">
+          	
+            <div>
+            	<s:if test="userPhotos.size()>0">
+            	<jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
+            </s:if>
+            <s:else>
+              <div class="pam uiBoxLightblue uiMorePagerPrimary">目前没有更多照片可显示。</div>
+            </s:else>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  function topage(pageNo) {
+  location.href = "photo/photo!getPhotos.jhtml?userid=${userid}&albumId=${albumId}&pageNo="+pageNo
+  return false;
+}
+</script>

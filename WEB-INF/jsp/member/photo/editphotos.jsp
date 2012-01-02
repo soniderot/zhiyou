@@ -95,6 +95,26 @@
 		            </div>
 		           </s:iterator>
 		          </div>
+		          
+		          
+		          <div id="pagelet_stream_pager"
+          data-referrer="pagelet_stream_pager">
+          
+          <div class="clearfix mts uiMorePager stat_elem fbStreamPager">
+          	
+            <div>
+            	<s:if test="userPhotos.size()>0">
+            	<jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
+            </s:if>
+            <s:else>
+              <div class="pam uiBoxLightblue uiMorePagerPrimary">目前没有更多照片可显示。</div>
+            </s:else>
+            </div>
+          </div>
+        </div>
+      </div>
+		          
+		          
 		          <div class="formbuttons">
 		            <label class="uiButton uiButtonConfirm" id="save_changes" for="uyck2g_37">
 		            	<input type="submit" value="保存更改" name="save_changes" onclick="" id="uyck2g_37">
@@ -106,3 +126,10 @@
 		        </form>
 		      </div>
 		    </div>
+		    
+<script type="text/javascript">
+  function topage(pageNo) {
+  location.href = "photo/photo!editPhotos.jhtml?albumId=${albumId}&pageNo="+pageNo
+  return false;
+}
+</script>

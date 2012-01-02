@@ -29,7 +29,7 @@ function sendFriendRequest(obj, userId) {
                 <div class="uiHeader uiHeaderTopAndBottomBorder mbs uiSideHeader">
                  
                   <div class="clearfix uiHeaderTop">
-                    <a href="#" class="uiHeaderActions rfloat">显示更多</a>
+                    <a href="usr/landing.jhtml" class="uiHeaderActions rfloat">显示更多</a>
                     <div><h4 class="uiHeaderTitle">你可能认识的人</h4></div>
                   </div>
                  
