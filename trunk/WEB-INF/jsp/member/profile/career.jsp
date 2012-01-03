@@ -33,16 +33,17 @@
   <div class="uiHeader mhl uiHeaderPage">
     <div class="clearfix uiHeaderTop">
       <div class="uiHeaderActions rfloat">
+      	<!---
         <a href="http://www.facebook.com/mkk158?ref=profile&amp;v=info" role="button" class="uiButton">
           <i class="mrs img sp_ah6icc sx_2efcc5"></i>
           <span class="uiButtonText">查看个人主页</span>
         </a>
         <a href="http://www.facebook.com/mkk158?viewas=100000686899395" role="button" class="uiButton">
           <span class="uiButtonText">以朋友身份查看…</span>
-        </a>
+        </a>--->
       </div>
       <div>
-        <h2 class="uiHeaderTitle">ま か<i class="mhs img sp_4fkm6u sx_e93a7e"></i>编辑个人主页</h2>
+        <h2 class="uiHeaderTitle"><s:property value="#session.user.username"/><i class="mhs img sp_4fkm6u sx_e93a7e"></i>编辑个人主页</h2>
       </div>
     </div>
   </div>
