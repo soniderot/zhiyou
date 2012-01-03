@@ -3,11 +3,11 @@
  <div id="leftCol">
   <div id="sideNav" class="uiFutureSideNav">
     <ul id="u2upm2_1" role="navigation" class="uiSideNav">
-      <li id="navItem_basic" class="sideNavItem stat_elem selectedItem open">
+      <li id="navItem_basic" class="sideNavItem stat_elem <s:property value="viewType[0]"/>">
         <div class="buttonWrap"></div>
         <a href="usr/update!basic.jhtml?profileform.pageIndex=0" class="item clearfix" style="">
           <div class="rfloat">
-            <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+            <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
           <div>
             <span class="imgWrap">
@@ -17,11 +17,11 @@
           </div>
         </a>
       </li>
-      <li id="navItem_picture" class="sideNavItem stat_elem">
+      <li id="navItem_picture" class="sideNavItem stat_elem <s:property value="viewType[1]"/>">
         <div class="buttonWrap"></div>
         <a href="usr/update!basic.jhtml?profileform.pageIndex=1" class="item clearfix">
           <div class="rfloat">
-            <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+            <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
           <div>
             <span class="imgWrap"><i class="img sp_9tlaa1 sx_68f922"></i></span>
@@ -63,11 +63,11 @@
           </div>
         </a>
       </li-->
-      <li id="navItem_activities" class="sideNavItem stat_elem">
+      <li id="navItem_activities" class="sideNavItem stat_elem <s:property value="viewType[2]"/>">
         <div class="buttonWrap"></div>
         <a href="usr/update!basic.jhtml?profileform.pageIndex=2" class="item clearfix">
           <div class="rfloat">
-            <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+            <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
           <div>
             <span class="imgWrap"><i class="img sp_dob1w7 sx_7774a1"></i></span>
@@ -75,11 +75,11 @@
           </div>
         </a>
       </li>
-      <li id="navItem_contact" class="sideNavItem stat_elem">
+      <li id="navItem_contact" class="sideNavItem stat_elem <s:property value="viewType[3]"/>">
         <div class="buttonWrap"></div>
         <a href="usr/update!basic.jhtml?profileform.pageIndex=3" class="item clearfix">
           <div class="rfloat">
-            <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+            <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
           </div>
           <div>
             <span class="imgWrap"><i class="img sp_dob1w7 sx_b06a3e"></i></span>
@@ -96,5 +96,7 @@
       </div>
     </div>
   </div>
+  <!--
   <div class="phs fsm fwn fcg">你可以访问<a href="/settings/?tab=privacy">隐私偏好设定</a>网页，调整其他的隐私设定。</div>
+  -->
 </div>
