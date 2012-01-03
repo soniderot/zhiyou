@@ -3,6 +3,7 @@ package com.zy.action.profile;
 import java.util.List;
 
 import com.zy.common.model.ZyProfile;
+import com.zy.common.util.ActionUtil;
 import com.zy.common.util.Page;
 import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.FeedFacade;
@@ -25,7 +26,16 @@ public class ProfileAction {
 	
 	private String[] viewType = new String[]{"","","",""};
 	
-	
+	private boolean friendFlag;
+
+	public boolean isFriendFlag() {
+		return friendFlag;
+	}
+
+	public void setFriendFlag(boolean friendFlag) {
+		this.friendFlag = friendFlag;
+	}
+
 	public Page getPage() {
 		return page;
 	}
@@ -128,6 +138,18 @@ public class ProfileAction {
 		
 		profiles = snsFacade.getProfilesYouMayKnow(userid);
 		viewType[1] = "selectedItem open";
+		
+		if(userid==ActionUtil.getSessionUserId()){
+			friendFlag = true;
+		}
+		
+		for(int i=0;i<friends.size();i++){
+			if(friends.get(i).getUserid()==ActionUtil.getSessionUserId()){
+				friendFlag = true;
+				break;
+			}
+		}
+		
 		return "profile.info";
 	}
 	
