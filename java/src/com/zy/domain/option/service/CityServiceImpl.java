@@ -28,4 +28,11 @@ public class CityServiceImpl implements CityService {
 	public ZyCity getCity(int cityId){
 		return this.cityDao.getCity(cityId);
 	}
+	
+	public List<ZyCity> getCities(){
+		return this.cityDao.loadAll();
+	}
+	public void updateCity(ZyCity city){
+		this.cityDao.update(city);
+	}
 }

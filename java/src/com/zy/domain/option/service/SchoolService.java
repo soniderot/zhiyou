@@ -9,4 +9,5 @@ public interface SchoolService {
 	public List<ZySchool> getSchools();
 	public List<ZySchool> getAllSchools();
 	public List<ZySchool> getSchoolsByKey(String key);
+	public void updateSchool(ZySchool school);
 }

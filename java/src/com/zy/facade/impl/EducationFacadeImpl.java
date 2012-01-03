@@ -31,6 +31,9 @@ public class EducationFacadeImpl implements EducationFacade {
 	@Override
 	public ZySchool getSchoolByUser(int userId) {
 		ZyEducation education = educationService.getEducationByUser(userId);
+		if(education==null){
+			return null;
+		}
 		education = educationService.getEducationByUser(userId);
 		ZySchool school = schoolService.getSchoolById(education.getSchoolid());
 		return school;

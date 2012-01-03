@@ -48,5 +48,12 @@ public class LocationFacadeImpl implements LocationFacade {
 	public ZyCity getCity(int cityId) {
 		return cityService.getCity(cityId);
 	}
+	
+	public List<ZyCity> getCities(){
+		return cityService.getCities();
+	}
 
+	public void updateCity(ZyCity city){
+		cityService.updateCity(city);
+	}
 }

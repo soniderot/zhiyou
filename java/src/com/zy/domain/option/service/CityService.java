@@ -8,4 +8,7 @@ public interface CityService {
 	public List<ZyCity> getCitiesByRegionId(int regionId);
 	public List<ZyCity> getCitiesByKey(String key);
 	public ZyCity getCity(int cityId);
+	
+	public List<ZyCity> getCities();
+	public void updateCity(ZyCity city);
 }

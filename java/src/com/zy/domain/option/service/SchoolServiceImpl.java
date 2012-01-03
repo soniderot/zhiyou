@@ -34,4 +34,8 @@ public class SchoolServiceImpl implements SchoolService{
 	public List<ZySchool> getAllSchools() {
 		return this.schoolDao.getAllSchools();
 	}
+	
+	public void updateSchool(ZySchool school){
+		this.schoolDao.update(school);
+	}
 }
