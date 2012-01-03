@@ -1,4 +1,4 @@
-<%@page contentType="textml;charset=utf-8" pageEncoding="utf-8"%>
+<%@page pageEncoding="utf-8"%>
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="zh" id="facebook" class="no_js">
