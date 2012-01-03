@@ -21,16 +21,33 @@
                 <table class="uiInfoTable mtm profileInfoTable">
                   <tbody>
                     <tr>
-                      <th class="label">其他</th>
+                      <th class="label">活动爱好</th>
                       <td class="data">
                         <div id="ucyftu_8" class="uiCollapsedList uiCollapsedListHidden uiCollapsedListNoSeparate pagesListData">
                           <span class="visible">
-                            <a data-hovercardx="/ajax/hovercard/page.php?id=22437985072" href="http://www.facebook.com/AlibabaUS">Alibaba.com</a>, <a data-hovercardx="/ajax/hovercard/page.php?id=184440423622" href="http://www.facebook.com/Twiscar">推斯卡 (Twiscar)</a>, <a data-hovercardx="/ajax/hovercard/page.php?id=2231777543" href="http://www.facebook.com/apps/application.php?id=2231777543">Twitter</a>, <a target="_blank" rel="nofollow" onmousedown='UntrustedLink.bootstrap($(this), "3AQGESfA0", event, bagof(null));' data-hovercardx="/ajax/hovercard/page.php?id=165414790139786" href="http://ohlife.com/">OhLife</a>
+                          	<s:property value="profile.hobby"/>
+                          		
+                            
                           </span>
                         </div>
                       </td>
                       <td class="rightCol"></td>
                     </tr>
+                    
+                     <tr>
+                      <th class="label">兴趣</th>
+                      <td class="data">
+                        <div id="ucyftu_8" class="uiCollapsedList uiCollapsedListHidden uiCollapsedListNoSeparate pagesListData">
+                          <span class="visible">
+                          	
+                          		<s:property value="profile.interest"/>
+                            
+                          </span>
+                        </div>
+                      </td>
+                      <td class="rightCol"></td>
+                    </tr>
+                    
                   </tbody>
                 </table>
               </div>
@@ -59,7 +76,14 @@
                        <s:if test="profile.gender==2">   
                       <td class="data">女</td>
                       </s:if>   
-                      
+                    </tr>
+                  </tbody>
+                  
+                  
+                  <tbody>
+                    <tr>
+                      <th class="label">自我介绍</th>
+                      <td class="data"><s:property value="profile.introduction"/></td>
                     </tr>
                   </tbody>
                 </table>
@@ -79,15 +103,48 @@
                 <table class="uiInfoTable mtm profileInfoTable">
                   <tbody>
                     <tr>
-                      <th class="label">个人网站</th>
+                      <th class="label">QQ</th>
                       <td class="data">
                         <ul class="uiList">
                           <li class="uiListItem uiListVerticalItemBorder">
-                            <a target="_blank" onmousedown='UntrustedLink.bootstrap($(this), "CAQEDvf9O", event, bagof(null));' rel="nofollow me" href="http://nidayede.cn">http://nidayede.cn</a>
+                            <s:property value="profile.qq"/>
                           </li>
                         </ul>
                       </td>
                     </tr>
+                    
+                    <tr>
+                      <th class="label">邮件地址</th>
+                      <td class="data">
+                        <ul class="uiList">
+                          <li class="uiListItem uiListVerticalItemBorder">
+                          	<s:if test="friendFlag==true">   
+                            	<s:property value="profile.email"/>
+                          </s:if>
+                          <s:else>
+                          		一度朋友可见
+                           </s:else>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <th class="label">电话号码</th>
+                      <td class="data">
+                        <ul class="uiList">
+                          <li class="uiListItem uiListVerticalItemBorder">
+                            <s:if test="friendFlag==true">   
+                            	<s:property value="profile.mobile"/>
+                          	</s:if>
+                          	<s:else>
+                          		一度朋友可见
+                           	</s:else>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                    
                     <tr class="spacer">
                       <td colspan="2"><hr/></td>
                     </tr>
