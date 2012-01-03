@@ -73,7 +73,7 @@ public class UploadAction {
 	}
 	
 	public String uploadPhotoAjax(){
-		
+		System.out.println("----------------------into uploadphotoajax------");
     HttpServletResponse response = ServletActionContext.getResponse();    
     response.setCharacterEncoding("UTF-8");
     PrintWriter out;

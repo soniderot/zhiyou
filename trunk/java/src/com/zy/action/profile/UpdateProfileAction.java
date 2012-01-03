@@ -23,6 +23,16 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 	
 	private Profile profileform = new Profile();
 	
+	private String[] viewType = new String[]{"","","",""};
+
+	
+	public String[] getViewType() {
+		return viewType;
+	}
+
+	public void setViewType(String[] viewType) {
+		this.viewType = viewType;
+	}
 
 	public Profile getProfileform() {
 		return profileform;
@@ -88,12 +98,16 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 				profileform.setCollegeid(school.getId());
 				profileform.setCollegename(school.getSchoolname());
 			}
+			viewType[0] = "selectedItem open";
 			return "member.basic";
 		} else if (pageIndex == 2) {
+			viewType[1] = "selectedItem open";
 			return "member.picture";
 		} else if (pageIndex == 3) {
+			viewType[2] = "selectedItem open";
 			return "member.interest";
 		} else if (pageIndex == 4) {
+			viewType[3] = "selectedItem open";
 			return "member.contact";
 		} else {
 			return "member.info";
@@ -104,6 +118,14 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 		int profileId = ActionUtil.getSessionUserId();
 		ZyProfile profile = profileFacade.findProfileById(profileId);
 		ActionUtil.copyProperties(profile, profileform);
+		
+		if(profile.getCityid()==null||profile.getCityid()==0){
+			profile.setCityid(profileFacade.findProfileById(profileId).getCityid());
+		}
+		
+		if(profile.getHometownid()==null||profile.getHometownid()==0){
+			profile.setHometownid(profileFacade.findProfileById(profileId).getHometownid());
+		}
 		
 		if (profileform.getMeeting_sex1() != null && profileform.getMeeting_sex2() != null) {
 			if (profileform.getMeeting_sex1() && !profileform.getMeeting_sex2()) {

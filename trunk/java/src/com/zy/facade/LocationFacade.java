@@ -10,4 +10,7 @@ public interface LocationFacade {
 	public ZyCity getCity(int cityId);
 	public List<ZySchool> getAllSchool();
 	public List<ZySchool> getSchoolsByKey(String key);
+	
+	public List<ZyCity> getCities();
+	public void updateCity(ZyCity city);
 }
