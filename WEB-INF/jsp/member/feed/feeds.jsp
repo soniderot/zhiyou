@@ -514,6 +514,7 @@
       feedComment : form.feedComment.value
     }, function (data) {
       $(form).find(".commentList").append(data);
+      form.feedComment.value = "";
     });
     return false;
   }
