@@ -87,10 +87,12 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 			}
 			if (user.getCityid() != null) {
 				ZyCity city = locationFacade.getCity(user.getCityid());
+				profileform.setCityid(user.getCityid());
 				profileform.setCityname(city.getCityname());
 			}
 			if (user.getHometownid() != null) {
 				ZyCity hometown = locationFacade.getCity(user.getHometownid());
+				profileform.setHometownid(user.getHometownid());
 				profileform.setHometownname(hometown.getCityname());
 			}
 			ZySchool school = educationFacade.getSchoolByUser(user.getUserid());
