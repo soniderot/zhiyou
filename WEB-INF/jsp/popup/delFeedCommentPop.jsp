@@ -26,7 +26,7 @@ function deleteComment(manageType) {
       manageType : manageType
     }, function (data) {
       hidePopup("dialog_delFeedCmt");
-      $("li.commont_" + cmtId).remove();
+      $("li.comment_" + cmtId).remove();
     });
     return false;
 }
@@ -49,7 +49,7 @@ function removeSelectdFriend(obj) {
       <div id="pop_content" class="pop_content" tabindex="0" role="alertdialog">
         <h2 class="dialog_title" id="title_dialog_3"><span>删除评论</span></h2>
         <div class="dialog_content">
-          <div class="dialog_summary hidden_elem"/>
+          <div class="dialog_summary hidden_elem"></div>
           <div class="dialog_body">
             <div class="confirmation_message">你确定要删除这个评论吗？
               <input type="hidden" value="0" name="ban_user" id="ban_user" autocomplete="off"/>
