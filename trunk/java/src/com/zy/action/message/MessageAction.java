@@ -225,20 +225,27 @@ public class MessageAction extends ActionSupport{
 	public String sendMessageAjax(){
 		System.out.println(ActionUtil.getRequest().getParameter("selectedFriends"));
 		try{
-		if(selectedFriends!=null&&selectedFriends.length()>0){
-			String str = selectedFriends.replaceAll("\\[","");
-			str = str.replaceAll("\\]", "");
-			String[] array = str.split(",");
-			for(int i=0;i<array.length;i++){
-				System.out.println(array[i]);
+			if(selectedFriends!=null&&selectedFriends.length()>0){
+				String str = selectedFriends.replaceAll("\\[","");
+				str = str.replaceAll("\\]", "");
+				String[] array = str.split(",");
+				for(int i=0;i<array.length;i++){
+					ZyMessage zyMessage = new ZyMessage();
+					zyMessage.setSenderid(ActionUtil.getSessionUserId());
+					zyMessage.setReceiverid(Integer.valueOf(array[i]));
+					zyMessage.setCreatetime(new Date());
+					zyMessage.setSubject(message);
+					messageFacade.sendMessage(zyMessage);
+				}
+			}
+			if (receiverId != 0) {
 				ZyMessage zyMessage = new ZyMessage();
 				zyMessage.setSenderid(ActionUtil.getSessionUserId());
-				zyMessage.setReceiverid(Integer.valueOf(array[i]));
+				zyMessage.setReceiverid(Integer.valueOf(receiverId));
 				zyMessage.setCreatetime(new Date());
 				zyMessage.setSubject(message);
 				messageFacade.sendMessage(zyMessage);
 			}
-		}
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
@@ -277,7 +284,7 @@ public class MessageAction extends ActionSupport{
 		return "member.messages";
 	}
 
-	public String viewMessage(){
+	public String viewMessage() {
 		ZyMessage message = messageFacade.getMessageById(messageId);
 		sender = profileFacade.findProfileById(message.getSenderid());
 		receiver = profileFacade.findProfileById(message.getReceiverid());
@@ -287,6 +294,11 @@ public class MessageAction extends ActionSupport{
 		bean.setMessage(message);
 		bean.setProfile(sender);
 		zyMessages.add(bean);
+		return "member.messagedetail";
+	}
+	
+	public String newMessage() {
+		sender = profileFacade.findProfileById(receiverId);
 		return "member.messagedetail";
 	}
 
