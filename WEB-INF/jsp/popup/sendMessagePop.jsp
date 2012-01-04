@@ -8,13 +8,14 @@ function sendMessage() {
   $(".dialog_buttons div").hide();
   $(".dialog_loading").show();
   var to = $("#userid").val();
-  var content = $("input[id=content]").val();
+  var message = $("input[id=message]").val();
   $.ajax({
    type: "GET",
    url: "usr/message!sendMessageAjax.jhtml",
    dataType: 'text',
-   data: "receiverId="+to+"&message="+content,
+   data: "receiverId="+to+"&message="+message,
    success: function(data){
+      $("input[id=message]").val("");
       hidePopup("dialog_send_msg");
       $("#div_" + to).find("label").addClass("hidden_elem");
       $("#div_" + to).find("a").removeClass("hidden_elem");
@@ -40,7 +41,7 @@ function sendMessage() {
                     <tr class="dataRow">
                       <th class="label">信息内容：</th>
                       <td class="data">
-                        <input type="text" id="content" class="inputtext textInput requesttext" placeholder="" value="Hi" />
+                        <input type="text" id="message" class="inputtext textInput requesttext" placeholder="" />
                       </td>
                     </tr>
                   </tbody>

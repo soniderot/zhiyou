@@ -32,6 +32,7 @@ function sendAddFriendRequest() {
    dataType: 'text',
    data: "to="+to+"&content="+content,
    success: function(data){
+     $("input[id=content]").val("")
      if ("true" == data) {
         hidePopup("dialog_0");
         $("#div_" + to).find("label").addClass("hidden_elem");
@@ -69,7 +70,7 @@ function sendAddFriendRequest() {
                     <tr class="dataRow">
                       <th class="label">请求内容：</th>
                       <td class="data">
-                        <input type="text" id="content" class="inputtext textInput requesttext" placeholder="" value="Hi" />
+                        <input type="text" id="content" class="inputtext textInput requesttext" placeholder="" />
                       </td>
                     </tr>
                   </tbody>
