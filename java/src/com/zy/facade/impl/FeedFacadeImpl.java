@@ -218,7 +218,7 @@ public class FeedFacadeImpl implements FeedFacade{
 		feedService.addComment(comment);
 	}
 	
-	public void removeComment(int userid,int commentid){
+	public void removeComment(int commentid){
 		feedService.removeComment(commentid);
 	}
 	
