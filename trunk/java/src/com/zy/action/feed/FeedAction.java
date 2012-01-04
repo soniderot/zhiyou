@@ -1,10 +1,13 @@
 package com.zy.action.feed;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
@@ -312,8 +315,23 @@ public class FeedAction extends ActionSupport{
 	}
 	
 	public String manageFeedCommentAjax() {
-    //commentId : cmtId,
-    //manageType : manageType 1:delete
+		try {
+	    //commentId : commentId
+	    //manageType : manageType 1:delete
+			System.out.println("-------manageFeedCommentAjax---" );
+			int commentId = Integer.parseInt(ActionUtil.getRequest().getParameter("commentId"));
+			System.out.println("-------manageFeedCommentAjax---" + commentId);
+			int manageType = Integer.parseInt(ActionUtil.getRequest().getParameter("manageType"));
+			if(manageType == 1) {
+				feedFacade.removeComment(commentId);
+	      HttpServletResponse response = ServletActionContext.getResponse();    
+	      response.setCharacterEncoding("UTF-8");
+	      PrintWriter out = response.getWriter();
+	      out.print("true");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 	public static void main(String[] args){
