@@ -170,7 +170,8 @@ function checkEventDistrict(obj) {
 function checkMobile(obj) {
 	$(obj).tipsy("hide");
 	var fieldVal = $(obj).val();
-	var regexp = new RegExp("^(13[0-9]|15[0|3|6|7|8|9]|18[8|9])\d{8}$");
+	
+	var regexp = new RegExp("^(13[0-9]|15[0|3|6|7|8|9]|18[8|9])\\d{8}$");
 	if (fieldVal!=="" && !fieldVal.match(regexp)) {
 		$(obj).attr("tooltip","请输入11位手机号码。");
 		$(obj).tipsy("show");
@@ -182,7 +183,7 @@ function checkMobile(obj) {
 function checkQQ(obj) {
 	$(obj).tipsy("hide");
 	var fieldVal = $(obj).val();
-	var regexp = new RegExp("^\\w{5,20}$");
+	var regexp = new RegExp("^\\d{5,20}$");
 	if (fieldVal!== "" && !fieldVal.match(regexp)) {
 		$(obj).attr("tooltip","请输入5位以上QQ号码。");
 		$(obj).tipsy("show");
