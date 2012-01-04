@@ -24,8 +24,8 @@ public class ZyProfile implements java.io.Serializable {
 	private Short objectgender;
 	private Integer countryid;
 	private Integer regionid;
-	private Integer cityid = 0;
-	private Integer hometownid = 0;
+	private Integer cityid;
+	private Integer hometownid;
 	private Short level;
 	private Float point;
 	private String ip;
