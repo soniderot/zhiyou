@@ -27,7 +27,7 @@ public interface FeedFacade {
 	
 	public void addComment(ZyNewsfeedcomment comment);
 	
-	public void removeComment(int userid,int commentid);
+	public void removeComment(int commentid);
 	
 	public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String body);
 }
