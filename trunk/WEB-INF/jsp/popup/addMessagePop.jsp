@@ -7,6 +7,7 @@ $(function(){
 
 function hidePopup(dialog) {
   $("#" + dialog).hide();
+  $("#" + dialog).addClass("hidden_elem");
 }
 function showPopup(dialog) {
   $("#" + dialog).removeClass("hidden_elem");
@@ -159,7 +160,7 @@ function removeSelectdFriend(obj) {
 </div>
 
 
-<div class="generic_dialog pop_dialog profileBrowserDialog full_bleed generic_dialog_fixed_overflow" id="dialog_friends" style="">
+<div class="generic_dialog pop_dialog profileBrowserDialog full_bleed generic_dialog_fixed_overflow hidden_elem" id="dialog_friends" style="">
   <div class="generic_dialog_popup" style="top: 40px; width: 577px;">
     <div class="pop_container_advanced">
       <div id="pop_content" class="pop_content" tabindex="0" role="alertdialog">
