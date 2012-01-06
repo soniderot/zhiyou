@@ -143,4 +143,8 @@ System.out.println("-------msg.size---"+msgs.size());
 	public List<ZyMessage> getMessagesByIds(String ids){
 		return messageDao.getMessagesByIds(ids);
 	}
+
+	public void updateMessage(ZyMessage message) {
+		messageDao.update(message);
+	}
 }

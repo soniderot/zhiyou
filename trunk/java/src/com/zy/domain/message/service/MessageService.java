@@ -37,4 +37,6 @@ public interface MessageService {
 	//public void spamMessage(int messageId);
 	
 	public List<ZyMessage> getMessagesByIds(String ids);
+	
+	public void updateMessage(ZyMessage message);
 }
