@@ -85,4 +85,8 @@ public class MessageFacadeImpl implements MessageFacade{
 		}
 		return results;
 	}
+	
+	public void updateMessage(ZyMessage message) {
+		messageService.updateMessage(message);
+	}
 }
