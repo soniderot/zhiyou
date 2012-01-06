@@ -24,12 +24,11 @@ function submitPhotoToIframe(obj) {
     $("#error").addClass("hidden_elem");
     var strSrc = $(obj).val();
     img = new Image();  
-    img.src = getFullPath(obj);
+    //img.src = getFullPath(obj);
     //验证上传文件格式是否正确  
     var pos = strSrc.lastIndexOf(".");  
     var lastname = strSrc.substring(pos, strSrc.length)  
-    if (lastname.toLowerCase() != ".jpg" && lastname.toLowerCase() != ".png"
-      || img.fileSize / 1024 > 2000) {  
+    if (lastname.toLowerCase() != ".jpg" && lastname.toLowerCase() != ".png") {  
         $("#error").removeClass("hidden_elem");
         return false;  
       }
