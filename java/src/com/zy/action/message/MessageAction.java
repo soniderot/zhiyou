@@ -321,6 +321,14 @@ public class MessageAction extends ActionSupport{
 		messageFacade.sendMessage(message);
 		return "to.member.inboxmessages";
 	}
+	
+	public String markReadStatus() {
+		String status = ActionUtil.getRequest().getParameter("status");
+		ZyMessage message = messageFacade.getMessageById(messageId);
+		message.setIsread(status);
+		messageFacade.updateMessage(message);
+		return null;
+	}
 	public String getSelectedFriends() {
 		return selectedFriends;
 	}
