@@ -18,6 +18,10 @@
 		<result name="match.search" type="tiles">tiles.sns.match</result>
 	</action>
 	
+	<action name="invite" class="com.zy.action.sns.InviteAction">
+		<result name="match.search" type="tiles">tiles.sns.match</result>
+	</action>
+	
 	<action name="search" class="com.zy.action.search.SearchAction">
 		<result name="match.search.ajax">/WEB-INF/jsp/member/sns/matchAjax.jsp</result>
 	</action>
