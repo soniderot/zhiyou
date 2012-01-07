@@ -72,7 +72,6 @@
   function selectPlace(placeId, placeName) {
     window.opener.document.getElementById("districtId").value=placeId;
     window.opener.document.getElementById("address").value=placeName;
-    alert(placeName);
     window.close();
   }
 </script>
