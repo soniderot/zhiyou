@@ -95,3 +95,19 @@
               </div>
             </div>
           </div>
+
+<div>
+  <s:if test="notifys.size()>0">
+    <jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
+  </s:if>
+  <s:else>
+    <div class="pam uiBoxLightblue uiMorePagerPrimary">目前没有更多通知可显示。</div>
+  </s:else>
+</div>
+      
+<script>
+function topage(pageNo) {
+  location.href = "usr/notify.jhtml?pageNo="+pageNo
+  return false;
+}
+</script>    

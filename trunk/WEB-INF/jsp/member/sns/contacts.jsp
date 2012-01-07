@@ -45,6 +45,7 @@
                   </div>
                   <div class="part point"></div>
                 </li>
+                <!---
                 <li class="uiStep uiStepNextSelected">
                   <div class="part back"></div>
                   <div class="part middle">
@@ -54,12 +55,12 @@
                     </div>
                   </div>
                   <div class="part point"></div>
-                </li>
+                </li>--->
                 <li id="ci_steplist_3" class="uiStep uiStepLast uiStepLastSelected uiStepSelected">
                   <div class="part back"></div>
                   <div class="part middle">
                     <div class="content">
-                      <div class="title fsl fwb fcb">步骤 3</div>
+                      <div class="title fsl fwb fcb">步骤 2</div>
                       <span class="description">邀请朋友</span>
                     </div>
                   </div>

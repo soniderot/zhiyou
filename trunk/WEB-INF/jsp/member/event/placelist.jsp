@@ -35,9 +35,10 @@
                     <label class="uiButton uiButtonConfirm" for="ul7tes_1">
                     	<input type="button" value="选择" name="actions[accept]" onclick="selectPlace('<s:property value="id"/>', '<s:property value="placename"/>')">
                     </label>
+                    <!---
                     <label class="uiButton" for="ul7tes_2">
                     	<input type="button" value="去看看" name="actions[hide]" title="去看看" id="ul7tes_2">
-                    </label>
+                    </label>-->
                   </div>
                 </div>
               </div>
