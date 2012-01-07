@@ -39,7 +39,7 @@ public class NotificationBean {
 	}
 	
 	public String getOutContent(){
-		return content.replace("<a href=\"", "<a href=\""+Constants.USHI_DOMAINNAME);
+		return content.replace("<a href=\"", "<a href=\""+Constants.DOMAINNAME);
 	}
 
 	

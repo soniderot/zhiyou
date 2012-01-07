@@ -34,10 +34,10 @@ public class MailqueueServiceImpl implements MailqueueService {
 		if (cansend) {
 			if (isRealtime) {
 				MailThread mailThread = new MailThread();
-				mailThread.setFrom(Constants.SYSTEM_EMAIL_ADDRESS);
-				if ("feedback".equals(templateName)) {
+				//mailThread.setFrom(Constants.SYSTEM_EMAIL_ADDRESS);
+				//if ("feedback".equals(templateName)) {
 					mailThread.setFrom(from);
-				}
+				//}
 				mailThread.setSenderName(senderName);
 				mailThread.setTo(to);
 				mailThread.setSubject(subject);

@@ -1,13 +1,18 @@
 package com.zy.facade.impl;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import com.zy.Constants;
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRequest;
 import com.zy.domain.event.service.EventService;
 import com.zy.domain.message.bean.RequestBean;
+import com.zy.domain.message.service.MailqueueService;
 import com.zy.domain.message.service.RequestService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.facade.FeedFacade;
@@ -20,7 +25,25 @@ public class RequestFacadeImpl implements RequestFacade{
 	private FeedFacade feedFacade;
 	
 	private EventService eventService;
+	private MailqueueService mailqueueService;
+	private ProfileService profileService;
 	
+	public ProfileService getProfileService() {
+		return profileService;
+	}
+
+	public void setProfileService(ProfileService profileService) {
+		this.profileService = profileService;
+	}
+
+	public MailqueueService getMailqueueService() {
+		return mailqueueService;
+	}
+
+	public void setMailqueueService(MailqueueService mailqueueService) {
+		this.mailqueueService = mailqueueService;
+	}
+
 	public EventService getEventService() {
 		return eventService;
 	}
@@ -56,6 +79,42 @@ public class RequestFacadeImpl implements RequestFacade{
 	public boolean sendRequest_tx(int senderid, int receiverid, short eventkey,int referenceId,
 			String message, String[] parameter){
 		requestService.sendRequest(senderid, receiverid, eventkey, referenceId, message, parameter);
+		if(eventkey==1){
+			ZyProfile profile = profileService.findProfileById(senderid);
+			ZyProfile friend = profileService.findProfileById(receiverid);
+			
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("receiverName", friend.getUsername());
+			map.put("senderName", profile.getUsername());
+			map.put("acceptLink", Constants.DOMAINNAME+"/usr/request.jhtml");
+			map.put("profile",profile);
+			map.put("domainname", Constants.DOMAINNAME);
+			mailqueueService.sendFormatEmail_tx(profile.getEmail(),profile.getUsername(),friend.getEmail(),friend.getUsername(),
+					  "朋友邀请你加入知友", "zy_internal_invite",map , true);
+		}
+		
+		if(eventkey==5){
+			ZyProfile profile = profileService.findProfileById(senderid);
+			ZyProfile friend = profileService.findProfileById(receiverid);
+			ZyEvent event = eventService.getEvent(referenceId);
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("receiverName", friend.getUsername());
+			map.put("senderName", profile.getUsername());
+			map.put("acceptLink", Constants.DOMAINNAME+"/usr/request.jhtml");
+			map.put("profile",profile);
+			map.put("event", event);
+			map.put("detail","");
+			if(event.getDetail()!=null){
+				map.put("detail",event.getDetail());
+			}
+			String pattern = "yyyy/MM/dd HH:mm";
+			DateFormat df = new SimpleDateFormat(pattern);
+			map.put("begintime",df.format(event.getBegintime()));
+			map.put("endintime",df.format(event.getEndtime()));
+			map.put("domainname", Constants.DOMAINNAME);
+			mailqueueService.sendFormatEmail_tx(profile.getEmail(),profile.getUsername(),friend.getEmail(),friend.getUsername(),
+					  "朋友邀请你加入活动", "zy_event_invite",map , true);
+		}
 		return true;
 	}
 	

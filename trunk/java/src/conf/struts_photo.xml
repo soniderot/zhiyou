@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-<package name="zy-photo" namespace="/photo" extends="tiles-default,json-default">
+<package name="zy-photo" namespace="/photo" extends="zy-global">
 	<action name="photo" class="com.zy.action.photo.PhotoAction">
+	<interceptor-ref name="loginDefaultStack"/>
 		<result name="member.albumlist" type="tiles">tiles.member.albumlist</result>
 		<result name="member.photolist" type="tiles">tiles.member.photolist</result>
 		<result name="member.uploadphoto" type="tiles">tiles.member.uploadphoto</result>

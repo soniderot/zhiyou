@@ -3,7 +3,7 @@
 <struts>
 
 
-<package name="zy-default" namespace="/usr" extends="tiles-default,json-default">
+<package name="zy-default" namespace="/usr" extends="zy-global">
 	<action name="landing" class="com.zy.action.profile.LandingAction">
 		<result name="public.welcome" >/WEB-INF/jsp/public/landing.jsp</result>
 		<result name="member.welcome" type="tiles" >tiles.login.welcome</result>
@@ -25,6 +25,7 @@
 	</action>
 	
 	<action name="update" class="com.zy.action.profile.UpdateProfileAction">
+	<interceptor-ref name="loginDefaultStack"/>
 		<result name="member.basic" type="tiles" >tiles.member.basic</result>
 		<result name="member.picture" type="tiles" >tiles.member.picture</result>
 		<result name="member.career" type="tiles" >tiles.member.career</result>
@@ -44,6 +45,7 @@
 	</action>
 	
 	<action name="message" class="com.zy.action.message.MessageAction">
+	<interceptor-ref name="loginDefaultStack"/>
 		<result name="member.messages" type="tiles">tiles.member.messages</result>
 		<result name="to.member.inboxmessages" type="redirect">/usr/message.jhtml</result>
 		<result name="member.messagedetail" type="tiles">tiles.member.messagedetail</result>
@@ -51,14 +53,17 @@
 	</action>
 	
 	<action name="request" class="com.zy.action.message.RequestAction">
+	<interceptor-ref name="loginDefaultStack"/>
 		<result name="member.requests" type="tiles">tiles.member.requests</result>
 	</action>
 	
 	<action name="notify" class="com.zy.action.message.NotificationAction">
+	<interceptor-ref name="loginDefaultStack"/>
 		<result name="member.notifications" type="tiles">tiles.member.notifications</result>
 	</action>
 	
 	<action name="feed" class="com.zy.action.feed.FeedAction">
+	<interceptor-ref name="loginDefaultStack"/>
 		<result name="to.member.feeds" type="redirect">/usr/feed.jhtml</result>
 		<result name="member.feeds" type="tiles">tiles.feed.list</result>
 		<result name="member.addfeed.ajax">/WEB-INF/jsp/member/feed/addfeedajax.jsp</result>
@@ -66,14 +71,17 @@
 	</action>
 	
 	<action name="upload" class="com.zy.action.profile.UploadAction">
+	<interceptor-ref name="loginDefaultStack"/>
 		<result name="member.landing" type="redirect">/usr/landing.jhtml</result>
 	</action>
 	
 	<action name="location" class="com.zy.action.location.LocationAction">
+	<interceptor-ref name="loginDefaultStack"/>
 		<result name="location.city">/WEB-INF/jsp/public/locationAjax.jsp</result>
 	</action>
 		
 	<action name="school" class="com.zy.action.location.SchoolAction">
+	<interceptor-ref name="loginDefaultStack"/>
 		<result name="location.school">/WEB-INF/jsp/public/schoolAjax.jsp</result>
 	</action>
 	

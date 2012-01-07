@@ -36,4 +36,15 @@ public class ProfileDaoImpl extends HibernateDao<ZyProfile, Integer> implements 
 		return this.find(hql);
 	}
 	
+	public ZyProfile findProfileByToken(String token){
+		String hql="from ZyProfile where token=?";
+		List<ZyProfile> list=null;
+		list = this.find(hql, token);
+		if(list.size()>0){
+			return list.get(0);
+		}else{
+			return null;
+		}
+	}
+	
 }

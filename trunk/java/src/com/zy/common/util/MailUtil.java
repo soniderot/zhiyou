@@ -100,9 +100,9 @@ public class MailUtil {
 			String to, String subject, String templateName, Map root) {
 		System.out.println("-----------templateName-----"+templateName);
 		String message = merge(templateName, root);
-//		System.out.println("from:" + from + ";\n senderName:" + senderName
-//				+ ";\n to:" + to + ";\n subject:" + subject + ";\n message:"
-//				+ message);
+		System.out.println("from:" + from + ";\n senderName:" + senderName
+				+ ";\n to:" + to + ";\n subject:" + subject + ";\n message:"
+				+ message);
 
 		send(from, senderName, to, subject, message);
 	}

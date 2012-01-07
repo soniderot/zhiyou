@@ -8,4 +8,16 @@
 <include file="conf/struts_event.xml"/>
 <include file="conf/struts_secondary.xml"/>
 <include file="conf/struts_photo.xml"/>
+<package name="zy-global" extends="tiles-default,json-default">
+	<interceptors>
+			<interceptor name="authority" class="com.zy.action.interceptor.AuthorityInterceptor" />
+			<interceptor-stack name="loginDefaultStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authority"/>
+			</interceptor-stack>
+	</interceptors>
+	<global-results>
+		<result name="login" type="redirect">/usr/login.jhtml</result>
+	</global-results>
+</package>
 </struts>

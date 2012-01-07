@@ -36,4 +36,6 @@ public interface ProfileService {
 	public void updateEducation(ZyEducation education);
 	
 	public List<ZyProfile> findProfileByPoint(String userIds);
+	
+	public ZyProfile findProfileByToken(String token);
 }

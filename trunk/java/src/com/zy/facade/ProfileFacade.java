@@ -11,4 +11,7 @@ public interface ProfileFacade {
 	public ZyProfile findProfileByName(String username);
 	public void updateProfile(ZyProfile profile);
 	
+	public ZyProfile findProfileByToken(String token);
+	public void verifyEmail_tx(String link);
+	
 }
