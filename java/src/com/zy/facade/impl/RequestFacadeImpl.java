@@ -147,6 +147,17 @@ public class RequestFacadeImpl implements RequestFacade{
 		return results;
 	}
 	
+	public List<RequestBean> getUserRequestOutbox(int userid, int pageNo, int pageSize){
+		List<RequestBean> results = requestService.getUserRequestOutbox(userid,(short)0,(short)pageNo,(short)pageSize);
+		for(int i=0;i<results.size();i++){
+			if(results.get(i).getRequest().getEventkey()==5){
+				ZyEvent event = eventService.getEvent(results.get(i).getRequest().getReferenceid());
+				results.get(i).setEvent(event);
+			}
+		}
+		return results;
+	}
+	
 	public List<ZyRequest> getRequest(int receiverid, short eventkey, int referenceid){
 		return requestService.getRequest(receiverid, eventkey, referenceid);
 	}

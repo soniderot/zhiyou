@@ -25,7 +25,16 @@ public class RequestAction extends ActionSupport{
 	
 	private Page page;
 	
+	private String type;
 	
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public FeedFacade getFeedFacade() {
 		return feedFacade;
@@ -124,10 +133,19 @@ public class RequestAction extends ActionSupport{
 	}
 
 	public String execute(){
-		requests = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(), pageNo, pageSize);
-		int count = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(), 1, Integer.MAX_VALUE).size();
-		page = new Page(count,pageNo,pageSize,5);
-		return "member.requests";
+		int count = 0;
+		if(!"outbox".equalsIgnoreCase(type)){
+			requests = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(), pageNo, pageSize);
+			count = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(), 1, Integer.MAX_VALUE).size();
+			page = new Page(count,pageNo,pageSize,5);
+			return "member.requests";
+		}else{
+			requests = requestFacade.getUserRequestOutbox(ActionUtil.getSessionUserId(), pageNo, pageSize);
+			count = requestFacade.getUserRequestOutbox(ActionUtil.getSessionUserId(), 1, Integer.MAX_VALUE).size();
+			page = new Page(count,pageNo,pageSize,5);
+			return "member.outrequests";
+		}
+		
 	}
 	
 	public String addFriendRequest(){

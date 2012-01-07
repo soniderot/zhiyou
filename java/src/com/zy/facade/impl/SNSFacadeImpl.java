@@ -9,6 +9,7 @@ import octazen.addressbook.Contact;
 
 
 import com.zy.Constants;
+import com.zy.common.model.ZyFollow;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ImportAddressUtil;
@@ -171,6 +172,21 @@ public class SNSFacadeImpl implements SNSFacade{
 		mailqueueService.sendFormatEmail_tx(profile.getEmail(),profile.getUsername(),friendEmail,friendName,
 				  "朋友邀请你加入知友", "zy_sns_invite",map , true);
 	}
+	
+	public List<ZyFollow> getFollow(int followerId,int pageNo, int pageSize){
+		return snsService.getFollow(followerId, pageNo, pageSize);
+	}
+	public List<ZyFollow> getFollowMe(int userId,int pageNo, int pageSize){
+		return snsService.getFollowMe(userId, pageNo, pageSize);
+	}
+	
+	public void addFollow(int userId,int targetId){
+		snsService.addFollow(userId, targetId);
+	}
+	public void removeFollow(int userId,int targetId){
+		snsService.removeFollow(userId, targetId);
+	}
+	
 	
 	public static void main(String[] args){
 		System.out.println(UUID.randomUUID().toString());

@@ -20,8 +20,8 @@ public class SearcherController {
 
 	public static Searcher getSearcher(String path) throws IOException {
 		//方法一
-		//return new IndexSearcher(FSDirectory.open(new File(path)), true);
-		return new IndexSearcher(FSDirectory.open(new File("c://200")), true);
+		return new IndexSearcher(FSDirectory.open(new File(path)), true);
+		//return new IndexSearcher(FSDirectory.open(new File("c://200")), true);
 		
 //		//方法二
 //		if (StringUtils.isBlank(path))

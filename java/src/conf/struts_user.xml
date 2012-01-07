@@ -55,6 +55,7 @@
 	<action name="request" class="com.zy.action.message.RequestAction">
 	<interceptor-ref name="loginDefaultStack"/>
 		<result name="member.requests" type="tiles">tiles.member.requests</result>
+		<result name="member.outrequests" type="tiles">tiles.member.outrequests</result>
 		<result name="to.member.requests" type="redirect">/usr/request.jhtml</result>
 	</action>
 	

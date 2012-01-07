@@ -120,8 +120,8 @@ public class SearchFacadeImpl implements SearchFacade{
 			System.out.println("---sort results time--------" + (s5 - s4));
 			for (SearchResultVo vo : vos) {
 				vo.setMutualCnt(this.snsService.getMutualFriends(userId, vo.getProfileId()).size());
-				ZyProfile p = this.profileService.findProfileById(vo.getProfileId());
-				vo.setFullname(p.getUsername());
+				//ZyProfile p = this.profileService.findProfileById(vo.getProfileId());
+				//vo.setFullname(p.getUsername());
 			}
 			System.out.println("---get mutual friends and profile time--------" + (System.currentTimeMillis() - s5));
 //			return vos;

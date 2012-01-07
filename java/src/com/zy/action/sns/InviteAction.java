@@ -1,6 +1,8 @@
 package com.zy.action.sns;
 
-public class InviteAction {
+import com.opensymphony.xwork2.ActionSupport;
+
+public class InviteAction extends ActionSupport{
 	private String[] emails;
 	private String[] names;
 	
@@ -27,6 +29,6 @@ public class InviteAction {
 					System.out.println("name:" + names[i] + " emails:" + emails[i]);
 				}
 		}
-		return "";
+		return "invite.success";
 	}
 }

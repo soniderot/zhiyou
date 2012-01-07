@@ -325,6 +325,7 @@ public class MessageAction extends ActionSupport{
 	public String markReadStatus() {
 		String status = ActionUtil.getRequest().getParameter("status");
 		ZyMessage message = messageFacade.getMessageById(messageId);
+		//messageFacade.readMessage_tx(messageId, ActionUtil.getSessionUserId());
 		message.setIsread(status);
 		messageFacade.updateMessage(message);
 		return null;

@@ -26,6 +26,7 @@
 	<put-attribute name="left" value="/WEB-INF/jsp/member/left.jsp"/>
 	<put-attribute name="right" value="/sns/sns!listPeopleYouMayKnow.jhtml"/>
 	<put-attribute name="center" value="/WEB-INF/jsp/member/sns/search.jsp"/>
+	<put-attribute name="headline" value="/WEB-INF/jsp/member/sns/searchheadline.jsp"/>
 	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
 </definition>
 
@@ -43,6 +44,16 @@
 	<put-attribute name="css" value="/WEB-INF/jsp/common/css.jsp"/>
 	<put-attribute name="head" value="/usr/header.jhtml"/>
 	<put-attribute name="content" value="/WEB-INF/jsp/member/sns/match.jsp"/>
+	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
+</definition>
+
+
+<definition name="tiles.sns.invitesuccess" template="/WEB-INF/jsp/layout/3colbase.jsp" >
+	<put-attribute name="css" value="/WEB-INF/jsp/common/css.jsp"/>
+	<put-attribute name="head" value="/usr/header.jhtml"/>
+	<put-attribute name="left" value="/WEB-INF/jsp/member/left.jsp"/>
+	<put-attribute name="right" value="/sns/sns!listPeopleYouMayKnow.jhtml"/>
+	<put-attribute name="center" value="/WEB-INF/jsp/member/sns/success.jsp"/>
 	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
 </definition>
 
