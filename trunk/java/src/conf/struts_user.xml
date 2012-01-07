@@ -55,11 +55,13 @@
 	<action name="request" class="com.zy.action.message.RequestAction">
 	<interceptor-ref name="loginDefaultStack"/>
 		<result name="member.requests" type="tiles">tiles.member.requests</result>
+		<result name="to.member.requests" type="redirect">/usr/request.jhtml</result>
 	</action>
 	
 	<action name="notify" class="com.zy.action.message.NotificationAction">
 	<interceptor-ref name="loginDefaultStack"/>
 		<result name="member.notifications" type="tiles">tiles.member.notifications</result>
+		<result name="to.member.notifications" type="redirect">/usr/notify.jhtml</result>
 	</action>
 	
 	<action name="feed" class="com.zy.action.feed.FeedAction">
