@@ -1,0 +1,1 @@
+alter table zy_profile add column TOKEN VARCHAR(256) after LASTLOGINTIME;
