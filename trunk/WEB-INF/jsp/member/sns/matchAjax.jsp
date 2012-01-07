@@ -10,7 +10,7 @@
   </div>
   </div>
     <div align="center">
-      <span id=""><a href="#"><s:property value='username' /></a></span>
+      <span id=""><a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value='userid' />"><s:property value='username' /></a></span>
       <span>18</span>
       <span><s:property value='countryname' /></span>
     </div>

@@ -68,7 +68,7 @@
                 </li>
               </ol>
             </div>
-            <form onsubmit="checkInput(this)" method="post" action="sns/invite.jhtml">
+            <form onsubmit="checkInput(this)" method="post" action="sns/sns!invite.jhtml">
               <input type="hidden" value="AQAQAK2a" name="fb_dtsg" />
               <div class="contact_wrapper fixed_height">
                 <table cellspacing="0" cellpadding="0" width="100%" class="uiGrid invite_selector_header">

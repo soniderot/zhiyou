@@ -30,7 +30,7 @@
                           <div class="buttonWrap"></div>
                           <a data-gt='{"bmid":"156203961126022","count":"0","coeff2_info":"AasM7zARnPgbgC_QyV1VyOv88p8dSL-UzGszpVbiurs-Ze51FDKAJBmNRk0XhUz0-Mi9HoXJsBeNarBIEVuaar6F","coeff2_registry_key":"0016","coeff2_action":"3","rank":"1"}' title="欢迎来到 知友" href="/usr/landing.jhtml" class="item clearfix">
                             <div class="rfloat">
-                              <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+                              <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
                                 <span class="countValue fss">0</span>
                                 <span class="maxCountIndicator"></span>
@@ -48,7 +48,7 @@
                           
                           <a data-gt='{"bmid":"4748854339","count":"0","coeff2_info":"Aasb80t8kL0QLo_8OvmsvgTMV-IUsl33Qc4hL-Voy6mMUADa31aZbymtMtThn1d5mJQ","coeff2_registry_key":"0016","coeff2_action":"3","rank":"2"}' title="" href="/usr/feed.jhtml" class="item clearfix" style="">
                             <div class="rfloat">
-                              <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+                              <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
                                 <span class="countValue fss">0</span>
                                 <span class="maxCountIndicator"></span>
@@ -65,7 +65,7 @@
                         <li id="navItem_app_217974574879787" class="sideNavItem stat_elem">
                           <a data-gt='{"bmid":"217974574879787","count":"0","coeff2_info":"Aaswb8c23rf7yV2wsauNLbjN3PTuDkcZ4O6pM5sUv-Z31EVolPbAyyn2l_khXf8l-PBFQ_poEjhITzENdALTSlRa","coeff2_registry_key":"0016","coeff2_action":"3","rank":"3"}' title="" href="/usr/message.jhtml" class="item clearfix sortableItem">
                             <div class="rfloat">
-                              <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+                              <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
                                 <span class="countValue fss">0</span>
                               </span>
@@ -119,7 +119,7 @@
                          
                           <a data-gt='{"bmid":"2356318349","count":"0","coeff2_info":"Aaspwvb3buiDZvUxvLIoJf844ijN51XYfPV2qBK57VMyX7HDXQlQUK8qg6zj5xrPQGs","coeff2_registry_key":"0016","coeff2_action":"3","rank":"5"}' title="" href="/sns/sns!viewInvitePage.jhtml" class="item clearfix sortableItem" style="">
                             <div class="rfloat">
-                              <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+                              <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
                                 <span class="countValue fss">0</span>
                                 <span class="maxCountIndicator"></span>
@@ -143,7 +143,7 @@
                          
                           <a data-gt='{"bmid":"2356318349","count":"0","coeff2_info":"Aaspwvb3buiDZvUxvLIoJf844ijN51XYfPV2qBK57VMyX7HDXQlQUK8qg6zj5xrPQGs","coeff2_registry_key":"0016","coeff2_action":"3","rank":"5"}' title="" href="/sns/sns!getFriendsList.jhtml" class="item clearfix sortableItem" style="">
                             <div class="rfloat">
-                              <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+                              <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
                                 <span class="countValue fss">0</span>
                                 <span class="maxCountIndicator"></span>
@@ -239,17 +239,40 @@
                             <div class="lfloat">应用程序</div>
                             <span class="mrm rfloat">
                               <div class="bookmarksNavSeeAll"></div>
-                              <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+                              <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                             </span>
                           </div>
                         
                       </div>
                       <ul data-gt='{"nav_items_count":"5","nav_section":"appsNav"}' role="navigation" class="uiSideNav mts mbm nonDroppableNav">
+                       
+                       <li id="navItem_app_10150110253435258" class="sideNavItem stat_elem">
+                         
+                          <a data-gt='{"bmid":"10150110253435258","count":"0","coeff2_info":"AascNaC5GNX94bXmRL8InEKxGm-39eQ5SfwNcUulSMDReSQ6rlnBwPOk7AFx62cEoqpRxf1oT7GtQr9FuMTffZXQ","coeff2_registry_key":"0016","coeff2_action":"3","rank":"5"}' title="" href="/sns/match.jhtml" class="item clearfix sortableItem" style="">
+                            <div class="rfloat">
+                              <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+                              <span class="count hidden_elem uiSideNavCount">
+                                <span class="countValue fss">0</span>
+                                <span class="maxCountIndicator"></span>
+                              </span>
+                              <span class="grip"></span>
+                            </div>
+                            <div>
+                              <span class="imgWrap">
+                                <i class="img sp_7gl7wd sx_97759f"></i>
+                              </span>
+                              <div class="linkWrap noCount">配对</div>
+                            </div>
+                          </a>
+                          <span class="mover hidden_elem"></span>
+                        </li>
+                       
+                       
                         <li id="navItem_app_2305272732" class="sideNavItem stat_elem">
                          
                           <a data-gt='{"bmid":"2305272732","count":"0","coeff2_info":"AavlFDtX3Zh1sRcSv6cXUkzN2msD6OSwuDo1LJvCn9BD5qZIaApSrOUUBaHXCVG5Em0","coeff2_registry_key":"0016","coeff2_action":"3","rank":"1"}' title="" href="usr/feed.jhtml?handle=sns.publish.photo" class="item clearfix sortableItem">
                             <div class="rfloat">
-                              <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+                              <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
                                 <span class="countValue fss">0</span>
                                 <span class="maxCountIndicator"></span>
@@ -269,7 +292,7 @@
                          
                           <a data-gt='{"bmid":"10150110253435258","count":"0","coeff2_info":"AascNaC5GNX94bXmRL8InEKxGm-39eQ5SfwNcUulSMDReSQ6rlnBwPOk7AFx62cEoqpRxf1oT7GtQr9FuMTffZXQ","coeff2_registry_key":"0016","coeff2_action":"3","rank":"5"}' title="" href="http://www.facebook.com/questions/friends/" class="item clearfix sortableItem" style="">
                             <div class="rfloat">
-                              <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+                              <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
                                 <span class="countValue fss">0</span>
                                 <span class="maxCountIndicator"></span>

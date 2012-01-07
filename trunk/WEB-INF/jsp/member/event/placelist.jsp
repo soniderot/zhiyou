@@ -33,7 +33,7 @@
                 <div class="auxiliary" id="100003206989957_1_req_aux">
                   <div class="actions">
                     <label class="uiButton uiButtonConfirm" for="ul7tes_1">
-                    	<input type="button" value="选择" name="actions[accept]" onclick="selectPlace('<s:property value="id"/>', '<s:property value="placename"/>')">
+                    	<input type="button" value="选择" name="actions[accept]" onclick="selectPlace('<s:property value="id"/>', '<s:property value="placename"/>','<s:property value="address"/>')">
                     </label>
                     <!---
                     <label class="uiButton" for="ul7tes_2">
@@ -69,9 +69,9 @@
   </div>
 </div>
 <script type="text/javascript">
-  function selectPlace(placeId, placeName) {
-    window.opener.document.getElementById("districtId").value=placeId;
-    window.opener.document.getElementById("address").value=placeName;
+  function selectPlace(placeId, placeName,address) {
+    window.opener.document.getElementById("placeId").value=placeId;
+    window.opener.document.getElementById("address").value=placeName+"("+address+")";
     window.close();
   }
 </script>

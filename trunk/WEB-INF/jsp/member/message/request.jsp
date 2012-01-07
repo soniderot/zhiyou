@@ -11,9 +11,31 @@
                      
                       <div>
                         <h2 class="uiHeaderTitle">
-                          <i class="uiHeaderImage img sp_7gl7wd sx_0b0f8c"></i>请求
+                          <i class="uiHeaderImage img sp_7gl7wd sx_0b0f8c"></i>收到的请求
                         </h2>
                       </div>
+                      
+                      <table cellspacing="0" cellpadding="0" class="uiGrid mts footerActionBar">
+						          <tbody>
+						            <tr>
+						              <td class="vTop">
+						                <ul class="uiList uiListHorizontal clearfix">
+						                  <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
+						                    <div class="clearfix mts"><div class="mrs lfloat fsm fwn fcg">
+						                      <strong>查看：</strong>
+						                    </div>
+						                    <div class="footerActionLinks rfloat fsm fwn fcg">
+						                      <a href="usr/request.jhtml?type=inbox" >收件箱</a>
+						                       · <a href="usr/request.jhtml?type=outbox">发件箱</a>
+						                      </div>
+						                    </div>
+						                  </li>
+						                </ul>
+						              </td>
+						            </tr>
+						          </tbody>
+						        </table>
+						        
                     </div>
                   </div>
                   <div class="mbs clearfix" id="MessagingMainContent">

@@ -65,11 +65,16 @@
               </div>
             </td>
           </tr>
+          <tr class="spacer">
+            <td colspan="2"><hr></td>
+          </tr>
         </tbody>
+        
+       
       </table>
     </div>
     
-    <s:if test="feed.handle=='sns.event.create'">
+    <s:if test="1>0||feed.handle=='sns.event.create'">
     <div id="pagelet_event_wall" data-referrer="pagelet_event_wall">
       <div id="event_profile_wall" class="eventsWhiteComposer">
         <div id="feedwall_with_composer">

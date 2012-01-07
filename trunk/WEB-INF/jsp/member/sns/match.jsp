@@ -12,16 +12,19 @@
   <div class="uiHeader uiHeaderTopAndBottomBorder mbm uiHeaderSection">
     <div class="clearfix uiHeaderTop">
       <div>
-        <h3 class="uiHeaderTitle">推荐场所</h3>
+        <h3 class="uiHeaderTitle">配对会员</h3>
+        
       </div>
+     
     </div>
   </div>
+  
   <div class="fbRequestList">
     <table cellspacing="0" cellpadding="0" class="uiGrid">
       <tbody>
         <tr class="head">
           <td class="left">
-            <h1>Are you insterested?</h1>
+            <h1>感兴趣?</h1>
           </td>
           <td align="center" class="image">
             <label class="uiButton uiButtonConfirm" for="u5rqxr_1">
@@ -43,9 +46,9 @@
                     </td>
                     <td>
                       From&nbsp;
-                      <s:select name="ageFrom" list="#request.beginAges" listKey="key"  listValue="value" ></s:select>
+                      <s:select name="startAge" list="#request.beginAges" listKey="key"  listValue="value" ></s:select>
                       &nbsp;&nbsp;To&nbsp;
-                     <s:select name="ageTo" list="#request.endAges" listKey="key"  listValue="value" ></s:select>
+                     <s:select name="endAge" list="#request.endAges" listKey="key"  listValue="value" ></s:select>
                     </td>
                   </tr>
                   <tr id="u9ikxu_14">
@@ -70,9 +73,9 @@
                       <div id="u9ikxu_18">
                         <div id="u9ikxu_24" class="uiTypeahead lfloat">
                           <div class="wrap">
-                            <input type="hidden" name="highSchoolId" value="0" class="hiddenInput" autocomplete="off"/>
+                            
                             <div class="innerWrap">
-                              <input type="text" title="键入大学名称" spellcheck="false" onfocus="return wait_for_load(this, event, function() {;JSCC.get(&#39;j4edc8b1c8101672034723769&#39;).init([&quot;defaultToText&quot;,&quot;submitOnChange&quot;]);;});" autocomplete="off" value="键入大学名称" size="35" placeholder="键入大学名称" class="inputtext textInput DOMControl_placeholder"/>
+                              <input name="keyword" type="text" title="关键字" spellcheck="false"  value="键入关键字" size="35" placeholder="键入关键字" class="inputtext textInput DOMControl_placeholder"/>
                             </div>
                           </div>
                         </div>
@@ -127,12 +130,12 @@
   var pageNo = 0;
   $(".userinfo").eq(0).removeClass("hidden_elem");
   function submitSearch() {
-    var agefrom = $("select[name='ageFrom']").val();
-    var ageto = $("select[name='ageTo']").val();
+    var agefrom = $("select[name='startAge']").val();
+    var ageto = $("select[name='endAge']").val();
     var gender = $("radio[name='gender']").val();
-    var schoolid = $("input[name='highSchoolId']").val();
+    var keyword = $("input[name='keyword']").val();
     $.get("sns/search.jhtml", 
-      {ageFrom: agefrom, ageTo: ageto, gender: gender, highSchoolId: schoolid},
+      {startAge: agefrom, endAge: ageto, gender: gender, keyword: keyword,flag:1},
       function(data){
         $(".userinfo").remove();
         $("#imageContainer").append(data);
@@ -153,14 +156,20 @@
     return false;
   }
   function nextPhoto() {
+  	 var agefrom = $("select[name='startAge']").val();
+    var ageto = $("select[name='endAge']").val();
+    var gender = $("radio[name='gender']").val();
+    var keyword = $("input[name='keyword']").val();
     var size = $(".userinfo").size();
+    
     if (index >= size - 1&&size > 1) {
       pageNo = pageNo + 1
       $.get("sns/search.jhtml", 
-        {pageNo: pageNo},
+        {pageNo: pageNo,startAge: agefrom, endAge: ageto, gender: gender, keyword: keyword},
         function(data){
           $("#imageContainer").append(data);
           size = $(".userinfo").size();
+          
           if (index < size - 1) {
             index = index + 1;
             $(".userinfo").eq(index-1).addClass("hidden_elem");

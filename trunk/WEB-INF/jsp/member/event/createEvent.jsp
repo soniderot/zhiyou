@@ -20,8 +20,10 @@
   <div class="pal grayArea uiBoxGray noborder">
   	<s:form onsubmit="return validateCreateEvent(this);" action="/event/event!saveEvent.jhtml" method="post" enctype="multipart/form-data" >
    	  <input type="hidden" name="eventId" value="<s:property value="eventId" />"/>
+   	  	<input type="hidden" name="placeId" id="placeId" value=""/>
       <input type="hidden" name="post_form_id" value="d987c72246020e1891443953e9b5b41b" autocomplete="off"/>
-      <input type="hidden" name="districtId" id="districtId" autocomplete="off"/>
+      <!--
+      <input type="hidden" name="districtId" id="districtId" autocomplete="off"/>-->
       <table class="uiInfoTable mtm mll noBorder">
         <tbody>
           <tr class="dataRow">
@@ -245,8 +247,8 @@
 <script type="text/javascript">
   function openWindow() {
     var eventCategory = $("select[name='eventCategory']").val();
-    var districtid = $("select[name='districtid']").val();
-    window.open("event/event!getRecommPlaces.jhtml?eventCategory=" + eventCategory + "&districtid=" + districtid
+    var districtid = $("select[name='districtId']").val();
+    window.open("event/event!getRecommPlaces.jhtml?eventCategory=" + eventCategory + "&districtId=" + districtid
     , "newwindow"
     , "height=600, width=850, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
     return false;

@@ -21,7 +21,10 @@
             <h3>上传个人头像</h3>
             <div class="clearfix NUXUploadPic">
             	
+            	<!--
               <div class="lfloat"><img src="/images/nuxwizard_profile_picture.gif" id="profile_pic_nux"/></div>
+               -->
+               
               <div class="options_container">
                 <div class="options">
                   <div class="desc"><input type="file" name="logo" id="profile_picture_post_file" class="inputfile"/></div>
