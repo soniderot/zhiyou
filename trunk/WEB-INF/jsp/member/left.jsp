@@ -170,8 +170,10 @@
                 </div>
                 
                 <div id="pagelet_bookmark_nav" data-referrer="pagelet_bookmark_nav">
+                 
                   <div>
-                  	<!----
+                  	
+                  	<!--
                     <div id="listsNav" class="homeSideNav">
                       <div class="navHeader">
                         <a href="/sns/sns!getFriendsList.jhtml">
@@ -226,7 +228,10 @@
                           <span class="mover hidden_elem"></span>
                         </li>
                       </ul>
-                    </div>----->
+                    </div>
+                    -->
+                    
+                    
                     <div id="appsNav" class="homeSideNav">
                       <div class="navHeader">
                         

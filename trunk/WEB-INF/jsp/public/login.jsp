@@ -41,7 +41,7 @@
           <div class="phl ptm uiInterstitialContent">
             <div class="login_form_container">
               <s:form action="/usr/login.jhtml" method="post" id="login_form">
-              
+              <input type="hidden" name="token" value="${token}" />
                 <input type="hidden" name="charset_test" value="&euro;,&acute;,€,′,水,Д,?" />
                 <input type="hidden" name="lsd" value="_9Sn9" autocomplete="off" />
                 <div id="error" class="UIMessageBox UIMessageBoxError">
@@ -78,7 +78,7 @@
                       </label>
                     </div>
                     <div id="register_link">
-                      或者<strong><a href="/usr/landing.jhtml" target="_blank" rel="nofollow" id="reg_btn_link" tabindex="-1">注册 Facebook</a></strong>
+                      或者<strong><a href="/usr/landing.jhtml?token=${token}" target="_blank" rel="nofollow" id="reg_btn_link" tabindex="-1">注册</a></strong>
                     </div>
                   </div>
                   <p class="reset_password form_row">
