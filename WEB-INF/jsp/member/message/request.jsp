@@ -57,7 +57,10 @@
                                       
                                     </div>
                                   </div>
+                                  
                                 </a>
+                              
+                              
                               
                               
                               </td>
@@ -65,9 +68,9 @@
                                <td class="threadMainCol">
                                 
                                 <div class="snippet fsm fwn fcg">
-                                        <i class="mrs indicator img sp_d1pr3k sx_18fadf"></i>
+                                        
                                          <s:if test="request.eventkey==1">
-                                        <span id="snippet_id.237791252950736"><s:property value="content"/><s:if test="formatedMsg!=null">(<s:property value="formatedMsg"/>)</s:if></span>
+                                        <span id="snippet_id.237791252950736"><s:property value="content"/><s:if test="(formatedMsg!=null&&formatedMsg!=''&&formatedMsg!='[object Window]')">(<s:property value="formatedMsg"/>)</s:if></span>
                                  			</s:if>
                                  			 <s:if test="request.eventkey==5">
                                         <span id="snippet_id.237791252950736"><s:property value="content"/><a title="dota" href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>"><s:property value="event.eventname"/></a></span>
@@ -108,4 +111,18 @@
               </div>
             </div>
           </div>
-          
+ <div>
+  <s:if test="requests.size()>0">
+    <jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
+  </s:if>
+  <s:else>
+    <div class="pam uiBoxLightblue uiMorePagerPrimary">目前没有更多请求可显示。</div>
+  </s:else>
+</div>
+      
+<script>
+function topage(pageNo) {
+  location.href = "usr/request.jhtml?pageNo="+pageNo
+  return false;
+}
+</script>    

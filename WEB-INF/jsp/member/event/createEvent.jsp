@@ -36,7 +36,7 @@
           </tr>
 	      <tr class="dataRow">
             <th class="label">区域：</th>
-            <td class="data"> <s:select name="districtid" list="districts" listKey="id"  listValue="districtname" cssClass="activity" headerKey="-1" headerValue="" tipstype="error" /></td>
+            <td class="data"> <s:select name="districtId" list="districts" listKey="id"  listValue="districtname" cssClass="activity" headerKey="-1" headerValue="" tipstype="error" /></td>
             <td class="rightCol"></td>
           </tr>
           <tr id="event_time_row" class="dataRow">
@@ -246,7 +246,7 @@
   function openWindow() {
     window.open("event/event!getRecommPlaces.jhtml"
     , "newwindow"
-    , "height=600, width=800, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+    , "height=600, width=850, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
     return false;
   }
 </script>
