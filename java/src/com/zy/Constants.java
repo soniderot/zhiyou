@@ -97,7 +97,7 @@ public class Constants {
 		// match the grpmember table ,field status
 		public static short DISABLE = 8;
 		public static short QUIT = 16;
-		public static String requesturl = USHI_DOMAINNAME + "/msg/request!listNewRequest.jhtml";
+		public static String requesturl = DOMAINNAME + "/msg/request!listNewRequest.jhtml";
 		// about group feed practise index
 		public final static String MEMBER_CREATE_GROUP = "group.create";
 		public final static String MEMBER_JOIN_GROUP = "group.join";
@@ -118,7 +118,7 @@ public class Constants {
 		// 0:week 1:month 2:year
 		public static String NEWSFEEDCOUNT_OF_WEEK = "0";
 		// invite
-		public final static String GROUPOUTERINCVITE_LINK = USHI_DOMAINNAME + "/invite/group/zh_CN/";
+		public final static String GROUPOUTERINCVITE_LINK = DOMAINNAME + "/invite/group/zh_CN/";
 
 		public final static short NOTIFICATIONTYPE_REPLYTOPIC = 2;
 		public final static short NOTIFICATIONTYPE_APPLYGROUP = 3;
@@ -139,7 +139,7 @@ public class Constants {
 	public final static String INVITE_PRIVATE_KEY = "bns2009invite";
 
 	// email verify
-	public final static String EMAILVERIFY_PRIVATE_KEY = "bns2009emailverify";
+	public final static String EMAILVERIFY_PRIVATE_KEY = "zyemailverify";
 
 	// 1 send invite success 2 regesiter success 4 delete
 	public static enum InviteStatus {
@@ -485,7 +485,7 @@ public class Constants {
 	public static String EMAIL_VERIFY_SENDERNAME = "email.verify.sendername";
 	public static String EMAIL_VERIFY_SUBJECT = "email.verify.subject";
 
-	public static String USHI_DOMAINNAME = "http://127.0.0.1";
+	public static String DOMAINNAME = "http://127.0.0.1";
 	public static String USHI_PORT = "8080";
 	public static String FEEDBACK_EMAIL_ADDRESS = "";
 	public static String BNSCLASSPATH;
@@ -563,7 +563,7 @@ public class Constants {
 		MEMCACHED_SERVER = pro.getProperty("MEMCACHED_SERVER", "");
 		SYSTEM_EMAIL_ADDRESS = pro.getProperty("SYSTEM_EMAIL_ADDRESS", "");
 		FEEDBACK_EMAIL_ADDRESS = pro.getProperty("FEEDBACK_EMAIL_ADDRESS", "");
-		USHI_DOMAINNAME = pro.getProperty("USHI_DOMAINNAME", "");
+		DOMAINNAME = pro.getProperty("DOMAINNAME", "");
 		USHI_PORT = pro.getProperty("USHI_PORT","");
 		BNSCLASSPATH = pro.getProperty("BNSCLASSPATH");
 		JMLPATH = pro.getProperty("JMLPATH");

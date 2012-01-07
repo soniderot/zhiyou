@@ -44,7 +44,19 @@ public class ZyProfile implements java.io.Serializable {
 	private String regionname;
 	private String countryname;
 
+	private String token;
+	
+	
+	
 	// Constructors
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
 
 	public void setCityname(String cityname) {
 		this.cityname = cityname;
@@ -166,7 +178,7 @@ public class ZyProfile implements java.io.Serializable {
 
 	public String getAvatar() {
 		if(avatar==null||avatar.length()==0){
-			return "/images/default.JPG";
+			return "images/default.JPG";
 		}
 		return this.avatar;
 	}

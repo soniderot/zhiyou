@@ -209,4 +209,8 @@ public class ProfileServiceImpl implements ProfileService {
 	public List<ZyProfile> findProfileByPoint(String userIds){
 		return profileDao.findProfileByPoint(userIds);
 	}
+	
+	public ZyProfile findProfileByToken(String token){
+		return profileDao.findProfileByToken(token);
+	}
 }

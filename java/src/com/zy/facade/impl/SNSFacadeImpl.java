@@ -1,13 +1,18 @@
 package com.zy.facade.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import octazen.addressbook.Contact;
 
+
+import com.zy.Constants;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ImportAddressUtil;
+import com.zy.domain.message.service.MailqueueService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.sns.service.SNSService;
 import com.zy.facade.SNSFacade;
@@ -15,7 +20,17 @@ import com.zy.facade.SNSFacade;
 public class SNSFacadeImpl implements SNSFacade{
 	private SNSService snsService;
 	private ProfileService profileService;
+	private MailqueueService mailqueueService;
 	
+	
+	public MailqueueService getMailqueueService() {
+		return mailqueueService;
+	}
+
+	public void setMailqueueService(MailqueueService mailqueueService) {
+		this.mailqueueService = mailqueueService;
+	}
+
 	public ProfileService getProfileService() {
 		return profileService;
 	}
@@ -139,5 +154,25 @@ public class SNSFacadeImpl implements SNSFacade{
 		}
 		System.out.println("userIds--------"+userIds);
 		return profileService.findProfileByPoint(userIds);
+	}
+	
+	public String generateInviteLink(int userId) {
+		return Constants.DOMAINNAME + "/invite/sns/"+ profileService.findProfileById(userId).getToken();
+	}
+	
+	public void inviteUser(int userId,String friendEmail,String friendName){
+		ZyProfile profile = profileService.findProfileById(userId);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("receiverName", friendName);
+		map.put("senderName", profile.getUsername());
+		map.put("acceptLink", this.generateInviteLink(userId));
+		map.put("profile",profile);
+		map.put("domainname", Constants.DOMAINNAME);
+		mailqueueService.sendFormatEmail_tx(profile.getEmail(),profile.getUsername(),friendEmail,friendName,
+				  "朋友邀请你加入知友", "zy_sns_invite",map , true);
+	}
+	
+	public static void main(String[] args){
+		System.out.println(UUID.randomUUID().toString());
 	}
 }

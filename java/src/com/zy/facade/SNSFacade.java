@@ -35,4 +35,9 @@ public interface SNSFacade {
 	public List<Contact> importAddressBook(int userId, String email, String password);
 	
 	public List<ZyProfile> getProfilesYouMayKnow(long userId);
+	
+	public String generateInviteLink(int userId);
+	
+	public void inviteUser(int userId,String friendEmail,String friendName);
+	
 }

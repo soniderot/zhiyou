@@ -27,6 +27,17 @@ public class ProfileAction {
 	private String[] viewType = new String[]{"","","",""};
 	
 	private boolean friendFlag;
+	
+	private String token;
+	
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
 
 	public boolean isFriendFlag() {
 		return friendFlag;

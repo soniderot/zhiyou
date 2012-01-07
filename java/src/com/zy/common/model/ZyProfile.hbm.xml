@@ -91,5 +91,8 @@
   <property generated="never" lazy="false" name="address" type="java.lang.String">
    <column length="256" name="ADDRESS"/>
   </property>
+   <property generated="never" lazy="false" name="token" type="java.lang.String">
+   <column length="256" name="TOKEN"/>
+  </property>
  </class>
 </hibernate-mapping>

@@ -101,5 +101,7 @@ public interface SNSService {
 	public boolean checkIfFollow(int userId,int targetUserId);
 	//public int getCntFollow(int followerId);
 	//public int getCntFollowMe(int userId);
+	
+	//public String generateInviteLink(int userId);
 
 }

@@ -77,13 +77,15 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 			profileform.setMonth(calendar.get(Calendar.MONTH) + 1);
 			profileform.setDay(calendar.get(Calendar.DAY_OF_MONTH));
 			ZyProfile user = (ZyProfile)ActionUtil.getSession().get(Constants.USER_SESSION_KEY);
-			if (user.getObjectgender() == Constants.MALEORFEMALE) {
-				profileform.setMeeting_sex1(true);
-				profileform.setMeeting_sex2(true);
-			} else if (user.getObjectgender() == Constants.MALE) {
-				profileform.setMeeting_sex1(true);
-			} else {
-				profileform.setMeeting_sex2(true);
+			if(user.getObjectgender()!=null){
+				if (user.getObjectgender() == Constants.MALEORFEMALE) {
+					profileform.setMeeting_sex1(true);
+					profileform.setMeeting_sex2(true);
+				} else if (user.getObjectgender() == Constants.MALE) {
+					profileform.setMeeting_sex1(true);
+				} else {
+					profileform.setMeeting_sex2(true);
+				}
 			}
 			if (user.getCityid() != null) {
 				ZyCity city = locationFacade.getCity(user.getCityid());

@@ -3,8 +3,9 @@
 <struts>
 
 
-<package name="zy-sns" namespace="/sns" extends="tiles-default,json-default">
+<package name="zy-sns" namespace="/sns" extends="zy-global">
 	<action name="sns" class="com.zy.action.sns.SNSActioin">
+	<interceptor-ref name="loginDefaultStack"/>
 		<result name="input" type="tiles">tiles.sns.invite</result>
 		<result name="contacts" type="tiles">tiles.sns.contacts</result>
 		<result name="invite" type="tiles">tiles.sns.invite</result>
@@ -15,6 +16,7 @@
 	</action>
 	
 	<action name="match" class="com.zy.action.sns.QuickMatchAction">
+	<interceptor-ref name="loginDefaultStack"/>
 		<result name="match.search" type="tiles">tiles.sns.match</result>
 	</action>
 	
@@ -23,6 +25,7 @@
 	</action>
 	
 	<action name="search" class="com.zy.action.search.SearchAction">
+	<interceptor-ref name="loginDefaultStack"/>
 		<result name="match.search.ajax">/WEB-INF/jsp/member/sns/matchAjax.jsp</result>
 	</action>
 	

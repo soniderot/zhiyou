@@ -2,12 +2,15 @@ package com.zy.action.profile;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.UUID;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.zy.Constants;
 import com.zy.common.model.ZyProfile;
+import com.zy.facade.FeedFacade;
 import com.zy.facade.ProfileFacade;
+import com.zy.facade.SNSFacade;
 
 public class RegistrationAction extends ActionSupport {
 	private ProfileFacade profileFacade;
@@ -20,6 +23,37 @@ public class RegistrationAction extends ActionSupport {
 	private int month;
 	private int day;
 
+	private String token;
+	
+	private SNSFacade snsFacade;
+	private FeedFacade feedFacade;
+	
+	
+	
+
+	public FeedFacade getFeedFacade() {
+		return feedFacade;
+	}
+
+	public void setFeedFacade(FeedFacade feedFacade) {
+		this.feedFacade = feedFacade;
+	}
+
+	public SNSFacade getSnsFacade() {
+		return snsFacade;
+	}
+
+	public void setSnsFacade(SNSFacade snsFacade) {
+		this.snsFacade = snsFacade;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
 
 	public ProfileFacade getProfileFacade() {
 		return profileFacade;
@@ -103,7 +137,18 @@ public class RegistrationAction extends ActionSupport {
 		profile.setGender((short)gender);
 		profile.setPasswd(password);
 		profile.setBirthdate(birthDate);
+		profile.setToken(UUID.randomUUID().toString());
+		profile.setRegistertime(new Date());
+		profile.setLastlogintime(new Date());
 		profileFacade.addProfile(profile);
+		
+		
+		 if(token!=null&&token.trim().length()>0){
+		    	ZyProfile friend = profileFacade.findProfileByToken(token);
+		    	snsFacade.addFriend(profile.getUserid(), friend.getUserid());
+		    	feedFacade.addNewFriendNewsFeed(profile.getUserid(), friend.getUserid());
+		 }
+		
 		System.out.println("newprofile.userid========"+profile.getUserid());
 		ActionContext.getContext().getSession().put(Constants.USER_SESSION_KEY, profile);
 		ActionContext.getContext().getSession().put(Constants.USERID_SESSION_KEY, profile.getUserid());

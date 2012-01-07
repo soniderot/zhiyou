@@ -11,4 +11,5 @@ public interface ProfileDao extends BaseDao<ZyProfile, Integer> {
 	public ZyProfile findProfileByEmail(String email);
 	public ZyProfile findProfileByName(String userName);
 	public List<ZyProfile> findProfileByPoint(String userIds);
+	public ZyProfile findProfileByToken(String token);
 }

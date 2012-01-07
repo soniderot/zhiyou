@@ -1,18 +1,9 @@
 package test;
 
-import java.util.List;
-
-import net.sourceforge.pinyin4j.PinyinHelper;
-import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
-import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
-
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zy.common.model.ZyCity;
-import com.zy.common.model.ZyNewsfeed;
-import com.zy.common.model.ZySchool;
-import com.zy.facade.FeedFacade;
-import com.zy.facade.OptionFacade;
+import com.zy.facade.ProfileFacade;
+import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
 
 public class Test {
@@ -139,12 +130,12 @@ public class Test {
 		
 		// FeedFacade feedFacade = (FeedFacade)appContext.getBean("feedFacade");
 		// feedFacade.shareNewsFeed_tx(2,122);
+		
 		/*
-		 * MailqueueService mailqueueService =
-		 * (MailqueueService)appContext.getBean("mailqueueService"); Map map =
-		 * new HashMap(); map.put("country","美国");
-		 * mailqueueService.sendFormatEmail_tx("bill.tian@meta4-group.com","bill","bill.tian@meta4-group.com","xiaobill",
-		 * "test", "test_en_US",map , true);
+		 MailqueueService mailqueueService =(MailqueueService)appContext.getBean("mailqueueService"); 
+		 Map map =new HashMap(); map.put("country","美国");
+		 mailqueueService.sendFormatEmail_tx("bill.tian@meta4-group.com","bill","bill.tian@meta4-group.com","xiaobill",
+		 "test", "test_en_US",map , true);
 		 */
 		
 		/*
@@ -168,11 +159,12 @@ public class Test {
 		 * System.out.println(messages.get(i).getMessage().getSenderid()+"-----"+messages.get(i).getMessage().getReceiverid()); }
 		 */
 		
+		/*
 		FeedFacade feedFacade = (FeedFacade)appContext.getBean("feedFacade");
 		List<ZyNewsfeed> list = feedFacade.getNewsFeed(1,"sns.publish.photo", "56");
 		for(int i=0;i<list.size();i++){
 			System.out.println("feed.id----"+list.get(i).getId());
-		}
+		}*/
 		
 		/*
 		LocationFacade locatioinFacade = (LocationFacade)appContext.getBean("locationFacade");
@@ -198,7 +190,7 @@ public class Test {
 		
 		
 		
-		
+		/*
 		OptionFacade optionFacade = (OptionFacade)appContext.getBean("optionFacade");
 		List<ZySchool> schools = optionFacade.getAllSchools();
 		
@@ -218,6 +210,18 @@ public class Test {
 			System.out.println(sb.toString());
 			schools.get(i).setSchoolpinyin(sb.toString());
 			optionFacade.updateSchool(schools.get(i));
-		}
+		}*/
+		
+		//String link = snsFacade.generateInviteLink(1);
+		//System.out.println("link---------"+link);
+		//snsFacade.inviteUser(1,"bill.tian@meta4-group.com", "Bill");
+		
+		ProfileFacade profileFacade =(ProfileFacade)appContext.getBean("profileFacade");
+	
+		//profileFacade.findProfileById(1);
+		
+		RequestFacade requestFacade =(RequestFacade)appContext.getBean("requestFacade");
+		requestFacade.sendRequest_tx(2, 1, (short)5, 1, null, null);
+		
 	}
 }
