@@ -13,11 +13,11 @@
     <div id="blueBar">
       <div class="loggedout_menubar_container">
         <div class="clearfix loggedout_menubar">
-          <a class="lfloat" href="/" title="转到Facebook首页"><img class="fb_logo img" src="#" alt="Facebook 商标" width="170" height="36" /></a>
+          <a class="lfloat" href="/" title="转到首页"><img class="fb_logo img" src="#" alt=" 商标" width="170" height="36" /></a>
           <div class="rfloat">
             <div class="menu_login_container">
               <form method="POST" action="usr/login.jhtml" id="login_form">
-                <input type="hidden" name="lsd" value="Y0F8N" autocomplete="off" />
+                <input type="hidden" name="token" value="${token}"  />
                 <input type="hidden" autocomplete="off" id="locale" name="locale" value="zh_CN" />
                 <table cellspacing="0">
                   <tr>
@@ -81,6 +81,7 @@
                     <div id="simple_registration_container" class="simple_registration_container">
                       <div id="reg_box">
                         <s:form action="register" namespace="/usr" onsubmit="return validateSignUp();">
+                        	<input type="hidden" name="token" value="${token}"  />
                           <div id="reg_form_box" class="large_form">
                              <table class="uiGrid editor" cellspacing="0" cellpadding="1">
                               <tbody>
