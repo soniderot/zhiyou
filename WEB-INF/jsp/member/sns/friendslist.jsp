@@ -9,7 +9,12 @@
 					            <div class="uiHeader uiHeaderTopAndBottomBorder uiHeaderSection">
 					              <div class="clearfix uiHeaderTop">
 					                <div>
+					                	<s:if test="(event==null)"> 
 					                  <h3 class="uiHeaderTitle">朋友列表</h3>
+					                </s:if>
+					                <s:else>
+					                  <h3 class="uiHeaderTitle">参加活动成员列表</h3>
+					               </s:else>
 					                </div>
 					              </div>
 					            </div>

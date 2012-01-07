@@ -70,7 +70,7 @@
             </s:if>
             
             <s:iterator value="messages">
-            <li class="threadRow noDraft uiListItem uiListLight uiListVerticalItemBorder <s:if test='%{\"T\"==message.isread}'>unread</s:if>" id="id_<s:property value='message.id'/>">
+            <li class="threadRow noDraft uiListItem uiListLight uiListVerticalItemBorder <s:if test='%{\"T\"!=message.isread}'>unread</s:if>" id="id_<s:property value='message.id'/>">
               <table cellspacing="0" cellpadding="0" class="uiGrid">
                 <tbody>
                   <tr>
@@ -98,16 +98,16 @@
                       </a>
                     </td>
                     <td class="plm">
-                      <a class="uiTooltip markAsReadLink" onmouseout="this.blur();" href="#" onclick="return markReadStatus(<s:property value='message.id'/>, 'F');" rel="async-post">
+                      <a class="uiTooltip markAsReadLink" onmouseout="this.blur();" href="#" onclick="return markReadStatus(<s:property value='message.id'/>, 'T');" rel="async-post">
                         <span class="readState markread"></span>
                         <span class="uiTooltipWrap top right righttop">
-                          <span class="uiTooltipText">标记为未读</span>
+                          <span class="uiTooltipText">标记为已读</span>
                         </span>
                       </a>
-                      <a class="uiTooltip markAsUnreadLink" onmouseout="this.blur();" href="#"  onclick="return markReadStatus(<s:property value='message.id'/>, 'T');" rel="async-post">
+                      <a class="uiTooltip markAsUnreadLink" onmouseout="this.blur();" href="#"  onclick="return markReadStatus(<s:property value='message.id'/>, 'F');" rel="async-post">
                         <span class="readState markunread"></span>
                         <span class="uiTooltipWrap top right righttop">
-                          <span class="uiTooltipText">标记为已读</span>
+                          <span class="uiTooltipText">标记为未读</span>
                         </span>
                       </a>
                     </td>
@@ -163,9 +163,9 @@ function markReadStatus(messageId, status) {
      data: "messageId="+messageId+"&status="+status,
      success: function(data){
        if("T" == status) {
-          $("#id_" + messageId).addClass("unread");
-       } else {
           $("#id_" + messageId).removeClass("unread");
+       } else {
+          $("#id_" + messageId).addClass("unread");
        }
      }
    });

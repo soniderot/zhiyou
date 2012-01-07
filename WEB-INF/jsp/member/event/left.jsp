@@ -20,7 +20,7 @@
       	<s:if test="(event!=null)">
         <div class="uiHeader uiHeaderTopBorder uiHeaderNav">
           <div class="clearfix uiHeaderTop">
-            <a rel="dialog" href="#" class="uiHeaderActions rfloat">查看全部</a>
+            <a rel="dialog" href="event/event!listMembers.jhtml?eventId=${event.id}" class="uiHeaderActions rfloat">查看全部</a>
             <div>
               <h4 class="uiHeaderTitle"><s:property value="members.size()"/> 人确定参加</h4>
             </div>
