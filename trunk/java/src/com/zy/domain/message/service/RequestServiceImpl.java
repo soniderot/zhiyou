@@ -124,14 +124,21 @@ public class RequestServiceImpl implements RequestService {
 			if (request.getParameters() != null) {
 				paras = request.getParameters().split(",");
 			}
-System.out.println("------------into-----------");
+			
+			//new friend invite
 			if (request.getEventkey() == 1) {
-				ZyProfile user = profileService.findProfileById(Integer
-						.valueOf(userid));
-				ZyProfile user2 = profileService.findProfileById(Integer
-						.valueOf(request.getReceiverid()));
-				bean.setContent(MessageFormat.format(r2.getTemplate(), user
-						.getUsername(), user2.getUsername()));
+				ZyProfile user = profileService.findProfileById(request.getReceiverid());
+				bean.setProfile(user);
+				
+				bean.setContent(MessageFormat.format(r1.getTemplate2(),user.getUserid(),user.getUsername()));
+			}
+			
+			//new event invite
+			if (request.getEventkey() == 5) {
+				ZyProfile user = profileService.findProfileById(request.getReceiverid());
+				bean.setProfile(user);
+				
+				bean.setContent(MessageFormat.format(r5.getTemplate2(),user.getUserid(),user.getUsername()));
 			}
 
 			requestBean.add(bean);

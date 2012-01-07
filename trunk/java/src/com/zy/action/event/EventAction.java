@@ -443,7 +443,7 @@ public class EventAction {
 		
 		ZyProfile user = (ZyProfile)ActionUtil.getSession().get(Constants.USER_SESSION_KEY);
 		event.setCityid(user.getCityid());
-		event.setSubcategoryid(subcateGoryId);
+		event.setSubcategoryid(eventCategory);
 		event.setDistrictid(districtId);
 		event.setCreateuserid(ActionUtil.getSessionUserId());
 		event.setUpdatetime(new Date());
@@ -466,7 +466,8 @@ public class EventAction {
 			System.out.println(str);
 			event.setLogo("/photos/event/"+str);
 		}else{
-			event.setLogo("/images/event.jpg");
+			if(eventId==0)
+				event.setLogo("/images/event.jpg");
 		}
 		
 		if(eventId>0){
@@ -556,7 +557,8 @@ public class EventAction {
 	}
 	
 	public String getRecommPlaces(){
-		places = eventFacade.getRecommPlaces(1,1);
+		System.out.println("-------eventCategory---"+eventCategory+"-----districtId"+districtId);
+		places = eventFacade.getRecommPlaces(eventCategory,districtId);
 		return "recommend.places";
 	}
 
@@ -588,7 +590,21 @@ public class EventAction {
 		return null;
 	}
 	
-	
+	public String listMembers(){
+		friends = eventFacade.getEventMembers(eventId);
+		members = friends;
+		event = eventFacade.getEvent(eventId);
+
+		createUser = profileFacade.findProfileById(event.getCreateuserid());
+		
+		for(int i=0;i<friends.size();i++){
+			if(ActionUtil.getSessionUserId()==friends.get(i).getUserid().intValue()){
+				joined = true;
+				break;
+			}
+		}
+		return "event.members";
+	}
 	
 	
 	public static void main(String[] args) throws Exception{

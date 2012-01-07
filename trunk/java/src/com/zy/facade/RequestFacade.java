@@ -16,4 +16,6 @@ public interface RequestFacade {
 	public List<RequestBean> getUserRequestInbox(int userid, int pageNo, int pageSize);
 	
 	public List<ZyRequest> getRequest(int receiverid, short eventkey, int referenceid);
+	
+	public List<RequestBean> getUserRequestOutbox(int userid, int pageNo, int pageSize);
 }

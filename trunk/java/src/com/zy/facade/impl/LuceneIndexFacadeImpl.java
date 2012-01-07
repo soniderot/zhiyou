@@ -132,6 +132,7 @@ public class LuceneIndexFacadeImpl implements LuceneIndexFacade {
 				current_path = Constants.INDEX_DIR_PROFILE_LIVE + current_live;
 			}
 			// delete files in the current path
+			System.out.println("---------currentpath---------"+current_path);
 			FileUtil.emptyDirectory(current_path);
 			// copy from the master directory to the new path
 			FileUtil.copyDirectoryContents(fp, current_path);

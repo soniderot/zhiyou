@@ -20,7 +20,7 @@ public class MessageDaoImpl extends HibernateDao <ZyMessage, Integer>  implement
 	}
 	
 	public int countForNewInbox(int userid){
-		String hql = "select count(*) from ZyMessage where receiverid =? and deletedbyreceiver is null and isread is null";
+		String hql = "select count(*) from ZyMessage where receiverid =? and deletedbyreceiver is null and (isread is null or isread!='T')";
 		return this.getTotalRows(hql, new Object[] { userid });
 	}
 

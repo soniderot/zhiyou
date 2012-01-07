@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
@@ -14,48 +15,58 @@ import com.zy.facade.vo.SearchFormVo;
 import com.zy.facade.vo.SearchResultVo;
 
 public class SearchAction {
-	private int ageFrom = 20;
-	private int ageTo = 25;
+	private int startAge = 20;
+	private int endAge = 25;
 	private short gender;
-	private int highSchoolId;
+	private String keyword;
 	private int pageNo;
 	private SearchFacade searchFacade;
 	private ProfileFacade profileFacade;
 	
+	private String flag ;
 	
+	
+	public String getFlag() {
+		return flag;
+	}
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
+	public int getStartAge() {
+		return startAge;
+	}
+	public void setStartAge(int startAge) {
+		this.startAge = startAge;
+	}
+	public int getEndAge() {
+		return endAge;
+	}
+	public void setEndAge(int endAge) {
+		this.endAge = endAge;
+	}
+	public short getGender() {
+		return gender;
+	}
+	public void setGender(short gender) {
+		this.gender = gender;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 	public ProfileFacade getProfileFacade() {
 		return profileFacade;
 	}
 	public void setProfileFacade(ProfileFacade profileFacade) {
 		this.profileFacade = profileFacade;
 	}
-	public int getAgeFrom() {
-		return ageFrom;
-	}
-	public int getAgeTo() {
-		return ageTo;
-	}
-	public short getGender() {
-		return gender;
-	}
-	public int getHighSchoolId() {
-		return highSchoolId;
-	}
+	
 	public int getPageNo() {
 		return pageNo;
 	}
-	public void setAgeFrom(int ageFrom) {
-		this.ageFrom = ageFrom;
-	}
-	public void setAgeTo(int ageTo) {
-		this.ageTo = ageTo;
-	}
-	public void setGender(short gender) {
-		this.gender = gender;
-	}
-	public void setHighSchoolId(int highSchoolId) {
-		this.highSchoolId = highSchoolId;
-	}
+	
 	public void setPageNo(int pageNo) {
 		this.pageNo = pageNo;
 	}
@@ -76,18 +87,57 @@ public class SearchAction {
 		this.profileList = profileList;
 	}
 	public String execute() {
+		if(flag!=null){
+			ActionUtil.getSession().remove("matchPageNo");
+		}
+		int pageSize = 10;
+		System.out.println("-----------startAge"+startAge);
+		System.out.println("-----------keyword"+keyword);
 		System.out.println("--------------into execute----------"+pageNo);
 		SearchFormVo vo = new SearchFormVo();
 		
 		 DateFormat df = new SimpleDateFormat("yyyyMMdd");
 		 System.out.println(df.format(DateUtil.computeBirthDate(25)));
 		
-		vo.setGender((short)1);
+		if(gender>0){
+			vo.setGender(gender);
+		}
 		
-		List<SearchResultVo> results = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(),vo,500);
+		if(keyword!=null&&keyword.trim().length()>0&&!keyword.equalsIgnoreCase("键入关键字")){
+			vo.setKeyword(keyword);
+		}
+		
+		vo.setEnd(df.format(DateUtil.computeBirthDate(startAge)));
+		vo.setStart(df.format(DateUtil.computeBirthDate(endAge)));
+		vo.setExclude1d(true);
+		
+		List<SearchResultVo> results = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(),vo,2000);
+		
 		profileList = new ArrayList<ZyProfile>();
-		for(int i=0;i<results.size();i++){
-			profileList.add(profileFacade.findProfileById(results.get(i).getProfileId()));
+		
+		if(ActionUtil.getSession().get("matchPageNo")==null){
+			for(int i=0;i<results.size()&&i<10;i++){
+				if(i+pageNo*pageSize>results.size()){
+					ActionUtil.getSession().put("matchPageNo",pageNo);
+					break;
+				}
+				profileList.add(profileFacade.findProfileById(results.get(i+pageNo*pageSize).getProfileId()));
+			}
+		}
+		
+		if(ActionUtil.getSession().get("matchPageNo")!=null){
+			System.out.println("-------------into---matchpageno---"+ActionUtil.getSession().get("matchPageNo")+"------------size:"+profileList.size());
+			if(profileList.size()<=10){
+				System.out.println("after------------into---matchpageno---"+ActionUtil.getSession().get("matchPageNo")+"------------size:"+profileList.size());
+				int pageNo = Integer.valueOf((Integer)ActionUtil.getSession().get("matchPageNo"));
+				System.out.println("page-------"+pageNo);
+				for(int i=0;i<results.size()&&i<10;i++){
+					Random r = new Random();
+					int num = r.nextInt(pageNo-1);
+					System.out.println("num-------"+num);
+					profileList.add(profileFacade.findProfileById(results.get(i+num*pageSize).getProfileId()));
+				}
+			}
 		}
 		/*
 		profileList = new ArrayList();

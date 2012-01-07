@@ -9,6 +9,7 @@
 		<result name="view.event.detail" type="tiles">tiles.event.detail</result>
 		<result name="my.events" type="redirect">/event/event!getEvents.jhtml</result>
 		<result name="recommend.places" type="tiles">tiles.event.places</result>
+		<result name="event.members" type="tiles">tiles.event.members</result>
 		<result name="member.friends">/WEB-INF/jsp/popup/eventFriends.jsp</result>
 	</action>
 	<action name="createOrUpdate" class="com.zy.action.event.EventAction">

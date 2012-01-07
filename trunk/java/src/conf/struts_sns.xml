@@ -13,6 +13,7 @@
 		<result name="you.wanttoknow" >/WEB-INF/jsp/member/sns/welcome.jsp</result>
 		<result name="search.result" type="tiles">tiles.sns.search</result>
 		<result name="friends.list" type="tiles">tiles.sns.friendslist</result>
+		<result name="invite.success" type="tiles">tiles.sns.invitesuccess</result>
 	</action>
 	
 	<action name="match" class="com.zy.action.sns.QuickMatchAction">
@@ -22,6 +23,7 @@
 	
 	<action name="invite" class="com.zy.action.sns.InviteAction">
 		<result name="match.search" type="tiles">tiles.sns.match</result>
+		<result name="invite.success" type="tiles">tiles.sns.invitesuccess</result>
 	</action>
 	
 	<action name="search" class="com.zy.action.search.SearchAction">

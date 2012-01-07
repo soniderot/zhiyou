@@ -47,6 +47,26 @@ public class SNSActioin extends ActionSupport{
 	private ZyProfile profile;
 	
 	private String flag;
+	
+	
+	private String[] emails;
+	private String[] names;
+	
+ 	public String[] getEmails() {
+		return emails;
+	}
+
+	public String[] getNames() {
+		return names;
+	}
+
+	public void setEmails(String[] emails) {
+		this.emails = emails;
+	}
+
+	public void setNames(String[] names) {
+		this.names = names;
+	}
 
 	public String getFlag() {
 		return flag;
@@ -384,6 +404,17 @@ public class SNSActioin extends ActionSupport{
 		}
 		page = new Page(count,pageNo,pageSize,5);
 		return "friends.list";
+	}
+	
+	public String invite() {
+		if (emails != null) {
+			for (int i = 0; i < emails.length; i ++)
+				if (!"".equals(emails[i])) {
+					System.out.println("name:" + names[i] + " emails:" + emails[i]);
+					snsFacade.inviteUser(ActionUtil.getSessionUserId(), "bill.tian@meta4-group.com", "Bill");
+				}
+		}
+		return "invite.success";
 	}
 	
 }
