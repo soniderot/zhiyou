@@ -1633,4 +1633,8 @@ public class Constants {
     //FROM HERE!!
     public final static String LOGO_PATH = "/";
     public final static String PHOTO_PATH = "/";
+    
+    // QUESTION TYPE
+    public final static short QUESTION_TYPE_COMMON = 1;
+    public final static short QUESTION_TYPE_OPTIONS = 2;
 }
