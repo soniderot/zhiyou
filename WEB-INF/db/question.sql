@@ -1,0 +1,1 @@
+alter table zy_question add column USERID INT(10) UNSIGNED AFTER ID;
