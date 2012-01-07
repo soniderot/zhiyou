@@ -13,10 +13,12 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.zy.Constants;
 import com.zy.common.model.ZyAlbum;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyPhoto;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyQuestion;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
@@ -25,11 +27,13 @@ import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.PhotoFacade;
 import com.zy.facade.ProfileFacade;
+import com.zy.facade.QuestionFacade;
 import com.zy.facade.SNSFacade;
 
 public class FeedAction extends ActionSupport{
 	private FeedFacade feedFacade;
 	private ProfileFacade profileFacade;
+	private QuestionFacade questionFacade;
 	private SNSFacade snsFacade;
 	private List<FeedBean> feeds;
 	
@@ -53,7 +57,8 @@ public class FeedAction extends ActionSupport{
 	private int feedId;
 	
 	private String feedComment;
-	
+	private String question;
+	private String[] options;
 	private ZyNewsfeedcomment comment;
 	private ZyProfile user;
 	private Page page;
@@ -211,6 +216,30 @@ public class FeedAction extends ActionSupport{
 		this.feedFacade = feedFacade;
 	}
 
+	public String getQuestion() {
+		return question;
+	}
+
+	public String[] getOptions() {
+		return options;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+	public void setOptions(String[] options) {
+		this.options = options;
+	}
+
+	public QuestionFacade getQuestionFacade() {
+		return questionFacade;
+	}
+
+	public void setQuestionFacade(QuestionFacade questionFacade) {
+		this.questionFacade = questionFacade;
+	}
+	
 	public String execute(){
 		System.out.println("--------------into-------------feed--------handle----"+handle);
 		List<Integer> ids = snsFacade.getAllFriendsByDegree(ActionUtil.getSessionUserId(),(short)1);
@@ -239,15 +268,9 @@ public class FeedAction extends ActionSupport{
 	}
 	
 	public String updateStatusAjax() {
-		/*
-		System.out.println("------------------into update status ajax-------------");
-		feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), feedmessage);
-		return "member.addfeed.ajax";*/
-		
 		System.out.println("------------------into update status ajax-------------"+feedtype);
 		System.out.println("-----------------------file----------"+feedphoto);
 		if (feedphoto!=null) {
-			
 			String filetype = null;
 			filetype = FileUtil.isJPGorPNG(this.getFeedphotoContentType());
 			if (StringUtils.isBlank(filetype)) {
@@ -282,8 +305,24 @@ public class FeedAction extends ActionSupport{
 			feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), feedmessage);
 		} else {
 			// add question here
-			
-			feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), feedmessage);
+			feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), question);
+			List<String> newOptions = new ArrayList<String>();
+			if (options != null && options.length > 0) {
+				for (int i = 0; i< options.length; i++) {
+					String option = options[i];
+					if (!"".equals(option)) {
+						newOptions.add(option);
+					}
+				}
+			}
+			if (newOptions.size() > 0) {
+				ZyQuestion zyQuestion = new ZyQuestion();
+				zyQuestion.setSummary(question);
+				zyQuestion.setUserid(ActionUtil.getSessionUserId());
+				zyQuestion.setType(Constants.QUESTION_TYPE_OPTIONS);
+				questionFacade.addQuestion(zyQuestion);
+				questionFacade.addAnswerQuestion(newOptions, zyQuestion.getId());
+			}
 		}
 		feeds = new ArrayList<FeedBean>();
 		feeds.add(feedBean);
@@ -338,4 +377,6 @@ public class FeedAction extends ActionSupport{
 		String str = "sns.event.create,sns.event.join";
 		System.out.println(str.replaceAll(",", "','"));
 	}
+
+
 }
