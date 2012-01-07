@@ -244,7 +244,9 @@
 </div>
 <script type="text/javascript">
   function openWindow() {
-    window.open("event/event!getRecommPlaces.jhtml"
+    var eventCategory = $("select[name='eventCategory']").val();
+    var districtid = $("select[name='districtid']").val();
+    window.open("event/event!getRecommPlaces.jhtml?eventCategory=" + eventCategory + "&districtid=" + districtid
     , "newwindow"
     , "height=600, width=850, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
     return false;
