@@ -79,4 +79,9 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	<bean name="schoolService" class="com.zy.domain.option.service.SchoolServiceImpl">
 		<property name="schoolDao" ref="schoolDao"/>
 	</bean>
+	
+	<bean name="questionService" class="com.zy.domain.question.service.QuestionServiceImpl">
+		<property name="questionDao" ref="questionDao"/>
+		<property name="answerOptionDao" ref="answerOptionDao"/>
+	</bean>
 </beans>

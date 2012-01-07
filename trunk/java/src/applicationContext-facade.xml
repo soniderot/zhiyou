@@ -74,5 +74,9 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="districtService" ref="districtService"/>
 		<property name="schoolService" ref="schoolService"/>
 	</bean>
+	
+	<bean name="questionFacade" class="com.zy.facade.impl.QuestionFacadeImpl"  >
+		<property name="questionService" ref="questionService"/>
+	</bean>
 
 </beans>

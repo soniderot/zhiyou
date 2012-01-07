@@ -38,4 +38,6 @@
 <bean id="recommPlaceDao" class="com.zy.domain.event.dao.RecommPlaceDaoImpl" parent="baseDao" />
 
 <bean id="mailqueueDao" class="com.zy.domain.message.dao.MailqueueDaoImpl" parent="baseDao" />
+<bean id="answerOptionDao" class="com.zy.domain.question.dao.AnswerOptionDaoImpl" parent="baseDao" />
+<bean id="questionDao" class="com.zy.domain.question.dao.QuestionDaoImpl" parent="baseDao" />
 </beans>
