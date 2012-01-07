@@ -2,92 +2,17 @@
 <div role="main" id="contentArea">
   <div data-referrer="pagelet_roosters" id="pagelet_roosters"></div>
   <div data-referrer="pagelet_stream_header" id="pagelet_stream_header">
-  	
-  	<s:if test="userid>0">
-  	
-  	<div data-referrer="pagelet_composer" id="pagelet_composer">
-    <div id="u3mxyl_2"
-      onclick="Bootloader.loadComponents(&quot;Composer&quot;, function() { JSCC.get(&#39;j4ec37b3f908df06889566482&#39;) });"
-      class="uiComposer uiComposerHideContent stat_elem uiMetaComposer uiComposerTopBorder uiComposerOpen uiComposerHideContent uiComposerWhiteMessageBox">
-      <div class="focus_target">
-        <ul class="uiList uiListHorizontal clearfix uiComposerAttachments">
-         
-          <li class="showWhenLoading attachmentLoader plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-            <img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img" />
-          </li>
-        </ul>
-
-       
-      </div>
-    </div>
-  </div>
-</s:if>
-  	<s:else>
-  	
-  	
     <div class="uiHeader uiHeaderWithImage uiHeaderPage  fbx_stream_header">
       <div class="clearfix uiHeaderTop">
         <div class="uiHeaderActions  rfloat fsl fwb fcb">
-          
           <a href="usr/feed.jhtml?handle=sns.event.create,sns.event.join"><span class="fwn">活动动态</span> </a> ·
           <a href="usr/feed.jhtml?handle=sns.share.connection"><span class="fwn">交友动态</span> </a> ·
           <div id="u3mxyl_1" class="uiSelector inlineBlock filterListSelector  uiSelectorRight  uiSelectorNormal uiSelectorDynamicLabel">
-            <div class="wrap">
-              <!--
-              <a rel="toggle" data-length="30" aria-haspopup="1"
-                href="#" role="button"
-                class="uiSelectorButton  uiButton"> <span
-                class="uiButtonText">最新消息</span> </a>-->
-                <!--
-              <div class="uiSelectorMenuWrapper  uiToggleFlyout">
-                <div class="uiMenu uiSelectorMenu" role="menu">
-                  <ul class="uiMenuInner">
-                    <li data-label="最新消息"
-                      class="uiMenuItem  uiMenuItemRadio  uiSelectorOption checked">
-                      <a href="/?sk=lf" aria-checked="true" tabindex="0"
-                        role="menuitemradio" class="itemAnchor"> <span
-                        class="itemLabel fsm"> <i
-                          class="mrs  img  sp_6h8b4g  sx_ed8728"></i>最新消息
-                      </span>
-                      </a>
-                    </li>
-                    <li data-label="状态更新" class="uiMenuItem  uiMenuItemRadio  uiSelectorOption">
-                      <a href="/?sk=app_2915120374" aria-checked="false" tabindex="-1" role="menuitemradio" class="itemAnchor">
-                        <span class="itemLabel fsm">
-                          <i class="mrs  img  sp_cnv1wq  sx_fe0386"></i>状态更新
-                        </span>
-                      </a>
-                    </li>
-                    <li data-label="专页" class="uiMenuItem  uiMenuItemRadio  uiSelectorOption">
-                      <a href="/?sk=pp" aria-checked="false" tabindex="-1" role="menuitemradio" class="itemAnchor">
-                        <span class="itemLabel fsm">
-                          <i class="mrs  img  sp_6h8b4g  sx_6bbf39"></i>专页
-                        </span>
-                      </a>
-                    </li>
-                    <li data-label="提问" class="uiMenuItem  uiMenuItemRadio  uiSelectorOption">
-                      <a href="/?sk=app_10150110253435258" aria-checked="false" tabindex="-1" role="menuitemradio" class="itemAnchor">
-                        <span class="itemLabel fsm">
-                          <i class="mrs  img  sp_cnv1wq  sx_589bc0"></i>提问
-                        </span>
-                      </a>
-                    </li>
-                    <li class="uiMenuSeparator"></li>
-                    <li data-label="编辑显示设置" class="uiMenuItem">
-                      <a ajaxify="/ajax/feed/edit_options_dialog.php?filter_key=lf" rel="dialog-post" href="#" tabindex="-1" role="menuitem" class="itemAnchor">
-                        <span class="itemLabel fsm">
-                          <i class="mrs  img  sp_7gl7wd  sx_d43f0c"></i>编辑显示设置
-                        </span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>-->
-            </div>
+            <div class="wrap"></div>
             <select>
               <option value=""></option>
               <option selected="1" value="lf">
-                最新消息
+                            最新消息
               </option>
               <option value="app_2915120374">
                 状态更新
@@ -158,11 +83,90 @@
         </ul>
 
         <div class="showWhenOpen mutableContent uiComposerMetaContainer">
-          <s:form method="post" action="usr/feed!updateStatusAjax.jhtml" target="u3jjus_1" enctype="multipart/form-data">
-            <input type="hidden" value="c0a81f7ab46455dde1e203435e599680" name="post_form_id" autocomplete="off" />
-            <input type="hidden" name="feedtype" autocomplete="off" value="status" />
-            <div class="attachmentFrame">
-              <div class="attachmentContent"></div>
+          <s:form onsubmit="return checkInput();" method="post" action="usr/feed!updateStatusAjax.jhtml" target="u3jjus_1" enctype="multipart/form-data">
+            <input type="hidden" value="c0a81f7ab46455dde1e203435e599680" name="post_form_id" />
+            <input type="hidden" name="feedtype" value="status" />
+            <div class="attachmentFrame hidden_elem">
+              <div class="attachmentContent">
+                <div class="webComposerQuestion">
+                  <div class="mas">
+                    <textarea onfocus="expandInput('u3mxyl_2')" id="udi5uj_1" placeholder="问个问题…" maxlength="500" name="question" title="问个问题…" class="DOMControl_placeholder uiTextareaNoResize uiTextareaAutogrow questionInput fluidInput">问个问题…</textarea>
+                  </div>
+                  <div id="ue0994_29">
+                    <div id="ue0994_3" class="uiTypeahead fbEigenpollTypeahead">
+                      <div class="wrap">
+                        <div class="innerWrap">
+                          <s:textfield title="添加选项..." name="options" placeholder="添加选项..." maxlength="80" cssClass="inputtext optionInput textInput DOMControl_placeholder"/>
+                        </div>
+                        <i class="plus img sp_ayuesb sx_56af78"></i>
+                      </div>
+                    </div>
+                    <div id="ue0994_6" class="uiTypeahead fbEigenpollTypeahead">
+                      <div class="wrap">
+                        <div class="innerWrap">
+                          <s:textfield title="添加选项..." name="options" onfocus="addNextOption('ue0994_9')" placeholder="添加选项..." maxlength="80" cssClass="inputtext optionInput textInput DOMControl_placeholder"/>
+                        </div>
+                        <i class="plus img sp_ayuesb sx_56af78"></i>
+                      </div>
+                      <div id="ue0994_5" class="uiTypeaheadView webComposerQuestionTypeaheadView"></div>
+                    </div>
+                    <div id="ue0994_9" class="uiTypeahead fbEigenpollTypeahead hidden_elem">
+                      <div class="wrap">
+                        <div class="innerWrap">
+                          <s:textfield title="添加选项..." name="options" onfocus="addNextOption('ue0994_12')" placeholder="添加选项..." maxlength="80" cssClass="inputtext optionInput textInput DOMControl_placeholder"/>
+                        </div>
+                        <i class="plus img sp_ayuesb sx_56af78"></i>
+                      </div>
+                      <div id="ue0994_8" class="uiTypeaheadView webComposerQuestionTypeaheadView"></div>
+                    </div>
+                    <div id="ue0994_12" class="uiTypeahead fbEigenpollTypeahead hidden_elem">
+                      <div class="wrap">
+                        <div class="innerWrap">
+                          <s:textfield title="添加选项..." name="options" onfocus="addNextOption('ue0994_15')" placeholder="添加选项..." maxlength="80" cssClass="inputtext optionInput textInput DOMControl_placeholder"/>
+                        </div>
+                        <i class="plus img sp_ayuesb sx_56af78"></i>
+                      </div>
+                      <div id="ue0994_11" class="uiTypeaheadView webComposerQuestionTypeaheadView"></div>
+                    </div>
+                    <div id="ue0994_15" class="uiTypeahead fbEigenpollTypeahead hidden_elem">
+                      <div class="wrap">
+                        <div class="innerWrap">
+                          <s:textfield title="添加选项..." name="options" onfocus="addNextOption('ue0994_18')" placeholder="添加选项..." maxlength="80" cssClass="inputtext optionInput textInput DOMControl_placeholder"/>
+                        </div>
+                        <i class="plus img sp_ayuesb sx_56af78"></i>
+                      </div>
+                      <div id="ue0994_14" class="uiTypeaheadView webComposerQuestionTypeaheadView"></div>
+                    </div>
+                    <div id="ue0994_18" class="uiTypeahead fbEigenpollTypeahead hidden_elem">
+                      <div class="wrap">
+                        <div class="innerWrap">
+                          <s:textfield title="添加选项..." name="options" onfocus="addNextOption('ue0994_21')" placeholder="添加选项..." maxlength="80" cssClass="inputtext optionInput textInput DOMControl_placeholder"/>
+                        </div>
+                        <i class="plus img sp_ayuesb sx_56af78"></i>
+                      </div>
+                      <div id="ue0994_17" class="uiTypeaheadView webComposerQuestionTypeaheadView"></div>
+                    </div>
+                    <div id="ue0994_21" class="uiTypeahead fbEigenpollTypeahead hidden_elem">
+                      <div class="wrap">
+                        <div class="innerWrap">
+                          <s:textfield title="添加选项..." name="options" onfocus="addNextOption('ue0994_24')" placeholder="添加选项..." maxlength="80" cssClass="inputtext optionInput textInput DOMControl_placeholder"/>
+                        </div>
+                        <i class="plus img sp_ayuesb sx_56af78"></i>
+                      </div>
+                      <div id="ue0994_20" class="uiTypeaheadView webComposerQuestionTypeaheadView"></div>
+                    </div>
+                    <div id="ue0994_24" class="uiTypeahead fbEigenpollTypeahead hidden_elem">
+                      <div class="wrap">
+                        <div class="innerWrap">
+                          <s:textfield title="添加选项..." name="options" placeholder="添加选项..." maxlength="80" cssClass="inputtext optionInput textInput DOMControl_placeholder"/>
+                        </div>
+                        <i class="plus img sp_ayuesb sx_56af78"></i>
+                      </div>
+                      <div id="ue0994_23" class="uiTypeaheadView webComposerQuestionTypeaheadView"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div id="u3mxyl_6" class="uiMetaComposerMessageBox uiComposerMessageBoxMentions">
               <table cellspacing="0" cellpadding="0" class="uiMetaComposerMessageBoxTable">
@@ -178,23 +182,21 @@
                           </div>
                           <div id="u3mxyl_7" class="uiTypeahead composerTypeahead mentionsTypeahead">
                             <div class="wrap">
-                              <input type="hidden" class="hiddenInput" autocomplete="off" />
                               <div class="innerWrap">
                                 <s:textarea name="feedmessage" placeholder="你在想什么？" onfocus="expandInput('u3mxyl_2')" 
                                   cssClass="DOMControl_placeholder uiTextareaAutogrow input mentionsTextarea textInput"></s:textarea>
                               </div>
                             </div>
                           </div>
-                          <input type="hidden" class="mentionsHidden" autocomplete="off" />
+                          <input type="hidden" class="mentionsHidden" />
                         </div>
                         <div class="attachmentMetaArea">
                           <div class="pbm webComposerPhotoUpload">
-                            <input type="hidden" value="1324457070" name="qn" autocomplete="off"/>
+                            <input type="hidden" value="1324457070" name="qn"/>
                             <div class="webComposerPhotoInputArea">
                               <div class="mbs photoUploadPrompt fwb">从你的电脑上选择一个图像。</div>
                               <input type="file" name="feedphoto" onchange="enableSubmitBtn()" />
                             </div>
-                            
                            
                             <div class="webComposerPhotoPreviewArea clearfix hidden_elem">
                               <label for="u3jjus_9" class="uiCloseButton uiCloseButtonDark">
@@ -223,7 +225,9 @@
                     </li>
                   </ul>
                   <div>
-                    <div class="pls textBlurb fsm fwn fcg"></div>
+                    <div class="pls textBlurb fsm fwn fcg">
+                      <a onclick="return addOptions();" rel="async" class="addPollOptionsLink">添加投票选项</a>
+                    </div>
                     <div class="attachmentBarArea"></div>
                   </div>
                 </div>
@@ -235,24 +239,17 @@
     </div>
   </div>
   
-</s:else>
-  
-  	
-  
-  
   <iframe style="width: 1px; height: 1px; position: absolute; top: -10000px;" name="u3jjus_1" class="fbUploadIframe"></iframe>
   <div data-gt='{"ref":"nf"}' data-referrer="pagelet_home_stream" id="pagelet_home_stream">
     <div id="c4ec37b3fc7e022d58174072" class="UIIntentionalStream UIStream">
       <ul id="home_stream" class="uiList uiStream UIIntentionalStream_Content" data-referrer="home_stream" style="min-height: 100px;">
         <s:iterator value="feeds">
-          <li id="stream_story_4ec37b3fd947b3232640247" data-ft='{"qid":"5675515467749930831","mf_story_key":"2652098748566","c":"m"}'
+          <li id="stream_story_4ec37b3fd947b3232640247"
             class="pvm uiUnifiedStory uiStreamStory genericStreamStory aid_1438697558 uiListItem uiListLight uiListVerticalItemBorder">
             <div class="storyHighlightIndicatorWrapper"></div>
             <div class="storyContent">
               <div class="UIImageBlock clearfix">
-                <a data-hovercard="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>"
-                  aria-hidden="true" data-ft='{"type":60}'
-                  href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>"
+                <a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>"
                   tabindex="-1"
                   class="actorPhoto UIImageBlock_Image UIImageBlock_MED_Image">
                   <img alt="" src="<s:property value="user.avatar"/>" class="uiProfilePhoto profilePic uiProfilePhotoLarge img" />
@@ -270,7 +267,7 @@
                         <s:if test="feed.handle=='sns.event.join'">参加了一个活动</s:if>
                         <s:if test="feed.handle=='sns.publish.photo'">发布了照片</s:if>
                         <s:if test="feed.handle=='sns.share.connection'">   
-                              和<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>">
+                                                    和<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>">
                             <s:property value="friend.username" />
                           </a>变为朋友
                         </s:if>
@@ -303,8 +300,7 @@
                       <span class="uiStreamFooter">
                         <span class="UIActionLinks UIActionLinks_bottom">
                           <label class="uiLinkButton comment_link" title="发表留言">
-                            <input type="button" value="评论" onclick="return showComments(this);">
-                           
+                            <input type="button" value="评论" onclick="return showComments(this);" />
                           </label> · 
                         </span>
                         
@@ -318,7 +314,7 @@
                         </span>
                         --->
                         
-                         <span class="UIActionLinks UIActionLinks_bottom">
+                        <span class="UIActionLinks UIActionLinks_bottom">
                           <label class="uiLinkButton comment_link" title="分享">
                           	<s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
                           	<a href="usr/feed!sharedFeed.jhtml?feedId=<s:property value="feed.id" />"><span class="fwn">分享</span> </a> 
@@ -327,7 +323,7 @@
                               <input type="button" value="分享" onclick="return;">
                              -->
                           </label> · 
-                    			</span>
+                    	</span>
                         
                         <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
                           <abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp">
@@ -383,14 +379,14 @@
                                     </div>
                                     <div id="u3aqpf_9" class="uiTypeahead mentionsTypeahead" style="height: auto;">
                                       <div class="wrap">
-                                        <input type="hidden" class="hiddenInput" autocomplete="off"/>
+                                        <input type="hidden" class="hiddenInput"/>
                                         <div class="innerWrap">
                                           <s:textarea name="feedComment" onfocus="commentFocus(this)" onkeypress="enterKeypress(this, event)" placeholder="留段话吧..." title="留段话吧..." cssClass="enter_submit uiTextareaNoResize uiTextareaAutogrow textBox mentionsTextarea textInput DOMControl_placeholder"></s:textarea>
                                         </div>
                                       </div>
                                       <div class="uiTypeaheadView hidden_elem"/>
                                     </div>
-                                    <input type="hidden" class="mentionsHidden" autocomplete="off" name="add_comment_text" value=""/>
+                                    <input type="hidden" class="mentionsHidden" name="add_comment_text" value=""/>
                                   </div>
                                 </div>
                                 <!--
@@ -411,14 +407,9 @@
           </li>
         </s:iterator>
       </ul>
-
       <div>
-      	
-        <div id="pagelet_stream_pager"
-          data-referrer="pagelet_stream_pager">
-          
+        <div id="pagelet_stream_pager" data-referrer="pagelet_stream_pager">
           <div class="clearfix mts uiMorePager stat_elem fbStreamPager">
-          	
             <div>
             	<s:if test="feeds.size()>0">
             	<jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
@@ -433,30 +424,49 @@
     </div>
   </div>
 </div>
-
+                  
 <script type="text/javascript">
   var attach = $(".attachmentMetaArea").html();
   $(".attachmentMetaArea").empty();
-
+  $("#ue0994_29").hide();
+  var addOptionLink = $(".textBlurb").html();
+  $(".textBlurb").empty();
+  
   function changeStatus(obj, feedtype) {
     $("#input[name='feedtype']").val(feedtype);
     $("#u3mxyl_2").find("div:first").addClass("child_was_focused");
     if (feedtype == "photo") {
+      $(".uiMetaComposerMessageBoxTable").show();
       $(".attachmentMetaArea").html(attach);
+      $(".textBlurb").empty();
       $("#submitBtn").parent().addClass("uiButtonDisabled");
       $("textarea[name='feedmessage']").attr("placeholder", "说点什么吧!");
       $("textarea[name='feedmessage']").val("说点什么吧!");
-
+      $(".attachmentFrame").addClass("hidden_elem");
     } else if(feedtype == "question") {
+      var i = 0;
+      $(".fbEigenpollTypeahead").each(function() {
+        if (i >= 2) {
+          $(this).addClass("hidden_elem");
+        }
+        i++;
+      });
+      $(".uiMetaComposerMessageBoxTable").hide();
       $("textarea[name='feedmessage']").attr("placeholder", "提个问题试试!");
       $("textarea[name='feedmessage']").val("提个问题试试!");
       $(".attachmentMetaArea").empty();
+      $(".textBlurb").html(addOptionLink);
       $("#submitBtn").parent().removeClass("uiButtonDisabled");
+      $(".attachmentFrame").removeClass("hidden_elem");
     } else {
+      $(".uiMetaComposerMessageBoxTable").show();
       $("textarea[name='feedmessage']").attr("placeholder", "你在想什么？");
       $("textarea[name='feedmessage']").val("你在想什么？");
       $(".attachmentMetaArea").empty();
+      $(".textBlurb").empty();
       $("#submitBtn").parent().removeClass("uiButtonDisabled");
+      $(".attachmentFrame").addClass("hidden_elem");
+      $("#ue0994_29").hide();
     }
 
     $(obj).parents("ul").find("a").each(function() {
@@ -522,7 +532,22 @@
   function topage(pageNo) {
   location.href = "/usr/feed.jhtml?handle=<s:property value="handle" />&pageNo="+pageNo
   return false;
-}
+  }
+  function addOptions() {
+    $("#ue0994_29").show();
+    return false;
+  }
+
+  function addNextOption(obj) {
+    $("#" + obj).removeClass("hidden_elem");
+  }
+  function checkInput() {
+    $("input[name='options']").each(function(){
+      if($(this).val() == $(this).attr("placeholder")) {
+        $(this).val("");
+      }
+    });
+  }
 </script>
 
 <%@ include file="/WEB-INF/jsp/popup/delFeedCommentPop.jsp"%>

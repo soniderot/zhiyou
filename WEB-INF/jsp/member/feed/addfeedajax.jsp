@@ -35,12 +35,12 @@
              </s:if>
           </h6>
           
-          <s:form onsubmit="return commentSubmit(this);" action="usr/feed!addFeedComment.jhtml" method="post" cssClass="live_134080203373504_131325686911214 commentable_item autoexpand_mode">
+          <s:form onsubmit="return commentSubmit(this);" action="usr/feed!addFeedComment.jhtml" method="post" cssClass="commentable_item autoexpand_mode collapsed_comments">
           <input type="hidden" name="feedId" value="<s:property value='feed.id' />" />
           <span class="uiStreamFooter">
-            <span class="UIActionLinks UIActionLinks_bottom" data-ft="{&quot;type&quot;:&quot;20&quot;}">
+            <span class="UIActionLinks UIActionLinks_bottom">
               <label class="uiLinkButton comment_link" title="发表留言">
-                <input type="button" data-ft="{&quot;type&quot;:24}" value="评论" onclick="return fc_click(this);">
+                <input type="button" value="评论" onclick="return showComments(this);">
               </label> · 
             </span>
             <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
@@ -49,48 +49,41 @@
               </abbr>
             </span>
           </span>
-          
-          
-          
+
           <div>
-                        <ul class="uiList uiUfi focus_target fbUfi child_was_focused">
-                          <li class="ufiNub uiListItem uiListVerticalItemBorder"><i></i></li>
-                          
-                          <li class="uiUfiAddComment clearfix uiUfiSmall ufiItem ufiItem uiListItem uiListVerticalItemBorder uiUfiAddCommentCollapsed">
-                            <div class="UIImageBlock clearfix mentionsAddComment">
-                              <img alt="" src="<s:property value="#session.userlogo"/>" class="uiProfilePhoto actorPic UIImageBlock_Image UIImageBlock_ICON_Image uiProfilePhotoMedium img"/>
-                              <div class="commentArea UIImageBlock_Content UIImageBlock_ICON_Content">
-                                <div class="commentBox">
-                                  <div id="u3aqpf_8" class="uiMentionsInput textBoxContainer">
-                                    <div class="highlighter" style="direction: ltr; text-align: left;">
-                                      <div style="width: 340px;"><span class="highlighterContent"/></div>
-                                    </div>
-                                    <div id="u3aqpf_9" class="uiTypeahead mentionsTypeahead" style="height: auto;">
-                                      <div class="wrap">
-                                        <input type="hidden" class="hiddenInput" autocomplete="off"/>
-                                        <div class="innerWrap">
-                                          <s:textarea name="feedComment" onfocus="commentFocus(this)" onkeypress="enterKeypress(this, event)" placeholder="留段话吧..." title="留段话吧..." cssClass="enter_submit uiTextareaNoResize uiTextareaAutogrow textBox mentionsTextarea textInput DOMControl_placeholder"></s:textarea>
-                                        </div>
-                                      </div>
-                                      <div class="uiTypeaheadView hidden_elem"/>
-                                    </div>
-                                    <input type="hidden" class="mentionsHidden" autocomplete="off" name="add_comment_text" value=""/>
-                                  </div>
-                                </div>
-                                <!--
-                                <label for="u3aqpf_10" class="mts commentBtn stat_elem hidden_elem optimistic_submit uiButton uiButtonConfirm">
-                                  <input type="submit" id="u3aqpf_10" name="commentBtn" class="enter_submit_target" value="评论"/>
-                                </label>-->
-                              </div>
+            <ul class="uiList uiUfi focus_target fbUfi child_was_focused">
+              <li class="ufiNub uiListItem uiListVerticalItemBorder"><i></i></li>
+              
+              <li class="uiUfiAddComment clearfix uiUfiSmall ufiItem ufiItem uiListItem uiListVerticalItemBorder uiUfiAddCommentCollapsed">
+                <div class="UIImageBlock clearfix mentionsAddComment">
+                  <img alt="" src="<s:property value="#session.userlogo"/>" class="uiProfilePhoto actorPic UIImageBlock_Image UIImageBlock_ICON_Image uiProfilePhotoMedium img"/>
+                  <div class="commentArea UIImageBlock_Content UIImageBlock_ICON_Content">
+                    <div class="commentBox">
+                      <div id="u3aqpf_8" class="uiMentionsInput textBoxContainer">
+                        <div class="highlighter" style="direction: ltr; text-align: left;">
+                          <div style="width: 340px;"><span class="highlighterContent"/></div>
+                        </div>
+                        <div id="u3aqpf_9" class="uiTypeahead mentionsTypeahead" style="height: auto;">
+                          <div class="wrap">
+                            <div class="innerWrap">
+                              <s:textarea name="feedComment" onfocus="commentFocus(this)" onkeypress="enterKeypress(this, event)" placeholder="留段话吧..." title="留段话吧..." cssClass="enter_submit uiTextareaNoResize uiTextareaAutogrow textBox mentionsTextarea textInput DOMControl_placeholder"></s:textarea>
                             </div>
-                          </li>
-                        </ul>
+                          </div>
+                          <div class="uiTypeaheadView hidden_elem"/>
+                        </div>
+                        <input type="hidden" class="mentionsHidden" autocomplete="off" name="add_comment_text" value=""/>
                       </div>
-          
+                    </div>
+                    <!--
+                    <label for="u3aqpf_10" class="mts commentBtn stat_elem hidden_elem optimistic_submit uiButton uiButtonConfirm">
+                      <input type="submit" id="u3aqpf_10" name="commentBtn" class="enter_submit_target" value="评论"/>
+                    </label>-->
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
           </s:form>
-          
-          
-          
         </div>
       </div>
     </div>
