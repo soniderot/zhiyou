@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.zy.common.util.ActionUtil;
+import com.zy.common.util.Page;
 import com.zy.domain.message.bean.RequestBean;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.RequestFacade;
@@ -12,7 +13,7 @@ public class RequestAction extends ActionSupport{
 	private int profileId;
 	private String content;
 	private int pageNo = 1;
-	private int pageSize = 200;
+	private int pageSize = 10;
 	private RequestFacade requestFacade;
 	private FeedFacade feedFacade;
 	
@@ -22,6 +23,25 @@ public class RequestAction extends ActionSupport{
 	private int referenceId;
 	private int requestId;
 	
+	private Page page;
+	
+	
+
+	public FeedFacade getFeedFacade() {
+		return feedFacade;
+	}
+
+	public void setFeedFacade(FeedFacade feedFacade) {
+		this.feedFacade = feedFacade;
+	}
+
+	public Page getPage() {
+		return page;
+	}
+
+	public void setPage(Page page) {
+		this.page = page;
+	}
 
 	public int getRequestId() {
 		return requestId;
@@ -105,6 +125,8 @@ public class RequestAction extends ActionSupport{
 
 	public String execute(){
 		requests = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(), pageNo, pageSize);
+		int count = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(), 1, Integer.MAX_VALUE).size();
+		page = new Page(count,pageNo,pageSize,5);
 		return "member.requests";
 	}
 	
@@ -121,13 +143,17 @@ public class RequestAction extends ActionSupport{
 	
 	public String deleteRequest(){
 		requestFacade.neglectRequest_tx(requestId);
-		requests = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(), pageNo, pageSize);
-		return "member.requests";
+		//requests = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(), pageNo, pageSize);
+		//int count = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(), 1, Integer.MAX_VALUE).size();
+		//page = new Page(count,pageNo,pageSize,5);
+		return "to.member.requests";
 	}
 	
 	public String approveRequest(){
 		requestFacade.approveRequest_tx(requestId);
-		requests = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(), pageNo, pageSize);
-		return "member.requests";
+		//requests = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(), pageNo, pageSize);
+		//int count = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(), 1, Integer.MAX_VALUE).size();
+		//page = new Page(count,pageNo,pageSize,5);
+		return "to.member.requests";
 	}
 }

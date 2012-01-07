@@ -373,7 +373,7 @@ public class EventAction {
 		startDate = dateformat1.format(new Date());
 		endDate = dateformat1.format(new Date());
 		if(eventId>0){
-			ZyEvent event = eventFacade.getEvent(eventId);
+			event = eventFacade.getEvent(eventId);
 			eventname = event.getEventname();
 			address = event.getAddress();
 			detail = event.getDetail();
@@ -387,6 +387,12 @@ public class EventAction {
 			if(endHour.indexOf("0")==0){
 				endHour = endHour.substring(1);
 			}
+			
+			this.eventCategory = event.getSubcategoryid();
+			System.out.println("------------eventCategory-----"+eventCategory);
+			this.districtId = event.getDistrictid();
+			
+			members = eventFacade.getEventMembers(eventId);
 		}
 		friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(), 0, (short)1);
 		return "member.cteateOrUpdateEvent";

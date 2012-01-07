@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.zy.common.util.ActionUtil;
+import com.zy.common.util.Page;
 import com.zy.domain.message.bean.NotificationBean;
 import com.zy.facade.NotifyFacade;
 
@@ -13,8 +14,18 @@ public class NotificationAction {
 	private int notifyId;
 	
 	private short pageNo = 1;
-	private short pageSize = 12;
+	private short pageSize = 10;
 	
+	private Page page;
+	
+	
+	public Page getPage() {
+		return page;
+	}
+
+	public void setPage(Page page) {
+		this.page = page;
+	}
 
 	public short getPageNo() {
 		return pageNo;
@@ -57,7 +68,7 @@ public class NotificationAction {
 	}
 
 	public String execute(){
-		notifys = notifyFacade.getUserNotification(1,pageNo,pageSize);
+		notifys = notifyFacade.getUserNotification(ActionUtil.getSessionUserId(),pageNo,pageSize);
 		List<Integer> list = new ArrayList<Integer>();
 		for(int i=0;i<notifys.size();i++){
 			if("T".equals(notifys.get(i).getIsread())){
@@ -67,12 +78,18 @@ public class NotificationAction {
 		}
 		if(list.size()>0)
 			notifyFacade.readNotification_tx(list);
+		
+		int count = notifyFacade.getUserNotification(ActionUtil.getSessionUserId(), 1, Integer.MAX_VALUE).size();
+		page = new Page(count,pageNo,pageSize,5);
+		
 		return "member.notifications";
 	}
 	
 	public String deleteNotify(){
 		notifyFacade.userDeleteNotification_tx(notifyId,ActionUtil.getSessionUserId());
-		notifys = notifyFacade.getUserNotification(1,pageNo,pageSize);
-		return "member.notifications";
+		//notifys = notifyFacade.getUserNotification(1,pageNo,pageSize);
+		//int count = notifyFacade.getUserNotification(ActionUtil.getSessionUserId(), 1, Integer.MAX_VALUE).size();
+		//page = new Page(count,pageNo,pageSize,5);
+		return "to.member.notifications";
 	}
 }
