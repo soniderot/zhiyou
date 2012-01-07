@@ -16,6 +16,7 @@ public class ZyQuestion implements java.io.Serializable {
 	private String summary;
 	private Date createtime;
 	private Short type;
+	private Integer userid;
 
 	// Constructors
 
@@ -67,6 +68,14 @@ public class ZyQuestion implements java.io.Serializable {
 
 	public void setType(Short type) {
 		this.type = type;
+	}
+
+	public Integer getUserid() {
+		return userid;
+	}
+
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
 
 }

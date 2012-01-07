@@ -11,7 +11,7 @@ public class ZyAnsweroption implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private String questionid;
+	private Integer questionid;
 	private String summary;
 
 	// Constructors
@@ -21,7 +21,7 @@ public class ZyAnsweroption implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public ZyAnsweroption(String questionid, String summary) {
+	public ZyAnsweroption(Integer questionid, String summary) {
 		this.questionid = questionid;
 		this.summary = summary;
 	}
@@ -36,11 +36,11 @@ public class ZyAnsweroption implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public String getQuestionid() {
+	public Integer getQuestionid() {
 		return this.questionid;
 	}
 
-	public void setQuestionid(String questionid) {
+	public void setQuestionid(Integer questionid) {
 		this.questionid = questionid;
 	}
 
