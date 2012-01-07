@@ -1,5 +1,7 @@
 package com.zy.common.model;
 
+import java.util.Date;
+
 /**
  * ZyAnswer entity.
  * 
@@ -14,8 +16,18 @@ public class ZyAnswer implements java.io.Serializable {
 	private Integer questionid;
 	private String answer;
 	private Integer optionanswer;
+	private Integer userid;
+	private Date createtime;
 
 	// Constructors
+
+	public Date getCreatetime() {
+		return createtime;
+	}
+
+	public void setCreatetime(Date createtime) {
+		this.createtime = createtime;
+	}
 
 	/** default constructor */
 	public ZyAnswer() {
@@ -60,6 +72,14 @@ public class ZyAnswer implements java.io.Serializable {
 
 	public void setOptionanswer(Integer optionanswer) {
 		this.optionanswer = optionanswer;
+	}
+
+	public Integer getUserid() {
+		return userid;
+	}
+
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
 
 }

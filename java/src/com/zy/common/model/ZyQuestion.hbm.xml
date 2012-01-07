@@ -19,5 +19,8 @@
         <property name="type" type="java.lang.Short">
             <column name="TYPE" />
         </property>
+        <property name="userid" type="java.lang.Integer">
+            <column name="USERID" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>
