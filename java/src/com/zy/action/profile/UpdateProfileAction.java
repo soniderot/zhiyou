@@ -12,6 +12,7 @@ import com.zy.common.model.ZyEducation;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZySchool;
 import com.zy.common.util.ActionUtil;
+import com.zy.common.util.SecurityUtil;
 import com.zy.facade.EducationFacade;
 import com.zy.facade.LocationFacade;
 import com.zy.facade.ProfileFacade;
@@ -140,6 +141,10 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 				profile.setObjectgender(Constants.MALEORFEMALE);
 			}
 		}
+		if(profileform.getPasswd()!=null&&profileform.getPasswd().trim().length()>00){
+			profile.setPasswd(SecurityUtil.getMD5(profileform.getPasswd()));
+		}
+		
 		profileFacade.updateProfile(profile);
 		// save school message
 		if (profileform.getCollegeid() != null && profileform.getCollegeid() != 0) {

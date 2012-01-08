@@ -7,6 +7,7 @@ import com.zy.common.model.ZyProfile;
 import com.zy.common.util.BASE64Util;
 import com.zy.domain.message.service.MailqueueService;
 import com.zy.domain.profile.service.ProfileService;
+import com.zy.domain.search.service.LuceneIndexService;
 import com.zy.facade.ProfileFacade;
 
 public class ProfileFacadeImpl implements ProfileFacade {
@@ -16,6 +17,16 @@ public class ProfileFacadeImpl implements ProfileFacade {
 	private ProfileService profileService;
 	private MailqueueService mailqueueService;
 	
+	private LuceneIndexService luceneIndexService;
+	
+
+	public LuceneIndexService getLuceneIndexService() {
+		return luceneIndexService;
+	}
+
+	public void setLuceneIndexService(LuceneIndexService luceneIndexService) {
+		this.luceneIndexService = luceneIndexService;
+	}
 
 	public MailqueueService getMailqueueService() {
 		return mailqueueService;
@@ -56,7 +67,7 @@ public class ProfileFacadeImpl implements ProfileFacade {
 	public void addProfile(ZyProfile profile){
 		String passwd = profile.getPasswd();
 		profileService.insertProfile(profile);
-		
+		luceneIndexService.addProfileIndexQueue(profile.getUserid());
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("receiverName", profile.getUsername());
 		//map.put("link", this.generateInviteLink(userId));
@@ -81,6 +92,7 @@ public class ProfileFacadeImpl implements ProfileFacade {
 	
 	public void updateProfile(ZyProfile profile){
 		profileService.updateProfile(profile);
+		luceneIndexService.addProfileIndexQueue(profile.getUserid());
 	}
 	
 	public ZyProfile findProfileByToken(String token){

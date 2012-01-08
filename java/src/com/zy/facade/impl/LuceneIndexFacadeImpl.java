@@ -21,6 +21,8 @@ import com.zy.common.model.ZyProfile;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
 import com.zy.common.util.LogUtil;
+import com.zy.domain.option.service.SchoolService;
+import com.zy.domain.profile.service.EducationService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.search.service.LuceneIndexService;
 import com.zy.facade.LuceneIndexFacade;
@@ -30,6 +32,25 @@ public class LuceneIndexFacadeImpl implements LuceneIndexFacade {
 
 	private LuceneIndexService luceneIndexService;
 	private ProfileService profileService;
+	private SchoolService schoolService;
+	private EducationService educationService;
+	
+
+	public EducationService getEducationService() {
+		return educationService;
+	}
+
+	public void setEducationService(EducationService educationService) {
+		this.educationService = educationService;
+	}
+
+	public SchoolService getSchoolService() {
+		return schoolService;
+	}
+
+	public void setSchoolService(SchoolService schoolService) {
+		this.schoolService = schoolService;
+	}
 
 	public ProfileService getProfileService() {
 		return profileService;
@@ -114,6 +135,13 @@ public class LuceneIndexFacadeImpl implements LuceneIndexFacade {
 				if (city != null)
 					profile.setCitynamecn(city.getCityname());
 				*/
+				
+				profile.setInterest(p.getInterest());
+				profile.setHobby(p.getHobby());
+				profile.setIntroduction(p.getIntroduction());
+				if(educationService.getEducationByUser(p.getUserid())!=null){
+					profile.setSchoolName(schoolService.getSchoolById(educationService.getEducationByUser(p.getUserid()).getSchoolid()).getSchoolname());
+				}
 				indexProfiles.add(profile);
 			}
 

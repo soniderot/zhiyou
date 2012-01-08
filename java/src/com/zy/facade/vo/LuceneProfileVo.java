@@ -35,8 +35,36 @@ public class LuceneProfileVo implements Serializable {
 	private Short gender;
 	private String birthDate;
 	
+	private String interest;
+	private String introduction;
+	private String hobby;
 	
 	
+	
+	public String getInterest() {
+		return interest;
+	}
+
+	public void setInterest(String interest) {
+		this.interest = interest;
+	}
+
+	public String getIntroduction() {
+		return introduction;
+	}
+
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
+	}
+
+	public String getHobby() {
+		return hobby;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+
 	public String getBirthDate() {
 		return birthDate;
 	}
@@ -129,6 +157,16 @@ public class LuceneProfileVo implements Serializable {
 			sb.append(schoolName).append(" ");
 		if (StringUtils.isNotBlank(major))
 			sb.append(major).append(" ");
+		
+		if (StringUtils.isNotBlank(interest))
+			sb.append(interest).append(" ");
+		
+		if (StringUtils.isNotBlank(hobby))
+			sb.append(hobby).append(" ");
+		
+		if (StringUtils.isNotBlank(introduction))
+			sb.append(introduction).append(" ");
+		
 		this.keyword = sb.toString();
 		return keyword;
 	}
