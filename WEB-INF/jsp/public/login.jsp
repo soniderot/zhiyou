@@ -9,10 +9,11 @@
   <div id="blueBarHolder" class="loggedOut">
     <div id="blueBar">
       <div class="loggedout_menubar_container">
+      	<!--
         <div class="clearfix loggedout_menubar">
-          <a class="lfloat" href="/" title="转到Facebook首页"><img class="fb_logo img" src="https://s-static.ak.facebook.com/rsrc.php/v1/yp/r/kk8dc2UJYJ4.png" alt="Facebook 商标" width="170" height="36" /></a>
+          <a class="lfloat" href="/" title="转到首页"><img class="fb_logo img" src="https://s-static.ak.facebook.com/rsrc.php/v1/yp/r/kk8dc2UJYJ4.png" alt="Facebook 商标" width="170" height="36" /></a>
           <div class="rfloat"></div>
-        </div>
+        </div>-->
       </div>
       <div class="signup_bar_container">
         <div class="signup_box clearfix">
@@ -20,7 +21,7 @@
             <span class="uiButtonText">注册</span>
           </a>
           <span class="signup_box_content">
-            <span>Facebook帮助你与他人随时保持联系，随地分享生活。</span>
+            <span>知友网帮助你与他人随时保持联系，随地分享生活。</span>
           </span>
         </div>
       </div>
