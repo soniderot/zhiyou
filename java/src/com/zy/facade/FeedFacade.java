@@ -30,4 +30,10 @@ public interface FeedFacade {
 	public void removeComment(int commentid);
 	
 	public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String body);
+	
+	public List<FeedBean> getEventNewsFeed(String ids,int pageNo,int pageSize);
+	
+	public FeedBean addNewEventPhotoNewsFeed(int userId,int eventId,int photoId);
+	
+	public FeedBean addNewEventBlogNewsFeed(int userId,int eventId,String message);
 }

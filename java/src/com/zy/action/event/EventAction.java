@@ -27,6 +27,7 @@ import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
 import com.zy.common.util.Page;
+import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.EventFacade;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.OptionFacade;
@@ -86,6 +87,18 @@ public class EventAction {
 	private Page page;
 	
 	
+	private List<FeedBean> feeds;
+	
+	
+	
+	public List<FeedBean> getFeeds() {
+		return feeds;
+	}
+
+	public void setFeeds(List<FeedBean> feeds) {
+		this.feeds = feeds;
+	}
+
 	public Page getPage() {
 		return page;
 	}
@@ -505,6 +518,11 @@ public class EventAction {
 				break;
 			}
 		}
+		
+		feeds = feedFacade.getEventNewsFeed(""+eventId,pageNo,pageSize);
+		int count = feedFacade.getEventNewsFeed(""+eventId,1,Integer.MAX_VALUE).size();
+		page = new Page(count,pageNo,pageSize,5);
+		
 		return "view.event.detail";
 	}
 	

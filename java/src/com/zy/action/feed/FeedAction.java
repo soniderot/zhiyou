@@ -63,7 +63,17 @@ public class FeedAction extends ActionSupport{
 	private ZyProfile user;
 	private Page page;
 	
+	private String eventId;
 	
+
+	public String getEventId() {
+		return eventId;
+	}
+
+	public void setEventId(String eventId) {
+		this.eventId = eventId;
+	}
+
 	public Page getPage() {
 		return page;
 	}
@@ -268,7 +278,7 @@ public class FeedAction extends ActionSupport{
 	}
 	
 	public String updateStatusAjax() {
-		System.out.println("------------------into update status ajax-------------"+feedtype);
+		System.out.println("------------------into update status ajax-------------"+feedtype+"-------eventId"+eventId);
 		System.out.println("-----------------------file----------"+feedphoto);
 		if (feedphoto!=null) {
 			String filetype = null;
@@ -297,14 +307,23 @@ public class FeedAction extends ActionSupport{
 			photo.setCreatetime(new Date());
 			photo.setUserid(ActionUtil.getSessionUserId());
 			photoFacade.createPhoto(photo);
-			
-			feedBean = feedFacade.addNewPhotoNewsFeed(ActionUtil.getSessionUserId(),photo.getId());
-		} else if ("feedmessage".equals(feedtype)) {
-			
-			
-			feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), feedmessage);
+			if(eventId==null||eventId.trim().length()==0){
+				feedBean = feedFacade.addNewPhotoNewsFeed(ActionUtil.getSessionUserId(),photo.getId());
+			}else{
+				feedBean = feedFacade.addNewEventPhotoNewsFeed(ActionUtil.getSessionUserId(),Integer.valueOf(eventId).intValue(),photo.getId());
+			}
+		} else if (feedmessage!=null&&feedmessage.trim().length()>0){
+			System.out.println("---------------feedmessage------------"+eventId);
+			if(eventId==null||eventId.trim().length()==0){
+				feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), feedmessage);
+			}else{
+				System.out.println("--------------begin to add event newsfeed----"+eventId);
+				feedBean = feedFacade.addNewEventBlogNewsFeed(ActionUtil.getSessionUserId(),Integer.valueOf(eventId), feedmessage);
+			}
 		} else {
 			// add question here
+			
+		
 			feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), question);
 			List<String> newOptions = new ArrayList<String>();
 			if (options != null && options.length > 0) {
@@ -323,6 +342,7 @@ public class FeedAction extends ActionSupport{
 				questionFacade.addQuestion(zyQuestion);
 				questionFacade.addAnswerQuestion(newOptions, zyQuestion.getId());
 			}
+
 		}
 		feeds = new ArrayList<FeedBean>();
 		feeds.add(feedBean);

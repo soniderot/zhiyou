@@ -5,6 +5,7 @@ import java.util.List;
 import com.zy.Constants;
 import com.zy.common.db.HibernateDao;
 import com.zy.common.model.ZyNewsfeed;
+import com.zy.domain.feed.bean.FeedBean;
 
 public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements FeedDao {
 	@Override
@@ -102,5 +103,12 @@ public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements Fe
 		String hql = "from ZyNewsfeed where userid=? and handle= ? and body = ? ";
 		List<ZyNewsfeed> list = this.loadTopRows(hql, 1, new Object[] { userId, handle,body });
 		return list;
+	}
+	
+	public List<ZyNewsfeed> getEventNewsFeed(String ids,int pageNo,int pageSize){
+		String hql = "from ZyNewsfeed where referenceid in(" + ids + ") and handle in('sns.event.text','sns.event.photo') order by id desc ";
+		
+		// LogUtil.info(hql);
+		return this.loadByPagenation(hql, pageNo, pageSize);
 	}
 }
