@@ -15,25 +15,57 @@
       </a>
       <div class="storyInnerContent UIImageBlock_Content UIImageBlock_MED_Content">
         <div class="mainWrapper">
-          <h6 data-ft='{"type":1}' class="uiStreamMessage">
-            <div data-ft='{"type":2}' class="actorDescription actorName">
-              <a data-hovercard="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="feedBean.user.userid"/>" href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="feedBean.user.userid"/>">
-                <s:property value="feedBean.user.username" />
-              </a>
-            </div>
-            <s:if test="feedBean.feed.handle=='sns.publish.text'">
-              <span data-ft='{"type":3}' class="messageBody"><s:property value="feedBean.feed.body" />
-              </span>
-            </s:if>
-            
-             <s:if test="feed.handle=='sns.event.create'">
-               <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
-             </s:if>
+          <h6 class="uiStreamMessage">
+                      <div class="actorDescription actorName">
+                        <a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>">
+                          <s:property value="user.username" />
+                        </a>
+                         <s:if test="feed.handle=='sns.publish.text'">发布了评论</s:if>
+                         <s:if test="feed.handle=='sns.event.text'">发布了关于活动
+                         	 <a href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>">
+                          <s:property value="event.eventname" />
+                        </a>
+                         	的评论</s:if>
+                         	
+                        <s:if test="feed.handle=='sns.event.photo'">发布了关于活动
+                         	 <a href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>">
+                          	<s:property value="event.eventname" />
+                        	</a>
+                         	的照片
+                         	</s:if>
+                         	
+                         <s:if test="feed.handle=='sns.event.create'">创建了一个活动</s:if>
+                        
+                        <s:if test="feed.handle=='sns.event.join'">参加了一个活动</s:if>
+                        <s:if test="feed.handle=='sns.publish.photo'">发布了照片</s:if>
+                        <s:if test="feed.handle=='sns.share.connection'">   
+                              和<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>">
+                            <s:property value="friend.username" />
+                          </a>变为朋友
+                        </s:if>
+                        <s:if test="feed.handle=='sns.share.text'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的评论</s:if>
+                        <s:if test="feed.handle=='sns.share.photo'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的照片</s:if>
+                      </div>
+                      <s:if test="feed.handle=='sns.publish.text'||feed.handle=='sns.event.text'">
+                        <span data-ft='{"type":3}' class="messageBody">
+                          <s:property value="feed.body" />
+                        </span>
+                      </s:if>
                       
-             <s:if test="feed.handle=='sns.publish.photo'">
-                <%@ include file="/WEB-INF/jsp/member/feed/photofeed.jsp"%>
-             </s:if>
-          </h6>
+                       <s:if test="feed.handle=='sns.share.text'">
+                        <span data-ft='{"type":3}' class="messageBody">
+                          <s:property value="oldFeed.body" />
+                        </span>
+                      </s:if>
+
+                      <s:if test="(feed.handle=='sns.event.create')||(feed.handle=='sns.event.join')">
+                        <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
+                      </s:if>
+                      
+                       <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.share.photo'||feed.handle=='sns.event.photo')">
+                        <%@ include file="/WEB-INF/jsp/member/feed/photofeed.jsp"%>
+                      </s:if>
+                    </h6>
           
           <s:form onsubmit="return commentSubmit(this);" action="usr/feed!addFeedComment.jhtml" method="post" cssClass="commentable_item autoexpand_mode collapsed_comments">
           <input type="hidden" name="feedId" value="<s:property value='feed.id' />" />
