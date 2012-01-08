@@ -15,6 +15,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	<bean name="profileFacade" class="com.zy.facade.impl.ProfileFacadeImpl"  >
 		<property name="profileService" ref="profileService"/>
 		<property name="mailqueueService" ref="mailqueueService"/>
+		<property name="luceneIndexService" ref="luceneIndexService"/>
 	</bean>
 	
 	<bean name="snsFacade" class="com.zy.facade.impl.SNSFacadeImpl"  >
@@ -58,6 +59,8 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	<bean name="luceneIndexFacade" class="com.zy.facade.impl.LuceneIndexFacadeImpl"  >
 		<property name="luceneIndexService" ref="luceneIndexService"/>
 		<property name="profileService" ref="profileService"/>
+		<property name="educationService" ref="educationService"/>
+		<property name="schoolService" ref="schoolService"/>
 	</bean>
 	
 	<bean name="searchFacade" class="com.zy.facade.impl.SearchFacadeImpl"  >

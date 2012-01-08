@@ -1,5 +1,7 @@
 package com.zy.action.profile;
 
+import java.util.Map;
+
 import com.zy.common.util.ActionUtil;
 import com.zy.facade.ProfileFacade;
 
@@ -29,6 +31,13 @@ public class LandingAction {
 		if(userId==0){
 			return "public.welcome";
 		}else{
+			String[] menuSelect = new String[10];
+			for(int i=0;i<10;i++){
+				menuSelect[i] = "";
+			}
+			menuSelect[0] = "selectedItem open";
+			Map<String, Object> session = ActionUtil.getSession();
+			session.put("menuSelect",menuSelect);
 			return "member.welcome";
 		}
 	}
