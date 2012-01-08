@@ -136,6 +136,16 @@ public class FeedFacadeImpl implements FeedFacade{
 				System.out.println(bean.getEvent().getEventname());
 			}
 			
+			if(feeds.get(i).getHandle().equals("sns.event.text")||feeds.get(i).getHandle().equals("sns.event.photo")){
+				int id = Integer.valueOf(feeds.get(i).getReferenceid());
+				bean.setEvent(eventService.getEvent(id));
+				System.out.println(bean.getEvent().getEventname());
+				if(feeds.get(i).getHandle().equals("sns.event.photo")){
+					int photoId = Integer.valueOf(feeds.get(i).getBody());
+					bean.setPhoto(photoService.getPhoto(photoId));
+				}
+			}
+			
 			//add new friend
 			if(feeds.get(i).getHandle().equals("sns.share.connection")){
 				int id = Integer.valueOf(feeds.get(i).getBody());
@@ -182,10 +192,10 @@ public class FeedFacadeImpl implements FeedFacade{
 		ZyNewsfeed feed = new ZyNewsfeed();
 		feed.setUserid(userId);
 		feed.setCreated(new Date());
-		if("sns.publish.text".equalsIgnoreCase(oldFeed.getHandle())){
+		if("sns.publish.text".equalsIgnoreCase(oldFeed.getHandle())||"sns.event.text".equalsIgnoreCase(oldFeed.getHandle())){
 			feed.setHandle("sns.share.text");
 		}
-		if("sns.publish.photo".equalsIgnoreCase(oldFeed.getHandle())){
+		if("sns.publish.photo".equalsIgnoreCase(oldFeed.getHandle())||"sns.event.photo".equalsIgnoreCase(oldFeed.getHandle())){
 			feed.setHandle("sns.share.photo");
 			int photoId = Integer.valueOf(oldFeed.getBody());
 			ZyPhoto photo = new ZyPhoto();
@@ -224,5 +234,101 @@ public class FeedFacadeImpl implements FeedFacade{
 	
 	public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String body){
 		return feedService.getNewsFeed(userId, handle, body);
+	}
+	
+	public List<FeedBean> getEventNewsFeed(String ids,int pageNo,int pageSize){
+		List<FeedBean> results = new ArrayList<FeedBean>();
+		List<ZyNewsfeed> feeds = feedService.getEventNewsFeed(ids, pageNo, pageSize);
+		for(int i=0;i<feeds.size();i++){
+			FeedBean bean = new FeedBean();
+			bean.setFeed(feeds.get(i));
+			bean.setUser(profileService.findProfileById(feeds.get(i).getUserid()));
+			//new event feed
+			if(feeds.get(i).getHandle().equals("sns.event.create")||feeds.get(i).getHandle().equals("sns.event.join")){
+				int id = Integer.valueOf(feeds.get(i).getBody());
+				bean.setEvent(eventService.getEvent(id));
+				System.out.println(bean.getEvent().getEventname());
+			}
+			
+			if(feeds.get(i).getHandle().equals("sns.event.text")||feeds.get(i).getHandle().equals("sns.event.photo")){
+				int id = Integer.valueOf(feeds.get(i).getReferenceid());
+				bean.setEvent(eventService.getEvent(id));
+				System.out.println(bean.getEvent().getEventname());
+				if(feeds.get(i).getHandle().equals("sns.event.photo")){
+					int photoId = Integer.valueOf(feeds.get(i).getBody());
+					bean.setPhoto(photoService.getPhoto(photoId));
+				}
+			}
+			
+			//add new friend
+			if(feeds.get(i).getHandle().equals("sns.share.connection")){
+				int id = Integer.valueOf(feeds.get(i).getBody());
+				bean.setFriend(profileService.findProfileById(id));
+			}
+			
+			//add new photo
+			if(feeds.get(i).getHandle().equals("sns.publish.photo")){
+				int id = Integer.valueOf(feeds.get(i).getBody());
+				bean.setPhoto(photoService.getPhoto(id));
+			}
+			
+			if(feeds.get(i).getHandle().equals("sns.share.text")){
+				int id = Integer.valueOf(feeds.get(i).getBody());
+				bean.setOldFeed(feedService.getFeedById(id));
+				bean.setFriend(profileService.findProfileById(feedService.getFeedById(id).getUserid()));
+			}
+			
+			if(feeds.get(i).getHandle().equals("sns.share.photo")){
+				int id = Integer.valueOf(feeds.get(i).getBody());
+				bean.setOldFeed(feedService.getFeedById(id));
+				int photoId = Integer.valueOf(feedService.getFeedById(id).getBody());
+				bean.setPhoto(photoService.getPhoto(photoId));
+				bean.setFriend(profileService.findProfileById(feedService.getFeedById(id).getUserid()));
+			}
+			
+			List<ZyNewsfeedcomment> comments = feedService.getCommentsByFeedId(bean.getFeed().getId());
+			List<CommentBean> commentBeans = new ArrayList<CommentBean>();
+			for(int j=0;j<comments.size();j++){
+				CommentBean commentBean = new CommentBean();
+				commentBean.setComment(comments.get(j));
+				commentBean.setUser(profileService.findProfileById(comments.get(j).getUserid()));
+				commentBeans.add(commentBean);
+			}
+			bean.setComments(commentBeans);
+			results.add(bean);
+		}
+		return results;
+	}
+	
+	public FeedBean addNewEventPhotoNewsFeed(int userId,int eventId,int photoId){
+		FeedBean bean = new FeedBean();
+		ZyNewsfeed feed = new ZyNewsfeed();
+		feed.setUserid(userId);
+		feed.setCreated(new Date());
+		feed.setHandle("sns.event.photo");
+		feed.setBody(""+photoId);
+		feed.setReferenceid(eventId);
+		feedService.addNewsFeed(feed);
+		bean.setFeed(feed);
+		bean.setUser(profileService.findProfileById(feed.getUserid()));
+		bean.setPhoto(photoService.getPhoto(photoId));
+		bean.setEvent(eventService.getEvent(eventId));
+		return bean;
+	}
+	
+	public FeedBean addNewEventBlogNewsFeed(int userId,int eventId,String message){
+		ZyNewsfeed feed = new ZyNewsfeed();
+		feed.setUserid(userId);
+		feed.setCreated(new Date());
+		feed.setHandle("sns.event.text");
+		feed.setBody(message);
+		feed.setReferenceid(eventId);
+		feedService.addNewsFeed(feed);
+		
+		FeedBean bean = new FeedBean();
+		bean.setFeed(feed);
+		bean.setEvent(eventService.getEvent(eventId));
+		bean.setUser(profileService.findProfileById(feed.getUserid()));
+		return bean;
 	}
 }

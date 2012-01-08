@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.zy.common.db.BaseDao;
 import com.zy.common.model.ZyNewsfeed;
+import com.zy.domain.feed.bean.FeedBean;
 
 public interface FeedDao extends BaseDao<ZyNewsfeed,Integer>{
 	public List<ZyNewsfeed> getNewsFeed(String userids,String handles,int pageNo,int pageSize);
@@ -23,4 +24,6 @@ public interface FeedDao extends BaseDao<ZyNewsfeed,Integer>{
 	//public boolean isExist(long remoteid,int userid,short extType);
 	
 	//public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String content,Date beginDate,Date endDate);
+
+	public List<ZyNewsfeed> getEventNewsFeed(String ids,int pageNo,int pageSize);
 }

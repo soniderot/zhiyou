@@ -5,6 +5,7 @@ import java.util.List;
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyNewsfeedtype;
+import com.zy.domain.feed.bean.FeedBean;
 
 public interface FeedService {
 	public void addNewsFeed(ZyNewsfeed feed);
@@ -47,4 +48,6 @@ public interface FeedService {
 	
 	//public ZyNewsfeed getShareFeed(String handle, int userId);
 	//public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String content,Date beginDate,Date endDate);
+	
+	public List<ZyNewsfeed> getEventNewsFeed(String ids,int pageNo,int pageSize);
 }

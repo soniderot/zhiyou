@@ -8,6 +8,7 @@ import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyNewsfeedtype;
 import com.zy.common.util.DateUtil;
+import com.zy.domain.feed.bean.FeedBean;
 import com.zy.domain.feed.dao.FeedCommentDao;
 import com.zy.domain.feed.dao.FeedDao;
 import com.zy.domain.feed.dao.FeedTypeDao;
@@ -81,7 +82,7 @@ public class FeedServiceImpl implements FeedService{
 		else if (feed.getHandle().equals(Constants.SNS_SHARE_CONNECTION)) {
 			// 24 hours check
 			ZyNewsfeed f = this.newsFeedDao.getNewsFeedByHandle(feed.getHandle(), feed.getUserid());
-			if (f == null) {
+			if (true||f == null) {
 				this.newsFeedDao.save(feed);
 			} else {
 				String currentTime = DateUtil.formatDate(new Date(), DateUtil.patternDate);
@@ -217,4 +218,8 @@ public class FeedServiceImpl implements FeedService{
 	public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String content,Date beginDate,Date endDate){
 		return null;
 	}*/
+	
+	public List<ZyNewsfeed> getEventNewsFeed(String ids,int pageNo,int pageSize){
+		return this.newsFeedDao.getEventNewsFeed(ids, pageNo, pageSize);
+	}
 }
