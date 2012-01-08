@@ -85,7 +85,7 @@ function deletePhotoAjax() {
           <tr>
             <td>
               <div class="profile-picture">
-                <img src="http://profile.ak.fbcdn.net/hprofile-ak-ash2/370142_1438697558_1584603112_n.jpg" id="profile_pic"/>
+                <img src="<s:property value="#session.user.avatar"/>" id="profile_pic"/>
               </div>
               <div id="remove_profile_picture_link" class="thumbnail_action">
                 <a rel="dialog" href="#" onclick="$('#dialog_1').removeClass('hidden_elem'); return false;">删除你的图像</a>
