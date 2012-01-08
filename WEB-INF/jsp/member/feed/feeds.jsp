@@ -2,11 +2,33 @@
 <div role="main" id="contentArea">
   <div data-referrer="pagelet_roosters" id="pagelet_roosters"></div>
   <div data-referrer="pagelet_stream_header" id="pagelet_stream_header">
+  	<s:if test="userid>0">
+  	
+  	<div data-referrer="pagelet_composer" id="pagelet_composer">
+    <div id="u3mxyl_2"
+      onclick="Bootloader.loadComponents(&quot;Composer&quot;, function() { JSCC.get(&#39;j4ec37b3f908df06889566482&#39;) });"
+      class="uiComposer uiComposerHideContent stat_elem uiMetaComposer uiComposerTopBorder uiComposerOpen uiComposerHideContent uiComposerWhiteMessageBox">
+      <div class="focus_target">
+        <ul class="uiList uiListHorizontal clearfix uiComposerAttachments">
+         
+          <li class="showWhenLoading attachmentLoader plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
+            <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img" />
+          </li>
+        </ul>
+
+       
+      </div>
+    </div>
+  </div>
+</s:if>
+<s:else>
     <div class="uiHeader uiHeaderWithImage uiHeaderPage  fbx_stream_header">
       <div class="clearfix uiHeaderTop">
         <div class="uiHeaderActions  rfloat fsl fwb fcb">
+        	<s:if test="event==null">
           <a href="usr/feed.jhtml?handle=sns.event.create,sns.event.join"><span class="fwn">活动动态</span> </a> ·
           <a href="usr/feed.jhtml?handle=sns.share.connection"><span class="fwn">交友动态</span> </a> ·
+          </s:if>
           <div id="u3mxyl_1" class="uiSelector inlineBlock filterListSelector  uiSelectorRight  uiSelectorNormal uiSelectorDynamicLabel">
             <div class="wrap"></div>
             <select>
@@ -28,7 +50,12 @@
         </div>
         <div>
           <h2 class="uiHeaderTitle">
+            <s:if test="event==null">
             <i class="uiHeaderImage  img  sp_7gl7wd  sx_efd21b"></i><s:if test="handle=='sns.publish.photo'">照片</s:if><s:else>动态</s:else>汇总
+          	</s:if>
+          	<s:else>
+          		<i class="uiHeaderImage  img  sp_7gl7wd  sx_efd21b"></i>活动信息
+          </s:else>
           </h2>
         </div>
       </div>
@@ -40,6 +67,11 @@
       class="uiComposer uiComposerHideContent stat_elem uiMetaComposer uiComposerTopBorder uiComposerOpen uiComposerHideContent uiComposerWhiteMessageBox">
       <div class="focus_target">
         <ul class="uiList uiListHorizontal clearfix uiComposerAttachments">
+        	
+        		<s:if test="event!=null">
+        		<%@ include file="/WEB-INF/jsp/member/event/eventdetailhead.jsp"%>
+        	</s:if>
+        	
           <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
             <span data-endpoint="/ajax/metacomposer/attachment/status/status.php" id="composerTourStart"
               class="uiComposerAttachment statusAttachment uiComposerAttachmentSelected attachmentAcceptsLink">
@@ -65,6 +97,7 @@
              </span>
             </span>
           </li>
+           <s:if test="event==null">
           <li class="plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
             <span id="u3mxyl_5" class="uiComposerAttachment">
               <a href="#" tabindex="0" class="uiIconText attachmentLink normal" onclick="changeStatus(this, 'question'); return false;">
@@ -77,6 +110,7 @@
               </span>
             </span>
           </li>
+          </s:if>
           <li class="showWhenLoading attachmentLoader plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
             <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img" />
           </li>
@@ -86,6 +120,7 @@
           <s:form onsubmit="return checkInput();" method="post" action="usr/feed!updateStatusAjax.jhtml" target="u3jjus_1" enctype="multipart/form-data">
             <input type="hidden" value="c0a81f7ab46455dde1e203435e599680" name="post_form_id" />
             <input type="hidden" name="feedtype" value="status" />
+            <input type="hidden" name="eventId"  value="<s:property value="event.Id"/>" />
             <div class="attachmentFrame hidden_elem">
               <div class="attachmentContent">
                 <div class="webComposerQuestion">
@@ -238,7 +273,7 @@
       </div>
     </div>
   </div>
-  
+  </s:else>
   <iframe style="width: 1px; height: 1px; position: absolute; top: -10000px;" name="u3jjus_1" class="fbUploadIframe"></iframe>
   <div data-gt='{"ref":"nf"}' data-referrer="pagelet_home_stream" id="pagelet_home_stream">
     <div id="c4ec37b3fc7e022d58174072" class="UIIntentionalStream UIStream">
@@ -262,19 +297,32 @@
                           <s:property value="user.username" />
                         </a>
                          <s:if test="feed.handle=='sns.publish.text'">发布了评论</s:if>
+                         <s:if test="feed.handle=='sns.event.text'">发布了关于活动
+                         	 <a href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>">
+                          <s:property value="event.eventname" />
+                        </a>
+                         	的评论</s:if>
+                         	
+                        <s:if test="feed.handle=='sns.event.photo'">发布了关于活动
+                         	 <a href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>">
+                          	<s:property value="event.eventname" />
+                        	</a>
+                         	的照片
+                         	</s:if>
+                         	
                          <s:if test="feed.handle=='sns.event.create'">创建了一个活动</s:if>
                         
                         <s:if test="feed.handle=='sns.event.join'">参加了一个活动</s:if>
                         <s:if test="feed.handle=='sns.publish.photo'">发布了照片</s:if>
                         <s:if test="feed.handle=='sns.share.connection'">   
-                                                    和<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>">
+                              和<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>">
                             <s:property value="friend.username" />
                           </a>变为朋友
                         </s:if>
                         <s:if test="feed.handle=='sns.share.text'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的评论</s:if>
                         <s:if test="feed.handle=='sns.share.photo'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的照片</s:if>
                       </div>
-                      <s:if test="feed.handle=='sns.publish.text'">
+                      <s:if test="feed.handle=='sns.publish.text'||feed.handle=='sns.event.text'">
                         <span data-ft='{"type":3}' class="messageBody">
                           <s:property value="feed.body" />
                         </span>
@@ -290,7 +338,7 @@
                         <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
                       </s:if>
                       
-                       <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.share.photo')">
+                       <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.share.photo'||feed.handle=='sns.event.photo')">
                         <%@ include file="/WEB-INF/jsp/member/feed/photofeed.jsp"%>
                       </s:if>
                     </h6>
@@ -300,8 +348,9 @@
                       <span class="uiStreamFooter">
                         <span class="UIActionLinks UIActionLinks_bottom">
                           <label class="uiLinkButton comment_link" title="发表留言">
-                            <input type="button" value="评论" onclick="return showComments(this);" />
-                          </label> · 
+                            <input type="button" value="评论<s:if test="comments.size()>0">(<s:property value='comments.size()' />)</s:if>" onclick="return showComments(this);">
+                           
+                          </label>  · 
                         </span>
                         
                         <!--
@@ -316,14 +365,14 @@
                         
                         <span class="UIActionLinks UIActionLinks_bottom">
                           <label class="uiLinkButton comment_link" title="分享">
-                          	<s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
+                          	<s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text'||feed.handle=='sns.event.text'||feed.handle=='sns.event.photo')">
                           	<a href="usr/feed!sharedFeed.jhtml?feedId=<s:property value="feed.id" />"><span class="fwn">分享</span> </a> 
                           	</s:if >
                           	<!--
                               <input type="button" value="分享" onclick="return;">
                              -->
                           </label> · 
-                    	</span>
+                    		</span>
                         
                         <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
                           <abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp">
@@ -530,7 +579,12 @@
   }
   
   function topage(pageNo) {
+  <s:if test="event!=null">
+   location.href = "event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />&pageNo="+pageNo
+  </s:if>
+  <s:else>
   location.href = "/usr/feed.jhtml?handle=<s:property value="handle" />&pageNo="+pageNo
+  </s:else>
   return false;
   }
   function addOptions() {
