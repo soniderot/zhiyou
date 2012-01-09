@@ -375,8 +375,7 @@
         i++;
       });
       $(".uiMetaComposerMessageBoxTable").hide();
-      $("textarea[name='feedmessage']").attr("placeholder", "提个问题试试!");
-      $("textarea[name='feedmessage']").val("提个问题试试!");
+      $("textarea[name='feedmessage']").val("");
       $(".attachmentMetaArea").empty();
       $(".textBlurb").html(addOptionLink);
       $("#submitBtn").parent().removeClass("uiButtonDisabled");
