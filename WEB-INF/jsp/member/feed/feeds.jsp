@@ -2,26 +2,6 @@
 <div role="main" id="contentArea">
   <div data-referrer="pagelet_roosters" id="pagelet_roosters"></div>
   <div data-referrer="pagelet_stream_header" id="pagelet_stream_header">
-  	<s:if test="userid>0">
-  	
-  	<div data-referrer="pagelet_composer" id="pagelet_composer">
-    <div id="u3mxyl_2"
-      onclick="Bootloader.loadComponents(&quot;Composer&quot;, function() { JSCC.get(&#39;j4ec37b3f908df06889566482&#39;) });"
-      class="uiComposer uiComposerHideContent stat_elem uiMetaComposer uiComposerTopBorder uiComposerOpen uiComposerHideContent uiComposerWhiteMessageBox">
-      <div class="focus_target">
-        <ul class="uiList uiListHorizontal clearfix uiComposerAttachments">
-         
-          <li class="showWhenLoading attachmentLoader plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-            <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img" />
-          </li>
-        </ul>
-
-       
-      </div>
-    </div>
-  </div>
-</s:if>
-<s:else>
     <div class="uiHeader uiHeaderWithImage uiHeaderPage  fbx_stream_header">
       <div class="clearfix uiHeaderTop">
         <div class="uiHeaderActions  rfloat fsl fwb fcb">
@@ -34,7 +14,7 @@
             <select>
               <option value=""></option>
               <option selected="1" value="lf">
-                            最新消息
+                最新消息
               </option>
               <option value="app_2915120374">
                 状态更新
@@ -225,7 +205,7 @@
                           </div>
                           <input type="hidden" class="mentionsHidden" />
                         </div>
-                        <div class="attachmentMetaArea">
+                        <div class="attachmentMetaArea hidden_elem">
                           <div class="pbm webComposerPhotoUpload">
                             <input type="hidden" value="1324457070" name="qn"/>
                             <div class="webComposerPhotoInputArea">
@@ -273,9 +253,9 @@
       </div>
     </div>
   </div>
-  </s:else>
+  
   <iframe style="width: 1px; height: 1px; position: absolute; top: -10000px;" name="u3jjus_1" class="fbUploadIframe"></iframe>
-  <div data-gt='{"ref":"nf"}' data-referrer="pagelet_home_stream" id="pagelet_home_stream">
+  <div id="pagelet_home_stream">
     <div id="c4ec37b3fc7e022d58174072" class="UIIntentionalStream UIStream">
       <ul id="home_stream" class="uiList uiStream UIIntentionalStream_Content" data-referrer="home_stream" style="min-height: 100px;">
         <s:iterator value="feeds">
@@ -314,7 +294,7 @@
                         
                         <s:if test="feed.handle=='sns.event.join'">参加了一个活动</s:if>
                         <s:if test="feed.handle=='sns.publish.photo'">发布了照片</s:if>
-                        <s:if test="feed.handle=='sns.share.connection'">   
+                        <s:if test="feed.handle=='sns.share.connection'">
                               和<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>">
                             <s:property value="friend.username" />
                           </a>变为朋友
@@ -323,132 +303,26 @@
                         <s:if test="feed.handle=='sns.share.photo'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的照片</s:if>
                       </div>
                       <s:if test="feed.handle=='sns.publish.text'||feed.handle=='sns.event.text'">
-                        <span data-ft='{"type":3}' class="messageBody">
+                        <span class="messageBody">
                           <s:property value="feed.body" />
                         </span>
                       </s:if>
                       
                        <s:if test="feed.handle=='sns.share.text'">
-                        <span data-ft='{"type":3}' class="messageBody">
+                        <span class="messageBody">
                           <s:property value="oldFeed.body" />
                         </span>
                       </s:if>
-
-                      <s:if test="(feed.handle=='sns.event.create')||(feed.handle=='sns.event.join')">
-                        <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
-                      </s:if>
-                      
-                       <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.share.photo'||feed.handle=='sns.event.photo')">
-                        <%@ include file="/WEB-INF/jsp/member/feed/photofeed.jsp"%>
-                      </s:if>
                     </h6>
-                    
-                    <s:form onsubmit="return commentSubmit(this);" action="usr/feed!addFeedComment.jhtml" method="post" cssClass="commentable_item autoexpand_mode collapsed_comments">
-                      <input type="hidden" name="feedId" value="<s:property value='feed.id' />" />
-                      <span class="uiStreamFooter">
-                        <span class="UIActionLinks UIActionLinks_bottom">
-                          <label class="uiLinkButton comment_link" title="发表留言">
-                            <input type="button" value="评论<s:if test="comments.size()>0">(<s:property value='comments.size()' />)</s:if>" onclick="return showComments(this);">
-                           
-                          </label>  · 
-                        </span>
-                        
-                        <!--
-                         <span class="UIActionLinks UIActionLinks_bottom">
-                          <label class="uiLinkButton comment_link" title="分享">
-                            <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
-                              <input type="button" value="分享" onclick="return;">
-                            </s:if >
-                          </label> · 
-                        </span>
-                        --->
-                        
-                        <span class="UIActionLinks UIActionLinks_bottom">
-                          <label class="uiLinkButton comment_link" title="分享">
-                          	<s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text'||feed.handle=='sns.event.text'||feed.handle=='sns.event.photo')">
-                          	<a href="usr/feed!sharedFeed.jhtml?feedId=<s:property value="feed.id" />"><span class="fwn">分享</span> </a> 
-                          	</s:if >
-                          	<!--
-                              <input type="button" value="分享" onclick="return;">
-                             -->
-                          </label> · 
-                    		</span>
-                        
-                        <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
-                          <abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp">
-                            <s:date name="feed.created" format="yyyy-MM-dd HH:mm" />
-                          </abbr>
-                        </span>
-                      </span>
-                      
-                      <div>
-                        <ul class="uiList uiUfi focus_target fbUfi">
-                          <li class="ufiNub uiListItem uiListVerticalItemBorder"><i></i></li>
-                          <li class="uiUfiComments uiListItem uiListVerticalItemBorder">
-                            <ul class="commentList">
-                            <s:iterator value="comments"> 
-                              <li class="uiUfiComment comment_<s:property value='comment.id' /> ufiItem ufiItem uiUfiUnseenItem">
-                                <div class="UIImageBlock clearfix uiUfiActorBlock">
-                                  <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid" />" tabindex="-1" class="actorPic UIImageBlock_Image UIImageBlock_SMALL_Image">
-                                    <img alt="" src="<s:property value='user.avatar' />" class="uiProfilePhoto uiProfilePhotoMedium img"/>
-                                  </a>
-                                  <label for="u3ft9v_1" class="deleteAction stat_elem UIImageBlock_Ext uiCloseButton">
-                                    <input type="button" onclick="showDelCommentPop('dialog_delFeedCmt', <s:property value='comment.id' />)" title="删除"/>
-                                  </label>
-                                  <div class="commentContent UIImageBlock_Content UIImageBlock_SMALL_Content">
-                                    <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value='user.userid' />" class="actorName"><s:property value="user.username" /></a>
-                                    <span class="commentBody"><s:property value="comment.content" /></span>
-                                    <div class="commentActions fsm fwn fcg">
-                                      <abbr class="timestamp livetimestamp" title="<s:date name="comment.created" format="yyyy-MM-dd HH:mm" />"><s:date name="comment.created" format="yyyy-MM-dd HH:mm" />发布</abbr> 
-                                    
-                                    <!-- 
-                                      <span class="comment_like_5136102 fsm fwn fcg">
-                                        <button title="喜欢此评论" value="5136102" name="like_comment_id[5136102]" type="submit" class="stat_elem as_link cmnt_like_link">
-                                          <span class="default_message">赞</span>
-                                          <span class="saving_message">取消</span>
-                                        </button>
-                                      </span>
-                                    -->
-                                    
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                              </s:iterator>
-                            </ul>
-                          </li>
-                          <li class="uiUfiAddComment clearfix uiUfiSmall ufiItem ufiItem uiListItem uiListVerticalItemBorder uiUfiAddCommentCollapsed">
-                            <div class="UIImageBlock clearfix mentionsAddComment">
-                              <img alt="" src="<s:property value="#session.userlogo"/>" class="uiProfilePhoto actorPic UIImageBlock_Image UIImageBlock_ICON_Image uiProfilePhotoMedium img"/>
-                              <div class="commentArea UIImageBlock_Content UIImageBlock_ICON_Content">
-                                <div class="commentBox">
-                                  <div id="u3aqpf_8" class="uiMentionsInput textBoxContainer">
-                                    <div class="highlighter" style="direction: ltr; text-align: left;">
-                                      <div style="width: 340px;"><span class="highlighterContent"/></div>
-                                    </div>
-                                    <div id="u3aqpf_9" class="uiTypeahead mentionsTypeahead" style="height: auto;">
-                                      <div class="wrap">
-                                        <input type="hidden" class="hiddenInput"/>
-                                        <div class="innerWrap">
-                                          <s:textarea name="feedComment" onfocus="commentFocus(this)" onkeypress="enterKeypress(this, event)" placeholder="留段话吧..." title="留段话吧..." cssClass="enter_submit uiTextareaNoResize uiTextareaAutogrow textBox mentionsTextarea textInput DOMControl_placeholder"></s:textarea>
-                                        </div>
-                                      </div>
-                                      <div class="uiTypeaheadView hidden_elem"/>
-                                    </div>
-                                    <input type="hidden" class="mentionsHidden" name="add_comment_text" value=""/>
-                                  </div>
-                                </div>
-                                <!--
-                                <label for="u3aqpf_10" class="mts commentBtn stat_elem hidden_elem optimistic_submit uiButton uiButtonConfirm">
-                                  <input type="submit" id="u3aqpf_10" name="commentBtn" class="enter_submit_target" value="评论"/>
-                                </label>-->
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </s:form>
-                    
+                    <s:if test="(feed.handle=='sns.event.create')||(feed.handle=='sns.event.join')">
+                      <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
+                    </s:if>
+                     <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.share.photo')">
+                      <%@ include file="/WEB-INF/jsp/member/feed/photofeed.jsp"%>
+                    </s:if>
+                    <s:if test="(feed.handle=='sns.publish.question')">
+                      <%@ include file="/WEB-INF/jsp/member/feed/questionfeed.jsp"%>
+                    </s:if>
                   </div>
                 </div>
               </div>
@@ -482,11 +356,12 @@
   $(".textBlurb").empty();
   
   function changeStatus(obj, feedtype) {
-    $("#input[name='feedtype']").val(feedtype);
+    $("input[name='feedtype']").val(feedtype);
     $("#u3mxyl_2").find("div:first").addClass("child_was_focused");
     if (feedtype == "photo") {
       $(".uiMetaComposerMessageBoxTable").show();
       $(".attachmentMetaArea").html(attach);
+      $(".attachmentMetaArea").removeClass("hidden_elem");
       $(".textBlurb").empty();
       $("#submitBtn").parent().addClass("uiButtonDisabled");
       $("textarea[name='feedmessage']").attr("placeholder", "说点什么吧!");
@@ -600,6 +475,21 @@
       if($(this).val() == $(this).attr("placeholder")) {
         $(this).val("");
       }
+    });
+  }
+  
+  function voteOption(obj) {
+    $("#option_" + obj).click();
+  }
+  function voteOrUnvote(obj) {
+    $.ajax({
+     type: "GET",
+     url: "usr/feed!voteOptionAjax.jhtml",
+     dataType: 'text',
+     data: "optionId="+obj.value+"&checked="+obj.checked,
+     success: function(data) {
+       $("#optionrow_" + obj.value).find(".fcg").html(data + " 票");
+     }
     });
   }
 </script>
