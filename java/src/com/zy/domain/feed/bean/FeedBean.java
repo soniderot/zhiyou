@@ -2,11 +2,12 @@ package com.zy.domain.feed.bean;
 
 import java.util.List;
 
+import com.zy.common.model.ZyAnsweroption;
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyNewsfeed;
-import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyPhoto;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyQuestion;
 
 public class FeedBean {
 	private ZyNewsfeed feed;
@@ -16,9 +17,23 @@ public class FeedBean {
 	private ZyProfile friend;
 	private ZyPhoto photo;
 	private ZyNewsfeed oldFeed;
+	private ZyQuestion question;
+	private List<ZyAnsweroption> options;
 	//private ZyProfile oldUser;
 	
 	
+	public ZyQuestion getQuestion() {
+		return question;
+	}
+	public List<ZyAnsweroption> getOptions() {
+		return options;
+	}
+	public void setQuestion(ZyQuestion question) {
+		this.question = question;
+	}
+	public void setOptions(List<ZyAnsweroption> options) {
+		this.options = options;
+	}
 	public ZyNewsfeed getOldFeed() {
 		return oldFeed;
 	}
