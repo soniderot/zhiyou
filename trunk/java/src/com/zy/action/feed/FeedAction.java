@@ -18,7 +18,6 @@ import com.zy.Constants;
 import com.zy.common.model.ZyAlbum;
 import com.zy.common.model.ZyAnswer;
 import com.zy.common.model.ZyAnsweroption;
-import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyPhoto;
 import com.zy.common.model.ZyProfile;
