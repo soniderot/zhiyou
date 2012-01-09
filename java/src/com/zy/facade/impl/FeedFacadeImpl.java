@@ -138,6 +138,7 @@ public class FeedFacadeImpl implements FeedFacade{
 		feedBean.setQuestion(zyQuestion);
 		feedBean.setOptions(options);
 		feedBean.setFeed(feed);
+		feedBean.setUser(profileService.findProfileById(userId));
 		return feedBean;
 	}
 	
