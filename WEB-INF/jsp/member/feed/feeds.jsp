@@ -5,7 +5,7 @@
     <div class="uiHeader uiHeaderWithImage uiHeaderPage  fbx_stream_header">
       <div class="clearfix uiHeaderTop">
         <div class="uiHeaderActions  rfloat fsl fwb fcb">
-        	<s:if test="event==null">
+          <s:if test="event==null">
           <a href="usr/feed.jhtml?handle=sns.event.create,sns.event.join"><span class="fwn">活动动态</span> </a> ·
           <a href="usr/feed.jhtml?handle=sns.share.connection"><span class="fwn">交友动态</span> </a> ·
           </s:if>
@@ -14,7 +14,7 @@
             <select>
               <option value=""></option>
               <option selected="1" value="lf">
-                最新消息
+                            最新消息
               </option>
               <option value="app_2915120374">
                 状态更新
@@ -276,43 +276,42 @@
                         <a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>">
                           <s:property value="user.username" />
                         </a>
-                         <s:if test="feed.handle=='sns.publish.text'">发布了评论</s:if>
-                         <s:if test="feed.handle=='sns.event.text'">发布了关于活动
-                         	 <a href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>">
+                        <s:if test="feed.handle=='sns.publish.text'">发布了评论</s:if>
+                        <s:if test="feed.handle=='sns.event.text'">发布了关于活动
+                          <a href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>">
                           <s:property value="event.eventname" />
-                        </a>
-                         	的评论</s:if>
+                          </a>的评论
+                        </s:if>
                          	
                         <s:if test="feed.handle=='sns.event.photo'">发布了关于活动
-                         	 <a href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>">
-                          	<s:property value="event.eventname" />
-                        	</a>
-                         	的照片
-                         	</s:if>
+                          <a href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>">
+                            <s:property value="event.eventname" />
+                          </a>的照片
+                        </s:if>
                          	
-                         <s:if test="feed.handle=='sns.event.create'">创建了一个活动</s:if>
-                        
+                        <s:if test="feed.handle=='sns.event.create'">创建了一个活动</s:if>
                         <s:if test="feed.handle=='sns.event.join'">参加了一个活动</s:if>
                         <s:if test="feed.handle=='sns.publish.photo'">发布了照片</s:if>
                         <s:if test="feed.handle=='sns.share.connection'">
-                              和<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>">
+                                                    和<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>">
                             <s:property value="friend.username" />
                           </a>变为朋友
                         </s:if>
                         <s:if test="feed.handle=='sns.share.text'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的评论</s:if>
                         <s:if test="feed.handle=='sns.share.photo'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的照片</s:if>
+                        <s:if test="feed.handle=='sns.publish.question'"><s:property value="feed.body"/></s:if>
                       </div>
                       <s:if test="feed.handle=='sns.publish.text'||feed.handle=='sns.event.text'">
                         <span class="messageBody">
                           <s:property value="feed.body" />
                         </span>
                       </s:if>
-                      
-                       <s:if test="feed.handle=='sns.share.text'">
+                      <s:if test="feed.handle=='sns.share.text'">
                         <span class="messageBody">
                           <s:property value="oldFeed.body" />
                         </span>
                       </s:if>
+                      
                     </h6>
                     <s:if test="(feed.handle=='sns.event.create')||(feed.handle=='sns.event.join')">
                       <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
