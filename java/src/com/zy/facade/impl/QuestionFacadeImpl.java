@@ -31,6 +31,7 @@ public class QuestionFacadeImpl implements QuestionFacade {
 			ZyAnsweroption answerOption = new ZyAnsweroption();
 			answerOption.setQuestionid(questionId);
 			answerOption.setSummary(option);
+			answerOption.setHot(0);
 			questionService.addAnswerOption(answerOption);
 		}
 		
