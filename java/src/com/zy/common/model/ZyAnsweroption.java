@@ -13,8 +13,17 @@ public class ZyAnsweroption implements java.io.Serializable {
 	private Integer id;
 	private Integer questionid;
 	private String summary;
+	private Integer hot;
 
 	// Constructors
+
+	public Integer getHot() {
+		return hot;
+	}
+
+	public void setHot(Integer hot) {
+		this.hot = hot;
+	}
 
 	/** default constructor */
 	public ZyAnsweroption() {
