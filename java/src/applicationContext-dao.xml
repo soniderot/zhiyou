@@ -40,4 +40,5 @@
 <bean id="mailqueueDao" class="com.zy.domain.message.dao.MailqueueDaoImpl" parent="baseDao" />
 <bean id="answerOptionDao" class="com.zy.domain.question.dao.AnswerOptionDaoImpl" parent="baseDao" />
 <bean id="questionDao" class="com.zy.domain.question.dao.QuestionDaoImpl" parent="baseDao" />
+<bean id="answerDao" class="com.zy.domain.question.dao.AnswerDaoImpl" parent="baseDao" />
 </beans>

@@ -42,6 +42,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="feedService" ref="feedService"/>
 		<property name="eventService" ref="eventService"/>
 		<property name="photoService" ref="photoService"/>
+		<property name="questionService" ref="questionService"/>
 	</bean>
 	
 	<bean name="messageFacade" class="com.zy.facade.impl.MessageFacadeImpl"  >
