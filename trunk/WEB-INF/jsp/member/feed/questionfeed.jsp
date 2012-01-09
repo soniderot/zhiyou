@@ -44,28 +44,18 @@
       </label> · 
     </span>
   
-    <!--
     <span class="UIActionLinks UIActionLinks_bottom">
+      <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
       <label class="uiLinkButton comment_link" title="分享">
-        <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
-          <input type="button" value="分享" onclick="return;">
-        </s:if >
-      </label> · 
-    </span>
-    --->
-  
-    <span class="UIActionLinks UIActionLinks_bottom">
-      <label class="uiLinkButton comment_link" title="分享">
-        <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
-          <a href="usr/feed!sharedFeed.jhtml?feedId=<s:property value="feed.id" />"><span class="fwn">分享</span> </a> 
-        </s:if >
+        <a href="usr/feed!sharedFeed.jhtml?feedId=<s:property value="feed.id" />"><span class="fwn">分享</span> </a> 
         <!--
         <input type="button" value="分享" onclick="return;">
         -->
       </label> · 
+      </s:if >
     </span>
   
-    <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
+    <span class="uiStreamSource">
       <abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp">
         <s:date name="feed.created" format="yyyy-MM-dd HH:mm" />
       </abbr>
@@ -100,12 +90,11 @@
                   </button>
                 </span>
               -->
-              
               </div>
             </div>
           </div>
         </li>
-        </s:iterator>
+      </s:iterator>
       </ul>
     </li>
     <li class="uiUfiAddComment clearfix uiUfiSmall ufiItem ufiItem uiListItem uiListVerticalItemBorder uiUfiAddCommentCollapsed">
