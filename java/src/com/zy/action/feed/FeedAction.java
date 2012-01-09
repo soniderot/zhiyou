@@ -1,6 +1,7 @@
 package com.zy.action.feed;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,6 +16,9 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.zy.Constants;
 import com.zy.common.model.ZyAlbum;
+import com.zy.common.model.ZyAnswer;
+import com.zy.common.model.ZyAnsweroption;
+import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyPhoto;
 import com.zy.common.model.ZyProfile;
@@ -278,7 +282,7 @@ public class FeedAction extends ActionSupport{
 	}
 	
 	public String updateStatusAjax() {
-		System.out.println("------------------into update status ajax-------------"+feedtype+"-------eventId"+eventId);
+		System.out.println("------------------into update status ajax-------------"+feedtype);
 		System.out.println("-----------------------file----------"+feedphoto);
 		if (feedphoto!=null) {
 			String filetype = null;
@@ -322,9 +326,6 @@ public class FeedAction extends ActionSupport{
 			}
 		} else {
 			// add question here
-			
-		
-			feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), question);
 			List<String> newOptions = new ArrayList<String>();
 			if (options != null && options.length > 0) {
 				for (int i = 0; i< options.length; i++) {
@@ -334,15 +335,18 @@ public class FeedAction extends ActionSupport{
 					}
 				}
 			}
+			
+			ZyQuestion zyQuestion = new ZyQuestion();
+			zyQuestion.setSummary(question);
+			zyQuestion.setUserid(ActionUtil.getSessionUserId());
 			if (newOptions.size() > 0) {
-				ZyQuestion zyQuestion = new ZyQuestion();
-				zyQuestion.setSummary(question);
-				zyQuestion.setUserid(ActionUtil.getSessionUserId());
 				zyQuestion.setType(Constants.QUESTION_TYPE_OPTIONS);
-				questionFacade.addQuestion(zyQuestion);
-				questionFacade.addAnswerQuestion(newOptions, zyQuestion.getId());
+			} else {
+				zyQuestion.setType(Constants.QUESTION_TYPE_COMMON);
 			}
-
+			questionFacade.addQuestion(zyQuestion);
+			questionFacade.addAnswerQuestion(newOptions, zyQuestion.getId());
+			feedBean = feedFacade.addNewQuestionNewsFeed(ActionUtil.getSessionUserId(), zyQuestion.getId(), question);
 		}
 		feeds = new ArrayList<FeedBean>();
 		feeds.add(feedBean);
@@ -393,10 +397,43 @@ public class FeedAction extends ActionSupport{
 		}
 		return null;
 	}
-	public static void main(String[] args){
-		String str = "sns.event.create,sns.event.join";
-		System.out.println(str.replaceAll(",", "','"));
+
+	public String voteOptionAjax() {
+		int optionId = Integer.parseInt(ActionUtil.getRequest().getParameter("optionId"));
+		ZyAnsweroption option = questionFacade.getAnsweroptionById(optionId);
+		List<ZyAnswer> answers = questionFacade.getAnswerByUserAndOption(ActionUtil.getSessionUserId(), optionId);
+		ZyAnswer answer = null;
+		if (answers != null && answers.size() > 0) {
+			answer = answers.get(0);
+		}
+		int hot;
+		if (answer == null) {
+			hot = option.getHot() + 1;
+			option.setHot(hot);
+			questionFacade.updateAnsweroption(option);
+			answer = new ZyAnswer();
+			answer.setAnswer(option.getSummary());
+			answer.setCreatetime(new Date());
+			answer.setQuestionid(option.getQuestionid());
+			answer.setOptionanswer(optionId);
+			answer.setUserid(ActionUtil.getSessionUserId());
+			questionFacade.addAnswer(answer);
+		} else {
+			hot = option.getHot() - 1;
+			option.setHot(hot);
+			questionFacade.updateAnsweroption(option);
+			questionFacade.removeAnswer(answer.getId());
+		}
+		try {
+	    HttpServletResponse response = ServletActionContext.getResponse();    
+	    response.setCharacterEncoding("UTF-8");
+	    PrintWriter out = response.getWriter();
+	    out.print(hot);
+	    out.flush();    
+	    out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
-
-
 }
