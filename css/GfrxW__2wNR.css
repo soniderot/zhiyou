@@ -1,4 +1,4 @@
-﻿/*1321401181,169776320*/
+/*1321401181,169776320*/
 
 .fbEmu .body .fbEmuLink{color:#333}
 .fbEmu .body .fbEmuLink:hover{text-decoration:none}
@@ -221,7 +221,7 @@ button.as_link .button_img{margin:0 6px 0 0;vertical-align:text-bottom;width:16p
 .uiComposer .attachmentCloseBtn{position:absolute;right:2px;top:7px}
 .uiComposer .attachmentFrame{border:1px solid #b4bbcd;border-bottom-color:#ccc}
 .uiComposerHideMessageBox .attachmentFrame,.uiComposerHideInput .attachmentFrame{border-bottom-color:#b4bbcd}
-.uiComposerHideContent .attachmentFrame{display:none}
+
 .uiComposerOpen .focus_target{padding-bottom:10px}
 .uiComposerWhiteMessageBox .child_was_focused{border-bottom:1px solid #e9e9e9}
 .uiComposerHideMessageBox .child_was_focused{border-bottom:none}
