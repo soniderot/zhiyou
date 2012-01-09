@@ -17,7 +17,7 @@ public interface FeedFacade {
 	
 	public void addAcceptEventInviteNewsFeed(int userId,int eventId);
 	
-	public void addNewQuestionNewsFeed(int userId,int questionId);
+	public FeedBean addNewQuestionNewsFeed(int userId,int questionId, String question);
 	
 	public void addNewAnswerNewsFeed(int userId,int answerId);
 
