@@ -6,9 +6,11 @@ import java.util.List;
 
 import com.zy.Constants;
 import com.zy.common.model.ZyAlbum;
+import com.zy.common.model.ZyAnsweroption;
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyPhoto;
+import com.zy.common.model.ZyQuestion;
 import com.zy.common.util.ActionUtil;
 import com.zy.domain.event.service.EventService;
 import com.zy.domain.feed.bean.CommentBean;
@@ -16,6 +18,7 @@ import com.zy.domain.feed.bean.FeedBean;
 import com.zy.domain.feed.service.FeedService;
 import com.zy.domain.photo.service.PhotoService;
 import com.zy.domain.profile.service.ProfileService;
+import com.zy.domain.question.service.QuestionService;
 import com.zy.facade.FeedFacade;
 
 public class FeedFacadeImpl implements FeedFacade{
@@ -23,6 +26,7 @@ public class FeedFacadeImpl implements FeedFacade{
 	private EventService eventService;
 	private ProfileService profileService;
 	private PhotoService photoService;
+	private QuestionService questionService;
 	
 	
 	public PhotoService getPhotoService() {
@@ -56,7 +60,15 @@ public class FeedFacadeImpl implements FeedFacade{
 	public void setFeedService(FeedService feedService) {
 		this.feedService = feedService;
 	}
+	
+	public QuestionService getQuestionService() {
+		return questionService;
+	}
 
+	public void setQuestionService(QuestionService questionService) {
+		this.questionService = questionService;
+	}
+	
 	public void addNewFriendNewsFeed(int userId,int friendId){
 		ZyNewsfeed feed = new ZyNewsfeed();
 		feed.setUserid(userId);
@@ -112,9 +124,21 @@ public class FeedFacadeImpl implements FeedFacade{
 		feedService.addNewsFeed(feed);
 	}
 	
-	public void addNewQuestionNewsFeed(int userId,int questionId){
+	public FeedBean addNewQuestionNewsFeed(int userId,int questionId, String question){
 		ZyNewsfeed feed = new ZyNewsfeed();
+		feed.setUserid(userId);
+		feed.setReferenceid(questionId);
+		feed.setBody(question);
+		feed.setHandle("sns.publish.question");
+		feed.setCreated(new Date());
 		feedService.addNewsFeed(feed);
+		FeedBean feedBean = new FeedBean();
+		ZyQuestion zyQuestion = questionService.getQuestionById(questionId);
+		List<ZyAnsweroption> options = questionService.getOptionsByQuestion(questionId);
+		feedBean.setQuestion(zyQuestion);
+		feedBean.setOptions(options);
+		feedBean.setFeed(feed);
+		return feedBean;
 	}
 	
 	public void addNewAnswerNewsFeed(int userId,int answerId){
@@ -170,6 +194,14 @@ public class FeedFacadeImpl implements FeedFacade{
 				int photoId = Integer.valueOf(feedService.getFeedById(id).getBody());
 				bean.setPhoto(photoService.getPhoto(photoId));
 				bean.setFriend(profileService.findProfileById(feedService.getFeedById(id).getUserid()));
+			}
+			
+			if(feeds.get(i).getHandle().equals("sns.publish.question")) {
+				int questionId = feeds.get(i).getReferenceid();
+				ZyQuestion question = questionService.getQuestionById(questionId);
+				List<ZyAnsweroption> options = questionService.getOptionsByQuestion(questionId);
+				bean.setQuestion(question);
+				bean.setOptions(options);
 			}
 			
 			List<ZyNewsfeedcomment> comments = feedService.getCommentsByFeedId(bean.getFeed().getId());
