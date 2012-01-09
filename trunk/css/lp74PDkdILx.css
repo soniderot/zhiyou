@@ -357,3 +357,25 @@ background-position:-140px -423px;
 height:13px;
 width:9px;
 }
+.webComposerQuestion{padding:4px}
+.webComposerQuestion .questionSpacingRow{height:8px}
+.webComposerQuestion .questionSectionBorder{border-top:1px solid #ccc;margin-bottom:-8px}
+.webComposerQuestion .questionSectionLabel{position:relative;left:20px;top:-8px;background-color:#fff}
+.webComposerQuestion .optionLabel{vertical-align:baseline;padding-right:10px}
+.webComposerQuestionTypeaheadView{width:375px}
+.webComposerQuestion .optionTypeahead{margin-top:8px;margin-left:26px;width:90%}
+.uiMetaComposer .webComposerQuestion{min-height:48px;padding:0}
+.uiMetaComposer .questionInput{border:0;font-size: 14px;margin:0;min-height:36px;outline:none;padding:0;resize:none;width:100%}
+.uiMetaComposer .webComposerQuestion .uiTypeahead{border-color:#e6e6e6;border-width:1px 0 0}
+.uiMetaComposer .webComposerQuestion .uiTypeahead .wrap{border:0}
+.uiMetaComposer .addPollOptionsLink{color:#777}
+
+#bootloader_j2_FM { height: 42px; }
+.uiTypeahead {
+background:#FFFFFF none repeat scroll 0 0;
+border-color:#BDC7D8;
+border-style:solid;
+border-width:1px 0;
+cursor:default;
+position:relative;
+}
