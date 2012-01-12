@@ -5,6 +5,7 @@
 
 <package name="zy-default" namespace="/usr" extends="zy-global">
 	<action name="landing" class="com.zy.action.profile.LandingAction">
+	<interceptor-ref name="loginDefaultStack"/>
 		<result name="public.welcome" >/WEB-INF/jsp/public/landing.jsp</result>
 		<result name="member.welcome" type="tiles" >tiles.login.welcome</result>
 	</action>
@@ -38,6 +39,10 @@
 	<action name="login" class="com.zy.action.profile.LoginAction">
 		<result name="login.welcome" type="tiles">tiles.login.welcome</result>
 		<result name="login.fail" >/WEB-INF/jsp/public/login.jsp</result>
+	</action>
+	
+	<action name="forgetPass" class="com.zy.action.profile.ForgetPassAction">
+		<result name="forgetpass" >/WEB-INF/jsp/public/forgetpass.jsp</result>
 	</action>
 	
 	<action name="header" class="com.zy.action.profile.MemberAction">

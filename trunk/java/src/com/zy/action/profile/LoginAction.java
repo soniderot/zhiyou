@@ -3,11 +3,16 @@ package com.zy.action.profile;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.servlet.http.Cookie;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.zy.Constants;
 import com.zy.action.interceptor.AuthorityInterceptor;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
+import com.zy.common.util.CookieUtil;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.SNSFacade;
@@ -22,7 +27,15 @@ public class LoginAction extends MemberAction{
 	private SNSFacade snsFacade;
 	private FeedFacade feedFacade;
 	
+	private boolean rememberMe;
+	
 
+	public boolean isRememberMe() {
+		return rememberMe;
+	}
+	public void setRememberMe(boolean rememberMe) {
+		this.rememberMe = rememberMe;
+	}
 	public FeedFacade getFeedFacade() {
 		return feedFacade;
 	}
@@ -76,6 +89,14 @@ public class LoginAction extends MemberAction{
 			}else{
 				ActionContext.getContext().getSession().put("userlogo",user.getAvatar());
 			}
+			
+			
+			if (rememberMe) {
+				Cookie cookie=CookieUtil.addUserToCookie(user.getEmail()+ "," + user.getPasswd(),rememberMe);
+				cookie.setMaxAge(60 * 60 * 24 * 365);
+				ServletActionContext.getResponse().addCookie(cookie);
+			}
+			
 			
 			user.setLastlogintime(new Date());
 			if(user.getToken()==null||user.getToken().trim().length()==0){
