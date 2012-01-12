@@ -14,4 +14,5 @@ public interface ProfileFacade {
 	public ZyProfile findProfileByToken(String token);
 	public void verifyEmail_tx(String link);
 	
+	public void sendForgetPassEmail_tx(int userId,String passwd);
 }

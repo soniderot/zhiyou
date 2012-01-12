@@ -17,7 +17,7 @@
 			</interceptor-stack>
 	</interceptors>
 	<global-results>
-		<result name="login" type="redirect">/usr/login.jhtml</result>
+		<result name="landing" >/WEB-INF/jsp/public/landing.jsp</result>
 	</global-results>
 </package>
 </struts>

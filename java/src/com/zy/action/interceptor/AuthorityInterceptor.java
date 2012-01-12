@@ -6,16 +6,31 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.StrutsStatics;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 import com.zy.Constants;
+import com.zy.common.model.ZyProfile;
+import com.zy.common.util.ActionUtil;
+import com.zy.common.util.CookieUtil;
+import com.zy.facade.ProfileFacade;
 
 public class AuthorityInterceptor extends AbstractInterceptor{
 	public static final String GOING_TO_URL_KEY = "GOING_TO";
 	
+	private ProfileFacade profileFacade;
+	
+	public ProfileFacade getProfileFacade() {
+		return profileFacade;
+	}
+
+	public void setProfileFacade(ProfileFacade profileFacade) {
+		this.profileFacade = profileFacade;
+	}
+
 	public String intercept(ActionInvocation invocation) throws Exception {
 		String[] menuSelect = new String[10];
 		for(int i=0;i<10;i++){
@@ -59,7 +74,30 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 			return invocation.invoke();
 		}else{
 			setGoingToURL(session, invocation);
-			return "login";
+			String value = CookieUtil.getCookie(request);
+			if (StringUtils.isNotBlank(value)) {
+				String[] split = value.split(",");
+				String email = split[0];
+				String password = split[1];
+				
+				ZyProfile user = profileFacade.checkProfileLogin(email, password);
+				
+				if(user!=null){
+					if(user.getAvatar()==null||user.getAvatar().equalsIgnoreCase("/images/DEFAULT.JPG")||user.getAvatar().equalsIgnoreCase("//images/DEFAULT.JPG")){
+						ActionContext.getContext().getSession().put("userlogo",null);
+					}else{
+						ActionContext.getContext().getSession().put("userlogo",user.getAvatar());
+					}
+					ActionContext.getContext().getSession().put(Constants.USER_SESSION_KEY, user);
+				    ActionContext.getContext().getSession().put(Constants.USERID_SESSION_KEY, user.getUserid());		    
+				    String url = (String)ActionContext.getContext().getSession().get(AuthorityInterceptor.GOING_TO_URL_KEY);
+				    System.out.println("url-------------------"+url);
+				    ActionUtil.getResponse().sendRedirect(url);
+				    return null;
+				}
+			}
+			
+			return "landing";
 		}
 	}
 	

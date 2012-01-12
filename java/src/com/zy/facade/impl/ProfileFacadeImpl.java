@@ -110,4 +110,19 @@ public class ProfileFacadeImpl implements ProfileFacade {
 			profileService.updateProfile(profile);
 		}
 	}
+	
+	public void sendForgetPassEmail_tx(int userId,String passwd){
+		ZyProfile profile = profileService.findProfileById(userId);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("receiverName", profile.getUsername());
+		//map.put("link", this.generateInviteLink(userId));
+		//map.put("country", "china");
+		map.put("profile",profile);
+		map.put("password", passwd);
+		map.put("domainname", Constants.DOMAINNAME);
+		//String link = mailqueueService.generateEmailverifyLink(profile);
+		
+		mailqueueService.sendFormatEmail_tx("no_reply@zy.com","知友网",profile.getEmail(),profile.getUsername(),
+				  "重置知友密码", "zy_forgetpass",map , true);
+	}
 }
