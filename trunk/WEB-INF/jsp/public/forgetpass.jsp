@@ -35,56 +35,49 @@
             <div class="clearfix uiHeaderTop">
               <div class="uiHeaderActions rfloat"></div>
               <div>
-                <h2 class="uiHeaderTitle">知友 登录</h2>
+                <h2 class="uiHeaderTitle">知友</h2>
               </div>
             </div>
           </div>
           <div class="phl ptm uiInterstitialContent">
             <div class="login_form_container">
-              <s:form action="/usr/login.jhtml" method="post" id="login_form">
-              <input type="hidden" name="token" value="${token}" />
-                <input type="hidden" name="charset_test" value="&euro;,&acute;,€,′,水,Д,?" />
-                <input type="hidden" name="lsd" value="_9Sn9" autocomplete="off" />
+              <s:form action="/usr/forgetPass.jhtml" method="post" id="login_form">
                 <div id="error" class="UIMessageBox UIMessageBoxError">
-                  <h2 class="main_message" id="standard_error">请重新输入你的密码</h2>
-                  <p class="sub_message" id="standard_explanation">
-                    <p>你输入的密码不正确。请再试一次（确保你的大写锁定是关闭的）。</p>
-                    <p>忘记密码了？ <a href="/recover.php?email_or_phone=mk-k%40163.com">请输入一个新的密码。</a></p>
-                  </p>
+                  <h2 class="main_message" id="standard_error">请输入你的注册邮箱</h2>
+                 
                 </div>
                 <div id="loginform" style="">
                   
                   
                   <div class="form_row clearfix ">
-                    <label for="email" id="label_email" class="login_form_label">用户名：</label>
+                    <label for="email" id="label_email" class="login_form_label">邮箱地址：</label>
                     <s:textfield name="email" cssClass="inputtext"  />
-                    
                   </div>
-                  <div class="form_row clearfix ">
-                    <label for="pass" id="label_pass" class="login_form_label">密码：</label>
-                    <s:password name="password" cssClass="inputpassword"  />
-                  </div>
-                  <div class="persistent">
-                    <div class="uiInputLabel" id="persist_label">
-                      <input id="persist_box" type="checkbox" value="true"  name="rememberMe" class="uiInputLabelCheckbox" />
-                      <label for="persist_box">保持在登录状态</label>
-                    </div>
-                  </div>
+                 
+                  
                   <input type="hidden" autocomplete="off" id="default_persistent" name="default_persistent" value="1" />
                   <div id="buttons" class="form_row clearfix">
                     <label class="login_form_label"></label>
                     <div id="login_button_inline">
                       <label class="uiButton uiButtonConfirm uiButtonLarge" for="uvjo9s_1">
-                        <input value="登录" name="login" onclick="" type="submit" id="uvjo9s_1" />
+                        <input value="发送密码" name="login" onclick="" type="submit" id="uvjo9s_1" />
                       </label>
                     </div>
+                    <s:if test="errorFlag==true">
                     <div id="register_link">
-                      或者<strong><a href="/usr/landing.jhtml?token=${token}" target="_blank" rel="nofollow" id="reg_btn_link" tabindex="-1">注册</a></strong>
+                      <font color=red><strong>邮箱不存在</strong></font>
                     </div>
+                    </s:if>
+                    <s:else>
+                    	 <s:if test="email!=null">
+                    	 <div id="register_link">
+                      <font color=red><strong>密码已经发送到邮箱中</strong></font>
+                    </div>
+                    	</s:if>
+                 		</s:else>
                   </div>
-                  <p class="reset_password form_row">
-                    <a href="usr/forgetPass.jhtml" target="" tabindex="-1">忘记密码了？</a>
-                  </p>
+                
+                  
                 </div>
               </s:form>
             </div>

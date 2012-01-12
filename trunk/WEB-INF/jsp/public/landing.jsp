@@ -35,13 +35,13 @@
                   <tr>
                     <td class="login_form_label_field">
                       <div class="uiInputLabel" id="persist_label">
-                        <input id="persist_box" type="checkbox" name="persistent" value="1" tabindex="3" class="uiInputLabelCheckbox" />
+                        <input id="persist_box" type="checkbox" name="rememberMe" value="true" tabindex="3" class="uiInputLabelCheckbox" />
                         <label for="persist_box">保持在登录状态</label>
                       </div>
                       <input type="hidden" name="default_persistent" value="0" />
                     </td>
                     <td class="login_form_label_field">
-                      <a href="#" rel="nofollow">忘记密码了？</a>
+                      <a href="usr/forgetPass.jhtml" rel="nofollow">忘记密码了？</a>
                     </td>
                   </tr>
                 </table>
