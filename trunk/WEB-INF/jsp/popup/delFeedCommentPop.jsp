@@ -1,10 +1,7 @@
 <%@page pageEncoding="utf-8"%>
 <script type="text/javascript">
-$(function(){
-  $("#dialog_delFeedCmt").hide();
-});
-
 function hidePopup(dialog) {
+  $("#" + dialog).addClass("hidden_elem");
   $("#" + dialog).hide();
 }
 function showPopup(dialog) {
