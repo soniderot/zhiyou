@@ -364,4 +364,5 @@ public class FeedFacadeImpl implements FeedFacade{
 		bean.setUser(profileService.findProfileById(feed.getUserid()));
 		return bean;
 	}
+	
 }
