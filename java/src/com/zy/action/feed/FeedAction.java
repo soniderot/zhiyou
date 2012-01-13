@@ -31,12 +31,16 @@ import com.zy.facade.FeedFacade;
 import com.zy.facade.PhotoFacade;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.QuestionFacade;
+import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
+import com.zy.facade.vo.EventVO;
+import com.zy.facade.vo.QuestionVO;
 
 public class FeedAction extends ActionSupport{
 	private FeedFacade feedFacade;
 	private ProfileFacade profileFacade;
 	private QuestionFacade questionFacade;
+	private RequestFacade requestFacade;
 	private SNSFacade snsFacade;
 	private List<FeedBean> feeds;
 	
@@ -67,7 +71,86 @@ public class FeedAction extends ActionSupport{
 	private Page page;
 	
 	private String eventId;
+	private List<ZyProfile> friends;
+	private int questionId;
+	private List<QuestionVO> askedFriends;
+	private String invitees;
+	private String fromPage;
+	private boolean optionAddAble;
+	private String optionText;
+	private ZyAnsweroption answerOption;
+
+	public ZyAnsweroption getAnswerOption() {
+		return answerOption;
+	}
+
+	public void setAnswerOption(ZyAnsweroption answerOption) {
+		this.answerOption = answerOption;
+	}
 	
+	public String getOptionText() {
+		return optionText;
+	}
+
+	public void setOptionText(String optionText) {
+		this.optionText = optionText;
+	}
+
+	public boolean isOptionAddAble() {
+		return optionAddAble;
+	}
+
+	public void setOptionAddAble(boolean optionAddAble) {
+		this.optionAddAble = optionAddAble;
+	}
+
+	public String getFromPage() {
+		return fromPage;
+	}
+
+	public void setFromPage(String fromPage) {
+		this.fromPage = fromPage;
+	}
+
+	public String getInvitees() {
+		return invitees;
+	}
+
+	public RequestFacade getRequestFacade() {
+		return requestFacade;
+	}
+
+	public void setRequestFacade(RequestFacade requestFacade) {
+		this.requestFacade = requestFacade;
+	}
+	
+	public void setInvitees(String invitees) {
+		this.invitees = invitees;
+	}
+
+	public List<QuestionVO> getAskedFriends() {
+		return askedFriends;
+	}
+
+	public void setAskedFriends(List<QuestionVO> askedFriends) {
+		this.askedFriends = askedFriends;
+	}
+
+	public int getQuestionId() {
+		return questionId;
+	}
+
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
+	}
+
+	public List<ZyProfile> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(List<ZyProfile> friends) {
+		this.friends = friends;
+	}
 
 	public String getEventId() {
 		return eventId;
@@ -337,6 +420,7 @@ public class FeedAction extends ActionSupport{
 			
 			ZyQuestion zyQuestion = new ZyQuestion();
 			zyQuestion.setSummary(question);
+			zyQuestion.setOptionaddable(optionAddAble);
 			zyQuestion.setUserid(ActionUtil.getSessionUserId());
 			if (newOptions.size() > 0) {
 				zyQuestion.setType(Constants.QUESTION_TYPE_OPTIONS);
@@ -367,6 +451,9 @@ public class FeedAction extends ActionSupport{
 		user = profileFacade.findProfileById(comment.getUserid());
 		
 		System.out.println("--------before return------------");
+		if ("questionDetail".equals(fromPage)) {
+			return "question.addfeedcomment.ajax";
+		}
 		return "member.addfeedcomment.ajax";
 	}
 	
@@ -428,11 +515,49 @@ public class FeedAction extends ActionSupport{
 	    response.setCharacterEncoding("UTF-8");
 	    PrintWriter out = response.getWriter();
 	    out.print(hot);
-	    out.flush();    
+	    out.flush();
 	    out.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+	
+	public String askFriendsAjax() {
+		askedFriends = questionFacade.getAskedFriends(ActionUtil.getSessionUserId(), questionId);
+		return "ask.friends.ajax";
+	}
+	
+	public String inviteFriendsAjax() {
+		String result = "false";
+		String message = ActionUtil.getRequest().getParameter("inviteMessage");
+		if(invitees != null && invitees.length() > 0){
+			String[] array = invitees.split(" ");
+			for(int i = 0; i < array.length; i++){
+				requestFacade.sendRequest_tx(ActionUtil.getSessionUserId(), Integer.valueOf(array[i]), (short)16, questionId, message, null);
+			}
+			result = "true";
+		}
+    try {
+      HttpServletResponse response = ServletActionContext.getResponse();
+      response.setCharacterEncoding("UTF-8");
+      PrintWriter out = response.getWriter();
+      out.print(result);
+      out.flush();    
+      out.close();    
+    } catch (Exception e) {  
+      e.printStackTrace();    
+    }
+		return null;
+	}
+
+	public String addQuestionOptionAjax() {
+		answerOption = new ZyAnsweroption();
+		answerOption.setQuestionid(questionId);
+		answerOption.setSummary(optionText);
+		answerOption.setHot(0);
+		questionFacade.addAnsweroption(answerOption);
+		return "member.addOption.ajax";
+	}
+	
 }
