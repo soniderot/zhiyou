@@ -17,8 +17,16 @@ public class ZyQuestion implements java.io.Serializable {
 	private Date createtime;
 	private Short type;
 	private Integer userid;
-
+	private Boolean optionaddable;
 	// Constructors
+
+	public Boolean getOptionaddable() {
+		return optionaddable;
+	}
+
+	public void setOptionaddable(Boolean optionaddable) {
+		this.optionaddable = optionaddable;
+	}
 
 	/** default constructor */
 	public ZyQuestion() {
