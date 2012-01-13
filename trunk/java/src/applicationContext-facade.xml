@@ -81,6 +81,10 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	
 	<bean name="questionFacade" class="com.zy.facade.impl.QuestionFacadeImpl"  >
 		<property name="questionService" ref="questionService"/>
+		<property name="snsService" ref="snsService"/>
+		<property name="requestService" ref="requestService"/>
+		<property name="profileService" ref="profileService"/>
+		<property name="feedService" ref="feedService"/>
 	</bean>
 
 </beans>

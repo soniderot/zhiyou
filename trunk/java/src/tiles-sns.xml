@@ -57,4 +57,14 @@
 	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
 </definition>
 
+<definition name="tiles.sns.question.detail" template="/WEB-INF/jsp/layout/3colbase.jsp" >
+	<put-attribute name="css" value="/WEB-INF/jsp/common/css.jsp"/>
+	<put-attribute name="head" value="/usr/header.jhtml"/>
+	<put-attribute name="left" value="/WEB-INF/jsp/member/left.jsp"/>
+	<put-attribute name="right" value="/sns/sns!listPeopleYouMayKnow.jhtml"/>
+	<put-attribute name="headline" value="/WEB-INF/jsp/member/question/headline.jsp"/>
+	<put-attribute name="center" value="/WEB-INF/jsp/member/question/questionDetail.jsp"/>
+	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
+</definition>
+
 </tiles-definitions>
