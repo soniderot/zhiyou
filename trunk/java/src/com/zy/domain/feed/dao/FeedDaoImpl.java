@@ -111,4 +111,13 @@ public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements Fe
 		// LogUtil.info(hql);
 		return this.loadByPagenation(hql, pageNo, pageSize);
 	}
+
+	@Override
+	public ZyNewsfeed getFeedByReferenceId(int referenceId) {
+		String hql = "from ZyNewsfeed where referenceid=?";
+		List<ZyNewsfeed> list = this.loadTopRows(hql, 1, new Object[] {referenceId});
+		if (list.size() == 1)
+			return list.get(0);
+		return null;
+	}
 }
