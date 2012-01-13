@@ -97,6 +97,8 @@ public class UploadAction {
 			System.out.println("str: " + str);
 			ZyProfile profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
 			profile.setAvatar(str);
+			
+			ActionContext.getContext().getSession().put("userlogo",profile.getAvatar());
 			profileFacade.updateProfile(profile);
 	    out.print("<script>parent.submitPhotoCallback('" + str + "')</script>");
 	    out.flush();

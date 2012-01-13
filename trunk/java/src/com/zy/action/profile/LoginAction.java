@@ -117,6 +117,7 @@ public class LoginAction extends MemberAction{
 		    
 		    if(ActionContext.getContext().getSession().get(AuthorityInterceptor.GOING_TO_URL_KEY)!=null){
 		    	String url = (String)ActionContext.getContext().getSession().get(AuthorityInterceptor.GOING_TO_URL_KEY);
+		    	System.out.println("going to url----------"+url);
 		    	try{
 		    		ActionUtil.getResponse().sendRedirect(url);
 		    		return NONE;

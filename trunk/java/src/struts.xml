@@ -17,7 +17,7 @@
 			</interceptor-stack>
 	</interceptors>
 	<global-results>
-		<result name="landing" >/WEB-INF/jsp/public/landing.jsp</result>
+		<result name="to.landing" >/WEB-INF/jsp/public/landing.jsp</result>
 	</global-results>
 </package>
 </struts>

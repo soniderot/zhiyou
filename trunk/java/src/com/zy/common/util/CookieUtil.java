@@ -43,6 +43,7 @@ public class CookieUtil {
 			cookie.setMaxAge(COOKIE_MAXAGE_365D);
 		else
 			cookie.setMaxAge(COOKIE_MAXAGE_6H);
+		cookie.setPath("/");
 		return cookie;
 	}
 	

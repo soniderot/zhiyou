@@ -32,13 +32,14 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 	}
 
 	public String intercept(ActionInvocation invocation) throws Exception {
+		
 		String[] menuSelect = new String[10];
 		for(int i=0;i<10;i++){
 			menuSelect[i] = "";
 		}
 		ActionContext actionContext = invocation.getInvocationContext();
 		HttpServletRequest request = (HttpServletRequest) actionContext.get(StrutsStatics.HTTP_REQUEST);
-		
+		System.out.println("----------request.uri----"+request.getRequestURI());
 		if(request.getRequestURI().indexOf("landing")>0){
 			System.out.println("-------------------into landing-----------");
 			menuSelect[0] = "selectedItem open";
@@ -75,7 +76,9 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 		}else{
 			setGoingToURL(session, invocation);
 			String value = CookieUtil.getCookie(request);
+			System.out.println("cookievalue--------"+value);
 			if (StringUtils.isNotBlank(value)) {
+				System.out.println("------------collectcookie-----------");
 				String[] split = value.split(",");
 				String email = split[0];
 				String password = split[1];
@@ -96,8 +99,8 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 				    return null;
 				}
 			}
-			
-			return "landing";
+			//setGoingToURL(session, invocation);
+			return "to.landing";
 		}
 	}
 	
@@ -119,6 +122,7 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 			url = url + "?" + paramlinks.substring(0, paramlinks.lastIndexOf("&"));
 		}
 		session.put(GOING_TO_URL_KEY, url);
+		System.out.println("urlinsession=="+url);
 	}
 
 	public void init() {
