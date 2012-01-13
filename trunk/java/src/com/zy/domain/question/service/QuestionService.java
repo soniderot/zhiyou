@@ -16,4 +16,6 @@ public interface QuestionService {
 	public void updateAnsweroption(ZyAnsweroption answerOption);
 	public void addAnswer(ZyAnswer answer);
 	public void removeAnswer(int answerId);
+	public List<ZyAnswer> getOptionUsers(int optionId);
+	public List<ZyAnswer> getAnswersByQuestion(int questionId);
 }
