@@ -7,6 +7,7 @@ $(function(){
 
 function hidePopup(dialog) {
   $("#" + dialog).hide();
+  $("#" + dialog).addClass("hidden_elem");
 }
 function showPopup(dialog) {
   $("#" + dialog).show();
