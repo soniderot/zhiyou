@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.zy.common.model.ZyAnswer;
 import com.zy.common.model.ZyAnsweroption;
+import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyQuestion;
 import com.zy.domain.question.dao.AnswerDao;
 import com.zy.domain.question.dao.AnswerOptionDao;
@@ -81,6 +82,17 @@ public class QuestionServiceImpl implements QuestionService{
 	public void removeAnswer(int answerId) {
 		answerDao.deleteByKey(answerId);
 		
+	}
+
+	@Override
+	public List<ZyAnswer> getOptionUsers(int optionId) {
+		return answerDao.getOptionUsers(optionId);
+	}
+
+	@Override
+	public List<ZyAnswer> getAnswersByQuestion(int questionId) {
+		// TODO Auto-generated method stub
+		return answerDao.getAnswersByquestion(questionId);
 	}
 
 }
