@@ -5,7 +5,6 @@
 
 <package name="zy-default" namespace="/usr" extends="zy-global">
 	<action name="landing" class="com.zy.action.profile.LandingAction">
-	<interceptor-ref name="loginDefaultStack"/>
 		<result name="public.welcome" >/WEB-INF/jsp/public/landing.jsp</result>
 		<result name="member.welcome" type="tiles" >tiles.login.welcome</result>
 	</action>

@@ -2,6 +2,8 @@ package com.zy.common.model;
 
 import java.util.Date;
 
+import com.zy.common.util.DateUtil;
+
 /**
  * ZyProfile entity.
  * 
@@ -46,9 +48,22 @@ public class ZyProfile implements java.io.Serializable {
 
 	private String token;
 	
+	private int age;
+	
 	
 	
 	// Constructors
+
+	public int getAge() {
+		if(birthdate!=null){
+			return DateUtil.computeAge(birthdate);
+		}
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
 
 	public String getToken() {
 		return token;

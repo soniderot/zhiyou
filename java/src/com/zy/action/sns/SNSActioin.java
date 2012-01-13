@@ -232,7 +232,7 @@ public class SNSActioin extends ActionSupport{
 	public String removeFriend() {
 		snsFacade.removeFriend(ActionUtil.getSessionUserId(), friendId);
 		profiles = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)1);
-		return "friends.list";
+		return "to.friends.list";
 	}
 	
 	// user create a new sns group
