@@ -50,4 +50,5 @@ public interface FeedService {
 	//public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String content,Date beginDate,Date endDate);
 	
 	public List<ZyNewsfeed> getEventNewsFeed(String ids,int pageNo,int pageSize);
+	public ZyNewsfeed getFeedByReferenceId(int referenceId);
 }
