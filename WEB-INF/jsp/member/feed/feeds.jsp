@@ -48,9 +48,9 @@
       <div class="focus_target">
         <ul class="uiList uiListHorizontal clearfix uiComposerAttachments">
         	
-        		<s:if test="event!=null">
-        		<%@ include file="/WEB-INF/jsp/member/event/eventdetailhead.jsp"%>
-        	</s:if>
+          <s:if test="event!=null">
+          <%@ include file="/WEB-INF/jsp/member/event/eventdetailhead.jsp"%>
+          </s:if>
         	
           <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
             <span data-endpoint="/ajax/metacomposer/attachment/status/status.php" id="composerTourStart"
@@ -241,7 +241,11 @@
                   </ul>
                   <div>
                     <div class="pls textBlurb fsm fwn fcg">
-                      <a onclick="return addOptions();" rel="async" class="addPollOptionsLink">添加投票选项</a>
+                      <a onclick="return addOptions(this);" rel="async" class="addPollOptionsLink">添加投票选项</a>
+                      <label for="u1bkpn_32" class="uiCheckbox hidden_elem optionAddAble">
+                        <input type="checkbox" id="u1bkpn_32" name="optionAddAble" value="true" />
+                        <span>允许任何人添加选项</span>
+                      </label>
                     </div>
                     <div class="attachmentBarArea"></div>
                   </div>
@@ -299,7 +303,11 @@
                         </s:if>
                         <s:if test="feed.handle=='sns.share.text'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的评论</s:if>
                         <s:if test="feed.handle=='sns.share.photo'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的照片</s:if>
-                        <s:if test="feed.handle=='sns.publish.question'"><s:property value="feed.body"/></s:if>
+                        <s:if test="feed.handle=='sns.publish.question'">
+                          <a href="sns/question!viewQuestion.jhtml?questionId=<s:property value='feed.referenceid'/>">
+                            <s:property value="feed.body"/>
+                           </a>
+                        </s:if>
                       </div>
                       <s:if test="feed.handle=='sns.publish.text'||feed.handle=='sns.event.text'">
                         <span class="messageBody">
@@ -410,6 +418,15 @@
     $("#home_stream").prepend(data);
     if ("photo" == feedtype) {
       $("#submitBtn").parent().addClass("uiButtonDisabled");
+    } else if ("question" == feedtype) {
+      $("input[name='options']").each(function(){
+        $(this).val($(this).attr("placeholder"));
+      });
+      var question = $("input[name='question']").attr("placeholder");
+      $("input[name='question']").val(question);
+      $(".addPollOptionsLink").show();
+      $("#ue0994_29").hide();
+      $(".optionAddAble").addClass("hidden_elem");
     }
   }
   
@@ -460,8 +477,10 @@
   </s:else>
   return false;
   }
-  function addOptions() {
+  function addOptions(obj) {
+    $(obj).hide();
     $("#ue0994_29").show();
+    $(".optionAddAble").removeClass("hidden_elem");
     return false;
   }
 
@@ -484,9 +503,37 @@
      type: "GET",
      url: "usr/feed!voteOptionAjax.jhtml",
      dataType: 'text',
-     data: "optionId="+obj.value+"&checked="+obj.checked,
+     data: "optionId="+obj.value,
      success: function(data) {
-       $("#optionrow_" + obj.value).find(".fcg").html(data + " 票");
+       $("#optionrow_" + obj.value).find(".votecount").html(data + " 票");
+     }
+    });
+  }
+  function askFriends(questionId) {
+    $.ajax({
+     type: "GET",
+     url: "usr/feed!askFriendsAjax.jhtml",
+     dataType: 'html',
+     data: "questionId="+questionId,
+     success: function(data) {
+       $("body").append(data);
+     }
+    });
+  }
+  function addOption(questionId) {
+    var optionText = $("#optionText_" + questionId).val();
+    var holder = $("#optionText_" + questionId).attr("placeholder");
+    if (optionText == holder) {
+      return false;
+    }
+    $.ajax({
+     type: "GET",
+     url: "usr/feed!addQuestionOptionAjax.jhtml",
+     dataType: 'html',
+     data: "questionId=" + questionId + "&optionText=" + optionText,
+     success: function(data) {
+       $(".live_" + questionId).find(".fbEigenpollAddOption").before(data);
+       $("#optionText_" + questionId).val(holder);
      }
     });
   }

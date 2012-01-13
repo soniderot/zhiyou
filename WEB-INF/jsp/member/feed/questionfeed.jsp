@@ -3,64 +3,85 @@
 <div class="mvm uiStreamAttachments clearfix">
   <div class="clearfix">
     <div>
-      <form method="post" action="/ajax/questions/polls/save.php" id="question_<s:property value='question.id' />" rel="async">
-        <table cellspacing="0" cellpadding="1" class="pollOptions">
-          <tbody>
-            <s:iterator value="options">
-            <tr id="optionrow_<s:property value='id'/>" class="pollRow_<s:property value='id'/>">
-              <td class="pollRadioBtn">
-                <input type="checkbox" name="option_id" id="option_<s:property value='id'/>" class="mts" value="<s:property value='id'/>" onchange="voteOrUnvote(this)"/>
-              </td>
-              <td onclick="voteOption('<s:property value="id"/>')" class="pollResultsBar">
-                <div title="<s:property value='summary'/>" class="pas fbQuestionsPollResultsBar">
-                  <div class="label"><span class="fwb"><s:property value='summary' /></span></div>
-                  <div class="fbQuestionsPollClickTarget"></div>
-                  <div class="phs auxlabel"><span class="fwb fcg"><s:property value='hot' /> 票</span></div>
-                </div>
-              </td>
-              <td class="pollResultsFacepile">
-                <div class="uiFacepile uiFacepileSmall">
-                  <ul class="uiList uiListHorizontal clearfix"></ul>
-                </div>
-              </td>
-            </tr>
-            </s:iterator>
-          </tbody>
-        </table>
-      </form>
+      <div class="fbEigenpoll fbEigenpollFeed live_<s:property value='question.id' />">
+        <s:iterator value="options">
+        <div class="fbEigenpollRow clearfix">
+          <s:form method="post" action="#" cssClass="fbEigenpollForm fbEigenpollResults_167223450051505" rel="async">
+            <div class="uiFacepile fbEigenpollFacepile rfloat uiFacepileSmall">
+              <ul class="uiList uiListHorizontal clearfix"></ul>
+            </div>
+            <div class="fbEigenpollCheckbox lfloat">
+              <input type="checkbox" id="option_<s:property value='id'/>" value="<s:property value='id'/>" name="should_vote" onchange="voteOrUnvote(this)"/>
+            </div>
+            <div class="fbEigenpollResults" id="optionrow_<s:property value='id'/>">
+              <div title="<s:property value='summary' />" class="pas fbQuestionsPollResultsBar">
+                <div class="label"><span class="fwb"><s:property value='summary' /></span></div>
+                <div onclick="voteOption('<s:property value="id"/>')" class="fbQuestionsPollClickTarget"></div>
+                <div class="phs auxlabel"><span class="fwb fcg votecount"><s:property value='hot' /> 票</span></div>
+              </div>
+            </div>
+          </s:form>
+        </div>
+        </s:iterator>
+        <s:if test="question.optionaddable">
+        <div class="fbEigenpollAddOption">
+          <s:form method="post" action="/ajax/questions/eigenpolls/add_option.php" cssClass="focus_target child_was_focused" rel="async">
+            <table cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr>
+                  <td class="fbEigenpollTypeaheadTD">
+                    <div id="uxa0y2_<s:property value='question.id' />" class="uiTypeahead fbEigenpollTypeahead">
+                      <div class="wrap">
+                        <div class="innerWrap">
+                          <s:textfield id="optionText_%{question.id}" name="optionText" title="添加选项..." placeholder="添加选项..." maxlength="80" cssClass="inputtext textInput DOMControl_placeholder"/>
+                        </div>
+                        <i class="plus img sp_ayuesb sx_56af78"></i>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <label for="uxa0y2_<s:property value='question.id' />" class="fbEigenpollAddButton uiButton">
+                      <input type="button" id="uxa0y2_<s:property value='question.id' />" value="添加" onclick="addOption(<s:property value='question.id' />)"/>
+                    </label>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </s:form>
+        </div>
+        </s:if>
+      </div>
     </div>
   </div>
-  <div class="fsm fwn fcg"><span class="caption"></span>
+  <div class="fsm fwn fcg">
+    <span class="caption"></span>
     <div class="uiAttachmentDesc translationEligibleUserAttachmentMessage"></div>
   </div>
 </div>
 
 <s:form onsubmit="return commentSubmit(this);" action="usr/feed!addFeedComment.jhtml" method="post" cssClass="commentable_item autoexpand_mode collapsed_comments">
   <input type="hidden" name="feedId" value="<s:property value='feed.id' />" />
-  <span class="uiStreamFooter">
-    <span class="UIActionLinks UIActionLinks_bottom">
-      <label class="uiLinkButton comment_link" title="发表留言">
-        <input type="button" value="评论" onclick="return showComments(this);" />
-      </label> · 
-    </span>
   
-    <span class="UIActionLinks UIActionLinks_bottom">
-      <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
-      <label class="uiLinkButton comment_link" title="分享">
-        <a href="usr/feed!sharedFeed.jhtml?feedId=<s:property value="feed.id" />"><span class="fwn">分享</span> </a> 
-        <!--
-        <input type="button" value="分享" onclick="return;">
-        -->
-      </label> · 
-      </s:if >
-    </span>
-  
-    <span class="uiStreamSource">
-      <abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp">
-        <s:date name="feed.created" format="yyyy-MM-dd HH:mm" />
-      </abbr>
-    </span>
-  </span>
+  <div class="UIImageBlock clearfix uiStreamFooter">
+    <i class="UIImageBlock_Image UIImageBlock_ICON_Image img sp_7gl7wd sx_97759f"></i>
+    <div class="UIImageBlock_Content UIImageBlock_ICON_Content">
+      <span>
+        <span class="UIActionLinks UIActionLinks_bottom">
+          <a title="向指定的人们寻求答案" class="" onclick="return askFriends(<s:property value='feed.referenceid' />);">提问</a> · 
+        </span>
+        <span class="UIActionLinks UIActionLinks_bottom">
+          <label class="uiLinkButton comment_link" title="发表留言">
+            <input type="button" value="评论" onclick="return showComments(this);" />
+          </label> · 
+        </span>
+        <span class="uiStreamSource">
+          <abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp">
+            <s:date name="feed.created" format="yyyy-MM-dd HH:mm" />
+          </abbr>
+        </span>
+      </span>
+    </div>
+  </div>
 
   <div>
   <ul class="uiList uiUfi focus_target fbUfi">
