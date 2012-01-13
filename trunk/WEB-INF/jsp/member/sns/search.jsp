@@ -9,7 +9,7 @@
 					    <form  action="/sns/sns!search.jhtml" >
 					    	<input type="hidden" name="flag" value="1">
 					      <div class="mtm mrl detailedsearch_filter_loading_indicator_area">
-					      	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+					      	<img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
 					      </div>
 					      <div class="mbs pam clearfix uiBoxGray noborder">
 					        <table>
@@ -94,7 +94,7 @@
 					        <div class="UIImageBlock clearfix">
 					        
 					    
-					        <a class="UIImageBlock_Image UIImageBlock_ICON_Image" href="http://www.facebook.com/profile.php?id=100001842410813"  tabindex="-1" aria-hidden="true">
+					        <a class="UIImageBlock_Image UIImageBlock_ICON_Image" href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="userid"/>"  tabindex="-1" aria-hidden="true">
 								<img class="uiProfilePhoto uiProfilePhotoLarge" src="<s:property value="avatar"/>" alt="" >
 							</a>
 					        	
@@ -103,6 +103,7 @@
 					              <div class="rfloat">
 					                <div id="u9ikxu_28">
 					                  <div id="u9ikxu_29" class="FriendButton">
+					                  	
 					                    <label for="u9ikxu_30" class="FriendRequestAdd addButton uiButton">
 					                    	<i class="mrs img sp_ah6icc sx_070d6b"></i>
 					                    	<input type="button" id="u9ikxu_30" value="加为好友"/>
@@ -116,21 +117,24 @@
 					              </div>
 					              <div>
 					                <div class="instant_search_title fsl fwb fcb">
-					                	<a  href="http://www.facebook.com/profile.php?id=100001842410813" ><s:property value="username"/></a>
+					                	<a  href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="userid"/>" ><s:property value="username"/></a>
 					              	 
 					                </div>
 					                
 					                
+					                <div class="instant_search_title fsl fwb fcb">
+					                	<s:if test="gender==1">男</s:if><s:else>女</s:else>
+					              	 <s:if test="age>0">，<s:property value="age"/>岁</s:if>
+					                </div>
 					                
 					                <div class="fsm fwn fcg"></div>
 					              </div>
 					              
-					              
-					              
-					              
 					            </div>
 					            <div></div>
 					          </div>
+					          
+					          
 					        </div>
 					      </div>
 					    </div>
@@ -147,10 +151,10 @@
 <script>
 function topage(pageNo) {
 	<s:if test="gender>0">
-	location.href = "/sns/sns!search.jhtml?startAge=${startAge}&endAge=${endAge}&gender=${gender}&pageNo="+pageNo
+	location.href = "/sns/sns!search.jhtml?flag=1&startAge=${startAge}&endAge=${endAge}&gender=${gender}&pageNo="+pageNo
 	</s:if>
 	<s:else>
-	location.href = "/sns/sns!search.jhtml?startAge=${startAge}&endAge=${endAge}&pageNo="+pageNo
+	location.href = "/sns/sns!search.jhtml?flag=1&startAge=${startAge}&endAge=${endAge}&gender=0&pageNo="+pageNo
 	</s:else>
 	return false;
 }

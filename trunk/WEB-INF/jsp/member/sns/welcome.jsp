@@ -63,7 +63,7 @@
                             <a aria-hidden="true" tabindex="-1" href="/profile/profile!viewProfileInfo.jhtml?userid=${profile.userid}" class="UIImageBlock_Image UIImageBlock_MED_Image">
                             <div class="friendBrowserPhotoWrapper">
                               <div class="friendBrowserPhotoCrop">
-                                <img  alt="" src="${profile.avatar }" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgSmall img"/>
+                                <img  alt="" src="${profile.avatar }" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgScaleHeight img"/>
                               </div>
                             </div>
                             </a>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="friendBrowserContentAlignMiddle UIImageBlock_Content UIImageBlock_MED_Content">
                               <div class="fsl fwb fcb">
-                                <a data-hovercard="/ajax/hovercard/hovercard.php?id=1649024971" data-gt='{"engagement":{"eng_type":"1","eng_src":"1","eng_tid":"1649024971","eng_data":[]}}' href="/profile/profile!viewProfileInfo.jhtml?userid=${profile.userid}">${profile.username}</a>
+                                <a data-hovercard="#" data-gt='{"engagement":{"eng_type":"1","eng_src":"1","eng_tid":"1649024971","eng_data":[]}}' href="/profile/profile!viewProfileInfo.jhtml?userid=${profile.userid}">${profile.username}</a>
                               </div>
                               
                               <div class="fsm fwn fcg">
