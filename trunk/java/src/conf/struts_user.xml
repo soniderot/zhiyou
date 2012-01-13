@@ -70,11 +70,14 @@
 	</action>
 	
 	<action name="feed" class="com.zy.action.feed.FeedAction">
-	<interceptor-ref name="loginDefaultStack"/>
+		<interceptor-ref name="loginDefaultStack"/>
 		<result name="to.member.feeds" type="redirect">/usr/feed.jhtml</result>
 		<result name="member.feeds" type="tiles">tiles.feed.list</result>
 		<result name="member.addfeed.ajax">/WEB-INF/jsp/member/feed/addfeedajax.jsp</result>
 		<result name="member.addfeedcomment.ajax">/WEB-INF/jsp/member/feed/addfeedcommentajax.jsp</result>
+		<result name="question.addfeedcomment.ajax">/WEB-INF/jsp/member/feed/addquestioncommentajax.jsp</result>
+		<result name="ask.friends.ajax">/WEB-INF/jsp/popup/askFriendsPop.jsp</result>
+		<result name="member.addOption.ajax">/WEB-INF/jsp/member/feed/addQuestionOptionAjax.jsp</result>
 	</action>
 	
 	<action name="upload" class="com.zy.action.profile.UploadAction">

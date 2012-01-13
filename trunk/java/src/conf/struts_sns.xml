@@ -32,5 +32,10 @@
 		<result name="match.search.ajax">/WEB-INF/jsp/member/sns/matchAjax.jsp</result>
 	</action>
 	
+		
+	<action name="question" class="com.zy.action.question.QuestionAction">
+		<result name="question.detail" type="tiles">tiles.sns.question.detail</result>
+	</action>
+	
 </package>
 </struts>
