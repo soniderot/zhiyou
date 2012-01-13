@@ -8,7 +8,6 @@ import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyNewsfeedtype;
 import com.zy.common.util.DateUtil;
-import com.zy.domain.feed.bean.FeedBean;
 import com.zy.domain.feed.dao.FeedCommentDao;
 import com.zy.domain.feed.dao.FeedDao;
 import com.zy.domain.feed.dao.FeedTypeDao;
@@ -221,5 +220,10 @@ public class FeedServiceImpl implements FeedService{
 	
 	public List<ZyNewsfeed> getEventNewsFeed(String ids,int pageNo,int pageSize){
 		return this.newsFeedDao.getEventNewsFeed(ids, pageNo, pageSize);
+	}
+
+	@Override
+	public ZyNewsfeed getFeedByReferenceId(int referenceId) {
+		return this.newsFeedDao.getFeedByReferenceId(referenceId);
 	}
 }
