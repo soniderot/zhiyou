@@ -73,6 +73,7 @@ public class FeedAction extends ActionSupport{
 	private String eventId;
 	private List<ZyProfile> friends;
 	private int questionId;
+	private int optionId;
 	private List<QuestionVO> askedFriends;
 	private String invitees;
 	private String fromPage;
@@ -80,6 +81,14 @@ public class FeedAction extends ActionSupport{
 	private String optionText;
 	private ZyAnsweroption answerOption;
 
+	public int getOptionId() {
+		return optionId;
+	}
+
+	public void setOptionId(int optionId) {
+		this.optionId = optionId;
+	}
+	
 	public ZyAnsweroption getAnswerOption() {
 		return answerOption;
 	}
@@ -560,4 +569,9 @@ public class FeedAction extends ActionSupport{
 		return "member.addOption.ajax";
 	}
 	
+	public String getOptionUsersAjax() {
+		friends = questionFacade.getOptionUsers(optionId);
+		return "member.getOptionUsers.pop";
+	}
+
 }
