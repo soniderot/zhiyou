@@ -1,0 +1,1 @@
+alter table zy_question add column OPTIONADDABLE boolean default false;
