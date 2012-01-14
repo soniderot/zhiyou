@@ -5,6 +5,7 @@ import java.util.List;
 import com.zy.common.model.ZyAnswer;
 import com.zy.common.model.ZyAnsweroption;
 import com.zy.common.model.ZyNewsfeed;
+import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyQuestion;
 import com.zy.domain.feed.bean.CommentBean;
 import com.zy.facade.vo.AnswerVO;
@@ -27,4 +28,5 @@ public interface QuestionFacade {
 	public List<CommentBean> getQuestionComments(int questionId);
 	public ZyNewsfeed getFeedByReferenceId(int questionId);
 	public void addAnsweroption(ZyAnsweroption option);
+	public List<ZyProfile> getOptionUsers(int optionId);
 }
