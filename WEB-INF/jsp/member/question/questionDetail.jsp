@@ -176,7 +176,7 @@
       feedComment : form.feedComment.value,
       fromPage : from
     }, function (data) {
-      $(".mvm").prepend(data);
+      $(form).parent("li").after(data);
       form.feedComment.value = "";
     });
     return false;
