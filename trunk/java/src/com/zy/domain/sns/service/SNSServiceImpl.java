@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
-
 
 import com.zy.Constants;
 import com.zy.common.exception.GraphIsInitializingException;
@@ -15,10 +13,12 @@ import com.zy.common.model.ZyFriendDetail;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyFriendintroduce;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyRecommfriend;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.sns.dao.FollowDao;
 import com.zy.domain.sns.dao.FriendDao;
 import com.zy.domain.sns.dao.InviteByAddressDao;
+import com.zy.domain.sns.dao.RecommendUserDao;
 import com.zy.domain.sns.dao.SNSGroupDao;
 import com.zy.domain.sns.dao.SNSIntroduceDao;
 
@@ -31,6 +31,8 @@ public class SNSServiceImpl implements SNSService{
 	private SNSIntroduceDao zyIntroduceDao;
 	private ProfileService profileService;
 	private InviteByAddressDao inviteByAddressDao;
+	private RecommendUserDao recommendUserDao;
+	
 	
 	static{
 		try{
@@ -604,6 +606,20 @@ public class SNSServiceImpl implements SNSService{
         return zyFollowDao.isFollow(userId, followId);
     }
 
+    public List<ZyRecommfriend> getRecommendUsers(int userId,int pageNo, int pageSize){
+    	return recommendUserDao.getRecommendUsers(userId, pageNo, pageSize);
+    }
     
+    public void createRecommendUser(ZyRecommfriend friend){
+    	recommendUserDao.save(friend);
+    }
+
+	public RecommendUserDao getRecommendUserDao() {
+		return recommendUserDao;
+	}
+
+	public void setRecommendUserDao(RecommendUserDao recommendUserDao) {
+		this.recommendUserDao = recommendUserDao;
+	}
 
 }

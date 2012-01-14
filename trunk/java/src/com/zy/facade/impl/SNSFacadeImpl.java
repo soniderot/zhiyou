@@ -7,13 +7,14 @@ import java.util.UUID;
 
 import octazen.addressbook.Contact;
 
-
 import com.zy.Constants;
 import com.zy.common.model.ZyFollow;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyRecommfriend;
 import com.zy.common.util.ImportAddressUtil;
 import com.zy.domain.message.service.MailqueueService;
+import com.zy.domain.message.service.RequestService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.sns.service.SNSService;
 import com.zy.facade.SNSFacade;
@@ -22,8 +23,16 @@ public class SNSFacadeImpl implements SNSFacade{
 	private SNSService snsService;
 	private ProfileService profileService;
 	private MailqueueService mailqueueService;
+	private RequestService requestService;
 	
-	
+	public RequestService getRequestService() {
+		return requestService;
+	}
+
+	public void setRequestService(RequestService requestService) {
+		this.requestService = requestService;
+	}
+
 	public MailqueueService getMailqueueService() {
 		return mailqueueService;
 	}
@@ -138,7 +147,7 @@ public class SNSFacadeImpl implements SNSFacade{
 		return list;
 	}
 	
-	public List<ZyProfile> getProfilesYouMayKnow(long userId){
+	public List<ZyProfile> getProfilesYouMayKnow(int userId){
 		String userIds = ""+userId;
 		List<ZyProfile> list = new ArrayList<ZyProfile>();
 		/*
@@ -149,12 +158,27 @@ public class SNSFacadeImpl implements SNSFacade{
 		}*/
 		List<Integer> list1 = this.getAllFriendsByDegree((int)userId,(short)1);
 		List<Integer> list2 = this.getAllFriendsByDegree((int)userId,(short)2);
+		
+		
 		list1.addAll(list2);
 		for(int i=0;i<list1.size();i++){
 			userIds = userIds +","+list1.get(i);
 		}
 		System.out.println("userIds--------"+userIds);
-		return profileService.findProfileByPoint(userIds);
+		
+		List<ZyProfile> results =  profileService.findProfileByPoint(userIds);
+		
+		for(int i=0;i<results.size();i++){
+			if(requestService.getRequest(userId,results.get(i).getUserid(), Constants.INVITEFRIEND_REQ)!=null){
+				results.get(i).setRequestOutFlag(true);
+			}else{
+				if(requestService.getRequest(results.get(i).getUserid(),userId, Constants.INVITEFRIEND_REQ)!=null){
+					results.get(i).setRequestInFlag(true);
+				}
+			}
+		
+		}
+		return results;
 	}
 	
 	public String generateInviteLink(int userId) {
@@ -187,7 +211,13 @@ public class SNSFacadeImpl implements SNSFacade{
 		snsService.removeFollow(userId, targetId);
 	}
 	
+	public List<ZyRecommfriend> getRecommendUsers(int userId,int pageNo, int pageSize){
+		return snsService.getRecommendUsers(userId, pageNo, pageSize);
+	}
 	
+	public void createRecommendUser(ZyRecommfriend friend){
+		snsService.createRecommendUser(friend);
+	}
 	public static void main(String[] args){
 		System.out.println(UUID.randomUUID().toString());
 	}

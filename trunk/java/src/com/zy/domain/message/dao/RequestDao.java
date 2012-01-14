@@ -61,4 +61,8 @@ public interface RequestDao extends BaseDao<ZyRequest, Integer>{
 	public List<Integer> findAllNewRequestId(int userid, short eventkey);
 	
 	public List<ZyRequest> getRequest(int receiverid, short eventkey, int referenceid);
+	
+	public List<ZyRequest> getSameRequests(int senderid, int receiverid, short eventkey);
+
+	public List<ZyRequest> getRequests(int receiverId,short eventkey);
 }

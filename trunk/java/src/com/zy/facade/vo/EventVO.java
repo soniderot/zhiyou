@@ -14,8 +14,15 @@ public class EventVO {
 	private List<ZyProfile> members;
 	private boolean joined;
 	
+	private boolean expired;
 	
 	
+	public boolean isExpired() {
+		return expired;
+	}
+	public void setExpired(boolean expired) {
+		this.expired = expired;
+	}
 	public boolean isJoined() {
 		return joined;
 	}

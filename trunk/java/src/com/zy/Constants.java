@@ -26,6 +26,9 @@ public class Constants {
         }
     }
     
+    public final static short INVITEFRIEND_REQ =1 ;
+    public final static short INVITEEVENT_REQ = 5;
+    
 		public final static short MALEORFEMALE = 0;
 		public final static short MALE = 1;
 		public final static short FEMALE = 2;

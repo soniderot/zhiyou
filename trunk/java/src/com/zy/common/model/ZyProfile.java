@@ -50,9 +50,37 @@ public class ZyProfile implements java.io.Serializable {
 	
 	private int age;
 	
+	private boolean requestOutFlag;
 	
+	private boolean requestInFlag;
+	
+	private boolean friendFlag;
 	
 	// Constructors
+
+	public boolean isRequestOutFlag() {
+		return requestOutFlag;
+	}
+
+	public void setRequestOutFlag(boolean requestOutFlag) {
+		this.requestOutFlag = requestOutFlag;
+	}
+
+	public boolean isRequestInFlag() {
+		return requestInFlag;
+	}
+
+	public void setRequestInFlag(boolean requestInFlag) {
+		this.requestInFlag = requestInFlag;
+	}
+
+	public boolean isFriendFlag() {
+		return friendFlag;
+	}
+
+	public void setFriendFlag(boolean friendFlag) {
+		this.friendFlag = friendFlag;
+	}
 
 	public int getAge() {
 		if(birthdate!=null){

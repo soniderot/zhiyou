@@ -7,6 +7,7 @@ import com.zy.common.model.ZyFriendDetail;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyFriendintroduce;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyRecommfriend;
 
 
 public interface SNSService {
@@ -103,5 +104,7 @@ public interface SNSService {
 	//public int getCntFollowMe(int userId);
 	
 	//public String generateInviteLink(int userId);
-
+	
+	public List<ZyRecommfriend> getRecommendUsers(int userId,int pageNo, int pageSize);
+	public void createRecommendUser(ZyRecommfriend friend);
 }

@@ -2,19 +2,20 @@ package com.zy.facade.impl;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import com.zy.Constants;
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyQuestion;
 import com.zy.common.model.ZyRequest;
 import com.zy.domain.event.service.EventService;
 import com.zy.domain.message.bean.RequestBean;
 import com.zy.domain.message.service.MailqueueService;
 import com.zy.domain.message.service.RequestService;
 import com.zy.domain.profile.service.ProfileService;
+import com.zy.domain.question.service.QuestionService;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
@@ -28,6 +29,16 @@ public class RequestFacadeImpl implements RequestFacade{
 	private MailqueueService mailqueueService;
 	private ProfileService profileService;
 	
+	private QuestionService questionService;
+	
+	public QuestionService getQuestionService() {
+		return questionService;
+	}
+
+	public void setQuestionService(QuestionService questionService) {
+		this.questionService = questionService;
+	}
+
 	public ProfileService getProfileService() {
 		return profileService;
 	}
@@ -124,15 +135,35 @@ public class RequestFacadeImpl implements RequestFacade{
 		if(request.getEventkey()==1){//add friend
 			snsFacade.addFriend(request.getSenderid(),request.getReceiverid());
 			feedFacade.addNewFriendNewsFeed(request.getSenderid(),request.getReceiverid());
+			List<ZyRequest> requests = requestService.getSameRequests(request.getSenderid(),request.getReceiverid(),request.getEventkey());
+			for(int i=0;i<requests.size();i++){
+				requestService.approveRequest_tx(requests.get(i).getId());
+			}
+			requests = requestService.getSameRequests(request.getReceiverid(),request.getSenderid(),request.getEventkey());
+			for(int i=0;i<requests.size();i++){
+				requestService.approveRequest_tx(requests.get(i).getId());
+			}
 		}
 		if(request.getEventkey()==5){//join event
 			eventService.addMember(request.getReceiverid(),request.getReferenceid());
+			feedFacade.addAcceptEventInviteNewsFeed(request.getReceiverid(),request.getReferenceid());
+			List<ZyRequest> requests = requestService.getRequest(request.getReceiverid(),request.getEventkey(),request.getReferenceid());
+			for(int i=0;i<requests.size();i++){
+				requestService.approveRequest_tx(requests.get(i).getId());
+			}
 		}
 		return false;
 	}
 	
 	public boolean neglectRequest_tx(int id){
 		requestService.neglectRequest_tx(id);
+		ZyRequest request = requestService.getRequest(id);
+		if(request.getEventkey()==1){//add friend
+			List<ZyRequest> requests = requestService.getSameRequests(request.getSenderid(),request.getReceiverid(),request.getEventkey());
+			for(int i=0;i<requests.size();i++){
+				requestService.deleteRequest_tx(requests.get(i).getId());
+			}
+		}
 		return true;
 	}
 	
@@ -142,6 +173,11 @@ public class RequestFacadeImpl implements RequestFacade{
 			if(results.get(i).getRequest().getEventkey()==5){
 				ZyEvent event = eventService.getEvent(results.get(i).getRequest().getReferenceid());
 				results.get(i).setEvent(event);
+			}
+			
+			if(results.get(i).getRequest().getEventkey()==16){
+				ZyQuestion question = questionService.getQuestionById(results.get(i).getRequest().getReferenceid());
+				results.get(i).setQuestion(question);
 			}
 		}
 		return results;
@@ -162,4 +198,11 @@ public class RequestFacadeImpl implements RequestFacade{
 		return requestService.getRequest(receiverid, eventkey, referenceid);
 	}
 	
+	public ZyRequest getRequest(int senderid, int receiverid, short eventkey){
+		return requestService.getRequest(senderid, receiverid, eventkey);
+	}
+	
+	public List<ZyRequest> getRequests(int receiverId,short eventkey){
+		return requestService.getRequests(receiverId, eventkey);
+	}
 }

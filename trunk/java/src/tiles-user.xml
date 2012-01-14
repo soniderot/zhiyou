@@ -7,8 +7,6 @@
 	<put-attribute name="head" value="/usr/header.jhtml"/>
 	<put-attribute name="left" value="/WEB-INF/jsp/member/left.jsp"/>
 	
-	
-	
 	<put-attribute name="center" value="/sns/sns!listPeopleYouWantKnow.jhtml"/>
 	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
 </definition>

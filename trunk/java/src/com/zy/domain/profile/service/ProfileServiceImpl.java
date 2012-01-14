@@ -122,6 +122,7 @@ public class ProfileServiceImpl implements ProfileService {
 	}
 	
 	public void updateProfile(ZyProfile profile){
+		System.out.println("-------------inupdate.profile.userid---------"+profile.getUserid()+"-----------photo-----"+profile.getAvatar());
 		profileDao.update(profile);
 	}
 	
