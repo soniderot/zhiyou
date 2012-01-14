@@ -1,5 +1,5 @@
 ﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
-<li class="fbQuestionsReply ptm uiListItem uiListLight uiListVerticalItemBorder">
+<li class="fbQuestionsReply ptm uiListItem uiListLight uiListVerticalItemBorder comment_<s:property value='comment.id' />">
   <div class="UIImageBlock clearfix mvs">
     <a tabindex="-1" href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value='user.userid'/>" class="UIImageBlock_Image UIImageBlock_SMALL_Image">
       <img alt="" src="<s:property value='user.avatar'/>" class="uiProfilePhoto uiProfilePhotoLarge img"/>
