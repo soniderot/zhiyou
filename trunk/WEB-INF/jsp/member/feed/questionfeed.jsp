@@ -8,16 +8,34 @@
         <div class="fbEigenpollRow clearfix">
           <s:form method="post" action="#" cssClass="fbEigenpollForm fbEigenpollResults_167223450051505" rel="async">
             <div class="uiFacepile fbEigenpollFacepile rfloat uiFacepileSmall">
-              <ul class="uiList uiListHorizontal clearfix"></ul>
+              <ul class="uiList uiListHorizontal clearfix">
+                <s:iterator value="optionProfiles" status="rowstatus">
+                <s:if test="#rowstatus.index < 3">
+                <li class="uiFacepileItem uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
+                  <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value='userid'/>" class="link" title="">
+                    <img alt="" src="<s:property value='avatar'/>" class="uiProfilePhoto uiProfilePhotoSmall img"/>
+                  </a>
+                </li>
+                </s:if>
+                </s:iterator>
+                <s:if test="optionProfiles.size() > 0">
+                <li class="uiListItem  uiListHorizontalItemBorder uiListHorizontalItem uiFacepileItem fbFacepileItemMore fbFacepileItemMoreLow">
+                  <a class=fbFacepileItemMoreText title="" href="#" onclick="return showOptionUsers(<s:property value='option.id'/>);" rel="dialog">
+                    <i class="img sp_7oewf3 sx_3e7f3b"></i>
+                  </a>
+                </li>
+                </s:if>
+              </ul>
             </div>
             <div class="fbEigenpollCheckbox lfloat">
-              <input type="checkbox" id="option_<s:property value='id'/>" value="<s:property value='id'/>" name="should_vote" onchange="voteOrUnvote(this)"/>
+              <input type="checkbox" id="option_<s:property value='option.id'/>" value="<s:property value='option.id'/>" name="should_vote" <s:if test='selected'>checked="true"</s:if> onchange="voteOrUnvote(this)"/>
             </div>
-            <div class="fbEigenpollResults" id="optionrow_<s:property value='id'/>">
-              <div title="<s:property value='summary' />" class="pas fbQuestionsPollResultsBar">
-                <div class="label"><span class="fwb"><s:property value='summary' /></span></div>
-                <div onclick="voteOption('<s:property value="id"/>')" class="fbQuestionsPollClickTarget"></div>
-                <div class="phs auxlabel"><span class="fwb fcg votecount"><s:property value='hot' /> 票</span></div>
+            <div class="fbEigenpollResults" id="optionrow_<s:property value='option.id'/>">
+              <div title="<s:property value='option.summary' />" class="pas fbQuestionsPollResultsBar">
+                <div style="width: 100%;" class="<s:if test='selected'>shaded</s:if> full"></div>
+                <div class="label"><span class="fwb"><s:property value='option.summary' /></span></div>
+                <div onclick="voteOption('<s:property value="option.id"/>')" class="fbQuestionsPollClickTarget"></div>
+                <div class="phs auxlabel"><span class="fwb fcg votecount"><s:property value='option.hot' /> 票</span></div>
               </div>
             </div>
           </s:form>
