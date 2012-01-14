@@ -122,15 +122,36 @@
                                     <s:password name="emailPass" cssClass="inputtext ci_login" />
                                   </td>
                                 </tr>
+                                
+                                <s:if test="errorFlag==true">
                                 <tr>
                                   <th class="label"></th>
                                   <td class="data">
                                     <div>
+                                    	
+                                    	 <label for="ua7fzy_12">
+                                       <font color=red><strong>邮箱或者密码不正确</strong></font>
+                                      </label>
+                                    	
+                                      
+                                    </div>
+                                  </td>
+                                </tr>
+                                 </s:if>
+                                 
+                                <tr>
+                                  <th class="label"></th>
+                                  <td class="data">
+                                    <div>
+                                    	
+                                    	
+                                    	
                                       <label for="ua7fzy_12" class="uiButton uiButtonConfirm">
                                         <input type="submit" id="ua7fzy_12" value="搜索朋友" />
                                       </label>
+                                      
                                       <img height="11" width="16" alt=""
-                                        src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif"
+                                        src="images/GsNJNwuI-UM.gif"
                                         class="mts mls uiLoadingIndicatorAsync img" />
                                     </div>
                                   </td>
@@ -189,7 +210,7 @@
                    
                     <div
                       class="ci_module_header UIImageBlock_Content UIImageBlock_MED_Content fwb">
-                      sina
+                      SINA
                     </div>
                   </div>
                  

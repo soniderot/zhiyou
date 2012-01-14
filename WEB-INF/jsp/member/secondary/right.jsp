@@ -40,12 +40,23 @@ function sendFriendRequest(obj, userId) {
             		<img class="uiProfilePhoto uiProfilePhotoLarge img" src="<s:property value="avatar"/>" alt="">
             	</a>
               <div class="egoProfileTemplate UIImageBlock_Content UIImageBlock_SMALL_Content">
+              	<!--
               	<a class="ego_x uiCloseButton uiCloseButtonSmall" rel="async-post" href="#" title="删除"></a>
+              	-->
               	<a class="ego_title" href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="userid"/>"><s:property value="username"/></a>
                 <div class="ego_action">
-                	<a class="uiIconText" style="padding-left: 18px;" onclick="return sendFriendRequest(this, '${userid}');" rel="async-post">
-                	   <i class="img sp_9tlaa1 sx_598f42" style="top: 2px;"></i>加为好友
-                	</a>
+                	 <s:if test="requestOutFlag==true">   
+                        	好友请求已发送
+                        </s:if>   
+                        
+                         <s:elseif test="requestInFlag==true">   
+                         	好友请求已收到
+                        </s:elseif> 
+                        <s:else>
+                        <a rel="async-post" onclick="sendFriendRequest(this, '${userid}')" style="padding-left: 18px;" class="uiIconText">
+                          <i style="top: 2px;" class="img sp_6h8b4g sx_c4a0c4"></i>加为好友
+                        </a>
+                      </s:else>
                 </div>
               </div>
             </div>

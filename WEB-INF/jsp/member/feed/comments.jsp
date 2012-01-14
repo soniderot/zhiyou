@@ -1,16 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
-
 <div class="mvm uiStreamAttachments clearfix fbMainStreamAttachment">
-  <div>
-    <a title="<s:property value="photo.summary" />" class="uiPhotoThumb largePhoto">
-      <img   alt="" src="<s:property value="photo.filename" />" class="img">
-    </a>
-    <div class="fsm fwn fcg">
-      <span class="caption"></span>
-      <div class="uiAttachmentDesc translationEligibleUserAttachmentMessage"></div>
-    </div>
-  </div>
 </div>
 <s:form onsubmit="return commentSubmit(this);" action="usr/feed!addFeedComment.jhtml" method="post" cssClass="commentable_item autoexpand_mode collapsed_comments">
   <input type="hidden" name="feedId" value="<s:property value='feed.id' />" />
@@ -18,7 +8,7 @@
     <span class="UIActionLinks UIActionLinks_bottom">
       <label class="uiLinkButton comment_link" title="发表留言">
          <input type="button" value="评论<s:if test="comments.size()>0">(<s:property value='comments.size()' />)</s:if>" onclick="return showComments(this);">
-      </label> ·
+      </label> · 
     </span>
   
     <!--

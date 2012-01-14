@@ -39,7 +39,7 @@ function sendFriendRequest(obj, userId) {
                 <div class="phs">
                   
                   
-                  <s:iterator value="profiles">
+                   <s:iterator value="profiles">
                   <div class="UIImageBlock clearfix ego_unit">
                     <a aria-hidden="true" tabindex="-1" data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1372884330","eng_data":{"ego_service":"pymk","ego_pos":"4"}}}' href="/profile/profile!viewProfileInfo.jhtml?userid=${userid}" class="UIImageBlock_Image UIImageBlock_SMALL_Image">
                       <img alt="" src="${avatar }" class="uiProfilePhoto uiProfilePhotoLarge img"/>
@@ -47,9 +47,19 @@ function sendFriendRequest(obj, userId) {
                     <div class="egoProfileTemplate UIImageBlock_Content UIImageBlock_SMALL_Content">
                       <a data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1372884330","eng_data":{"ego_service":"pymk","ego_pos":"4"}}}' href="/profile/profile!viewProfileInfo.jhtml?userid=${userid}" class="ego_title">${username }</a>
                       <div class="ego_action">
+                        
+                        <s:if test="requestOutFlag==true">   
+                        	好友请求已发送
+                        </s:if>   
+                        
+                         <s:elseif test="requestInFlag==true">   
+                         	好友请求已收到
+                        </s:elseif> 
+                        <s:else>
                         <a rel="async-post" onclick="sendFriendRequest(this, '${userid}')" style="padding-left: 18px;" class="uiIconText">
                           <i style="top: 2px;" class="img sp_6h8b4g sx_c4a0c4"></i>加为好友
                         </a>
+                      </s:else>
                       </div>
                     </div>
                   </div>

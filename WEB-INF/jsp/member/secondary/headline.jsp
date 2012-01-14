@@ -48,17 +48,38 @@ function addFriendRequest(obj, userId) {
           <div id="ucyftu_4" class="FriendButton profileHeaderButton fStatusRequestable">
             <label for="ucyftu_5" class="FriendRequestAdd addButton uiButton">
               <i class="mrs img sp_ah6icc sx_070d6b"></i>
+              
+              <s:if test="friendFlag==false&&requestOutFlag==false&&requestInFlag==false">
               <input type="button" id="ucyftu_5" value="加为好友" onclick="showPopup('dialog_0', <s:property value="profile.userid"/>)" />
+            </s:if>
+            
+            <s:if test="friendFlag==true">
+            	<span class="uiButtonText">一度朋友</span>
+            </s:if>
+            
+             <s:if test="requestOutFlag==true">
+            	<span class="uiButtonText">朋友请求已传送。</span>
+            </s:if>
+            
+             <s:if test="requestInFlag==true">
+            	<span class="uiButtonText">朋友请求已收到。</span>
+            </s:if>
+            
             </label>
             <a href="#" role="button" class="FriendRequestOutgoing enableFriendListFlyout hidden_elem outgoingButton uiButton">
               <i class="mrs img sp_ah6icc sx_070d6b"></i>
               <span class="uiButtonText">朋友请求已传送。</span>
             </a>
           </div>
+          
+          
+           <s:if test="friendFlag==true">
           <a rel="" id="profile_action_send_message" href="usr/message!newMessage.jhtml?receiverId=<s:property value="profile.userid"/>" class="mls uiButton" onclick="return showPopup('dialog_send_msg',<s:property value='profile.userid'/>)">
             <i class="mrs img sp_ah6icc sx_5ecc8d"></i>
             <span class="uiButtonText">发信息</span>
           </a>
+          </s:if>
+          <!--
           <div class="uiSelector inlineBlock mls uiSelectorRight uiSelectorNormal">
             <div class="wrap">
               <a rel="toggle" data-length="30" aria-haspopup="1" href="#" role="button" class="uiSelectorButton uiButton uiButtonNoText">
@@ -77,7 +98,7 @@ function addFriendRequest(obj, userId) {
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
         </s:if>
         <div class="profileHeaderMain">
@@ -98,7 +119,7 @@ function addFriendRequest(obj, userId) {
           <span class="fbProfileBylineIconContainer">
             <i class="mrs fbProfileBylineIcon img sp_9brcjp sx_450ec4"></i>
           </span>
-          <span class="fbProfileBylineLabel"><s:date name="profile.birthdate" format="yyyy年MM月dd日" /></span>
+          <span class="fbProfileBylineLabel">年龄：<s:property value="profile.age"></s:property></span>
         </span>
         <s:if test="profile.userid == #session.user.userid">
           <a href="usr/update!basic.jhtml" class="fbProfileEditLink fbEditProfileLink">编辑个人主页</a>

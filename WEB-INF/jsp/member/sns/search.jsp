@@ -122,7 +122,7 @@
 					                </div>
 					                
 					                
-					                <div class="instant_search_title fsl fwb fcb">
+					                <div >
 					                	<s:if test="gender==1">男</s:if><s:else>女</s:else>
 					              	 <s:if test="age>0">，<s:property value="age"/>岁</s:if>
 					                </div>
