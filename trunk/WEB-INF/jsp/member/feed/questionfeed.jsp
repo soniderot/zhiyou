@@ -89,8 +89,8 @@
         </span>
         <span class="UIActionLinks UIActionLinks_bottom">
           <label class="uiLinkButton comment_link" title="发表留言">
-            <input type="button" value="评论" onclick="return showComments(this);" />
-          </label> · 
+         <input type="button" value="评论<s:if test="comments.size()>0">(<s:property value='comments.size()' />)</s:if>" onclick="return showComments(this);">
+      </label> ·
         </span>
         <span class="uiStreamSource">
           <abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp">

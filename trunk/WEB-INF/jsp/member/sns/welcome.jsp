@@ -73,7 +73,18 @@
                                   <div id="div_${profile.userid}" class="FriendButton">
                                     <label for="addFriendBtn_${profile.userid}" class="FriendRequestAdd addButton uiButton">
                                       <i class="mrs img sp_9bp6bo sx_35b899"></i>
-                                      <input type="button" id="addFriendBtn_${profile.userid}" value="加为好友" onclick="showPopup('dialog_0', ${profile.userid})"/>
+                                    
+                                      <s:if test="requestOutFlag==true">
+													            <span class="uiButtonText">朋友请求已传送。</span>
+													            </s:if>
+													            
+													             <s:elseif test="requestInFlag==true">
+													            	<span class="uiButtonText">朋友请求已收到。</span>
+													            </s:elseif>
+													            
+													            <s:else>
+													            	  <input type="button" id="addFriendBtn_${profile.userid}" value="加为好友" onclick="showPopup('dialog_0', ${profile.userid})"/>
+													            </s:else>
                                     </label>
                                     <a data-flloc="friend_browser_wd" data-profileid="1649024971" href="#" role="button" class="FriendRequestOutgoing enableFriendListFlyout hidden_elem outgoingButton uiButton">
                                       <i class="mrs img sp_9bp6bo sx_35b899"></i>

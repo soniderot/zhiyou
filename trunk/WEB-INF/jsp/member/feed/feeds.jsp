@@ -2,6 +2,10 @@
 <div role="main" id="contentArea">
   <div data-referrer="pagelet_roosters" id="pagelet_roosters"></div>
   <div data-referrer="pagelet_stream_header" id="pagelet_stream_header">
+  	<s:if test="userid>0">
+  	<%@ include file="/WEB-INF/jsp/member/feed/profilefeedhead.jsp"%>
+  	</s:if>
+  	<s:else>
     <div class="uiHeader uiHeaderWithImage uiHeaderPage  fbx_stream_header">
       <div class="clearfix uiHeaderTop">
         <div class="uiHeaderActions  rfloat fsl fwb fcb">
@@ -31,7 +35,7 @@
         <div>
           <h2 class="uiHeaderTitle">
             <s:if test="event==null">
-            <i class="uiHeaderImage  img  sp_7gl7wd  sx_efd21b"></i><s:if test="handle=='sns.publish.photo'">照片</s:if><s:else>动态</s:else>汇总
+            <i class="uiHeaderImage  img  sp_7gl7wd  sx_efd21b"></i><s:if test="handle=='sns.publish.photo,sns.event.photo'">照片</s:if><s:elseif test="handle=='sns.publish.question'">问题</s:elseif><s:else>动态</s:else>汇总
           	</s:if>
           	<s:else>
           		<i class="uiHeaderImage  img  sp_7gl7wd  sx_efd21b"></i>活动信息
@@ -257,7 +261,7 @@
       </div>
     </div>
   </div>
-  
+</s:else>
   <iframe style="width: 1px; height: 1px; position: absolute; top: -10000px;" name="u3jjus_1" class="fbUploadIframe"></iframe>
   <div id="pagelet_home_stream">
     <div id="c4ec37b3fc7e022d58174072" class="UIIntentionalStream UIStream">
@@ -303,7 +307,7 @@
                         </s:if>
                         <s:if test="feed.handle=='sns.share.text'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的评论</s:if>
                         <s:if test="feed.handle=='sns.share.photo'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的照片</s:if>
-                        <s:if test="feed.handle=='sns.publish.question'">
+                        <s:if test="feed.handle=='sns.publish.question'">发布了问题
                           <a href="sns/question!viewQuestion.jhtml?questionId=<s:property value='feed.referenceid'/>">
                             <s:property value="feed.body"/>
                            </a>
@@ -313,18 +317,26 @@
                         <span class="messageBody">
                           <s:property value="feed.body" />
                         </span>
+                        <%@ include file="/WEB-INF/jsp/member/feed/comments.jsp"%>
                       </s:if>
+                      
+                       <s:if test="feed.handle=='sns.share.connection'">
+                        
+                        <%@ include file="/WEB-INF/jsp/member/feed/comments.jsp"%>
+                      </s:if>
+                      
                       <s:if test="feed.handle=='sns.share.text'">
                         <span class="messageBody">
                           <s:property value="oldFeed.body" />
                         </span>
+                        <%@ include file="/WEB-INF/jsp/member/feed/comments.jsp"%>
                       </s:if>
                       
                     </h6>
                     <s:if test="(feed.handle=='sns.event.create')||(feed.handle=='sns.event.join')">
                       <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
                     </s:if>
-                     <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.share.photo')">
+                     <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.share.photo'||feed.handle=='sns.event.photo')">
                       <%@ include file="/WEB-INF/jsp/member/feed/photofeed.jsp"%>
                     </s:if>
                     <s:if test="(feed.handle=='sns.publish.question')">

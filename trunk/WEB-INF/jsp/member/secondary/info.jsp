@@ -102,7 +102,12 @@
                   <td class="data">
                     <ul class="uiList">
                       <li class="uiListItem uiListVerticalItemBorder">
+                      	<s:if test="friendFlag==true">   
                         <s:property value="profile.qq"/>
+                        	</s:if>
+                        	 <s:else>
+                      		一度朋友可见
+                       </s:else>
                       </li>
                     </ul>
                   </td>

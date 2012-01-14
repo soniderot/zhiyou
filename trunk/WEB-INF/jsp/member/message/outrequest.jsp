@@ -97,6 +97,10 @@
                                  			 <s:if test="request.eventkey==5">
                                         <span id="snippet_id.237791252950736"><s:property value="content"/><a title="dota" href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>"><s:property value="event.eventname"/></a>邀请</span>
                                  			</s:if>
+                                 			
+                                 			 <s:if test="request.eventkey==16">
+                                        <span id="snippet_id.237791252950736"><s:property value="content"/><a title="dota" href="sns/question!viewQuestion.jhtml?questionId=<s:property value="question.id"/>"><s:property value="question.summary"/></a>邀请</span>
+                                 			</s:if>
                                  </div>
                               </td>
                               

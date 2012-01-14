@@ -294,7 +294,7 @@
                         </li>
                         <li id="navItem_app_10150110253435258" class="sideNavItem stat_elem <s:property value="#session.menuSelect[9]"/>">
                          
-                          <a data-gt='{"bmid":"10150110253435258","count":"0","coeff2_info":"AascNaC5GNX94bXmRL8InEKxGm-39eQ5SfwNcUulSMDReSQ6rlnBwPOk7AFx62cEoqpRxf1oT7GtQr9FuMTffZXQ","coeff2_registry_key":"0016","coeff2_action":"3","rank":"5"}' title="" href="http://www.facebook.com/questions/friends/" class="item clearfix sortableItem" style="">
+                          <a data-gt='{"bmid":"10150110253435258","count":"0","coeff2_info":"AascNaC5GNX94bXmRL8InEKxGm-39eQ5SfwNcUulSMDReSQ6rlnBwPOk7AFx62cEoqpRxf1oT7GtQr9FuMTffZXQ","coeff2_registry_key":"0016","coeff2_action":"3","rank":"5"}' title="" href="usr/feed.jhtml?handle=sns.publish.question" class="item clearfix sortableItem" style="">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">

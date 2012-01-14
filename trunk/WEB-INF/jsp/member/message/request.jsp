@@ -67,6 +67,7 @@
                           <tbody>
                             <tr>
                               <td class="threadMainCol">
+                              	
                                 <a class="threadLink" href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="profile.userid"/>" rel="ignore">
                                   <div class="UIImageBlock clearfix pvs">
                                     <img class="uiProfilePhoto UIImageBlock_Image UIImageBlock_MED_Image uiProfilePhotoLarge img" src="<s:property value="profile.avatar"/>" alt="">
@@ -81,7 +82,7 @@
                                   </div>
                                   
                                 </a>
-                              
+                               
                               
                               
                               
@@ -97,19 +98,32 @@
                                  			 <s:if test="request.eventkey==5">
                                         <span id="snippet_id.237791252950736"><s:property value="content"/><a title="dota" href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>"><s:property value="event.eventname"/></a></span>
                                  			</s:if>
+                                 			
+                                 			  <s:if test="request.eventkey==16">
+                                        <span id="snippet_id.237791252950736"><s:property value="content"/><a title="dota" href="sns/question!viewQuestion.jhtml?questionId=<s:property value="question.id"/>"><s:property value="question.summary"/></a></span>
+                                 			</s:if>
                                  </div>
                               </td>
                               
                               
                               
                               <td class="plm">
-                                
+                                <s:if test="request.eventkey!=16">
                                 <a class="uiTooltip markAsUnreadLink" onmouseout="this.blur();" href="/usr/request!approveRequest.jhtml?requestId=<s:property value="request.id"/>"  rel="async-post">
                                   <span class="readState markunread"></span>
                                   <span class="uiTooltipWrap top right righttop">
                                     <span class="uiTooltipText">同意</span>
                                   </span>
                                 </a>
+                                </s:if>
+                                <s:else>
+                                	 <a class="uiTooltip markAsUnreadLink" onmouseout="this.blur();" href="sns/question!viewQuestion.jhtml?questionId=<s:property value="question.id"/>"  rel="async-post">
+                                  <span class="readState markunread"></span>
+                                  <span class="uiTooltipWrap top right righttop">
+                                    <span class="uiTooltipText">查看详细</span>
+                                  </span>
+                                </a>
+                              </s:else>
                               </td>
                               <td class="pls">
                                 <a class="uiTooltip archiveLink" onmouseout="this.blur();"  href="/usr/request!deleteRequest.jhtml?requestId=<s:property value="request.id"/>" rel="async-post">

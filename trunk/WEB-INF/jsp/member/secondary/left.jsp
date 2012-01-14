@@ -16,7 +16,7 @@
 					              <div class="buttonWrap"></div>
 					              <a href="profile/profile!viewProfileFeeds.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
 						              <div class="rfloat">
-						              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+						              	<img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
 						              </div>
 						              <div>
 						              	<span class="imgWrap"><i class="img sp_9tlaa1 sx_741547"></i></span>
@@ -28,7 +28,7 @@
 					              <div class="buttonWrap"></div>
 					              <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
 						              <div class="rfloat">
-						              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+						              	<img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
 						              </div>
 						              <div>
 						              	<span class="imgWrap"><i class="img sp_9tlaa1 sx_a88c8c"></i></span>
@@ -40,7 +40,7 @@
 					              <div class="buttonWrap"></div>
 					              <a href="photo/photo!getAlbum.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
 						              <div class="rfloat">
-						              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+						              	<img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
 						              </div>
 						              <div>
 						              	<span class="imgWrap"><i class="img sp_9tlaa1 sx_68f922"></i></span>
@@ -52,7 +52,7 @@
 					              <div class="buttonWrap"></div>
 					              <a href="profile/profile!viewProfileFriends.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
 						              <div class="rfloat">
-						              	<img height="11" width="16" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+						              	<img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
 						              </div>
 						              <div>
 						              	<span class="imgWrap"><i class="img sp_ah6icc sx_b23266"></i></span>

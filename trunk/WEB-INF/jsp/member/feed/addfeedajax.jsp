@@ -44,17 +44,19 @@
               <span class="messageBody">
                 <s:property value="feed.body" />
               </span>
+              <%@ include file="/WEB-INF/jsp/member/feed/comments.jsp"%>
             </s:if>
             <s:if test="feed.handle=='sns.share.text'">
               <span data-ft='{"type":3}' class="messageBody">
                 <s:property value="oldFeed.body" />
               </span>
+              <%@ include file="/WEB-INF/jsp/member/feed/comments.jsp"%>
             </s:if>
            </h6>
            <s:if test="feed.handle=='sns.event.create'">
              <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
            </s:if>
-           <s:if test="feed.handle=='sns.publish.photo'">
+          <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.share.photo'||feed.handle=='sns.event.photo')">
               <%@ include file="/WEB-INF/jsp/member/feed/photofeed.jsp"%>
            </s:if>
           <s:if test="(feed.handle=='sns.publish.question')">

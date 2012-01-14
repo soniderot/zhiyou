@@ -40,15 +40,21 @@
 					            	<a class="UIImageBlock_Image UIImageBlock_ENT_Image" href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />" tabindex="-1" aria-hidden="true"><img class="img" src="<s:property value="event.logo" />" alt=""></a>
 					              <div class="auxiliary UIImageBlock_Ext" id="req_251994978194505">
 					              
-					               <s:if test="(joined==true)"> 
-					                <div class="fsm fwn fcg">
-					                	<a href="event/event!quitEvent.jhtml?eventId=<s:property value="event.id" />" rel="async-post" ajaxify="/ajax/events/dashboard/join.php?eid=251994978194505">退出</a> · 
+					              <s:if test="(expired==true)"> 
+					              	<div class="fsm fwn fcg">
+					                	已结束 
 					                	
 					                </div>
-					             </s:if> 
+					              </s:if> 
+					               <s:elseif test="(joined==true)"> 
+					                <div class="fsm fwn fcg">
+					                	<a href="event/event!quitEvent.jhtml?eventId=<s:property value="event.id" />" rel="async-post" ajaxify="">退出</a> · 
+					                	
+					                </div>
+					             </s:elseif> 
 					             <s:else>
 					             		 <div class="fsm fwn fcg">
-					                	<a href="event/event!joinEvent.jhtml?eventId=<s:property value="event.id" />" rel="async-post" ajaxify="/ajax/events/dashboard/join.php?eid=251994978194505">加入</a> · 
+					                	<a href="event/event!joinEvent.jhtml?eventId=<s:property value="event.id" />" rel="async-post" ajaxify="">加入</a> · 
 					                	
 					                </div>
 					            </s:else>

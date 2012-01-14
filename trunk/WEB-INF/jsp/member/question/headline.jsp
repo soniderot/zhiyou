@@ -14,7 +14,7 @@
         </div>
       </div>
       <div>
-        <h2 class=uiHeaderTitle tabIndex=0>世界的尽头在什么时候出现?</h2>
+        <h2 class=uiHeaderTitle tabIndex=0><s:property value='questionVo.question.summary' /></h2>
       </div>
     </div>
   </div>

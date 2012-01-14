@@ -111,9 +111,8 @@
                         <label for="uydez6_1" class="uiButton uiButtonConfirm uiButtonLarge">
                           <input type="submit" id="uydez6_1" value="发送邀请"/>
                         </label>
-                        <label class="uiButton uiButtonConfirm uiButtonLarge" for="ur7504_29">
-                          <a href="sns/sns!getFriendsList.jhtml">跳过</a>
-                        </label>
+                        
+                       
                       </td>
                     </tr>
                   </tbody>
