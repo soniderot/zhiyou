@@ -2,25 +2,14 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <div role="main" id="contentArea">
   <div data-referrer="pagelet_question_answers" id="pagelet_question_answers">
-    <div class="mbl pbm fbQuestionsAnswers">
-      <form method="post" action="/ajax/questions/polls/save.php" id="question_poll3011255527261" class="live_3011255527261_130062803728786" rel="async">
-        <table cellspacing="0" cellpadding="1" class="pollOptions">
-          <tbody>
+    <div class="mvm uiStreamAttachments clearfix">
+      <div class="clearfix">
+        <div>
+          <div class="fbEigenpoll fbEigenpollFeed live_<s:property value='questionVo.question.id' />">
             <s:iterator value="questionVo.optionUsers">
-            <tr id="optionrow_<s:property value='option.id'/>" class="pollRow_318130211553990 fbOpinionPollHighlight">
-              <td class="pollRadioBtn">
-                <input type="checkbox" id="option_<s:property value='option.id'/>" class="mts" value="<s:property value='option.id'/>" name="option_id" onchange="voteOrUnvote(this)"/>
-              </td>
-              <td onclick="voteOption('<s:property value="option.id"/>')" class="pollResultsBar selectedPollOption">
-                <div title="2014" class="pas fbQuestionsPollResultsBar">
-                  <div style="<s:if test='selected'>width: 100%;</s:if>" class="shaded full"></div>
-                  <div class="label"><span class="fwb"><s:property value='option.summary'/></span></div>
-                  <div class="fbQuestionsPollClickTarget"></div>
-                  <div class="phs auxlabel"><span class="fwb fcg votecount"><s:property value='option.hot'/> 票</span></div>
-                </div>
-              </td>
-              <td style="" class="pollResultsFacepile">
-                <div class="uiFacepile uiFacepileSmall">
+            <div class="fbEigenpollRow clearfix">
+              <s:form method="post" action="#" cssClass="fbEigenpollForm fbEigenpollResults_167223450051505" rel="async">
+                <div class="uiFacepile fbEigenpollFacepile rfloat uiFacepileSmall">
                   <ul class="uiList uiListHorizontal clearfix">
                     <s:iterator value="optionProfiles" status="rowstatus">
                     <s:if test="#rowstatus.index < 3">
@@ -31,21 +20,66 @@
                     </li>
                     </s:if>
                     </s:iterator>
-                    <s:if test="optionProfiles.size()>3">
+                    <s:if test="optionProfiles.size() > 0">
                     <li class="uiListItem  uiListHorizontalItemBorder uiListHorizontalItem uiFacepileItem fbFacepileItemMore fbFacepileItemMoreLow">
-                      <a class=fbFacepileItemMoreText title="" href="/browse/option_voters/?option_id=318130211553990" rel="dialog">
+                      <a class=fbFacepileItemMoreText title="" href="#" onclick="return showOptionUsers(<s:property value='option.id'/>);" rel="dialog">
                         <i class="img sp_7oewf3 sx_3e7f3b"></i>
                       </a>
                     </li>
                     </s:if>
                   </ul>
                 </div>
-              </td>
-            </tr>
+                
+                <div class="fbEigenpollCheckbox lfloat">
+                  <input type="checkbox" id="option_<s:property value='option.id'/>" value="<s:property value='option.id'/>" name="should_vote" <s:if test='selected'>checked="true"</s:if> onchange="voteOrUnvote(this)"/>
+                </div>
+                <div class="fbEigenpollResults" id="optionrow_<s:property value='option.id'/>">
+                  <div title="<s:property value='option.summary' />" class="pas fbQuestionsPollResultsBar">
+                    <div style="width: 100%;" class="<s:if test='selected'>shaded</s:if> full"></div>
+                    <div class="label"><span class="fwb"><s:property value='option.summary' /></span></div>
+                    <div onclick="voteOption('<s:property value="option.id"/>')" class="fbQuestionsPollClickTarget"></div>
+                    <div class="phs auxlabel" id="optionrow_<s:property value='option.id'/>">
+                      <span class="fwb fcg votecount"><s:property value='option.hot' /> 票</span>
+                    </div>
+                  </div>
+                </div>
+              </s:form>
+            </div>
             </s:iterator>
-          </tbody>
-        </table>
-      </form>
+            <s:if test="questionVo.question.optionaddable">
+            <div class="fbEigenpollAddOption">
+              <s:form method="post" action="#" cssClass="focus_target child_was_focused" rel="async">
+                <table cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td class="fbEigenpollTypeaheadTD">
+                        <div id="uxa0y2_<s:property value='questionVo.question.id' />" class="uiTypeahead fbEigenpollTypeahead">
+                          <div class="wrap">
+                            <div class="innerWrap">
+                              <s:textfield id="optionText_%{questionVo.question.id}" name="optionText" title="添加选项..." placeholder="添加选项..." maxlength="80" cssClass="inputtext textInput DOMControl_placeholder"/>
+                            </div>
+                            <i class="plus img sp_ayuesb sx_56af78"></i>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <label for="uxa0y2_<s:property value='questionVo.question.id' />" class="fbEigenpollAddButton uiButton">
+                          <input type="button" id="uxa0y2_<s:property value='questionVo.question.id' />" value="添加" onclick="addOption(<s:property value='questionVo.question.id' />)"/>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </s:form>
+            </div>
+            </s:if>
+          </div>
+        </div>
+      </div>
+      <div class="fsm fwn fcg">
+        <span class="caption"></span>
+        <div class="uiAttachmentDesc translationEligibleUserAttachmentMessage"></div>
+      </div>
     </div>
   </div>
   <div id="pagelet_question_replies">
@@ -107,6 +141,7 @@
     $("#option_" + obj).click();
   }
   function voteOrUnvote(obj) {
+    obj.checked
     $.ajax({
      type: "GET",
      url: "usr/feed!voteOptionAjax.jhtml",
@@ -114,6 +149,11 @@
      data: "optionId="+obj.value,
      success: function(data) {
        $("#optionrow_" + obj.value).find(".votecount").html(data + " 票");
+       if (obj.checked) {
+          $("#optionrow_" + obj.value).find(".full").addClass("shaded");
+       } else {
+          $("#optionrow_" + obj.value).find(".full").removeClass("shaded");
+       }
      }
     });
   }
@@ -152,6 +192,38 @@
        $("body").append(data);
      }
     });
+  }
+  
+  function addOption(questionId) {
+    var optionText = $("#optionText_" + questionId).val();
+    var holder = $("#optionText_" + questionId).attr("placeholder");
+    if (optionText == holder) {
+      return false;
+    }
+    $.ajax({
+     type: "GET",
+     url: "usr/feed!addQuestionOptionAjax.jhtml",
+     dataType: 'html',
+     data: "questionId=" + questionId + "&optionText=" + optionText,
+     success: function(data) {
+       $(".live_" + questionId).find(".fbEigenpollAddOption").before(data);
+       $("#optionText_" + questionId).val(holder);
+     }
+    });
+  }
+  
+    
+  function showOptionUsers(optionId) {
+    $.ajax({
+     type: "GET",
+     url: "usr/feed!getOptionUsersAjax.jhtml",
+     dataType: 'html',
+     data: "optionId=" + optionId,
+     success: function(data) {
+       $("body").append(data);
+     }
+    });
+    return false;
   }
 </script>
 <%@ include file="/WEB-INF/jsp/popup/delFeedCommentPop.jsp"%>
