@@ -6,10 +6,12 @@ import java.util.List;
 
 import com.zy.Constants;
 import com.zy.common.model.ZyAlbum;
+import com.zy.common.model.ZyAnswer;
 import com.zy.common.model.ZyAnsweroption;
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyPhoto;
+import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyQuestion;
 import com.zy.common.util.ActionUtil;
 import com.zy.domain.event.service.EventService;
@@ -20,6 +22,7 @@ import com.zy.domain.photo.service.PhotoService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.question.service.QuestionService;
 import com.zy.facade.FeedFacade;
+import com.zy.facade.vo.OptionVO;
 
 public class FeedFacadeImpl implements FeedFacade{
 	private FeedService feedService;
@@ -136,7 +139,14 @@ public class FeedFacadeImpl implements FeedFacade{
 		ZyQuestion zyQuestion = questionService.getQuestionById(questionId);
 		List<ZyAnsweroption> options = questionService.getOptionsByQuestion(questionId);
 		feedBean.setQuestion(zyQuestion);
-		feedBean.setOptions(options);
+		List<OptionVO> optionList = new ArrayList<OptionVO>();
+		for (int i = 0; i < options.size(); i++) {
+			ZyAnsweroption option = options.get(i);
+			OptionVO optionVo = new OptionVO();
+			optionVo.setOption(option);
+			optionList.add(optionVo);
+		}
+		feedBean.setOptions(optionList);
 		feedBean.setFeed(feed);
 		feedBean.setUser(profileService.findProfileById(userId));
 		return feedBean;
@@ -201,8 +211,29 @@ public class FeedFacadeImpl implements FeedFacade{
 				int questionId = feeds.get(i).getReferenceid();
 				ZyQuestion question = questionService.getQuestionById(questionId);
 				List<ZyAnsweroption> options = questionService.getOptionsByQuestion(questionId);
+				List<OptionVO> optionVos = new ArrayList<OptionVO>();
+				for (int j = 0; j < options.size(); j++) {
+					ZyAnsweroption option = options.get(j);
+					List<ZyAnswer> answers = questionService.getOptionUsers(option.getId());
+					List<ZyProfile> profiles = new ArrayList<ZyProfile>();
+					boolean selected = false;
+					for (int k = 0; k < answers.size(); k++) {
+						ZyAnswer answer = answers.get(k);
+						ZyProfile profile = profileService.findProfileById(answer.getUserid());
+						profiles.add(profile);
+						if (profile.getUserid() == ActionUtil.getSessionUserId()) {
+							selected = true;
+						}
+					}
+					OptionVO optionVo = new OptionVO();
+					optionVo.setOption(option);
+					optionVo.setSelected(selected);
+					optionVo.setOptionProfiles(profiles);
+					optionVos.add(optionVo);
+				}
+				
 				bean.setQuestion(question);
-				bean.setOptions(options);
+				bean.setOptions(optionVos);
 			}
 			
 			List<ZyNewsfeedcomment> comments = feedService.getCommentsByFeedId(bean.getFeed().getId());

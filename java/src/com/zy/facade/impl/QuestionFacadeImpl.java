@@ -231,4 +231,16 @@ public class QuestionFacadeImpl implements QuestionFacade {
 		questionService.addAnswerOption(option);
 	}
 
+	@Override
+	public List<ZyProfile> getOptionUsers(int optionId) {
+		List<ZyAnswer> answers = questionService.getOptionUsers(optionId);
+		List<ZyProfile> profiles = new ArrayList<ZyProfile>();
+		for (int j = 0; j < answers.size(); j++) {
+			ZyAnswer answer = answers.get(j);
+			ZyProfile profile = profileService.findProfileById(answer.getUserid());
+			profiles.add(profile);
+		}
+		return profiles;
+	}
+
 }
