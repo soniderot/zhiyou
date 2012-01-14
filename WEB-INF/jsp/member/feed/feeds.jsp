@@ -506,6 +506,11 @@
      data: "optionId="+obj.value,
      success: function(data) {
        $("#optionrow_" + obj.value).find(".votecount").html(data + " 票");
+       if (obj.checked) {
+          $("#optionrow_" + obj.value).find(".full").addClass("shaded");
+       } else {
+          $("#optionrow_" + obj.value).find(".full").removeClass("shaded");
+       }
      }
     });
   }
@@ -536,6 +541,19 @@
        $("#optionText_" + questionId).val(holder);
      }
     });
+  }
+  
+  function showOptionUsers(optionId) {
+    $.ajax({
+     type: "GET",
+     url: "usr/feed!getOptionUsersAjax.jhtml",
+     dataType: 'html',
+     data: "optionId=" + optionId,
+     success: function(data) {
+       $("body").append(data);
+     }
+    });
+    return false;
   }
 </script>
 
