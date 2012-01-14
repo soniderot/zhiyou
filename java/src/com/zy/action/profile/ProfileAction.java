@@ -2,17 +2,21 @@ package com.zy.action.profile;
 
 import java.util.List;
 
+import com.zy.Constants;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyRequest;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.Page;
 import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.ProfileFacade;
+import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
 
 public class ProfileAction {
 	private int userid;
 	private ProfileFacade profileFacade;
+	private RequestFacade requestFacade;
 	private ZyProfile profile;
 	private List<ZyProfile> friends;
 	private List<ZyProfile> profiles;
@@ -30,6 +34,33 @@ public class ProfileAction {
 	
 	private String token;
 	
+	private boolean requestOutFlag;
+	
+	private boolean requestInFlag;
+
+	public RequestFacade getRequestFacade() {
+		return requestFacade;
+	}
+
+	public void setRequestFacade(RequestFacade requestFacade) {
+		this.requestFacade = requestFacade;
+	}
+
+	public boolean isRequestOutFlag() {
+		return requestOutFlag;
+	}
+
+	public void setRequestOutFlag(boolean requestOutFlag) {
+		this.requestOutFlag = requestOutFlag;
+	}
+
+	public boolean isRequestInFlag() {
+		return requestInFlag;
+	}
+
+	public void setRequestInFlag(boolean requestInFlag) {
+		this.requestInFlag = requestInFlag;
+	}
 
 	public String getToken() {
 		return token;
@@ -142,14 +173,9 @@ public class ProfileAction {
 	public void setProfileFacade(ProfileFacade profileFacade) {
 		this.profileFacade = profileFacade;
 	}
-
-	public String viewProfileInfo(){
-		profile = profileFacade.findProfileById(userid);
+	
+	private void setFriendRequestFlag(){
 		friends = snsFacade.getAllFriends(userid,0,(short)1);
-		
-		profiles = snsFacade.getProfilesYouMayKnow(userid);
-		viewType[1] = "selectedItem open";
-		
 		if(userid==ActionUtil.getSessionUserId()){
 			friendFlag = true;
 		}
@@ -161,17 +187,42 @@ public class ProfileAction {
 			}
 		}
 		
+		if(friendFlag==true){
+			return;
+		}
+		ZyRequest request = requestFacade.getRequest(ActionUtil.getSessionUserId(),userid,Constants.INVITEFRIEND_REQ);
+		if(request!=null){
+			this.requestOutFlag = true;
+			return;
+		}else{
+			request = requestFacade.getRequest(userid,ActionUtil.getSessionUserId(),Constants.INVITEFRIEND_REQ);
+			if(request!=null){
+				this.requestInFlag = true;
+			}
+			return;
+		}
+	}
+
+	public String viewProfileInfo(){
+		profile = profileFacade.findProfileById(userid);
+		friends = snsFacade.getAllFriends(userid,0,(short)1);
+		
+		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		viewType[1] = "selectedItem open";
+		setFriendRequestFlag();
 		return "profile.info";
 	}
 	
 	public String viewProfilePhoto(){
+		setFriendRequestFlag();
 		return "profile.photo";
 	}
 	
 	public String viewProfileFeeds(){
+		setFriendRequestFlag();
 		feeds = feedFacade.getNewsFeed(""+userid,null,pageNo,pageSize);
 		profile = profileFacade.findProfileById(userid);
-		profiles = snsFacade.getProfilesYouMayKnow(userid);
+		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 		viewType[0] = "selectedItem open";
 		int count = feedFacade.getNewsFeed(""+userid,null,1,Integer.MAX_VALUE).size();
 		page = new Page(count,pageNo,10,5);
@@ -179,10 +230,11 @@ public class ProfileAction {
 	}
 	
 	public String viewProfileFriends(){
+		setFriendRequestFlag();
 		profile = profileFacade.findProfileById(userid);
 		friends = snsFacade.getAllFriends(userid,0,(short)1);
 		
-		profiles = snsFacade.getProfilesYouMayKnow(userid);
+		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 		viewType[3] = "selectedItem open";
 		
 		int count = friends.size();

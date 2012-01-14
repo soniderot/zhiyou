@@ -1,6 +1,7 @@
 package com.zy.facade.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.zy.common.model.ZyEvent;
@@ -89,6 +90,12 @@ public class EventFacadeImpl implements EventFacade{
 			list.get(i).setProfile(profileService.findProfileById(list.get(i).getMember().getUserid()));
 			List<ZyProfile> profiles = this.getEventMembers(list.get(i).getEvent().getId());
 			list.get(i).setMembers(profiles);
+			
+			if(list.get(i).getEvent().getEndtime()!=null){
+				if(list.get(i).getEvent().getEndtime().before(new Date())){
+					list.get(i).setExpired(true);
+				}
+			}
 			for(int m=0;m<profiles.size();m++){
 				if(profiles.get(m).getUserid()==userId){
 					list.get(i).setJoined(true);

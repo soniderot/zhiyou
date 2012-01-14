@@ -41,4 +41,6 @@
 <bean id="answerOptionDao" class="com.zy.domain.question.dao.AnswerOptionDaoImpl" parent="baseDao" />
 <bean id="questionDao" class="com.zy.domain.question.dao.QuestionDaoImpl" parent="baseDao" />
 <bean id="answerDao" class="com.zy.domain.question.dao.AnswerDaoImpl" parent="baseDao" />
+
+<bean id="recommendUserDao" class="com.zy.domain.sns.dao.RecommendUserDaoImpl" parent="baseDao" />
 </beans>

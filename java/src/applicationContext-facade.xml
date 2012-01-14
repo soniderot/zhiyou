@@ -22,6 +22,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="profileService" ref="profileService"/>
 		<property name="snsService" ref="snsService"/>
 		<property name="mailqueueService" ref="mailqueueService"/>
+		<property name="requestService" ref="requestService"/>
 	</bean>
 	
 	<bean name="requestFacade" class="com.zy.facade.impl.RequestFacadeImpl"  >
@@ -31,6 +32,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="eventService" ref="eventService"/>
 		<property name="profileService" ref="profileService"/>
 		<property name="mailqueueService" ref="mailqueueService"/>
+		<property name="questionService" ref="questionService"/>
 	</bean>
 	
 	<bean name="notifyFacade" class="com.zy.facade.impl.NotifyFacadeImpl"  >

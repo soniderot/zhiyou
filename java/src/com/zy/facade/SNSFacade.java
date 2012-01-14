@@ -6,6 +6,7 @@ import octazen.addressbook.Contact;
 
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyRecommfriend;
 
 public interface SNSFacade {
 	public void addFriend(int userId,int friendId);
@@ -34,10 +35,13 @@ public interface SNSFacade {
 	
 	public List<Contact> importAddressBook(int userId, String email, String password);
 	
-	public List<ZyProfile> getProfilesYouMayKnow(long userId);
+	public List<ZyProfile> getProfilesYouMayKnow(int userId);
 	
 	public String generateInviteLink(int userId);
 	
 	public void inviteUser(int userId,String friendEmail,String friendName);
 	
+	public List<ZyRecommfriend> getRecommendUsers(int userId,int pageNo, int pageSize);
+	
+	public void createRecommendUser(ZyRecommfriend friend);
 }

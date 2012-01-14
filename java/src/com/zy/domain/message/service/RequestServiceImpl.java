@@ -27,6 +27,7 @@ public class RequestServiceImpl implements RequestService {
 	private ZyRequesttype r1 = null;
 	private ZyRequesttype r2 = null;
 	private ZyRequesttype r5 = null;
+	private ZyRequesttype r16 = null;
 
 	public RequestDao getRequestDao() {
 		return requestDao;
@@ -70,6 +71,8 @@ public class RequestServiceImpl implements RequestService {
 				r2 = requesttype;
 			} else if (requesttype.getEventkey() == 5) {
 				r5 = requesttype;
+			} else if (requesttype.getEventkey() == 16) {
+				r16 = requesttype;
 			}
 		}
 	}
@@ -103,6 +106,12 @@ public class RequestServiceImpl implements RequestService {
 				bean.setProfile(user);
 				
 				bean.setContent(MessageFormat.format(r5.getTemplate(),user.getUserid(),user.getUsername()));
+			}
+			
+			if(request.getEventkey()==16){
+				ZyProfile user = profileService.findProfileById(request.getSenderid());
+				bean.setProfile(user);
+				bean.setContent(MessageFormat.format(r16.getTemplate(),user.getUserid(),user.getUsername()));
 			}
 
 			requestBean.add(bean);
@@ -139,6 +148,13 @@ public class RequestServiceImpl implements RequestService {
 				bean.setProfile(user);
 				
 				bean.setContent(MessageFormat.format(r5.getTemplate2(),user.getUserid(),user.getUsername()));
+			}
+			
+			if (request.getEventkey() == 16) {
+				ZyProfile user = profileService.findProfileById(request.getReceiverid());
+				bean.setProfile(user);
+				
+				bean.setContent(MessageFormat.format(r16.getTemplate2(),user.getUserid(),user.getUsername()));
 			}
 
 			requestBean.add(bean);
@@ -329,5 +345,18 @@ public class RequestServiceImpl implements RequestService {
 	
 	public List<ZyRequest> getRequest(int receiverid, short eventkey, int referenceid){
 		return this.requestDao.getRequest(receiverid, eventkey, referenceid);
+	}
+	
+	public List<ZyRequest> getSameRequests(int senderid, int receiverid, short eventkey){
+		return this.requestDao.getSameRequests(senderid, receiverid, eventkey);
+	}
+	
+	
+	public List<ZyRequest> getSameRequests(int senderid, int receiverid, short eventkey,int referenceid){
+		return this.requestDao.getSameRequests(senderid, receiverid, eventkey);
+	}
+	
+	public List<ZyRequest> getRequests(int receiverId,short eventkey){
+		return this.requestDao.getRequests(receiverId, eventkey);
 	}
 }

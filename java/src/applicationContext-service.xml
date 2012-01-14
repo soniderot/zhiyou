@@ -14,6 +14,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="zyIntroduceDao" ref="zyIntroduceDao"/>
 		<property name="inviteByAddressDao" ref="inviteByAddressDao"/>
 		<property name="profileService" ref="profileService"/>
+		<property name="recommendUserDao" ref="recommendUserDao"/>
 	</bean>
 	
 	<bean name="requestService" class="com.zy.domain.message.service.RequestServiceImpl">

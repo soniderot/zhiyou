@@ -7,6 +7,7 @@ import org.apache.commons.lang.StringUtils;
 
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyQuestion;
 import com.zy.common.model.ZyRequest;
 import com.zy.common.model.ZyRequesttype;
 import com.zy.common.util.HtmlUtil;
@@ -26,7 +27,16 @@ public class RequestBean {
 	private String requestNote;
 	
 	private ZyEvent event;
+	private ZyQuestion question;
 	
+	public ZyQuestion getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(ZyQuestion question) {
+		this.question = question;
+	}
+
 	public ZyEvent getEvent() {
 		return event;
 	}

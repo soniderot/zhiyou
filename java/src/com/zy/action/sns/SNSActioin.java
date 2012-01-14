@@ -7,11 +7,14 @@ import java.util.List;
 import octazen.addressbook.Contact;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.zy.Constants;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyRequest;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.Page;
 import com.zy.facade.ProfileFacade;
+import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
 import com.zy.facade.SearchFacade;
 import com.zy.facade.vo.ProfileVO;
@@ -52,7 +55,26 @@ public class SNSActioin extends ActionSupport{
 	private String[] emails;
 	private String[] names;
 	
- 	public String[] getEmails() {
+	private RequestFacade requestFacade;
+	private boolean errorFlag;
+	
+ 	public boolean isErrorFlag() {
+		return errorFlag;
+	}
+
+	public void setErrorFlag(boolean errorFlag) {
+		this.errorFlag = errorFlag;
+	}
+
+	public RequestFacade getRequestFacade() {
+		return requestFacade;
+	}
+
+	public void setRequestFacade(RequestFacade requestFacade) {
+		this.requestFacade = requestFacade;
+	}
+
+	public String[] getEmails() {
 		return emails;
 	}
 
@@ -271,10 +293,18 @@ public class SNSActioin extends ActionSupport{
 	}
 	
 	public String getContactsFromAddressBook() {
+		if(emailAddress==null||emailAddress.trim().length()==0||emailPass==null||emailPass.trim().length()==0){
+			errorFlag = true;
+			return "invite";
+		}
 		contacts = snsFacade.importAddressBook(ActionUtil.getSessionUserId(), emailAddress, emailPass);
+		if(contacts==null||contacts.size()==0){
+			errorFlag = true;
+			return "invite";
+		}
 		return "contacts";
 	}
-	
+	/*
 	public void validateGetContactsFromAddressBook(){
 		if(emailAddress==null||emailAddress.trim().length()==0){
 			addFieldError("emailAddress", "email.required");
@@ -282,7 +312,7 @@ public class SNSActioin extends ActionSupport{
 		if(emailPass==null||emailPass.trim().length()==0){
 			addFieldError("emailPass", "pass.required");
 		}
-	}
+	}*/
 	
 	public String viewInvitePage() {
 		return "invite";
@@ -296,7 +326,7 @@ public class SNSActioin extends ActionSupport{
 			profiles.add(profileFacade.findProfileById(ids.get(i)));
 		}
 		//profiles = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)2);
-		if(profiles.size()<10){
+		if(profiles.size()<50){
 			List<ZyProfile> list = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 			profiles.addAll(list);
 		}
@@ -315,6 +345,13 @@ public class SNSActioin extends ActionSupport{
 		profilesVO = new ArrayList<ProfileVO>();
 		for(int i=0;i<profiles.size();i++){
 			ProfileVO vo = new ProfileVO();
+			if(requestFacade.getRequest(ActionUtil.getSessionUserId(),profiles.get(i).getUserid(), Constants.INVITEFRIEND_REQ)!=null){
+				vo.setRequestOutFlag(true);
+			}else{
+				if(requestFacade.getRequest(profiles.get(i).getUserid(),ActionUtil.getSessionUserId(), Constants.INVITEFRIEND_REQ)!=null){
+					vo.setRequestInFlag(true);
+				}
+			}
 			vo.setProfile(profiles.get(i));
 			List<ZyProfile> list = snsFacade.getMutualFriends(ActionUtil.getSessionUserId(),profiles.get(i).getUserid());
 			vo.setMuFriends(list);

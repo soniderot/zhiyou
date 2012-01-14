@@ -303,5 +303,16 @@ public class RequestDaoImpl extends HibernateDao <ZyRequest, Integer> implements
 		List<ZyRequest> list= this.find(hql, new Object[] {receiverid, eventkey, referenceid});
 		return list;
 	}
-
+	
+	public List<ZyRequest> getSameRequests(int senderid, int receiverid, short eventkey){
+		String hql="from ZyRequest where senderid=? and receiverid=? and eventkey=?";
+		List<ZyRequest> requests= this.find(hql, new Object[] { senderid, receiverid, eventkey});
+		return requests;
+	}
+	
+	public List<ZyRequest> getRequests(int receiverId,short eventkey){
+		String hql="from ZyRequest where receiverid=? and eventkey=?";
+		List<ZyRequest> requests= this.find(hql, new Object[] {receiverId, eventkey});
+		return requests;
+	}
 }

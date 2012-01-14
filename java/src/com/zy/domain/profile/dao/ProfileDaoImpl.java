@@ -32,7 +32,7 @@ public class ProfileDaoImpl extends HibernateDao<ZyProfile, Integer> implements 
 	}
 	
 	public List<ZyProfile> findProfileByPoint(String userIds){
-		String hql = "from ZyProfile where userid not in ("+userIds+") order by point desc";
+		String hql = "from ZyProfile where userid not in ("+userIds+") order by point desc limit 200";
 		return this.find(hql);
 	}
 	
