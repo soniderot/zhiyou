@@ -8,6 +8,7 @@ import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyPhoto;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyQuestion;
+import com.zy.facade.vo.OptionVO;
 
 public class FeedBean {
 	private ZyNewsfeed feed;
@@ -18,20 +19,20 @@ public class FeedBean {
 	private ZyPhoto photo;
 	private ZyNewsfeed oldFeed;
 	private ZyQuestion question;
-	private List<ZyAnsweroption> options;
+	private List<OptionVO> options;
 	//private ZyProfile oldUser;
 	
 	
 	public ZyQuestion getQuestion() {
 		return question;
 	}
-	public List<ZyAnsweroption> getOptions() {
+	public List<OptionVO> getOptions() {
 		return options;
 	}
 	public void setQuestion(ZyQuestion question) {
 		this.question = question;
 	}
-	public void setOptions(List<ZyAnsweroption> options) {
+	public void setOptions(List<OptionVO> options) {
 		this.options = options;
 	}
 	public ZyNewsfeed getOldFeed() {
