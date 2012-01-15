@@ -1,9 +1,11 @@
 package test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zy.facade.ProfileFacade;
-import com.zy.facade.RequestFacade;
+import com.zy.domain.message.service.MailqueueService;
 import com.zy.facade.SNSFacade;
 
 public class Test {
@@ -135,8 +137,8 @@ public class Test {
 		 MailqueueService mailqueueService =(MailqueueService)appContext.getBean("mailqueueService"); 
 		 Map map =new HashMap(); map.put("country","美国");
 		 mailqueueService.sendFormatEmail_tx("bill.tian@meta4-group.com","bill","bill.tian@meta4-group.com","xiaobill",
-		 "test", "test_en_US",map , true);
-		 */
+		 "test", "test_en_US",map , true);*/
+		 
 		
 		/*
 		 * PhotoFacade photoFacade =
@@ -216,12 +218,13 @@ public class Test {
 		//System.out.println("link---------"+link);
 		//snsFacade.inviteUser(1,"bill.tian@meta4-group.com", "Bill");
 		
-		ProfileFacade profileFacade =(ProfileFacade)appContext.getBean("profileFacade");
+		//ProfileFacade profileFacade =(ProfileFacade)appContext.getBean("profileFacade");
 	
 		//profileFacade.findProfileById(1);
 		
-		RequestFacade requestFacade =(RequestFacade)appContext.getBean("requestFacade");
-		requestFacade.sendRequest_tx(2, 1, (short)5, 1, null, null);
+		//RequestFacade requestFacade =(RequestFacade)appContext.getBean("requestFacade");
+		//requestFacade.sendRequest_tx(2, 1, (short)5, 1, null, null);
+		snsFacade.addFriend(21, 1);
 		
 	}
 }

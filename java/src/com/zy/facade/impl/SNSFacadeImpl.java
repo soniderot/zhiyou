@@ -69,6 +69,20 @@ public class SNSFacadeImpl implements SNSFacade{
 			//call notification serverice;
 			//call feedservice to add news feed
 			//call mailqueue serverice;
+			ZyProfile user = profileService.findProfileById(userId);
+			ZyProfile profile = profileService.findProfileById(friendId);
+			
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("receiverName", profile.getUsername());
+			map.put("senderName", user.getUsername());
+			map.put("friendName", user.getUsername());
+			map.put("domainname", Constants.DOMAINNAME);
+			map.put("profile", user);
+			System.out.println("-------begin to send invite success------"+profile.getEmail());
+			mailqueueService.sendFormatEmail_tx(user.getEmail(),user.getUsername(),profile.getEmail(),profile.getUsername(),
+					  "有新的朋友加入你的知友网络", "zy_invite_success",map , true);
+			
+			
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}

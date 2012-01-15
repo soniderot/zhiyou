@@ -125,4 +125,5 @@ public class ProfileFacadeImpl implements ProfileFacade {
 		mailqueueService.sendFormatEmail_tx("no_reply@zy.com","知友网",profile.getEmail(),profile.getUsername(),
 				  "重置知友密码", "zy_forgetpass",map , true);
 	}
+	
 }
