@@ -567,6 +567,19 @@
     });
     return false;
   }
+  
+  function share(feedId) {
+    $.ajax({
+     type: "GET",
+     url: "usr/feed!sharedFeedAjax.jhtml",
+     dataType: 'html',
+     data: "feedId=" + feedId,
+     success: function(data) {
+       $("body").append(data);
+     }
+    });
+    return false;
+  }
 </script>
 
 <%@ include file="/WEB-INF/jsp/popup/delFeedCommentPop.jsp"%>
