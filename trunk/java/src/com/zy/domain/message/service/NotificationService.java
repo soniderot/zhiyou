@@ -22,5 +22,10 @@ public interface NotificationService {
 	public int countForNewNotification(int userid);	
 	
 	public boolean deleteAllNotification(int userid);
-
+	
+	public void sendAcceptFriendInviteNotify(int senderId,int receiverId);
+	
+	public void sendAcceptEventInviteNotify(int senderId,int receiverId,int eventId);
+	
+	public void sendAnswerQuestionNotify(int senderId,int receiverId,int questionId);
 }

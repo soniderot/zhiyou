@@ -26,7 +26,17 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 	
 	private String[] viewType = new String[]{"","","",""};
 
+	private boolean errorFlag = false;
 	
+	
+	public boolean isErrorFlag() {
+		return errorFlag;
+	}
+
+	public void setErrorFlag(boolean errorFlag) {
+		this.errorFlag = errorFlag;
+	}
+
 	public String[] getViewType() {
 		return viewType;
 	}
@@ -103,6 +113,7 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 				profileform.setCollegeid(school.getId());
 				profileform.setCollegename(school.getSchoolname());
 			}
+			
 			viewType[0] = "selectedItem open";
 			return "member.basic";
 		} else if (pageIndex == 2) {
@@ -141,8 +152,17 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 				profile.setObjectgender(Constants.MALEORFEMALE);
 			}
 		}
-		if(profileform.getPasswd()!=null&&profileform.getPasswd().trim().length()>00){
+		if(profileform.getPasswd()!=null&&profileform.getPasswd().trim().length()>0){
 			profile.setPasswd(SecurityUtil.getMD5(profileform.getPasswd()));
+		}
+		
+		if(profileform.getEmail()!=null&&profileform.getEmail().trim().length()>0){
+			ZyProfile zyProfile = profileFacade.findProfileByEmail(profileform.getEmail());
+			if(zyProfile!=null&&zyProfile.getUserid()!=profileId){
+				errorFlag = true;
+				profileform.setPageIndex(3);
+				return "member.update";
+			}
 		}
 		
 		profileFacade.updateProfile(profile);

@@ -28,12 +28,12 @@ import com.zy.common.util.FileUtil;
 import com.zy.common.util.Page;
 import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.FeedFacade;
+import com.zy.facade.NotifyFacade;
 import com.zy.facade.PhotoFacade;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.QuestionFacade;
 import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
-import com.zy.facade.vo.EventVO;
 import com.zy.facade.vo.QuestionVO;
 
 public class FeedAction extends ActionSupport{
@@ -80,6 +80,17 @@ public class FeedAction extends ActionSupport{
 	private boolean optionAddAble;
 	private String optionText;
 	private ZyAnsweroption answerOption;
+	
+	private NotifyFacade notifyFacade;
+	
+
+	public NotifyFacade getNotifyFacade() {
+		return notifyFacade;
+	}
+
+	public void setNotifyFacade(NotifyFacade notifyFacade) {
+		this.notifyFacade = notifyFacade;
+	}
 
 	public int getOptionId() {
 		return optionId;
@@ -512,7 +523,6 @@ public class FeedAction extends ActionSupport{
 			answer.setQuestionid(option.getQuestionid());
 			answer.setOptionanswer(optionId);
 			answer.setUserid(ActionUtil.getSessionUserId());
-			questionFacade.addAnswer(answer);
 		} else {
 			hot = option.getHot() - 1;
 			option.setHot(hot);

@@ -10,9 +10,11 @@ import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyQuestion;
 import com.zy.common.model.ZyRequest;
+import com.zy.common.util.ActionUtil;
 import com.zy.domain.event.service.EventService;
 import com.zy.domain.message.bean.RequestBean;
 import com.zy.domain.message.service.MailqueueService;
+import com.zy.domain.message.service.NotificationService;
 import com.zy.domain.message.service.RequestService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.question.service.QuestionService;
@@ -30,7 +32,17 @@ public class RequestFacadeImpl implements RequestFacade{
 	private ProfileService profileService;
 	
 	private QuestionService questionService;
+	private NotificationService notificationService;
 	
+	
+	public NotificationService getNotificationService() {
+		return notificationService;
+	}
+
+	public void setNotificationService(NotificationService notificationService) {
+		this.notificationService = notificationService;
+	}
+
 	public QuestionService getQuestionService() {
 		return questionService;
 	}
@@ -101,7 +113,7 @@ public class RequestFacadeImpl implements RequestFacade{
 			map.put("profile",profile);
 			map.put("domainname", Constants.DOMAINNAME);
 			mailqueueService.sendFormatEmail_tx(profile.getEmail(),profile.getUsername(),friend.getEmail(),friend.getUsername(),
-					  "ÅóÓÑÑûÇëÄã¼ÓÈëÖªÓÑ", "zy_internal_invite",map , true);
+					  "æœ‹å‹é‚€è¯·ä½ åŠ å…¥çŸ¥å‹", "zy_internal_invite",map , true);
 		}
 		
 		if(eventkey==5){
@@ -124,7 +136,8 @@ public class RequestFacadeImpl implements RequestFacade{
 			map.put("endintime",df.format(event.getEndtime()));
 			map.put("domainname", Constants.DOMAINNAME);
 			mailqueueService.sendFormatEmail_tx(profile.getEmail(),profile.getUsername(),friend.getEmail(),friend.getUsername(),
-					  "ÅóÓÑÑûÇëÄã¼ÓÈë»î¶¯", "zy_event_invite",map , true);
+					  "æœ‹å‹é‚€è¯·ä½ åŠ å…¥æ´»åŠ¨", "zy_event_invite",map , true);
+			
 		}
 		return true;
 	}
@@ -133,8 +146,9 @@ public class RequestFacadeImpl implements RequestFacade{
 		requestService.approveRequest_tx(id);
 		ZyRequest request = requestService.getRequest(id);
 		if(request.getEventkey()==1){//add friend
-			snsFacade.addFriend(request.getSenderid(),request.getReceiverid());
+			snsFacade.addFriend(request.getReceiverid(),request.getSenderid());
 			feedFacade.addNewFriendNewsFeed(request.getSenderid(),request.getReceiverid());
+			notificationService.sendAcceptFriendInviteNotify(request.getReceiverid(),request.getSenderid());
 			List<ZyRequest> requests = requestService.getSameRequests(request.getSenderid(),request.getReceiverid(),request.getEventkey());
 			for(int i=0;i<requests.size();i++){
 				requestService.approveRequest_tx(requests.get(i).getId());
@@ -147,10 +161,34 @@ public class RequestFacadeImpl implements RequestFacade{
 		if(request.getEventkey()==5){//join event
 			eventService.addMember(request.getReceiverid(),request.getReferenceid());
 			feedFacade.addAcceptEventInviteNewsFeed(request.getReceiverid(),request.getReferenceid());
+			notificationService.sendAcceptEventInviteNotify(request.getReceiverid(),request.getSenderid(),request.getReferenceid());
 			List<ZyRequest> requests = requestService.getRequest(request.getReceiverid(),request.getEventkey(),request.getReferenceid());
 			for(int i=0;i<requests.size();i++){
 				requestService.approveRequest_tx(requests.get(i).getId());
 			}
+			
+			ZyProfile user = profileService.findProfileById(ActionUtil.getSessionUserId());
+			ZyProfile friend = profileService.findProfileById(request.getSenderid());
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			ZyEvent event = eventService.getEvent(request.getReferenceid());
+			if(event.getDetail()!=null){
+				map.put("detail",event.getDetail());
+			}
+			String pattern = "yyyy/MM/dd HH:mm";
+			DateFormat df = new SimpleDateFormat(pattern);
+			map.put("begintime",df.format(event.getBegintime()));
+			map.put("endintime",df.format(event.getEndtime()));
+			map.put("domainname", Constants.DOMAINNAME);
+			map.put("profile",user);
+			map.put("event", event);
+			map.put("detail","");
+			map.put("receiverName", friend.getUsername());
+			map.put("senderName", user.getUsername());
+			if(event.getDetail()!=null){
+				map.put("detail",event.getDetail());
+			}
+			mailqueueService.sendFormatEmail_tx(user.getEmail(),user.getUsername(),friend.getEmail(),friend.getUsername(),
+					  "æœ‰æœ‹å‹åŠ å…¥æ‚¨å‘èµ·çš„æ´»åŠ¨", "zy_event_invite_success",map , true);
 		}
 		return false;
 	}

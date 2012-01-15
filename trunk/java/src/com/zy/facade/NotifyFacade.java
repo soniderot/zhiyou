@@ -14,4 +14,10 @@ public interface NotifyFacade {
 	public boolean readNotification_tx(List<Integer> notificationIds);
 	
 	public boolean userDeleteNotification_tx(int notificationId, int userId);
+	
+	public void sendAcceptFriendInviteNotify(int senderId,int receiverId);
+	
+	public void sendAcceptEventInviteNotify(int senderId,int receiverId,int eventId);
+	
+	public void sendAnswerQuestionNotify(int senderId,int receiverId,int questionId);
 }

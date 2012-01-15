@@ -182,4 +182,36 @@ public class NotificationServiceImpl implements NotificationService{
 		}
 		return true;
 	}
+	
+	public void sendAcceptFriendInviteNotify(int senderId,int receiverId){
+		ZyNotification notification = new ZyNotification();
+		notification.setCreatetime(new Date());
+		notification.setContent("");
+		notification.setEventkey((short)1);
+		notification.setReceiverid(receiverId);
+		notification.setSenderid(senderId);
+		notificationDao.save(notification);
+	}
+	
+	public void sendAcceptEventInviteNotify(int senderId,int receiverId,int eventId){
+		ZyNotification notification = new ZyNotification();
+		notification.setCreatetime(new Date());
+		notification.setContent("");
+		notification.setEventkey((short)1);
+		notification.setReceiverid(receiverId);
+		notification.setSenderid(senderId);
+		notification.setParameters(""+eventId);
+		notificationDao.save(notification);
+	}
+	
+	public void sendAnswerQuestionNotify(int senderId,int receiverId,int questionId){
+		ZyNotification notification = new ZyNotification();
+		notification.setCreatetime(new Date());
+		notification.setContent("");
+		notification.setEventkey((short)1);
+		notification.setReceiverid(receiverId);
+		notification.setSenderid(senderId);
+		notification.setParameters(""+questionId);
+		notificationDao.save(notification);
+	}
 }

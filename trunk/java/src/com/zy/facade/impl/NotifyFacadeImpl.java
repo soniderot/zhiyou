@@ -81,4 +81,16 @@ public class NotifyFacadeImpl implements NotifyFacade{
 	public boolean userDeleteNotification_tx(int notificationId, int userId){
 		return notificationService.userDeleteNotification(notificationId,userId);
 	}
+	
+	public void sendAcceptFriendInviteNotify(int senderId,int receiverId){
+		notificationService.sendAcceptFriendInviteNotify(senderId,receiverId);
+	}
+	
+	public void sendAcceptEventInviteNotify(int senderId,int receiverId,int eventId){
+		notificationService.sendAcceptEventInviteNotify(senderId,receiverId,eventId);
+	}
+	
+	public void sendAnswerQuestionNotify(int senderId,int receiverId,int questionId){
+		notificationService.sendAcceptEventInviteNotify(senderId,receiverId,questionId);
+	}
 }
