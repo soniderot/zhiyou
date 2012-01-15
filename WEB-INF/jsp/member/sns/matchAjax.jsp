@@ -3,9 +3,11 @@
 <s:iterator value="profileList" id="profile">
   <div class="userinfo hidden_elem">
     <div class="yesNoBtns">
+    	<!--
       <label class="uiButton uiButtonDisabled uiButtonConfirm" for="noBtn_<s:property value='userid' />">
         <input type="button" value="&nbsp;&nbsp;No&nbsp;&nbsp;" onclick="addOrCancelRequest(<s:property value='userid' />, 0)" id="noBtn_<s:property value='userid' />"/>
       </label>
+      -->
       <label class="saveButton uiButton uiButtonConfirm" for="yesBtn_<s:property value='userid' />">
         <input type="button" value="&nbsp;&nbsp;Yes&nbsp;&nbsp;" onclick="addOrCancelRequest(<s:property value='userid' />, 1)" id="yesBtn_<s:property value='userid' />"/>
       </label>

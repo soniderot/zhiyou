@@ -104,6 +104,7 @@
         <input type="hidden" name="profileform.pageIndex" value="1"/>
         <table class="uiInfoTable">
           <tbody>
+          	<!--
           	<tr class="dataRow">
               <th class="label">用户名：</th>
               <td class="data">
@@ -120,15 +121,16 @@
                 </div>
               </td>
               <td class="rightCol"></td>
-            </tr>
+            </tr>-->
             <tr class="dataRow">
+            
               <th class="label">新密码：</th>
               <td class="data">
                 <div>
                   <div id="u2urlx_8" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead uiTypeaheadFocused">
                     <div class="wrap">
                       <div class="innerWrap">
-                        <s:password  name="profileform.passwd" cssClass="inputtext textInput DOMControl_placeholder"  />
+                        <s:password  name="profileform.passwd"  cssClass="inputtext textInput DOMControl_placeholder"  />
                       </div>
                       <i class="photo img sp_c0827g sx_c5d496"></i>
                     </div>
