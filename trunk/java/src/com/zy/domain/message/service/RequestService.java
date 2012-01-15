@@ -35,6 +35,8 @@ public interface RequestService {
 	public int countForRequestSent(int userid, short eventkey);
 	
 	public boolean deleteRequest_tx(int id);
+	
+	public void deleteRequest(ZyRequest request);
 
 	public int countForRequestInboxHistory(int userid);
 	

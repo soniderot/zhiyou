@@ -359,4 +359,9 @@ public class RequestServiceImpl implements RequestService {
 	public List<ZyRequest> getRequests(int receiverId,short eventkey){
 		return this.requestDao.getRequests(receiverId, eventkey);
 	}
+
+	@Override
+	public void deleteRequest(ZyRequest request) {
+		this.requestDao.delete(request);
+	}
 }
