@@ -14,7 +14,7 @@ public class NotificationDaoImpl extends HibernateDao <ZyNotification, Integer> 
 	@Override
 	public List<ZyNotification> getUserNotification(int userid,int pageNo, int pageSize) {
 		System.out.println("userid--"+userid);
-		String hql="from ZyNotification where receiverid=? and isdeleted is null order by id desc";
+		String hql="from ZyNotification where receiverid=? and (isdeleted is null or isdeleted!='T') order by id desc";
 		return this.loadByPagenation(hql, pageNo, pageSize, new Object[] { userid});
 		//System.out.println(this.find(hql).size());
 		//return this.loadByPagenation(hql, pageNo, pageSize);
@@ -37,19 +37,19 @@ public class NotificationDaoImpl extends HibernateDao <ZyNotification, Integer> 
 
 	@Override
 	public int countForNotification(int userid) {
-		String hql="select count(*) from ZyNotification where receiverid =? and isread is null and isdeleted is null";
+		String hql="select count(*) from ZyNotification where receiverid =? and isread is null and (isdeleted is null or isdeleted!='T')";
 		return this.getTotalRows(hql, new Object[] { userid });
 	}
 	
 	@Override
 	public int getUserNotificationCNT(int userId){
-		String hql="select count(*) from ZyNotification where receiverid =? and isdeleted is null";
+		String hql="select count(*) from ZyNotification where receiverid =? and (isdeleted is null or isdeleted!='T')";
 		return this.getTotalRows(hql, new Object[] { userId });
 	}
 
 	@Override
 	public List<ZyNotification> getAllUserNotification(int userid) {
-		String hql="from ZyNotification where receiverid=? and isdeleted is null";
+		String hql="from ZyNotification where receiverid=? and (isdeleted is null or isdeleted!='T')";
 		return this.find(hql, new Object[] { userid});
 	}
 

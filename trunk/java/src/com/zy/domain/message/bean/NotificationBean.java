@@ -3,7 +3,10 @@ package com.zy.domain.message.bean;
 import java.util.Date;
 
 import com.zy.Constants;
+import com.zy.common.model.ZyEvent;
+import com.zy.common.model.ZyNotification;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZyQuestion;
 
 public class NotificationBean {
 	
@@ -13,7 +16,34 @@ public class NotificationBean {
 	private String content;
 	
 	private ZyProfile profile;
+	private ZyEvent event;
+	private ZyQuestion question;
+	private ZyNotification notification;
 	
+	public ZyNotification getNotification() {
+		return notification;
+	}
+
+	public void setNotification(ZyNotification notification) {
+		this.notification = notification;
+	}
+
+	public ZyEvent getEvent() {
+		return event;
+	}
+
+	public void setEvent(ZyEvent event) {
+		this.event = event;
+	}
+
+	public ZyQuestion getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(ZyQuestion question) {
+		this.question = question;
+	}
+
 	public ZyProfile getProfile() {
 		return profile;
 	}

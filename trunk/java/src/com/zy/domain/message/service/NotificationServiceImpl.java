@@ -87,27 +87,23 @@ public class NotificationServiceImpl implements NotificationService{
 		if(!flag){
 			fetchTemplate();
 		}
-		ZyProfile u = profileService.findProfileById(userId);
+		
 		for(ZyNotification ntf: notifications){
+			ZyProfile u = profileService.findProfileById(ntf.getSenderid());
 			System.out.println("^^^^^^^^^^^^^^^^^^^^^");
 			String content="";
 			NotificationBean bean=new NotificationBean();
-			if(ntf.getParameters() == null){continue;}
-			String[] p = ntf.getParameters().split(",");
-			int temp = ntf.getEventkey();
-			//if(u.getLocale().equals("zh_CN")){
-				if(temp == 1){
-					ZyProfile user = profileService.findProfileById(Integer.parseInt(p[0]));
-					bean.setProfile(user);
-					content = MessageFormat.format(n1_zh_CN.getContent(),user.getUsername());
-				}
+			if(ntf.getEventkey()==1){
 				
-			//}
-			
-			bean.setId(ntf.getId());
-			bean.setContent(content);
-			bean.setCreatetime(ntf.getCreatetime());
-			bean.setIsread("T");
+			}
+			if(ntf.getEventkey()==5){
+				
+			}
+			if(ntf.getEventkey()==16){
+				
+			}
+			bean.setNotification(ntf);
+			bean.setProfile(u);
 			notificationsbean.add(bean);		
 		}	
 		return notificationsbean;

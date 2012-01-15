@@ -2,13 +2,46 @@ package com.zy.facade.impl;
 
 import java.util.List;
 
+import com.zy.common.model.ZyEvent;
+import com.zy.common.model.ZyQuestion;
+import com.zy.domain.event.service.EventService;
 import com.zy.domain.message.bean.NotificationBean;
+import com.zy.domain.message.service.MailqueueService;
 import com.zy.domain.message.service.NotificationService;
+import com.zy.domain.profile.service.ProfileService;
+import com.zy.domain.question.service.QuestionService;
 import com.zy.facade.NotifyFacade;
 
 public class NotifyFacadeImpl implements NotifyFacade{
 	private NotificationService notificationService;
+	private EventService eventService;
+	private ProfileService profileService;
+	private QuestionService questionService;
 	
+	public EventService getEventService() {
+		return eventService;
+	}
+
+	public void setEventService(EventService eventService) {
+		this.eventService = eventService;
+	}
+
+	public ProfileService getProfileService() {
+		return profileService;
+	}
+
+	public void setProfileService(ProfileService profileService) {
+		this.profileService = profileService;
+	}
+
+	public QuestionService getQuestionService() {
+		return questionService;
+	}
+
+	public void setQuestionService(QuestionService questionService) {
+		this.questionService = questionService;
+	}
+
 	public NotificationService getNotificationService() {
 		return notificationService;
 	}
@@ -18,7 +51,18 @@ public class NotifyFacadeImpl implements NotifyFacade{
 	}
 
 	public List<NotificationBean> getUserNotification(int userId,int pageSize,int pageNo) {
-		return notificationService.getUserNotification(userId,pageSize,pageNo);
+		List<NotificationBean> results =  notificationService.getUserNotification(userId,pageSize,pageNo);
+		for(int i=0;i<results.size();i++){
+			if(results.get(i).getNotification().getEventkey()==5){
+				ZyEvent event = eventService.getEvent(Integer.valueOf(results.get(i).getNotification().getParameters()));
+				results.get(i).setEvent(event);
+			}
+			if(results.get(i).getNotification().getEventkey()==16){
+				ZyQuestion question = questionService.getQuestionById(Integer.valueOf(results.get(i).getNotification().getParameters()));
+				results.get(i).setQuestion(question);
+			}
+		}
+		return results;
 	}
 	
 	public boolean systemSendNotification_tx(int receiverId, short eventKey, Object[] p){

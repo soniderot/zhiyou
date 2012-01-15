@@ -37,6 +37,9 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	
 	<bean name="notifyFacade" class="com.zy.facade.impl.NotifyFacadeImpl"  >
 		<property name="notificationService" ref="notificationService"/>
+		<property name="eventService" ref="eventService"/>
+		<property name="profileService" ref="profileService"/>
+		<property name="questionService" ref="questionService"/>
 	</bean>
 	
 	<bean name="feedFacade" class="com.zy.facade.impl.FeedFacadeImpl"  >
