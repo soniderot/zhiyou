@@ -303,7 +303,11 @@ width:16px;
 .arrowRight a:hover{background-image:url(../images/lWUUm37r11D.png)}
 .arrowLeft a:active{background-image:url(../images/U1-etAWzQ4t.png)}
 .arrowRight a:active{background-image:url(../images/wU__r0m45JU.png)}
-
+.yesNoBtns {
+left:450px;
+position:absolute;
+top:70px;
+}
 .prev {
 left:320px;
 position:absolute;
@@ -333,6 +337,10 @@ top:240px;
 .slidecontent {
   _position:relative;
   _top:-50%;
+}
+.slidecontent img {
+  width:250px;
+  height:250px;
 }
 .collapsed_comments .uiUfi{display:none}
 .activity{width:129px; overflow:hidden}
