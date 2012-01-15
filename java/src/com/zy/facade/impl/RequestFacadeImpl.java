@@ -101,7 +101,7 @@ public class RequestFacadeImpl implements RequestFacade{
 			map.put("profile",profile);
 			map.put("domainname", Constants.DOMAINNAME);
 			mailqueueService.sendFormatEmail_tx(profile.getEmail(),profile.getUsername(),friend.getEmail(),friend.getUsername(),
-					  "朋友邀请你加入知友", "zy_in", "zy_internal_invite",map , true);
+					  "朋友邀请你加入知友", "zy_internal_invite",map , true);
 		}
 		
 		if(eventkey==5){
@@ -124,7 +124,7 @@ public class RequestFacadeImpl implements RequestFacade{
 			map.put("endintime",df.format(event.getEndtime()));
 			map.put("domainname", Constants.DOMAINNAME);
 			mailqueueService.sendFormatEmail_tx(profile.getEmail(),profile.getUsername(),friend.getEmail(),friend.getUsername(),
-					  "朋友邀请你加入活动", "zy_e", "zy_event_invite",map , true);
+					  "朋友邀请你加入活动", "zy_event_invite",map , true);
 		}
 		return true;
 	}
