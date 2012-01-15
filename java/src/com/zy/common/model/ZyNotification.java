@@ -21,6 +21,7 @@ public class ZyNotification implements java.io.Serializable {
 	private String parameters;
 	private Date createtime;
 	private Date updatetime;
+	private Integer senderid;
 
 	// Constructors
 
@@ -29,22 +30,14 @@ public class ZyNotification implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public ZyNotification(Short eventkey, String content, String isread,
-			String isdeleted, String parameters, Date createtime,
-			Date updatetime) {
+	public ZyNotification(Short eventkey) {
 		this.eventkey = eventkey;
-		this.content = content;
-		this.isread = isread;
-		this.isdeleted = isdeleted;
-		this.parameters = parameters;
-		this.createtime = createtime;
-		this.updatetime = updatetime;
 	}
 
 	/** full constructor */
 	public ZyNotification(Integer receiverid, Short eventkey, String content,
 			String isread, String isdeleted, String parameters,
-			Date createtime, Date updatetime) {
+			Date createtime, Date updatetime, Integer senderid) {
 		this.receiverid = receiverid;
 		this.eventkey = eventkey;
 		this.content = content;
@@ -53,6 +46,7 @@ public class ZyNotification implements java.io.Serializable {
 		this.parameters = parameters;
 		this.createtime = createtime;
 		this.updatetime = updatetime;
+		this.senderid = senderid;
 	}
 
 	// Property accessors
@@ -127,6 +121,14 @@ public class ZyNotification implements java.io.Serializable {
 
 	public void setUpdatetime(Date updatetime) {
 		this.updatetime = updatetime;
+	}
+
+	public Integer getSenderid() {
+		return this.senderid;
+	}
+
+	public void setSenderid(Integer senderid) {
+		this.senderid = senderid;
 	}
 
 }

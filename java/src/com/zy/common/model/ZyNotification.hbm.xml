@@ -17,22 +17,25 @@
             <column name="EVENTKEY" not-null="true" />
         </property>
         <property name="content" type="java.lang.String">
-            <column name="CONTENT" length="65535" not-null="false" />
+            <column name="CONTENT" length="65535" />
         </property>
         <property name="isread" type="java.lang.String">
-            <column name="ISREAD" length="1" not-null="false" />
+            <column name="ISREAD" length="1" />
         </property>
         <property name="isdeleted" type="java.lang.String">
-            <column name="ISDELETED" length="1" not-null="false" />
+            <column name="ISDELETED" length="1" />
         </property>
         <property name="parameters" type="java.lang.String">
-            <column name="PARAMETERS" length="100" not-null="false" />
+            <column name="PARAMETERS" length="100" />
         </property>
         <property name="createtime" type="java.util.Date">
-            <column name="CREATETIME" length="0" not-null="false" />
+            <column name="CREATETIME" length="0" />
         </property>
         <property name="updatetime" type="java.util.Date">
-            <column name="UPDATETIME" length="0" not-null="false" />
+            <column name="UPDATETIME" length="0" />
+        </property>
+        <property name="senderid" type="java.lang.Integer">
+            <column name="SENDERID" />
         </property>
     </class>
 </hibernate-mapping>

@@ -71,9 +71,9 @@ public class NotificationAction {
 		notifys = notifyFacade.getUserNotification(ActionUtil.getSessionUserId(),pageNo,pageSize);
 		List<Integer> list = new ArrayList<Integer>();
 		for(int i=0;i<notifys.size();i++){
-			if("T".equals(notifys.get(i).getIsread())){
+			if(!"T".equals(notifys.get(i).getNotification().getIsread())){
 				
-				list.add(notifys.get(i).getId());
+				list.add(notifys.get(i).getNotification().getId());
 			}
 		}
 		if(list.size()>0)
