@@ -405,6 +405,8 @@ public class SNSActioin extends ActionSupport{
 			vo.setGender(gender);
 		}
 		
+		vo.setExclude1d(true);
+		
 		 DateFormat df = new SimpleDateFormat("yyyyMMdd");
 		 System.out.println(df.format(DateUtil.computeBirthDate(25)));
 		
