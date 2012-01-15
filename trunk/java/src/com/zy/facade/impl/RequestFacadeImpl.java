@@ -101,7 +101,7 @@ public class RequestFacadeImpl implements RequestFacade{
 			map.put("profile",profile);
 			map.put("domainname", Constants.DOMAINNAME);
 			mailqueueService.sendFormatEmail_tx(profile.getEmail(),profile.getUsername(),friend.getEmail(),friend.getUsername(),
-					  "æœ‹å‹é‚€è¯·ä½ åŠ å…¥çŸ¥å‹", "zy_internal_invite",map , true);
+					  "ÅóÓÑÑûÇëÄã¼ÓÈëÖªÓÑ", "zy_in", "zy_internal_invite",map , true);
 		}
 		
 		if(eventkey==5){
@@ -124,7 +124,7 @@ public class RequestFacadeImpl implements RequestFacade{
 			map.put("endintime",df.format(event.getEndtime()));
 			map.put("domainname", Constants.DOMAINNAME);
 			mailqueueService.sendFormatEmail_tx(profile.getEmail(),profile.getUsername(),friend.getEmail(),friend.getUsername(),
-					  "æœ‹å‹é‚€è¯·ä½ åŠ å…¥æ´»åŠ¨", "zy_event_invite",map , true);
+					  "ÅóÓÑÑûÇëÄã¼ÓÈë»î¶¯", "zy_e", "zy_event_invite",map , true);
 		}
 		return true;
 	}
@@ -197,9 +197,18 @@ public class RequestFacadeImpl implements RequestFacade{
 	public List<ZyRequest> getRequest(int receiverid, short eventkey, int referenceid){
 		return requestService.getRequest(receiverid, eventkey, referenceid);
 	}
-	
-	public ZyRequest getRequest(int senderid, int receiverid, short eventkey){
-		return requestService.getRequest(senderid, receiverid, eventkey);
+
+	@Override
+	public void cancelRequest_tx(int senderId, int receiverId, short eventkey) {
+		ZyRequest request = requestService.getRequest(senderId, receiverId, eventkey);
+		if (request != null) {
+			requestService.deleteRequest(request);
+		}
+	}
+
+	@Override
+	public ZyRequest getRequest(int senderId, int receiverId, short eventkey) {
+		return requestService.getRequest(senderId, receiverId, eventkey);
 	}
 	
 	public List<ZyRequest> getRequests(int receiverId,short eventkey){
