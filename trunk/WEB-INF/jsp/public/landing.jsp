@@ -13,7 +13,7 @@
     <div id="blueBar">
       <div class="loggedout_menubar_container">
         <div class="clearfix loggedout_menubar">
-          <a class="lfloat" href="/" title="转到首页"><img class="fb_logo img" src="#" alt=" 商标" width="170" height="36" /></a>
+          <a class="lfloat" href="/" title="转到首页"><img class="fb_logo img" src="images/logo.jpg" alt=" 商标" width="170" height="36" /></a>
           <div class="rfloat">
             <div class="menu_login_container">
               <form method="POST" action="usr/login.jhtml" id="login_form">
