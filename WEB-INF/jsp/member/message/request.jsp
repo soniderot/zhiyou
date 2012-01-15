@@ -90,6 +90,7 @@
 					                	<span class="title fsl fwb fcb"><a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="profile.userid"/>"><s:property value="profile.username"/></a>
 					                		<s:if test="request.eventkey==1">
 					                		邀请你成为朋友
+					                		<s:if test="(request.message!=null&&request.message!=''&&request.message!='[object Window]')">(<s:property value="request.message"/>)</s:if>
 					                		</s:if>
 					                		<s:if test="request.eventkey==5">
 					                		邀请你参加活动
