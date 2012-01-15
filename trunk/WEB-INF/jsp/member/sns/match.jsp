@@ -27,12 +27,7 @@
             <h1>感兴趣?</h1>
           </td>
           <td align="center" class="image">
-            <label class="uiButton uiButtonConfirm" for="u5rqxr_1">
-              <input type="button" value="&nbsp;&nbsp;No&nbsp;&nbsp;" id="u5rqxr_1"/>
-            </label>
-            <label class="saveButton uiButtonDisabled uiButton uiButtonConfirm" for="u91etj_4">
-              <input type="button" value="&nbsp;&nbsp;Yes&nbsp;&nbsp;" disabled="1" id="u91etj_4"/>
-            </label>
+
           </td>
       </tr>
         <tr class="searchBody">
@@ -183,5 +178,23 @@
       $(".userinfo").eq(index).removeClass("hidden_elem");
     }
     return false;
+  }
+
+  function addOrCancelRequest(obj, type) {
+    $.ajax({
+     type: "GET",
+     url: "usr/request!addOrCancelRequestAjax.jhtml",
+     dataType: 'text',
+     data: "profileId=" + obj + "&operate=" + type,
+     success: function(data) {
+        if(type == 1) {
+          $("#yesBtn_" + obj).parent().addClass("uiButtonDisabled");
+          $("#noBtn_" + obj).parent().removeClass("uiButtonDisabled");
+        } else {
+          $("#yesBtn_" + obj).parent().removeClass("uiButtonDisabled");
+          $("#noBtn_" + obj).parent().addClass("uiButtonDisabled");          
+        }
+     }
+    });
   }
 </script>
