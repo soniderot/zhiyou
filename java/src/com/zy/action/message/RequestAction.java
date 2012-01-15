@@ -3,6 +3,7 @@ package com.zy.action.message;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.zy.common.model.ZyRequest;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.Page;
 import com.zy.domain.message.bean.RequestBean;
@@ -156,6 +157,20 @@ public class RequestAction extends ActionSupport{
 		System.out.println("---t2---"+ActionUtil.getRequest().getParameter("content"));
 		ActionUtil.printStr("true");
 		requestFacade.sendRequest_tx(ActionUtil.getSessionUserId(),Integer.valueOf(ActionUtil.getRequest().getParameter("to")).intValue(),(short)1,0, ActionUtil.getRequest().getParameter("content"), null);
+		return NONE;
+	}
+	
+	public String addOrCancelRequestAjax(){
+		int profileId = Integer.parseInt(ActionUtil.getRequest().getParameter("profileId"));
+		int operate = Integer.parseInt(ActionUtil.getRequest().getParameter("operate"));
+		if (operate == 0) {
+			requestFacade.cancelRequest_tx(ActionUtil.getSessionUserId(), profileId, (short)1);
+		} else {
+			ZyRequest request = requestFacade.getRequest(ActionUtil.getSessionUserId(), profileId, (short)1);
+			if (request == null) {
+				requestFacade.sendRequest_tx(ActionUtil.getSessionUserId(), profileId, (short)1, 0, null, null);
+			}
+		}
 		return NONE;
 	}
 	
