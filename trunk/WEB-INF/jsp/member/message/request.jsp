@@ -29,8 +29,16 @@
 						                       · <a href="usr/request.jhtml?type=outbox">发件箱</a>
 						                      </div>
 						                    </div>
+						                    <div class="pam hidden_elem uiBoxLightblue"></div>
+						                    
 						                  </li>
+						                  
+						                  <li class="uiListItem uiListLight uiListVerticalItemBorder">
+																<div class="pam hidden_elem uiBoxLightblue"></div>
+															</li>
 						                </ul>
+						                
+						                
 						              </td>
 						            </tr>
 						          </tbody>
@@ -39,109 +47,76 @@
                     </div>
                   </div>
                   <div class="mbs clearfix" id="MessagingMainContent">
-                    <ul class="uiList" id="MessagingThreadlist">
-                    	<s:if test="(requests==null||requests.size()==0)">
-                    		
-                    		
-                    		 <li class="threadRow noDraft uiListItem uiListLight uiListVerticalItemBorder" id="id.237791252950736">
-                        <table cellspacing="0" cellpadding="0" class="uiGrid">
-                          <tbody>
-                            <tr>
-                               <td class="threadMainCol">
-                                
-                                <div class="snippet fsm fwn fcg">
-                                        <i class="mrs indicator img sp_d1pr3k sx_18fadf"></i>
-                                        <span id="snippet_id.237791252950736"><s:property value="content"/>没有新的请求</span>
-                                 </div>
-                              </td>
-                             
-                            </tr>
-                          </tbody>
-                        </table>
-                      </li>
-                       
-                    	</s:if>
-                   <s:iterator value="requests">
-                      <li class="threadRow noDraft uiListItem uiListLight uiListVerticalItemBorder" id="id.237791252950736">
-                        <table cellspacing="0" cellpadding="0" class="uiGrid">
-                          <tbody>
-                            <tr>
-                              <td class="threadMainCol">
-                              	
-                                <a class="threadLink" href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="profile.userid"/>" rel="ignore">
-                                  <div class="UIImageBlock clearfix pvs">
-                                    <img class="uiProfilePhoto UIImageBlock_Image UIImageBlock_MED_Image uiProfilePhotoLarge img" src="<s:property value="profile.avatar"/>" alt="">
-                                    
-                                    <div class="content UIImageBlock_Content UIImageBlock_MED_Content">
-                                      <div class="authorsWrapper">
-                                        <strong class="authors"><s:property value="profile.username"/></strong>
-                                        <span class="mls mutualFriends fsm fwn fcg"></span>
-                                      </div>
-                                      
-                                    </div>
-                                  </div>
-                                  
-                                </a>
-                               
-                              
-                              
-                              
-                              </td>
-                              
-                               <td class="threadMainCol">
-                                
-                                <div class="snippet fsm fwn fcg">
-                                        
-                                         <s:if test="request.eventkey==1">
-                                        <span id="snippet_id.237791252950736"><s:property value="content"/><s:if test="(formatedMsg!=null&&formatedMsg!=''&&formatedMsg!='[object Window]')">(<s:property value="formatedMsg"/>)</s:if></span>
-                                 			</s:if>
-                                 			 <s:if test="request.eventkey==5">
-                                        <span id="snippet_id.237791252950736"><s:property value="content"/><a title="dota" href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>"><s:property value="event.eventname"/></a></span>
-                                 			</s:if>
-                                 			
-                                 			  <s:if test="request.eventkey==16">
-                                        <span id="snippet_id.237791252950736"><s:property value="content"/><a title="dota" href="sns/question!viewQuestion.jhtml?questionId=<s:property value="question.id"/>"><s:property value="question.summary"/></a></span>
-                                 			</s:if>
-                                 </div>
-                              </td>
-                              
-                              
-                              
-                              <td class="plm">
-                                <s:if test="request.eventkey!=16">
-                                <a class="uiTooltip markAsUnreadLink" onmouseout="this.blur();" href="/usr/request!approveRequest.jhtml?requestId=<s:property value="request.id"/>"  rel="async-post">
-                                  <span class="readState markunread"></span>
-                                  <span class="uiTooltipWrap top right righttop">
-                                    <span class="uiTooltipText">同意</span>
-                                  </span>
-                                </a>
-                                </s:if>
-                                <s:else>
-                                	 <a class="uiTooltip markAsUnreadLink" onmouseout="this.blur();" href="sns/question!viewQuestion.jhtml?questionId=<s:property value="question.id"/>"  rel="async-post">
-                                  <span class="readState markunread"></span>
-                                  <span class="uiTooltipWrap top right righttop">
-                                    <span class="uiTooltipText">查看详细</span>
-                                  </span>
-                                </a>
-                              </s:else>
-                              </td>
-                              <td class="pls">
-                                <a class="uiTooltip archiveLink" onmouseout="this.blur();"  href="/usr/request!deleteRequest.jhtml?requestId=<s:property value="request.id"/>" rel="async-post">
-                                  <label class="uiCloseButton uiCloseButtonSmall" for="up3vb3_4">
-                                    <input type="button" title="" id="up3vb3_4">
-                                  </label>
-                                  <span class="uiTooltipWrap top right righttop">
-                                    <span class="uiTooltipText">删除</span>
-                                  </span>
-                                </a>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </li>
-                      
-                      </s:iterator>
-                    </ul>
+                   
+                   
+                   <ul class="uiList">
+                   	<s:iterator value="requests">
+						      	<li class="objectListItem uiListItem uiListLight uiListVerticalItemBorder" id="100003206989957_1_req">
+						        <div class="UIImageBlock clearfix">
+						        	  <a class="actorPhoto UIImageBlock_Image UIImageBlock_MED_Image" tabindex="-1" href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="profile.userid"/>">
+												<img class="uiProfilePhoto profilePic uiProfilePhotoLarge img" src="<s:property value="profile.avatar"/>" alt="">
+												</a>
+											
+					          <div id="100003206989957_1_req_status" class="requestStatus UIImageBlock_Content UIImageBlock_SMALL_Content">
+					            <div class="clearfix">
+					              <div class="rfloat">
+					                <div class="auxiliary" id="100003206989957_1_req_aux">
+					                  
+					                    <div class="actions">
+					                    	<s:if test="request.eventkey!=16">
+					                      	<a id="profile_action_send_message" class="uiButton uiButtonConfirm"  href="/usr/request!approveRequest.jhtml?requestId=<s:property value="request.id"/>" rel="">
+																			<i class="mrs img sp_ah6icc sx_5ecc8d"></i>
+																			<span class="uiButtonText">接受</span>
+																	</a>
+					                      	</s:if>
+					                      	 <s:else>
+					                      	 	<a id="profile_action_send_message" class="uiButton uiButtonConfirm"  href="sns/question!viewQuestion.jhtml?questionId=<s:property value="question.id"/>" rel="">
+																			<i class="mrs img sp_ah6icc sx_5ecc8d"></i>
+																			<span class="uiButtonText">查看详细</span>
+																	</a>
+					                      	 </s:else>
+					                      
+					                      	<a id="profile_action_send_message" class="uiButton"  href="/usr/request!deleteRequest.jhtml?requestId=<s:property value="request.id"/>" rel="">
+																	<i class="mrs img sp_ah6icc sx_5ecc8d"></i>
+																	<span class="uiButtonText">忽略</span>
+																	</a>
+																	
+					                    </div>
+					                  
+					                </div>
+					              </div>
+					              <div>
+					                <div>
+					                	<span class="title fsl fwb fcb"><a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="profile.userid"/>"><s:property value="profile.username"/></a>
+					                		<s:if test="request.eventkey==1">
+					                		邀请你成为朋友
+					                		</s:if>
+					                		<s:if test="request.eventkey==5">
+					                		邀请你参加活动
+					                		<a title="dota" href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>"><s:property value="event.eventname"/></a>
+					                		</s:if>
+					                		<s:if test="request.eventkey==16">
+					                		邀请你回答问题<a title="dota" href="sns/question!viewQuestion.jhtml?questionId=<s:property value="question.id"/>"><s:property value="question.summary"/></a>
+					                		</s:if>
+					                		</span>
+					                	
+					                </div>
+					                <div class="networkContextWrapper"></div>
+					              </div>
+					            </div>
+					            <div class="fsm fwn fcg"></div>
+					          </div>
+					        </div>
+					      </li>
+					      <li class="uiListItem uiListLight uiListVerticalItemBorder">
+					        <div class="pam hidden_elem uiBoxLightblue">没有新请求</div>
+					      </li>
+					      </s:iterator>
+					    </ul>
+                   
+                   
+                   
+                   
                   </div>
                  </div>
               </div>
