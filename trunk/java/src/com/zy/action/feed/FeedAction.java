@@ -466,10 +466,10 @@ public class FeedAction extends ActionSupport{
 		return "member.addfeedcomment.ajax";
 	}
 	
-	public String sharedFeed(){
+	public String sharedFeedAjax(){
 		feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), feedId);
 		//return NONE;
-		return "to.member.feeds";
+		return "member.sharefeeds.pop";
 	}
 	
 	public String manageFeedCommentAjax() {
