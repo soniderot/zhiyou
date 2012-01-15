@@ -1,5 +1,5 @@
 <%@page pageEncoding="utf-8"%>
-<script>
+<script type="text/javascript">
 $(function(){
   $("#dialog_0").hide();
 });
