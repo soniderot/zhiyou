@@ -13,6 +13,7 @@
 		<result name="member.editalbum" type="tiles">tiles.member.editalbum</result>
 		<result name="member.editphotos" type="tiles">tiles.member.editphotos</result>
 		<result name="to.member.feeds" type="redirect">/usr/feed.jhtml</result>
+		<result name="member.sharefeeds.pop">/WEB-INF/jsp/popup/noticePop.jsp</result>
 	</action>
 </package>
 </struts>
