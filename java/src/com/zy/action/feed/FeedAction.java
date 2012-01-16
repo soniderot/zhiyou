@@ -523,6 +523,7 @@ public class FeedAction extends ActionSupport{
 			answer.setQuestionid(option.getQuestionid());
 			answer.setOptionanswer(optionId);
 			answer.setUserid(ActionUtil.getSessionUserId());
+			questionFacade.addAnswer(answer);
 		} else {
 			hot = option.getHot() - 1;
 			option.setHot(hot);
