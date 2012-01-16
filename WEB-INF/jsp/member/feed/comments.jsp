@@ -24,7 +24,7 @@
     <span class="UIActionLinks UIActionLinks_bottom">
       <label class="uiLinkButton comment_link" title="分享">
         <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
-          <a href="usr/feed!sharedFeed.jhtml?feedId=<s:property value="feed.id" />"><span class="fwn">分享</span> </a> 
+          <a href="usr/feed!sharedFeed.jhtml?feedId=<s:property value="feed.id" />" onclick="return share(<s:property value='feed.id' />);"><span class="fwn">分享</span> </a> 
         </s:if >
         <!--
         <input type="button" value="分享" onclick="return;">
@@ -106,3 +106,17 @@
   </ul>
   </div>
 </s:form>
+<script type="text/javascript">
+  function share(feedId) {
+    $.ajax({
+     type: "GET",
+     url: "usr/feed!sharedFeedAjax.jhtml",
+     dataType: 'html',
+     data: "feedId=" + feedId,
+     success: function(data) {
+       $("body").append(data);
+     }
+    });
+    return false;
+  }
+</script>
