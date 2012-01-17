@@ -379,9 +379,9 @@ public class PhotoAction {
 	
 	public String sharePhotoAjax(){
 		ZyPhoto photo = photoFacade.getPhoto(photoId);
-		int feedId = feedFacade.getNewsFeed(photo.getUserid(), "sns.publish.photo",""+photo.getUserid()).get(0).getId();
+		int feedId = feedFacade.getNewsFeed(photo.getUserid(), "sns.publish.photo",""+photo.getId()).get(0).getId();
 		feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), feedId);
-		return "member.sharefeeds.pop";
+		return "member.sharephoto.pop";
 	}
 	
 	public SNSFacade getSnsFacade() {
