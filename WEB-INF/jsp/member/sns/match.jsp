@@ -62,7 +62,7 @@
                   </tr>
                   <tr id="u9ikxu_15">
                     <td>
-                                            学校：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            关键字：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
                     <td>
                       <div id="u9ikxu_18">
@@ -70,7 +70,7 @@
                           <div class="wrap">
                             
                             <div class="innerWrap">
-                              <input name="keyword" type="text" title="关键字" spellcheck="false"  value="键入关键字" size="35" placeholder="键入关键字" class="inputtext textInput DOMControl_placeholder"/>
+                              <input name="keyword" type="text" title="关键字" spellcheck="false"  value="" size="35" placeholder="" class="inputtext textInput DOMControl_placeholder"/>
                             </div>
                           </div>
                         </div>
