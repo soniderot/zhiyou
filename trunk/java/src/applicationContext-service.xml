@@ -5,6 +5,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	
 	<bean name="profileService" class="com.zy.domain.profile.service.ProfileServiceImpl">
 		<property name="profileDao" ref="profileDao"/>
+		<property name="cityService" ref="cityService"/>
 	</bean>
 	
 	<bean name="snsService" class="com.zy.domain.sns.service.SNSServiceImpl">

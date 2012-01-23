@@ -119,6 +119,7 @@ public class UploadAction {
     	out = response.getWriter();
 			ZyProfile profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
 			profile.setAvatar("");
+			ActionContext.getContext().getSession().remove("userlogo");
 			profileFacade.updateProfile(profile);
 	    out.print(profile.getGender());
 	    out.flush();

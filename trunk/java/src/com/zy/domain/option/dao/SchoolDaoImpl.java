@@ -87,8 +87,8 @@ public class SchoolDaoImpl extends HibernateDao<ZySchool, Integer> implements Sc
 
 	@Override
 	public List<ZySchool> getSchoolsByKey(String key) {
-		String hql = "from ZySchool where schoolpinyin like ?";
-		List<ZySchool> list= getHibernateTemplate().find(hql,new Object[]{key + "%"});
+		String hql = "from ZySchool where schoolpinyin like ? or schoolname like ?";
+		List<ZySchool> list= getHibernateTemplate().find(hql,new Object[]{key + "%",key + "%"});
 		return list;
 	}
 

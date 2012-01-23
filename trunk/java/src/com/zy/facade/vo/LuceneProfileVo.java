@@ -149,6 +149,8 @@ public class LuceneProfileVo implements Serializable {
 		StringBuffer sb = new StringBuffer(fullName);
 		if (StringUtils.isNotBlank(careerBrief))
 			sb.append(" ").append(careerBrief).append(" ");
+		if (StringUtils.isNotBlank(citynamecn))
+			sb.append(" ").append(citynamecn).append(" ");
 		if (StringUtils.isNotBlank(companyName))
 			sb.append(companyName).append(" ");
 		if (StringUtils.isNotBlank(position))
