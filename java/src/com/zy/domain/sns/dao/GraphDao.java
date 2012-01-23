@@ -19,9 +19,9 @@ public class GraphDao extends HibernateDao implements Graph,java.io.Serializable
 	private final OpenLongObjectHashMap _nodes = new OpenLongObjectHashMap(1);
 	private static  long serialVersionUID = 2140403704078250823L;
 	
-	private static  String SQL_NODE_COUNT = "SELECT count(*) FROM  ZY_PROFILE profile inner join (select userid from ZY_FRIEND union select friendid from ZY_FRIEND) a on profile.userid = a.userid  ";
-	private static  String SQL_NODE_LIST = "SELECT ZY_PROFILE.userid,gender, countryid FROM  ZY_PROFILE inner join (select userid from ZY_FRIEND union select friendid from ZY_FRIEND) a on ZY_PROFILE.userid = a.userid  ";
-	private static  String SQL_EDGES_LIST = "SELECT distinct least(userid,friendid), greatest(userid,friendid) FROM ZY_FRIEND";
+	private static  String SQL_NODE_COUNT = "select count(*) from  zy_profile profile inner join (select userid from zy_friend union select friendid from zy_friend) a on profile.userid = a.userid  ";
+	private static  String SQL_NODE_LIST = "select zy_profile.userid,gender, countryid from  zy_profile inner join (select userid from zy_friend union select friendid from zy_friend) a on zy_profile.userid = a.userid  ";
+	private static  String SQL_EDGES_LIST = "select distinct least(userid,friendid), greatest(userid,friendid) from zy_friend";
 	
 	private static Connection conn = null;
 	
@@ -75,7 +75,7 @@ public class GraphDao extends HibernateDao implements Graph,java.io.Serializable
 		ResultSet rs = null;
 		try {
 			// get graph max vertex count
-			pstmt = prepareStatement(SQL_NODE_COUNT.toUpperCase());
+			pstmt = prepareStatement(SQL_NODE_COUNT.toLowerCase());
 			rs = pstmt.executeQuery();
 			rs.next();
 			//graph.ensureCapacity(rs.getInt(1));
@@ -86,7 +86,7 @@ public class GraphDao extends HibernateDao implements Graph,java.io.Serializable
 			pstmt = null;
 
 			// load graph vertices
-			pstmt = prepareStatement(SQL_NODE_LIST.toUpperCase());
+			pstmt = prepareStatement(SQL_NODE_LIST.toLowerCase());
 			rs = pstmt.executeQuery();
 			int c_ = 0;
 			int rc_ = 0;
@@ -106,7 +106,7 @@ public class GraphDao extends HibernateDao implements Graph,java.io.Serializable
 			pstmt = null;
 			
 			// load graph edges
-			pstmt = prepareStatement(SQL_EDGES_LIST.toUpperCase());
+			pstmt = prepareStatement(SQL_EDGES_LIST.toLowerCase());
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				//graph.addInitEdge(rs.getLong(1), rs.getLong(2));

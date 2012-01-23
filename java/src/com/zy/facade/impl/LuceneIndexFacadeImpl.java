@@ -125,7 +125,9 @@ public class LuceneIndexFacadeImpl implements LuceneIndexFacade {
 				
 				profile.setBirthDate(DateUtil.formatDate(p.getBirthdate(),
 						DateUtil.lucenedate));
-
+				
+				profile.setCitynamecn(profileService.findProfileById(p.getUserid()).getCityname());
+				System.out.println("------------profile.cityname---"+profile.getCitynamecn());
 				// country region city
 				profile.setCountryId(p.getCountryid());
 				profile.setRegionId(p.getRegionid());

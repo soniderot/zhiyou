@@ -85,7 +85,7 @@ public class FeedFacadeImpl implements FeedFacade{
 		FeedBean bean = new FeedBean();
 		ZyNewsfeed feed = new ZyNewsfeed();
 		feed.setUserid(userId);
-		feed.setCreated(new Date());
+		feed.setCreated(photoService.getPhoto(photoId).getCreatetime());
 		feed.setHandle("sns.publish.photo");
 		feed.setBody(""+photoId);
 		feedService.addNewsFeed(feed);

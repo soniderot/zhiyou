@@ -379,7 +379,12 @@ public class EventAction {
 	public String createOrUpdate() {
 		eventCategorys = eventFacade.getEventCategorys();
 		int userid = ActionUtil.getSessionUserId();
-		int cityid = profileFacade.findProfileById(userid).getCityid();
+		int cityid=8843;
+		try{
+		cityid = profileFacade.findProfileById(userid).getCityid();
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
 		districts = optionFacade.getDistricts(cityid);
 		SimpleDateFormat dateformat1=new SimpleDateFormat("MM/dd/yyyy");
 		SimpleDateFormat dateformat2=new SimpleDateFormat("HH:mm");
@@ -483,6 +488,9 @@ public class EventAction {
 				event.setLogo("/images/event.jpg");
 		}
 		
+		if(event.getCityid()==null){
+			event.setCityid(8843);
+		}
 		if(eventId>0){
 			event.setId(eventId);
 			eventFacade.updateEvent(event);

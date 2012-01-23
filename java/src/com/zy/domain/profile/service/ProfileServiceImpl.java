@@ -112,6 +112,9 @@ public class ProfileServiceImpl implements ProfileService {
 	
 	
 	public void insertProfile(ZyProfile profile){
+		if(profile.getCityid()==null){
+			profile.setCityid(8843);
+		}
 		profile.setRegistertime(new Date());
 		profile.setLastlogintime(new Date());
 		profile.setUpdatetime(new Date());

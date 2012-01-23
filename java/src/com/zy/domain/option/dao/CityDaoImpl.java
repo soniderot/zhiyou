@@ -14,8 +14,8 @@ public class CityDaoImpl extends HibernateDao<ZyCity, Integer> implements CityDa
 	}
 	
 	public List<ZyCity> getCitiesByKey(String key) {
-		String hql = "from ZyCity where citypinyin like ? order by citypinyin";
-		return this.find(hql, new Object[] {key + "%"});
+		String hql = "from ZyCity where citypinyin like ? or cityname like ? order by citypinyin";
+		return this.find(hql, new Object[] {key + "%",key + "%"});
 	}
 	
 	public ZyCity getCity(int cityId) {

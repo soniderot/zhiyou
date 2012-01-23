@@ -15,6 +15,7 @@ import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
 import com.zy.common.util.Page;
+import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.PhotoFacade;
 import com.zy.facade.ProfileFacade;
@@ -379,8 +380,16 @@ public class PhotoAction {
 	
 	public String sharePhotoAjax(){
 		ZyPhoto photo = photoFacade.getPhoto(photoId);
-		int feedId = feedFacade.getNewsFeed(photo.getUserid(), "sns.publish.photo",""+photo.getId()).get(0).getId();
-		feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), feedId);
+		int feedId = 0;
+		try{
+			feedId = feedFacade.getNewsFeed(photo.getUserid(), "sns.publish.photo",""+photo.getId()).get(0).getId();
+			feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), feedId);
+		}catch(Exception ex){
+			if(feedId==0){
+				FeedBean bean = feedFacade.addNewPhotoNewsFeed(photo.getUserid(), photo.getId());
+				feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), bean.getFeed().getId());
+			}
+		}
 		return "member.sharephoto.pop";
 	}
 	
