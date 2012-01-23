@@ -85,8 +85,14 @@ function deletePhotoAjax() {
           <tr>
             <td>
               <div class="profile-picture">
-                <img src="<s:property value="#session.user.avatar"/>" id="profile_pic"/>
+              	<s:if test="#session.userlogo!=null">   
+                <img src="<s:property value="#session.userlogo"/>" id="profile_pic"/>
+                	</s:if>   
+                	<s:else>
+                			<img alt="" src="images/DEFAULT.JPG" id="profile_pic"/>
+                		</s:else>
               </div>
+              
               <div id="remove_profile_picture_link" class="thumbnail_action">
                 <a rel="dialog" href="#" onclick="$('#dialog_1').removeClass('hidden_elem'); return false;">删除你的图像</a>
               </div>
