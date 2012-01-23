@@ -124,7 +124,7 @@
             </tr>-->
             <tr class="dataRow">
             
-              <th class="label">新密码：</th>
+              <th class="label">新密码(不修改请保持为空)：</th>
               <td class="data">
                 <div>
                   <div id="u2urlx_8" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead uiTypeaheadFocused">
