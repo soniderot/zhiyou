@@ -5,8 +5,7 @@
   <div class="storyHighlightIndicatorWrapper"></div>
   <div class="storyContent">
     <div class="UIImageBlock clearfix">
-      <a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="feedBean.user.userid"/>" tabindex="-1"
-        class="actorPhoto UIImageBlock_Image UIImageBlock_MED_Image">
+      <a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="feedBean.user.userid"/>" tabindex="-1" class="actorPhoto UIImageBlock_Image UIImageBlock_MED_Image">
         <img alt="" src="<s:property value="feedBean.user.avatar"/>" class="uiProfilePhoto profilePic uiProfilePhotoLarge img" />
       </a>
       <div class="storyInnerContent UIImageBlock_Content UIImageBlock_MED_Content">
@@ -40,25 +39,30 @@
               <s:if test="feed.handle=='sns.share.photo'">分享了<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friend.userid"/>"><s:property value="friend.username"/></a>的照片</s:if>
               <s:if test="feed.handle=='sns.publish.question'"><s:property value="feed.body"/></s:if>
             </div>
+            
             <s:if test="feed.handle=='sns.publish.text'||feed.handle=='sns.event.text'">
               <span class="messageBody">
                 <s:property value="feed.body" />
               </span>
               <%@ include file="/WEB-INF/jsp/member/feed/comments.jsp"%>
             </s:if>
+            <s:if test="feed.handle=='sns.share.connection'">
+              <%@ include file="/WEB-INF/jsp/member/feed/comments.jsp"%>
+            </s:if>
             <s:if test="feed.handle=='sns.share.text'">
-              <span data-ft='{"type":3}' class="messageBody">
+              <span class="messageBody">
                 <s:property value="oldFeed.body" />
               </span>
               <%@ include file="/WEB-INF/jsp/member/feed/comments.jsp"%>
             </s:if>
-           </h6>
-           <s:if test="feed.handle=='sns.event.create'">
-             <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
-           </s:if>
-          <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.share.photo'||feed.handle=='sns.event.photo')">
-              <%@ include file="/WEB-INF/jsp/member/feed/photofeed.jsp"%>
-           </s:if>
+          </h6>
+           
+          <s:if test="(feed.handle=='sns.event.create')||(feed.handle=='sns.event.join')">
+            <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
+          </s:if>
+           <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.share.photo'||feed.handle=='sns.event.photo')">
+            <%@ include file="/WEB-INF/jsp/member/feed/photofeed.jsp"%>
+          </s:if>
           <s:if test="(feed.handle=='sns.publish.question')">
             <%@ include file="/WEB-INF/jsp/member/feed/questionfeed.jsp"%>
           </s:if>
