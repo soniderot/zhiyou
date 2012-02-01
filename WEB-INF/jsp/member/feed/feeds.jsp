@@ -35,20 +35,21 @@
         <div>
           <h2 class="uiHeaderTitle">
             <s:if test="event==null">
-            <i class="uiHeaderImage  img  sp_7gl7wd  sx_efd21b"></i><s:if test="handle=='sns.publish.photo,sns.event.photo'">照片</s:if><s:elseif test="handle=='sns.publish.question'">问题</s:elseif><s:else>动态</s:else>汇总
+              <i class="uiHeaderImage img sp_7gl7wd  sx_efd21b"></i>
+              <s:if test="handle=='sns.publish.photo,sns.event.photo'">照片</s:if>
+              <s:elseif test="handle=='sns.publish.question'">问题</s:elseif>
+              <s:else>动态</s:else>汇总
           	</s:if>
           	<s:else>
-          		<i class="uiHeaderImage  img  sp_7gl7wd  sx_efd21b"></i>活动信息
-          </s:else>
+          	  <i class="uiHeaderImage  img  sp_7gl7wd  sx_efd21b"></i>活动信息
+            </s:else>
           </h2>
         </div>
       </div>
     </div>
   </div>
-  <div data-referrer="pagelet_composer" id="pagelet_composer">
-    <div id="u3mxyl_2"
-      onclick="Bootloader.loadComponents(&quot;Composer&quot;, function() { JSCC.get(&#39;j4ec37b3f908df06889566482&#39;) });"
-      class="uiComposer uiComposerHideContent stat_elem uiMetaComposer uiComposerTopBorder uiComposerOpen uiComposerHideContent uiComposerWhiteMessageBox">
+  <div id="pagelet_composer">
+    <div id="u3mxyl_2" class="uiComposer uiComposerHideContent stat_elem uiMetaComposer uiComposerTopBorder uiComposerOpen uiComposerHideContent uiComposerWhiteMessageBox">
       <div class="focus_target">
         <ul class="uiList uiListHorizontal clearfix uiComposerAttachments">
         	
@@ -57,7 +58,7 @@
           </s:if>
         	
           <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-            <span data-endpoint="/ajax/metacomposer/attachment/status/status.php" id="composerTourStart"
+            <span id="composerTourStart"
               class="uiComposerAttachment statusAttachment uiComposerAttachmentSelected attachmentAcceptsLink">
               <a href="#" tabindex="0" class="uiIconText attachmentLink normal" onclick="changeStatus(this, 'status'); return false;">
                 <i class="img sp_7gl7wd sx_bd619c"></i>
@@ -70,7 +71,7 @@
             </span>
           </li>
           <li class="plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-            <span data-endpoint="/ajax/metacomposer/attachment/photo/photo.php" id="u3mxyl_4" class="uiComposerAttachment photoAttachment">
+            <span id="u3mxyl_4" class="uiComposerAttachment photoAttachment">
              <a href="#" tabindex="0" class="uiIconText attachmentLink normal" onclick="changeStatus(this, 'photo'); return false;">
               <i class="img sp_6h8b4g sx_282f2a"></i>
               <strong class="attachmentName">添加照片</strong>
@@ -265,7 +266,7 @@
   <iframe style="width: 1px; height: 1px; position: absolute; top: -10000px;" name="u3jjus_1" class="fbUploadIframe"></iframe>
   <div id="pagelet_home_stream">
     <div id="c4ec37b3fc7e022d58174072" class="UIIntentionalStream UIStream">
-      <ul id="home_stream" class="uiList uiStream UIIntentionalStream_Content" data-referrer="home_stream" style="min-height: 100px;">
+      <ul id="home_stream" class="uiList uiStream UIIntentionalStream_Content" style="min-height: 100px;">
         <s:iterator value="feeds">
           <li id="stream_story_4ec37b3fd947b3232640247"
             class="pvm uiUnifiedStory uiStreamStory genericStreamStory aid_1438697558 uiListItem uiListLight uiListVerticalItemBorder">
@@ -313,26 +314,24 @@
                            </a>
                         </s:if>
                       </div>
+                      
                       <s:if test="feed.handle=='sns.publish.text'||feed.handle=='sns.event.text'">
                         <span class="messageBody">
                           <s:property value="feed.body" />
                         </span>
                         <%@ include file="/WEB-INF/jsp/member/feed/comments.jsp"%>
                       </s:if>
-                      
-                       <s:if test="feed.handle=='sns.share.connection'">
-                        
+                      <s:if test="feed.handle=='sns.share.connection'">
                         <%@ include file="/WEB-INF/jsp/member/feed/comments.jsp"%>
                       </s:if>
-                      
                       <s:if test="feed.handle=='sns.share.text'">
                         <span class="messageBody">
                           <s:property value="oldFeed.body" />
                         </span>
                         <%@ include file="/WEB-INF/jsp/member/feed/comments.jsp"%>
                       </s:if>
-                      
                     </h6>
+                    
                     <s:if test="(feed.handle=='sns.event.create')||(feed.handle=='sns.event.join')">
                       <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
                     </s:if>
@@ -350,7 +349,7 @@
         </s:iterator>
       </ul>
       <div>
-        <div id="pagelet_stream_pager" data-referrer="pagelet_stream_pager">
+        <div id="pagelet_stream_pager">
           <div class="clearfix mts uiMorePager stat_elem fbStreamPager">
             <div>
             	<s:if test="feeds.size()>0">

@@ -42,7 +42,7 @@
       </label> · 
     </span>
   
-    <span class="uiStreamSource" data-ft="{&quot;type&quot;:26}">
+    <span class="uiStreamSource">
       <abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp">
         <s:date name="feed.created" format="yyyy-MM-dd HH:mm" />
       </abbr>
@@ -92,7 +92,7 @@
           <div class="commentBox">
             <div id="u3aqpf_8" class="uiMentionsInput textBoxContainer">
               <div class="highlighter" style="direction: ltr; text-align: left;">
-                <div style="width: 340px;"><span class="highlighterContent"/></div>
+                <div style="width: 340px;"><span class="highlighterContent"></span></div>
               </div>
               <div id="u3aqpf_9" class="uiTypeahead mentionsTypeahead" style="height: auto;">
                 <div class="wrap">
@@ -101,7 +101,7 @@
                     <s:textarea name="feedComment" onfocus="commentFocus(this)" onkeypress="enterKeypress(this, event)" placeholder="留段话吧..." title="留段话吧..." cssClass="enter_submit uiTextareaNoResize uiTextareaAutogrow textBox mentionsTextarea textInput DOMControl_placeholder"></s:textarea>
                   </div>
                 </div>
-                <div class="uiTypeaheadView hidden_elem"/>
+                <div class="uiTypeaheadView hidden_elem"></div>
               </div>
               <input type="hidden" class="mentionsHidden" name="add_comment_text" value=""/>
             </div>
