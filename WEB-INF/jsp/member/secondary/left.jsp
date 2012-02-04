@@ -5,7 +5,7 @@
 					    <div data-referrer="pagelet_profile_picture" id="pagelet_profile_picture">
 					      <div class="profile-picture">
 					      	<span class="profile-picture-overlay"></span>
-					      	<img id="profile_pic" alt="Yu Li" src="<s:property value="profile.avatar"/>" class="photo img"/>
+					      	<img id="profile_pic" alt="Yu Li" src="<s:property value="profile.bigavatar"/>" class="photo img"/>
 					      </div>
 					    </div>
 					    <div data-referrer="pagelet_fbx_navigation" id="pagelet_fbx_navigation">
