@@ -1,10 +1,10 @@
-<%@page contentType="text/html; charset=UTF-8"%>
+<%@page pageEncoding="utf-8"%>
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 
 <div class="mvm uiStreamAttachments clearfix fbMainStreamAttachment">
   <div>
     <a title="<s:property value="photo.summary" />" class="uiPhotoThumb largePhoto">
-      <img   alt="" src="<s:property value="photo.filename" />" class="img">
+      <img width="<s:property value="photo.width" />" height="<s:property value="photo.height" />"  alt="" src="<s:property value="photo.filename" />" class="img">
     </a>
     <div class="fsm fwn fcg">
       <span class="caption"></span>
