@@ -3,6 +3,7 @@ package com.zy.common.model;
 import java.util.Date;
 
 import com.zy.common.util.DateUtil;
+import com.zy.common.util.ImageUtil;
 
 /**
  * ZyProfile entity.
@@ -56,7 +57,10 @@ public class ZyProfile implements java.io.Serializable {
 	
 	private boolean friendFlag;
 	
+	private String bigavatar;
+	
 	// Constructors
+
 
 	public boolean isRequestOutFlag() {
 		return requestOutFlag;
@@ -229,6 +233,19 @@ public class ZyProfile implements java.io.Serializable {
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
+	
+	public void setProfileAvatar(String avatar) {
+		
+		String smallLogo = avatar.replace(".jpg","-small.jpg");
+		ImageUtil.resetsize(avatar,smallLogo);
+		
+		String bigLogo = avatar.replace(".jpg","-big.jpg");
+		int[] result = ImageUtil.resetsize(avatar,bigLogo,120,120);
+		
+		this.avatar = smallLogo;
+		this.bigavatar = bigLogo;
+		
+	}
 
 	public Short getGender() {
 		return this.gender;
@@ -388,6 +405,17 @@ public class ZyProfile implements java.io.Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getBigavatar() {
+		if(bigavatar==null||bigavatar.length()==0){
+			return "images/default.JPG";
+		}
+		return this.bigavatar;
+	}
+
+	public void setBigavatar(String bigavatar) {
+		this.bigavatar = bigavatar;
 	}
 
 }

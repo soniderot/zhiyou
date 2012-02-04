@@ -369,8 +369,7 @@ public class DateUtil {
     
     
     public static void main11(String []args){
-    	System.out.println("---"+getPrDate());
-    	System.out.println("---"+getPrWeek());
+    	
     }
     
     public static int getDayOfWeek()
@@ -402,44 +401,7 @@ public class DateUtil {
         int months = yearSpan * 12 + monthSpan;
         return months;
     }
-  //promotion 9-Nov~14-Dec
-    public static Date getPrDate(){
-		Date d = new Date();
-		if (d.before(DateUtil.getDate("2010-11-10", DateUtil.patternDate))||d.after(DateUtil.getDate("2010-12-15", DateUtil.patternDate))) {
-			return null;
-		}
-    	for(int i=0;i<Constants.rangDate.length;i++){
-			if (i + 1 < Constants.rangDate.length && d.before(Constants.rangDate[i + 1])
-					&& d.after(Constants.rangDate[i])) {
-				d = Constants.rangDate[i];
-				break;
-			}
-			if (i + 1 == Constants.rangDate.length && Constants.rangDate[i].before(d)
-					&& Constants.rangDate[i].before(DateUtil.getDate("2010-12-15", DateUtil.patternDate))) {
-				d = Constants.rangDate[i];
-			}
-    		
-    	}
-    	return d;
-    }
-  //promotion 19-Jan~16-Feb
-	public static int getPrWeek() {
-		Date d = new Date();
-		int index = 20110100;
-		for (int i = 0; i < Constants.rangDate.length; i++) {
-			if (i + 1 < Constants.rangDate.length && d.before(Constants.rangDate[i + 1])
-					&& d.after(Constants.rangDate[i])) {
-				index = index + i;
-				break;
-			}
-			if (i + 1 == Constants.rangDate.length && Constants.rangDate[i].before(d)
-					&& Constants.rangDate[i].before(DateUtil.getDate("2011-2-17", DateUtil.patternDate))) {
-				index = index + i;
-			}
-
-		}
-		return index;
-	}
+  
     
 	//ISO8601
 	 public static String toIso8601DateTime(Date dateTime) {

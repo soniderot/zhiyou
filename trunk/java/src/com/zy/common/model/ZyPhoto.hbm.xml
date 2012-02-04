@@ -31,5 +31,17 @@
          <property name="deleted" type="java.lang.String">
             <column name="deleted" length="1"  />
         </property>
+        
+         <property name="bigfilename" type="java.lang.String">
+            <column name="bigfilename" length="150"  />
+        </property>
+        
+         <property name="width" type="java.lang.Integer">
+            <column name="width"  />
+        </property>
+        
+         <property name="height" type="java.lang.Integer">
+            <column name="height"  />
+        </property>
     </class>
 </hibernate-mapping>

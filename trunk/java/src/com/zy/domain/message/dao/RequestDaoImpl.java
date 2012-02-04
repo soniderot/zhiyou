@@ -256,16 +256,6 @@ public class RequestDaoImpl extends HibernateDao <ZyRequest, Integer> implements
 		
 	}
 	
-	@Override
-	public List<Integer> findAggressiveSenderId(Date calculateStartDate, Date calculateEndDate) {
-		List<Integer> results = new ArrayList<Integer>();
-		String hql = "select senderid from ZyRequest where status=2 and eventkey=1 and createtime>=? and createtime<? group by senderid having count(*)>=?";
-		java.util.Iterator iter = this.find(hql, new Object[] { calculateStartDate, calculateEndDate, (long)Constants.ONE_D_IGNORE_TIMES}).iterator();
-		while(iter.hasNext()){
-			results.add((Integer)(iter.next()));
-		}
-		return results;
-	}
 
 	@Override
 	public int countRequestBySender(int senderid, Date startDate, Date finishDate) {

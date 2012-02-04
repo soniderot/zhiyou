@@ -119,7 +119,7 @@ public class ProfileServiceImpl implements ProfileService {
 		profile.setLastlogintime(new Date());
 		profile.setUpdatetime(new Date());
 		if(profile.getAvatar()!=null)
-			profile.setAvatar(Constants.LOGO_PATH+profile.getAvatar());
+			profile.setProfileAvatar(Constants.LOGO_PATH+profile.getAvatar());
 		profile.setPasswd(SecurityUtil.getMD5(profile.getPasswd()));
 		profileDao.save(profile);
 	}
@@ -131,7 +131,7 @@ public class ProfileServiceImpl implements ProfileService {
 	
 	public void updateLogo(int userId,String path){
 		ZyProfile profile = profileDao.load(userId);
-		profile.setAvatar(Constants.LOGO_PATH+path);
+		profile.setProfileAvatar(Constants.LOGO_PATH+path);
 		this.updateProfile(profile);
 	}
 
