@@ -50,5 +50,9 @@
         <property name="subcategoryid" type="java.lang.Integer">
             <column name="SUBCATEGORYID"  />
         </property>
+        
+         <property name="biglogo" type="java.lang.String">
+            <column name="BIGLOGO" length="150"  />
+        </property>
     </class>
 </hibernate-mapping>

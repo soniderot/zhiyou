@@ -67,7 +67,7 @@ public class UploadAction {
 		System.out.println(str);
 		ActionContext.getContext().getSession().put("userlogo","/photos/"+str);
 		ZyProfile profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
-		profile.setAvatar("/photos/"+str);
+		profile.setProfileAvatar("/photos/"+str);
 		profileFacade.updateProfile(profile);
 		return "member.landing";
 	}
@@ -96,7 +96,7 @@ public class UploadAction {
 			String str = photoDir  + datedir  + fn;
 			System.out.println("str: " + str);
 			ZyProfile profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
-			profile.setAvatar(str);
+			profile.setProfileAvatar(str);
 			
 			ActionContext.getContext().getSession().put("userlogo",profile.getAvatar());
 			profileFacade.updateProfile(profile);
@@ -118,7 +118,7 @@ public class UploadAction {
     try {
     	out = response.getWriter();
 			ZyProfile profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
-			profile.setAvatar("");
+			profile.setProfileAvatar("");
 			ActionContext.getContext().getSession().remove("userlogo");
 			profileFacade.updateProfile(profile);
 	    out.print(profile.getGender());

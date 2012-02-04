@@ -403,7 +403,7 @@ public class FeedAction extends ActionSupport{
 			
 			System.out.println(str);
 			ZyPhoto photo = new ZyPhoto();
-			photo.setFilename("/photos/album/"+str);
+			photo.setPhotoFilename("/photos/album/"+str);
 			List<ZyAlbum> albums = photoFacade.getAlbumList(ActionUtil.getSessionUserId());
 			if(albums.size()>0){
 				photo.setAlbumno(albums.get(0).getId());

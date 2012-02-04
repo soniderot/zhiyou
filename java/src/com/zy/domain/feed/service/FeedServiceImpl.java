@@ -107,34 +107,7 @@ public class FeedServiceImpl implements FeedService{
 					this.newsFeedDao.save(feed);
 				}
 			}
-		} else if (feed.getHandle().equals(Constants.SNS_ENDORSE_SEND) || feed.getHandle().equals(Constants.SNS_ENDORSE_RECEIVE)){
-			//add for endorse
-			ZyNewsfeed f = this.newsFeedDao.getNewsFeedByHandle(feed.getHandle(), feed.getUserid());
-			if(f != null){
-				String currentTime = DateUtil.formatDate(new Date(), DateUtil.patternDate);
-				String dbTime = DateUtil.formatDate(f.getCreated(), DateUtil.patternDate);
-				if (currentTime.equals(dbTime)) {
-					boolean exist = false;
-					String[] users = f.getBody().split(",");
-					for(String user : users){
-						if(user.equals(feed.getBody())){
-							exist = true;
-							break;
-						}
-					}
-					if(!exist){
-						String realBody = feed.getBody();
-						f.setBody(f.getBody() + "," + realBody);
-						f.setCreated(new Date());
-						this.updateNewsFeed(f);
-					}
-				} else {
-					this.newsFeedDao.save(feed);
-				}
-			} else {
-				this.newsFeedDao.save(feed);
-			}
-		} else {
+		}  else {
 			this.newsFeedDao.save(feed);
 		}
 	}

@@ -34,27 +34,7 @@ public class NumUtil {
     	return 0;
     }
     
-    public static int getPercent(short type){
-    	if(type==Constants.PROFILE_FILLPERCENT_CAREER || type==Constants.PROFILE_FILLPERCENT_EDUCATION){
-    		return 25;
-    	}
-    	if(type==Constants.PROFILE_FILLPERCENT_AVATAR || type==Constants.PROFILE_FILLPERCENT_CONTACT){
-    		return 15;
-    	}
-    	if(type==Constants.PROFILE_FILLPERCENT_CAREERSUM || type==Constants.PROFILE_FILLPERCENT_EXPERTSKILL){
-    		return 10;
-    	}
-    	return -1;
-    }
-    
-    public static int getPercentByItems(int items){
-		List<Integer> all = split(items,6);
-		int type = 0;
-		for(int i=0;i<all.size();i++){
-			type+=getPercent(all.get(i).shortValue());			
-		}
-		return type;
-    } 
+   
     
     public static void main(String args[]){
     	System.out.println("<p>--------------------</p>");

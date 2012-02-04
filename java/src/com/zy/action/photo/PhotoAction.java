@@ -333,7 +333,7 @@ public class PhotoAction {
 		
 		System.out.println(str);
 		ZyPhoto photo = new ZyPhoto();
-		photo.setFilename("/photos/album/"+str);
+		photo.setPhotoFilename("/photos/album/"+str);
 		photo.setUserid(ActionUtil.getSessionUserId());
 		photo.setAlbumno(albumId);
 		photo.setSummary(summary);

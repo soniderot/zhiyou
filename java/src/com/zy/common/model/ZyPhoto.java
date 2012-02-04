@@ -2,6 +2,8 @@ package com.zy.common.model;
 
 import java.util.Date;
 
+import com.zy.common.util.ImageUtil;
+
 /**
  * ZyPhoto entity.
  * 
@@ -22,8 +24,31 @@ public class ZyPhoto implements java.io.Serializable {
 	private String summary;
 	private String deleted;
 	
+	private String bigfilename;
+	
+	private Integer width;
+	
+	private Integer height;
+	
+	
 	
 	// Constructors
+	
+	public Integer getWidth() {
+		return width;
+	}
+
+	public void setWidth(Integer width) {
+		this.width = width;
+	}
+
+	public Integer getHeight() {
+		return height;
+	}
+
+	public void setHeight(Integer height) {
+		this.height = height;
+	}
 
 	public String getDeleted() {
 		return deleted;
@@ -47,6 +72,15 @@ public class ZyPhoto implements java.io.Serializable {
 
 	public void setFilename(String filename) {
 		this.filename = filename;
+	}
+	public void setPhotoFilename(String filename) {
+		this.bigfilename = filename;
+		
+		String smallFileName = filename.replace(".jpg","-small.jpg");
+		int[] result = ImageUtil.resetsize(filename,smallFileName,320,320);
+		this.filename = smallFileName;
+		this.width = result[0];
+		this.height = result[1];
 	}
 
 	/** default constructor */
@@ -94,6 +128,14 @@ public class ZyPhoto implements java.io.Serializable {
 
 	public void setCreatetime(Date createtime) {
 		this.createtime = createtime;
+	}
+
+	public String getBigfilename() {
+		return bigfilename;
+	}
+
+	public void setBigfilename(String bigfilename) {
+		this.bigfilename = bigfilename;
 	}
 
 }

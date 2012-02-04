@@ -94,5 +94,8 @@
    <property generated="never" lazy="false" name="token" type="java.lang.String">
    <column length="256" name="TOKEN"/>
   </property>
+  <property generated="never" lazy="false" name="bigavatar" type="java.lang.String">
+   <column length="128" name="BIGAVATAR"/>
+  </property>
  </class>
 </hibernate-mapping>

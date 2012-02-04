@@ -28,10 +28,11 @@ public class ZyEvent implements java.io.Serializable {
 	private Integer districtid;
 	private Integer subcategoryid;
 	
-	
+	private String biglogo;
 
 	// Constructors
 
+	
 	
 	public String getLogo() {
 		return logo;
@@ -166,6 +167,14 @@ public class ZyEvent implements java.io.Serializable {
 
 	public void setSubcategoryid(Integer subcategoryid) {
 		this.subcategoryid = subcategoryid;
+	}
+
+	public String getBiglogo() {
+		return biglogo;
+	}
+
+	public void setBiglogo(String biglogo) {
+		this.biglogo = biglogo;
 	}
 
 

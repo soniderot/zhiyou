@@ -54,7 +54,6 @@ public interface RequestDao extends BaseDao<ZyRequest, Integer>{
 	
 	public List<ZyRequest> getRequests(int referenceid);
 	
-	public List<Integer> findAggressiveSenderId(Date calculateStartDate, Date calculateEndDate);
 	
 	public int countRequestBySender(int senderid, Date startDate, Date  finishDate);
 	
