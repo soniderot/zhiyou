@@ -45,7 +45,7 @@
     <li class="uiUfiComments uiListItem uiListVerticalItemBorder">
       <ul class="commentList">
       <s:iterator value="comments"> 
-        <li class="uiUfiComment comment_<s:property value='comment.id' /> ufiItem ufiItem uiUfiUnseenItem">
+        <li class="uiUfiComment comment_<s:property value='comment.id' /> ufiItem">
           <div class="UIImageBlock clearfix uiUfiActorBlock">
             <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid" />" tabindex="-1" class="actorPic UIImageBlock_Image UIImageBlock_SMALL_Image">
               <img alt="" src="<s:property value='user.avatar' />" class="uiProfilePhoto uiProfilePhotoMedium img"/>
