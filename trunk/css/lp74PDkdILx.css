@@ -387,3 +387,5 @@ border-width:1px 0;
 cursor:default;
 position:relative;
 }
+.rightLabel {font-weight:bold;color:#999999;width:100px;}
+.rightValue {padding-left:50px;}
