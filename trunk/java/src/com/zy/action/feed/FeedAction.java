@@ -28,6 +28,7 @@ import com.zy.common.util.FileUtil;
 import com.zy.common.util.Page;
 import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.FeedFacade;
+import com.zy.facade.MessageFacade;
 import com.zy.facade.NotifyFacade;
 import com.zy.facade.PhotoFacade;
 import com.zy.facade.ProfileFacade;
@@ -41,6 +42,7 @@ public class FeedAction extends ActionSupport{
 	private ProfileFacade profileFacade;
 	private QuestionFacade questionFacade;
 	private RequestFacade requestFacade;
+	private MessageFacade messageFacade;
 	private SNSFacade snsFacade;
 	private List<FeedBean> feeds;
 	
@@ -92,6 +94,14 @@ public class FeedAction extends ActionSupport{
 		this.notifyFacade = notifyFacade;
 	}
 
+	public MessageFacade getMessageFacade() {
+		return messageFacade;
+	}
+
+	public void setMessageFacade(MessageFacade messageFacade) {
+		this.messageFacade = messageFacade;
+	}
+	
 	public int getOptionId() {
 		return optionId;
 	}
@@ -583,6 +593,23 @@ public class FeedAction extends ActionSupport{
 	public String getOptionUsersAjax() {
 		friends = questionFacade.getOptionUsers(optionId);
 		return "member.getOptionUsers.pop";
+	}
+
+	public String getNoticeAjax() {
+    try {
+  		int newrequestcnt = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(),1,10000).size();
+  		int newnotificationcnt = notifyFacade.countForNewNotification(ActionUtil.getSessionUserId());
+  		int newmessagecnt = messageFacade.countForNewInbox(ActionUtil.getSessionUserId());
+      HttpServletResponse response = ServletActionContext.getResponse();
+      response.setCharacterEncoding("UTF-8");
+      PrintWriter out = response.getWriter();
+      out.print(newrequestcnt + " " + newmessagecnt + " " + newnotificationcnt);
+      out.flush();    
+      out.close();    
+    } catch (Exception e) {  
+      e.printStackTrace();    
+    }
+    return null;
 	}
 
 }
