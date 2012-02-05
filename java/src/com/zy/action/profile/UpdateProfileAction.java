@@ -1,6 +1,10 @@
 package com.zy.action.profile;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -9,18 +13,21 @@ import com.zy.Constants;
 import com.zy.bean.Profile;
 import com.zy.common.model.ZyCity;
 import com.zy.common.model.ZyEducation;
+import com.zy.common.model.ZyInterest;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZySchool;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.SecurityUtil;
 import com.zy.facade.EducationFacade;
 import com.zy.facade.LocationFacade;
+import com.zy.facade.OptionFacade;
 import com.zy.facade.ProfileFacade;
 
 public class UpdateProfileAction extends ActionSupport implements ModelDriven<Profile>{
 	private ProfileFacade profileFacade;
 	private EducationFacade educationFacade;
 	private LocationFacade locationFacade;
+	private OptionFacade optionFacade;
 	
 	private Profile profileform = new Profile();
 	
@@ -77,6 +84,14 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 		this.locationFacade = locationFacade;
 	}
 	
+	public OptionFacade getOptionFacade() {
+		return optionFacade;
+	}
+
+	public void setOptionFacade(OptionFacade optionFacade) {
+		this.optionFacade = optionFacade;
+	}
+
 	public String basic() {
 
 		int pageIndex = profileform.getPageIndex() == null? 0: profileform.getPageIndex();
@@ -121,6 +136,20 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 			return "member.picture";
 		} else if (pageIndex == 3) {
 			viewType[2] = "selectedItem open";
+			List<ZyInterest> interests = optionFacade.getInterestsByPagination(1, 12);
+			HttpServletRequest request = ActionUtil.getRequest();
+			request.setAttribute("interests", interests);
+			int tagCount = optionFacade.getInterestsCount();
+			request.setAttribute("tagCount", tagCount);
+			List<ZyInterest> selectedHobbies = new ArrayList<ZyInterest>();
+			if (profileform.getHobby() != null && !"".equals(profileform.getHobby())) {
+				String[] tagArr = profileform.getHobby().split(" ");
+				for (int i = 0; i < tagArr.length; i++) {
+					ZyInterest interest = optionFacade.getInterestById(Integer.parseInt(tagArr[i]));
+					selectedHobbies.add(interest);
+				}
+				request.setAttribute("selectedHobbies", selectedHobbies);
+			}
 			return "member.interest";
 		} else if (pageIndex == 4) {
 			viewType[3] = "selectedItem open";
