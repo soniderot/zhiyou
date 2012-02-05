@@ -1,0 +1,1 @@
+alter table zy_profile add column BIGAVATAR VARCHAR(128) after TOKEN;
