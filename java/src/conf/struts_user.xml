@@ -83,7 +83,7 @@
 	</action>
 	
 	<action name="upload" class="com.zy.action.profile.UploadAction">
-	<interceptor-ref name="loginDefaultStack"/>
+		<interceptor-ref name="loginDefaultStack"/>
 		<result name="member.landing" type="redirect">/usr/landing.jhtml</result>
 	</action>
 	
@@ -93,8 +93,12 @@
 	</action>
 		
 	<action name="school" class="com.zy.action.location.SchoolAction">
-	<interceptor-ref name="loginDefaultStack"/>
+		<interceptor-ref name="loginDefaultStack"/>
 		<result name="location.school">/WEB-INF/jsp/public/schoolAjax.jsp</result>
+	</action>
+	
+	<action name="interest" class="com.zy.action.profile.InterestAction">
+		<result name="interest.nextpage">/WEB-INF/jsp/public/interestAjax.jsp</result>
 	</action>
 	
 </package>
