@@ -66,6 +66,7 @@
 			<tx:method name="request*"  propagation="REQUIRED"/>
 			<tx:method name="forward*"  propagation="REQUIRED"/>
 			<tx:method name="accept*"  propagation="REQUIRED"/>
+			<tx:method name="saveOrUpdate*"  propagation="REQUIRED"/>
 			<tx:method name="*_tx"  propagation="REQUIRED"/>
 			<tx:method name="*" propagation="SUPPORTS" read-only="true"/>
 		</tx:attributes>
