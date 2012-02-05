@@ -1,4 +1,4 @@
-﻿/*1322545626,169776320*/
+/*1322545626,169776320*/
 
 .fbEmu .body .fbEmuLink{color:#333}
 .fbEmu .body .fbEmuLink:hover{text-decoration:none}
@@ -2160,3 +2160,20 @@ div.fbProfileBrowserTypeahead .clear,
 .mouseEventsDisabled .MicrosoftMap{cursor:default !important}
 
 #bootloader_6mzsy { height: 42px; }
+.uiToken {
+-moz-border-radius-bottomleft:2px;
+-moz-border-radius-bottomright:2px;
+-moz-border-radius-topleft:2px;
+-moz-border-radius-topright:2px;
+background:#E2E6F0 none repeat scroll 0 0;
+border:1px solid #9DACCC;
+color:#1C2A47;
+cursor:pointer;
+display:block;
+float:left;
+height:14px;
+margin:0 4px 4px 0;
+padding:0 3px;
+position:relative;
+white-space:nowrap;
+}

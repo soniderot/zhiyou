@@ -105,7 +105,7 @@ div.fbStreamRecentStoriesPager .fbStreamRecentStoriesWrap{border-bottom-color:#c
 .fbEmuStreamStory .uiVideoThumb{display:inline-block;margin-right:5px}
 .fbEmuStreamStory .uiVideoThumb img{height:auto}
 .fbEmuStreamStory .uiVideoThumb.fbEmuSmallThumb img{max-width:60px}
-.fbEmuStreamStory .fbEmuStreamAttachment .uiPhotoThumb img{margin:3px}
+.fbEmuStreamStory .fbEmuStreamAttachment .uiPhotoThumb img{margin:2px}
 .fbEmuStreamStory .fbEmuAttachmentFrame{background-color:#000;text-align:center}
 .fbEmuStreamStory .fbEmuAttachmentFrame .uiVideoThumb{display:inline-block;margin:0}
 .fbEmuStreamStory .textOnly{width:175px;word-wrap:break-word}
@@ -519,8 +519,8 @@ div.uiAttachmentTitle{color:#333}
 .android .uiButton .uiButtonText,.android .uiButton input{padding:3px 0 1px 1px}
 .uiCloseButton{cursor:pointer;display:-moz-inline-box;display:inline-block;margin:0;padding:0;zoom:1}
 label.uiCloseButton{overflow:hidden}
-.uiCloseButton input{cursor:pointer;opacity:0;outline:none;padding:18px}
-.uiCloseButton{background-image:url(../images/4WSewcWboV8.png);background-repeat:no-repeat;height:15px;width:15px}
+.uiCloseButton input{cursor:pointer;opacity:0;outline:none;padding:18px;-ms-filter:'alpha(opacity=0)';}
+.uiCloseButton{background-image:url(../images/4WSewcWboV8.png);background-repeat:no-repeat;height:15px;width:15px;}
 .uiCloseButtonSmall{background-image:url(../images/ogYrclupeJV.png);height:11px;margin-top:1px;width:11px}
 .uiCloseButtonHuge{background-image:url(../images/ubIGOTIgUYc.png)}
 .uiCloseButtonDark{background-position:left -16px}
@@ -919,9 +919,9 @@ div.uiTypeaheadView .selected{background-color:#6d84b4;border-color:#3b5998}
 .uiUfiComment .commentContent{padding-top:1px}
 .uiUfiComment .actorName{font-weight:bold}
 .uiUfiComment .commentActions{padding-top:2px}
-.uiUfiComment .deleteAction,.uiUfiComment .commentHideSelector .uiSelectorButton,.uiUfiComment .commentRemoverButton{opacity:0}
+.uiUfiComment .deleteAction,.uiUfiComment .commentHideSelector .uiSelectorButton,.uiUfiComment .commentRemoverButton{opacity:0;-ms-filter:'alpha(opacity=0)';}
 .uiUfiComment .socialContext a{color:gray}
-.uiUfiComment:hover .deleteAction,.uiUfiComment:hover .commentHideSelector .uiSelectorButton,.uiUfiSpamItem .commentHideSelector .uiSelectorButton,.uiUfiComment .commentHideSelector .openToggler .uiSelectorButton,.uiUfiComment:hover .commentRemoverButton{opacity:1}
+.uiUfiComment:hover .deleteAction,.uiUfiComment:hover .commentHideSelector .uiSelectorButton,.uiUfiSpamItem .commentHideSelector .uiSelectorButton,.uiUfiComment .commentHideSelector .openToggler .uiSelectorButton,.uiUfiComment:hover .commentRemoverButton{opacity:1;-ms-filter:'alpha(opacity=100)';}
 .uiUfiFailureShow,
 .uiUfiCommentFailed .uiUfiFailureHide{display:none}
 .uiUfiCommentFailed .uiUfiFailureShow{display:block}
