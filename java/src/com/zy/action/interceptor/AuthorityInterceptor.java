@@ -39,7 +39,6 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 		}
 		ActionContext actionContext = invocation.getInvocationContext();
 		HttpServletRequest request = (HttpServletRequest) actionContext.get(StrutsStatics.HTTP_REQUEST);
-		System.out.println("----------request.uri----"+request.getRequestURI());
 		if(request.getRequestURI().indexOf("landing")>0){
 			System.out.println("-------------------into landing-----------");
 			menuSelect[0] = "selectedItem open";
@@ -76,7 +75,6 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 		}else{
 			setGoingToURL(session, invocation);
 			String value = CookieUtil.getCookie(request);
-			System.out.println("cookievalue--------"+value);
 			if (StringUtils.isNotBlank(value)) {
 				System.out.println("------------collectcookie-----------");
 				String[] split = value.split(",");
@@ -122,7 +120,6 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 			url = url + "?" + paramlinks.substring(0, paramlinks.lastIndexOf("&"));
 		}
 		session.put(GOING_TO_URL_KEY, url);
-		System.out.println("urlinsession=="+url);
 	}
 
 	public void init() {
