@@ -1,0 +1,1 @@
+ALTER TABLE zy_request add column matchflag CHAR(1) DEFAULT NULL AFTER message;
