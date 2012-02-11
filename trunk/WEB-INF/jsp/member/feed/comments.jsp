@@ -19,18 +19,16 @@
         </s:if >
       </label> · 
     </span>
-    --->
   
     <span class="UIActionLinks UIActionLinks_bottom">
       <label class="uiLinkButton comment_link" title="分享">
         <s:if test="(feed.handle=='sns.publish.photo'||feed.handle=='sns.publish.text')">
-          <a href="usr/feed!sharedFeed.jhtml?feedId=<s:property value="feed.id" />" onclick="return share(<s:property value='feed.id' />);"><span class="fwn">分享</span> </a> 
+          <a href="usr/feed!sharedFeed.jhtml?feedId=<s:property value="feed.id" />" onclick="return showShareInput(<s:property value="feed.id" />);"><span class="fwn">分享</span> </a> 
         </s:if >
-        <!--
         <input type="button" value="分享" onclick="return;">
-        -->
       </label> · 
     </span>
+    -->
   
     <span class="uiStreamSource">
       <abbr title="<s:date name="feed.created" format="yyyy-MM-dd HH:mm" />"  class="timestamp livetimestamp">
@@ -100,6 +98,34 @@
           <label for="u3aqpf_10" class="mts commentBtn stat_elem hidden_elem optimistic_submit uiButton uiButtonConfirm">
             <input type="submit" id="u3aqpf_10" name="commentBtn" class="enter_submit_target" value="评论"/>
           </label>-->
+        </div>
+      </div>
+    </li>
+  </ul>
+  </div>
+  <div id="shareInput_<s:property value='feed.id' />">
+  <ul class="uiList uiUfi focus_target fbUfi">
+    <li class="ufiNub uiListItem uiListVerticalItemBorder share"><i></i></li>
+    <li class="uiUfiAddComment clearfix uiUfiSmall ufiItem ufiItem uiListItem uiListVerticalItemBorder uiUfiAddCommentCollapsed">
+      <div class="UIImageBlock clearfix mentionsAddComment">
+        <img alt="" src="<s:property value="#session.userlogo"/>" class="uiProfilePhoto actorPic UIImageBlock_Image UIImageBlock_ICON_Image uiProfilePhotoMedium img"/>
+        <div class="commentArea UIImageBlock_Content UIImageBlock_ICON_Content">
+          <div class="commentBox">
+            <div class="uiMentionsInput textBoxContainer">
+              <div class="highlighter" style="direction: ltr; text-align: left;">
+                <div style="width: 340px;"><span class="highlighterContent"></span></div>
+              </div>
+              <div class="uiTypeahead mentionsTypeahead" style="height: auto;">
+                <div class="wrap">
+                  <input type="hidden" class="hiddenInput"/>
+                  <div class="innerWrap">
+                    <s:textarea name="shareReason" onfocus="commentFocus(this)" onkeypress="share(this, event, %{feed.id})" placeholder="分享理由..." title="分享理由..." cssClass="enter_submit uiTextareaNoResize uiTextareaAutogrow textBox mentionsTextarea textInput DOMControl_placeholder"></s:textarea>
+                  </div>
+                </div>
+                <div class="uiTypeaheadView hidden_elem"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </li>

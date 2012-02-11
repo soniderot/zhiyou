@@ -41,7 +41,7 @@
               <s:else>动态</s:else>汇总
           	</s:if>
           	<s:else>
-          	  <i class="uiHeaderImage  img  sp_7gl7wd  sx_efd21b"></i>活动信息
+          	  <i class="uiHeaderImage img sp_7gl7wd sx_efd21b"></i>活动信息
             </s:else>
           </h2>
         </div>
@@ -268,7 +268,7 @@
     <div id="c4ec37b3fc7e022d58174072" class="UIIntentionalStream UIStream">
       <ul id="home_stream" class="uiList uiStream UIIntentionalStream_Content" style="min-height: 100px;">
         <s:iterator value="feeds">
-          <li id="stream_story_4ec37b3fd947b3232640247"
+          <li id="feed_<s:property value="feed.id"/>"
             class="pvm uiUnifiedStory uiStreamStory genericStreamStory aid_1438697558 uiListItem uiListLight uiListVerticalItemBorder">
             <div class="storyHighlightIndicatorWrapper"></div>
             <div class="storyContent">
@@ -279,6 +279,7 @@
                   <img alt="" src="<s:property value="user.avatar"/>" class="uiProfilePhoto profilePic uiProfilePhotoLarge img" />
                 </a>
                 <div class="storyInnerContent UIImageBlock_Content UIImageBlock_MED_Content">
+                  <a href="javascript:void(0)" onclick="<s:if test="user.userid==#session.user.userid">showDelFeedPop('dialog_delFeed', <s:property value="feed.id"/>)</s:if><s:else>blockFeed(<s:property value="feed.id"/>)</s:else>" title="" class="mlm uiStreamHide uiCloseButton"></a>
                   <div class="mainWrapper">
                     <h6 class="uiStreamMessage">
                       <div class="actorDescription actorName">
@@ -331,7 +332,11 @@
                         <%@ include file="/WEB-INF/jsp/member/feed/comments.jsp"%>
                       </s:if>
                     </h6>
-                    
+                    <s:if test="feed.handle=='sns.share.photo'">
+                    <h6 class="uiStreamMessage">
+                      <span class="messageBody"><s:property value="feed.shareReason"/></span>
+                    </h6>
+                    </s:if>
                     <s:if test="(feed.handle=='sns.event.create')||(feed.handle=='sns.event.join')">
                       <%@ include file="/WEB-INF/jsp/member/feed/eventfeed.jsp"%>
                     </s:if>
@@ -449,9 +454,15 @@
   function showComments(obj) {
     $(obj).parents("form").removeClass("collapsed_comments");
     $(obj).parents("ul").addClass("child_was_focused");
+    $("div[id^='shareInput_']").find("ul").css("display", "none");
     return false;
   }
   
+  function showShareInput(feedId) {
+    $("#shareInput_" + feedId).parents("form").addClass("collapsed_comments");
+    $("#shareInput_" + feedId).find("ul").css("display", "block");
+    return false;
+  }
   function commentFocus(obj) {
     $(obj).parents("ul").addClass("child_is_active child_is_focused");
     return false;
@@ -567,17 +578,31 @@
     return false;
   }
   
-  function share(feedId) {
-    $.ajax({
-     type: "GET",
-     url: "usr/feed!sharedFeedAjax.jhtml",
-     dataType: 'html',
-     data: "feedId=" + feedId,
-     success: function(data) {
-       $("body").append(data);
-     }
-    });
+  function share(obj, event, feedId) {
+    if(event.keyCode == 13)
+    {
+      $.ajax({
+       type: "GET",
+       url: "usr/feed!sharedFeedAjax.jhtml",
+       dataType: 'html',
+       data: "feedId=" + feedId + "&shareReason=" + $(obj).val(),
+       success: function(data) {
+         $("body").append(data);
+         $(obj).val("");
+       }
+      });
+    }
     return false;
+  }
+  
+  
+  function blockFeed(feedId) {
+    $.post("usr/feed!blockFeedAjax.jhtml", {
+        feedId : feedId
+      }, function (data) {
+        $("#feed_" + feedId).remove();
+      });
+      return false;
   }
 </script>
 
