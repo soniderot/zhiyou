@@ -1,0 +1,1 @@
+alter table zy_school add column SCHOOLPINYIN VARCHAR(128) DEFAULT NULL AFTER SCHOOLNAME;
