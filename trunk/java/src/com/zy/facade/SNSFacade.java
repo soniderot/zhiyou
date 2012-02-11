@@ -5,8 +5,11 @@ import java.util.List;
 import octazen.addressbook.Contact;
 
 import com.zy.common.model.ZyFriendgroup;
+import com.zy.common.model.ZyMatchanswer;
+import com.zy.common.model.ZyMatchquestion;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRecommfriend;
+import com.zy.common.model.ZyRequest;
 
 public interface SNSFacade {
 	public void addFriend(int userId,int friendId);
@@ -44,4 +47,15 @@ public interface SNSFacade {
 	public List<ZyRecommfriend> getRecommendUsers(int userId,int pageNo, int pageSize);
 	
 	public void createRecommendUser(ZyRecommfriend friend);
+	
+	public int getMatchScore(int userId,int friendId);
+	
+	public int getMatchScore(int userId,int friendId,int category);
+	
+	public List<ZyMatchquestion> getQuestions(int categoryId,int pageNo,int pageSize);
+	public List<ZyMatchquestion> getQuestionAndAnswer(int userId,int categoryId,int pageNo,int pageSize);
+	public ZyMatchanswer getAnswer(int userId,int questionId);
+	
+	public List<ZyProfile> getPendingMatchProfiles(int userId,int pageNo,int pageSize);
+	public List<ZyProfile> getMatchedProfiles(int userId,int pageNo,int pageSize);
 }

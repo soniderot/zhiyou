@@ -114,4 +114,9 @@ public class EventServiceImpl implements EventService{
 	public List<ZyRecommplace> getRecommPlaces(int districtid,int subcategoryid){
 		return recommPlaceDao.getRecommPlaces(districtid, subcategoryid);
 	}
+	
+	public List<ZyEvent> getEventsByType(int type,int pageNo,int pageSize){
+		List<ZyEvent> events = eventDao.getEventsByType(type, pageNo, pageSize);
+		return events;
+	}
 }

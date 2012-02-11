@@ -12,12 +12,20 @@ import com.zy.common.model.ZyFriend;
 import com.zy.common.model.ZyFriendDetail;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyFriendintroduce;
+import com.zy.common.model.ZyMatchanswer;
+import com.zy.common.model.ZyMatchquestion;
+import com.zy.common.model.ZyMatchquestioncategory;
+import com.zy.common.model.ZyMatchquestionoption;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRecommfriend;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.sns.dao.FollowDao;
 import com.zy.domain.sns.dao.FriendDao;
 import com.zy.domain.sns.dao.InviteByAddressDao;
+import com.zy.domain.sns.dao.MatchAnswerDao;
+import com.zy.domain.sns.dao.MatchQuestionCategoryDao;
+import com.zy.domain.sns.dao.MatchQuestionDao;
+import com.zy.domain.sns.dao.MatchQuestionOptionDao;
 import com.zy.domain.sns.dao.RecommendUserDao;
 import com.zy.domain.sns.dao.SNSGroupDao;
 import com.zy.domain.sns.dao.SNSIntroduceDao;
@@ -33,6 +41,11 @@ public class SNSServiceImpl implements SNSService{
 	private InviteByAddressDao inviteByAddressDao;
 	private RecommendUserDao recommendUserDao;
 	
+	private MatchQuestionDao matchQuestionDao;
+	private MatchQuestionOptionDao matchQuestionOptionDao;
+	private MatchAnswerDao matchAnswerDao;
+	private MatchQuestionCategoryDao matchQuestionCategoryDao;
+	
 	
 	static{
 		try{
@@ -42,6 +55,39 @@ public class SNSServiceImpl implements SNSService{
 		}
 	}
 	
+	public MatchQuestionCategoryDao getMatchQuestionCategoryDao() {
+		return matchQuestionCategoryDao;
+	}
+
+	public void setMatchQuestionCategoryDao(
+			MatchQuestionCategoryDao matchQuestionCategoryDao) {
+		this.matchQuestionCategoryDao = matchQuestionCategoryDao;
+	}
+
+	public MatchAnswerDao getMatchAnswerDao() {
+		return matchAnswerDao;
+	}
+
+	public void setMatchAnswerDao(MatchAnswerDao matchAnswerDao) {
+		this.matchAnswerDao = matchAnswerDao;
+	}
+
+	public MatchQuestionOptionDao getMatchQuestionOptionDao() {
+		return matchQuestionOptionDao;
+	}
+
+	public void setMatchQuestionOptionDao(
+			MatchQuestionOptionDao matchQuestionOptionDao) {
+		this.matchQuestionOptionDao = matchQuestionOptionDao;
+	}
+
+	public MatchQuestionDao getMatchQuestionDao() {
+		return matchQuestionDao;
+	}
+
+	public void setMatchQuestionDao(MatchQuestionDao matchQuestionDao) {
+		this.matchQuestionDao = matchQuestionDao;
+	}
 	
 	public FriendDao getFriendDao() {
 		return friendDao;
@@ -621,5 +667,85 @@ public class SNSServiceImpl implements SNSService{
 	public void setRecommendUserDao(RecommendUserDao recommendUserDao) {
 		this.recommendUserDao = recommendUserDao;
 	}
+	
+	public int getMatchScore(int userId,int friendId){
+		int categoryCnt = 0;
+		int totalScore = 0;
+	    List<ZyMatchquestioncategory> categorys = matchQuestionCategoryDao.loadAll();
+	    for(int i=0;i<categorys.size();i++){
+	    	int score = getMatchScore(userId,friendId,categorys.get(i).getId());
+	    	if(score!=-1){
+	    		categoryCnt++;
+	    		totalScore = totalScore+score;
+	    	}else{
+	    		continue;
+	    	}
+	    }
+	    if(categoryCnt>0){
+	    	return totalScore/categoryCnt;
+	    }
+		return 0;
+	}
+	
+	public int getMatchScore(int userId,int friendId,int categoryId){
+		int score = 0;
+		List<ZyMatchquestion> questions = getQuestions(categoryId,1,Integer.MAX_VALUE);
+		if(questions.size()==0){
+			return 0;
+		}
+		int  average = 100/questions.size();
+		
+		for(int i=0;i<questions.size();i++){
+			ZyMatchquestion question = questions.get(i);
+			ZyMatchanswer userAnswer = this.getAnswer(userId,question.getId());
+			ZyMatchanswer friendAnswer = this.getAnswer(friendId,question.getId());
+			if(userAnswer==null||friendAnswer==null){
+				return -1;
+			}
+			if(matchQuestionCategoryDao.load(question.getCategoryid()).getType()==1){
+				int userAnswerOption = userAnswer.getOptionid();
+				int friendAnswerOption = friendAnswer.getOptionid();
+				
+				String userAnswerOptionStr = userAnswer.getOptionid()+",";
+				String friendAnswerOptionStr = friendAnswer.getOptionid()+",";
+				
+				String userHopeOptions = userAnswer.getTargetoptionid()+",";
+				String friendHopeOptions = friendAnswer.getTargetoptionid()+",";
+				
+				if(userHopeOptions.indexOf(friendAnswerOptionStr)>=0&&friendHopeOptions.indexOf(userAnswerOptionStr)>=0){
+					score = score+average;
+				}
+				
+			}else{
+				if(userAnswer.getOptionid()==friendAnswer.getOptionid()){
+					score = score+average;
+				}
+			}
+		}
+		return score;
+	}
 
+	public List<ZyMatchquestion> getQuestions(int categoryId,int pageNo,int pageSize){
+		List<ZyMatchquestion> questions = matchQuestionDao.getQuestions(categoryId, pageNo, pageSize);
+		for(int i=0;i<questions.size();i++){
+			List<ZyMatchquestionoption> options = matchQuestionOptionDao.getOptions(questions.get(i).getId());
+			questions.get(i).setOptions(options);
+		}
+		return questions;
+	}
+	
+	public List<ZyMatchquestion> getQuestionAndAnswer(int userId,int categoryId,int pageNo,int pageSize){
+		List<ZyMatchquestion> questions = matchQuestionDao.getQuestions(categoryId, pageNo, pageSize);
+		for(int i=0;i<questions.size();i++){
+			List<ZyMatchquestionoption> options = matchQuestionOptionDao.getOptions(questions.get(i).getId());
+			questions.get(i).setOptions(options);
+			ZyMatchanswer answer = matchAnswerDao.getAnswer(userId, questions.get(i).getId());
+			questions.get(i).setAnswer(answer);
+		}
+		return questions;
+	}
+	
+	public ZyMatchanswer getAnswer(int userId,int questionId){
+		return matchAnswerDao.getAnswer(userId, questionId);
+	}
 }

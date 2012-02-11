@@ -8,4 +8,6 @@ import com.zy.facade.vo.EventVO;
 
 public interface EventDao extends BaseDao<ZyEvent,Integer>{
 	public List<EventVO> getEvents(String userIds,int pageNo,int pageSize);
+	
+	public List<ZyEvent> getEventsByType(int type,int pageNo,int pageSize);
 }

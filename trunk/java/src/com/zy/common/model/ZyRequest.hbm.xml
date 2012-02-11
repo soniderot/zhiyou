@@ -43,5 +43,8 @@
         <property name="message" type="java.lang.String">
             <column name="MESSAGE" not-null="false"/>
         </property>
+        <property name="matchflag" type="java.lang.String">
+            <column name="matchflag" not-null="false"/>
+        </property>
     </class>
 </hibernate-mapping>

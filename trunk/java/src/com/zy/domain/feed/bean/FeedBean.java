@@ -22,7 +22,16 @@ public class FeedBean {
 	private List<OptionVO> options;
 	//private ZyProfile oldUser;
 	
+	private ZyProfile atuser;
 	
+	
+	
+	public ZyProfile getAtuser() {
+		return atuser;
+	}
+	public void setAtuser(ZyProfile atuser) {
+		this.atuser = atuser;
+	}
 	public ZyQuestion getQuestion() {
 		return question;
 	}

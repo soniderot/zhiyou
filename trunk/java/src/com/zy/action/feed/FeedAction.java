@@ -18,6 +18,7 @@ import com.zy.Constants;
 import com.zy.common.model.ZyAlbum;
 import com.zy.common.model.ZyAnswer;
 import com.zy.common.model.ZyAnsweroption;
+import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyPhoto;
 import com.zy.common.model.ZyProfile;
@@ -85,6 +86,13 @@ public class FeedAction extends ActionSupport{
 	
 	private NotifyFacade notifyFacade;
 	
+	private int friendId;
+	public int getFriendId() {
+		return friendId;
+	}
+	public void setFriendId(int friendId) {
+		this.friendId = friendId;
+	}
 
 	public NotifyFacade getNotifyFacade() {
 		return notifyFacade;
@@ -366,6 +374,15 @@ public class FeedAction extends ActionSupport{
 		this.questionFacade = questionFacade;
 	}
 	
+	public String getAtmeFeed(){
+		feeds = feedFacade.getAtNewsFeed(ActionUtil.getSessionUserId(),pageNo,pageSize);
+		int count = 0;
+		System.out.println("-------------count------------"+count);
+		page = new Page(count,pageNo,pageSize,5);
+		
+		return "member.feeds";
+	}
+	
 	public String execute(){
 		System.out.println("--------------into-------------feed--------handle----"+handle);
 		List<Integer> ids = snsFacade.getAllFriendsByDegree(ActionUtil.getSessionUserId(),(short)1);
@@ -396,6 +413,10 @@ public class FeedAction extends ActionSupport{
 	public String updateStatusAjax() {
 		System.out.println("------------------into update status ajax-------------"+feedtype);
 		System.out.println("-----------------------file----------"+feedphoto);
+		System.out.println("-----------------------feedmessage----------"+feedmessage);
+		
+		
+		
 		if (feedphoto!=null) {
 			String filetype = null;
 			filetype = FileUtil.isJPGorPNG(this.getFeedphotoContentType());
@@ -463,6 +484,12 @@ public class FeedAction extends ActionSupport{
 		}
 		feeds = new ArrayList<FeedBean>();
 		feeds.add(feedBean);
+		
+		if(friendId>0){
+			ZyNewsfeed feed = feedBean.getFeed();
+			feed.setAtuserid(friendId);
+			feedFacade.updateNewsFeed(feed);
+		}
 		return "member.addfeed.ajax";
 	}
 	

@@ -27,7 +27,16 @@ public class RequestAction extends ActionSupport{
 	private Page page;
 	
 	private String type;
+	private String matchflag;
 	
+
+	public String getMatchflag() {
+		return matchflag;
+	}
+
+	public void setMatchflag(String matchflag) {
+		this.matchflag = matchflag;
+	}
 
 	public String getType() {
 		return type;
@@ -168,7 +177,11 @@ public class RequestAction extends ActionSupport{
 		} else {
 			ZyRequest request = requestFacade.getRequest(ActionUtil.getSessionUserId(), profileId, (short)1);
 			if (request == null) {
-				requestFacade.sendRequest_tx(ActionUtil.getSessionUserId(), profileId, (short)1, 0, null, null);
+				if(matchflag==null){
+					requestFacade.sendRequest_tx(ActionUtil.getSessionUserId(), profileId, (short)1, 0, null, null);
+				}else{
+					requestFacade.sendRequest_tx(ActionUtil.getSessionUserId(), profileId, (short)1, 0, "看过你的资料很感兴趣，可以认识一下吗", null,"T");
+				}
 			}
 		}
 		return NONE;

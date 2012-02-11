@@ -26,9 +26,19 @@ public class ZyRequest implements java.io.Serializable {
 	
 	private String message;
 	
+	private String matchflag;
+	
 	
 
 	// Constructors
+
+	public String getMatchflag() {
+		return matchflag;
+	}
+
+	public void setMatchflag(String matchflag) {
+		this.matchflag = matchflag;
+	}
 
 	public String getMessage() {
 		return message;

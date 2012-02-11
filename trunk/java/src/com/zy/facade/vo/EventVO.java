@@ -16,7 +16,21 @@ public class EventVO {
 	
 	private boolean expired;
 	
+	private int commentsCnt;
+	private int photosCnt;
 	
+	public int getCommentsCnt() {
+		return commentsCnt;
+	}
+	public void setCommentsCnt(int commentsCnt) {
+		this.commentsCnt = commentsCnt;
+	}
+	public int getPhotosCnt() {
+		return photosCnt;
+	}
+	public void setPhotosCnt(int photosCnt) {
+		this.photosCnt = photosCnt;
+	}
 	public boolean isExpired() {
 		return expired;
 	}

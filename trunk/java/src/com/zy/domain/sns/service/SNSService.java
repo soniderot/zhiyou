@@ -6,6 +6,8 @@ import com.zy.common.model.ZyFollow;
 import com.zy.common.model.ZyFriendDetail;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyFriendintroduce;
+import com.zy.common.model.ZyMatchanswer;
+import com.zy.common.model.ZyMatchquestion;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRecommfriend;
 
@@ -107,4 +109,12 @@ public interface SNSService {
 	
 	public List<ZyRecommfriend> getRecommendUsers(int userId,int pageNo, int pageSize);
 	public void createRecommendUser(ZyRecommfriend friend);
+	
+	public int getMatchScore(int userId,int friendId);
+	
+	public int getMatchScore(int userId,int friendId,int category);
+	
+	public List<ZyMatchquestion> getQuestions(int categoryId,int pageNo,int pageSize);
+	public List<ZyMatchquestion> getQuestionAndAnswer(int userId,int categoryId,int pageNo,int pageSize);
+	public ZyMatchanswer getAnswer(int userId,int questionId);
 }

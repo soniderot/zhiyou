@@ -22,4 +22,6 @@ public interface EventFacade {
 	public List<EventVO> getEventFriends(int userId, int eventId);
 	public List<ZyProfile> getRequestSentTo(int eventId);
 	public boolean isMemberInEvent(int memberId,int eventId);
+	
+	public List<EventVO> getEventsByType(int type,int pageNo,int pageSize);
 }

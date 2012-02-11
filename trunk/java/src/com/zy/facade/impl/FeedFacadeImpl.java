@@ -157,9 +157,7 @@ public class FeedFacadeImpl implements FeedFacade{
 		feedService.addNewsFeed(feed);
 	}
 	
-	public List<FeedBean> getNewsFeed(String ids,String handles,int pageNo,int pageSize){
-		List<FeedBean> results = new ArrayList<FeedBean>();
-		List<ZyNewsfeed> feeds = feedService.getNewsFeed(ids, handles, pageNo, pageSize);
+	private void generateFeedBeanContent(List<ZyNewsfeed> feeds,List<FeedBean> results){
 		for(int i=0;i<feeds.size();i++){
 			FeedBean bean = new FeedBean();
 			bean.setFeed(feeds.get(i));
@@ -247,6 +245,12 @@ public class FeedFacadeImpl implements FeedFacade{
 			bean.setComments(commentBeans);
 			results.add(bean);
 		}
+	}
+	
+	public List<FeedBean> getNewsFeed(String ids,String handles,int pageNo,int pageSize){
+		List<FeedBean> results = new ArrayList<FeedBean>();
+		List<ZyNewsfeed> feeds = feedService.getNewsFeed(ids, handles, pageNo, pageSize);
+		generateFeedBeanContent(feeds, results);
 		return results;
 	}
 	
@@ -303,64 +307,7 @@ public class FeedFacadeImpl implements FeedFacade{
 	public List<FeedBean> getEventNewsFeed(String ids,int pageNo,int pageSize){
 		List<FeedBean> results = new ArrayList<FeedBean>();
 		List<ZyNewsfeed> feeds = feedService.getEventNewsFeed(ids, pageNo, pageSize);
-		for(int i=0;i<feeds.size();i++){
-			FeedBean bean = new FeedBean();
-			bean.setFeed(feeds.get(i));
-			bean.setUser(profileService.findProfileById(feeds.get(i).getUserid()));
-			//new event feed
-			if(feeds.get(i).getHandle().equals("sns.event.create")||feeds.get(i).getHandle().equals("sns.event.join")){
-				int id = Integer.valueOf(feeds.get(i).getBody());
-				bean.setEvent(eventService.getEvent(id));
-				System.out.println(bean.getEvent().getEventname());
-			}
-			
-			if(feeds.get(i).getHandle().equals("sns.event.text")||feeds.get(i).getHandle().equals("sns.event.photo")){
-				int id = Integer.valueOf(feeds.get(i).getReferenceid());
-				bean.setEvent(eventService.getEvent(id));
-				System.out.println(bean.getEvent().getEventname());
-				if(feeds.get(i).getHandle().equals("sns.event.photo")){
-					int photoId = Integer.valueOf(feeds.get(i).getBody());
-					bean.setPhoto(photoService.getPhoto(photoId));
-				}
-			}
-			
-			//add new friend
-			if(feeds.get(i).getHandle().equals("sns.share.connection")){
-				int id = Integer.valueOf(feeds.get(i).getBody());
-				bean.setFriend(profileService.findProfileById(id));
-			}
-			
-			//add new photo
-			if(feeds.get(i).getHandle().equals("sns.publish.photo")){
-				int id = Integer.valueOf(feeds.get(i).getBody());
-				bean.setPhoto(photoService.getPhoto(id));
-			}
-			
-			if(feeds.get(i).getHandle().equals("sns.share.text")){
-				int id = Integer.valueOf(feeds.get(i).getBody());
-				bean.setOldFeed(feedService.getFeedById(id));
-				bean.setFriend(profileService.findProfileById(feedService.getFeedById(id).getUserid()));
-			}
-			
-			if(feeds.get(i).getHandle().equals("sns.share.photo")){
-				int id = Integer.valueOf(feeds.get(i).getBody());
-				bean.setOldFeed(feedService.getFeedById(id));
-				int photoId = Integer.valueOf(feedService.getFeedById(id).getBody());
-				bean.setPhoto(photoService.getPhoto(photoId));
-				bean.setFriend(profileService.findProfileById(feedService.getFeedById(id).getUserid()));
-			}
-			
-			List<ZyNewsfeedcomment> comments = feedService.getCommentsByFeedId(bean.getFeed().getId());
-			List<CommentBean> commentBeans = new ArrayList<CommentBean>();
-			for(int j=0;j<comments.size();j++){
-				CommentBean commentBean = new CommentBean();
-				commentBean.setComment(comments.get(j));
-				commentBean.setUser(profileService.findProfileById(comments.get(j).getUserid()));
-				commentBeans.add(commentBean);
-			}
-			bean.setComments(commentBeans);
-			results.add(bean);
-		}
+		this.generateFeedBeanContent(feeds, results);
 		return results;
 	}
 	
@@ -396,4 +343,22 @@ public class FeedFacadeImpl implements FeedFacade{
 		return bean;
 	}
 	
+	public void updateNewsFeed(ZyNewsfeed feed){
+		feedService.updateNewsFeed(feed);
+	}
+	public List<FeedBean> getAtNewsFeed(int atuserId,int pageNo,int pageSize){
+		List<FeedBean> results = new ArrayList<FeedBean>();
+		List<ZyNewsfeed> feeds = feedService.getAtNewsFeed(atuserId,pageNo, pageSize);
+		System.out.println("--------in facade--------feeds.size-------"+feeds.size());
+		generateFeedBeanContent(feeds, results);
+		return results;
+	}
+	
+	public List<ZyNewsfeed> getUnreadAtNewsFeed(int atuserId,int pageNo,int pageSize){
+		return feedService.getUnreadAtNewsFeed(atuserId, pageNo, pageSize);
+	}
+	
+	public int getUnreadAtNewsFeedCnt(int atuserId){
+		return feedService.getUnreadAtNewsFeedCnt(atuserId);
+	}
 }

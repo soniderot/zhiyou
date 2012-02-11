@@ -24,8 +24,15 @@ public class SearchAction {
 	private ProfileFacade profileFacade;
 	
 	private String flag ;
+	private String listFlag;
 	
 	
+	public String getListFlag() {
+		return listFlag;
+	}
+	public void setListFlag(String listFlag) {
+		this.listFlag = listFlag;
+	}
 	public String getFlag() {
 		return flag;
 	}
@@ -115,6 +122,14 @@ public class SearchAction {
 		
 		profileList = new ArrayList<ZyProfile>();
 		
+		if(listFlag!=null){
+			for(int i=0;i<results.size()&&i<10;i++){
+				
+				profileList.add(profileFacade.findProfileById(results.get(i+pageNo*pageSize).getProfileId()));
+			}
+			return "match.search.results";
+		}
+		
 		if(ActionUtil.getSession().get("matchPageNo")==null){
 			for(int i=0;i<results.size()&&i<10;i++){
 				if(i+pageNo*pageSize>results.size()){
@@ -151,4 +166,5 @@ public class SearchAction {
 		profileList.add(profile2);*/
 		return "match.search.ajax";
 	}
+	
 }

@@ -364,4 +364,44 @@ public class RequestServiceImpl implements RequestService {
 	public void deleteRequest(ZyRequest request) {
 		this.requestDao.delete(request);
 	}
+	
+	public boolean sendRequest(int senderid, int receiverid, short eventkey,
+			int referenceId, String message, String[] parameter,String matchflag) {
+		ZyRequest request=new ZyRequest();
+		request.setEventkey(eventkey);
+		request.setReferenceid(referenceId);
+		request.setSenderid(senderid);
+		request.setReceiverid(receiverid);
+		request.setStatus(0);
+		request.setIsdeleted(null);
+		request.setMessage(message);
+		request.setMatchflag(matchflag);
+		
+		if (parameter != null) {
+		    if(eventkey==1){
+		        request.setParameters(parameter[0]);
+		    }
+		    if(eventkey==2||eventkey==8||eventkey==9){
+		        request.setParameters(parameter[0]+","+parameter[1]);
+		    }
+		    if(eventkey==3){
+		        request.setParameters(parameter[0]+","+parameter[1]);
+		    }
+		    if(eventkey==6){			
+		        request.setParameters(parameter[0]+","+parameter[1]);
+		    }
+		    
+		}
+		request.setCreatetime(new Date());
+		requestDao.save(request);
+		return true;
+	}
+	
+	public List<ZyRequest> getPendingMatchRequests(int userId,int pageNo,int pageSize){
+		return requestDao.getPendingMatchRequests(userId, pageNo, pageSize);
+	}
+	
+	public List<ZyRequest> getMatchedRequests(int userId,int pageNo,int pageSize){
+		return requestDao.getMatchedRequests(userId, pageNo, pageSize);
+	}
 }

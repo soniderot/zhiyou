@@ -87,7 +87,7 @@ public class LoginAction extends MemberAction{
 			if(user.getAvatar()==null||user.getAvatar().equalsIgnoreCase("/images/DEFAULT.JPG")||user.getAvatar().equalsIgnoreCase("//images/DEFAULT.JPG")){
 				ActionContext.getContext().getSession().put("userlogo",null);
 			}else{
-				ActionContext.getContext().getSession().put("userlogo",user.getAvatar());
+				ActionContext.getContext().getSession().put("userlogo",user.getBigavatar());
 			}
 			
 			

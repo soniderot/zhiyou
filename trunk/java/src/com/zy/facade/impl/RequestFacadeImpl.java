@@ -98,6 +98,29 @@ public class RequestFacadeImpl implements RequestFacade{
 	public void setRequestService(RequestService requestService) {
 		this.requestService = requestService;
 	}
+	
+	public boolean sendRequest_tx(int senderid, int receiverid, short eventkey,int referenceId,
+			String message, String[] parameter,String matchflag){
+		if(!"T".equalsIgnoreCase(matchflag)){
+			return this.sendRequest_tx(senderid, receiverid, eventkey, referenceId, message, parameter);
+		}else{
+			requestService.sendRequest(senderid, receiverid, eventkey, referenceId, message, parameter,matchflag);
+			if(eventkey==1){
+				ZyProfile profile = profileService.findProfileById(senderid);
+				ZyProfile friend = profileService.findProfileById(receiverid);
+				
+				HashMap<String, Object> map = new HashMap<String, Object>();
+				map.put("receiverName", friend.getUsername());
+				map.put("senderName", profile.getUsername());
+				map.put("acceptLink", Constants.DOMAINNAME+"/usr/request.jhtml");
+				map.put("profile",profile);
+				map.put("domainname", Constants.DOMAINNAME);
+				mailqueueService.sendFormatEmail_tx(profile.getEmail(),profile.getUsername(),friend.getEmail(),friend.getUsername(),
+						  "朋友邀请你加入知友", "zy_internal_invite",map , true);
+			}
+			return true;
+		}
+	}
 
 	public boolean sendRequest_tx(int senderid, int receiverid, short eventkey,int referenceId,
 			String message, String[] parameter){

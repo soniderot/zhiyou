@@ -65,10 +65,12 @@ public class UploadAction {
 		String str = datedir + "/" + fn;
 		
 		System.out.println(str);
-		ActionContext.getContext().getSession().put("userlogo","/photos/"+str);
+		//ActionContext.getContext().getSession().put("userlogo","/photos/"+str);
 		ZyProfile profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
 		profile.setProfileAvatar("/photos/"+str);
 		profileFacade.updateProfile(profile);
+		
+		ActionContext.getContext().getSession().put("userlogo",profile.getBigavatar());
 		return "member.landing";
 	}
 	
@@ -98,7 +100,7 @@ public class UploadAction {
 			ZyProfile profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
 			profile.setProfileAvatar(str);
 			
-			ActionContext.getContext().getSession().put("userlogo",profile.getAvatar());
+			ActionContext.getContext().getSession().put("userlogo",profile.getBigavatar());
 			profileFacade.updateProfile(profile);
 	    out.print("<script>parent.submitPhotoCallback('" + str + "')</script>");
 	    out.flush();
