@@ -6,7 +6,8 @@ import com.zy.common.db.BaseDao;
 import com.zy.common.model.ZyNewsfeed;
 
 public interface FeedDao extends BaseDao<ZyNewsfeed,Integer>{
-	public List<ZyNewsfeed> getNewsFeed(String userids,String handles,int pageNo,int pageSize);
+	
+	public List<ZyNewsfeed> getNewsFeed(String userids,String handles, String blockedfeeds, int pageNo,int pageSize);
 	
 	public List<ZyNewsfeed> getNewsFeed(int userId,String handles,int pageNo,int pageSize);
 	
