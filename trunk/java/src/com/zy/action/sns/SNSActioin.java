@@ -58,6 +58,7 @@ public class SNSActioin extends ActionSupport{
 	private RequestFacade requestFacade;
 	private boolean errorFlag;
 	
+	
  	public boolean isErrorFlag() {
 		return errorFlag;
 	}
@@ -442,6 +443,10 @@ public class SNSActioin extends ActionSupport{
 			friends = friends.subList(pageSize*(pageNo-1),friends.size());
 		}
 		page = new Page(count,pageNo,pageSize,5);
+		
+		if(flag!=null){
+			return "feed.friends.list";
+		}
 		return "friends.list";
 	}
 	
@@ -455,5 +460,7 @@ public class SNSActioin extends ActionSupport{
 		}
 		return "invite.success";
 	}
+	
+	
 	
 }
