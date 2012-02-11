@@ -185,7 +185,7 @@
      type: "GET",
      url: "usr/request!addOrCancelRequestAjax.jhtml",
      dataType: 'text',
-     data: "profileId=" + obj + "&operate=" + type,
+     data: "profileId=" + obj + "&operate=" + type+ "&matchflag=T",
      success: function(data) {
         if(type == 1) {
           $("#yesBtn_" + obj).parent().addClass("uiButtonDisabled");
