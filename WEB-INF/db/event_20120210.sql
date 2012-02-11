@@ -1,0 +1,1 @@
+ALTER TABLE zy_event add column type INTEGER DEFAULT 0 AFTER BIGLOGO;
