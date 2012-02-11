@@ -44,4 +44,5 @@
 
 <bean id="recommendUserDao" class="com.zy.domain.sns.dao.RecommendUserDaoImpl" parent="baseDao" />
 <bean id="interestDao" class="com.zy.domain.option.dao.InterestDaoImpl" parent="baseDao" />
+<bean id="blockedFeedsDao" class="com.zy.domain.feed.dao.BlockedFeedsDaoImpl" parent="baseDao" />
 </beans>
