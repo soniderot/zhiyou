@@ -9,6 +9,9 @@ public interface RequestFacade {
 	public boolean sendRequest_tx(int senderid, int receiverid, short eventkey,int referenceId,
 			String message, String[] parameter);
 	
+	public boolean sendRequest_tx(int senderid, int receiverid, short eventkey,int referenceId,
+			String message, String[] parameter,String matchflag);
+	
 	public boolean approveRequest_tx(int id);
 	
 	public boolean neglectRequest_tx(int id);

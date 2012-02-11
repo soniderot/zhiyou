@@ -87,7 +87,7 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 					if(user.getAvatar()==null||user.getAvatar().equalsIgnoreCase("/images/DEFAULT.JPG")||user.getAvatar().equalsIgnoreCase("//images/DEFAULT.JPG")){
 						ActionContext.getContext().getSession().put("userlogo",null);
 					}else{
-						ActionContext.getContext().getSession().put("userlogo",user.getAvatar());
+						ActionContext.getContext().getSession().put("userlogo",user.getBigavatar());
 					}
 					ActionContext.getContext().getSession().put(Constants.USER_SESSION_KEY, user);
 				    ActionContext.getContext().getSession().put(Constants.USERID_SESSION_KEY, user.getUserid());		    

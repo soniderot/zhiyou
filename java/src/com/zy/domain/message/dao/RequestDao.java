@@ -64,4 +64,8 @@ public interface RequestDao extends BaseDao<ZyRequest, Integer>{
 	public List<ZyRequest> getSameRequests(int senderid, int receiverid, short eventkey);
 
 	public List<ZyRequest> getRequests(int receiverId,short eventkey);
+	
+	public List<ZyRequest> getPendingMatchRequests(int userId,int pageNo,int pageSize);
+	
+	public List<ZyRequest> getMatchedRequests(int userId,int pageNo,int pageSize);
 }

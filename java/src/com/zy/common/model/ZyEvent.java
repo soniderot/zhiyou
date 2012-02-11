@@ -21,34 +21,14 @@ public class ZyEvent implements java.io.Serializable {
 	private Date createtime;
 	private Integer createuserid;
 	private Date updatetime;
-	
 	private String detail;
-	private String logo;	
-	
+	private String logo;
 	private Integer districtid;
 	private Integer subcategoryid;
-	
 	private String biglogo;
+	private Integer type;
 
 	// Constructors
-
-	
-	
-	public String getLogo() {
-		return logo;
-	}
-
-	public void setLogo(String logo) {
-		this.logo = logo;
-	}
-
-	public String getDetail() {
-		return detail;
-	}
-
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
 
 	/** default constructor */
 	public ZyEvent() {
@@ -68,7 +48,9 @@ public class ZyEvent implements java.io.Serializable {
 	/** full constructor */
 	public ZyEvent(String eventname, Date begintime, Date endtime,
 			String address, Integer cityid, Date createtime,
-			Integer createuserid, Date updatetime) {
+			Integer createuserid, Date updatetime, String detail, String logo,
+			Integer districtid, Integer subcategoryid, String biglogo,
+			Integer type) {
 		this.eventname = eventname;
 		this.begintime = begintime;
 		this.endtime = endtime;
@@ -77,6 +59,12 @@ public class ZyEvent implements java.io.Serializable {
 		this.createtime = createtime;
 		this.createuserid = createuserid;
 		this.updatetime = updatetime;
+		this.detail = detail;
+		this.logo = logo;
+		this.districtid = districtid;
+		this.subcategoryid = subcategoryid;
+		this.biglogo = biglogo;
+		this.type = type;
 	}
 
 	// Property accessors
@@ -153,8 +141,24 @@ public class ZyEvent implements java.io.Serializable {
 		this.updatetime = updatetime;
 	}
 
+	public String getDetail() {
+		return this.detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+
+	public String getLogo() {
+		return this.logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+
 	public Integer getDistrictid() {
-		return districtid;
+		return this.districtid;
 	}
 
 	public void setDistrictid(Integer districtid) {
@@ -162,7 +166,7 @@ public class ZyEvent implements java.io.Serializable {
 	}
 
 	public Integer getSubcategoryid() {
-		return subcategoryid;
+		return this.subcategoryid;
 	}
 
 	public void setSubcategoryid(Integer subcategoryid) {
@@ -170,12 +174,19 @@ public class ZyEvent implements java.io.Serializable {
 	}
 
 	public String getBiglogo() {
-		return biglogo;
+		return this.biglogo;
 	}
 
 	public void setBiglogo(String biglogo) {
 		this.biglogo = biglogo;
 	}
 
+	public Integer getType() {
+		return this.type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
 
 }

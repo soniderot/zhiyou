@@ -34,5 +34,13 @@
         <property name="referenceid" type="java.lang.Integer">
             <column name="REFERENCEID" />
         </property>
+        
+        <property name="atuserid" type="java.lang.Integer">
+            <column name="ATUSERID" />
+        </property>
+        
+         <property name="atread" type="java.lang.String">
+            <column name="ATREAD" length="1"  />
+        </property>
     </class>
 </hibernate-mapping>

@@ -36,4 +36,12 @@ public interface FeedFacade {
 	public FeedBean addNewEventPhotoNewsFeed(int userId,int eventId,int photoId);
 	
 	public FeedBean addNewEventBlogNewsFeed(int userId,int eventId,String message);
+	
+	public void updateNewsFeed(ZyNewsfeed feed);
+	
+	public List<FeedBean> getAtNewsFeed(int atuserId,int pageNo,int pageSize);
+	
+	public List<ZyNewsfeed> getUnreadAtNewsFeed(int atuserId,int pageNo,int pageSize);
+	
+	public int getUnreadAtNewsFeedCnt(int atuserId);
 }

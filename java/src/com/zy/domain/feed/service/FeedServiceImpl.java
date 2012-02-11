@@ -199,4 +199,16 @@ public class FeedServiceImpl implements FeedService{
 	public ZyNewsfeed getFeedByReferenceId(int referenceId) {
 		return this.newsFeedDao.getFeedByReferenceId(referenceId);
 	}
+	
+	public List<ZyNewsfeed> getAtNewsFeed(int atuserId,int pageNo,int pageSize){
+		return this.newsFeedDao.getAtNewsFeed(atuserId, pageNo, pageSize);
+	}
+	
+	public List<ZyNewsfeed> getUnreadAtNewsFeed(int atuserId,int pageNo,int pageSize){
+		return this.newsFeedDao.getUnreadAtNewsFeed(atuserId, pageNo, pageSize);
+	}
+	
+	public int getUnreadAtNewsFeedCnt(int atuserId){
+		return this.newsFeedDao.getUnreadAtNewsFeedCnt(atuserId);
+	}
 }

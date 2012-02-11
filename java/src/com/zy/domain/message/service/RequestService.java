@@ -69,4 +69,10 @@ public interface RequestService {
 	public List<ZyRequest> getSameRequests(int senderid, int receiverid, short eventkey,int referenceid);
 	
 	public List<ZyRequest> getRequests(int receiverId,short eventkey);
+	
+	public boolean sendRequest(int senderid, int receiverid, short eventkey,int referenceId, String message, String[] parameter,String matchflag);
+	
+	public List<ZyRequest> getPendingMatchRequests(int userId,int pageNo,int pageSize);
+	
+	public List<ZyRequest> getMatchedRequests(int userId,int pageNo,int pageSize);
 }

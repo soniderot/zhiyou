@@ -10,8 +10,11 @@ import octazen.addressbook.Contact;
 import com.zy.Constants;
 import com.zy.common.model.ZyFollow;
 import com.zy.common.model.ZyFriendgroup;
+import com.zy.common.model.ZyMatchanswer;
+import com.zy.common.model.ZyMatchquestion;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRecommfriend;
+import com.zy.common.model.ZyRequest;
 import com.zy.common.util.ImportAddressUtil;
 import com.zy.domain.message.service.MailqueueService;
 import com.zy.domain.message.service.RequestService;
@@ -232,7 +235,43 @@ public class SNSFacadeImpl implements SNSFacade{
 	public void createRecommendUser(ZyRecommfriend friend){
 		snsService.createRecommendUser(friend);
 	}
+	
+	public int getMatchScore(int userId,int friendId){
+		return snsService.getMatchScore(userId, friendId);
+	}
+	
+	public int getMatchScore(int userId,int friendId,int category){
+		return snsService.getMatchScore(userId, friendId,category);
+	}
+	
+	public List<ZyMatchquestion> getQuestions(int categoryId,int pageNo,int pageSize){
+		return snsService.getQuestions(categoryId, pageNo, pageSize);
+	}
+	public List<ZyMatchquestion> getQuestionAndAnswer(int userId,int categoryId,int pageNo,int pageSize){
+		return snsService.getQuestionAndAnswer(userId, categoryId, pageNo, pageSize);
+	}
+	public ZyMatchanswer getAnswer(int userId,int questionId){
+		return snsService.getAnswer(userId, questionId);
+	}
+	
 	public static void main(String[] args){
 		System.out.println(UUID.randomUUID().toString());
+	}
+	
+	public List<ZyProfile> getPendingMatchProfiles(int userId,int pageNo,int pageSize){
+		List<ZyProfile> profiles = new ArrayList<ZyProfile>();
+		List<ZyRequest> requests = requestService.getPendingMatchRequests(userId, pageNo, pageSize);
+		for(int i=0;i<requests.size();i++){
+			profiles.add(profileService.findProfileById(requests.get(i).getReceiverid()));
+		}
+		return profiles;
+	}
+	public List<ZyProfile> getMatchedProfiles(int userId,int pageNo,int pageSize){
+		List<ZyProfile> profiles = new ArrayList<ZyProfile>();
+		List<ZyRequest> requests = requestService.getMatchedRequests(userId, pageNo, pageSize);
+		for(int i=0;i<requests.size();i++){
+			profiles.add(profileService.findProfileById(requests.get(i).getReceiverid()));
+		}
+		return profiles;
 	}
 }

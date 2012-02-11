@@ -156,4 +156,17 @@ public class EventFacadeImpl implements EventFacade{
 		return false;
 	}
 
+	public List<EventVO> getEventsByType(int type,int pageNo,int pageSize){
+		List<EventVO> results = new ArrayList<EventVO>();
+		List<ZyEvent> events = eventService.getEventsByType(type, pageNo, pageSize);
+		for(int i=0;i<events.size();i++){
+			EventVO eventVO =  new EventVO();
+			eventVO.setEvent(events.get(i));
+			eventVO.setProfile(profileService.findProfileById(events.get(i).getCreateuserid()));
+			List<ZyProfile> members = this.getEventMembers(events.get(i).getId());
+			eventVO.setMembers(members);
+			results.add(eventVO);
+		}
+		return results;
+	}
 }

@@ -21,8 +21,29 @@ public class ZyNewsfeed implements java.io.Serializable {
 	private Date created;
 	private Integer feedfrom;
 	private Integer referenceid;
+	
+	private Integer atuserid;
+	
+	private String atread;
+	
 
 	// Constructors
+
+	public String getAtread() {
+		return atread;
+	}
+
+	public void setAtread(String atread) {
+		this.atread = atread;
+	}
+
+	public Integer getAtuserid() {
+		return atuserid;
+	}
+
+	public void setAtuserid(Integer atuserid) {
+		this.atuserid = atuserid;
+	}
 
 	/** default constructor */
 	public ZyNewsfeed() {

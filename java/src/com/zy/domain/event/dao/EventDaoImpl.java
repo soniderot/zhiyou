@@ -25,4 +25,9 @@ public class EventDaoImpl extends HibernateDao<ZyEvent, Integer> implements Even
 		}
 		return results;
 	}
+	
+	public List<ZyEvent> getEventsByType(int type,int pageNo,int pageSize){
+		String hql = "from ZyEvent where type = ?  and endtime>now()";
+		return this.loadByPagenationf(hql, pageNo, pageSize, new Object[]{type});
+	}
 }	

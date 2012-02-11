@@ -120,4 +120,19 @@ public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements Fe
 			return list.get(0);
 		return null;
 	}
+	
+	public List<ZyNewsfeed> getAtNewsFeed(int atuserId,int pageNo,int pageSize){
+		String hql = "from ZyNewsfeed where atuserid=?";
+		return this.loadByPagenation(hql, pageNo, pageSize, new Object[] { atuserId });
+	}
+	
+	public List<ZyNewsfeed> getUnreadAtNewsFeed(int atuserId,int pageNo,int pageSize){
+		String hql = "from ZyNewsfeed where atuserid=? and (atread is null or atread!='T') ";
+		return this.loadByPagenation(hql, pageNo, pageSize, new Object[] { atuserId });
+	}
+	
+	public int getUnreadAtNewsFeedCnt(int atuserId){
+		String hql = "select count(*) from ZyNewsfeed atuserid=? and (atread is null or atread!='T')";
+		return this.getTotalRows(hql, new Object[] {atuserId });
+	}
 }

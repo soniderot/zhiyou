@@ -21,4 +21,6 @@ public interface EventService {
 	
 	public List<ZyEventcategory> getEventCategorys();
 	public List<ZyRecommplace> getRecommPlaces(int districtid,int subcategoryid);
+	
+	public List<ZyEvent> getEventsByType(int type,int pageNo,int pageSize);
 }

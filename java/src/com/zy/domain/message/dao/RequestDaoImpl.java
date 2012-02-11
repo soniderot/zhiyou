@@ -305,4 +305,14 @@ public class RequestDaoImpl extends HibernateDao <ZyRequest, Integer> implements
 		List<ZyRequest> requests= this.find(hql, new Object[] {receiverId, eventkey});
 		return requests;
 	}
+	
+	public List<ZyRequest> getPendingMatchRequests(int userId,int pageNo,int pageSize){
+		String hql = "from ZyRequest where senderid=? and eventkey = 1 and matchflag='T' and status=0";
+		return this.loadByPagenation(hql, pageNo, pageSize, new Object[] { userId});
+	}
+	
+	public List<ZyRequest> getMatchedRequests(int userId,int pageNo,int pageSize){
+		String hql = "from ZyRequest where senderid=? and eventkey = 1 and matchflag='T' and status=1";
+		return this.loadByPagenation(hql, pageNo, pageSize, new Object[] { userId});
+	}
 }
