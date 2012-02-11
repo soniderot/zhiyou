@@ -13,7 +13,7 @@ public interface FeedService {
 	public ZyNewsfeed getFeedById(int id);
 	public List<ZyNewsfeedtype> getFeedTypeBySetting(String setting);
 	
-	public List<ZyNewsfeed> getNewsFeed(String ids,String handles,int pageNo,int pageSize);
+	public List<ZyNewsfeed> getNewsFeed(int userId, String ids,String handles,int pageNo,int pageSize);
 	
 	public List<ZyNewsfeedcomment> getCommentsByFeedId(int feedId);
 	public int getCommentsCountByFeedId(int feedId);
@@ -25,7 +25,7 @@ public interface FeedService {
 	
 	public List<ZyNewsfeed> getNewsFeed(int userId,String handles,int pageNo,int pageSize);
 	
-	public void deleteNewsFeed(int feedId,int userId);
+	public void deleteNewsFeed(int feedId);
 	
 	public void updateNewsFeed(ZyNewsfeed feed);
 	
@@ -36,6 +36,8 @@ public interface FeedService {
 	//public List<ZyNewsfeed> getMicroblogFav(int pageNo, int pageSize, int userId);
 	
 	public void removeComment(int commentId);
+	
+	public void blockFeed(int feedId, int userId);
 	
 	public List<ZyNewsfeed> getMyComment(int pageNo, int pageSize, int userId);
 	public int getMyCommentCount(int userId);
