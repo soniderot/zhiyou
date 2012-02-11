@@ -21,13 +21,17 @@ public interface FeedFacade {
 	
 	public void addNewAnswerNewsFeed(int userId,int answerId);
 
-	public List<FeedBean> getNewsFeed(String ids,String handles,int pageNo,int pageSize);
+	public List<FeedBean> getNewsFeed(int userId, String ids,String handles,int pageNo,int pageSize);
 	
-	public FeedBean shareNewsFeed_tx(int userId,int feedId);
+	public FeedBean shareNewsFeed_tx(int userId,int feedId, String shareReason);
 	
 	public void addComment(ZyNewsfeedcomment comment);
 	
 	public void removeComment(int commentid);
+	
+	public void removeFeed(int feedId);
+	
+	public void blockFeed(int feedId, int userId);
 	
 	public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String body);
 	
