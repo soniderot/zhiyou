@@ -1,0 +1,1 @@
+alter table zy_newsfeed add column SHAREREASON VARCHAR(256) DEFAULT NULL AFTER COMMENTS;
