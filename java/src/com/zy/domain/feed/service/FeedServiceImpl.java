@@ -4,10 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 import com.zy.Constants;
+import com.zy.common.model.ZyBlockedfeeds;
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyNewsfeedtype;
+import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
+import com.zy.domain.feed.dao.BlockedFeedsDao;
 import com.zy.domain.feed.dao.FeedCommentDao;
 import com.zy.domain.feed.dao.FeedDao;
 import com.zy.domain.feed.dao.FeedTypeDao;
@@ -17,8 +20,17 @@ public class FeedServiceImpl implements FeedService{
 	private FeedDao newsFeedDao;
 	private FeedTypeDao newsFeedTypeDao;
 	private FeedCommentDao newsFeedCommentDao;
+	private BlockedFeedsDao blockedFeedsDao;
 	
 	
+	public BlockedFeedsDao getBlockedFeedsDao() {
+		return blockedFeedsDao;
+	}
+
+	public void setBlockedFeedsDao(BlockedFeedsDao blockedFeedsDao) {
+		this.blockedFeedsDao = blockedFeedsDao;
+	}
+
 	public FeedDao getNewsFeedDao() {
 		return newsFeedDao;
 	}
@@ -118,9 +130,14 @@ public class FeedServiceImpl implements FeedService{
 	public List<ZyNewsfeedtype> getFeedTypeBySetting(String setting){
 		return null;
 	}
-	
-	public List<ZyNewsfeed> getNewsFeed(String ids,String handles,int pageNo,int pageSize){
-		return this.newsFeedDao.getNewsFeed(ids, handles, pageNo, pageSize);
+
+	public List<ZyNewsfeed> getNewsFeed(int userId, String ids,String handles,int pageNo,int pageSize){
+		List<ZyBlockedfeeds> feeds = blockedFeedsDao.getBlockedFeedsByUser(userId);;
+		String blockedfeeds = "0";
+		for (int i=0; i < feeds.size(); i++) {
+			blockedfeeds  += "," + feeds.get(i).getFeedid();
+		}
+		return this.newsFeedDao.getNewsFeed(ids, handles, blockedfeeds, pageNo, pageSize);
 	}
 	
 	public List<ZyNewsfeedcomment> getCommentsByFeedId(int feedId){
@@ -148,11 +165,10 @@ public class FeedServiceImpl implements FeedService{
 		return this.newsFeedDao.getNewsFeed(userId, handles, pageNo, pageSize);
 	}
 	
-	public void deleteNewsFeed(int feedId,int userId){
+	public void deleteNewsFeed(int feedId){
 		ZyNewsfeed f = this.newsFeedDao.load(feedId);
-		if (f != null && f.getUserid() == userId) {
 			this.newsFeedDao.delete(f);
-		}
+		this.newsFeedDao.delete(f);
 	}
 	
 	public void updateNewsFeed(ZyNewsfeed feed){
@@ -210,5 +226,14 @@ public class FeedServiceImpl implements FeedService{
 	
 	public int getUnreadAtNewsFeedCnt(int atuserId){
 		return this.newsFeedDao.getUnreadAtNewsFeedCnt(atuserId);
+	}
+
+	@Override
+	public void blockFeed(int feedId, int userId) {
+		ZyBlockedfeeds entity = new ZyBlockedfeeds();
+		entity.setFeedid(feedId);
+		entity.setUserid(userId);
+		entity.setCreatetime(new Date());
+		blockedFeedsDao.save(entity);
 	}
 }
