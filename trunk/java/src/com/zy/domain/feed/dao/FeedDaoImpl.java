@@ -5,14 +5,13 @@ import java.util.List;
 import com.zy.Constants;
 import com.zy.common.db.HibernateDao;
 import com.zy.common.model.ZyNewsfeed;
-import com.zy.domain.feed.bean.FeedBean;
 
 public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements FeedDao {
 	@Override
-	public List<ZyNewsfeed> getNewsFeed(String ids, String handles, int pageNo, int pageSize) {
-		String hql = "from ZyNewsfeed where userid in(" + ids + ") and handle in(" + handles + ") order by id desc ";
+	public List<ZyNewsfeed> getNewsFeed(String ids, String handles, String blockedfeeds, int pageNo, int pageSize) {
+		String hql = "from ZyNewsfeed where userid in(" + ids + ") and handle in(" + handles + ") and id not in ("+ blockedfeeds +") order by id desc ";
 		if(handles==null){
-			hql = "from ZyNewsfeed where userid in(" + ids + ")  order by id desc ";
+			hql = "from ZyNewsfeed where userid in(" + ids + ") and id not in ("+ blockedfeeds +") order by id desc ";
 		}
 		// LogUtil.info(hql);
 		return this.loadByPagenation(hql, pageNo, pageSize);
