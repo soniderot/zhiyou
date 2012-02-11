@@ -64,6 +64,7 @@
 			<tx:method name="generate*"  propagation="REQUIRED"/>
 			<tx:method name="manage*"  propagation="REQUIRED"/>
 			<tx:method name="request*"  propagation="REQUIRED"/>
+			<tx:method name="block*"  propagation="REQUIRED"/>
 			<tx:method name="forward*"  propagation="REQUIRED"/>
 			<tx:method name="accept*"  propagation="REQUIRED"/>
 			<tx:method name="saveOrUpdate*"  propagation="REQUIRED"/>
