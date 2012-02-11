@@ -21,11 +21,9 @@ public class ZyNewsfeed implements java.io.Serializable {
 	private Date created;
 	private Integer feedfrom;
 	private Integer referenceid;
-	
+	private String shareReason;
 	private Integer atuserid;
-	
 	private String atread;
-	
 
 	// Constructors
 
@@ -141,6 +139,14 @@ public class ZyNewsfeed implements java.io.Serializable {
 
 	public void setReferenceid(Integer referenceid) {
 		this.referenceid = referenceid;
+	}
+
+	public String getShareReason() {
+		return shareReason;
+	}
+
+	public void setShareReason(String shareReason) {
+		this.shareReason = shareReason;
 	}
 
 }

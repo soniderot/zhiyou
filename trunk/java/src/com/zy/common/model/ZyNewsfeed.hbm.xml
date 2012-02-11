@@ -25,6 +25,9 @@
         <property name="comments" type="java.lang.Integer">
             <column name="COMMENTS" />
         </property>
+        <property name="shareReason" type="java.lang.String">
+            <column name="SHAREREASON" />
+        </property>
         <property name="created" type="java.util.Date">
             <column name="CREATED" length="0" />
         </property>
