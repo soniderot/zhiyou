@@ -247,14 +247,14 @@ public class FeedFacadeImpl implements FeedFacade{
 		}
 	}
 	
-	public List<FeedBean> getNewsFeed(String ids,String handles,int pageNo,int pageSize){
+	public List<FeedBean> getNewsFeed(int userId, String ids,String handles,int pageNo,int pageSize){
 		List<FeedBean> results = new ArrayList<FeedBean>();
-		List<ZyNewsfeed> feeds = feedService.getNewsFeed(ids, handles, pageNo, pageSize);
+		List<ZyNewsfeed> feeds = feedService.getNewsFeed(userId, ids, handles, pageNo, pageSize);
 		generateFeedBeanContent(feeds, results);
 		return results;
 	}
 	
-	public FeedBean shareNewsFeed_tx(int userId,int feedId){
+	public FeedBean shareNewsFeed_tx(int userId, int feedId, String shareReason){
 		ZyNewsfeed oldFeed = feedService.getFeedById(feedId);
 		FeedBean bean = new FeedBean();
 		ZyNewsfeed feed = new ZyNewsfeed();
@@ -283,8 +283,8 @@ public class FeedFacadeImpl implements FeedFacade{
 			photoService.createPhoto(photo);
 		}
 		
-		
 		feed.setBody(""+feedId);
+		feed.setShareReason(shareReason);
 		feedService.addNewsFeed(feed);
 		bean.setFeed(feed);
 		bean.setUser(profileService.findProfileById(feed.getUserid()));
@@ -298,6 +298,11 @@ public class FeedFacadeImpl implements FeedFacade{
 	
 	public void removeComment(int commentid){
 		feedService.removeComment(commentid);
+	}
+	
+	@Override
+	public void removeFeed(int feedId) {
+		feedService.deleteNewsFeed(feedId);
 	}
 	
 	public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String body){
@@ -360,5 +365,10 @@ public class FeedFacadeImpl implements FeedFacade{
 	
 	public int getUnreadAtNewsFeedCnt(int atuserId){
 		return feedService.getUnreadAtNewsFeedCnt(atuserId);
+	}
+	
+	@Override
+	public void blockFeed(int feedId, int userId) {
+		feedService.blockFeed(feedId, userId);
 	}
 }
