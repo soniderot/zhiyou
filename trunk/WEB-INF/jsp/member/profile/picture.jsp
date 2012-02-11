@@ -82,10 +82,12 @@ function deletePhotoAjax() {
       <input type="hidden" name="profileform.pageIndex" value="2"/>
       <table style="border-collapse:collapse;height:210px;" class="center">
         <tbody>
+       
           <tr>
             <td>
               <div class="profile-picture">
               	<s:if test="#session.userlogo!=null">   
+              		
                 <img src="<s:property value="#session.userlogo"/>" id="profile_pic"/>
                 	</s:if>   
                 	<s:else>
