@@ -386,7 +386,8 @@ public class FeedAction extends ActionSupport{
 	public String execute(){
 		System.out.println("--------------into-------------feed--------handle----"+handle);
 		List<Integer> ids = snsFacade.getAllFriendsByDegree(ActionUtil.getSessionUserId(),(short)1);
-		ids.add(ActionUtil.getSessionUserId());
+		int userId = ActionUtil.getSessionUserId();
+		ids.add(userId);
 		String str = "";
 		for(int i=0;i<ids.size();i++){
 			if(i!=ids.size()-1){
@@ -397,12 +398,12 @@ public class FeedAction extends ActionSupport{
 		}
 		int count = 0;
 		if(handle==null||handle.trim().length()==0){
-			feeds = feedFacade.getNewsFeed(str,null,pageNo,pageSize);
-			count = feedFacade.getNewsFeed(str,null,1,Integer.MAX_VALUE).size();
+			feeds = feedFacade.getNewsFeed(userId, str,null,pageNo,pageSize);
+			count = feedFacade.getNewsFeed(userId, str,null,1,Integer.MAX_VALUE).size();
 		}else{
 			String str1 = handle.replaceAll(",", "','");
-			feeds = feedFacade.getNewsFeed(str,"'"+str1+"'",pageNo,pageSize);
-			count = feedFacade.getNewsFeed(str,"'"+str1+"'",1,Integer.MAX_VALUE).size();
+			feeds = feedFacade.getNewsFeed(userId, str,"'"+str1+"'",pageNo,pageSize);
+			count = feedFacade.getNewsFeed(userId, str,"'"+str1+"'",1,Integer.MAX_VALUE).size();
 		}
 		System.out.println("-------------count------------"+count);
 		page = new Page(count,pageNo,10,5);
@@ -515,7 +516,8 @@ public class FeedAction extends ActionSupport{
 	}
 	
 	public String sharedFeedAjax(){
-		feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), feedId);
+		String shareReason = ActionUtil.getRequest().getParameter("shareReason");
+		feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), feedId, shareReason);
 		//return NONE;
 		return "member.sharefeeds.pop";
 	}
@@ -541,6 +543,34 @@ public class FeedAction extends ActionSupport{
 		return null;
 	}
 
+	public String deleteFeedAjax() {
+		try {
+			int feedId = Integer.parseInt(ActionUtil.getRequest().getParameter("feedId"));
+			feedFacade.removeFeed(feedId);
+      HttpServletResponse response = ServletActionContext.getResponse();    
+      response.setCharacterEncoding("UTF-8");
+      PrintWriter out = response.getWriter();
+      out.print("true");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public String blockFeedAjax() {
+		try {
+			int feedId = Integer.parseInt(ActionUtil.getRequest().getParameter("feedId"));
+			feedFacade.blockFeed(feedId, ActionUtil.getSessionUserId());
+      HttpServletResponse response = ServletActionContext.getResponse();    
+      response.setCharacterEncoding("UTF-8");
+      PrintWriter out = response.getWriter();
+      out.print("true");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public String voteOptionAjax() {
 		int optionId = Integer.parseInt(ActionUtil.getRequest().getParameter("optionId"));
 		ZyAnsweroption option = questionFacade.getAnsweroptionById(optionId);
@@ -638,5 +668,6 @@ public class FeedAction extends ActionSupport{
     }
     return null;
 	}
+
 
 }
