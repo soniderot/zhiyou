@@ -4,6 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import octazen.addressbook.Contact;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -450,6 +454,25 @@ public class SNSActioin extends ActionSupport{
 		return "friends.list";
 	}
 	
+	public String selectFriendsAjax() {
+		HttpServletRequest request = ActionUtil.getRequest();
+		String key = request.getParameter("term");
+		if (key.length() == 0) {
+			return "friends.list.ajax";
+		} else if (key.length() == 1) {
+			String firstChar = key.substring(0, 1);
+			if (!"@".equals(firstChar)) {
+				return "friends.list.ajax";
+			}
+			friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)1);
+		} else {
+			key = key.substring(1);
+			// get friends by keyword
+			friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)1);
+		}
+		return "friends.list.ajax";
+	}
+	
 	public String invite() {
 		if (emails != null) {
 			for (int i = 0; i < emails.length; i ++)
@@ -460,7 +483,5 @@ public class SNSActioin extends ActionSupport{
 		}
 		return "invite.success";
 	}
-	
-	
 	
 }
