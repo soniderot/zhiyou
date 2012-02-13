@@ -15,6 +15,7 @@
 		<result name="friends.list" type="tiles">tiles.sns.friendslist</result>
 		<result name="invite.success" type="tiles">tiles.sns.invitesuccess</result>
 		<result name="to.friends.list" type="redirect">/sns/sns!getFriendsList.jhtml</result>
+		<result name="friends.list.ajax">/WEB-INF/jsp/public/friendsAjax.jsp</result>
 	</action>
 	
 	<action name="match" class="com.zy.action.sns.QuickMatchAction">
