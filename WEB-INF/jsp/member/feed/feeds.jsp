@@ -1,4 +1,28 @@
 ﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("textarea[id='feedmessage']").keyup(function(){
+      var text = $(this).val();
+      if(text.indexOf(":") == -1) {
+        showFriends(text);
+      }
+    });
+    
+    function showFriends(term) {
+      $.ajax({
+       type: "GET",
+       url: "sns/sns!selectFriendsAjax.jhtml",
+       dataType: 'html',
+       data: "term=" + term,
+       success: function(data) {
+         $(".uiContextualLayerPositioner").html(data);
+       }
+      });
+      return false;
+    }
+  });
+  
+</script>
 <div role="main" id="contentArea">
   <div data-referrer="pagelet_roosters" id="pagelet_roosters"></div>
   <div data-referrer="pagelet_stream_header" id="pagelet_stream_header">
@@ -203,12 +227,12 @@
                           <div id="u3mxyl_7" class="uiTypeahead composerTypeahead mentionsTypeahead">
                             <div class="wrap">
                               <div class="innerWrap">
-                                <s:textarea name="feedmessage" placeholder="你在想什么？" onfocus="expandInput('u3mxyl_2')" 
+                                <s:textarea id="feedmessage" name="feedmessage" placeholder="你在想什么？" onfocus="expandInput('u3mxyl_2')" 
                                   cssClass="DOMControl_placeholder uiTextareaAutogrow input mentionsTextarea textInput"></s:textarea>
                               </div>
                             </div>
                           </div>
-                          <input type="hidden" class="mentionsHidden" />
+                          <input type="hidden" id="friendId" class="mentionsHidden" />
                         </div>
                         <div class="attachmentMetaArea hidden_elem">
                           <div class="pbm webComposerPhotoUpload">
@@ -607,3 +631,5 @@
 </script>
 
 <%@ include file="/WEB-INF/jsp/popup/delFeedCommentPop.jsp"%>
+<div class="uiContextualLayerPositioner uiContextualLayerPositionerFixed" style="position:absolute;left:218px;top:116px;z-index:400;">
+</div>
