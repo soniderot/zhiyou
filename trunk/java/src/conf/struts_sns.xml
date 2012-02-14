@@ -19,8 +19,9 @@
 	</action>
 	
 	<action name="match" class="com.zy.action.sns.QuickMatchAction">
-	<interceptor-ref name="loginDefaultStack"/>
+		<interceptor-ref name="loginDefaultStack"/>
 		<result name="match.search" type="tiles">tiles.sns.match</result>
+		<result name="match.search.list" type="tiles">tiles.sns.match.list</result>
 	</action>
 	
 	<action name="invite" class="com.zy.action.sns.InviteAction">
