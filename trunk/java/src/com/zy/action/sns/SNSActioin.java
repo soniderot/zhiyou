@@ -466,6 +466,10 @@ public class SNSActioin extends ActionSupport{
 			}
 			friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)1);
 		} else {
+			String firstChar = key.substring(0, 1);
+			if (!"@".equals(firstChar)) {
+				return "friends.list.ajax";
+			}
 			key = key.substring(1);
 			// get friends by keyword
 			friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)1);
