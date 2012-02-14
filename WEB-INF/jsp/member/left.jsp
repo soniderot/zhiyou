@@ -252,7 +252,7 @@
                        
                        <li id="navItem_app_10150110253435258" class="sideNavItem stat_elem <s:property value="#session.menuSelect[7]"/>">
                          
-                          <a data-gt='{"bmid":"10150110253435258","count":"0","coeff2_info":"AascNaC5GNX94bXmRL8InEKxGm-39eQ5SfwNcUulSMDReSQ6rlnBwPOk7AFx62cEoqpRxf1oT7GtQr9FuMTffZXQ","coeff2_registry_key":"0016","coeff2_action":"3","rank":"5"}' title="" href="/sns/match.jhtml" class="item clearfix sortableItem" style="">
+                          <a title="" href="sns/match!search.jhtml" class="item clearfix sortableItem" style="">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
