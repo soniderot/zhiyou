@@ -17,7 +17,7 @@ import com.zy.facade.vo.SearchResultVo;
 public class SearchAction {
 	private int startAge = 20;
 	private int endAge = 25;
-	private short gender;
+	private short gender = 0;
 	private String keyword;
 	private int pageNo;
 	private SearchFacade searchFacade;
@@ -98,9 +98,6 @@ public class SearchAction {
 			ActionUtil.getSession().remove("matchPageNo");
 		}
 		int pageSize = 10;
-		System.out.println("-----------startAge"+startAge);
-		System.out.println("-----------keyword"+keyword);
-		System.out.println("--------------into execute----------"+pageNo);
 		SearchFormVo vo = new SearchFormVo();
 		
 		 DateFormat df = new SimpleDateFormat("yyyyMMdd");
@@ -110,7 +107,7 @@ public class SearchAction {
 			vo.setGender(gender);
 		}
 		
-		if(keyword!=null&&keyword.trim().length()>0&&!keyword.equalsIgnoreCase("é”®å…¥å…³é”®å­—")){
+		if(keyword!=null&&keyword.trim().length()>0&&!keyword.equalsIgnoreCase("ÊäÈë¹Ø¼ü×Ö")){
 			vo.setKeyword(keyword);
 		}
 		
@@ -167,4 +164,28 @@ public class SearchAction {
 		return "match.search.ajax";
 	}
 	
+	public String search() {
+		int pageSize = 24;
+		SearchFormVo vo = new SearchFormVo();
+		DateFormat df = new SimpleDateFormat("yyyyMMdd");
+
+		if (keyword != null && keyword.trim().length() > 0
+				&& !keyword.equalsIgnoreCase("ÊäÈë¹Ø¼ü×Ö")) {
+			vo.setKeyword(keyword);
+		}
+
+		vo.setEnd(df.format(DateUtil.computeBirthDate(startAge)));
+		vo.setStart(df.format(DateUtil.computeBirthDate(endAge)));
+		vo.setExclude1d(true);
+
+		List<SearchResultVo> results = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(), vo, 2000);
+
+		profileList = new ArrayList<ZyProfile>();
+
+		for (int i = 0; i < results.size() && i < pageSize; i++) {
+			int index = i + pageNo * pageSize;
+			profileList.add(profileFacade.findProfileById(results.get(index).getProfileId()));
+		}
+		return "match.search.list";
+	}
 }
