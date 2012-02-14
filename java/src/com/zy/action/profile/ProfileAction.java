@@ -220,11 +220,11 @@ public class ProfileAction {
 	
 	public String viewProfileFeeds(){
 		setFriendRequestFlag();
-		feeds = feedFacade.getNewsFeed(""+userid,null,pageNo,pageSize);
+		feeds = feedFacade.getNewsFeed(userid,""+userid,null,pageNo,pageSize);
 		profile = profileFacade.findProfileById(userid);
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 		viewType[0] = "selectedItem open";
-		int count = feedFacade.getNewsFeed(""+userid,null,1,Integer.MAX_VALUE).size();
+		int count = feedFacade.getNewsFeed(userid,""+userid,null,1,Integer.MAX_VALUE).size();
 		page = new Page(count,pageNo,10,5);
 		return "profile.feeds";
 	}
