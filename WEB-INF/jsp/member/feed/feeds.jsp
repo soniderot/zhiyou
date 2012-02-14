@@ -232,7 +232,7 @@
                               </div>
                             </div>
                           </div>
-                          <input type="hidden" id="friendId" class="mentionsHidden" />
+                          <input type="hidden" id="friendId" name="friendId" class="mentionsHidden" />
                         </div>
                         <div class="attachmentMetaArea hidden_elem">
                           <div class="pbm webComposerPhotoUpload">
