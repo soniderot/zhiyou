@@ -383,11 +383,11 @@ public class PhotoAction {
 		int feedId = 0;
 		try{
 			feedId = feedFacade.getNewsFeed(photo.getUserid(), "sns.publish.photo",""+photo.getId()).get(0).getId();
-			feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), feedId);
+			feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), feedId, null);
 		}catch(Exception ex){
 			if(feedId==0){
 				FeedBean bean = feedFacade.addNewPhotoNewsFeed(photo.getUserid(), photo.getId());
-				feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), bean.getFeed().getId());
+				feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), bean.getFeed().getId(), null);
 			}
 		}
 		return "member.sharephoto.pop";
