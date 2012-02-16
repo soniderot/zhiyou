@@ -1,154 +1,102 @@
 <%@page contentType="textml;charset=utf-8" pageEncoding="utf-8"%>
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
-<div id="contentArea" role="main">
-					  <div id="pagelet_events">
-					    <div class="uiHeader uiHeaderWithImage uiHeaderPage">
-					      <div class="clearfix uiHeaderTop">
-					      	<a class="uiHeaderActions rfloat uiButton" role="button" href="event/createOrUpdate!createOrUpdate.jhtml">
-					      		<i class="mrs img sp_ah6icc sx_9e9f95"></i>
-					      		<span class="uiButtonText">创建活动</span>
-					      	</a>
-					        <div>
-					        	<s:if test="(friendFlag==true)"> 
-					          <h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_9tlaa1 sx_67bb7d"></i>朋友的活动</h2>
-					          </s:if> 
-					          <s:else>
-					          	<h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_9tlaa1 sx_67bb7d"></i>我的活动</h2>
-					          </s:else>
-					        </div>
-					      </div>
-					    </div>
-					    <div>
-					      <div class="uiHeader uiHeaderTopAndBottomBorder uiHeaderSection">
-					        <div class="clearfix uiHeaderTop">
-					          <div>
-					          	<s:if test="(friendFlag==true)"> 
-					            <h3 class="uiHeaderTitle">朋友的近期活动</h3>
-					          </s:if> 
-					          <s:else>
-					          	<h3 class="uiHeaderTitle">我的近期活动</h3>
-					         </s:else>
-					          </div>
-					        </div>
-					      </div>
-					      <div class="phs">
-					        <ul class="uiList fbxevents_eventlist">
-					        	
-					        	 <s:iterator value="userevents">
-					          <li class="objectListItem uiListItem uiListLight uiListVerticalItemBorder">
-					            <div class="UIImageBlock clearfix UIImageBlock_Entity">
-					            	<a class="UIImageBlock_Image UIImageBlock_ENT_Image" href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />" tabindex="-1" aria-hidden="true"><img class="img" src="<s:property value="event.logo" />" alt=""></a>
-					              <div class="auxiliary UIImageBlock_Ext" id="req_251994978194505">
-					              
-					              <s:if test="(expired==true)"> 
-					              	<div class="fsm fwn fcg">
-					                	已结束 
-					                	
-					                </div>
-					              </s:if> 
-					               <s:elseif test="(joined==true)"> 
-					                <div class="fsm fwn fcg">
-					                	<a href="event/event!quitEvent.jhtml?eventId=<s:property value="event.id" />" rel="async-post" ajaxify="">退出</a> · 
-					                	
-					                </div>
-					             </s:elseif> 
-					             <s:else>
-					             		 <div class="fsm fwn fcg">
-					                	<a href="event/event!joinEvent.jhtml?eventId=<s:property value="event.id" />" rel="async-post" ajaxify="">加入</a> · 
-					                	
-					                </div>
-					            </s:else>
-					              </div>
-					              <div class="UIImageBlock_Content UIImageBlock_ENT_Content">
-					              	<span class="mrs fsl fwb fcb">
-					              		<a href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />" title="dota"><s:property value="event.eventname" /></a>
-					              	</span>
-					                <div class="fsm fwn fcg"><s:date name="event.begintime" format="yyyy-MM-dd HH:mm" /></div>
-					                	<!--
-					                <div class="fsm fwn fcg"><a href="http://www.facebook.com/mkk158">位会员将参加</a>将参加</div>
-					                -->
-					                <div class="fsm fwn fcg"><s:property value="members.size()" />位会员将将参加</div>
-					              </div>
-					            </div>
-					          </li>
-					          </s:iterator>
-					        </ul>
-					      </div>
-					    </div>
-					    <!----
-					    <div>
-					      <div class="uiHeader uiHeaderTopAndBottomBorder mtm uiHeaderSection">
-					        <div class="clearfix uiHeaderTop">
-					          <div>
-					            <h3 class="uiHeaderTitle">本周</h3>
-					          </div>
-					        </div>
-					      </div>
-					      <div class="phs">
-					        <ul class="uiList fbxevents_eventlist">
-					          <li class="objectListItem uiListItem uiListLight uiListVerticalItemBorder">
-					            <div class="UIImageBlock clearfix UIImageBlock_Entity">
-					            	<a class="UIImageBlock_Image UIImageBlock_ENT_Image" href="http://www.facebook.com/events/297786820255644/" tabindex="-1" aria-hidden="true">
-					            		<img class="img" src="http://profile.ak.fbcdn.net/hprofile-ak-ash2/370142_1438697558_1584603112_q.jpg" alt="">
-					            	</a>
-					              <div class="auxiliary UIImageBlock_Ext" id="req_297786820255644">
-					                <div class="fsm fwn fcg">你已确认参加</div>
-					              </div>
-					              <div class="UIImageBlock_Content UIImageBlock_ENT_Content">
-					              	<span class="mrs fsl fwb fcb"><a href="http://www.facebook.com/events/297786820255644/" title="钓鱼">钓鱼</a></span>
-					                <div class="fsm fwn fcg">2011年12月3日 7:00</div>
-					                <div class="fsm fwn fcg"><a href="http://www.facebook.com/mkk158">ま か</a>将参加</div>
-					              </div>
-					            </div>
-					          </li>
-					        </ul>
-					      </div>
-					    </div>
-					    ------>
-					    <div class="clearfix uiPager uiPagerTopBorder">
-					      <div class="summary lfloat fsm fcg">
-					        <div class="prm">
-					          <div class="fsm fwn fcg">
-					          	<!----
-					          	<a href="/events/past/">已结束的活动</a> · 
-					          	<a href="/events/birthdays/">生日列表</a> · 
-					          	<a href="/ajax/events/export_events_dialog.php" rel="dialog">导出到日历</a>--->
-					          </div>
-					        </div>
-					      </div>
-					      
-					      
-					       <div id="pagelet_stream_pager"
-          data-referrer="pagelet_stream_pager">
-          
-          <div class="clearfix mts uiMorePager stat_elem fbStreamPager">
-          	
-            <div>
-            	<s:if test="userevents.size()>0">
-            	<jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
-            </s:if>
-            <s:else>
-              <div class="pam uiBoxLightblue uiMorePagerPrimary">目前没有更多活动可显示。</div>
-            </s:else>
-            </div>
+<div id="contentArea">
+  <div class="uiHeader uiHeaderWithImage uiHeaderPage">
+    <div class="clearfix uiHeaderTop">
+      <div class="uiToolbar uiToolbarUnbordered uiHeaderActions rfloat">
+        <div class="clearfix uiToolbarContent">
+          <div>
+            <a href="event/createOrUpdate!createOrUpdate.jhtml" class="uiToolbarItem uiButton">
+              <i class="mrs img sp_tdh7xb sx_4b9f00"></i><span class="uiButtonText">创建活动</span>
+            </a>
           </div>
         </div>
       </div>
-					      
-					      <!--
-					      <div class="rfloat">
-					      	<a class="prev uiButtonDisabled uiButton uiButtonNoText" role="button" data-href="/?sk=fe&amp;s=-1">
-					      		<i class="mrs customimg img sp_9dewam sx_48249a"></i>
-					      		<span class="uiButtonText"></span>
-					      	</a>
-					      	<a class="next uiButtonDisabled uiButton uiButtonNoText" role="button" data-href="/?sk=fe&amp;s=1">
-					      		<i class="mrs customimg img sp_9dewam sx_ce0533"></i>
-					      		<span class="uiButtonText"></span>
-					      	</a>
-					      </div>-->
-					    </div>
-					  </div>
-					</div>
+      <div>
+        <h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_6h8b4g sx_70f090"></i>活动</h2>
+      </div>
+    </div>
+  </div>
+  <div id="pagelet_main_events_dashboard_list">
+    <div>
+      <s:if test="userevents==null||userevents.size==0">
+      <div class="pam uiBoxWhite topborder">你没有任何的活动。</div>
+      </s:if>
+      <s:iterator value="userevents">
+      <div class="uiHeader uiHeaderTopAndBottomBorder uiHeaderSection">
+        <div class="clearfix uiHeaderTop">
+          <div>
+            <h3 class="uiHeaderTitle" tabindex="0">这个星期以后</h3>
+          </div>
+        </div>
+      </div>
+      <ul class="uiList phs">
+        <li class="uiListItem uiListLight uiListVerticalItemBorder">
+          <div class="pvm uiBoxWhite noborder">
+            <div class="clearfix uiImageBlock">
+              <a href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />" class="uiImageBlockImage uiImageBlockLargeImage lfloat">
+                <img alt="" src="<s:property value="event.logo" />" class="uiProfilePhoto uiProfilePhotoLarge img"/>
+              </a>
+              <div class="clearfix uiImageBlockContent">
+                <div class="uiInlineBlock mlm rfloat">
+                  <div style="height: 50px;" class="uiInlineBlock uiInlineBlockMiddle"></div>
+                  <s:if test="user.userid==profile.userid">
+                  <div class="uiInlineBlock uiInlineBlockMiddle">
+                    <div id="req_220103838085749" class="mvl">
+                      <div class="fbEventStatus fsm fwn fcg">你是东家</div>
+                    </div>
+                  </div>
+                  </s:if>
+                  <s:else>
+                  <div class="uiInlineBlock uiInlineBlockMiddle">
+                    <div id="req_220103838085749" class="mvl">
+                      <div class="stat_elem">
+                        <div class="fbEventListItemActions fsm fwn fcg">
+                          <s:if test="(expired==true)">
+                                已结束
+                          </s:if>
+                          <s:elseif test="(joined==true)">
+                            <a href="event/event!quitEvent.jhtml?eventId=<s:property value="event.id" />">退出</a>
+                          </s:elseif>
+                          <s:else>
+                            <a href="event/event!joinEvent.jhtml?eventId=<s:property value="event.id" />">加入</a>
+                          </s:else>
+                        </div>
+                        <div class="mrl">
+                          <img class="uiLoadingIndicatorAsync img" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" width="16" height="11"/>
+                        </div>
+                      </div>
+                      <div class="fbEventStatus fsm fwn fcg"></div>
+                    </div>
+                  </div>
+                  </s:else>
+                </div>
+                <div class="uiProfileBlockContent">
+                  <div class="uiInlineBlock">
+                    <div style="height: 50px;" class="uiInlineBlock uiInlineBlockMiddle"></div>
+                    <div class="uiInlineBlock uiInlineBlockMiddle">
+                      <div>
+                        <div class="fsl fwb fcb">
+                          <a href="event/event!viewEvent.jhtml?eventId=<s:property value='event.id' />"><s:property value="event.eventname" /></a>
+                        </div>
+                        <div class="fsm fwn fcg"><s:date name="event.begintime" format="yyyy-MM-dd HH:mm" /></div>
+                      </div>
+                      <div class="fsm fwn fcg">
+                        <a href="http://www.facebook.com/mkk158">ま か</a>邀请了你。
+                        <div class="fsm fwn fcg"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      </s:iterator>
+    </div>
+  </div>
+</div>
 					
 <script>
 function topage(pageNo) {
