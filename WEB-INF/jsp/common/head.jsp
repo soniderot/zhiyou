@@ -83,9 +83,36 @@ function freshNotice() {
               <li class="topNavLink middleLink">
                 <a href="/sns/sns!search.jhtml">搜索朋友</a>
               </li>
-              <li class="topNavLink middleLink">
-                <a href="/usr/logout.jhtml">退出</a>
-              </li>
+              <li class="topNavLink" id="navAccount">
+                
+                <a href="javascript:void(0);" id="navAccountLink" onclick="listToggle()">
+                  <div class="menuPulldown"></div>
+                </a>
+                <ul role="navigation" class="navigation">
+                  <li>
+                    <a accesskey="6" href="usr/account.jhtml" class="navSubmenu">帐户设置</a>
+                  </li>
+                  <li>
+                    <form action="usr/logout.jhtml" method="post">
+                      <label class="uiLinkButton logoutButton navSubmenu">
+                        <input type="submit" value="退出"/>
+                      </label>
+                     </form>
+                   </li>
+                   <!--
+                   <li class="menuDivider"></li>
+                    
+                   <li>
+                      <a target="_blank" id="navHelpCenter" href="#" class="navSubmenu">
+                      <div class="clearfix">
+                        <div class="lfloat">帮助中心</div>
+                        <img height="11" width="16" alt="" src="#" class="rfloat uiLoadingIndicatorAsync img"/>
+                      </div>
+                      </a>
+                    </li>
+                   -->
+                  </ul>
+                </li>
              
             </ul>
           </div>
