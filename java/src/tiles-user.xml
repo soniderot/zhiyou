@@ -108,4 +108,12 @@
 	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
 </definition>
 
+<definition name="tiles.member.account" template="/WEB-INF/jsp/layout/2colbase.jsp" >
+	<put-attribute name="css" value="/WEB-INF/jsp/common/css_register.jsp"/>
+	<put-attribute name="head" value="/usr/header.jhtml"/>
+	<put-attribute name="left" value="/WEB-INF/jsp/member/profile/left.jsp"/>
+	<put-attribute name="content" value="/WEB-INF/jsp/member/profile/account.jsp"/>
+	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
+</definition>
+
 </tiles-definitions>
