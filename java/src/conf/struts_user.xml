@@ -44,6 +44,10 @@
 		<result name="forgetpass" >/WEB-INF/jsp/public/forgetpass.jsp</result>
 	</action>
 	
+	<action name="account" class="com.zy.action.profile.AccountAction">
+		<result name="member.account" type="tiles">tiles.member.account</result>
+	</action>
+	
 	<action name="header" class="com.zy.action.profile.MemberAction">
 		<result name="member.header">/WEB-INF/jsp/common/head.jsp</result>
 	</action>
