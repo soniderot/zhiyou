@@ -82,7 +82,7 @@
               </table>
             </div>
           </td>
-          <td class="image" align="center" id="imageContainer">
+          <td class="image" valign="top" id="imageContainer">
             <div class="lists" style="margin-top: -11px;">
               <div id="umyxfi_1" class="fbProfileBrowserResult hideSummary">
                 <div class="pvm phs fbProfileBrowserSummaryBox uiBoxWhite bottomborder"></div>
