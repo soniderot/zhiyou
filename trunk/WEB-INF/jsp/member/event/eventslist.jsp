@@ -26,7 +26,7 @@
       <div class="uiHeader uiHeaderTopAndBottomBorder uiHeaderSection">
         <div class="clearfix uiHeaderTop">
           <div>
-            <h3 class="uiHeaderTitle" tabindex="0">这个星期以后</h3>
+            <h3 class="uiHeaderTitle" tabindex="0"><s:date name="event.begintime" format="yy年MM月dd日 HH:mm" /></h3>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@
               <div class="clearfix uiImageBlockContent">
                 <div class="uiInlineBlock mlm rfloat">
                   <div style="height: 50px;" class="uiInlineBlock uiInlineBlockMiddle"></div>
-                  <s:if test="user.userid==profile.userid">
+                  <s:if test="#session.user.userid==profile.userid">
                   <div class="uiInlineBlock uiInlineBlockMiddle">
                     <div id="req_220103838085749" class="mvl">
                       <div class="fbEventStatus fsm fwn fcg">你是东家</div>
@@ -79,12 +79,14 @@
                         <div class="fsl fwb fcb">
                           <a href="event/event!viewEvent.jhtml?eventId=<s:property value='event.id' />"><s:property value="event.eventname" /></a>
                         </div>
-                        <div class="fsm fwn fcg"><s:date name="event.begintime" format="yyyy-MM-dd HH:mm" /></div>
+                        <div class="fsm fwn fcg"><s:date name="event.createtime" format="yyyy-MM-dd HH:mm" /></div>
                       </div>
+                      <s:if test="#session.user.userid!=profile.userid">
                       <div class="fsm fwn fcg">
-                        <a href="http://www.facebook.com/mkk158">ま か</a>邀请了你。
+                        <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value='profile.userid'/>">ま か</a>邀请了你。
                         <div class="fsm fwn fcg"></div>
                       </div>
+                      </s:if>
                     </div>
                   </div>
                 </div>
