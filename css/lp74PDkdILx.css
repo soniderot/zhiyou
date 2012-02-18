@@ -396,3 +396,29 @@ position:relative;
 div.uiTypeaheadView .selected{background-color:#6d84b4;border-color:#3b5998}
 .uiTypeaheadView .selected,.uiTypeaheadView .selected a,.uiTypeaheadView .selected div,.uiTypeaheadView .selected span{color:#fff !important}
 .uiTypeaheadView .selected strong{background-color:#5670a6}
+.uiImageBlockLargeImage{margin-right:10px}
+.uiImageBlockImage,.uiImageBlockImage .img{display:block}
+.uiImageBlockContent{overflow:hidden}
+.mlm{margin-left:10px}
+.uiInlineBlock{display:inline-block}
+.uiInlineBlockBottom{vertical-align:bottom}
+.uiInlineBlockMiddle{vertical-align:middle}
+.uiInlineBlockTop{vertical-align:top}
+.uiListLight,.uiListMedium,.uiListDark{border-style:solid}
+.uiListHorizontalItemBorder{border-width:0 0 0 1px}
+.uiListVerticalItemBorder{border-width:1px 0 0 0}
+.uiListItem:first-child{border-width:0}
+.uiListLight{border-color:#e9e9e9}
+.mvl{margin-top:20px;margin-bottom:20px}
+.ufiItem .stat_elem .uiUfiViewSharesLoading{display:none}
+.fsm{font-size: 12px}
+.fsl{font-size: 14px}
+.fsxl{font-size: 17px}
+.fsxxl{font-size: 19px}
+.fwn{font-weight:normal}
+.fwb{font-weight:bold}
+.fcb{color:#333}
+.fcg{color:gray}
+.mrl{margin-right:20px}
+.uiProfileBlockContent{overflow:hidden}
+
