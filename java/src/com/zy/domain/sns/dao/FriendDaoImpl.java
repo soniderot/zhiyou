@@ -114,5 +114,10 @@ public class FriendDaoImpl extends HibernateDao<ZyFriend,Integer> implements Fri
 		}
 		return profiles;
 	}
+	
+	public List<ZyFriend> getMatchedFriends(int userId,int pageNo,int pageSize){
+		String hql = "SELECT distinct friend  FROM ZyFriend friend,ZyRequest request where friend.userid=? and friend.friendid=request.receiverid and request.eventkey=1 and request.matchflag='T'";
+		return this.loadByPagenation(hql,pageNo,pageSize,new Object[] {userId});
+	}
 }
 

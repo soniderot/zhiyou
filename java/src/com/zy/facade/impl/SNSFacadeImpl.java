@@ -9,6 +9,7 @@ import octazen.addressbook.Contact;
 
 import com.zy.Constants;
 import com.zy.common.model.ZyFollow;
+import com.zy.common.model.ZyFriend;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyMatchanswer;
 import com.zy.common.model.ZyMatchquestion;
@@ -277,5 +278,14 @@ public class SNSFacadeImpl implements SNSFacade{
 	
 	public List<ZyProfile> getFriendsByName(int userId,String username,boolean likeFlag){
 		return snsService.getFriendsByName(userId,username, likeFlag);
+	}
+	
+	public List<ZyProfile> getMatchedFriends(int userId,int pageNo,int pageSize){
+		List<ZyProfile> results = new ArrayList<ZyProfile>();
+		List<ZyFriend> friends = snsService.getMatchedFriends(userId, pageNo, pageSize);
+		for(int i=0;i<friends.size();i++){
+			results.add(profileService.findProfileById(friends.get(i).getFriendid()));
+		}
+		return results;
 	}
 }

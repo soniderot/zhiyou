@@ -4,6 +4,7 @@ import java.util.List;
 
 import octazen.addressbook.Contact;
 
+import com.zy.common.model.ZyFriend;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyMatchanswer;
 import com.zy.common.model.ZyMatchquestion;
@@ -60,4 +61,6 @@ public interface SNSFacade {
 	public List<ZyProfile> getMatchedProfiles(int userId,int pageNo,int pageSize);
 	
 	public List<ZyProfile> getFriendsByName(int userId,String username,boolean likeFlag);
+	
+	public List<ZyProfile> getMatchedFriends(int userId,int pageNo,int pageSize);
 }

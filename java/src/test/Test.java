@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zy.common.model.ZyEvent;
-import com.zy.domain.event.dao.EventDao;
+import com.zy.common.model.ZyFriend;
+import com.zy.domain.sns.dao.FriendDao;
 
 public class Test {
 	public static void main(String[] args) throws Exception{
@@ -243,10 +243,10 @@ public class Test {
 			System.out.println("user.id==="+profiles.get(i).getUserid()+"-----username:"+profiles.get(i).getUsername());
 		}*/
 		
-		EventDao eventDao = (EventDao)appContext.getBean("eventDao");
-		List<ZyEvent> events = eventDao.getHotPubEvents(1,10000);
-		for(int i=0;i<events.size();i++){
-			System.out.println(events.get(i).getEventname()+"----"+events.get(i).getId());
+		FriendDao friendDao = (FriendDao)appContext.getBean("friendDao");
+		List<ZyFriend> friends = friendDao.getMatchedFriends(1,1,100);
+		for(int i=0;i<friends.size();i++){
+			System.out.println(friends.get(i).getFriendid());
 		}
 	}
 }
