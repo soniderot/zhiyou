@@ -13,9 +13,12 @@
         </div>
       </div>
       <div>
-      	<s:if test="(publicflag==0)"> 
-        <h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_6h8b4g sx_70f090"></i>我的活动</h2>
+      	<s:if test="(friendFlag==true)"> 
+        <h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_6h8b4g sx_70f090"></i>朋友的活动</h2>
       </s:if>
+      <s:elseif test="(publicflag==0)"> 
+        <h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_6h8b4g sx_70f090"></i>我的活动</h2>
+      </s:elseif>
       <s:else>
       	 <h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_6h8b4g sx_70f090"></i>公共活动</h2>
       </s:else>

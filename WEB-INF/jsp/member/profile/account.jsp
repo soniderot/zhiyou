@@ -3,17 +3,7 @@
 <div role="main" id="contentArea">
   <div id="SettingsPage_Content">
     <ul class="uiList fbSettingsList">
-      <li class="fbSettingsListItem clearfix uiListItem uiListLight uiListVerticalItemBorder">
-		<a href="javacript:void(0);" class="pvm phs fbSettingsListLink clearfix">
-			<span class="pls fbSettingsListItemLabel"><strong>姓名</strong></span>
-			<span class="uiIconText fbSettingsListItemEdit" style="padding-left: 23px;">
-				<i style="top: -2px;" class="img sp_1qb0a3 sx_00805c"></i>
-			</span>
-			<span class="fbSettingsListItemSaved hidden_elem">修改已保存。</span>
-			<span class="fbSettingsListItemContent fcg"><strong>ま か</strong></span>
-		</a>
-        <div class="content"></div>
-      </li>
+     
       <li class="fbSettingsListItem clearfix uiListItem uiListLight uiListVerticalItemBorder">
 		<a href="javacript:void(0);" class="pvm phs fbSettingsListLink clearfix">
 			<span class="pls fbSettingsListItemLabel"><strong>用户名</strong></span>
@@ -21,7 +11,7 @@
 				<i style="top: -2px;" class="img sp_1qb0a3 sx_00805c"></i>
 			</span>
 			<span class="fbSettingsListItemSaved hidden_elem">修改已保存。</span>
-			<span class="fbSettingsListItemContent fcg"> http://www.facebook.com/<strong>mkk158</strong></span>
+			<span class="fbSettingsListItemContent fcg"> <strong><s:property value="profile.username"/></strong></span>
 		</a>
         <div class="content"></div>
       </li>
@@ -32,7 +22,7 @@
 				<i style="top: -2px;" class="img sp_1qb0a3 sx_00805c"></i>
 			</span>
 			<span class="fbSettingsListItemSaved hidden_elem">修改已保存。</span>
-			<span class="fbSettingsListItemContent fcg">主要电邮：<strong>mk-k@163.com</strong> </span>
+			<span class="fbSettingsListItemContent fcg"><strong><s:property value="profile.email"/></strong> </span>
 		</a>
         <div class="content">
       	  <div class="fbSettingsEditor uiBoxGray noborder">
@@ -93,7 +83,7 @@
 		</a>
         <div class="content">
           <div class="fbSettingsEditor uiBoxGray noborder">
-            <form onsubmit="return Event.__inlineSubmit(this,event)" id="ue2q4d_1" method="post" action="/ajax/settings/account/password.php" class="show_label" rel="async">
+            <form  id="ue2q4d_1" method="post" action="/usr/account!update.jhtml" class="show_label" rel="async">
               <input type="hidden" value="2c9ad650639fb8c34e3c8b399afb74ed" name="post_form_id" autocomplete="off"/>
               <input type="hidden" autocomplete="off" value="AQBOkcIK" name="fb_dtsg"/>
               <div class="mam fbSettingsEditorLabel"><strong>密码</strong></div>
@@ -101,17 +91,11 @@
                 <div class="ptm">
                   <table class="uiInfoTable noBorder">
                     <tbody>
-                      <tr class="dataRow">
-                        <th class="label"><label for="password_old">目前有效的密码：</label></th>
-                        <td class="data"><input type="password" id="password_old" name="password_old" class="inputtext"/></td>
-                      </tr>
-                      <tr>
-                        <th class="label noLabel"></th>
-                        <td class="data"><div> </div></td>
-                      </tr>
+                     
+                     
                       <tr class="dataRow">
                         <th class="label"><label for="password_new">新密码：</label></th>
-                        <td class="data"><input type="password" autocomplete="off" id="password_new" name="password_new" class="inputtext"/></td>
+                        <td class="data"><input type="password" autocomplete="off" id="password_new" name="newpassword" class="inputtext"/></td>
                       </tr>
                       <tr>
                         <th class="label noLabel"></th>
@@ -119,7 +103,7 @@
                       </tr>
                       <tr class="dataRow">
                         <th class="label"><label for="password_confirm">重新输入新密码：</label></th>
-                        <td class="data"><input type="password" autocomplete="off" id="password_confirm" name="password_confirm" class="inputtext"/></td>
+                        <td class="data"><input type="password" autocomplete="off" id="password_confirm" name="confirmpassword" class="inputtext"/></td>
                       </tr>
                       <tr>
                         <th class="label noLabel"></th>
@@ -131,12 +115,12 @@
                 <div class="mtm uiBoxGray topborder">
                   <div class="mtm">
                     <label for="ue2q4d_3" id="ue2q4d_2" class="submit uiButton uiButtonConfirm">
-                    	<input type="submit" id="ue2q4d_3" disabled="1" value="保存更改"/>
+                    	<input type="submit" id="ue2q4d_3"  value="保存更改"/>
                     </label>
                     <label for="ue2q4d_4" class="cancel uiButton">
                     	<input type="button" id="ue2q4d_4" value="取消"/>
                     </label>
-                    <img height="11" width="16" alt="" src="https://s-static.ak.facebook.com/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" class="mas saveThrobber uiLoadingIndicatorAsync img"/>
+                    <img height="11" width="16" alt="" src="/images/GsNJNwuI-UM.gif" class="mas saveThrobber uiLoadingIndicatorAsync img"/>
                   </div>
                 </div>
               </div>
