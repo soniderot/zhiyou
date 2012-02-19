@@ -607,6 +607,7 @@ public class EventAction {
 		}
 		System.out.println("--------------into---friends----------activitys");
 		userevents = eventFacade.getEvents(ActionUtil.getSessionUserId(),str, pageNo, pageSize);
+		publicEvents = eventFacade.getHotPubEvents(ActionUtil.getSessionUserId(),1, pageSize);
 		System.out.println("----------------events.size----------"+userevents.size());
 		
 		int count = eventFacade.getEvents(ActionUtil.getSessionUserId(),str, 1, Integer.MAX_VALUE).size();
