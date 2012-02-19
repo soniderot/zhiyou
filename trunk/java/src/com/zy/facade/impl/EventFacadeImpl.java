@@ -140,7 +140,7 @@ public class EventFacadeImpl implements EventFacade{
 			vo.setMembers(profiles);
 			List<ZyProfile> friends = new ArrayList<ZyProfile>();
 			for(int j=0;j<profiles.size();j++){
-				if(str.indexOf(""+profiles.get(j).getUserid())>=0){
+				if(friendIds.contains(profiles.get(j).getUserid())){
 					friends.add(profiles.get(j));
 				}
 			}
