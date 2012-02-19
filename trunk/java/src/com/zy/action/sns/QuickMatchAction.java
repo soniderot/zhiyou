@@ -19,7 +19,14 @@ public class QuickMatchAction extends ActionSupport{
 	private ProfileFacade profileFacade;
 	private RequestFacade requestFacade;
 	private int friendId;
+	private int profileId;
 	
+	public int getProfileId() {
+		return profileId;
+	}
+	public void setProfileId(int profileId) {
+		this.profileId = profileId;
+	}
 	public int getFriendId() {
 		return friendId;
 	}
@@ -90,6 +97,7 @@ public class QuickMatchAction extends ActionSupport{
 
 	public String execute() {
 		ActionUtil.getSession().remove("matchPageNo");
+		
 		return "match.search";
 	}
 	

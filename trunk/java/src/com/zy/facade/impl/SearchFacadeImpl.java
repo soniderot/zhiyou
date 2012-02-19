@@ -7,8 +7,9 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import com.zy.Constants;
-import com.zy.common.model.ZyProfile;
 import com.zy.common.util.LogUtil;
+import com.zy.domain.message.bean.RequestBean;
+import com.zy.domain.message.service.RequestService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.search.IndexField;
 import com.zy.domain.search.service.SearchService;
@@ -23,6 +24,9 @@ public class SearchFacadeImpl implements SearchFacade{
 	private SearchService searchService;
 	private SNSService snsService;
 	private ProfileService profileService;
+	private RequestService requestService;
+	
+	
 	//private SchoolService schoolService;
 	
 	/*
@@ -33,6 +37,14 @@ public class SearchFacadeImpl implements SearchFacade{
 	public void setSchoolService(SchoolService schoolService) {
 		this.schoolService = schoolService;
 	}*/
+
+	public RequestService getRequestService() {
+		return requestService;
+	}
+
+	public void setRequestService(RequestService requestService) {
+		this.requestService = requestService;
+	}
 
 	public ProfileService getProfileService() {
 		return profileService;
@@ -98,6 +110,18 @@ public class SearchFacadeImpl implements SearchFacade{
 				//form.setSchoolName(this.schoolService.getSchoolById(form.getSchoolId()).getSchoolname());
 			}
 			
+			if(form.isExcludeReq()){
+				String str = "";
+				List<RequestBean> requests = requestService.getUserRequestOutbox(userId, (short)1,1,Integer.MAX_VALUE);
+				for(int i=0;i<requests.size();i++){
+					str = str+" "+requests.get(i).getRequest().getReceiverid();
+				}
+				str = str.trim();
+				if(str.length()>0){
+					form.setExcludedReqUserIds(str);
+				}
+			}
+			
 			form.generateQuery();
 			// recent 14 days
 			if (StringUtils.isNotBlank(form.getStart()) && StringUtils.isNotBlank(form.getEnd())) {
@@ -140,6 +164,7 @@ public class SearchFacadeImpl implements SearchFacade{
 	
 	public PageListVO<SearchResultVo> getProfilesBySearch(int userId, SearchFormVo form, int pageNo, int pageSize, int limitNum){
 		List<SearchResultVo> vos = getProfilesBySearch_tx(userId, form, limitNum);
+		System.out.println("vos.size---"+vos.size());
 		if (vos != null) {
 			if (pageNo <= 0)
 				pageNo = 1;

@@ -53,6 +53,25 @@ public class SearchFormVo implements Serializable {
 	
 	
 	private short gender;
+	
+	private String excludedReqUserIds;
+	private boolean excludeReq;
+
+	public String getExcludedReqUserIds() {
+		return excludedReqUserIds;
+	}
+
+	public void setExcludedReqUserIds(String excludedReqUserIds) {
+		this.excludedReqUserIds = excludedReqUserIds;
+	}
+
+	public boolean isExcludeReq() {
+		return excludeReq;
+	}
+
+	public void setExcludeReq(boolean excludeReq) {
+		this.excludeReq = excludeReq;
+	}
 
 	public short getGender() {
 		return gender;
@@ -122,6 +141,7 @@ public class SearchFormVo implements Serializable {
 			flags.add(BooleanClause.Occur.MUST);
 		}
 		
+		System.out.println("----------this.getGender-------"+this.getGender());
 		if (this.getGender() > 0) {
 			fields.add(IndexField.Profile.GENDER);
 			values.add(this.getGender() + "");
@@ -198,6 +218,13 @@ public class SearchFormVo implements Serializable {
 			values.add(this.getExclude1dId());
 			flags.add(BooleanClause.Occur.MUST_NOT);
 		}
+		
+		if (isExcludeReq() && StringUtils.isNotBlank(this.getExcludedReqUserIds())) {
+			fields.add(IndexField.Profile.USER_ID);
+			values.add(this.getExcludedReqUserIds());
+			flags.add(BooleanClause.Occur.MUST_NOT);
+		}
+		
 		this.fields = (String[]) fields.toArray(new String[fields.size()]);
 		this.values = (String[]) values.toArray(new String[values.size()]);
 		this.flags = (BooleanClause.Occur[]) flags.toArray(new BooleanClause.Occur[flags.size()]);

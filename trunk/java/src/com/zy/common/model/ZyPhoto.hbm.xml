@@ -43,5 +43,8 @@
          <property name="height" type="java.lang.Integer">
             <column name="height"  />
         </property>
+         <property name="eventid" type="java.lang.Integer">
+            <column name="eventid"  />
+        </property>
     </class>
 </hibernate-mapping>

@@ -376,6 +376,13 @@ public class FeedAction extends ActionSupport{
 	
 	public String getAtmeFeed(){
 		feeds = feedFacade.getAtNewsFeed(ActionUtil.getSessionUserId(),pageNo,pageSize);
+		for(int i=0;i<feeds.size();i++){
+			if(!"Y".equalsIgnoreCase(feeds.get(i).getFeed().getAtread())){
+				ZyNewsfeed zyFeed = feeds.get(i).getFeed();
+				zyFeed.setAtread("Y");
+				feedFacade.updateNewsFeed(zyFeed);
+			}
+		}
 		int count = 0;
 		System.out.println("-------------count------------"+count);
 		page = new Page(count,pageNo,pageSize,5);
@@ -415,7 +422,7 @@ public class FeedAction extends ActionSupport{
 		System.out.println("------------------into update status ajax-------------"+feedtype);
 		System.out.println("-----------------------file----------"+feedphoto);
 		System.out.println("-----------------------feedmessage----------"+feedmessage);
-		
+		System.out.println("-----------------------friendId----------"+friendId);
 		
 		
 		if (feedphoto!=null) {
@@ -445,6 +452,7 @@ public class FeedAction extends ActionSupport{
 			photo.setCreatetime(new Date());
 			photo.setUserid(ActionUtil.getSessionUserId());
 			photoFacade.createPhoto(photo);
+			
 			if(eventId==null||eventId.trim().length()==0){
 				feedBean = feedFacade.addNewPhotoNewsFeed(ActionUtil.getSessionUserId(),photo.getId());
 			}else{
@@ -489,6 +497,10 @@ public class FeedAction extends ActionSupport{
 		if(friendId>0){
 			ZyNewsfeed feed = feedBean.getFeed();
 			feed.setAtuserid(friendId);
+			String username = profileFacade.findProfileById(friendId).getUsername();
+			if("status".equalsIgnoreCase(feedtype)){
+				feed.setBody(feedmessage.replace("@"+username+":",""));
+			}
 			feedFacade.updateNewsFeed(feed);
 		}
 		return "member.addfeed.ajax";

@@ -2,6 +2,8 @@ package com.zy.common.model;
 
 import java.util.Date;
 
+import com.zy.common.util.ImageUtil;
+
 /**
  * ZyEvent entity.
  * 
@@ -27,8 +29,42 @@ public class ZyEvent implements java.io.Serializable {
 	private Integer subcategoryid;
 	private String biglogo;
 	private Integer type;
-
+	
+	private int photosCnt;
+	private int commentsCnt;
+	
+	private String eventLogo;
+	
+	
 	// Constructors
+
+
+	public String getEventLogo() {
+		return eventLogo;
+	}
+
+	public void setEventLogo(String eventLogo) {
+		String smallFileName = eventLogo.replace(".jpg","-small.jpg");
+		int[] result = ImageUtil.resetsize(eventLogo,smallFileName,120,120);
+		this.logo = smallFileName;
+		this.biglogo = eventLogo;
+	}
+
+	public int getPhotosCnt() {
+		return photosCnt;
+	}
+
+	public void setPhotosCnt(int photosCnt) {
+		this.photosCnt = photosCnt;
+	}
+
+	public int getCommentsCnt() {
+		return commentsCnt;
+	}
+
+	public void setCommentsCnt(int commentsCnt) {
+		this.commentsCnt = commentsCnt;
+	}
 
 	/** default constructor */
 	public ZyEvent() {

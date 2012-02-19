@@ -1,12 +1,11 @@
 package test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zy.domain.message.service.MailqueueService;
-import com.zy.facade.SNSFacade;
+import com.zy.common.model.ZyEvent;
+import com.zy.domain.event.dao.EventDao;
 
 public class Test {
 	public static void main(String[] args) throws Exception{
@@ -89,7 +88,17 @@ public class Test {
 		 * System.out.println(list.size());
 		 */
 		
-		SNSFacade snsFacade = (SNSFacade)appContext.getBean("snsFacade");
+		/*
+		FeedFacade feedFacade = (FeedFacade)appContext.getBean("feedFacade");
+		
+		List<FeedBean> feeds = feedFacade.getAtNewsFeed(1,1,1000);
+		
+		System.out.println("feeds.size==="+feeds.size());
+		
+		for(int i=0;i<feeds.size();i++){
+			System.out.println("-----feed.id------"+feeds.get(i).getFeed().getId());
+		}*/
+		
 		// List<Integer> ids = snsFacade.getAllFriendsByDegree(3,(short)1);
 		// for(int i=0;i<ids.size();i++){
 		// System.out.println(ids.get(i));
@@ -224,7 +233,20 @@ public class Test {
 		
 		//RequestFacade requestFacade =(RequestFacade)appContext.getBean("requestFacade");
 		//requestFacade.sendRequest_tx(2, 1, (short)5, 1, null, null);
-		snsFacade.addFriend(21, 1);
+		//snsFacade.addFriend(21, 1);
 		
+		
+		/*
+		SNSFacade snsFacade = (SNSFacade)appContext.getBean("snsFacade");
+		List<ZyProfile> profiles = snsFacade.getFriendsByName(1, "x",true);
+		for(int i=0;i<profiles.size();i++){
+			System.out.println("user.id==="+profiles.get(i).getUserid()+"-----username:"+profiles.get(i).getUsername());
+		}*/
+		
+		EventDao eventDao = (EventDao)appContext.getBean("eventDao");
+		List<ZyEvent> events = eventDao.getHotPubEvents(1,10000);
+		for(int i=0;i<events.size();i++){
+			System.out.println(events.get(i).getEventname()+"----"+events.get(i).getId());
+		}
 	}
 }

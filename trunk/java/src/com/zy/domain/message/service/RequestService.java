@@ -6,11 +6,11 @@ import com.zy.common.model.ZyRequest;
 import com.zy.domain.message.bean.RequestBean;
 
 public interface RequestService {
-	public List<RequestBean> getUserRequestInbox(int userid, short eventkey,short pagenumber,short pagesize);
+	public List<RequestBean> getUserRequestInbox(int userid, short eventkey,int pagenumber,int pagesize);
 	
-	public  List<RequestBean> getUserRequestOutbox(int userid, short eventkey,short pagenumber,short pagesize);
+	public  List<RequestBean> getUserRequestOutbox(int userid, short eventkey,int pagenumber,int pagesize);
 	
-	public  List<RequestBean> getUserRequestHistory(int userid, short eventkey,short pagenumber,short pagesize);
+	public  List<RequestBean> getUserRequestHistory(int userid, short eventkey,int pagenumber,int pagesize);
 	
 	public RequestBean getUserReuqest(int rid);
 	

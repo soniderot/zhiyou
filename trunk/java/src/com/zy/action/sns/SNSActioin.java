@@ -62,8 +62,27 @@ public class SNSActioin extends ActionSupport{
 	private RequestFacade requestFacade;
 	private boolean errorFlag;
 	
+	private boolean keyWordSearch;
+	private boolean runFlag;
 	
- 	public boolean isErrorFlag() {
+	
+ 	public boolean isRunFlag() {
+		return runFlag;
+	}
+
+	public void setRunFlag(boolean runFlag) {
+		this.runFlag = runFlag;
+	}
+
+	public boolean isKeyWordSearch() {
+		return keyWordSearch;
+	}
+
+	public void setKeyWordSearch(boolean keyWordSearch) {
+		this.keyWordSearch = keyWordSearch;
+	}
+
+	public boolean isErrorFlag() {
 		return errorFlag;
 	}
 
@@ -398,6 +417,35 @@ public class SNSActioin extends ActionSupport{
 		return "you.mayknow";
 	}
 	
+	public String keyWordSearch(){
+		SearchFormVo vo = new SearchFormVo();
+		keyWordSearch = true;
+		if(keyword!=null&&keyword.trim().length()>0){
+			vo.setKeyword(keyword);
+			vo.setKeyWordSearch(true);
+			List<SearchResultVo> results = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(),vo,500);
+			profiles = new ArrayList<ZyProfile>();
+			for(int i=0;i<results.size();i++){
+				profiles.add(profileFacade.findProfileById(results.get(i).getProfileId()));
+			}
+			
+			System.out.println("profiles.size---------------"+profiles.size());
+			//profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+			page = new Page(profiles.size(),pageNo,pageSize,5);
+			if(profiles.size()>=pageSize*pageNo){
+				profiles = profiles.subList(pageSize*(pageNo-1),pageSize*pageNo);
+			}else{
+				System.out.println("--------------into second search-------------");
+				profiles = profiles.subList(pageSize*(pageNo-1),profiles.size());
+				//profiles = new ArrayList<ZyProfile>();
+				System.out.println("--------------after into second search-------------"+profiles.size());
+			}	
+			return "search.result";
+		}else{
+			return "search.result";
+		}
+	}
+	
 	public String search(){
 		if(flag==null){
 			return "search.result";
@@ -418,7 +466,15 @@ public class SNSActioin extends ActionSupport{
 		vo.setEnd(df.format(DateUtil.computeBirthDate(startAge)));
 		vo.setStart(df.format(DateUtil.computeBirthDate(endAge)));
 		//vo.setKeyWordSearch(true);
-		List<SearchResultVo> results = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(),vo,500);
+		List<SearchResultVo> results = new ArrayList<SearchResultVo>();
+		
+		if(runFlag==true){
+			results = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(),vo,500);
+			ActionUtil.getSession().put("search_results", results);
+		}else{
+			results = (List<SearchResultVo>)ActionUtil.getSession().get("search_results");
+		}
+		
 		profiles = new ArrayList<ZyProfile>();
 		for(int i=0;i<results.size();i++){
 			profiles.add(profileFacade.findProfileById(results.get(i).getProfileId()));
@@ -472,7 +528,8 @@ public class SNSActioin extends ActionSupport{
 			}
 			key = key.substring(1);
 			// get friends by keyword
-			friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)1);
+			//friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)1);
+			friends = snsFacade.getFriendsByName(ActionUtil.getSessionUserId(),key.replace("@",""), true);
 		}
 		return "friends.list.ajax";
 	}

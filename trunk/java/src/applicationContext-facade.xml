@@ -61,6 +61,8 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="profileService" ref="profileService"/>
 		<property name="snsService" ref="snsService"/>
 		<property name="requestService" ref="requestService"/>
+		<property name="photoService" ref="photoService"/>
+		<property name="feedFacade" ref="feedFacade"/>
 	</bean>
 	
 	<bean name="luceneIndexFacade" class="com.zy.facade.impl.LuceneIndexFacadeImpl"  >
@@ -74,6 +76,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="snsService" ref="snsService"/>
 		<property name="profileService" ref="profileService"/>
 		<property name="searchService" ref="searchService"/>
+		<property name="requestService" ref="requestService"/>
 	</bean>
 	
 	<bean name="photoFacade" class="com.zy.facade.impl.PhotoFacadeImpl"  >

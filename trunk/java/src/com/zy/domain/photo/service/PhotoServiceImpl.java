@@ -73,4 +73,10 @@ public class PhotoServiceImpl implements PhotoService{
 	public void updatePhoto(ZyPhoto photo){
 		photoDao.update(photo);
 	}
+	public List<ZyPhoto> getPhotosByEventId(int eventId,int pageNo,int pageSize){
+		return photoDao.getPhotosByEventId(eventId, pageNo, pageSize);
+	}
+	public int getPhotosCntByEventId(int eventId){
+		return photoDao.getPhotosCntByEventId(eventId);
+	}
 }

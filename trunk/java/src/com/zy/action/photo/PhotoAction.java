@@ -55,7 +55,7 @@ public class PhotoAction {
 	
 	private int photoId;
 
-	
+	private int eventId;
 	
 	private String[] viewType = new String[]{"","","",""};
 
@@ -337,6 +337,9 @@ public class PhotoAction {
 		photo.setUserid(ActionUtil.getSessionUserId());
 		photo.setAlbumno(albumId);
 		photo.setSummary(summary);
+		if(eventId>0){
+			photo.setEventid(eventId);
+		}
 		photo.setCreatetime(new Date());
 		try{
 		photoFacade.createPhoto(photo);
@@ -423,5 +426,13 @@ public class PhotoAction {
 
 	public void setPhotoId(int photoId) {
 		this.photoId = photoId;
+	}
+
+	public int getEventId() {
+		return eventId;
+	}
+
+	public void setEventId(int eventId) {
+		this.eventId = eventId;
 	}
 }

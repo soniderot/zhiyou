@@ -117,4 +117,5 @@ public interface SNSService {
 	public List<ZyMatchquestion> getQuestions(int categoryId,int pageNo,int pageSize);
 	public List<ZyMatchquestion> getQuestionAndAnswer(int userId,int categoryId,int pageNo,int pageSize);
 	public ZyMatchanswer getAnswer(int userId,int questionId);
+	public List<ZyProfile> getFriendsByName(int userId,String username,boolean likeFlag);
 }

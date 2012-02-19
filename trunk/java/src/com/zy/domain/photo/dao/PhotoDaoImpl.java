@@ -10,4 +10,13 @@ public class PhotoDaoImpl extends HibernateDao<ZyPhoto, Integer> implements Phot
 		String hql = "from ZyPhoto where albumno = ? and deleted is null order by id desc";
 		return this.loadByPage(hql,pageNo,pageSize,new Object[]{albumId});
 	}
+	
+	public List<ZyPhoto> getPhotosByEventId(int eventId,int pageNo,int pageSize){
+		String hql = "from ZyPhoto where eventid = ? and deleted is null order by id desc";
+		return this.loadByPagenation(hql,pageNo,pageSize,new Object[]{eventId});
+	}
+	public int getPhotosCntByEventId(int eventId){
+		String hql = "select count(*) from ZyPhoto where eventid = ? and deleted is null";
+		return this.getTotalRows(hql,new Object[]{eventId});
+	}
 }

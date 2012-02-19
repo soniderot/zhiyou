@@ -8,17 +8,17 @@ import com.zy.common.model.ZyRequest;
 
 public interface RequestDao extends BaseDao<ZyRequest, Integer>{
 	
-	public  List<ZyRequest> getRequestInbox(int userid,short pagenumber,short pagesize);
+	public  List<ZyRequest> getRequestInbox(int userid,int pagenumber,int pagesize);
 	
-	public List<ZyRequest> getRequestInbox(int userid, short eventkey,short pagenumber,short pagesize);
+	public List<ZyRequest> getRequestInbox(int userid, short eventkey,int pagenumber,int pagesize);
 	
-	public  List<ZyRequest> getUserRequestOutbox(int userid,short pagenumber,short pagesize);
+	public  List<ZyRequest> getUserRequestOutbox(int userid,int pagenumber,int pagesize);
 	
-	public  List<ZyRequest> getUserRequestOutbox(int userid, short eventkey,short pagenumber,short pagesize);
+	public  List<ZyRequest> getUserRequestOutbox(int userid, short eventkey,int pagenumber,int pagesize);
 	
-	public List<ZyRequest> getUserRequestHistory(int userid,short pagenumber,short pagesize);
+	public List<ZyRequest> getUserRequestHistory(int userid,int pagenumber,int pagesize);
 	
-	public  List<ZyRequest> getUserRequestHistory(int userid, short eventkey,short pagenumber,short pagesize);
+	public  List<ZyRequest> getUserRequestHistory(int userid, short eventkey,int pagenumber,int pagesize);
 	
 	public ZyRequest getRequest(int senderid, int receiverid, short eventkey, int referenceid);
 	

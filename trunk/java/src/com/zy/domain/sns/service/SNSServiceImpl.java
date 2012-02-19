@@ -748,4 +748,7 @@ public class SNSServiceImpl implements SNSService{
 	public ZyMatchanswer getAnswer(int userId,int questionId){
 		return matchAnswerDao.getAnswer(userId, questionId);
 	}
+	public List<ZyProfile> getFriendsByName(int userId,String username,boolean likeFlag){
+		return friendDao.getFriendsByName(userId,username, likeFlag);
+	}
 }

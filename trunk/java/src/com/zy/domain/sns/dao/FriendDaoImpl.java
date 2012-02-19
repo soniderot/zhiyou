@@ -1,4 +1,5 @@
 package com.zy.domain.sns.dao;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.zy.common.db.HibernateDao;
@@ -90,6 +91,28 @@ public class FriendDaoImpl extends HibernateDao<ZyFriend,Integer> implements Fri
 			}
 		}
 		return results;
+	}
+	
+	public List<ZyProfile> getFriendsByName(int userId,String username,boolean likeFlag){
+		List<ZyProfile> profiles = new ArrayList<ZyProfile>();
+		String hql = "select profile from ZyProfile profile,ZyFriend friend where friend.userid= ? and friend.friendid=profile.userid and profile.username ";
+		if(likeFlag){
+			hql = hql+" like '" +username+"%'";
+		}else{
+			hql = hql+" = ?";
+		}
+		java.util.Iterator iter = null;
+		if(likeFlag){
+			iter = this.iterate(hql,new Object[]{userId});
+		}else{
+			iter = this.iterate(hql,new Object[]{userId,username});
+		}
+		while(iter.hasNext()){
+			Object obj = (Object)iter.next();
+			ZyProfile profile = (ZyProfile)obj;
+			profiles.add(profile);
+		}
+		return profiles;
 	}
 }
 
