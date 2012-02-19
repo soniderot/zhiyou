@@ -97,6 +97,8 @@
                         </div>
                       </a>
                     </td>
+                    
+                    <s:if test="(type=='inbox')"> 
                     <td class="plm">
                       <a class="uiTooltip markAsReadLink" onmouseout="this.blur();" href="#" onclick="return markReadStatus(<s:property value='message.id'/>, 'T');" rel="async-post">
                         <span class="readState markread"></span>
@@ -111,6 +113,8 @@
                         </span>
                       </a>
                     </td>
+                    </s:if> 
+                    
                     <td class="pls">
                       <a class="uiTooltip archiveLink" onmouseout="this.blur();"  href="/usr/message!deleteMessage.jhtml?messageId=<s:property value="message.id"/>" rel="async-post">
                         <label class="uiCloseButton uiCloseButtonSmall" for="up3vb3_4">

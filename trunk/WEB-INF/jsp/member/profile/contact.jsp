@@ -23,17 +23,7 @@
       <s:form onsubmit="return validateUpdateContact(this);" method="post" action="update" namespace="/usr">
         <input type="hidden" name="profileform.pageIndex" value="4" />
         <table class="uiInfoTable">
-          <tbody>
-            <tr class="dataRow">
-              <th class="label">电子邮件：</th>
-              <td class="data"><s:textfield name="profileform.email" cssClass="inputtext profileEditText" tipstype="error" /></td>
-              <td class="rightCol"></td>
-            </tr>
-            
-            <tr class="spacer">
-              <td colspan="3"><hr/></td>
-            </tr>
-          </tbody>
+         
           
           <tbody>
             <tr class="dataRow">

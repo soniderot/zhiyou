@@ -21,6 +21,7 @@
   
   <div class="fbRequestList">
     <table cellspacing="0" cellpadding="0" class="uiGrid">
+    	<form  action="/sns/search!search.jhtml" >
       <tbody>
 
         <tr class="searchBody">
@@ -33,29 +34,24 @@
                       年龄：
                     </td>
                     <td>
-                      From&nbsp;
+                      从&nbsp;
                       <s:select name="startAge" list="#request.beginAges" listKey="key"  listValue="value" ></s:select>
-                      &nbsp;&nbsp;To&nbsp;
+                      &nbsp;&nbsp;到&nbsp;
                      <s:select name="endAge" list="#request.endAges" listKey="key"  listValue="value" ></s:select>
                     </td>
                   </tr>
                   <tr id="u9ikxu_14">
                     <td>性别：</td>
                     <td>
-                      <label for="u9ikxu_25">
-                                                男<input type="radio" id="u9ikxu_25" name="gender" value = "1" title="男"/>
-                      </label>&nbsp;&nbsp;&nbsp;&nbsp;
-                      <label for="u9ikxu_26">
-                                                女<input type="radio" id="u9ikxu_26" name="gender" value = "2" title="女"/>
-                      </label>&nbsp;&nbsp;&nbsp;&nbsp;
-                      <label for="u9ikxu_27">
-                                                 不限<input type="radio" id="u9ikxu_27" name="gender" value = "0" title="不限"/>
+                      <s:select name="gender" list="#{'0':'选择性别', '1':'男', '2':'女'}"></s:select>
+                      
+                     
                       </label>
                     </td>
                   </tr>
                   <tr id="u9ikxu_15">
                     <td>
-                                            关键字：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         关键字：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
                     <td>
                       <div id="u9ikxu_18">
@@ -63,7 +59,7 @@
                           <div class="wrap">
                             
                             <div class="innerWrap">
-                              <input name="keyword" type="text" title="关键字" spellcheck="false"  value="" size="35" placeholder="" class="inputtext textInput DOMControl_placeholder"/>
+                              <s:textfield name="keyword" cssClass="inputtext DOMControl_placeholder"  />
                             </div>
                           </div>
                         </div>
@@ -74,11 +70,12 @@
                     <td></td>
                     <td class="updateButton">
                       <label class="uiButton uiButtonConfirm" for="u5rqxr_1">
-                        <input type="button" value="&nbsp;&nbsp;更&nbsp;新&nbsp;&nbsp;" id="u5rqxr_1" onclick="submitSearch()" />
+                        <input type="submit" value="&nbsp;&nbsp;更&nbsp;新&nbsp;&nbsp;" id="u5rqxr_1"  />
                       </label>
                     </td>
                   </tr>
                 </tbody>
+                </form>
               </table>
             </div>
           </td>
@@ -88,13 +85,17 @@
                 <div class="pvm phs fbProfileBrowserSummaryBox uiBoxWhite bottomborder"></div>
                 <div class="fbProfileBrowserLargeList fbProfileBrowserListContainer">
                   <ul class="uiList uiListHorizontal clearfix mvm phs">
-                    <s:iterator value="profileList">
+                    <s:iterator value="profileList" status='st'>
+                    	<s:if test="#st.index%6==0"> 
+                    		<ul class="uiList uiListHorizontal clearfix mvm phs">
+                    			</ul>
+                    		</s:if> 
                     <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
                       <div  class="fbProfileLargePortrait">
-                        <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value='userid'/>">
+                        <a href="/sns/match.jhtml?profileId=<s:property value='userid'/>&startAge=<s:property value='startAge'/>&endAge=<s:property value='endAge'/>&gender=<s:property value='matchgender'/>&keyword=<s:property value='keyword'/>">
                           <div class="photoWrapper">
                             <div class="photoCrop">
-                              <img style="left: -28px;" alt="" src="<s:property value='avatar'/>" class="fbProfileLargePortraitImgScaleHeight img"/>
+                              <img  alt="" src="<s:property value='avatar'/>" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgScaleHeight img"/>
                             </div>
                           </div>
                           <span class="textWrap fsm fwb"><s:property value='username'/></span>
@@ -110,7 +111,16 @@
           </td>
         </tr>
       </tbody>
+      
     </table>
+     <div  align="right">
+            <div>
+            	<s:if test="profileList.size()>0">
+            	<jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
+            </s:if>
+           
+            </div>
+      </div>
   </div>
 </div>
 <script type="text/javascript">
@@ -189,5 +199,15 @@
         }
      }
     });
+  }
+  
+  function topage(pageNo) {
+  <s:if test="keyword!=null">
+   location.href = "/sns/search!search.jhtml?startAge=<s:property value="startAge" />&endAge=<s:property value="endAge" />&gender=<s:property value="gender" />&keyword=<s:property value="keyword" />&pageNo="+pageNo
+  </s:if>
+  <s:else>
+  location.href = "/sns/search!search.jhtml?startAge=<s:property value="startAge" />&endAge=<s:property value="endAge" />&gender=<s:property value="gender" />&pageNo="+pageNo
+  </s:else>
+  return false;
   }
 </script>

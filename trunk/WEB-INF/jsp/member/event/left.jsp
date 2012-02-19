@@ -2,7 +2,7 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <div id="leftCol" style="min-height:100px;">
   <s:if test="(event!=null)&&(event.logo!=null)">
-  	<img alt="" src="<s:property value="event.logo"/>" class="pbs fbEventPhoto profile-picture img"/>
+  	<img alt="" src="<s:property value="event.biglogo"/>" class="pbs fbEventPhoto profile-picture img"/>
   </s:if>
   <s:else>
   	<img alt="" src="images/event.jpg" class="pbs fbEventPhoto profile-picture img"/>

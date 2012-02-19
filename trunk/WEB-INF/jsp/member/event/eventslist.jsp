@@ -13,23 +13,32 @@
         </div>
       </div>
       <div>
-        <h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_6h8b4g sx_70f090"></i>活动</h2>
+      	<s:if test="(publicflag==0)"> 
+        <h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_6h8b4g sx_70f090"></i>我的活动</h2>
+      </s:if>
+      <s:else>
+      	 <h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_6h8b4g sx_70f090"></i>公共活动</h2>
+      </s:else>
       </div>
     </div>
   </div>
   <div id="pagelet_main_events_dashboard_list">
     <div>
       <s:if test="userevents==null||userevents.size==0">
-      <div class="pam uiBoxWhite topborder">你没有任何的活动。</div>
+      <div class="pam uiBoxWhite topborder">没有任何的活动。</div>
       </s:if>
       <s:iterator value="userevents">
+      
+      <s:if test="newDateFlag">
       <div class="uiHeader uiHeaderTopAndBottomBorder uiHeaderSection">
         <div class="clearfix uiHeaderTop">
           <div>
-            <h3 class="uiHeaderTitle" tabindex="0"><s:date name="event.begintime" format="yy年MM月dd日 HH:mm" /></h3>
+            <h3 class="uiHeaderTitle" tabindex="0"><s:date name="event.begintime" format="yyyy年MM月dd日" /></h3>
           </div>
         </div>
       </div>
+    </s:if>
+      
       <ul class="uiList phs">
         <li class="uiListItem uiListLight uiListVerticalItemBorder">
           <div class="pvm uiBoxWhite noborder">
@@ -40,14 +49,14 @@
               <div class="clearfix uiImageBlockContent">
                 <div class="uiInlineBlock mlm rfloat">
                   <div style="height: 50px;" class="uiInlineBlock uiInlineBlockMiddle"></div>
-                  <s:if test="#session.user.userid==profile.userid">
+                 
+                  	<!--
                   <div class="uiInlineBlock uiInlineBlockMiddle">
                     <div id="req_220103838085749" class="mvl">
-                      <div class="fbEventStatus fsm fwn fcg">你是东家</div>
+                      <div class="fbEventStatus fsm fwn fcg">你是发起人</div>
                     </div>
-                  </div>
-                  </s:if>
-                  <s:else>
+                  </div>-->
+                  
                   <div class="uiInlineBlock uiInlineBlockMiddle">
                     <div id="req_220103838085749" class="mvl">
                       <div class="stat_elem">
@@ -63,13 +72,13 @@
                           </s:else>
                         </div>
                         <div class="mrl">
-                          <img class="uiLoadingIndicatorAsync img" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/yb/r/GsNJNwuI-UM.gif" width="16" height="11"/>
+                          <img class="uiLoadingIndicatorAsync img" alt="" src="/images/GsNJNwuI-UM.gif" width="16" height="11"/>
                         </div>
                       </div>
                       <div class="fbEventStatus fsm fwn fcg"></div>
                     </div>
                   </div>
-                  </s:else>
+                  
                 </div>
                 <div class="uiProfileBlockContent">
                   <div class="uiInlineBlock">
@@ -79,14 +88,14 @@
                         <div class="fsl fwb fcb">
                           <a href="event/event!viewEvent.jhtml?eventId=<s:property value='event.id' />"><s:property value="event.eventname" /></a>
                         </div>
-                        <div class="fsm fwn fcg"><s:date name="event.createtime" format="yyyy-MM-dd HH:mm" /></div>
+                        <div class="fsm fwn fcg">举办时间：<s:date name="event.begintime" format="yyyy-MM-dd HH:mm" /> 至 <s:date name="event.endtime" format="yyyy-MM-dd HH:mm" /></div>
+                        
                       </div>
-                      <s:if test="#session.user.userid!=profile.userid">
-                      <div class="fsm fwn fcg">
-                        <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value='profile.userid'/>">ま か</a>邀请了你。
-                        <div class="fsm fwn fcg"></div>
-                      </div>
-                      </s:if>
+                      
+                      <div class="fsm fwn fcg">举办地点：<s:property value='event.address' /> 
+                     <div class="fsm fwn fcg">活动描述：<s:property value='event.detail' /> 
+                       <div class="fsm fwn fcg">参加人数：<s:property value='members.size()' />  照片数：<s:property value='event.photosCnt' /> 评论数：<s:property value='event.commentsCnt' />
+                       	
                     </div>
                   </div>
                 </div>
@@ -98,8 +107,12 @@
       </s:iterator>
     </div>
   </div>
+  
+<s:if test="userevents.size()>0">
+		<jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
+</s:if>
 </div>
-					
+	
 <script>
 function topage(pageNo) {
 	<s:if test="(friendFlag==false)"> 

@@ -4,10 +4,13 @@
 <div data-referrer="pagelet_search_results_spellcheck" id="pagelet_search_results_spellcheck">
   <div class="search_spell_check"></div>
 </div>
+
+<s:if test="(keyWordSearch!=true)"> 
 <div class="mbs detailedsearch_feature_header"><span>搜索朋友</span></div>
 <div class="mbm">
   <form  action="/sns/sns!search.jhtml" >
     <input type="hidden" name="flag" value="1">
+     <input type="hidden" name="runFlag" value="true">
     <div class="mtm mrl detailedsearch_filter_loading_indicator_area">
       <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
     </div>
@@ -73,7 +76,9 @@
       </table>
     </div>
   </form>
+  
 </div>
+ </s:if> 
 <div class="mbs detailedsearch_feature_header"><span>搜索结果</span></div>
 <div data-referrer="pagelet_search_results_objects" id="pagelet_search_results_objects">
   <s:iterator value="profiles">
@@ -126,9 +131,13 @@
 
 <script>
 function topage(pageNo) {
-  <s:if test="gender>0">
+	<s:if test="keyWordSearch==true">
+	location.href = "/sns/sns!keyWordSearch.jhtml?keyword=${keyword}&pageNo="+pageNo
+	</s:if>
+	
+  <s:elseif test="gender>0">
   location.href = "/sns/sns!search.jhtml?flag=1&startAge=${startAge}&endAge=${endAge}&gender=${gender}&pageNo="+pageNo
-  </s:if>
+  </s:elseif>
   <s:else>
   location.href = "/sns/sns!search.jhtml?flag=1&startAge=${startAge}&endAge=${endAge}&gender=0&pageNo="+pageNo
   </s:else>
