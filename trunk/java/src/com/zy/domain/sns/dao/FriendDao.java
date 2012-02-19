@@ -20,4 +20,6 @@ public interface FriendDao extends BaseDao<ZyFriend, Integer>{
 	public List<ZyFriendDetail> get1stFriends(int userId,Object value,int pageNo,int pageSize,int type,int sorting);
 	
 	public List<ZyProfile> getFriendsByName(int userId,String username,boolean likeFlag);
+	
+	public List<ZyFriend> getMatchedFriends(int userId,int pageNo,int pageSize);
 }

@@ -6,21 +6,20 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.struts2.ServletActionContext;
-
 import octazen.addressbook.Contact;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.zy.Constants;
 import com.zy.common.model.ZyProfile;
-import com.zy.common.model.ZyRequest;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.Page;
+import com.zy.facade.EventFacade;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
 import com.zy.facade.SearchFacade;
+import com.zy.facade.vo.EventVO;
 import com.zy.facade.vo.ProfileVO;
 import com.zy.facade.vo.SearchFormVo;
 import com.zy.facade.vo.SearchResultVo;
@@ -65,8 +64,36 @@ public class SNSActioin extends ActionSupport{
 	private boolean keyWordSearch;
 	private boolean runFlag;
 	
+	private EventFacade eventFacade;
 	
- 	public boolean isRunFlag() {
+	private List<EventVO> events;
+	private List<ZyProfile> matchedProfiles;
+	
+ 	public List<ZyProfile> getMatchedProfiles() {
+		return matchedProfiles;
+	}
+
+	public void setMatchedProfiles(List<ZyProfile> matchedProfiles) {
+		this.matchedProfiles = matchedProfiles;
+	}
+
+	public List<EventVO> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<EventVO> events) {
+		this.events = events;
+	}
+
+	public EventFacade getEventFacade() {
+		return eventFacade;
+	}
+
+	public void setEventFacade(EventFacade eventFacade) {
+		this.eventFacade = eventFacade;
+	}
+
+	public boolean isRunFlag() {
 		return runFlag;
 	}
 
@@ -381,6 +408,9 @@ public class SNSActioin extends ActionSupport{
 			vo.setMuFriends(list);
 			profilesVO.add(vo);
 		}
+		
+		
+		
 		return "you.wanttoknow";
 	}
 	
@@ -413,7 +443,8 @@ public class SNSActioin extends ActionSupport{
 		for (int i = 0; i < profiles.size(); i++) {
 			System.out.println(profiles.get(i).getUserid() + " : " + profiles.get(i).getUsername());
 		}
-		
+		events =eventFacade.getEvents(ActionUtil.getSessionUserId(), ""+ActionUtil.getSessionUserId(),1,5);
+		matchedProfiles = snsFacade.getMatchedFriends(ActionUtil.getSessionUserId(), 1, 5);
 		return "you.mayknow";
 	}
 	

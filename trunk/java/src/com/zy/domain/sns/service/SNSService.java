@@ -3,6 +3,7 @@ import java.util.List;
 
 import com.zy.common.exception.GraphIsInitializingException;
 import com.zy.common.model.ZyFollow;
+import com.zy.common.model.ZyFriend;
 import com.zy.common.model.ZyFriendDetail;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyFriendintroduce;
@@ -118,4 +119,6 @@ public interface SNSService {
 	public List<ZyMatchquestion> getQuestionAndAnswer(int userId,int categoryId,int pageNo,int pageSize);
 	public ZyMatchanswer getAnswer(int userId,int questionId);
 	public List<ZyProfile> getFriendsByName(int userId,String username,boolean likeFlag);
+	
+	public List<ZyFriend> getMatchedFriends(int userId,int pageNo,int pageSize);
 }
