@@ -243,6 +243,9 @@ public class FeedFacadeImpl implements FeedFacade{
 				commentBeans.add(commentBean);
 			}
 			bean.setComments(commentBeans);
+			if(feeds.get(i).getAtuserid()!=null&&feeds.get(i).getAtuserid()>0){
+				bean.setAtuser(profileService.findProfileById(feeds.get(i).getAtuserid()));
+			}
 			results.add(bean);
 		}
 	}

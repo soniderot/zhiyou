@@ -32,6 +32,8 @@
 	<action name="search" class="com.zy.action.search.SearchAction">
 	<interceptor-ref name="loginDefaultStack"/>
 		<result name="match.search.ajax">/WEB-INF/jsp/member/sns/matchAjax.jsp</result>
+		<result name="match.search" type="tiles">tiles.sns.match</result>
+		<result name="match.search.list" type="tiles">tiles.sns.match.list</result>
 	</action>
 	
 		

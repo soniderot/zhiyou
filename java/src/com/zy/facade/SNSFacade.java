@@ -58,4 +58,6 @@ public interface SNSFacade {
 	
 	public List<ZyProfile> getPendingMatchProfiles(int userId,int pageNo,int pageSize);
 	public List<ZyProfile> getMatchedProfiles(int userId,int pageNo,int pageSize);
+	
+	public List<ZyProfile> getFriendsByName(int userId,String username,boolean likeFlag);
 }

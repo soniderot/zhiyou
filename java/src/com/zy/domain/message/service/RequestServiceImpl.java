@@ -78,7 +78,7 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	public List<RequestBean> getUserRequestInbox(int userid, short eventkey,
-			short pagenumber, short pagesize) {
+			int pagenumber, int pagesize) {
 		// String locale = LocaleUtil.getUserLocale();
 		List<ZyRequest> requests = requestDao.getRequestInbox(userid, eventkey,
 				pagenumber, pagesize);
@@ -121,7 +121,7 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	public List<RequestBean> getUserRequestOutbox(int userid, short eventkey,
-			short pagenumber, short pagesize) {
+			int pagenumber, int pagesize) {
 		List<ZyRequest> requests = requestDao.getUserRequestOutbox(userid, eventkey,
 				pagenumber, pagesize);
 		List<RequestBean> requestBean = new ArrayList<RequestBean>();
@@ -164,7 +164,7 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	public List<RequestBean> getUserRequestHistory(int userid, short eventkey,
-			short pagenumber, short pagesize) {
+			int pagenumber, int pagesize) {
 		List<ZyRequest> requests = requestDao.getUserRequestHistory(userid, eventkey,
 				pagenumber, pagesize);
 		List<RequestBean> requestBean = new ArrayList<RequestBean>();

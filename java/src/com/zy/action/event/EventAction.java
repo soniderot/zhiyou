@@ -88,9 +88,35 @@ public class EventAction {
 	
 	
 	private List<FeedBean> feeds;
+	private List<EventVO> friendEvents;
+	private List<EventVO> publicEvents;	
+	private short publicflag;
 	
-	
-	
+
+	public short getPublicflag() {
+		return publicflag;
+	}
+
+	public void setPublicflag(short publicflag) {
+		this.publicflag = publicflag;
+	}
+
+	public List<EventVO> getFriendEvents() {
+		return friendEvents;
+	}
+
+	public void setFriendEvents(List<EventVO> friendEvents) {
+		this.friendEvents = friendEvents;
+	}
+
+	public List<EventVO> getPublicEvents() {
+		return publicEvents;
+	}
+
+	public void setPublicEvents(List<EventVO> publicEvents) {
+		this.publicEvents = publicEvents;
+	}
+
 	public List<FeedBean> getFeeds() {
 		return feeds;
 	}
@@ -366,8 +392,11 @@ public class EventAction {
 		System.out.println("--------------into-------------activitys");
 		userevents = eventFacade.getEvents(ActionUtil.getSessionUserId(),""+ActionUtil.getSessionUserId(), pageNo, pageSize);
 		System.out.println("----------------events.size----------"+userevents.size());
+		
+		friendEvents = eventFacade.getFriendsEvents(ActionUtil.getSessionUserId(), pageNo, pageSize);
+		publicEvents = eventFacade.getHotPubEvents(ActionUtil.getSessionUserId(),1, pageSize);
 		int count = eventFacade.getEvents(ActionUtil.getSessionUserId(),""+ActionUtil.getSessionUserId(), 1, Integer.MAX_VALUE).size();
-		page = new Page(count,pageNo,10,5);
+		page = new Page(count,pageNo,pageSize,5);
 		if(userevents.size()==0){
 			//return "member.emtyevents";
 			return "member.events";
@@ -375,6 +404,7 @@ public class EventAction {
 			return "member.events";
 		}
 	}
+	
 	
 	public String createOrUpdate() {
 		eventCategorys = eventFacade.getEventCategorys();
@@ -428,6 +458,13 @@ public class EventAction {
 			event.setLogo(eventFacade.getEvent(eventId).getLogo());
 		}
 		
+		System.out.println("-----------------publicflag----------------"+publicflag);
+		if(publicflag>0){
+			event.setType(1);
+		}else{
+			event.setType(0);
+		}
+		event.setPhotosCnt(publicflag);
 		event.setAddress(address);
 		event.setCreatetime(new Date());
 		event.setBegintime(new Date());
@@ -482,7 +519,8 @@ public class EventAction {
 			String str = datedir + "/" + fn;
 			
 			System.out.println(str);
-			event.setLogo("/photos/event/"+str);
+			//event.setLogo("/photos/event/"+str);
+			event.setEventLogo("/photos/event/"+str);
 		}else{
 			if(eventId==0)
 				event.setLogo("/images/event.jpg");
@@ -632,6 +670,20 @@ public class EventAction {
 		return "event.members";
 	}
 	
+	public String getPubEvents(){
+		publicflag = 1;
+		System.out.println("--------------into-------------activitys");
+		publicEvents = eventFacade.getHotPubEvents(ActionUtil.getSessionUserId(),1, pageSize);
+		userevents = eventFacade.getEventsByType(ActionUtil.getSessionUserId(),1,1, pageSize);
+		int count = eventFacade.getEventsByType(ActionUtil.getSessionUserId(),1,1, Integer.MAX_VALUE).size();
+		page = new Page(count,pageNo,pageSize,5);
+		if(userevents.size()==0){
+			//return "member.emtyevents";
+			return "member.events";
+		}else{
+			return "member.events";
+		}
+	}
 	
 	public static void main(String[] args) throws Exception{
 		String str = "2011/12/12 12:00:00";

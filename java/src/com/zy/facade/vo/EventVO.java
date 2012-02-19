@@ -16,9 +16,32 @@ public class EventVO {
 	
 	private boolean expired;
 	
-	private int commentsCnt;
-	private int photosCnt;
+	//private int commentsCnt;
+	//private int photosCnt;
+	private ZyProfile createUser;
+	private List<ZyProfile> friends;
 	
+	private boolean newDateFlag;
+	
+	public boolean isNewDateFlag() {
+		return newDateFlag;
+	}
+	public void setNewDateFlag(boolean newDateFlag) {
+		this.newDateFlag = newDateFlag;
+	}
+	public List<ZyProfile> getFriends() {
+		return friends;
+	}
+	public void setFriends(List<ZyProfile> friends) {
+		this.friends = friends;
+	}
+	public ZyProfile getCreateUser() {
+		return createUser;
+	}
+	public void setCreateUser(ZyProfile createUser) {
+		this.createUser = createUser;
+	}
+	/*
 	public int getCommentsCnt() {
 		return commentsCnt;
 	}
@@ -30,7 +53,7 @@ public class EventVO {
 	}
 	public void setPhotosCnt(int photosCnt) {
 		this.photosCnt = photosCnt;
-	}
+	}*/
 	public boolean isExpired() {
 		return expired;
 	}

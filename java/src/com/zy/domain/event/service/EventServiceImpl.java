@@ -119,4 +119,12 @@ public class EventServiceImpl implements EventService{
 		List<ZyEvent> events = eventDao.getEventsByType(type, pageNo, pageSize);
 		return events;
 	}
+	
+	public List<ZyEvent> getDistinctEvents(String userIds,int pageNo,int pageSize){
+		return eventDao.getDistinctEvents(userIds, pageNo, pageSize);
+	}
+	
+	public List<ZyEvent> getHotPubEvents(int pageNo,int pageSize){
+		return eventDao.getHotPubEvents(pageNo, pageSize);
+	}
 }

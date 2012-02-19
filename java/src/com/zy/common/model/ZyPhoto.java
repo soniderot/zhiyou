@@ -30,10 +30,12 @@ public class ZyPhoto implements java.io.Serializable {
 	
 	private Integer height;
 	
+	private Integer eventid;
 	
 	
 	// Constructors
 	
+
 	public Integer getWidth() {
 		return width;
 	}
@@ -136,6 +138,14 @@ public class ZyPhoto implements java.io.Serializable {
 
 	public void setBigfilename(String bigfilename) {
 		this.bigfilename = bigfilename;
+	}
+
+	public Integer getEventid() {
+		return eventid;
+	}
+
+	public void setEventid(Integer eventid) {
+		this.eventid = eventid;
 	}
 
 }

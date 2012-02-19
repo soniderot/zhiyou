@@ -274,4 +274,8 @@ public class SNSFacadeImpl implements SNSFacade{
 		}
 		return profiles;
 	}
+	
+	public List<ZyProfile> getFriendsByName(int userId,String username,boolean likeFlag){
+		return snsService.getFriendsByName(userId,username, likeFlag);
+	}
 }

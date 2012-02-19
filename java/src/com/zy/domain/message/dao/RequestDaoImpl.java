@@ -13,13 +13,13 @@ import com.zy.common.model.ZyRequest;
 public class RequestDaoImpl extends HibernateDao <ZyRequest, Integer> implements RequestDao {
 
 	@Override
-	public List<ZyRequest> getRequestInbox(int userid,short pagenumber,short pagesize) {
+	public List<ZyRequest> getRequestInbox(int userid,int pagenumber,int pagesize) {
 		String hql="from ZyRequest where status=0 and receiverid=? order by id desc";
 		return this.loadByPagenation(hql, pagenumber, pagesize, new Object[] { userid});
 	}
 	
 	@Override
-	public List<ZyRequest> getRequestInbox(int userid, short eventkey,short pagenumber,short pagesize){
+	public List<ZyRequest> getRequestInbox(int userid, short eventkey,int pagenumber,int pagesize){
 		String hql;
 		if(eventkey==0){
 			hql = "from ZyRequest where status=0 and receiverid="+userid+" order by id desc";
@@ -43,13 +43,13 @@ public class RequestDaoImpl extends HibernateDao <ZyRequest, Integer> implements
 	}
 
 	@Override
-	public List<ZyRequest> getUserRequestOutbox(int userid,short pagenumber,short pagesize) {
+	public List<ZyRequest> getUserRequestOutbox(int userid,int pagenumber,int pagesize) {
 		String hql="from ZyRequest where senderid=? order by id desc";
 		return this.loadByPagenation(hql, pagenumber, pagesize, new Object[] { userid});
 	}
 	
 	@Override
-	public List<ZyRequest> getUserRequestOutbox(int userid, short eventkey,short pagenumber,short pagesize) {
+	public List<ZyRequest> getUserRequestOutbox(int userid, short eventkey,int pagenumber,int pagesize) {
 		String hql;
 		if(eventkey==0){
 			hql = "from ZyRequest where senderid="+userid+" order by id desc";
@@ -68,14 +68,14 @@ public class RequestDaoImpl extends HibernateDao <ZyRequest, Integer> implements
 	}
 
 	@Override
-	public List<ZyRequest> getUserRequestHistory(int userid,short pagenumber,short pagesize) {
+	public List<ZyRequest> getUserRequestHistory(int userid,int pagenumber,int pagesize) {
 		String hql="from ZyRequest where status>0 and receiverid=? order by id desc";
 		return this.loadByPagenation(hql, pagenumber, pagesize, new Object[] { userid});
 	}
 	
 	
 	@Override
-	public List<ZyRequest> getUserRequestHistory(int userid, short eventkey,short pagenumber,short pagesize) {
+	public List<ZyRequest> getUserRequestHistory(int userid, short eventkey,int pagenumber,int pagesize) {
 		String hql;
 		if(eventkey==0){
 			hql="from ZyRequest where status>0 and receiverid="+userid+" order by id desc";

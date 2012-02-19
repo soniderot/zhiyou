@@ -9,15 +9,19 @@ import java.util.Random;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
+import com.zy.common.util.LogUtil;
+import com.zy.common.util.Page;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.SearchFacade;
+import com.zy.facade.vo.PageListVO;
 import com.zy.facade.vo.SearchFormVo;
 import com.zy.facade.vo.SearchResultVo;
 
 public class SearchAction {
 	private int startAge = 20;
-	private int endAge = 25;
+	private int endAge = 30;
 	private short gender = 0;
+	private short matchgender = 0;
 	private String keyword;
 	private int pageNo;
 	private SearchFacade searchFacade;
@@ -25,8 +29,30 @@ public class SearchAction {
 	
 	private String flag ;
 	private String listFlag;
+	//private int pageSize = 10;
+	private Page page;
+	
+	private int profileId;
 	
 	
+	public short getMatchgender() {
+		return gender;
+	}
+	public void setMatchgender(short matchgender) {
+		this.matchgender = matchgender;
+	}
+	public int getProfileId() {
+		return profileId;
+	}
+	public void setProfileId(int profileId) {
+		this.profileId = profileId;
+	}
+	public Page getPage() {
+		return page;
+	}
+	public void setPage(Page page) {
+		this.page = page;
+	}
 	public String getListFlag() {
 		return listFlag;
 	}
@@ -93,10 +119,39 @@ public class SearchAction {
 	public void setProfileList(List<ZyProfile> profileList) {
 		this.profileList = profileList;
 	}
+	
 	public String execute() {
-		if(flag!=null){
-			ActionUtil.getSession().remove("matchPageNo");
+		System.out.println("-----------------into search execute---------");
+		profileList = new ArrayList<ZyProfile>();
+		if(profileId>0&&!"1".equals(flag)){
+			System.out.println("-----------------profile.id---------"+profileId);
+			profileList.add(profileFacade.findProfileById(profileId));
+			return "match.search.ajax";
 		}
+		System.out.println("in before search vos.size---------");
+		List<SearchResultVo> results = (List<SearchResultVo>)ActionUtil.getRequest().getSession().getAttribute("match_results");
+		System.out.println("in search vos.size---------"+results.size());
+		int index = 0;
+		for(int i=0;results!=null&&i<results.size();i++){
+			if(results.get(i).getProfileId()==profileId){
+				index = i;
+			}
+		}
+		for(int i=0;results!=null&&i<results.size();i++){
+			if(i>index){
+				System.out.println("index=="+index);
+				System.out.println("newprofileid.i=="+i);
+				System.out.println("newprofileid=="+results.get(i).getProfileId());
+				profileList.add(profileFacade.findProfileById(results.get(i).getProfileId()));
+		
+			}
+		}
+		return "match.search.ajax";
+	}
+	public String execute_old() {
+		//if(flag!=null){
+		//	ActionUtil.getSession().remove("matchPageNo");
+		//}
 		int pageSize = 10;
 		SearchFormVo vo = new SearchFormVo();
 		
@@ -107,13 +162,15 @@ public class SearchAction {
 			vo.setGender(gender);
 		}
 		
-		if(keyword!=null&&keyword.trim().length()>0&&!keyword.equalsIgnoreCase("ÊäÈë¹Ø¼ü×Ö")){
+		if(keyword!=null&&keyword.trim().length()>0&&!keyword.equalsIgnoreCase("è¾“å…¥å…³é”®å­—")){
 			vo.setKeyword(keyword);
 		}
+		
 		
 		vo.setEnd(df.format(DateUtil.computeBirthDate(startAge)));
 		vo.setStart(df.format(DateUtil.computeBirthDate(endAge)));
 		vo.setExclude1d(true);
+		vo.setExcludeReq(true);
 		
 		List<SearchResultVo> results = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(),vo,2000);
 		
@@ -137,6 +194,8 @@ public class SearchAction {
 			}
 		}
 		
+		
+		/*
 		if(ActionUtil.getSession().get("matchPageNo")!=null){
 			System.out.println("-------------into---matchpageno---"+ActionUtil.getSession().get("matchPageNo")+"------------size:"+profileList.size());
 			if(profileList.size()<=10){
@@ -151,6 +210,8 @@ public class SearchAction {
 				}
 			}
 		}
+		*/
+		
 		/*
 		profileList = new ArrayList();
 		Profile profile1 = new Profile();
@@ -165,26 +226,50 @@ public class SearchAction {
 	}
 	
 	public String search() {
-		int pageSize = 24;
+		int pageSize = 12;
 		SearchFormVo vo = new SearchFormVo();
 		DateFormat df = new SimpleDateFormat("yyyyMMdd");
 
 		if (keyword != null && keyword.trim().length() > 0
-				&& !keyword.equalsIgnoreCase("ÊäÈë¹Ø¼ü×Ö")) {
+				&& !keyword.equalsIgnoreCase("è¾“å…¥å…³é”®å­—")) {
 			vo.setKeyword(keyword);
 		}
-
+//System.out.println("new startAge---------"+startAge);
+//System.out.println("new endAge---------"+endAge);
 		vo.setEnd(df.format(DateUtil.computeBirthDate(startAge)));
 		vo.setStart(df.format(DateUtil.computeBirthDate(endAge)));
 		vo.setExclude1d(true);
+		vo.setGender(gender);
+		vo.setExcludeReq(true);
+		//vo.setExcludeReq(true);
 
-		List<SearchResultVo> results = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(), vo, 2000);
+		//PageListVO<SearchResultVo> results = searchFacade.getProfilesBySearch(ActionUtil.getSessionUserId(), vo, pageNo,pageSize,2000);
 
+		PageListVO<SearchResultVo> results = null;
+		List<SearchResultVo> vos = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(), vo,2000);
+		
+		ActionUtil.getRequest().getSession().setAttribute("match_results", vos);
+		
+		System.out.println("vos.size---"+vos.size());
+		if (vos != null) {
+			if (pageNo <= 0)
+				pageNo = 1;
+			int startRows = (pageNo - 1) * pageSize;
+			int endRows = pageNo * pageSize;
+			int endIndex = (vos.size() - endRows) > 0 ? endRows : vos.size();
+			LogUtil.info("-----api search--pageNo---" + pageNo + "---startRows---" + startRows + "--endIndex---" + endIndex);
+			List<SearchResultVo> sublist = vos.subList(startRows, endIndex);
+			PageListVO<SearchResultVo> pageList = new PageListVO<SearchResultVo>(sublist, pageNo, pageSize, vos.size());
+			results = pageList;
+		}
+		
+		
+		//System.out.println("results.list.size----"+results.getList().size());
 		profileList = new ArrayList<ZyProfile>();
+		page = results.getPage();
 
-		for (int i = 0; i < results.size() && i < pageSize; i++) {
-			int index = i + pageNo * pageSize;
-			profileList.add(profileFacade.findProfileById(results.get(index).getProfileId()));
+		for (int i = 0; i < results.getList().size(); i++) {
+			profileList.add(profileFacade.findProfileById(results.getList().get(i).getProfileId()));
 		}
 		return "match.search.list";
 	}
