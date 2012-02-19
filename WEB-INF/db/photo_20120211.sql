@@ -1,0 +1,1 @@
+alter table zy_photo add column eventid INTEGER AFTER HEIGHT;
