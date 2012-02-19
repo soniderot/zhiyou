@@ -25,7 +25,73 @@ function sendFriendRequest(obj, userId) {
           <div data-referrer="pagelet_ego_pane_w" id="pagelet_ego_pane_w">
             <div class="ego_column egoOrganicColumn">
               <div class="ego_section">
-              <s:if test="profiles!=null">   
+              <s:if test="events!=null">   
+                <div class="uiHeader uiHeaderTopAndBottomBorder mbs uiSideHeader">
+                 
+                  <div class="clearfix uiHeaderTop">
+                    <a href="/event/event!getEvents.jhtml" class="uiHeaderActions rfloat">显示更多</a>
+                    <div><h4 class="uiHeaderTitle">近期活动</h4></div>
+                  </div>
+                 
+                  
+                </div>
+                 </s:if>   
+                <div class="phs">
+                  
+                  
+                   <s:iterator value="events">
+                  <div class="UIImageBlock clearfix ego_unit">
+                    <a aria-hidden="true" tabindex="-1" data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1372884330","eng_data":{"ego_service":"pymk","ego_pos":"4"}}}' href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />" class="UIImageBlock_Image UIImageBlock_SMALL_Image">
+                      <img alt="" src="<s:property value="event.logo" />" class="uiProfilePhoto uiProfilePhotoLarge img"/>
+                    </a>
+                    <div class="egoProfileTemplate UIImageBlock_Content UIImageBlock_SMALL_Content">
+                      <a data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1372884330","eng_data":{"ego_service":"pymk","ego_pos":"4"}}}' href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />" class="ego_title"><s:property value="event.eventname" /></a>
+                      <div class="ego_action">
+                        
+                        
+                      </div>
+                    </div>
+                  </div>
+           		</s:iterator>
+           		
+                </div>
+                
+                
+                
+                <s:if test="matchedProfiles!=null">   
+                <div class="uiHeader uiHeaderTopAndBottomBorder mbs uiSideHeader">
+                 
+                  <div class="clearfix uiHeaderTop">
+                    <a href="usr/landing.jhtml" class="uiHeaderActions rfloat">显示更多</a>
+                    <div><h4 class="uiHeaderTitle">已配对列表</h4></div>
+                  </div>
+                 
+                  
+                </div>
+                 </s:if>   
+                 <div class="phs">
+                  
+                  
+                   <s:iterator value="matchedProfiles">
+                  <div class="UIImageBlock clearfix ego_unit">
+                    <a aria-hidden="true" tabindex="-1" data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1372884330","eng_data":{"ego_service":"pymk","ego_pos":"4"}}}' href="/profile/profile!viewProfileInfo.jhtml?userid=${userid}" class="UIImageBlock_Image UIImageBlock_SMALL_Image">
+                      <img alt="" src="${avatar }" class="uiProfilePhoto uiProfilePhotoLarge img"/>
+                    </a>
+                    <div class="egoProfileTemplate UIImageBlock_Content UIImageBlock_SMALL_Content">
+                      <a data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1372884330","eng_data":{"ego_service":"pymk","ego_pos":"4"}}}' href="/profile/profile!viewProfileInfo.jhtml?userid=${userid}" class="ego_title">${username }</a>
+                      <div class="ego_action">
+                        
+                       
+                      </div>
+                    </div>
+                  </div>
+           		</s:iterator>
+           		
+                </div>
+                
+                
+                
+                <s:if test="profiles!=null">   
                 <div class="uiHeader uiHeaderTopAndBottomBorder mbs uiSideHeader">
                  
                   <div class="clearfix uiHeaderTop">
@@ -36,7 +102,7 @@ function sendFriendRequest(obj, userId) {
                   
                 </div>
                  </s:if>   
-                <div class="phs">
+                 <div class="phs">
                   
                   
                    <s:iterator value="profiles">
