@@ -70,6 +70,29 @@ function freshNotice() {
         
         <div id="headNav" class="clearfix">
          
+         <div class="lfloat">
+						<form  role="search" action="sns/sns!keyWordSearch.jhtml" name="navSearch" id="navSearch" method="get">
+						
+							<div id="upob5b_1" class="uiTypeahead">
+								<div class="wrap">
+									<input type="hidden" class="keywordsearch" value="true"/>
+									<div class="innerWrap">
+										<span class="uiSearchInput textInput">
+											<span>
+												<input type="text" title="搜索"  spellcheck="false" onfocus="Bootloader.loadComponents(&quot;SearchBootloader&quot;, function() {$(&quot;search_first_focus&quot;).value = $(&quot;search_first_focus&quot;).value || +new Date(); ;JSCC.get(&#39;j4ec31fa49ef5616409038223&#39;).init([&quot;searchRecorderBasic&quot;,&quot;showLoadingIndicator&quot;,&quot;initFilters&quot;]);;;});" tabindex="" autocomplete="off" placeholder="搜索" onclick='var q = $("q");if (q.value == q.getAttribute("placeholder")) {q.focus(); return false;}' name="keyword" value="<s:property value="keyword"/>" id="q" accesskey="/" maxlength="100" class="inputtext DOMControl_placeholder"/>
+												<button title="搜索" onclick='var q = $("q");if (q.value == q.getAttribute("placeholder")) {q.focus(); return false;}' type="submit">
+													<span class="hidden_elem">搜索</span>
+												</button>
+											</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							
+						</form>
+					</div>
+         
+         
           <div class="rfloat">
             <ul role="navigation" id="pageNav">
             	<li class="topNavLink middleLink">

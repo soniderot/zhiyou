@@ -202,13 +202,14 @@
                 </li>
                 
                 
-                <!---
+                
                 <li class="uiListItem uiListVerticalItemBorder">
                   <label for="guest_list" class="uiCheckbox">
-                    <input type="checkbox" checked="1" name="guest_list" id="guest_list"/>
+                    <input type="checkbox" checked value=1 name="publicflag" id="guest_list"/>
                   </label>
-                  <label for="guest_list">在活动页面显示宾客名单</label>
+                  <label for="guest_list">公共活动</label>
                 </li>
+                <!---
                 <li class="hidden_elem uiListItem uiListVerticalItemBorder">
                   <input type="checkbox" checked="1" name="connections_can_post" id="connections_can_post"/>
                   <label for="connections_can_post">非管理员可以在涂鸦墙上发贴</label>

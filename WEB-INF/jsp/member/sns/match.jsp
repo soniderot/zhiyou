@@ -21,6 +21,7 @@
   
   <div class="fbRequestList">
     <table cellspacing="0" cellpadding="0" class="uiGrid">
+    	<form  action="/sns/search!search.jhtml" >
       <tbody>
         <tr class="head">
           <td class="left">
@@ -49,15 +50,7 @@
                   <tr id="u9ikxu_14">
                     <td>性别：</td>
                     <td>
-                      <label for="u9ikxu_25">
-                                                男<input type="radio" id="u9ikxu_25" name="gender" value = "1" title="男"/>
-                      </label>&nbsp;&nbsp;&nbsp;&nbsp;
-                      <label for="u9ikxu_26">
-                                                女<input type="radio" id="u9ikxu_26" name="gender" value = "2" title="女"/>
-                      </label>&nbsp;&nbsp;&nbsp;&nbsp;
-                      <label for="u9ikxu_27">
-                                                 不限<input type="radio" id="u9ikxu_27" name="gender" value = "0" title="不限"/>
-                      </label>
+                      <s:select name="gender" list="#{'0':'选择性别', '1':'男', '2':'女'}"></s:select>
                     </td>
                   </tr>
                   <tr id="u9ikxu_15">
@@ -70,7 +63,7 @@
                           <div class="wrap">
                             
                             <div class="innerWrap">
-                              <input name="keyword" type="text" title="关键字" spellcheck="false"  value="" size="35" placeholder="" class="inputtext textInput DOMControl_placeholder"/>
+                            <s:textfield name="keyword" cssClass="inputtext DOMControl_placeholder"  />
                             </div>
                           </div>
                         </div>
@@ -81,12 +74,16 @@
                     <td></td>
                     <td class="updateButton">
                       <label class="uiButton uiButtonConfirm" for="u5rqxr_1">
+                      	<!--
                         <input type="button" value="&nbsp;&nbsp;更&nbsp;新&nbsp;&nbsp;" id="u5rqxr_1" onclick="submitSearch()" />
+                        -->
+                        <input type="submit" value="&nbsp;&nbsp;更&nbsp;新&nbsp;&nbsp;" id="u5rqxr_1" />
                       </label>
                     </td>
                   </tr>
                 </tbody>
               </table>
+               </form>
             </div>
           </td>
           <td class="image" align="center" id="imageContainer">
@@ -124,6 +121,19 @@
   var index = 0;
   var pageNo = 0;
   $(".userinfo").eq(0).removeClass("hidden_elem");
+  
+  $.get("sns/search.jhtml", 
+      {startAge: <s:property value="startAge" />, endAge: <s:property value="endAge" />, gender: <s:property value="gender" />, keyword:'<s:property value="keyword" />',flag:0,profileId:<s:property value="profileId" />},
+      function(data){
+        $(".userinfo").remove();
+        $("#imageContainer").append(data);
+        $(".userinfo").eq(0).removeClass("hidden_elem");
+        index = 0;
+        pageNo = 0;
+      }
+    );
+  
+  
   function submitSearch() {
     var agefrom = $("select[name='startAge']").val();
     var ageto = $("select[name='endAge']").val();
@@ -156,11 +166,12 @@
     var gender = $("radio[name='gender']").val();
     var keyword = $("input[name='keyword']").val();
     var size = $(".userinfo").size();
-    
-    if (index >= size - 1&&size > 1) {
+   
+    if (index >= size - 1&&size >=1
+) {
       pageNo = pageNo + 1
       $.get("sns/search.jhtml", 
-        {pageNo: pageNo,startAge: agefrom, endAge: ageto, gender: gender, keyword: keyword},
+        {pageNo: pageNo,startAge: agefrom, endAge: ageto, gender: gender, keyword: keyword,profileId:<s:property value="profileId" />,flag:'1'},
         function(data){
           $("#imageContainer").append(data);
           size = $(".userinfo").size();

@@ -310,6 +310,11 @@
                         <a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>">
                           <s:property value="user.username" />
                         </a>
+                        <s:if test="feed.atuserid!=null&&feed.atuserid>0">
+                        (@<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="atuser.userid"/>">
+                          <s:property value="atuser.username" />
+                        </a>)
+                        </s:if>
                         <s:if test="feed.handle=='sns.publish.text'">发布了评论</s:if>
                         <s:if test="feed.handle=='sns.event.text'">发布了关于活动
                           <a href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id"/>">

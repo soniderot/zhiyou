@@ -212,7 +212,7 @@
                         </li>
                         <li id="navItem_fl_2634662072660" class="sideNavItem stat_elem <s:property value="#session.menuSelect[6]"/>">
                          
-                          <a data-gt='{"bmid":"2634662072660","count":"0","coeff2_info":"AasBG67cxuKgDbFuw51bkDyN1-YaNDsR3JNDcGuFXPl9QHIZOQNJlq3pULq209uUmztfJ5Y3mIoBh3adU6tXkBcv","coeff2_registry_key":"0016","coeff2_action":"3","rank":"2"}' title="" href="event/event!getFriendsEvents.jhtml" class="item clearfix sortableItem">
+                          <a data-gt='{"bmid":"2634662072660","count":"0","coeff2_info":"AasBG67cxuKgDbFuw51bkDyN1-YaNDsR3JNDcGuFXPl9QHIZOQNJlq3pULq209uUmztfJ5Y3mIoBh3adU6tXkBcv","coeff2_registry_key":"0016","coeff2_action":"3","rank":"2"}' title="" href="event/event!getPubEvents.jhtml" class="item clearfix sortableItem">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
@@ -226,7 +226,7 @@
                                <span class="imgWrap">
                                 <i class="img sp_6h8b4g sx_70f090"></i>
                               </span>
-                              <div class="linkWrap noCount">朋友的活动</div>
+                              <div class="linkWrap noCount">公共活动</div>
                             </div>
                           </a>
                           <span class="mover hidden_elem"></span>
@@ -252,7 +252,7 @@
                        
                        <li id="navItem_app_10150110253435258" class="sideNavItem stat_elem <s:property value="#session.menuSelect[7]"/>">
                          
-                          <a title="" href="sns/match!search.jhtml" class="item clearfix sortableItem" style="">
+                          <a title="" href="sns/search!search.jhtml" class="item clearfix sortableItem" style="">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
