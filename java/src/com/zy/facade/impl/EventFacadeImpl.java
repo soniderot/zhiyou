@@ -163,6 +163,7 @@ public class EventFacadeImpl implements EventFacade{
 			}
 			
 			list.get(i).setProfile(profileService.findProfileById(list.get(i).getMember().getUserid()));
+			System.out.println(list.get(i).getProfile().getUserid());
 			List<ZyProfile> profiles = this.getEventMembers(list.get(i).getEvent().getId());
 			list.get(i).setMembers(profiles);
 			

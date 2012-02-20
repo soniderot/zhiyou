@@ -234,20 +234,26 @@ public class FeedFacadeImpl implements FeedFacade{
 				bean.setOptions(optionVos);
 			}
 			
-			List<ZyNewsfeedcomment> comments = feedService.getCommentsByFeedId(bean.getFeed().getId());
-			List<CommentBean> commentBeans = new ArrayList<CommentBean>();
-			for(int j=0;j<comments.size();j++){
-				CommentBean commentBean = new CommentBean();
-				commentBean.setComment(comments.get(j));
-				commentBean.setUser(profileService.findProfileById(comments.get(j).getUserid()));
-				commentBeans.add(commentBean);
-			}
+			List<CommentBean> commentBeans = getFeedCommentsById(bean.getFeed().getId());
 			bean.setComments(commentBeans);
 			if(feeds.get(i).getAtuserid()!=null&&feeds.get(i).getAtuserid()>0){
 				bean.setAtuser(profileService.findProfileById(feeds.get(i).getAtuserid()));
 			}
 			results.add(bean);
 		}
+	}
+	
+	@Override
+	public List<CommentBean> getFeedCommentsById (int feedId) {
+		List<ZyNewsfeedcomment> comments = feedService.getCommentsByFeedId(feedId);
+		List<CommentBean> commentBeans = new ArrayList<CommentBean>();
+		for(int j=0;j<comments.size();j++){
+			CommentBean commentBean = new CommentBean();
+			commentBean.setComment(comments.get(j));
+			commentBean.setUser(profileService.findProfileById(comments.get(j).getUserid()));
+			commentBeans.add(commentBean);
+		}
+		return commentBeans;
 	}
 	
 	public List<FeedBean> getNewsFeed(int userId, String ids,String handles,int pageNo,int pageSize){
@@ -373,5 +379,10 @@ public class FeedFacadeImpl implements FeedFacade{
 	@Override
 	public void blockFeed(int feedId, int userId) {
 		feedService.blockFeed(feedId, userId);
+	}
+
+	@Override
+	public ZyNewsfeed getFeedById(int feedId) {
+		return feedService.getFeedById(feedId);
 	}
 }

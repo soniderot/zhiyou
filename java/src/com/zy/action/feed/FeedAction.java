@@ -27,6 +27,7 @@ import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
 import com.zy.common.util.Page;
+import com.zy.domain.feed.bean.CommentBean;
 import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.MessageFacade;
@@ -675,11 +676,25 @@ public class FeedAction extends ActionSupport{
       out.print(newrequestcnt + " " + newmessagecnt + " " + newnotificationcnt);
       out.flush();    
       out.close();    
-    } catch (Exception e) {  
+    } catch (Exception e) {   
       e.printStackTrace();    
     }
     return null;
 	}
 
-
+	public String showBigPhotoAjax() {
+		feedBean = new FeedBean();
+		ZyNewsfeed feed = feedFacade.getFeedById(feedId);
+		feedBean.setFeed(feed);
+		ZyProfile user = profileFacade.findProfileById(feed.getUserid());
+		feedBean.setUser(user);
+		while ("sns.share.photo".equals(feed.getHandle())) {
+			feed = feedFacade.getFeedById(Integer.parseInt(feed.getBody()));
+		}
+		ZyPhoto photo = photoFacade.getPhoto(Integer.parseInt(feed.getBody()));
+		feedBean.setPhoto(photo);
+		List<CommentBean> comments = feedFacade.getFeedCommentsById(feedId);
+		feedBean.setComments(comments);
+		return "member.feed.bigPhoto";
+	}
 }
