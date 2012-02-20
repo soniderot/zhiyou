@@ -459,7 +459,7 @@ div.uiAttachmentTitle{color:#333}
 .pop_verticalslab,.pop_horizontalslab{width:100%;height:100%;position:absolute;background:#525252;opacity:.7}
 .pop_verticalslab{margin:-10px 0 0;padding-bottom:20px}
 .pop_horizontalslab{margin:0 0 0 -10px;padding-right:20px}
-.generic_dialog{height:0;left:0;overflow:visible;outline:none;position:fixed;top:0;width:100%;z-index:200}
+.generic_dialog{height:0;left:0;overflow:visible;outline:none;position:fixed;top:0;width:100%;z-index:600}
 .generic_dialog_modal,.generic_dialog_fixed_overflow{background-color:rgba(252, 252, 252, .9);height:100%}
 .generic_dialog_fixed_overflow{overflow-x:auto;overflow-y:scroll}
 .generic_dialog_fixed_overflow .generic_dialog_popup{height:auto;padding-bottom:40px}
