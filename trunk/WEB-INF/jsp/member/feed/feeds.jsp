@@ -608,6 +608,7 @@
   }
   
   function share(obj, event, feedId) {
+  
     if(event.keyCode == 13)
     {
       $.ajax({
@@ -624,7 +625,6 @@
     return false;
   }
   
-  
   function blockFeed(feedId) {
     $.post("usr/feed!blockFeedAjax.jhtml", {
         feedId : feedId
@@ -633,8 +633,39 @@
       });
       return false;
   }
+  
+  function showBigPhoto(feedId) {
+    $.ajax({
+     type: "GET",
+     url: "usr/feed!showBigPhotoAjax.jhtml",
+     dataType: 'html',
+     data: "feedId=" + feedId,
+     success: function(data) {
+       $("body").append(data);
+     }
+    });
+  }
+  
+  function removeBigPhoto() {
+    $("#fbPhotoSnowlift").remove();
+  }
+  
+  function replyFocus(name) {
+    $("#shareReasonInput").addClass("hidden_elem");
+    $("#fbPhotoSnowliftFeedbackInput").removeClass("hidden_elem");
+    $("#"+name).parents().find(".uiUfiComments").show();
+    $("#"+name).parents().find(".ufiNub").removeClass("share");
+    document.getElementById(name).focus();
+    return false;
+  }
+  
+  function showShareReasonInput(obj) {
+    $("#shareReasonInput").removeClass("hidden_elem");
+    $("#fbPhotoSnowliftFeedbackInput").addClass("hidden_elem");
+    $(obj).parents().find(".uiUfiComments").hide();
+    $(obj).parents().find(".ufiNub").addClass("share");
+    return false;
+  }
 </script>
 
 <%@ include file="/WEB-INF/jsp/popup/delFeedCommentPop.jsp"%>
-<div class="uiContextualLayerPositioner uiContextualLayerPositionerFixed" style="position:absolute;left:218px;top:116px;z-index:400;">
-</div>
