@@ -4,7 +4,7 @@
 <div class="mvm uiStreamAttachments clearfix fbMainStreamAttachment">
   <div>
     <a title="<s:property value="photo.summary" />" class="uiPhotoThumb largePhoto">
-      <img width="<s:property value="photo.width" />" height="<s:property value="photo.height" />"  alt="" src="<s:property value="photo.filename" />" class="img">
+      <img width="<s:property value="photo.width" />" height="<s:property value="photo.height" />"  alt="" src="<s:property value="photo.filename" />" class="img" onclick="showBigPhoto(<s:property value='feed.id' />)">
     </a>
     <div class="fsm fwn fcg">
       <span class="caption"></span>
