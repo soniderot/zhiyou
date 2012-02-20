@@ -2,7 +2,6 @@ package com.zy.domain.feed.bean;
 
 import java.util.List;
 
-import com.zy.common.model.ZyAnsweroption;
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyPhoto;

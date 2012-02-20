@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
+import com.zy.domain.feed.bean.CommentBean;
 import com.zy.domain.feed.bean.FeedBean;
 
 public interface FeedFacade {
@@ -48,4 +49,8 @@ public interface FeedFacade {
 	public List<ZyNewsfeed> getUnreadAtNewsFeed(int atuserId,int pageNo,int pageSize);
 	
 	public int getUnreadAtNewsFeedCnt(int atuserId);
+	
+	public List<CommentBean> getFeedCommentsById (int feedId);
+	
+	public ZyNewsfeed getFeedById(int feedId);
 }
