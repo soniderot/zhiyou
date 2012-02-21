@@ -8,9 +8,9 @@
           <div class="clearfix fbPhotoSnowliftPopup" style="width: 860px; height: 520px;">
             <div class="stageWrapper lfloat" style="width: 520px; line-height: 43.3333em;">
               <div class="stage">
-                <img class="spotlight" alt="" src="<s:property value='feedBean.photo.bigfilename'/>" style="width: 400px; height: 269px;"/>
+                <img class="spotlight" alt="" src="<s:property value='feedBean.photo.bigfilename'/>"/>
                 <div id="fbPhotoSnowliftTagBoxes" class="fbPhotosPhotoTagboxes tagContainer">
-                  <div style="width: 400px; height: 269px;" class="tagsWrapper"></div>
+                  <div class="tagsWrapper"></div>
                 </div>
                 <div id="fbPhotoSnowliftTagApproval" class="fbPhotoTagApproval hidden_elem"></div>
                 <div class="fbPhotoSnowliftDivider"></div>
