@@ -419,12 +419,14 @@ public class FeedAction extends ActionSupport{
 		return "member.feeds";
 	}
 	
+	public String uploadEventPhoto() {
+		System.out.println(eventId);
+		// photo description
+		System.out.println(feedmessage);
+		return "member.event.photos";
+	}
+	
 	public String updateStatusAjax() {
-		System.out.println("------------------into update status ajax-------------"+feedtype);
-		System.out.println("-----------------------file----------"+feedphoto);
-		System.out.println("-----------------------feedmessage----------"+feedmessage);
-		System.out.println("-----------------------friendId----------"+friendId);
-		
 		
 		if (feedphoto!=null) {
 			String filetype = null;
