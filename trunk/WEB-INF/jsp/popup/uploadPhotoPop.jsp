@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <%@page contentType="text/html; charset=UTF-8"%>
 
-<div class="generic_dialog pop_dialog profileBrowserDialog full_bleed generic_dialog_fixed_overflow" id="dialog_1" style="">
+<div class="generic_dialog pop_dialog profileBrowserDialog full_bleed generic_dialog_fixed_overflow hidden_elem" id="dialog_uploadPhoto" style="">
   <div class="generic_dialog_popup" style="top: 40px; width: 577px;">
     <div class="pop_container_advanced">
       <div id="pop_content" class="pop_content">
@@ -12,9 +12,7 @@
             <div id="uawg93_1" class="fbProfileBrowser">
               <div class="eventInviteLayout">
                 <div class="pam filterBox uiBoxGray topborder">
-                  <s:form onsubmit="return checkInput();" method="post" action="usr/feed!updateStatusAjax.jhtml" target="u3jjus_1" enctype="multipart/form-data">
-                    <input type="hidden" value="c0a81f7ab46455dde1e203435e599680" name="post_form_id" />
-                    <input type="hidden" name="feedtype" value="status" />
+                  <s:form id="uploadPhotoForm" onsubmit="return checkInput();" method="post" action="usr/feed!uploadEventPhoto.jhtml?feedId=%{event.Id}" enctype="multipart/form-data">
                     <input type="hidden" name="eventId"  value="<s:property value="event.Id"/>" />
                     <div id="u3mxyl_6" class="uiMetaComposerMessageBox uiComposerMessageBoxMentions">
                       <table>
@@ -27,7 +25,7 @@
                               <div class="uiTypeahead uiClearableTypeahead fbProfileBrowserTypeahead" id="uawg93_3">
                                 <div class="wrap">
                                   <div class="innerWrap">
-                                    <input type="text" class="inputtext textInput DOMControl_placeholder" placeholder="发表点看法吧..." title="发表点看法吧..." name="inviteMessage"/>
+                                    <input type="text" class="inputtext textInput DOMControl_placeholder" placeholder="发表点看法吧..." title="发表点看法吧..." name="feedmessage"/>
                                   </div>
                                 </div>
                               </div>
@@ -55,8 +53,11 @@
           <div class="dialog_buttons clearfix">
             <div class="dialog_buttons_msg"></div>
             <div>
+              <label class="uiButton uiButtonLarge uiButtonConfirm inputsubmit uiButtonDisabled">
+              <input type="button" name="uploadBtn" value="保存" onclick="uploadPhoto()"/>
+              </label>
               <label class="uiButton uiButtonLarge uiButtonConfirm inputsubmit">
-              <input type="button" name="ok" value="保存" onclick="sendInviteRequest()"/>
+              <input type="button" name="uploadBtn" value="取消" onclick="hidePop('dialog_uploadPhoto')"/>
               </label>
             </div>
           </div>
@@ -69,39 +70,35 @@
 </div>
 
 <script type="text/javascript">
-
-function hidePopup(dialog) {
-  $("#" + dialog).remove();
+function checkInput() {
+  var photoName = $("input[name='feedphoto']").val();
+  var i = photoName.lastIndexOf(".");
+  if (i == -1) {
+    return false;
+  }
+  var suffix = photoName.substring(i);
+  if (".jpg" != suffix && ".png" != suffix ) {
+    return false;
+  }
+  var photoDesc = $("input[name='feedmessage']").val();
+  var holder = $("input[name='feedmessage']").attr("placeholder");
+  if (photoDesc == holder) {
+    $("input[name='feedmessage']").val("");
+  }
+  return true;
 }
 function showPopup(dialog) {
-  $("#" + dialog).show();
   $("#" + dialog).removeClass("hidden_elem");
   return false;
 }
-
-function sendInviteRequest() {
-  var invitees = "";
-  $("input[name='checkableitems']:checked").each(function (){
-    invitees = invitees + $(this).val() + " ";
-  });
-  var eid = $("input[name='eventId']").val();
-  var message = $("input[name='inviteMessage']").val();
-  if(message == $("input[name='inviteMessage']").attr("placeholder")) {
-    message = "";
-  }
-  if (invitees == "") {
-    hidePopup("dialog_0");
-    return false;
-  }
-  $("#pop_content").addClass("dialog_loading_shown");
-  $.get("event/event!inviteFriendsAjax.jhtml", {invitees: invitees, eventId: eid, inviteMessage: message}, function(data){
-    if(data == "true") {
-      $(".dialog_body").html("<div class='pam uiBoxYellow noborder'>你的邀请已发送。</div>");
-    } else {
-      $(".dialog_body").html("<div class='pam uiBoxYellow noborder'>请求发送失败，请重新发送。</div>");
-    }
-    $(".inputsubmit").html("<input type='button' name='ok' value='关闭' onclick=\"hidePopup('dialog_0')\"/>");
-    $("#pop_content").removeClass("dialog_loading_shown");
-  }, "text");
+function hidePop(dialog) {
+  $("#" + dialog).addClass("hidden_elem");
+  return false;
+}
+function uploadPhoto() {
+  $("form:last").submit();
+}
+function enableSubmitBtn() {
+  $("input[name='uploadBtn']").parent().removeClass("uiButtonDisabled");
 }
 </script>
