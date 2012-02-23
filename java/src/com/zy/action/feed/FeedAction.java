@@ -74,7 +74,7 @@ public class FeedAction extends ActionSupport{
 	private ZyProfile user;
 	private Page page;
 	
-	private String eventId;
+	private int eventId;
 	private List<ZyProfile> friends;
 	private int questionId;
 	private int optionId;
@@ -88,6 +88,23 @@ public class FeedAction extends ActionSupport{
 	private NotifyFacade notifyFacade;
 	
 	private int friendId;
+	private int groupId;
+	
+	private List<ZyProfile> friendsInGroup;
+	
+	
+	public List<ZyProfile> getFriendsInGroup() {
+		return friendsInGroup;
+	}
+	public void setFriendsInGroup(List<ZyProfile> friendsInGroup) {
+		this.friendsInGroup = friendsInGroup;
+	}
+	public int getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(int groupId) {
+		this.groupId = groupId;
+	}
 	public int getFriendId() {
 		return friendId;
 	}
@@ -191,14 +208,14 @@ public class FeedAction extends ActionSupport{
 		this.friends = friends;
 	}
 
-	public String getEventId() {
+	
+
+	public int getEventId() {
 		return eventId;
 	}
-
-	public void setEventId(String eventId) {
+	public void setEventId(int eventId) {
 		this.eventId = eventId;
 	}
-
 	public Page getPage() {
 		return page;
 	}
@@ -423,8 +440,43 @@ public class FeedAction extends ActionSupport{
 		System.out.println(eventId);
 		// photo description
 		System.out.println(feedmessage);
+		
+		if (feedphoto!=null) {
+			String filetype = null;
+			filetype = FileUtil.isJPGorPNG(this.getFeedphotoContentType());
+			if (StringUtils.isBlank(filetype)) {
+				return "member.event.photos";
+			}
+			String root = ServletActionContext.getServletContext().getRealPath("/");
+			final String photoDir = File.separator + "photos/album";
+			String token = UUID.randomUUID() + "";
+			String fn = token + filetype;
+			String fileName = FileUtil.copy(feedphoto, root + photoDir, fn);
+			System.out.println(fileName);
+			String datedir = DateUtil.formatDate(new Date());
+			String str = datedir + "/" + fn;
+			
+			System.out.println(str);
+			ZyPhoto photo = new ZyPhoto();
+			photo.setPhotoFilename("/photos/album/"+str);
+			List<ZyAlbum> albums = photoFacade.getAlbumList(ActionUtil.getSessionUserId());
+			if(albums.size()>0){
+				photo.setAlbumno(albums.get(0).getId());
+			}else{
+				photo.setAlbumno(0);
+			}
+			photo.setCreatetime(new Date());
+			photo.setUserid(ActionUtil.getSessionUserId());
+			photo.setEventid(eventId);
+			photoFacade.createPhoto(photo);
+			
+			feedBean = feedFacade.addNewEventPhotoNewsFeed(ActionUtil.getSessionUserId(),Integer.valueOf(eventId).intValue(),photo.getId());
+			
+		}
+		
 		return "member.event.photos";
 	}
+	
 	
 	public String updateStatusAjax() {
 		
@@ -456,14 +508,14 @@ public class FeedAction extends ActionSupport{
 			photo.setUserid(ActionUtil.getSessionUserId());
 			photoFacade.createPhoto(photo);
 			
-			if(eventId==null||eventId.trim().length()==0){
+			if(eventId==0){
 				feedBean = feedFacade.addNewPhotoNewsFeed(ActionUtil.getSessionUserId(),photo.getId());
 			}else{
 				feedBean = feedFacade.addNewEventPhotoNewsFeed(ActionUtil.getSessionUserId(),Integer.valueOf(eventId).intValue(),photo.getId());
 			}
 		} else if (feedmessage!=null&&feedmessage.trim().length()>0){
 			System.out.println("---------------feedmessage------------"+eventId);
-			if(eventId==null||eventId.trim().length()==0){
+			if(eventId==0){
 				feedBean = feedFacade.addNewBlogNewsFeed(ActionUtil.getSessionUserId(), feedmessage);
 			}else{
 				System.out.println("--------------begin to add event newsfeed----"+eventId);
@@ -698,5 +750,34 @@ public class FeedAction extends ActionSupport{
 		List<CommentBean> comments = feedFacade.getFeedCommentsById(feedId);
 		feedBean.setComments(comments);
 		return "member.feed.bigPhoto";
+	}
+	
+	public String getFeedsOfGroup(){
+		List<ZyProfile> list = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),groupId,(short)1);
+		friendsInGroup = list;
+		System.out.println("--------------into-------------feed--------handle----"+handle);
+		int userId = ActionUtil.getSessionUserId();
+		
+		String str = "";
+		for(int i=0;i<list.size();i++){
+			if(i!=list.size()-1){
+				str = str+list.get(i).getUserid()+",";
+			}else{
+				str = str+list.get(i).getUserid();
+			}
+		}
+		int count = 0;
+		if(handle==null||handle.trim().length()==0){
+			feeds = feedFacade.getNewsFeed(userId, str,null,pageNo,pageSize);
+			count = feedFacade.getNewsFeed(userId, str,null,1,Integer.MAX_VALUE).size();
+		}else{
+			String str1 = handle.replaceAll(",", "','");
+			feeds = feedFacade.getNewsFeed(userId, str,"'"+str1+"'",pageNo,pageSize);
+			count = feedFacade.getNewsFeed(userId, str,"'"+str1+"'",1,Integer.MAX_VALUE).size();
+		}
+		System.out.println("-------------count------------"+count);
+		page = new Page(count,pageNo,10,5);
+		
+		return "snsgroup.feeds";
 	}
 }
