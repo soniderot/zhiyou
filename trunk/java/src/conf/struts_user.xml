@@ -77,6 +77,7 @@
 		<interceptor-ref name="loginDefaultStack"/>
 		<result name="to.member.feeds" type="redirect">/usr/feed.jhtml</result>
 		<result name="member.feeds" type="tiles">tiles.feed.list</result>
+		<result name="snsgroup.feeds" type="tiles">tiles.snsgroupfeed.list</result>
 		<result name="member.addfeed.ajax">/WEB-INF/jsp/member/feed/addfeedajax.jsp</result>
 		<result name="member.addfeedcomment.ajax">/WEB-INF/jsp/member/feed/addfeedcommentajax.jsp</result>
 		<result name="question.addfeedcomment.ajax">/WEB-INF/jsp/member/feed/addquestioncommentajax.jsp</result>
