@@ -7,6 +7,8 @@ import com.zy.common.model.ZyAlbum;
 import com.zy.common.model.ZyPhoto;
 import com.zy.domain.photo.service.PhotoService;
 import com.zy.facade.PhotoFacade;
+import com.zy.facade.vo.EventVO;
+import com.zy.facade.vo.FeedVO;
 
 public class PhotoFacadeImpl implements PhotoFacade{
 	private PhotoService photoService;
@@ -78,7 +80,7 @@ public class PhotoFacadeImpl implements PhotoFacade{
 	}
 
 	@Override
-	public List<ZyPhoto> getEventPhotos(int eventId, int pageNo, int pageSize) {
+	public List<FeedVO> getEventPhotos(int eventId, int pageNo, int pageSize) {
 		return photoService.getPhotosByEventId(eventId, pageNo, pageSize);
 	}
 }
