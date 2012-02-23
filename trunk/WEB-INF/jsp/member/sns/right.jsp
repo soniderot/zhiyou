@@ -25,6 +25,42 @@ function sendFriendRequest(obj, userId) {
           <div data-referrer="pagelet_ego_pane_w" id="pagelet_ego_pane_w">
             <div class="ego_column egoOrganicColumn">
               <div class="ego_section">
+              	
+              	<div id="friend_list_members_box">
+									<div class="fbFriendListMemberBox" id="u29f2l_22">
+										<div class="uiHeader uiHeaderTopAndBottomBorder uiHeaderSection fbFriendListMemberBoxTitle">
+											<div class="clearfix uiHeaderTop">
+												<div class="uiHeaderActions rfloat fsm fwn fcg">
+													<a rel="dialog" href="#" ajaxify="/ajax/choose/?type=friendlist&amp;flid=2634661952657&amp;view=members">管理列表</a>
+												</div>
+												<div><h3 class="uiHeaderTitle">此列表中的朋友（<s:property value="friendsInGroup.size()" />）</h3></div>
+											</div>
+										</div>
+										<div class="phs">
+											<div class="fbFriendListMemberBoxContent">
+												<div class="uiFacepile fbFriendListMemberBoxFacepile uiFacepileMedium" id="u29f2l_23">
+													<ul class="uiList uiListHorizontal clearfix pvm">
+														<s:iterator value="friendsInGroup" status='st'>
+															<s:if test="#st.index%7==0&&#st.index>0"> 
+															<ul class="uiList uiListHorizontal clearfix pvm"></ul>
+															</s:if> 
+														<li class="uiFacepileItem uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
+															<a class="uiTooltip link" onmouseout="this.blur();" href="http://www.facebook.com/profile.php?id=100003175668442" data-jsid="anchor">
+																<img class="uiProfilePhoto uiProfilePhotoMedium img" src="<s:property value="avatar" />" alt="" data-jsid="img">
+																<span class="uiTooltipWrap top left lefttop">
+																	<span class="uiTooltipText"><s:property value="username" /></span>
+																</span>
+															</a>
+														</li>
+														</s:iterator>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+              	
+              	
               <s:if test="events!=null">   
                 <div class="uiHeader uiHeaderTopAndBottomBorder mbs uiSideHeader">
                  
