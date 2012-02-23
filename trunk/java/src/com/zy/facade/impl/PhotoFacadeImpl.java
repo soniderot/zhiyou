@@ -76,4 +76,9 @@ public class PhotoFacadeImpl implements PhotoFacade{
 	public ZyPhoto getPhoto(int photoId){
 		return photoService.getPhoto(photoId);
 	}
+
+	@Override
+	public List<ZyPhoto> getEventPhotos(int eventId, int pageNo, int pageSize) {
+		return photoService.getPhotosByEventId(eventId, pageNo, pageSize);
+	}
 }
