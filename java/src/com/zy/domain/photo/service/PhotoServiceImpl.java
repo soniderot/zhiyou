@@ -1,16 +1,30 @@
 package com.zy.domain.photo.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.zy.common.model.ZyAlbum;
+import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyPhoto;
+import com.zy.domain.feed.dao.FeedDao;
 import com.zy.domain.photo.dao.AlbumDao;
 import com.zy.domain.photo.dao.PhotoDao;
+import com.zy.facade.vo.EventVO;
+import com.zy.facade.vo.FeedVO;
 
 public class PhotoServiceImpl implements PhotoService{
 	private AlbumDao albumDao;
 	private PhotoDao photoDao;
+	private FeedDao feedDao;
 	
+	public FeedDao getFeedDao() {
+		return feedDao;
+	}
+
+	public void setFeedDao(FeedDao feedDao) {
+		this.feedDao = feedDao;
+	}
+
 	public PhotoDao getPhotoDao() {
 		return photoDao;
 	}
@@ -73,8 +87,21 @@ public class PhotoServiceImpl implements PhotoService{
 	public void updatePhoto(ZyPhoto photo){
 		photoDao.update(photo);
 	}
-	public List<ZyPhoto> getPhotosByEventId(int eventId,int pageNo,int pageSize){
-		return photoDao.getPhotosByEventId(eventId, pageNo, pageSize);
+	public List<FeedVO> getPhotosByEventId(int eventId,int pageNo,int pageSize) {
+		List<FeedVO> eventPhotos = new ArrayList<FeedVO>();
+		List<ZyPhoto> photos = photoDao.getPhotosByEventId(eventId, pageNo, pageSize);
+		if (photos == null) {
+			return eventPhotos;
+		}
+		for (int i = 0; i < photos.size(); i ++) {
+			FeedVO feedPhoto = new FeedVO();
+			ZyPhoto photo = photos.get(i);
+			ZyNewsfeed feed = feedDao.getNewsFeedByHandle("sns.publish.photo", photo.getId() + "");
+			feedPhoto.setFeed(feed);
+			feedPhoto.setPhoto(photo);
+			eventPhotos.add(feedPhoto);
+		}
+		return eventPhotos;
 	}
 	public int getPhotosCntByEventId(int eventId){
 		return photoDao.getPhotosCntByEventId(eventId);

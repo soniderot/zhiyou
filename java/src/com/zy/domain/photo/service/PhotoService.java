@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.zy.common.model.ZyAlbum;
 import com.zy.common.model.ZyPhoto;
+import com.zy.facade.vo.FeedVO;
 
 public interface PhotoService {
 	public List<ZyAlbum> getAlbumList(int userId);
@@ -16,6 +17,6 @@ public interface PhotoService {
 	public void deletePhoto(int photoId);
 	public void updateAlbum(ZyAlbum album);
 	public void updatePhoto(ZyPhoto photo);
-	public List<ZyPhoto> getPhotosByEventId(int eventId,int pageNo,int pageSize);
+	public List<FeedVO> getPhotosByEventId(int eventId,int pageNo,int pageSize);
 	public int getPhotosCntByEventId(int eventId);
 }
