@@ -34,6 +34,7 @@ import com.zy.facade.ProfileFacade;
 import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
 import com.zy.facade.vo.EventVO;
+import com.zy.facade.vo.FeedVO;
 
 public class EventAction {
 	private SNSFacade snsFacade;
@@ -82,7 +83,7 @@ public class EventAction {
 	private int districtId;
 	private int subcateGoryId;
 	private List<ZyRecommplace> places;
-	private List<ZyPhoto> eventPhotos;
+	private List<FeedVO> eventPhotos;
 	private PhotoFacade photoFacade;
 	private Page page;
 	
@@ -91,7 +92,15 @@ public class EventAction {
 	private List<EventVO> friendEvents;
 	private List<EventVO> publicEvents;	
 	private short publicflag;
-	
+	private int photoId;
+
+	public int getPhotoId() {
+		return photoId;
+	}
+
+	public void setPhotoId(int photoId) {
+		this.photoId = photoId;
+	}
 
 	public PhotoFacade getPhotoFacade() {
 		return photoFacade;
@@ -101,11 +110,11 @@ public class EventAction {
 		this.photoFacade = photoFacade;
 	}
 
-	public List<ZyPhoto> getEventPhotos() {
+	public List<FeedVO> getEventPhotos() {
 		return eventPhotos;
 	}
 
-	public void setEventPhotos(List<ZyPhoto> eventPhotos) {
+	public void setEventPhotos(List<FeedVO> eventPhotos) {
 		this.eventPhotos = eventPhotos;
 	}
 	
@@ -714,6 +723,10 @@ public class EventAction {
 		}else{
 			return "member.events";
 		}
+	}
+	
+	public String showBigPhotoAjax() {
+		return "";
 	}
 	
 	public static void main(String[] args) throws Exception{
