@@ -516,10 +516,10 @@
   
   function topage(pageNo) {
   <s:if test="event!=null">
-   location.href = "event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />&pageNo="+pageNo
+   location.href = "event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />&pageNo="+pageNo;
   </s:if>
   <s:else>
-  location.href = "/usr/feed.jhtml?handle=<s:property value="handle" />&pageNo="+pageNo
+  location.href = "/usr/feed.jhtml?handle=<s:property value="handle" />&pageNo="+pageNo;
   </s:else>
   return false;
   }
