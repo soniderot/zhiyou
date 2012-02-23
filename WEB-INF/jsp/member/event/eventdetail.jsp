@@ -36,13 +36,13 @@
                   <div class="pvm phs fbProfileBrowserSummaryBox uiBoxWhite bottomborder"></div>
                   <div class="fbProfileBrowserLargeList fbProfileBrowserListContainer">
                     <ul class="uiList uiListHorizontal clearfix mvm phs">
-                      <s:iterator value="eventPhotos" status="status">
+                      <s:iterator value="eventPhotos" status="status" id="eventPhoto">
                       <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
                         <div class="fbProfileLargePortrait fbProfileLargeMarginLeft">
                           <a href="event/event!viewEventPhotos.jhtml?eventId=<s:property value='event.id' />">
                             <div class="photoWrapper">
                               <div class="photoCrop">
-                                <img alt="" src="<s:property value='filename' />" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgSmall img"/>
+                                <img alt="" src="<s:property value='photo.filename' />" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgSmall img"/>
                               </div>
                             </div>
                             <span class="textWrap fsm fwb"></span>
