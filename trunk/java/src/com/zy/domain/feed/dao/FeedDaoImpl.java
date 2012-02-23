@@ -32,14 +32,14 @@ public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements Fe
 		return null;
 	}
 	
-	/*
-	public ZyNewsfeed getNewsFeedByHandle(String handle, String body, int userId) {
-		String hql = "from ZyNewsfeed where userid=? and handle= ? and body =? order by id desc ";
-		List<ZyNewsfeed> list = this.loadTopRows(hql, 1, new Object[] { userId, handle, body });
+	@Override
+	public ZyNewsfeed getNewsFeedByHandle(String handle, String body) {
+		String hql = "from ZyNewsfeed where handle= ? and body =? order by id desc ";
+		List<ZyNewsfeed> list = this.loadTopRows(hql, 1, new Object[] {handle, body });
 		if (list.size() == 1)
 			return list.get(0);
 		return null;
-	}*/
+	}
 
 
 	/*

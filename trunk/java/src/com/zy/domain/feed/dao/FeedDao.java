@@ -12,7 +12,8 @@ public interface FeedDao extends BaseDao<ZyNewsfeed,Integer>{
 	public List<ZyNewsfeed> getNewsFeed(int userId,String handles,int pageNo,int pageSize);
 	
 	public ZyNewsfeed getNewsFeedByHandle(String handle ,int userId);
-	//public ZyNewsfeed getNewsFeedByHandle(String handle ,String body,int userId);
+	
+	public ZyNewsfeed getNewsFeedByHandle(String handle ,String body);
 	
 	public List<ZyNewsfeed> getMyComment(int pageNo,int pageSize, int userId);
 	public int getMyCommentCount(int userId);
