@@ -58,15 +58,10 @@
         </div>
         <div>
           <h2 class="uiHeaderTitle">
-            <s:if test="event==null">
-              <i class="uiHeaderImage img sp_7gl7wd  sx_efd21b"></i>
-              <s:if test="handle=='sns.publish.photo,sns.event.photo'">照片</s:if>
-              <s:elseif test="handle=='sns.publish.question'">问题</s:elseif>
-              <s:else>动态</s:else>汇总
-          	</s:if>
-          	<s:else>
-          	  <i class="uiHeaderImage img sp_7gl7wd sx_efd21b"></i>活动信息
-            </s:else>
+            <i class="uiHeaderImage img sp_7gl7wd sx_efd21b"></i>
+            <s:if test="handle=='sns.publish.photo,sns.event.photo'">照片</s:if>
+            <s:elseif test="handle=='sns.publish.question'">问题</s:elseif>
+            <s:else>动态</s:else>汇总
           </h2>
         </div>
       </div>
@@ -286,7 +281,7 @@
       </div>
     </div>
   </div>
-</s:else>
+  </s:else>
   <iframe style="width: 1px; height: 1px; position: absolute; top: -10000px;" name="u3jjus_1" class="fbUploadIframe"></iframe>
   <div id="pagelet_home_stream">
     <div id="c4ec37b3fc7e022d58174072" class="UIIntentionalStream UIStream">
