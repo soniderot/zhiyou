@@ -2105,6 +2105,7 @@ padding-left:4px}
 .uiSideNav .async_saving .uiSideNavCountSprited,
 .uiSideNav .loading .uiSideNavCountSprited{display:none}
 .fbProfileLargePortrait{margin:2px 0 0 5px;width:75px;word-wrap:break-word}
+.fbProfileLargeMarginLeft{margin-left:1px;}
 .fbProfileLargePortrait .photoCrop{background:#eee;height:75px;overflow:hidden;position:absolute;width:75px}
 .fbProfileLargePortrait .photoWrapper{height:79px}
 .standardLayout .filterBox{padding:6px 7px 6px 5px}
