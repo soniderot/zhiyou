@@ -8,18 +8,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.zy.Constants;
 import com.zy.common.model.ZyDistrict;
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyEventcategory;
+import com.zy.common.model.ZyPhoto;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRecommplace;
 import com.zy.common.model.ZyRequest;
@@ -31,6 +29,7 @@ import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.EventFacade;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.OptionFacade;
+import com.zy.facade.PhotoFacade;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
@@ -83,7 +82,8 @@ public class EventAction {
 	private int districtId;
 	private int subcateGoryId;
 	private List<ZyRecommplace> places;
-	
+	private List<ZyPhoto> eventPhotos;
+	private PhotoFacade photoFacade;
 	private Page page;
 	
 	
@@ -93,6 +93,22 @@ public class EventAction {
 	private short publicflag;
 	
 
+	public PhotoFacade getPhotoFacade() {
+		return photoFacade;
+	}
+
+	public void setPhotoFacade(PhotoFacade photoFacade) {
+		this.photoFacade = photoFacade;
+	}
+
+	public List<ZyPhoto> getEventPhotos() {
+		return eventPhotos;
+	}
+
+	public void setEventPhotos(List<ZyPhoto> eventPhotos) {
+		this.eventPhotos = eventPhotos;
+	}
+	
 	public short getPublicflag() {
 		return publicflag;
 	}
@@ -564,12 +580,26 @@ public class EventAction {
 				break;
 			}
 		}
-		
+		eventPhotos = photoFacade.getEventPhotos(eventId, 1, 6);
 		feeds = feedFacade.getEventNewsFeed(""+eventId,pageNo,pageSize);
 		int count = feedFacade.getEventNewsFeed(""+eventId,1,Integer.MAX_VALUE).size();
 		page = new Page(count,pageNo,pageSize,5);
 		
 		return "view.event.detail";
+	}
+	
+	public String viewEventPhotos() {
+		event = eventFacade.getEvent(eventId);
+		createUser = profileFacade.findProfileById(event.getCreateuserid());
+		members = eventFacade.getEventMembers(eventId);
+		for(int i=0;i<members.size();i++){
+			if(ActionUtil.getSessionUserId()==members.get(i).getUserid().intValue()){
+				joined = true;
+				break;
+			}
+		}
+		eventPhotos = photoFacade.getEventPhotos(eventId, 1, 100);
+		return "view.event.photos";
 	}
 	
 	public String quitEvent(){
