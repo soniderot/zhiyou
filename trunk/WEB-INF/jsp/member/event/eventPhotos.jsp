@@ -30,7 +30,7 @@
               </div>
             </div>
             
-            <a class="mbs uiButton" onclick="return inviteFriends(3);" href="javascript:void(0);" rel="dialog-post" style="margin-top:10px;">
+            <a class="mbs uiButton" onclick="return showPopup('dialog_uploadPhoto');" href="javascript:void(0);" rel="dialog-post" style="margin-top:10px;">
               <i class="mrs img sp_7gl7wd sx_61da04"></i>
               <span class="uiButtonText">添加活动照片</span>
             </a>
@@ -50,10 +50,10 @@
                       </s:if>
                       <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
                         <div class="fbProfileLargePortrait fbProfileLargeMarginLeft">
-                          <a href="event/event!viewEvent.jhtml?eventId=<s:property value='event.id' />">
+                          <a>
                             <div class="photoWrapper">
                               <div class="photoCrop">
-                                <img alt="" src="<s:property value='filename' />" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgSmall img"/>
+                                <img alt="" src="<s:property value='photo.filename' />" onclick="showBigPhoto(<s:property value='feed.id' />)" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgSmall img"/>
                               </div>
                             </div>
                             <span class="textWrap fsm fwb"></span>
@@ -87,3 +87,80 @@
   </s:if>
 </div>
 <%@ include file="/WEB-INF/jsp/popup/uploadPhotoPop.jsp"%>
+<%@ include file="/WEB-INF/jsp/popup/delFeedCommentPop.jsp"%>
+<script type="text/javascript">
+  
+  function showBigPhoto(feedId) {
+    $.ajax({
+     type: "GET",
+     url: "usr/feed!showBigPhotoAjax.jhtml",
+     dataType: 'html',
+     data: "feedId=" + feedId,
+     success: function(data) {
+       $("body").append(data);
+     }
+    });
+  }
+  
+  function removeBigPhoto() {
+    $("#fbPhotoSnowlift").remove();
+  }
+  
+    function enterKeypress(obj, event) {
+    if ("" == $(obj).val()) {
+      return false;
+    }
+    if(event.keyCode == 13)
+    {      
+      $(obj).parents("form").submit();
+    }
+    return false;
+  }
+  
+  function commentSubmit(form) {
+    $.post("usr/feed!addFeedCommentAjax.jhtml", {
+      feedId : form.feedId.value,
+      feedComment : form.feedComment.value
+    }, function (data) {
+      $(form).find(".commentList").append(data);
+      form.feedComment.value = "";
+    });
+    return false;
+  }
+  
+  function showShareInput(feedId) {
+    $("#shareInput_" + feedId).parents("form").addClass("collapsed_comments");
+    $("#shareInput_" + feedId).find("ul").css("display", "block");
+    return false;
+  }
+  
+  function commentFocus(obj) {
+    $(obj).parents("ul").addClass("child_is_active child_is_focused");
+    return false;
+  }
+  
+  function showShareReasonInput(obj) {
+    $("#shareReasonInput").removeClass("hidden_elem");
+    $("#fbPhotoSnowliftFeedbackInput").addClass("hidden_elem");
+    $(obj).parents().find(".uiUfiComments").hide();
+    $(obj).parents().find(".ufiNub").addClass("share");
+    return false;
+  }
+  
+  function share(obj, event, feedId) {
+    if(event.keyCode == 13)
+    {
+      $.ajax({
+       type: "GET",
+       url: "usr/feed!sharedFeedAjax.jhtml",
+       dataType: 'html',
+       data: "feedId=" + feedId + "&shareReason=" + $(obj).val(),
+       success: function(data) {
+         $("body").append(data);
+         $(obj).val("");
+       }
+      });
+    }
+    return false;
+  }
+</script>
