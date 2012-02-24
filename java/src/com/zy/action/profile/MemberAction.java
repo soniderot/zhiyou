@@ -1,20 +1,39 @@
 package com.zy.action.profile;
 
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
+import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.util.ActionUtil;
 import com.zy.facade.MessageFacade;
 import com.zy.facade.NotifyFacade;
 import com.zy.facade.RequestFacade;
+import com.zy.facade.SNSFacade;
 
 public class MemberAction extends ActionSupport{
 	private int newrequestcnt = 0;
 	private int newnotificationcnt =0;
 	private int newmessagecnt = 0;
+	
 	private RequestFacade requestFacade;
 	private NotifyFacade notifyFacade;
 	private MessageFacade messageFacade;
 	
+	private List<ZyFriendgroup> snsgroups;
+	private SNSFacade snsFacade;
 
+	public SNSFacade getSnsFacade() {
+		return snsFacade;
+	}
+	public void setSnsFacade(SNSFacade snsFacade) {
+		this.snsFacade = snsFacade;
+	}
+	public List<ZyFriendgroup> getSnsgroups() {
+		return snsgroups;
+	}
+	public void setSnsgroups(List<ZyFriendgroup> snsgroups) {
+		this.snsgroups = snsgroups;
+	}
 	public MessageFacade getMessageFacade() {
 		return messageFacade;
 	}
@@ -56,6 +75,8 @@ public class MemberAction extends ActionSupport{
 		newrequestcnt = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(),1,10000).size();
 		newnotificationcnt = notifyFacade.countForNewNotification(ActionUtil.getSessionUserId());
 		newmessagecnt = messageFacade.countForNewInbox(ActionUtil.getSessionUserId());
+		snsgroups = snsFacade.getFriendGroups(ActionUtil.getSessionUserId());
+		System.out.println("--------------snsgroups-----------"+snsgroups.size());
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}

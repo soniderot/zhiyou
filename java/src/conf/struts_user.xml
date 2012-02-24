@@ -87,6 +87,7 @@
 		<result name="member.sharefeeds.pop">/WEB-INF/jsp/popup/noticePop.jsp</result>
 		<result name="member.event.photos">/WEB-INF/jsp/member/event/eventPhotos.jsp</result>
 		<result name="member.feed.bigPhoto">/WEB-INF/jsp/member/feed/bigPhotoFeed.jsp</result>
+		<result name="eventaction.detail" type="redirect">/event/event!viewEvent.jhtml?eventId=${eventId}</result>
 	</action>
 	
 	<action name="upload" class="com.zy.action.profile.UploadAction">

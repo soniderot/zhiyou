@@ -474,7 +474,7 @@ public class FeedAction extends ActionSupport{
 			
 		}
 		
-		return "member.event.photos";
+		return "eventaction.detail";
 	}
 	
 	

@@ -17,12 +17,22 @@ import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.CookieUtil;
 import com.zy.facade.ProfileFacade;
+import com.zy.facade.SNSFacade;
 
 public class AuthorityInterceptor extends AbstractInterceptor{
 	public static final String GOING_TO_URL_KEY = "GOING_TO";
 	
 	private ProfileFacade profileFacade;
+	private SNSFacade snsFacade;
 	
+	public SNSFacade getSnsFacade() {
+		return snsFacade;
+	}
+
+	public void setSnsFacade(SNSFacade snsFacade) {
+		this.snsFacade = snsFacade;
+	}
+
 	public ProfileFacade getProfileFacade() {
 		return profileFacade;
 	}
@@ -71,6 +81,8 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 		Map<String, Object> session = actionContext.getSession();
 		session.put("menuSelect",menuSelect);
 		if (session != null && session.get(Constants.USER_SESSION_KEY) != null) {
+			ZyProfile user = (ZyProfile)session.get(Constants.USER_SESSION_KEY);
+			session.put("snsgroups",snsFacade.getFriendGroups(user.getUserid()));
 			return invocation.invoke();
 		}else{
 			setGoingToURL(session, invocation);
@@ -93,6 +105,10 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 				    ActionContext.getContext().getSession().put(Constants.USERID_SESSION_KEY, user.getUserid());		    
 				    String url = (String)ActionContext.getContext().getSession().get(AuthorityInterceptor.GOING_TO_URL_KEY);
 				    System.out.println("url-------------------"+url);
+				    
+				    
+				    ZyProfile user1 = (ZyProfile)session.get(Constants.USER_SESSION_KEY);
+					session.put("snsgroups",snsFacade.getFriendGroups(user1.getUserid()));
 				    ActionUtil.getResponse().sendRedirect(url);
 				    return null;
 				}
