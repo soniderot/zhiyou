@@ -236,6 +236,51 @@
                     
                     
                     
+                    
+                     <div>
+                  	
+                  	
+                    <div id="listsNav" class="homeSideNav">
+                      <div class="navHeader">
+                        
+                          <div class="clearfix">
+                            <div class="lfloat">好友管理</div>
+                           
+                          </div>
+                        
+                      </div>
+                      <ul data-gt='{"nav_items_count":"2","nav_section":"listsNav"}' role="navigation" class="uiSideNav mts mbm nonDroppableNav">
+												
+												<s:iterator value="#session.snsgroups">
+                        <li id="navItem_fl_2634661952657" class="sideNavItem stat_elem <s:property value="#session.menuSelect[5]"/>">
+                        
+                          <a data-gt='{"bmid":"2634661952657","count":"0","coeff2_info":"AatJTHR-AJBfw_7yYaQBE-KE2v9rqUbgBsHedfV-KC2Bk0X7wv-hNwMz3WjaR69RBf5WbHX1nfAy8n4IPApXVzpr","coeff2_registry_key":"0016","coeff2_action":"3","rank":"1"}' title="" href="usr/feed!getFeedsOfGroup.jhtml?groupId=<s:property value="id" />" class="item clearfix sortableItem">
+                            <div class="rfloat">
+                              <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
+                              <span class="count hidden_elem uiSideNavCount">
+                                <span class="countValue fss">0</span>
+                                <span class="maxCountIndicator"></span>
+                              </span>
+                              <span class="grip"></span>
+                            </div>
+                            <div>
+                            	  <span class="imgWrap">
+                                <i class="img sp_7gl7wd sx_357d0f"></i>
+                              </span>
+                              
+                              <div class="linkWrap noCount"><s:property value="groupname" /></div>
+                            </div>
+                          </a>
+                          <span class="mover hidden_elem"></span>
+                        </li>
+                        </s:iterator>
+                      </ul>
+                    </div>
+                    
+                    
+                    
+                    
+                    
                     <div id="appsNav" class="homeSideNav">
                       <div class="navHeader">
                         

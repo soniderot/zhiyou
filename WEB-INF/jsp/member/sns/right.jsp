@@ -26,6 +26,7 @@ function sendFriendRequest(obj, userId) {
             <div class="ego_column egoOrganicColumn">
               <div class="ego_section">
               	
+              	<s:if test="groupId>0">  
               	<div id="friend_list_members_box">
 									<div class="fbFriendListMemberBox" id="u29f2l_22">
 										<div class="uiHeader uiHeaderTopAndBottomBorder uiHeaderSection fbFriendListMemberBoxTitle">
@@ -59,7 +60,7 @@ function sendFriendRequest(obj, userId) {
 										</div>
 									</div>
 								</div>
-              	
+             </s:if> 
               	
               <s:if test="events!=null">   
                 <div class="uiHeader uiHeaderTopAndBottomBorder mbs uiSideHeader">

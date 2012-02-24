@@ -92,6 +92,7 @@
               </span>
             </span>
           </li>
+          <!--
           <li class="plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
             <span id="u3mxyl_4" class="uiComposerAttachment photoAttachment">
              <a href="#" tabindex="0" class="uiIconText attachmentLink normal" onclick="changeStatus(this, 'photo'); return false;">
@@ -103,7 +104,7 @@
               <strong class="attachmentName">添加活动照片<i class="nub"></i></strong>
              </span>
             </span>
-          </li>
+          </li>-->
           <li class="showWhenLoading attachmentLoader plm uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
             <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img" />
           </li>
