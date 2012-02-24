@@ -69,7 +69,17 @@ public class SNSActioin extends ActionSupport{
 	private List<EventVO> events;
 	private List<ZyProfile> matchedProfiles;
 	
- 	public List<ZyProfile> getMatchedProfiles() {
+	private int snsGroupId;
+	
+ 	public int getSnsGroupId() {
+		return snsGroupId;
+	}
+
+	public void setSnsGroupId(int snsGroupId) {
+		this.snsGroupId = snsGroupId;
+	}
+
+	public List<ZyProfile> getMatchedProfiles() {
 		return matchedProfiles;
 	}
 
@@ -443,7 +453,21 @@ public class SNSActioin extends ActionSupport{
 		for (int i = 0; i < profiles.size(); i++) {
 			System.out.println(profiles.get(i).getUserid() + " : " + profiles.get(i).getUsername());
 		}
-		events =eventFacade.getEvents(ActionUtil.getSessionUserId(), ""+ActionUtil.getSessionUserId(),1,5);
+		
+		String friendIds = "";
+		List<ZyProfile> myFriends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),snsGroupId,(short)1);
+		for(int i=0;i<myFriends.size();i++){
+			if(i==myFriends.size()-1){
+				friendIds = friendIds + myFriends.get(i).getUserid();
+			}else{
+				friendIds = friendIds + myFriends.get(i).getUserid()+",";
+			}
+			
+		}
+		
+		events =eventFacade.getEvents(ActionUtil.getSessionUserId(),friendIds,1,5);
+		
+		
 		matchedProfiles = snsFacade.getMatchedFriends(ActionUtil.getSessionUserId(), 1, 5);
 		return "you.mayknow";
 	}
