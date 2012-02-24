@@ -12,7 +12,7 @@
             <div id="uawg93_1" class="fbProfileBrowser">
               <div class="eventInviteLayout">
                 <div class="pam filterBox uiBoxGray topborder">
-                  <s:form id="uploadPhotoForm" onsubmit="return checkInput();" method="post" action="usr/feed!uploadEventPhoto.jhtml?feedId=%{event.Id}" enctype="multipart/form-data">
+                  <s:form id="uploadPhotoForm"  method="post" action="usr/feed!uploadEventPhoto.jhtml?feedId=%{event.Id}" enctype="multipart/form-data">
                     <input type="hidden" name="eventId"  value="<s:property value="event.Id"/>" />
                     <div id="u3mxyl_6" class="uiMetaComposerMessageBox uiComposerMessageBoxMentions">
                       <table>
