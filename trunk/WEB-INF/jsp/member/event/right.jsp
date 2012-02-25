@@ -2,6 +2,10 @@
 
 <%@page contentType="text/html; charset=UTF-8"%>
     <div role="complementary" id="rightCol">
+    	
+    	
+    	
+    	
       <div class="home_right_column">
         <div class="rightColumnWrapper">
           <div data-referrer="pagelet_chbox" id="pagelet_chbox"></div>
