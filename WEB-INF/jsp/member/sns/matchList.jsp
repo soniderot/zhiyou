@@ -12,18 +12,37 @@
   <div class="uiHeader uiHeaderTopAndBottomBorder mbm uiHeaderSection">
     <div class="clearfix uiHeaderTop">
       <div>
-        <h3 class="uiHeaderTitle">配对会员</h3>
+        <h3 class="uiHeaderTitle">
+        	<s:if test="match==null"> 
+        	配对会员&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+        
+        	<a href="sns/search!search.jhtml?match=1">
+        		配对成功会员</a>
+        	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
+        </s:if> 
+        
+        <s:if test="match!=null"> 
+        	<a href="sns/search!search.jhtml">
+        	配对会员&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+        </a>
+        	
+        		配对成功会员
+        	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
+        </s:if> 
+        
         
       </div>
      
     </div>
   </div>
   
+  
   <div class="fbRequestList">
     <table cellspacing="0" cellpadding="0" class="uiGrid">
+    	<s:if test="match==null"> 
     	<form  action="/sns/search!search.jhtml" >
       <tbody>
-
+<br>
         <tr class="searchBody">
           <td valign="top">
             <div class="searchArea">
@@ -76,6 +95,7 @@
                   </tr>
                 </tbody>
                 </form>
+                </s:if> 
               </table>
             </div>
           </td>
@@ -86,7 +106,7 @@
                 <div class="fbProfileBrowserLargeList fbProfileBrowserListContainer">
                   <ul class="uiList uiListHorizontal clearfix mvm phs">
                     <s:iterator value="profileList" status='st'>
-                    	<s:if test="#st.index%6==0"> 
+                    	<s:if test="#st.index%6==0&&match==null"> 
                     		<ul class="uiList uiListHorizontal clearfix mvm phs">
                     			</ul>
                     		</s:if> 
@@ -206,7 +226,7 @@
    location.href = "/sns/search!search.jhtml?startAge=<s:property value="startAge" />&endAge=<s:property value="endAge" />&gender=<s:property value="gender" />&keyword=<s:property value="keyword" />&pageNo="+pageNo
   </s:if>
   <s:else>
-  location.href = "/sns/search!search.jhtml?startAge=<s:property value="startAge" />&endAge=<s:property value="endAge" />&gender=<s:property value="gender" />&pageNo="+pageNo
+  location.href = "/sns/search!search.jhtml?match=<s:property value="match" />&startAge=<s:property value="startAge" />&endAge=<s:property value="endAge" />&gender=<s:property value="gender" />&pageNo="+pageNo
   </s:else>
   return false;
   }

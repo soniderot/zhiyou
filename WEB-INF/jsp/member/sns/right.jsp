@@ -23,6 +23,10 @@ function sendFriendRequest(obj, userId) {
         <div class="rightColumnWrapper">
           <div data-referrer="pagelet_chbox" id="pagelet_chbox"></div>
           <div data-referrer="pagelet_ego_pane_w" id="pagelet_ego_pane_w">
+          	
+          	<jsp:include page="/WEB-INF/jsp/member/event/eventrighthead.jsp" flush="true" />
+         
+          	
             <div class="ego_column egoOrganicColumn">
               <div class="ego_section">
               	
