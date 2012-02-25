@@ -271,7 +271,7 @@ public class SNSServiceImpl implements SNSService{
 	public List<ZyProfile> getAllFriends(int userId,int ZyGroupId,short degree){
 		List<ZyProfile> profiles = new ArrayList<ZyProfile>();
 		try{
-			List<Integer> list = getAllFriendsInRange(userId,degree);
+			List<Integer> list = getAllFriendsByDegree(userId,degree);
 			for(int i=0;list!=null&&i<list.size();i++){
 				try{
 						if(ZyGroupId<=0){

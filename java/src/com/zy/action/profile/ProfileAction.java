@@ -225,7 +225,7 @@ public class ProfileAction {
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 		viewType[0] = "selectedItem open";
 		int count = feedFacade.getNewsFeed(userid,""+userid,null,1,Integer.MAX_VALUE).size();
-		page = new Page(count,pageNo,10,5);
+		page = new Page(count,pageNo,pageSize,5);
 		return "profile.feeds";
 	}
 	
