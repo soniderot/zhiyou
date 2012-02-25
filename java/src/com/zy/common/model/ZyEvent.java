@@ -45,7 +45,7 @@ public class ZyEvent implements java.io.Serializable {
 
 	public void setEventLogo(String eventLogo) {
 		String smallFileName = eventLogo.replace(".jpg","-small.jpg");
-		int[] result = ImageUtil.resetsize(eventLogo,smallFileName,120,120);
+		int[] result = ImageUtil.resetsize(eventLogo,smallFileName,320,320);
 		this.logo = smallFileName;
 		this.biglogo = eventLogo;
 	}

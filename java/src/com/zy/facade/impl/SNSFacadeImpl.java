@@ -123,6 +123,18 @@ public class SNSFacadeImpl implements SNSFacade{
 		snsService.manageSNSGroup(userId,zyGroupId, profileIds, type);
 	}
 	
+	public void manageSNSGroup(int userId,int zyGroupId,int profileIds[]){
+		List<Integer> list = snsService.getAllFriendsByDegree(userId,(short)1);
+		if(list.size()>0){
+			int[] oldUserIds = new int[list.size()];
+			for(int i=0;i<list.size();i++){
+				oldUserIds[i] = list.get(i);
+			}
+			snsService.manageSNSGroup(userId, zyGroupId, oldUserIds, 1);
+		}
+		snsService.manageSNSGroup(userId, zyGroupId, profileIds, 0);
+	}
+	
 	public List<ZyProfile> getAllFriends(int userId,int zyGroupId,short degree){
 		return snsService.getAllFriends(userId, zyGroupId, degree);
 	}

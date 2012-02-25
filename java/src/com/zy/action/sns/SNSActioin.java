@@ -600,4 +600,6 @@ public class SNSActioin extends ActionSupport{
 		return "invite.success";
 	}
 	
+	
+	
 }
