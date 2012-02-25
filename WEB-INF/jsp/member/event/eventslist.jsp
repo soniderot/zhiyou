@@ -28,7 +28,15 @@
   <div id="pagelet_main_events_dashboard_list">
     <div>
       <s:if test="userevents==null||userevents.size==0">
-      <div class="pam uiBoxWhite topborder">没有任何的活动。</div>
+      	<div class="UIImageBlock clearfix fbxNullState">
+								<i class="UIImageBlock_Image UIImageBlock_SMALL_Image img sp_9dewam sx_83050b"></i>
+								<div class="UIImageBlock_Content UIImageBlock_SMALL_Content">
+									<p>你没有即将举行的活动。
+										<a class="pls" href="/events/create/">创建活动</a>
+									</p>
+								</div>
+							</div>
+      
       </s:if>
       <s:iterator value="userevents">
       
