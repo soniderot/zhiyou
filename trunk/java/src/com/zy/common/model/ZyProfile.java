@@ -237,14 +237,24 @@ public class ZyProfile implements java.io.Serializable {
 	public void setProfileAvatar(String avatar) {
 		
 		String smallLogo = avatar.replace(".jpg","-small.jpg");
-		ImageUtil.resetsize(avatar,smallLogo);
+		ImageUtil.resetsize(avatar,smallLogo,180,180);
 		
 		String bigLogo = avatar.replace(".jpg","-big.jpg");
-		int[] result = ImageUtil.resetsize(avatar,bigLogo,120,120);
+		int[] result = ImageUtil.resetsize(avatar,bigLogo,320,320);
 		
 		this.avatar = smallLogo;
 		this.bigavatar = bigLogo;
 		
+	}
+	
+	public String getGenderStr(){
+		if(gender==1){
+			return "男";
+		}
+		if(gender==2){
+			return "女";
+		}
+		return "男";
 	}
 
 	public Short getGender() {

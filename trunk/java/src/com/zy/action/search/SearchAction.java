@@ -242,10 +242,10 @@ public class SearchAction {
 	public String search() {
 		int pageSize = 12;
 		
-		if(match!=null){
+		if("1".equals(match)){
 			int count = snsFacade.getMatchedFriends(ActionUtil.getSessionUserId(), pageNo, Integer.MAX_VALUE).size();
 			profileList = snsFacade.getMatchedFriends(ActionUtil.getSessionUserId(), pageNo, pageSize);
-			profileList = new ArrayList<ZyProfile>();
+			//profileList = new ArrayList<ZyProfile>();
 			//for(int i=0;i<100;i++)
 			//profileList.add(profileFacade.findProfileById(1));
 			page = new Page(count,pageNo,pageSize,5);

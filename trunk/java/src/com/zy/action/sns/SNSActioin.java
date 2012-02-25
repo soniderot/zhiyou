@@ -70,8 +70,17 @@ public class SNSActioin extends ActionSupport{
 	private List<ZyProfile> matchedProfiles;
 	
 	private int snsGroupId;
+	private short degree=1;
 	
- 	public int getSnsGroupId() {
+ 	public short getDegree() {
+		return degree;
+	}
+
+	public void setDegree(short degree) {
+		this.degree = degree;
+	}
+
+	public int getSnsGroupId() {
 		return snsGroupId;
 	}
 
@@ -465,10 +474,16 @@ public class SNSActioin extends ActionSupport{
 			
 		}
 		
+		if(friendIds.trim().length()>0){
+			friendIds = ActionUtil.getSessionUserId()+","+friendIds;
+		}
+		else{
+			friendIds = ActionUtil.getSessionUserId()+"";
+		}
 		events =eventFacade.getEvents(ActionUtil.getSessionUserId(),friendIds,1,5);
 		
 		
-		matchedProfiles = snsFacade.getMatchedFriends(ActionUtil.getSessionUserId(), 1, 5);
+		matchedProfiles = snsFacade.getMatchedFriends(ActionUtil.getSessionUserId(), 1, 6);
 		return "you.mayknow";
 	}
 	
@@ -548,7 +563,7 @@ public class SNSActioin extends ActionSupport{
 	
 	public String getFriendsList(){
 		profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
-		friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)1);
+		friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)degree);
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 		
 		int count = friends.size();
