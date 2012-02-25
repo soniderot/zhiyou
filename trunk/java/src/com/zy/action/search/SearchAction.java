@@ -4,7 +4,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
@@ -12,6 +11,7 @@ import com.zy.common.util.DateUtil;
 import com.zy.common.util.LogUtil;
 import com.zy.common.util.Page;
 import com.zy.facade.ProfileFacade;
+import com.zy.facade.SNSFacade;
 import com.zy.facade.SearchFacade;
 import com.zy.facade.vo.PageListVO;
 import com.zy.facade.vo.SearchFormVo;
@@ -19,7 +19,7 @@ import com.zy.facade.vo.SearchResultVo;
 
 public class SearchAction {
 	private int startAge = 20;
-	private int endAge = 30;
+	private int endAge = 40;
 	private short gender = 0;
 	private short matchgender = 0;
 	private String keyword;
@@ -33,8 +33,22 @@ public class SearchAction {
 	private Page page;
 	
 	private int profileId;
+	private String match;
+	private SNSFacade snsFacade;
 	
 	
+	public SNSFacade getSnsFacade() {
+		return snsFacade;
+	}
+	public void setSnsFacade(SNSFacade snsFacade) {
+		this.snsFacade = snsFacade;
+	}
+	public String getMatch() {
+		return match;
+	}
+	public void setMatch(String match) {
+		this.match = match;
+	}
 	public short getMatchgender() {
 		return gender;
 	}
@@ -227,6 +241,16 @@ public class SearchAction {
 	
 	public String search() {
 		int pageSize = 12;
+		
+		if(match!=null){
+			int count = snsFacade.getMatchedFriends(ActionUtil.getSessionUserId(), pageNo, Integer.MAX_VALUE).size();
+			profileList = snsFacade.getMatchedFriends(ActionUtil.getSessionUserId(), pageNo, pageSize);
+			profileList = new ArrayList<ZyProfile>();
+			//for(int i=0;i<100;i++)
+			//profileList.add(profileFacade.findProfileById(1));
+			page = new Page(count,pageNo,pageSize,5);
+			return "match.search.list";
+		}
 		SearchFormVo vo = new SearchFormVo();
 		DateFormat df = new SimpleDateFormat("yyyyMMdd");
 

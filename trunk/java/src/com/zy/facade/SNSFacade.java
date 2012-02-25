@@ -31,6 +31,8 @@ public interface SNSFacade {
 	 */
 	public void manageSNSGroup(int userId,int ZyGroupId,int profileIds[],int type);
 	
+	public void manageSNSGroup(int userId,int ZyGroupId,int profileIds[]);
+	
 	public List<ZyProfile> getAllFriends(int userId,int ZyGroupId,short degree);
 	
 	public List<ZyProfile> getMutualFriends(int userId,int targetId);

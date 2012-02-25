@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zy.common.model.ZyFriend;
-import com.zy.domain.sns.dao.FriendDao;
+import com.zy.common.model.ZyFriendgroup;
+import com.zy.facade.SNSFacade;
 
 public class Test {
 	public static void main(String[] args) throws Exception{
@@ -240,13 +240,10 @@ public class Test {
 		SNSFacade snsFacade = (SNSFacade)appContext.getBean("snsFacade");
 		List<ZyProfile> profiles = snsFacade.getFriendsByName(1, "x",true);
 		for(int i=0;i<profiles.size();i++){
-			System.out.println("user.id==="+profiles.get(i).getUserid()+"-----username:"+profiles.get(i).getUsername());
+			System.out.println("user .id==="+profiles.get(i).getUserid()+"-----username:"+profiles.get(i).getUsername());
 		}*/
 		
-		FriendDao friendDao = (FriendDao)appContext.getBean("friendDao");
-		List<ZyFriend> friends = friendDao.getMatchedFriends(1,1,100);
-		for(int i=0;i<friends.size();i++){
-			System.out.println(friends.get(i).getFriendid());
-		}
+		SNSFacade snsFacade = (SNSFacade)appContext.getBean("snsFacade");
+		snsFacade.manageSNSGroup(1, 2, new int[]{2,3,4,8,9});
 	}
 }
