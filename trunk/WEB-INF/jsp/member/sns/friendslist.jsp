@@ -10,7 +10,10 @@
 					              <div class="clearfix uiHeaderTop">
 					                <div>
 					                	<s:if test="(event==null)"> 
-					                  <h3 class="uiHeaderTitle">朋友列表</h3>
+					                  <h3 class="uiHeaderTitle"><a href="sns/sns!getFriendsList.jhtml?degree=1">一度朋友列表</a>&nbsp&nbsp&nbsp&nbsp
+					                  	<s:if test="(#session.userid==profile.userid)"> 
+					                  	<a href="sns/sns!getFriendsList.jhtml?degree=2">二度朋友列表</a>&nbsp&nbsp
+					                  </s:if>
 					                </s:if>
 					                <s:else>
 					                  <h3 class="uiHeaderTitle">参加活动成员列表</h3>
@@ -35,12 +38,22 @@
 					                            <div class="UIImageBlock_Ext">
 					                              <div class="FriendButton mhs" id="ur7504_28">
 					                              	<s:if test="(#session.userid==profile.userid)"> 
-					                                <label class="FriendRequestAdd addButton uiButton" for="ur7504_29">
-					                                	
-					                                	
-					                                		<i class="mrs img sp_51cg4r sx_2aaf46"></i>
-					                                	<a href="sns/sns!removeFriend.jhtml?friendId=<s:property value="userid"/>">删除好友</a>
 					                               
+					                                		
+					                                		<s:if test="(degree<2)"> 
+					                                			 <label class="FriendRequestAdd addButton uiButton" for="ur7504_29">
+					                                			<i class="mrs img sp_51cg4r sx_2aaf46"></i>
+					                                	<a href="sns/sns!removeFriend.jhtml?friendId=<s:property value="userid"/>">删除好友</a>
+					                               	</s:if> 
+					                               	
+					                               	<s:if test="(degree>=2)"> 
+					                                			 <label class="FriendRequestAdd addButton uiButton" for="ur7504_29">
+					                                			<i class="mrs img sp_51cg4r sx_2aaf46"></i>
+					                                	<a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="userid"/>">查看详细</a>
+					                               	</s:if> 
+					                               	
+					                               	
+					                               	
 					                                	<!--
 					                                	<input type="button" value="删除好友" id="ur7504_29">-->
 					                                </label>
@@ -54,8 +67,11 @@
 					                            <div class="UIImageBlock_Content UIImageBlock_ENT_Content">
 					                              <div class="fsl fwb fcb">
 					                              	<a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="userid"/>"  data-gt="{&quot;engagement&quot;:{&quot;eng_type&quot;:&quot;1&quot;,&quot;eng_src&quot;:&quot;2&quot;,&quot;eng_tid&quot;:&quot;100000298238485&quot;,&quot;eng_data&quot;:[]}}"><s:property value="username"/></a>
+					                              	 <s:property value="genderStr"/>,
+					                              <s:property value="age"/>岁,
+					                              <s:property value="cityname"/>
 					                              </div>
-					                              <span class="fsm fwn fcg"><s:property value="username11"/></span>
+					                              
 					                            </div>
 					                          </div>
 					                        </li>
