@@ -8,8 +8,12 @@
 					       
 					        <div class="profileHeaderMain">
 					          <h1>
-					          	<span class="profileName fn ginormousProfileName fwb">我的朋友</span>
-					          	
+					          	<s:if test="(degree<2)"> 
+					          	<span class="profileName fn ginormousProfileName fwb">我的一度朋友</span>
+					          	</s:if> 
+					          	<s:else>
+					          	<span class="profileName fn ginormousProfileName fwb">我的二度朋友</span>
+					          </s:else>
 					          </h1>
 					        </div>
 					      </div>

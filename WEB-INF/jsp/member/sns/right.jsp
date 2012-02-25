@@ -24,8 +24,9 @@ function sendFriendRequest(obj, userId) {
           <div data-referrer="pagelet_chbox" id="pagelet_chbox"></div>
           <div data-referrer="pagelet_ego_pane_w" id="pagelet_ego_pane_w">
           	
+          	<s:if test="eventId>0">  
           	<jsp:include page="/WEB-INF/jsp/member/event/eventrighthead.jsp" flush="true" />
-         
+         	</s:if>  
           	
             <div class="ego_column egoOrganicColumn">
               <div class="ego_section">
@@ -46,12 +47,12 @@ function sendFriendRequest(obj, userId) {
 												<div class="uiFacepile fbFriendListMemberBoxFacepile uiFacepileMedium" id="u29f2l_23">
 													<ul class="uiList uiListHorizontal clearfix pvm">
 														<s:iterator value="friendsInGroup" status='st'>
-															<s:if test="#st.index%7==0&&#st.index>0"> 
+															<s:if test="#st.index%4==0&&#st.index>0"> 
 															<ul class="uiList uiListHorizontal clearfix pvm"></ul>
 															</s:if> 
 														<li class="uiFacepileItem uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
 															<a class="uiTooltip link" onmouseout="this.blur();" href="http://www.facebook.com/profile.php?id=100003175668442" data-jsid="anchor">
-																<img class="uiProfilePhoto uiProfilePhotoMedium img" src="<s:property value="avatar" />" alt="" data-jsid="img">
+																<img class="uiProfilePhoto uiProfilePhotoLarge img" src="<s:property value="avatar" />" alt="" data-jsid="img">
 																<span class="uiTooltipWrap top left lefttop">
 																	<span class="uiTooltipText"><s:property value="username" /></span>
 																</span>
@@ -103,17 +104,19 @@ function sendFriendRequest(obj, userId) {
                 <div class="uiHeader uiHeaderTopAndBottomBorder mbs uiSideHeader">
                  
                   <div class="clearfix uiHeaderTop">
-                    <a href="usr/landing.jhtml" class="uiHeaderActions rfloat">显示更多</a>
+                    <a href="sns/search!search.jhtml?match=1" class="uiHeaderActions rfloat">显示更多</a>
                     <div><h4 class="uiHeaderTitle">已配对列表</h4></div>
                   </div>
                  
                   
                 </div>
-                 </s:if>   
+                 </s:if>  
+                 
+                 
+                  <!---
                  <div class="phs">
                   
-                  
-                   <s:iterator value="matchedProfiles">
+                   <s:iterator value="matchedProfiles" status="st">
                   <div class="UIImageBlock clearfix ego_unit">
                     <a aria-hidden="true" tabindex="-1" data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1372884330","eng_data":{"ego_service":"pymk","ego_pos":"4"}}}' href="/profile/profile!viewProfileInfo.jhtml?userid=${userid}" class="UIImageBlock_Image UIImageBlock_SMALL_Image">
                       <img alt="" src="${avatar }" class="uiProfilePhoto uiProfilePhotoLarge img"/>
@@ -126,7 +129,34 @@ function sendFriendRequest(obj, userId) {
                       </div>
                     </div>
                   </div>
+                  
            		</s:iterator>
+           		
+                </div>-->
+                
+                
+                
+                <div class="phs">
+                  
+                  <div class="fbFriendListMemberBoxContent">
+												<div class="uiFacepile fbFriendListMemberBoxFacepile uiFacepileMedium" id="u29f2l_23">
+													<ul class="uiList uiListHorizontal clearfix pvm">
+														<s:iterator value="matchedProfiles" status='st'>
+															<s:if test="#st.index%3==0&&#st.index>0"> 
+															<ul class="uiList uiListHorizontal clearfix pvm"></ul>
+															</s:if> 
+														<li class="uiFacepileItem uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
+															<a class="uiTooltip link" onmouseout="this.blur();" href="http://www.facebook.com/profile.php?id=100003175668442" data-jsid="anchor">
+																<img class="uiProfilePhoto uiProfilePhotoLarge img" src="<s:property value="avatar" />" alt="" data-jsid="img">
+																<span class="uiTooltipWrap top left lefttop">
+																	<span class="uiTooltipText"><s:property value="username" /></span>
+																</span>
+															</a>
+														</li>
+														</s:iterator>
+													</ul>
+												</div>
+											</div>
            		
                 </div>
                 
