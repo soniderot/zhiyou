@@ -72,7 +72,7 @@
 					        <div class="uiHeader uiHeaderTopBorder uiHeaderNav">
 					          <div class="clearfix uiHeaderTop">
 					            <div>
-					              <h5 class="uiHeaderTitle"><span class="fcg"><a href="http://www.facebook.com/yinluotianse?sk=friends&amp;v=friends"> <s:if test="friends.size()>0">  朋友 (<s:property value="friends.size()"/>)</s:if> </a></span></h5>
+					              <h5 class="uiHeaderTitle"><span class="fcg"> <s:if test="friends.size()>0">  朋友 (<s:property value="friends.size()"/>)</s:if> </span></h5>
 					            </div>
 					          </div>
 					        </div>
@@ -91,7 +91,7 @@
 				              </div>
 					          </li>
 					          </s:if> 
-					          </s:iterator>
+					          </s:iterator>......
 					        </ul>
 					      </div>
 					    </div>
