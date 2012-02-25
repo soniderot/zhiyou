@@ -46,7 +46,7 @@
                             <input type="checkbox" class="checkbox" name="checkableitems" value="<s:property value='profile.userid' />" />
                             <a class="anchor" href="#" tabindex="-1">
                               <div class="UIImageBlock UIImageBlock_Entity clearfix">
-                                <img src="<s:property value="#profile.avatar" />" class="photo UIImageBlock_Image img UIImageBlock_ENT_Image"/>
+                                <img src="<s:property value="profile.avatar" />" class="photo UIImageBlock_Image img UIImageBlock_ENT_Image"/>
                                 <div class="content UIImageBlock_Content">
                                   <div class="fcb fwb text"><s:property value="profile.username" /> </div>
                                   <div class="fcg text subtitle"></div>
