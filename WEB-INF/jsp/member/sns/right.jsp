@@ -209,3 +209,10 @@ function sendFriendRequest(obj, userId) {
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+  function inviteFriends(eventId) {
+    $.get("event/event!getEventFriendsAjax.jhtml", {eventId: eventId}, function(data) {
+      $("body").append(data);
+    });
+  }
+</script>
