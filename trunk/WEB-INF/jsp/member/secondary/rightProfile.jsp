@@ -32,6 +32,7 @@
                 <span class="rightValue">
                   <s:if test="profile.gender==1">男</s:if>
                   <s:if test="profile.gender==2">女</s:if> 
+                  
                 </span>
               </div>
               <div class="ego_action">
@@ -39,6 +40,8 @@
                 <span class="rightValue"><s:property value="profile.introduction"/></span>
               </div>
             </div>
+            
+            
             <div class="UIImageBlock clearfix ego_unit">
               <div class="ego_action">
                 <span class="rightLabel">QQ</span>

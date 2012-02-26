@@ -251,7 +251,7 @@
     var districtid = $("select[name='districtId']").val();
     window.open("event/event!getRecommPlaces.jhtml?eventCategory=" + eventCategory + "&districtId=" + districtid
     , "newwindow"
-    , "height=600, width=850, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+    , "height=600, width=1050, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
     return false;
   }
 </script>

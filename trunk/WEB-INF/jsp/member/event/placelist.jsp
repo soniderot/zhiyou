@@ -20,7 +20,7 @@
       <s:iterator value="places">
       <li class="objectListItem uiListItem uiListLight uiListVerticalItemBorder" id="100003206989957_1_req">
         <div class="UIImageBlock clearfix UIImageBlock_Entity">
-        	<a class="UIImageBlock_Image UIImageBlock_ENT_Image" href="http://www.facebook.com/profile.php?id=100003206989957" tabindex="-1">
+        	<a class="UIImageBlock_Image UIImageBlock_ENT_Image" href="event/event!viewPlaceDetail.jhtml?placeId=<s:property value="id" />" tabindex="-1">
 	          <img class="img" src="<s:property value="avatar" />"   alt="">
 	          <!--
 	          <div class="uiScaledImageContainer uiProfilePhotoHuge">
@@ -45,11 +45,11 @@
               <div>
                 <div>
                 	<span class="title fsl fwb fcb">
-                      <a href="javascript:void(0);"><s:property value="placename" /></a>
+                      <a href="event/event!viewPlaceDetail.jhtml?placeId=<s:property value="id" />"><s:property value="placename" /></a>
                     </span>
                 </div>
                 <div class="networkContextWrapper"><br>
-                	已有<font color="red"><s:property value="hot" /></font>人选择<br>
+                	
                 	地址：<s:property value="address" /><br>
                 	简介：<s:property value="summary" />
                 </div>

@@ -66,7 +66,7 @@ function saveFriends() {
                   </table>
                 </div>
                 <div id="uawg93_12" class="listView clearfix">
-                  <img height="32" width="32" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/y9/r/jKEcVPZFk-2.gif" class="throbber img"/>
+                  <img height="32" width="32" alt="" src="images/jKEcVPZFk-2.gif" class="throbber img"/>
                   <div class="lists">
                     <div id="uawg93_4" class="fbProfileBrowserResult hideSummary hidden_elem">
                       <div class="pvm phs fbProfileBrowserSummaryBox uiBoxWhite bottomborder"></div>
