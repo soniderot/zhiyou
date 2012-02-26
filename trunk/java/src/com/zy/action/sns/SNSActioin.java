@@ -83,8 +83,17 @@ public class SNSActioin extends ActionSupport{
 	private String hometownname;
 	private String collegename;
 	
+	private List<ZyProfile> searchProfiles;
 	
-	
+
+	public List<ZyProfile> getSearchProfiles() {
+		return searchProfiles;
+	}
+
+	public void setSearchProfiles(List<ZyProfile> searchProfiles) {
+		this.searchProfiles = searchProfiles;
+	}
+
 	public String getCityname() {
 		return cityname;
 	}
@@ -571,21 +580,21 @@ public class SNSActioin extends ActionSupport{
 			vo.setKeyword(keyword);
 			vo.setKeyWordSearch(true);
 			List<SearchResultVo> results = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(),vo,500);
-			profiles = new ArrayList<ZyProfile>();
+			searchProfiles = new ArrayList<ZyProfile>();
 			for(int i=0;i<results.size();i++){
-				profiles.add(profileFacade.findProfileById(results.get(i).getProfileId()));
+				searchProfiles.add(profileFacade.findProfileById(results.get(i).getProfileId()));
 			}
 			
-			System.out.println("profiles.size---------------"+profiles.size());
+			System.out.println("profiles.size---------------"+searchProfiles.size());
 			//profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
-			page = new Page(profiles.size(),pageNo,pageSize,5);
-			if(profiles.size()>=pageSize*pageNo){
-				profiles = profiles.subList(pageSize*(pageNo-1),pageSize*pageNo);
+			page = new Page(searchProfiles.size(),pageNo,pageSize,5);
+			if(searchProfiles.size()>=pageSize*pageNo){
+				searchProfiles = searchProfiles.subList(pageSize*(pageNo-1),pageSize*pageNo);
 			}else{
 				System.out.println("--------------into second search-------------");
-				profiles = profiles.subList(pageSize*(pageNo-1),profiles.size());
+				searchProfiles = searchProfiles.subList(pageSize*(pageNo-1),searchProfiles.size());
 				//profiles = new ArrayList<ZyProfile>();
-				System.out.println("--------------after into second search-------------"+profiles.size());
+				System.out.println("--------------after into second search-------------"+searchProfiles.size());
 			}	
 			return "search.result";
 		}else{
@@ -594,6 +603,7 @@ public class SNSActioin extends ActionSupport{
 	}
 	
 	public String search(){
+		System.out.println("cityname------------"+cityname);
 		if(flag==null){
 			return "search.result";
 		}
@@ -643,17 +653,17 @@ public class SNSActioin extends ActionSupport{
 			results = (List<SearchResultVo>)ActionUtil.getSession().get("search_results");
 		}
 		
-		profiles = new ArrayList<ZyProfile>();
+		searchProfiles = new ArrayList<ZyProfile>();
 		for(int i=0;i<results.size();i++){
-			profiles.add(profileFacade.findProfileById(results.get(i).getProfileId()));
+			searchProfiles.add(profileFacade.findProfileById(results.get(i).getProfileId()));
 		}
 		
 		//profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
-		page = new Page(profiles.size(),pageNo,pageSize,5);
-		if(profiles.size()>=pageSize*pageNo){
-			profiles = profiles.subList(pageSize*(pageNo-1),pageSize*pageNo);
+		page = new Page(searchProfiles.size(),pageNo,pageSize,5);
+		if(searchProfiles.size()>=pageSize*pageNo){
+			searchProfiles = searchProfiles.subList(pageSize*(pageNo-1),pageSize*pageNo);
 		}else{
-			profiles = profiles.subList(pageSize*(pageNo-1),profiles.size());
+			searchProfiles = searchProfiles.subList(pageSize*(pageNo-1),searchProfiles.size());
 		}
 		
 		return "search.result";
@@ -679,6 +689,7 @@ public class SNSActioin extends ActionSupport{
 	}
 	
 	public String selectFriendsAjax() {
+		System.out.println("-------------------into select ajax-----------");
 		HttpServletRequest request = ActionUtil.getRequest();
 		String key = request.getParameter("term");
 		if (key.length() == 0) {
@@ -699,6 +710,7 @@ public class SNSActioin extends ActionSupport{
 			//friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),0,(short)1);
 			friends = snsFacade.getFriendsByName(ActionUtil.getSessionUserId(),key.replace("@",""), true);
 		}
+		System.out.println("---------friends.size-------"+friends.size());
 		return "friends.list.ajax";
 	}
 	

@@ -300,4 +300,12 @@ public class EventFacadeImpl implements EventFacade{
 		}
 		return results;
 	}
+	
+	public void createPlace(ZyRecommplace place){
+		eventService.createPlace(place);
+	}
+	
+	public ZyRecommplace getPlace(int placeId){
+		return eventService.getPlace(placeId);
+	}
 }

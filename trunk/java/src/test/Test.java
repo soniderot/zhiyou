@@ -1,11 +1,8 @@
 package test;
 
-import java.util.List;
-
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zy.common.model.ZyFriendgroup;
-import com.zy.facade.SNSFacade;
+import com.zy.domain.profile.service.EducationService;
 
 public class Test {
 	public static void main(String[] args) throws Exception{
@@ -243,7 +240,9 @@ public class Test {
 			System.out.println("user .id==="+profiles.get(i).getUserid()+"-----username:"+profiles.get(i).getUsername());
 		}*/
 		
-		SNSFacade snsFacade = (SNSFacade)appContext.getBean("snsFacade");
-		snsFacade.manageSNSGroup(1, 2, new int[]{2,3,4,8,9});
+		EducationService educationService = (EducationService)appContext.getBean("educationService");
+		
+		System.out.println(educationService.getEducationByUser(1).getSchoolid());
+		
 	}
 }

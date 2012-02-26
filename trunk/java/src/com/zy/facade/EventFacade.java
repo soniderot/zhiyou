@@ -27,4 +27,6 @@ public interface EventFacade {
 	public List<EventVO> getFriendsEvents(int userId,int pageNo,int pageSize);
 	
 	public List<EventVO> getHotPubEvents(int userId,int pageNo,int pageSize);
+	public void createPlace(ZyRecommplace place);
+	public ZyRecommplace getPlace(int placeId);
 }
