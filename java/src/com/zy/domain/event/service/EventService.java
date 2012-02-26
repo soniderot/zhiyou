@@ -26,4 +26,6 @@ public interface EventService {
 	public List<ZyEvent> getDistinctEvents(String userIds,int pageNo,int pageSize);
 	
 	public List<ZyEvent> getHotPubEvents(int pageNo,int pageSize);
+	public void createPlace(ZyRecommplace place);
+	public ZyRecommplace getPlace(int placeId);
 }

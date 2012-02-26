@@ -12,7 +12,9 @@
 		<result name="recommend.places" type="tiles">tiles.event.places</result>
 		<result name="event.members" type="tiles">tiles.event.members</result>
 		<result name="member.friends">/WEB-INF/jsp/popup/eventFriends.jsp</result>
-		
+		<result name="to.createplace" type="tiles">tiles.event.tocreateplace</result>
+		<result name="to.placedetail" type="tiles">tiles.event.toplacedetail</result>
+		<result name="to.placelist" type="redirect">/event/event!getRecommPlaces.jhtml</result>
 	</action>
 	<action name="createOrUpdate" class="com.zy.action.event.EventAction">
 	<interceptor-ref name="loginDefaultStack"/>

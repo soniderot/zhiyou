@@ -385,4 +385,5 @@ public class FeedFacadeImpl implements FeedFacade{
 	public ZyNewsfeed getFeedById(int feedId) {
 		return feedService.getFeedById(feedId);
 	}
+	
 }

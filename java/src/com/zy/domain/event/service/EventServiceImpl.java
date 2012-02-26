@@ -127,4 +127,12 @@ public class EventServiceImpl implements EventService{
 	public List<ZyEvent> getHotPubEvents(int pageNo,int pageSize){
 		return eventDao.getHotPubEvents(pageNo, pageSize);
 	}
+	
+	public void createPlace(ZyRecommplace place){
+		recommPlaceDao.saveOrUpdate(place);
+	}
+	
+	public ZyRecommplace getPlace(int placeId){
+		return recommPlaceDao.get(placeId);
+	}
 }

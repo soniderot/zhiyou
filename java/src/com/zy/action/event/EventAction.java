@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
@@ -17,7 +18,6 @@ import com.zy.Constants;
 import com.zy.common.model.ZyDistrict;
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyEventcategory;
-import com.zy.common.model.ZyPhoto;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRecommplace;
 import com.zy.common.model.ZyRequest;
@@ -93,6 +93,45 @@ public class EventAction {
 	private List<EventVO> publicEvents;	
 	private short publicflag;
 	private int photoId;
+
+	private String placename;
+	private int category;
+	private ZyRecommplace place;
+	private int placeId;
+	
+	
+	
+	public int getPlaceId() {
+		return placeId;
+	}
+
+	public void setPlaceId(int placeId) {
+		this.placeId = placeId;
+	}
+
+	public ZyRecommplace getPlace() {
+		return place;
+	}
+
+	public void setPlace(ZyRecommplace place) {
+		this.place = place;
+	}
+
+	public String getPlacename() {
+		return placename;
+	}
+
+	public void setPlacename(String placename) {
+		this.placename = placename;
+	}
+
+	public int getCategory() {
+		return category;
+	}
+
+	public void setCategory(int category) {
+		this.category = category;
+	}
 
 	public int getPhotoId() {
 		return photoId;
@@ -727,6 +766,60 @@ public class EventAction {
 	
 	public String showBigPhotoAjax() {
 		return "";
+	}
+	
+	public String toCreatePlace(){
+		eventCategorys = eventFacade.getEventCategorys();
+		int userid = ActionUtil.getSessionUserId();
+		int cityid=8843;
+		try{
+		cityid = profileFacade.findProfileById(userid).getCityid();
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		districts = optionFacade.getDistricts(cityid);
+		return "to.createplace";
+	}
+	
+	public String createPlace(){
+		ZyRecommplace place = new ZyRecommplace();
+		place.setAddress(address);
+		place.setCityid(8843);
+		place.setDistrictid(districtId);
+		place.setCreatetime(new Date());
+		place.setPlacename(placename);
+		place.setSubcategoryid(category);
+		place.setSummary(detail);
+		place.setHot(0);
+		
+		if(logo!=null){
+			String filetype = null;
+			filetype = FileUtil.isJPGorPNG(this.getLogoContentType());
+			if (StringUtils.isBlank(filetype)) {
+				return "to.placelist";
+			}
+			String token = UUID.randomUUID() + "";
+			String fn = token + filetype;
+			
+			String root = ServletActionContext.getServletContext().getRealPath("/");
+			final String photoDir = File.separator + "photos/event";
+			
+			String fileName = FileUtil.copy(logo, root + photoDir, fn);
+			System.out.println(fileName);
+			String datedir = DateUtil.formatDate(new Date());
+			String str = datedir + "/" + fn;
+			
+			System.out.println(str);
+			//event.setLogo("/photos/event/"+str);
+			place.setPlaceAvatar("/photos/event/"+str);
+		}
+		eventFacade.createPlace(place);
+		return "to.placelist";
+	}
+	
+	public String viewPlaceDetail(){
+		place = eventFacade.getPlace(placeId);
+		return "to.placedetail";
 	}
 	
 	public static void main(String[] args) throws Exception{

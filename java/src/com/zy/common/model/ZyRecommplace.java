@@ -2,6 +2,8 @@ package com.zy.common.model;
 
 import java.util.Date;
 
+import com.zy.common.util.ImageUtil;
+
 /**
  * ZyRecommplace entity.
  * 
@@ -118,6 +120,12 @@ public class ZyRecommplace implements java.io.Serializable {
 
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
+	}
+	
+	public void setPlaceAvatar(String filename) {
+		String smallFileName = filename.replace(".jpg","-small.jpg");
+		int[] result = ImageUtil.resetsize(filename,smallFileName,320,320);
+		this.avatar = smallFileName;
 	}
 
 	public String getSummary() {

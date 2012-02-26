@@ -70,6 +70,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="profileService" ref="profileService"/>
 		<property name="educationService" ref="educationService"/>
 		<property name="schoolService" ref="schoolService"/>
+		<property name="snsService" ref="snsService"/>
 	</bean>
 	
 	<bean name="searchFacade" class="com.zy.facade.impl.SearchFacadeImpl"  >
