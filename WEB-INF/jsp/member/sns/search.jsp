@@ -123,7 +123,12 @@ function notFoundMySchool() {
                   <div id="u2urlx_8" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead uiTypeaheadFocused">
                     <div class="wrap">
                       <div class="innerWrap">
-                        <s:textfield id="mycity" name="cityname" cssClass="inputtext textInput DOMControl_placeholder" placeholder="请您输入所在城市" tipstype="error" />
+                      <s:if test="cityid==0">
+                        <s:textfield id="mycity" name="cityname"  cssClass="inputtext textInput DOMControl_placeholder" placeholder="请您输入所在城市" tipstype="error" />
+                      </s:if>
+                      <s:else>
+                        	<s:textfield id="mycity" name="cityname"  cssClass="inputtext textInput DOMControl_placeholder"  tipstype="error" />
+                      </s:else>
                       </div>
                       <i class="photo img sp_c0827g sx_c5d496"></i>
                     </div>
@@ -142,7 +147,12 @@ function notFoundMySchool() {
                   <div id="u2urlx_10" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead">
                     <div class="wrap">
                       <div class="innerWrap">
+                      	<s:if test="hometownid==0">
                         <s:textfield id="myhometown" name="hometownname" cssClass="inputtext textInput DOMControl_placeholder" placeholder="请您输入家乡城市" tipstype="error" />
+                      	</s:if>
+                      <s:else>
+                      	<s:textfield id="myhometown" name="hometownname" cssClass="inputtext textInput DOMControl_placeholder"  tipstype="error" />
+                      </s:else>
                       </div>
                       <i class="photo img sp_c0827g sx_c5d496"></i>
                     </div>
@@ -161,7 +171,12 @@ function notFoundMySchool() {
                       <input type="button" id="u83nqz_5" onclick="var c = JSCC.get('j4ed60c7576e6211830524984').getCore(); c.reset(); c.getElement().focus(); " title="删除"/>
                     </label>
                     <div class="innerWrap">
+                    		<s:if test="collegeid==0">
                       <s:textfield id="schoolName" name="collegename" title="你在哪儿念的大学？" placeholder="你在哪儿念的大学？" cssClass="inputtext textInput DOMControl_placeholder"/>
+                   		</s:if>
+                   		<s:else>
+                   			<s:textfield id="schoolName" name="collegename" title="你在哪儿念的大学？"  cssClass="inputtext textInput DOMControl_placeholder"/>
+                   		</s:else>
                     </div>
                     <i class="photo img sp_dob1w7 sx_33eb13"></i>
                   </div>
@@ -169,28 +184,7 @@ function notFoundMySchool() {
               </td>
             </tr>
           
-          <tr id="u9ikxu_15">
-            <td>
-              关键字：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-            <td>
-              <div id="u9ikxu_18">
-                <div id="u9ikxu_24" class="uiTypeahead lfloat">
-                  <div class="wrap">
-                    <input type="hidden" name="wk" class="hiddenInput" autocomplete="off"/>
-                    <div class="innerWrap">
-                      <s:textfield name="keyword" cssClass="inputtext DOMControl_placeholder"  />
-                        <!--
-                      <input type="text" title="键入关键字" spellcheck="false" onfocus="return wait_for_load(this, event, function() {;JSCC.get(&#39;j4edc8b1c8101672034723769&#39;).init([&quot;defaultToText&quot;,&quot;submitOnChange&quot;]);;});" autocomplete="off" value="键入关键字" size="35" placeholder="键入关键字" class="inputtext textInput DOMControl_placeholder"/>
-                       -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>
-            </td>
-          </tr>
+          
           <tr id="u9ikxu_14">
              <td></td>
             <td>
@@ -209,7 +203,7 @@ function notFoundMySchool() {
  </s:if> 
 <div class="mbs detailedsearch_feature_header"><span>搜索结果</span></div>
 <div data-referrer="pagelet_search_results_objects" id="pagelet_search_results_objects">
-  <s:iterator value="profiles">
+  <s:iterator value="searchProfiles">
   <div>
     <div class="mbm detailedsearch_result detailedsearch_last_result">
       <div class="UIImageBlock clearfix">
@@ -264,10 +258,10 @@ function topage(pageNo) {
 	</s:if>
 	
   <s:elseif test="gender>0">
-  location.href = "/sns/sns!search.jhtml?flag=1&startAge=${startAge}&endAge=${endAge}&gender=${gender}&pageNo="+pageNo
+  location.href = "/sns/sns!search.jhtml?cityid=${cityid}&hometownid=${howetownid}&collegeid=${collegeid}&flag=1&startAge=${startAge}&endAge=${endAge}&gender=${gender}&pageNo="+pageNo
   </s:elseif>
   <s:else>
-  location.href = "/sns/sns!search.jhtml?flag=1&startAge=${startAge}&endAge=${endAge}&gender=0&pageNo="+pageNo
+  location.href = "/sns/sns!search.jhtml?cityid=${cityid}&hometownid=${howetownid}&collegeid=${collegeid}&flag=1&startAge=${startAge}&endAge=${endAge}&gender=0&pageNo="+pageNo
   </s:else>
   return false;
 }
