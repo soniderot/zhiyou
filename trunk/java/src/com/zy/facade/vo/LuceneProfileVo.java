@@ -39,8 +39,41 @@ public class LuceneProfileVo implements Serializable {
 	private String introduction;
 	private String hobby;
 	
+	private String friendIds;
+	private int schoolId;
+	
+	private int homeId;
 	
 	
+	
+	public int getHomeId() {
+		return homeId;
+	}
+
+	public void setHomeId(int homeId) {
+		this.homeId = homeId;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public int getSchoolId() {
+		return schoolId;
+	}
+
+	public void setSchoolId(int schoolId) {
+		this.schoolId = schoolId;
+	}
+
+	public String getFriendIds() {
+		return friendIds;
+	}
+
+	public void setFriendIds(String friendIds) {
+		this.friendIds = friendIds;
+	}
+
 	public String getInterest() {
 		return interest;
 	}

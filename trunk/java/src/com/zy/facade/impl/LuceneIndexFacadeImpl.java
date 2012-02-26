@@ -25,6 +25,7 @@ import com.zy.domain.option.service.SchoolService;
 import com.zy.domain.profile.service.EducationService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.search.service.LuceneIndexService;
+import com.zy.domain.sns.service.SNSService;
 import com.zy.facade.LuceneIndexFacade;
 import com.zy.facade.vo.LuceneProfileVo;
 
@@ -34,7 +35,16 @@ public class LuceneIndexFacadeImpl implements LuceneIndexFacade {
 	private ProfileService profileService;
 	private SchoolService schoolService;
 	private EducationService educationService;
+	private SNSService snsService;
 	
+
+	public SNSService getSnsService() {
+		return snsService;
+	}
+
+	public void setSnsService(SNSService snsService) {
+		this.snsService = snsService;
+	}
 
 	public EducationService getEducationService() {
 		return educationService;
@@ -119,6 +129,16 @@ public class LuceneIndexFacadeImpl implements LuceneIndexFacade {
 				} else {
 					profile.setFullName(p.getUsername());
 				}
+				
+				String str = "";
+				List<Integer> friendIds = snsService.getAllFriendsByDegree(p.getUserid(),(short)1);
+				for(int m=0;m<friendIds.size();m++){
+					str = friendIds.get(m)+"-"+str;
+				}
+				str = str+"-";
+				profile.setFriendIds(str);
+				profile.setHomeId(p.getHometownid());
+				
 				profile.setGender(p.getGender());
 				profile.setRegTime(DateUtil.formatDate(p.getRegistertime(),
 						DateUtil.lucenedate));
@@ -132,6 +152,8 @@ public class LuceneIndexFacadeImpl implements LuceneIndexFacade {
 				profile.setCountryId(p.getCountryid());
 				profile.setRegionId(p.getRegionid());
 				profile.setCityId(p.getCityid());
+			
+				
 				/*
 				ZyCity city = cityService.getCity(p.getCityid());
 				if (city != null)
@@ -143,7 +165,9 @@ public class LuceneIndexFacadeImpl implements LuceneIndexFacade {
 				profile.setIntroduction(p.getIntroduction());
 				if(educationService.getEducationByUser(p.getUserid())!=null){
 					profile.setSchoolName(schoolService.getSchoolById(educationService.getEducationByUser(p.getUserid()).getSchoolid()).getSchoolname());
+					profile.setSchoolId(educationService.getEducationByUser(p.getUserid()).getSchoolid());
 				}
+				
 				indexProfiles.add(profile);
 			}
 

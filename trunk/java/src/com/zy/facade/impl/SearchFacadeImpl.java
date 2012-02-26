@@ -79,7 +79,7 @@ public class SearchFacadeImpl implements SearchFacade{
 			}
 		} else {
 			// exclude 1d
-			if (form.isExclude1d()) {
+			if (form.isExclude1d()&&form.getScope()!=null&&form.getScope()<2) {
 				List<Integer> ids1 = this.snsService.getAllFriendsByDegree(userId, (short) 1);
 				StringBuffer sb1 = new StringBuffer();
 				if (ids1 != null) {
@@ -93,9 +93,9 @@ public class SearchFacadeImpl implements SearchFacade{
 				List<Integer> ids = null;
 				if (form.getScope() == Constants.SEARCH_SCOPE_1D) {// 1D friend
 					ids = this.snsService.getAllFriendsByDegree(userId, (short) 1);
-				} else if (form.getScope() == Constants.SEARCH_SCOPE_3D) { // 3D
+				} else if (form.getScope() == Constants.SEARCH_SCOPE_2D) { // 3D
 					// friend
-					ids = this.snsService.getAllFriendsInRange(userId, (short) 3);
+					ids = this.snsService.getAllFriendsByDegree(userId, (short) 2);
 				}
 				StringBuffer sb = new StringBuffer();
 				if (ids != null) {

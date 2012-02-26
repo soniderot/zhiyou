@@ -79,6 +79,36 @@ public class SNSActioin extends ActionSupport{
 	private int collegeid;
 	private boolean mutualFriend;
 	
+	private String cityname;
+	private String hometownname;
+	private String collegename;
+	
+	
+	
+	public String getCityname() {
+		return cityname;
+	}
+
+	public void setCityname(String cityname) {
+		this.cityname = cityname;
+	}
+
+	public String getHometownname() {
+		return hometownname;
+	}
+
+	public void setHometownname(String hometownname) {
+		this.hometownname = hometownname;
+	}
+
+	public String getCollegename() {
+		return collegename;
+	}
+
+	public void setCollegename(String collegename) {
+		this.collegename = collegename;
+	}
+
 	public int getCityid() {
 		return cityid;
 	}
