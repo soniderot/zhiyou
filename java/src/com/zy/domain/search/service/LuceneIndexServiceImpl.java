@@ -88,6 +88,12 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
 				Document doc = new Document();
 				doc.add(new Field(IndexField.Profile.USER_ID, profile
 						.getUserId(), Store.YES, Index.ANALYZED));
+				
+				doc.add(new Field(IndexField.Profile.SCHOOL_NAME, profile.getSchoolName(), Store.NO, Index.ANALYZED));
+				doc.add(new Field(IndexField.Profile.SCHOOL_ID, ""+profile.getSchoolId(), Store.NO, Index.ANALYZED));
+				
+				doc.add(new Field(IndexField.Profile.FRIENDIDS, profile.getFriendIds(), Store.YES, Index.ANALYZED));
+				
 				doc.add(new Field(IndexField.Profile.GENDER, ""+profile.getGender(), Store.YES, Index.ANALYZED));
 				doc.add(new Field(IndexField.Profile.BIRTHDATE, profile.getBirthDate(), Store.YES, Index.ANALYZED));
 				doc.add(new Field(IndexField.Profile.FULL_NAME, profile
@@ -116,6 +122,8 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
 						.getRegionId()
 						+ "", Store.NO, Index.ANALYZED));
 				doc.add(new Field(IndexField.Profile.CITY, profile.getCityId()
+						+ "", Store.NO, Index.ANALYZED));
+				doc.add(new Field(IndexField.Profile.HOME, profile.getHomeId()
 						+ "", Store.NO, Index.ANALYZED));
 				doc.add(new Field(IndexField.Profile.GROUPS, profile
 						.getGroups(), Store.NO, Index.ANALYZED));

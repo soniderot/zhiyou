@@ -25,6 +25,7 @@ public class IndexField {
 	//profile
 	public static class Profile {
 		public final static String USER_ID = "userId";
+		public final static String FRIENDIDS = "friendIds";
 		public final static String GENDER = "gender";
 		//keywords
 		public final static String FULL_NAME = "fullName";
@@ -33,6 +34,7 @@ public class IndexField {
 		public final static String COMPANY_NAME="companyName";
 		public final static String POSITION="position";
 		public final static String SCHOOL_NAME = "schoolName";
+		public final static String SCHOOL_ID = "schoolId";
 		public final static String MAJOR="major";
 		public final static String KEY_WORD="keyword";
 		//more condition
@@ -41,6 +43,7 @@ public class IndexField {
 		public final static String COUNTRY="countryId";
 		public final static String REGION="regionId";
 		public final static String CITY="cityId";
+		public final static String HOME="homeId";
 		public final static String GROUPS="groups";
 		public final static String CONTACT_SETTING="contactSetting";
 		

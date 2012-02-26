@@ -46,6 +46,7 @@ public class SearchFormVo implements Serializable {
 
 	private Integer scope;// 3 all 2 3d 1 1d
 	private String friendIds;
+	private boolean mutualFriend;
 
 	private String[] fields;
 	private String[] values;
@@ -56,6 +57,23 @@ public class SearchFormVo implements Serializable {
 	
 	private String excludedReqUserIds;
 	private boolean excludeReq;
+	private int homeId;
+	
+	public int getHomeId() {
+		return homeId;
+	}
+
+	public void setHomeId(int homeId) {
+		this.homeId = homeId;
+	}
+
+	public boolean isMutualFriend() {
+		return mutualFriend;
+	}
+
+	public void setMutualFriend(boolean mutualFriend) {
+		this.mutualFriend = mutualFriend;
+	}
 
 	public String getExcludedReqUserIds() {
 		return excludedReqUserIds;
@@ -112,6 +130,8 @@ public class SearchFormVo implements Serializable {
 	public void setCompanyId(int companyId) {
 		this.companyId = companyId;
 	}
+	
+	
 
 	public void generateQuery() {
 		List<String> fields = new ArrayList<String>();
@@ -160,6 +180,11 @@ public class SearchFormVo implements Serializable {
 		if (this.getCityId() > 0) {
 			fields.add(IndexField.Profile.CITY);
 			values.add(this.getCityId() + "");
+			flags.add(BooleanClause.Occur.MUST);
+		}
+		if (this.getHomeId() > 0) {
+			fields.add(IndexField.Profile.HOME);
+			values.add(this.getHomeId() + "");
 			flags.add(BooleanClause.Occur.MUST);
 		}
 		if (StringUtils.isNotBlank(this.getCompanyName()) && getCompanyId() == 0) {
