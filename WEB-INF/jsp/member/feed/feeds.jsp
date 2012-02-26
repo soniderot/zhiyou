@@ -664,3 +664,5 @@
 </script>
 
 <%@ include file="/WEB-INF/jsp/popup/delFeedCommentPop.jsp"%>
+<div class="uiContextualLayerPositioner uiContextualLayerPositionerFixed" style="position:absolute;left:218px;top:116px;z-index:400;">
+</div>
