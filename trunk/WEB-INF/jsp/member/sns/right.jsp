@@ -39,7 +39,12 @@ function sendFriendRequest(obj, userId) {
 												<div class="uiHeaderActions rfloat fsm fwn fcg">
 													<a rel="dialog" href="#" ajaxify="/ajax/choose/?type=friendlist&amp;flid=2634661952657&amp;view=members">管理列表</a>
 												</div>
+												<s:if test="friendsInGroup.size()>0">  
 												<div><h3 class="uiHeaderTitle">此列表中的朋友（<s:property value="friendsInGroup.size()" />）</h3></div>
+											</s:if>
+											<s:else>	
+													<div><h3 class="uiHeaderTitle">此列表为空</h3></div>
+												</s:else>
 											</div>
 										</div>
 										<div class="phs">
