@@ -1,16 +1,92 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <%@page contentType="text/html; charset=UTF-8"%>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#mycity').autocomplete({
+      onSelect: selectMyCity,
+      onClear: clearMyCity,
+      notFound: notFoundMyCity
+    });
+    
+   $('#myhometown').autocomplete({
+      onSelect: selectMyHometown,
+      onClear: clearMyHometown,
+      notFound: notFoundMyHometown
+    });
+    
+   $('#schoolName').autocomplete({
+    serviceUrl: "usr/school.jhtml",
+    onSelect: selectMySchool,
+    onClear: clearMySchool,
+    notFound: notFoundMySchool
+  });
+});
+
+function selectMyCity(value, data) {
+  var city = data.city;
+  var cityString = data.cityString;
+  if (city>0) {
+    $("#selectedCity").val(city);
+    $("#mycity").val(cityString);
+  }
+}
+
+function selectMyHometown(value, data) {
+  var city = data.city;
+  var cityString = data.cityString;
+  if (city>0) {
+    $("#selectedHometown").val(city);
+    $("#myhometown").val(cityString);
+  }
+}
+
+function clearMyCity() {
+  $("#selectedCity").val("");
+}
+
+function clearMyHometown() {
+  $("#selectedHometown").val("");
+}
+
+function notFoundMyCity() {
+ clearMyCity();
+}
+
+function notFoundMyHometown() {
+ clearMyHometown();
+}
+
+function selectMySchool(value, data) {
+  var schoolId = data.schoolId;
+  var schoolName = data.schoolName;
+  if (schoolId > 0) {
+    $("#schoolId").val(schoolId);
+    $("#schoolName").val(schoolName);
+  }
+}
+
+function clearMySchool() {
+  $("#schoolId").val("");
+}
+
+function notFoundMySchool() {
+ clearMySchool();
+}
+
+</script>
 <div role="main" id="contentArea">
 <div data-referrer="pagelet_search_results_spellcheck" id="pagelet_search_results_spellcheck">
   <div class="search_spell_check"></div>
 </div>
-
 <s:if test="(keyWordSearch!=true)"> 
 <div class="mbs detailedsearch_feature_header"><span>搜索朋友</span></div>
 <div class="mbm">
   <form  action="/sns/sns!search.jhtml" >
     <input type="hidden" name="flag" value="1">
-     <input type="hidden" name="runFlag" value="true">
+    <input type="hidden" name="runFlag" value="true">
+    <input type="hidden" id="selectedCity" name="cityid" />
+    <input type="hidden" id="selectedHometown" name="hometownid" />
+    <input type="hidden" id="schoolId" name="collegeid" />
     <div class="mtm mrl detailedsearch_filter_loading_indicator_area">
       <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
     </div>
@@ -35,17 +111,13 @@
               性别：
             </td>
             <td>
-              
-                <s:select name="gender" list="#{'0':'选择性别', '1':'男', '2':'女'}"></s:select>
+              <s:select name="gender" list="#{'0':'选择性别', '1':'男', '2':'女'}"></s:select>
             </td>
             <td>
             </td>
           </tr>
-          
-          
-          
            <tr class="dataRow">
-              <th class="label">居住城市：</th>
+              <td>居住城市：</td>
               <td class="data">
                 <div>
                   <div id="u2urlx_8" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead uiTypeaheadFocused">
@@ -64,7 +136,7 @@
             
             
             <tr class="dataRow">
-              <th class="label">家乡：</th>
+              <td>家乡：</td>
               <td class="data">
                 <div>
                   <div id="u2urlx_10" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead">
@@ -81,7 +153,7 @@
             </tr>
             
             <tr class="dataRow">
-              <th class="label">学院/大学：</th>
+              <td>学院/大学：</td>
               <td class="data">
                 <div id="add_college" class="uiTypeahead uiClearableTypeahead photoTypeahead mbs addExperience stat_elem fbHubsTypeahead">
                   <div class="wrap">
