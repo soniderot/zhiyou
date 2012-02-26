@@ -754,6 +754,9 @@ public class FeedAction extends ActionSupport{
 	
 	public String getFeedsOfGroup(){
 		List<ZyProfile> list = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),groupId,(short)1);
+		if(list.size()==0){
+			return "snsgroup.feeds";
+		}
 		friendsInGroup = list;
 		System.out.println("--------------into-------------feed--------handle----"+handle);
 		int userId = ActionUtil.getSessionUserId();
