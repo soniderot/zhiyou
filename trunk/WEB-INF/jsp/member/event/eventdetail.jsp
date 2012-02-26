@@ -16,7 +16,6 @@
     </div>
   </div>
   <%@ include file="/WEB-INF/jsp/member/event/eventdetailhead.jsp"%>
-  <s:if test="eventPhotos!=null && eventPhotos.size != 0">
   <div id="pagelet_main_column">
     <div id="pagelet_main_column_personal">
       <div id="pagelet_friends_tab">
@@ -26,6 +25,9 @@
               <div class="clearfix uiHeaderTop">
                 <div>
                   <h3 class="uiHeaderTitle">活动照片</h3>
+                  <a class="uiAddPhoto" onclick="return showPopup('dialog_uploadPhoto');" href="javascript:void(0);" rel="dialog-post">
+                    <span class="uiButtonText">+添加活动照片</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -73,7 +75,6 @@
       </div>
     </div>
   </div>
-  </s:if>
   <div id="pagelet_composer">
     <div id="u3mxyl_2" class="uiComposer uiComposerHideContent stat_elem uiMetaComposer uiComposerOpen uiComposerHideContent uiComposerWhiteMessageBox">
       <div class="focus_target">
@@ -571,3 +572,4 @@
 </script>
 
 <%@ include file="/WEB-INF/jsp/popup/delFeedCommentPop.jsp"%>
+<%@ include file="/WEB-INF/jsp/popup/uploadPhotoPop.jsp"%>
