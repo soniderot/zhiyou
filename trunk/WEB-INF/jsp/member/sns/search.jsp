@@ -41,6 +41,62 @@
             <td>
             </td>
           </tr>
+          
+          
+          
+           <tr class="dataRow">
+              <th class="label">居住城市：</th>
+              <td class="data">
+                <div>
+                  <div id="u2urlx_8" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead uiTypeaheadFocused">
+                    <div class="wrap">
+                      <div class="innerWrap">
+                        <s:textfield id="mycity" name="profileform.cityname" cssClass="inputtext textInput DOMControl_placeholder" placeholder="请您输入所在城市" tipstype="error" />
+                      </div>
+                      <i class="photo img sp_c0827g sx_c5d496"></i>
+                    </div>
+                    <div class="uiTypeaheadView hidden_elem"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="rightCol"></td>
+            </tr>
+            
+            
+            <tr class="dataRow">
+              <th class="label">家乡：</th>
+              <td class="data">
+                <div>
+                  <div id="u2urlx_10" class="uiTypeahead uiClearableTypeahead photoTypeahead fbHubsTypeahead">
+                    <div class="wrap">
+                      <div class="innerWrap">
+                        <s:textfield id="myhometown" name="profileform.hometownname" cssClass="inputtext textInput DOMControl_placeholder" placeholder="请您输入家乡城市" tipstype="error" />
+                      </div>
+                      <i class="photo img sp_c0827g sx_c5d496"></i>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="rightCol"></td>
+            </tr>
+            
+            <tr class="dataRow">
+              <th class="label">学院/大学：</th>
+              <td class="data">
+                <div id="add_college" class="uiTypeahead uiClearableTypeahead photoTypeahead mbs addExperience stat_elem fbHubsTypeahead">
+                  <div class="wrap">
+                    <label for="u83nqz_5" class="clear uiCloseButton">
+                      <input type="button" id="u83nqz_5" onclick="var c = JSCC.get('j4ed60c7576e6211830524984').getCore(); c.reset(); c.getElement().focus(); " title="删除"/>
+                    </label>
+                    <div class="innerWrap">
+                      <s:textfield id="schoolName" name="profileform.collegename" title="你在哪儿念的大学？" placeholder="你在哪儿念的大学？" cssClass="inputtext textInput DOMControl_placeholder"/>
+                    </div>
+                    <i class="photo img sp_dob1w7 sx_33eb13"></i>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          
           <tr id="u9ikxu_15">
             <td>
               关键字：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
