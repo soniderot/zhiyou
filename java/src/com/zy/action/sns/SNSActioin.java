@@ -72,7 +72,54 @@ public class SNSActioin extends ActionSupport{
 	private int snsGroupId;
 	private short degree=1;
 	
- 	public short getDegree() {
+	private String snsGroupname;
+	
+	private int cityid;
+	private int hometownid;
+	private int collegeid;
+	private boolean mutualFriend;
+	
+	public int getCityid() {
+		return cityid;
+	}
+
+	public void setCityid(int cityid) {
+		this.cityid = cityid;
+	}
+
+	public int getHometownid() {
+		return hometownid;
+	}
+
+	public void setHometownid(int hometownid) {
+		this.hometownid = hometownid;
+	}
+
+	public int getCollegeid() {
+		return collegeid;
+	}
+
+	public void setCollegeid(int collegeid) {
+		this.collegeid = collegeid;
+	}
+
+	public boolean isMutualFriend() {
+		return mutualFriend;
+	}
+
+	public void setMutualFriend(boolean mutualFriend) {
+		this.mutualFriend = mutualFriend;
+	}
+
+	public String getSnsGroupname() {
+		return snsGroupname;
+	}
+
+	public void setSnsGroupname(String snsGroupname) {
+		this.snsGroupname = snsGroupname;
+	}
+
+	public short getDegree() {
 		return degree;
 	}
 
@@ -521,6 +568,27 @@ public class SNSActioin extends ActionSupport{
 			return "search.result";
 		}
 		SearchFormVo vo = new SearchFormVo();
+		if(cityid>0){
+			vo.setCityId(cityid);
+		}
+		
+		if(collegeid>0){
+			vo.setSchoolId(collegeid);
+		}
+		
+		if(hometownid>0){
+			vo.setHomeId(hometownid);
+		}
+		
+		if(mutualFriend){
+			vo.setScope(2);
+		}
+		
+		//vo.setScope(2);
+		//vo.setCityId(8843);
+		//vo.setSchoolId(2);
+		
+		
 		if(keyword!=null&&keyword.trim().length()>0){
 			vo.setKeyword(keyword);
 		}
@@ -615,6 +683,23 @@ public class SNSActioin extends ActionSupport{
 		return "invite.success";
 	}
 	
+	public String createSnsGroup(){
+		try{
+			snsFacade.addSNSGroup(ActionUtil.getSessionUserId(), snsGroupname);
+		}catch(Exception ex){
+			
+		}
+		return null;
+	}
 	
+	public String updatSnsGroup(){
+		snsFacade.updateSNSGroup(ActionUtil.getSessionUserId(), snsGroupId, snsGroupname);
+		return null;
+	}
+	
+	public String manageSnsGroup(){
+		snsFacade.manageSNSGroup(ActionUtil.getSessionUserId(), snsGroupId,profileIds);
+		return null;
+	}
 	
 }
