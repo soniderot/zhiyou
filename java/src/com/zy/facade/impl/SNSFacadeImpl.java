@@ -22,6 +22,7 @@ import com.zy.domain.message.service.RequestService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.sns.service.SNSService;
 import com.zy.facade.SNSFacade;
+import com.zy.facade.vo.FriendJoinedVO;
 
 public class SNSFacadeImpl implements SNSFacade{
 	private SNSService snsService;
@@ -299,5 +300,30 @@ public class SNSFacadeImpl implements SNSFacade{
 			results.add(profileService.findProfileById(friends.get(i).getFriendid()));
 		}
 		return results;
+	}
+	public ZyFriendgroup getSNSGroup(int ZyGroupId) {
+		return snsService.getSNSGroup(ZyGroupId);
+	}
+
+	@Override
+	public List<FriendJoinedVO> getGroupFriends(int userId, int groupId) {
+		List<ZyProfile> allFriends = snsService.getAllFriends(userId, (short)1);
+		List<ZyProfile> groupMembers = new ArrayList<ZyProfile>();
+		if (groupId != 0) {
+			groupMembers = snsService.getAllFriends(userId, groupId, (short)1);
+		}
+		List<FriendJoinedVO> groupFriends = new ArrayList<FriendJoinedVO>();
+		for(int i = 0; i < allFriends.size(); i++) {
+			ZyProfile profile = allFriends.get(i);
+			FriendJoinedVO friendVO = new FriendJoinedVO();
+			friendVO.setProfile(profile);
+			if (groupMembers.contains(profile)) {
+				friendVO.setJoined(true);
+			} else {
+				friendVO.setJoined(false);
+			}
+			groupFriends.add(friendVO);
+		}
+		return groupFriends;
 	}
 }
