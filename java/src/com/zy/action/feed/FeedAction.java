@@ -18,6 +18,7 @@ import com.zy.Constants;
 import com.zy.common.model.ZyAlbum;
 import com.zy.common.model.ZyAnswer;
 import com.zy.common.model.ZyAnsweroption;
+import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyPhoto;
@@ -37,6 +38,7 @@ import com.zy.facade.ProfileFacade;
 import com.zy.facade.QuestionFacade;
 import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
+import com.zy.facade.vo.FriendJoinedVO;
 import com.zy.facade.vo.QuestionVO;
 
 public class FeedAction extends ActionSupport{
@@ -76,6 +78,7 @@ public class FeedAction extends ActionSupport{
 	
 	private int eventId;
 	private List<ZyProfile> friends;
+	private List<FriendJoinedVO> groupFriends;
 	private int questionId;
 	private int optionId;
 	private List<QuestionVO> askedFriends;
@@ -89,10 +92,22 @@ public class FeedAction extends ActionSupport{
 	
 	private int friendId;
 	private int groupId;
+	private ZyFriendgroup friendGroup;
 	
 	private List<ZyProfile> friendsInGroup;
 	
-	
+	public List<FriendJoinedVO> getGroupFriends() {
+		return groupFriends;
+	}
+	public void setGroupFriends(List<FriendJoinedVO> groupFriends) {
+		this.groupFriends = groupFriends;
+	}
+	public ZyFriendgroup getFriendGroup() {
+		return friendGroup;
+	}
+	public void setFriendGroup(ZyFriendgroup friendGroup) {
+		this.friendGroup = friendGroup;
+	}
 	public List<ZyProfile> getFriendsInGroup() {
 		return friendsInGroup;
 	}
@@ -754,6 +769,8 @@ public class FeedAction extends ActionSupport{
 	
 	public String getFeedsOfGroup(){
 		List<ZyProfile> list = snsFacade.getAllFriends(ActionUtil.getSessionUserId(),groupId,(short)1);
+		friendGroup = snsFacade.getSNSGroup(groupId);
+		System.out.println(friendGroup.getGroupname());
 		if(list.size()==0){
 			return "snsgroup.feeds";
 		}
@@ -782,5 +799,10 @@ public class FeedAction extends ActionSupport{
 		page = new Page(count,pageNo,10,5);
 		
 		return "snsgroup.feeds";
+	}
+
+	public String getGrpFriendsAjax() {
+		groupFriends = snsFacade.getGroupFriends(ActionUtil.getSessionUserId(), groupId);
+		return "snsgroup.friends";
 	}
 }
