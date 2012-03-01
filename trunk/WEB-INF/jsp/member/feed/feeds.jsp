@@ -30,6 +30,7 @@
   	<%@ include file="/WEB-INF/jsp/member/feed/profilefeedhead.jsp"%>
   	</s:if>
   	<s:else>
+    <s:if test="friendGroup==null">
     <div class="uiHeader uiHeaderWithImage uiHeaderPage  fbx_stream_header">
       <div class="clearfix uiHeaderTop">
         <div class="uiHeaderActions  rfloat fsl fwb fcb">
@@ -42,7 +43,7 @@
             <select>
               <option value=""></option>
               <option selected="1" value="lf">
-                            最新消息
+                最新消息
               </option>
               <option value="app_2915120374">
                 状态更新
@@ -58,24 +59,23 @@
         </div>
         <div>
           <h2 class="uiHeaderTitle">
-            <i class="uiHeaderImage img sp_7gl7wd sx_efd21b"></i>
-            <s:if test="handle=='sns.publish.photo,sns.event.photo'">照片</s:if>
-            <s:elseif test="handle=='sns.publish.question'">问题</s:elseif>
-            <s:else>动态</s:else>汇总
+            <s:if test="handle=='sns.publish.photo,sns.event.photo'"><i class="uiHeaderImage img sp_7gl7wd sx_efd21b"></i>照片</s:if>
+            <s:elseif test="handle=='sns.publish.question'"><i class="uiHeaderImage img sp_7gl7wd sx_efd21b"></i>问题</s:elseif>
+            <s:else><i class="uiHeaderImage img sp_7gl7wd sx_efd21b"></i>动态</s:else>汇总
           </h2>
         </div>
       </div>
     </div>
+    </s:if>
   </div>
+
   <div id="pagelet_composer">
     <div id="u3mxyl_2" class="uiComposer uiComposerHideContent stat_elem uiMetaComposer uiComposerTopBorder uiComposerOpen uiComposerHideContent uiComposerWhiteMessageBox">
       <div class="focus_target">
         <ul class="uiList uiListHorizontal clearfix uiComposerAttachments">
-        	
           <s:if test="event!=null">
           <%@ include file="/WEB-INF/jsp/member/event/eventdetailhead.jsp"%>
           </s:if>
-        	
           <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
             <span id="composerTourStart"
               class="uiComposerAttachment statusAttachment uiComposerAttachmentSelected attachmentAcceptsLink">
