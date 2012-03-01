@@ -647,7 +647,7 @@ a.uiLinkSubtle{color:gray}
 .uiSelector .openToggler .uiCloseButtonSmall{background-position:left -24px}
 .uiMenu{background-color:#fff;padding:3px 0 4px;overflow-y:auto}
 .uiMenuItem .itemAnchor{border:solid #fff;border-width:1px 0;color:#111;display:block;font-weight:normal;line-height:16px;padding:1px 16px 1px 22px;text-decoration:none}
-.uiMenuItem a:hover{text-decoration:none}
+.uiMenuItem a:hover{background-color:#6d84b4;border-color:#3b5998;color:#fff;outline:none;text-decoration:none}
 .uiMenuItem a:active,.uiMenuItem a:focus{background-color:#6d84b4;border-color:#3b5998;color:#fff;outline:none}
 .uiMenu .checked .itemAnchor{background:url(../images/6NHt8H5uyPf.png) left 4px no-repeat;font-weight:bold}
 .uiMenu .checked a:active,.uiMenu .checked a:focus{background-color:#6d84b4;background-position:left -56px}
@@ -2171,3 +2171,5 @@ div.uiAttachmentPhotoBox .beforeVerticalSplit{margin-bottom:3px}
 .mouseEventsDisabled .MicrosoftMap{cursor:default !important}
 
 #bootloader__dP4C { height: 42px; }
+#pagelet_bookmark_seeall #bookmarksSeeAllSection {border-top:1px solid #E9E9E9;}
+.fbBookmarksSeeAllList a.itemLink {display:block;vertical-align:middle;}

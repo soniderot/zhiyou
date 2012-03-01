@@ -583,3 +583,75 @@ div.uiTypeaheadView .selected{background-color:#6d84b4;border-color:#3b5998}
 
 #bootloader_ht6Sh { height: 42px; }
 .uiAddPhoto {float:right;position:absolute;top:312px;top:302px\9;left:600px;}
+.sx_f58673 {background-position:-19px -327px;}
+.sp_84xm9t {
+background-image:url(../images/mMRgz34CBBS.png);
+background-repeat:no-repeat;
+display:inline-block;
+height:16px;
+width:16px;
+}
+.sx_cf68c0 {
+background-position:0 0;
+height:84px;
+width:110px;
+}
+.sp_cv4wwt {
+background-image:url(../images/DCIup9QgIIA.png);
+background-repeat:no-repeat;
+display:inline-block;
+height:50px;
+width:50px;
+}
+.sx_cf68c0 {
+background-position:0 0;
+height:84px;
+width:110px;
+}
+.sx_3ac7dc {background-position:-16px -155px;}
+.friendListFilterNullState {
+padding-top:40px;
+text-align:center;
+}
+.friendListHeader{height:41px;padding-top:4px}
+.friendListHeader .editForm,
+.friendListHeaderEditMode .staticName,
+.friendListHeaderEditMode .friendListSubHeader,
+.friendListManage .updateType,
+.updateTypesExpanded .chooseUpdateTypes{display:none}
+.friendListHeaderEditMode .editForm,
+.updateTypesExpanded .updateType{display:block}
+.friendListHeader .friendListName .nameInput{font-size: 14px;width:140px}
+.friendListSubHeader{padding-left:23px}
+.friendListHeader .timelineUnitContainer .uiSelector{padding-left:5px;margin-left:-12px;margin-top:-3px}
+.friendListHeader .fbAudienceHover{margin-left:-1px}
+div#contentCol.friendListFilter{padding-top:15px !important}
+div#contentCol.friendListFilter div#rightCol{padding-top:0}
+.friendListFilterNullState{padding-top:40px;text-align:center}
+.friendListRestrictedNullState{border-top:1px solid #ccc;font-size: 13px;padding-top:40px;text-align:justify}
+.notificationSelector .uiSelectorButton .img{margin-top:2px;margin-left:2px}
+.friendListTypeaheadBox .plusIcon{position:absolute;top:7px;left:11px}
+.friendListTypeaheadBox .friendListAddTypeahead{background-color:transparent}
+.friendListAddTypeahead .textInput{padding-left:15px}
+.friendListAddTypeahead .noPadding{padding-left:0}
+.friendListAddTypeahead{margin-right:8px}
+.friendListTypeaheadBox{position:relative}
+.home #rightCol .friend_list_new_feed_header{height:34px;margin-bottom:5px;padding-top:5px;padding-right:20px}
+.smartListTip{cursor:default;font-weight:normal}
+.empty .fbFriendListMemberBoxFacepile,
+.fbFriendListNoMembersMessage{display:none}
+.empty .fbFriendListNoMembersMessage{display:block}
+.fbFriendListMemberList .fbFriendListMember{height:32px;vertical-align:middle}
+.sp_9u8vsl{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yC/r/-eGldV6VicK.png);background-repeat:no-repeat;display:inline-block;height:84px;width:110px}
+.sx_3958d9{background-position:-0px -0px}
+.sx_74043a{width:50px;height:50px;background-position:-0px -85px}
+.userSuggestionRow .userSuggestionName{font-weight:bold;height:24px;vertical-align:middle}
+.userSuggestionRow li.async_saving{opacity:.5}
+.userSuggestionRow .userSuggestionListMoreLink{padding:10px 0 0 30px}
+.userSuggestionList .uiListItem{padding-top:0}
+.userSuggestionList .userSuggestionRow{border-bottom:1px solid #e9e9e9;width:100%}
+.userSuggestionList .userSuggestionRow td{padding:4px 0;vertical-align:middle}
+.userSuggestionList .userSuggestionName{font-weight:bold;width:100%}
+.userSuggestionNameWrap{display:block;word-wrap:break-word}
+
+#bootloader_Xkfy7 { height: 42px; }
