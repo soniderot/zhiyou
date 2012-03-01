@@ -16,6 +16,10 @@
 		<result name="invite.success" type="tiles">tiles.sns.invitesuccess</result>
 		<result name="to.friends.list" type="redirect">/sns/sns!getFriendsList.jhtml</result>
 		<result name="friends.list.ajax">/WEB-INF/jsp/public/friendsAjax.jsp</result>
+		<result name="friends.group.new" type="tiles">tiles.sns.newfrdgrp</result>
+		<result name="friends.group.create" type="tiles">tiles.sns.createfrdgrp</result>
+		<result name="friends.group.detail" type="redirect">/usr/feed!getFeedsOfGroup.jhtml?groupId=${snsGroupId}</result>
+		<result name="friends.group.list" type="tiles">tiles.sns.grouplist</result>
 	</action>
 	
 	<action name="match" class="com.zy.action.sns.QuickMatchAction">
