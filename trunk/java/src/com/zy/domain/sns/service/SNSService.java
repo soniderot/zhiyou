@@ -121,4 +121,5 @@ public interface SNSService {
 	public List<ZyProfile> getFriendsByName(int userId,String username,boolean likeFlag);
 	
 	public List<ZyFriend> getMatchedFriends(int userId,int pageNo,int pageSize);
+	public ZyFriendgroup getSNSGroup(int ZyGroupId);
 }
