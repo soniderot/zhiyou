@@ -435,6 +435,9 @@ public class SNSServiceImpl implements SNSService{
 		snsGroupDao.load(ZyGroupId).setGroupname(groupName);
 	}
 	
+	public ZyFriendgroup getSNSGroup(int ZyGroupId){
+		return snsGroupDao.get(ZyGroupId);
+	}
 	/**
 	 * 
 	 */
