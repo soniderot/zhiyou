@@ -4,13 +4,12 @@ import java.util.List;
 
 import octazen.addressbook.Contact;
 
-import com.zy.common.model.ZyFriend;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyMatchanswer;
 import com.zy.common.model.ZyMatchquestion;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRecommfriend;
-import com.zy.common.model.ZyRequest;
+import com.zy.facade.vo.FriendJoinedVO;
 
 public interface SNSFacade {
 	public void addFriend(int userId,int friendId);
@@ -65,4 +64,6 @@ public interface SNSFacade {
 	public List<ZyProfile> getFriendsByName(int userId,String username,boolean likeFlag);
 	
 	public List<ZyProfile> getMatchedFriends(int userId,int pageNo,int pageSize);
+	public ZyFriendgroup getSNSGroup(int ZyGroupId);
+	public List<FriendJoinedVO> getGroupFriends(int userId, int groupId);
 }
