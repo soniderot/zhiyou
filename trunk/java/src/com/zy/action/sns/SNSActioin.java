@@ -1,10 +1,14 @@
 package com.zy.action.sns;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
 
 import octazen.addressbook.Contact;
 
@@ -731,17 +735,34 @@ public class SNSActioin extends ActionSupport{
 		}catch(Exception ex){
 			
 		}
-		return null;
+		return "friends.group.create";
 	}
 	
 	public String updatSnsGroup(){
 		snsFacade.updateSNSGroup(ActionUtil.getSessionUserId(), snsGroupId, snsGroupname);
+    try {
+      HttpServletResponse response = ServletActionContext.getResponse();
+      response.setCharacterEncoding("UTF-8");
+      PrintWriter out = response.getWriter();
+      out.print(snsGroupname);
+      out.flush();    
+      out.close();    
+    } catch (Exception e) {  
+      e.printStackTrace();    
+    }
 		return null;
 	}
 	
 	public String manageSnsGroup(){
-		snsFacade.manageSNSGroup(ActionUtil.getSessionUserId(), snsGroupId,profileIds);
-		return null;
+		snsFacade.manageSNSGroup(ActionUtil.getSessionUserId(), snsGroupId, profileIds);
+		return "friends.group.detail";
 	}
 	
+	public String deleteSnsGroup() {
+		return "friends.group.list";
+	}
+	
+	public String newFrdGrp() {
+		return "friends.group.new";
+	}
 }
