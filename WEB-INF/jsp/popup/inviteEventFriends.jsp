@@ -56,7 +56,7 @@ function saveFriends() {
                               </label>
                               <input type="hidden" name="profileChooserItems" class="hiddenInput" autocomplete="off" value="{}"/>
                               <div class="innerWrap">
-                                <input type="text" title="寻找全部朋友" value="寻找全部朋友" spellcheck="false" onfocus="return wait_for_load(this, event, function() {;JSCC.get('j4ee5ce28edab28e651303442').init([]);;});" autocomplete="off" placeholder="寻找全部朋友" class="inputtext textInput DOMControl_placeholder"/>
+                                <input type="text" title="邀请留言" value="邀请留言" autocomplete="off" placeholder="邀请留言" class="inputtext textInput DOMControl_placeholder"/>
                               </div>
                             </div>
                           </div>
@@ -87,10 +87,7 @@ function saveFriends() {
                                 </div>
                               </div>
                             </a>
-                            
-                            
                           </li>
-                          
                           </s:iterator>
                         </ul>
                       </div>
