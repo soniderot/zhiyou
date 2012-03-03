@@ -3,15 +3,22 @@ package com.zy.action.profile;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Method;
 import java.util.Date;
+import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
+import com.github.mhendred.face4j.model.Face;
+import com.utils.CropFaceUtils;
+import com.utils.FaceCrop;
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ObjectFactory;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
@@ -96,11 +103,29 @@ public class UploadAction {
 			System.out.println("file name: " + fileName);
 			String datedir = "/" + DateUtil.formatDate(new Date()) + "/";
 			String str = photoDir  + datedir  + fn;
-			System.out.println("str: " + str);
 			ZyProfile profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
-			profile.setProfileAvatar(str);
-			
-			ActionContext.getContext().getSession().put("userlogo",profile.getBigavatar());
+			//profile.setProfileAvatar(str);
+			Map<String, Object> session  = ActionContext.getContext().getSession();
+			session.put("userlogo", profile.getBigavatar());
+			HttpServletRequest request = ServletActionContext.getRequest();
+			String imageUrl = getUrl(request) + str;
+
+			try {
+				Face face = CropFaceUtils.getFirstFace(imageUrl);
+	      System.out.println(imageUrl);
+	  		if (face != null) {
+	      		FaceCrop faceCrop = new FaceCrop();
+	      		faceCrop.setCentreX(face.getCenter().x);
+	      		faceCrop.setCentreY(face.getCenter().y);
+	      		faceCrop.setWidth(face.getWidth());
+	      		faceCrop.setHeight(face.getHeight());
+	      		session.put("faceCrop", faceCrop);
+	  		}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 			profileFacade.updateProfile(profile);
 	    out.print("<script>parent.submitPhotoCallback('" + str + "')</script>");
 	    out.flush();
@@ -132,4 +157,12 @@ public class UploadAction {
 		}
 		return null;
 	}
+	
+	private String getUrl(HttpServletRequest request) {
+		String url = "http://";
+		url = url + request.getServerName() + ":" + request.getServerPort();
+		url = url + request.getContextPath() + "/";
+		return url;
+	}
+	
 }
