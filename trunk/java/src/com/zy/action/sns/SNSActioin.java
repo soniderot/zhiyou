@@ -14,6 +14,7 @@ import octazen.addressbook.Contact;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.zy.Constants;
+import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
@@ -731,11 +732,12 @@ public class SNSActioin extends ActionSupport{
 	
 	public String createSnsGroup(){
 		try{
-			snsFacade.addSNSGroup(ActionUtil.getSessionUserId(), snsGroupname);
+			ZyFriendgroup snsGroup = snsFacade.addSNSGroup(ActionUtil.getSessionUserId(), snsGroupname);
+			snsGroupId = snsGroup.getId();
 		}catch(Exception ex){
 			
 		}
-		return "friends.group.create";
+		return "friends.group.detail";
 	}
 	
 	public String updatSnsGroup(){
