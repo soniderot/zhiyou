@@ -74,7 +74,8 @@
 	<put-attribute name="head" value="/usr/header.jhtml"/>
 	<put-attribute name="left" value="/WEB-INF/jsp/member/left.jsp"/>
 	<put-attribute name="right" value="/sns/sns!listPeopleYouMayKnow.jhtml"/>
-	<put-attribute name="center" value="/WEB-INF/jsp/member/feed/feeds.jsp"/>
+	<put-attribute name="center" value="/WEB-INF/jsp/member/sns/friendGroup.jsp"/>
+	<put-attribute name="headline" value="/WEB-INF/jsp/member/sns/friendGrpHead.jsp"/>
 	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
 </definition>
 
