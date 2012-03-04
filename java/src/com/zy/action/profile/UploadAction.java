@@ -139,28 +139,27 @@ public class UploadAction {
 			String str = photoDir  + datedir  + fn;
 			ZyProfile profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
 			int[] result = profile.setProfileAvatar(str);
-			System.out.println("after.width---------"+result[0]);
-			System.out.println("after.height---------"+result[1]);
 			Map<String, Object> session  = ActionContext.getContext().getSession();
-			//session.put("userlogo", profile.getBigavatar());
 			HttpServletRequest request = ServletActionContext.getRequest();
 			String imageUrl = getUrl(request) + str;
 
 			try {
-						Face face = CropFaceUtils.getFirstFace("http://img.shouji.com.cn/upfiles/20110106/2047399389.jpg");
-	      		FaceCrop faceCrop = new FaceCrop();
-	      		faceCrop.setCentreX(face.getCenter().x);
-	      		faceCrop.setCentreY(face.getCenter().y);
-	      		faceCrop.setWidth(face.getWidth());
-	      		faceCrop.setHeight(face.getHeight());
-	      		session.put("faceCrop", faceCrop);
+				Face face = CropFaceUtils.getFirstFace(imageUrl);
+				FaceCrop faceCrop = new FaceCrop();
+				faceCrop.setCentreX(face.getCenter().x);
+				faceCrop.setCentreY(face.getCenter().y);
+				faceCrop.setWidth(face.getWidth());
+				faceCrop.setHeight(face.getHeight());
+				session.put("faceCrop", faceCrop);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 			profileFacade.updateProfile(profile);
-	    out.print("<script>parent.submitPhotoCallback('" + str + "')</script>");
+			String imgTag = "<img src='" + str;
+			imgTag += "' width='" +  result[0] + "' height='" + result[1];
+			imgTag += "' />";
+	    out.print("<script>parent.submitPhotoCallback(\"" + imgTag + "\")</script>");
 	    out.flush();
 	    out.close(); 
 		} catch (IOException e) {
@@ -192,10 +191,6 @@ public class UploadAction {
 	}
 	
 	public String cropPhotoAjax() {
-		System.out.println(x1);
-		System.out.println(y1);
-		System.out.println(x2);
-		System.out.println(y2);
 		
 		String root = ServletActionContext.getServletContext().getRealPath("/");
 		int userId = ActionUtil.getSessionUserId();
