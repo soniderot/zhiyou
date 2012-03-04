@@ -3,7 +3,6 @@ package com.zy.action.profile;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
@@ -18,7 +17,6 @@ import com.github.mhendred.face4j.model.Face;
 import com.utils.CropFaceUtils;
 import com.utils.FaceCrop;
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ObjectFactory;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
@@ -29,8 +27,43 @@ public class UploadAction {
 	private File logo;
 	private String logoContentType;
 	private ProfileFacade profileFacade;
+	private int x1;
+	private int y1;
+	private int x2;
+	private int y2;
 	
-	
+	public int getX1() {
+		return x1;
+	}
+
+	public int getY1() {
+		return y1;
+	}
+
+	public int getX2() {
+		return x2;
+	}
+
+	public int getY2() {
+		return y2;
+	}
+
+	public void setX1(int x1) {
+		this.x1 = x1;
+	}
+
+	public void setY1(int y1) {
+		this.y1 = y1;
+	}
+
+	public void setX2(int x2) {
+		this.x2 = x2;
+	}
+
+	public void setY2(int y2) {
+		this.y2 = y2;
+	}
+
 	public ProfileFacade getProfileFacade() {
 		return profileFacade;
 	}
@@ -111,16 +144,13 @@ public class UploadAction {
 			String imageUrl = getUrl(request) + str;
 
 			try {
-				Face face = CropFaceUtils.getFirstFace(imageUrl);
-	      System.out.println(imageUrl);
-	  		if (face != null) {
+						Face face = CropFaceUtils.getFirstFace("http://img.shouji.com.cn/upfiles/20110106/2047399389.jpg");
 	      		FaceCrop faceCrop = new FaceCrop();
 	      		faceCrop.setCentreX(face.getCenter().x);
 	      		faceCrop.setCentreY(face.getCenter().y);
 	      		faceCrop.setWidth(face.getWidth());
 	      		faceCrop.setHeight(face.getHeight());
 	      		session.put("faceCrop", faceCrop);
-	  		}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -158,6 +188,26 @@ public class UploadAction {
 		return null;
 	}
 	
+	public String cropPhotoAjax() {
+		System.out.println(x1);
+		System.out.println(y1);
+		System.out.println(x2);
+		System.out.println(y2);
+		
+    HttpServletResponse response = ServletActionContext.getResponse();    
+    response.setCharacterEncoding("UTF-8");
+    PrintWriter out;
+    try {
+    	out = response.getWriter();
+	    out.print("success");
+	    out.flush();
+	    out.close(); 
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 	private String getUrl(HttpServletRequest request) {
 		String url = "http://";
 		url = url + request.getServerName() + ":" + request.getServerPort();
