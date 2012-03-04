@@ -14,13 +14,14 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.github.mhendred.face4j.model.Face;
+import com.opensymphony.xwork2.ActionContext;
 import com.utils.CropFaceUtils;
 import com.utils.FaceCrop;
-import com.opensymphony.xwork2.ActionContext;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
+import com.zy.common.util.ImageUtil;
 import com.zy.facade.ProfileFacade;
 
 public class UploadAction {
@@ -137,9 +138,11 @@ public class UploadAction {
 			String datedir = "/" + DateUtil.formatDate(new Date()) + "/";
 			String str = photoDir  + datedir  + fn;
 			ZyProfile profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
-			//profile.setProfileAvatar(str);
+			int[] result = profile.setProfileAvatar(str);
+			System.out.println("after.width---------"+result[0]);
+			System.out.println("after.height---------"+result[1]);
 			Map<String, Object> session  = ActionContext.getContext().getSession();
-			session.put("userlogo", profile.getBigavatar());
+			//session.put("userlogo", profile.getBigavatar());
 			HttpServletRequest request = ServletActionContext.getRequest();
 			String imageUrl = getUrl(request) + str;
 
@@ -194,6 +197,20 @@ public class UploadAction {
 		System.out.println(x2);
 		System.out.println(y2);
 		
+		String root = ServletActionContext.getServletContext().getRealPath("/");
+		int userId = ActionUtil.getSessionUserId();
+		ZyProfile profile = profileFacade.findProfileById(userId);
+		String fileName = root+profile.getBigavatar();
+		System.out.println("-----------bigavatar-------"+fileName);
+		
+		String fileNameAtatar = root+profile.getAvatar();
+		try{
+			com.zy.common.util.ImageUtil.cropPic(fileName,fileNameAtatar,x1,y1,x2-x1,y2-y1);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		//profile.setAvatar(fileNameAtatar);
+		//profileFacade.updateProfile(profile);
     HttpServletResponse response = ServletActionContext.getResponse();    
     response.setCharacterEncoding("UTF-8");
     PrintWriter out;

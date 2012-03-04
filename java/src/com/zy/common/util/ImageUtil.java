@@ -1,5 +1,7 @@
 package com.zy.common.util;
 
+import java.awt.Rectangle;
+
 import magick.ImageInfo;
 import magick.MagickApiException;
 import magick.MagickException;
@@ -18,6 +20,15 @@ public class ImageUtil {
 		}else{
 			resetsize(picFrom,picTo,320,320);
 		}
+	}
+	
+	public static void cropPic(String srcPic,String targetPic,int x,int y,int width,int height) throws Exception{
+		magick.ImageInfo info = new magick.ImageInfo(srcPic);
+		Rectangle rect = new Rectangle(x,y,width,height);
+		MagickImage image = new MagickImage(info);
+		MagickImage cropped = image.cropImage(rect);
+		cropped.setFileName(targetPic);
+		cropped.writeImage(info);
 	}
 	
 	public static int[] resetsize(String picFrom, String picTo,int newWidth,int newHeight) {

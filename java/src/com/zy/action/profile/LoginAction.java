@@ -83,11 +83,13 @@ public class LoginAction extends MemberAction{
 		ZyProfile user = profileFacade.checkProfileLogin(email, password);
 		
 		if(user!=null){
+			
+			ActionUtil.getRequest().getSession().setAttribute("snsgroups",snsFacade.getFriendGroups(user.getUserid()));
 			System.out.println("------------into welcome----------"+user.getAvatar());
 			if(user.getAvatar()==null||user.getAvatar().equalsIgnoreCase("/images/DEFAULT.JPG")||user.getAvatar().equalsIgnoreCase("//images/DEFAULT.JPG")){
 				ActionContext.getContext().getSession().put("userlogo",null);
 			}else{
-				ActionContext.getContext().getSession().put("userlogo",user.getBigavatar());
+				ActionContext.getContext().getSession().put("userlogo",user.getAvatar());
 			}
 			
 			
