@@ -39,6 +39,7 @@ function submitPhotoToIframe(obj) {
 
 function submitPhotoCallback(imgSrc) {
   $("#profile_pic").attr("src", imgSrc);
+  $("#preview > img").attr("src", imgSrc);
   $("#profile_pic_form").removeClass("hidden_elem");
   $("#profile_pic_upload_indicator").addClass("profile_pic_display_none");
   initCropArea()
@@ -265,7 +266,7 @@ function afterCropAction() {
             <td>
               <div class="preview-wrapper hidden_elem">
                 <div id="preview" style="width: 200px; height: 200px;">
-                  <img hspace="0" height="320" border="0" width="240" vspace="0" class="dn" src="//d2etxn1uda9tyh.cloudfront.net/photos/2012/03/03/6103878.jpg" style="width: 400px; height: 533.333px; margin-left: 0px; margin-top: 0px; display: inline;"/>
+                  <img hspace="0" height="320" border="0" width="240" vspace="0" class="dn" src="images/DEFAULT.JPG" style="width: 400px; height: 533.333px; margin-left: 0px; margin-top: 0px; display: inline;"/>
                 </div>
               </div>
               <div class="profile_pic_new">
