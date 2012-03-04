@@ -11,8 +11,8 @@
   <link href="css/ejJoiNmHkkP.css" rel="stylesheet" type="text/css"/>
   <link href="css/mrLfwWIF5PY.css" rel="stylesheet" type="text/css"/>
   <link href="css/jquery.autocomplete.css" rel="stylesheet" type="text/css"/>
-  <link type="text/css" rel="stylesheet" href="css/jquery.tipsy.css"/>
-  
+  <link href="css/jquery.tipsy.css" type="text/css" rel="stylesheet"/>
+  <link href="css/jquery.imgareaselect.css" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" language="javascript" src="js/jquery.js"></script>
   <script type="text/javascript" language="javascript" src="js/jquery.autocomplete.js"></script>
   <script type="text/javascript" language="javascript" src="js/facebox.js"></script>
