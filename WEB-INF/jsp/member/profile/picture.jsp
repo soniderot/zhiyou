@@ -38,7 +38,6 @@ function submitPhotoToIframe(obj) {
 }
 
 function submitPhotoCallback(imgSrc) {
-alert(imgSrc);
   $("#orgPhoto").html(imgSrc);
   $("#preview").html(imgSrc);
   $("#profile_pic_form").removeClass("hidden_elem");
@@ -203,7 +202,7 @@ function submitCrop(form,x1,y1,x2,y2) {
         $.facebox("<div class='alert error'>上传头像失败, 请重新上传！</div>")
       }
     }
-  });
+  }, "text");
   
   return false;
 }
