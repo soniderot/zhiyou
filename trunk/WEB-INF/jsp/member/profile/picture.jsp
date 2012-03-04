@@ -236,7 +236,6 @@ function afterCropAction() {
       <input type="hidden" name="profileform.pageIndex" value="2"/>
       <table style="border-collapse:collapse;height:210px;" class="center">
         <tbody>
-       
           <tr>
             <td>
               <div id="orgPhoto" class="crop-picture">
