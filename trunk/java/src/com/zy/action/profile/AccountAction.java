@@ -3,47 +3,56 @@ package com.zy.action.profile;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.SecurityUtil;
+import com.zy.common.util.StringUtil;
 import com.zy.facade.ProfileFacade;
 
 public class AccountAction {
 	private ZyProfile profile;
-	private String newpassword;
-	private String confirmpassword;
-	private String newusername;
-	private String newemail;
+	private String username;
+	private String email;
+	private String passwd;
+	private String newPasswd1;
+	private String newPasswd2;
 	
-	
-	
-	public String getNewpassword() {
-		return newpassword;
+
+	public String getUsername() {
+		return username;
 	}
 
-	public void setNewpassword(String newpassword) {
-		this.newpassword = newpassword;
+	public String getEmail() {
+		return email;
 	}
 
-	public String getConfirmpassword() {
-		return confirmpassword;
+	public String getPasswd() {
+		return passwd;
 	}
 
-	public void setConfirmpassword(String confirmpassword) {
-		this.confirmpassword = confirmpassword;
+	public String getNewPasswd1() {
+		return newPasswd1;
 	}
 
-	public String getNewusername() {
-		return newusername;
+	public String getNewPasswd2() {
+		return newPasswd2;
 	}
 
-	public void setNewusername(String newusername) {
-		this.newusername = newusername;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getNewemail() {
-		return newemail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public void setNewemail(String newemail) {
-		this.newemail = newemail;
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
+
+	public void setNewPasswd1(String newPasswd1) {
+		this.newPasswd1 = newPasswd1;
+	}
+
+	public void setNewPasswd2(String newPasswd2) {
+		this.newPasswd2 = newPasswd2;
 	}
 
 	public ZyProfile getProfile() {
@@ -70,15 +79,23 @@ public class AccountAction {
 	}
 	
 	public String update(){
-		if(newpassword!=null&&newpassword.trim().length()>0){
-			if(newpassword.equalsIgnoreCase(confirmpassword)){
-				profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
-				profile.setPasswd(SecurityUtil.getMD5(newpassword));
-				profileFacade.updateProfile(profile);
+		profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
+		if(!StringUtil.isNull(email) && !email.equals(profile.getEmail())){
+			profile.setEmail(email);
+		}
+		if(!StringUtil.isNull(username) && !username.equals(profile.getUsername())){
+			profile.setUsername(username);
+		}
+		if (newPasswd1 != null && newPasswd1.trim().length() > 0) {
+			if (newPasswd1.equalsIgnoreCase(newPasswd2)) {
+				profile.setPasswd(SecurityUtil.getMD5(newPasswd1));
 			}
 		}
-		ActionUtil.getSession().put("user",profile);
+		profileFacade.updateProfile(profile);
+		ActionUtil.getSession().put("user", profile);
+		ActionUtil.getRequest().setAttribute("result", "success");
 		return "member.account";
 	}
+
 	
 }

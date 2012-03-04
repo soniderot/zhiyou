@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 
 import com.zy.common.model.ZyProfile;
+import com.zy.common.util.ActionUtil;
+import com.zy.common.util.SecurityUtil;
 import com.zy.facade.ProfileFacade;
 
 public class ValidateAction extends MemberAction{
@@ -22,17 +24,14 @@ public class ValidateAction extends MemberAction{
 		this.profileFacade = profileFacade;
 	}
 
-	public String checkEmail(){
+	public String checkEmailAjax(){
     try {
     	HttpServletRequest request = ServletActionContext.getRequest();
     	String email = request.getParameter("email");
     	ZyProfile profile = this.profileFacade.findProfileByEmail(email);
-      //获取原始的PrintWriter对象,以便输出响应结果,而不用跳转到某个试图    
-      HttpServletResponse response = ServletActionContext.getResponse();    
-      //设置字符集
+      HttpServletResponse response = ServletActionContext.getResponse();
       response.setCharacterEncoding("UTF-8");
       PrintWriter out = response.getWriter();
-      //直接输入响应的内容
       if (profile == null) {
       	out.print("false");
       } else {
@@ -48,4 +47,28 @@ public class ValidateAction extends MemberAction{
     return null;  
 	}
 
+	public String checkPasswordAjax(){
+    try {
+    	HttpServletRequest request = ServletActionContext.getRequest();
+    	String password = request.getParameter("password");
+    	password = SecurityUtil.getMD5(password);
+    	ZyProfile profile = this.profileFacade.findProfileById(ActionUtil.getSessionUserId());
+      HttpServletResponse response = ServletActionContext.getResponse();
+      response.setCharacterEncoding("UTF-8");
+      PrintWriter out = response.getWriter();
+      if (password.equals(profile.getPasswd())) {
+      	out.print("true");
+      } else {
+      	out.print("false");
+      }
+      out.flush();    
+      out.close();    
+
+    } catch (Exception e) {
+        // TODO: handle exception    
+        e.printStackTrace();    
+    }    
+    return null;  
+	}
+	
 }
