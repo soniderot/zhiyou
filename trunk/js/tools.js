@@ -51,7 +51,7 @@ function checkEmail(obj) {
 	}
 	var result = true;
 	$.ajax({
-	    url: 'usr/checkEmail.jhtml',
+	    url: 'usr/validate!checkEmailAjax.jhtml',
 	    type: 'GET',
 	    dataType: 'text',
 	    async: false,
@@ -59,6 +59,27 @@ function checkEmail(obj) {
 	    success: function (data) {
 	    	if (data=='true') {
 				$(obj).attr("tooltip","邮件地址已经被注册，请直接登录。");
+				$(obj).tipsy("show");
+				setFocus(obj);
+				result = false;
+	    	}
+	    }
+	});
+	return result;
+}
+
+function checkOldPassword(obj) {
+	var fieldVal = $(obj).val();
+	var result = true;
+	$.ajax({
+	    url: 'usr/validate!checkPasswordAjax.jhtml',
+	    type: 'GET',
+	    dataType: 'text',
+	    async: false,
+	    data: "password="+fieldVal,
+	    success: function (data) {
+	    	if (data=='false') {
+				$(obj).attr("tooltip","输入密码有误，请重新输入。");
 				$(obj).tipsy("show");
 				setFocus(obj);
 				result = false;
