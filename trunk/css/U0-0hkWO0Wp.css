@@ -1762,6 +1762,10 @@ div.FriendButton .customimg{margin:2px 5px 0 0}
 .profile-picture:hover .edit_profilepicture{display:block}
 .profile-picture img{display:block;margin:auto;max-width:180px}
 .profile-picture span{background-color:#000;height:800px;position:absolute;top:0;right:0;width:1px;opacity:.30}
+.crop-picture{background-color:#fff;display:block;overflow:hidden;position:relative;max-width:400px}
+.crop-picture:hover{text-decoration:none}
+.crop-picture:hover .edit_profilepicture{display:block}
+.crop-picture img{display:block;margin:auto;max-width:400px}
 .edit_profilepicture{background:#000;color:#fff;display:none;height:20px;opacity:.7;padding:6px 7px 0 23px;position:absolute;right:1px;top:0}
 .edit_profilepicture:hover{opacity:.95}
 span.edit_profilepicture_icon{background:url(../images/QbfalTL4SQ2.png) no-repeat left 4px;height:18px;left:7px;opacity:.95;position:absolute;top:4px;width:18px}
@@ -2176,4 +2180,12 @@ margin:0 4px 4px 0;
 padding:0 3px;
 position:relative;
 white-space:nowrap;
+}
+.preview-wrapper {
+margin-left:80px;
+text-align:right;
+}
+#preview {
+margin-bottom:20px;
+overflow:hidden;
 }
