@@ -742,7 +742,8 @@ public class SNSActioin extends ActionSupport{
 	
 	public String updatSnsGroup(){
 		snsFacade.updateSNSGroup(ActionUtil.getSessionUserId(), snsGroupId, snsGroupname);
-    try {
+		ActionUtil.getRequest().getSession().setAttribute("snsgroups",snsFacade.getFriendGroups(ActionUtil.getSessionUserId()));
+		try {
       HttpServletResponse response = ServletActionContext.getResponse();
       response.setCharacterEncoding("UTF-8");
       PrintWriter out = response.getWriter();
@@ -761,6 +762,7 @@ public class SNSActioin extends ActionSupport{
 	}
 	
 	public String deleteSnsGroup() {
+		snsFacade.removeSNSGroup(snsGroupId, ActionUtil.getSessionUserId());
 		return "friends.group.list";
 	}
 	

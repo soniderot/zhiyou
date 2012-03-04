@@ -234,7 +234,7 @@ public class ZyProfile implements java.io.Serializable {
 		this.avatar = avatar;
 	}
 	
-	public void setProfileAvatar(String avatar) {
+	public int[] setProfileAvatar(String avatar) {
 		
 		String smallLogo = avatar.replace(".jpg","-small.jpg");
 		ImageUtil.resetsize(avatar,smallLogo,180,180);
@@ -244,7 +244,7 @@ public class ZyProfile implements java.io.Serializable {
 		
 		this.avatar = smallLogo;
 		this.bigavatar = bigLogo;
-		
+		return result;
 	}
 	
 	public String getGenderStr(){

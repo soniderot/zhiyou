@@ -1,13 +1,32 @@
 package com.utils;
 
+import java.awt.Rectangle;
+
 import magick.ImageInfo;
 import magick.MagickApiException;
 import magick.MagickException;
 import magick.MagickImage;
 
 public class ImageUtil {
-	public static void main(String[] args) {
-		resetsize("d:\\BEIBEI.JPG", "d:\\aaa.jpg");
+	public static void main(String[] args) throws Exception{
+		//resetsize("d:\\BEIBEI.JPG", "d:\\aaa.jpg");
+		
+		String fileName = "D:\\aaa.jpg";
+		magick.ImageInfo info = new magick.ImageInfo(fileName);
+		Rectangle rect = new Rectangle(0,0,100,100);
+		MagickImage image = new MagickImage(info);
+		MagickImage cropped = image.cropImage(rect);
+		cropped.setFileName("d:\\bbb.jpg");
+		cropped.writeImage(info);
+	}
+	
+	public static void cropPic(String srcPic,String targetPic,int x,int y,int width,int height) throws Exception{
+		magick.ImageInfo info = new magick.ImageInfo(srcPic);
+		Rectangle rect = new Rectangle(x,y,width,height);
+		MagickImage image = new MagickImage(info);
+		MagickImage cropped = image.cropImage(rect);
+		cropped.setFileName(targetPic);
+		cropped.writeImage(info);
 	}
 
 	public static void resetsize(String picFrom, String picTo) {
@@ -52,7 +71,6 @@ public class ImageUtil {
 
 			System.out.println("-----targetwidth------"+targetW);
 			System.out.println("-----targetheight------"+targetH);
-			
 			MagickImage scaled = image.scaleImage(targetW, targetH);
 			scaled.setFileName(picTo);
 			scaled.writeImage(info);
