@@ -38,11 +38,12 @@ function submitPhotoToIframe(obj) {
 }
 
 function submitPhotoCallback(imgSrc) {
-  $("#profile_pic").attr("src", imgSrc);
-  $("#preview > img").attr("src", imgSrc);
+alert(imgSrc);
+  $("#orgPhoto").html(imgSrc);
+  $("#preview").html(imgSrc);
   $("#profile_pic_form").removeClass("hidden_elem");
   $("#profile_pic_upload_indicator").addClass("profile_pic_display_none");
-  initCropArea()
+  initCropArea();
 }
 
 function deletePhotoAjax() {
@@ -51,9 +52,9 @@ function deletePhotoAjax() {
     url: "usr/upload!deletePhotoAjax.jhtml",
     success: function(data) {
       if (data == 2) {
-         $("#profile_pic").attr("src", "images/female.gif");
+         $("#orgPhoto > img").attr("src", "images/female.gif");
       } else {
-        $("#profile_pic").attr("src", "images/male.gif");
+        $("#orgPhoto > img").attr("src", "images/male.gif");
       }
       $('#dialog_1').addClass('hidden_elem');
     }
@@ -240,10 +241,10 @@ function afterCropAction() {
             <td>
               <div id="orgPhoto" class="crop-picture">
               	<s:if test="#session.userlogo!=null">   
-                <img width="400" height="320" src="<s:property value="#session.userlogo"/>" id="profile_pic"/>
+                <img src="<s:property value="#session.userlogo"/>" />
                 </s:if>   
                 <s:else>
-                <img width="400" height="320" src="images/DEFAULT.JPG" id="profile_pic"/>
+                <img src="images/DEFAULT.JPG" id="profile_pic" />
                 </s:else>
               </div>
               
@@ -264,9 +265,7 @@ function afterCropAction() {
             </td>
             <td>
               <div class="preview-wrapper hidden_elem">
-                <div id="preview" style="width: 200px; height: 200px;">
-                  <img hspace="0" height="320" border="0" width="240" vspace="0" class="dn" src="images/DEFAULT.JPG" style="width: 400px; height: 533.333px; margin-left: 0px; margin-top: 0px; display: inline;"/>
-                </div>
+                <div id="preview" style="width: 200px; height: 200px;"></div>
               </div>
               <div class="profile_pic_new">
                 <div class="profile_pic_upload">
