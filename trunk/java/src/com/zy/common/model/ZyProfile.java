@@ -1,9 +1,12 @@
 package com.zy.common.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.ImageUtil;
+import com.zy.common.util.StringUtil;
 
 /**
  * ZyProfile entity.
@@ -59,6 +62,7 @@ public class ZyProfile implements java.io.Serializable {
 	
 	private String bigavatar;
 	
+	private List<ZyInterest> hobbyList;
 	// Constructors
 
 
@@ -428,4 +432,11 @@ public class ZyProfile implements java.io.Serializable {
 		this.bigavatar = bigavatar;
 	}
 
+	public List<ZyInterest> getHobbyList() {
+		return this.hobbyList;
+	}
+
+	public void setHobbyList(List<ZyInterest> hobbyList) {
+		this.hobbyList = hobbyList;
+	}
 }
