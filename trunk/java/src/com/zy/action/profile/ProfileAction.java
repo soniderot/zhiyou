@@ -219,6 +219,7 @@ public class ProfileAction {
 
 	public String viewProfileInfo(){
 		profile = profileFacade.findProfileById(userid);
+		profile.setHobbyList(getHobbyList(profile.getHobby()));
 		friends = snsFacade.getAllFriends(userid,0,(short)1);
 		
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
@@ -236,15 +237,7 @@ public class ProfileAction {
 		setFriendRequestFlag();
 		feeds = feedFacade.getNewsFeed(userid,""+userid,null,pageNo,pageSize);
 		profile = profileFacade.findProfileById(userid);
-		List<ZyInterest> hobbies = new ArrayList<ZyInterest>();
-		if (!StringUtil.isNull(profile.getHobby())) {
-			String[] hobbyArr = profile.getHobby().split(" ");
-			for(int i = 0; i < hobbyArr.length; i++) {
-				ZyInterest interest = optionFacade.getInterestById(Integer.parseInt(hobbyArr[i]));
-				hobbies.add(interest);
-			}
-		}
-		profile.setHobbyList(hobbies);
+		profile.setHobbyList(getHobbyList(profile.getHobby()));
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 		viewType[0] = "selectedItem open";
 		int count = feedFacade.getNewsFeed(userid,""+userid,null,1,Integer.MAX_VALUE).size();
@@ -270,5 +263,16 @@ public class ProfileAction {
 		
 		return "profile.friends";
 	}
-
+	
+	private List<ZyInterest> getHobbyList(String hobby) {
+		List<ZyInterest> hobbies = new ArrayList<ZyInterest>();
+		if (!StringUtil.isNull(hobby)) {
+			String[] hobbyArr = hobby.split(" ");
+			for(int i = 0; i < hobbyArr.length; i++) {
+				ZyInterest interest = optionFacade.getInterestById(Integer.parseInt(hobbyArr[i]));
+				hobbies.add(interest);
+			}
+		}
+		return hobbies;
+	}
 }
