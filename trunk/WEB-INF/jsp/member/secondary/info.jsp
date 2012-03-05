@@ -24,9 +24,13 @@
                   <th class="label">活动爱好</th>
                   <td class="data">
                     <div id="ucyftu_8" class="uiCollapsedList uiCollapsedListHidden uiCollapsedListNoSeparate pagesListData">
+                      <s:iterator value="profile.hobbyList" id="interest" status="rowstatus">
+                      <s:if test="#rowstatus.index < 4">
                       <span class="visible">
-                      	<s:property value="profile.hobby"/>
+                      	<s:property value="#interest.tag"/>
                       </span>
+                      </s:if>
+                      </s:iterator>
                     </div>
                   </td>
                   <td class="rightCol"></td>
