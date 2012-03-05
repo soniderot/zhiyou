@@ -1,14 +1,18 @@
 package com.zy.action.profile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.zy.Constants;
+import com.zy.common.model.ZyInterest;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRequest;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.Page;
+import com.zy.common.util.StringUtil;
 import com.zy.domain.feed.bean.FeedBean;
 import com.zy.facade.FeedFacade;
+import com.zy.facade.OptionFacade;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
@@ -17,6 +21,7 @@ public class ProfileAction {
 	private int userid;
 	private ProfileFacade profileFacade;
 	private RequestFacade requestFacade;
+	private OptionFacade optionFacade;
 	private ZyProfile profile;
 	private List<ZyProfile> friends;
 	private List<ZyProfile> profiles;
@@ -38,6 +43,15 @@ public class ProfileAction {
 	
 	private boolean requestInFlag;
 
+
+	public OptionFacade getOptionFacade() {
+		return optionFacade;
+	}
+
+	public void setOptionFacade(OptionFacade optionFacade) {
+		this.optionFacade = optionFacade;
+	}
+	
 	public RequestFacade getRequestFacade() {
 		return requestFacade;
 	}
@@ -222,6 +236,15 @@ public class ProfileAction {
 		setFriendRequestFlag();
 		feeds = feedFacade.getNewsFeed(userid,""+userid,null,pageNo,pageSize);
 		profile = profileFacade.findProfileById(userid);
+		List<ZyInterest> hobbies = new ArrayList<ZyInterest>();
+		if (!StringUtil.isNull(profile.getHobby())) {
+			String[] hobbyArr = profile.getHobby().split(" ");
+			for(int i = 0; i < hobbyArr.length; i++) {
+				ZyInterest interest = optionFacade.getInterestById(Integer.parseInt(hobbyArr[i]));
+				hobbies.add(interest);
+			}
+		}
+		profile.setHobbyList(hobbies);
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 		viewType[0] = "selectedItem open";
 		int count = feedFacade.getNewsFeed(userid,""+userid,null,1,Integer.MAX_VALUE).size();
@@ -247,4 +270,5 @@ public class ProfileAction {
 		
 		return "profile.friends";
 	}
+
 }
