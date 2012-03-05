@@ -18,7 +18,7 @@
               <div class="egoProfileTemplate UIImageBlock_Content UIImageBlock_SMALL_Content">
               	<div class="ego_action">
               	  <span class="rightLabel">活动爱好</span>
-                  <span class="rightValue"><s:if test="profile.hobbyList.size > 0"><s:property value="profile.hobbyList[0].tag"/></s:if></span>
+                  <span class="rightValue"><s:iterator value="profile.hobbyList" id="interest" status="rowstatus"><s:property value="#interest.tag"/>&nbsp;&nbsp;</s:iterator></span>
               	</div>
               	<div class="ego_action">
               	  <span class="rightLabel">兴趣</span>
