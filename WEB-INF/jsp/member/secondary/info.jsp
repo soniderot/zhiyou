@@ -25,11 +25,9 @@
                   <td class="data">
                     <div id="ucyftu_8" class="uiCollapsedList uiCollapsedListHidden uiCollapsedListNoSeparate pagesListData">
                       <s:iterator value="profile.hobbyList" id="interest" status="rowstatus">
-                      <s:if test="#rowstatus.index < 4">
                       <span class="visible">
                       	<s:property value="#interest.tag"/>
                       </span>
-                      </s:if>
                       </s:iterator>
                     </div>
                   </td>
