@@ -57,7 +57,7 @@
               <a href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />" class="uiImageBlockImage uiImageBlockLargeImage lfloat">
                 <img alt="" src="<s:property value="event.logo" />" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgScaleHeight img"/>
               </a>
-              <div class="clearfix uiImageBlockContent">
+              <div class="clearfix uiImageBlockContent" style="vertical-align:top;">
                 <div class="uiInlineBlock mlm rfloat">
                   <div style="height: 50px;" class="uiInlineBlock uiInlineBlockMiddle"></div>
                  
