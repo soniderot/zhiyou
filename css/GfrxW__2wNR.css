@@ -1634,7 +1634,7 @@ li.showAllExperiences{border-top:1px solid #e5eaf1;padding-top:7px;text-align:ce
 .profileInfoTable th.label{color:#999;font-weight:bold;line-height:15px;text-align:left;vertical-align:top;width:90px}
 .nile_profile .profileInfoTable th.label{font-size: 12px;line-height:16px}
 .profileInfoTable .greenLink{color:#060}
-.profileInfoTable td.data{line-height:15px}
+.profileInfoTable td.data{line-height:15px;overflow: hidden;}
 .profileInfoTable td.rightCol{padding:3px 0 0 35px;text-align:right;width:50px}
 .profileInfoTable .sampleImageCaption{text-align:center;width:50px;word-wrap:break-word}
 .profileInfoTable .uiInfoTable .label{color:#666;font-size: 12px;font-weight:normal;padding-top:0}
