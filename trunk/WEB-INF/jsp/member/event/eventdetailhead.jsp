@@ -1,8 +1,10 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <%@page contentType="text/html; charset=UTF-8"%>
-<div class="mbl" id="event_info_pagelet" data-referrer="event_info_pagelet">
-	<img class="uiPhotoThumb largePhoto" widhth="320" height="320" src="<s:property value="event.biglogo" />" alt="">
-  <table class="uiInfoTable mvm profileInfoTable">
+<div class="mbl" id="event_info_pagelet">
+  <s:if test="%{event.biglogo!=null && event.biglogo!=''}">
+  <img class="uiPhotoThumb largePhoto" width="320" height="320" src="<s:property value="event.biglogo" />" alt="">
+  </s:if>
+  <table class="uiInfoTable mvm profileInfoTable" style="table-layout:fixed;">
     <tbody>
       <tr>
         <th class="label">时间</th>
