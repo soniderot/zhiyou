@@ -20,14 +20,14 @@
     <div id="pagelet_main_column_personal">
       <div id="pagelet_friends_tab">
         <div id="ulclp8_3" class="fbProfileBrowser">
+          <a class="uiAddPhoto" onclick="return showPopup('dialog_uploadPhoto');" href="javascript:void(0);" rel="dialog-post">
+            <span class="uiButtonText">+添加活动照片</span>
+          </a>
           <div>
             <div class="uiHeader uiHeaderTopAndBottomBorder uiHeaderSection">
               <div class="clearfix uiHeaderTop">
                 <div>
                   <h3 class="uiHeaderTitle">活动照片</h3>
-                  <a class="uiAddPhoto" onclick="return showPopup('dialog_uploadPhoto');" href="javascript:void(0);" rel="dialog-post">
-                    <span class="uiButtonText">+添加活动照片</span>
-                  </a>
                 </div>
               </div>
             </div>
