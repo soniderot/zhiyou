@@ -57,7 +57,7 @@
               <a href="event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />" class="uiImageBlockImage uiImageBlockLargeImage lfloat">
                 <img alt="" src="<s:property value="event.logo" />" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgScaleHeight img"/>
               </a>
-              <div class="clearfix uiImageBlockContent" style="vertical-align:top;">
+              <div class="clearfix uiImageBlockContent">
                 <div class="uiInlineBlock mlm rfloat">
                   <div style="height: 50px;" class="uiInlineBlock uiInlineBlockMiddle"></div>
                  
@@ -68,7 +68,7 @@
                     </div>
                   </div>-->
                   
-                  <div class="uiInlineBlock uiInlineBlockMiddle">
+                  <div class="uiInlineBlock uiInlineBlockTop">
                     <div id="req_220103838085749" class="mvl">
                       <div class="stat_elem">
                         <div class="fbEventListItemActions fsm fwn fcg">
@@ -104,7 +104,7 @@
                       </div>
                       
                       <div class="fsm fwn fcg">举办地点：<s:property value='event.address' /> 
-                     <div class="fsm fwn fcg">活动描述：<s:property value='event.detail' /> 
+                     <div class="fsm fwn fcg" style="white-space:nowrap">活动描述：<s:property value='event.detail' /> 
                        <div class="fsm fwn fcg">参加人数：<s:property value='members.size()' />  照片数：<s:property value='event.photosCnt' /> 评论数：<s:property value='event.commentsCnt' />
                        	
                     </div>
