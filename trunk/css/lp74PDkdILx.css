@@ -582,7 +582,7 @@ div.uiTypeaheadView .selected{background-color:#6d84b4;border-color:#3b5998}
 .video_embed_dialog{z-index:401}
 
 #bootloader_ht6Sh { height: 42px; }
-.uiAddPhoto {float:right;position:absolute;top:312px;top:302px\9;left:600px;}
+.uiAddPhoto {float:right;position:relative;top:5px;}
 .sx_f58673 {background-position:-19px -327px;}
 .sp_84xm9t {
 background-image:url(../images/mMRgz34CBBS.png);
