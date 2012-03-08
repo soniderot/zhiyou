@@ -48,7 +48,7 @@
                          <a>
                             <div class="photoWrapper">
                               <div class="photoCrop">
-                                <img alt="" src="<s:property value='photo.filename' />" onclick="showBigPhoto(<s:property value='feed.id' />)" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgScaleHeight img"/>
+                                <img alt="" src="<s:property value='photo.filename' />" onclick="showBigPhoto(<s:property value='feed.id' />)" class="fbEventLargePortraitImgScaleWidth fbEventLargePortraitImgScaleHeight img"/>
                               </div>
                             </div>
                             <span class="textWrap fsm fwb"></span>
@@ -57,18 +57,6 @@
                         </div>
                       </li>
                       </s:iterator>
-                      <!-- 
-                      <li class="pls uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-                        <div class="fbProfileLargePortrait fbProfileLargeMarginLeft">
-                          <a rel="" href="/find-friends/browser/?ref=pb">
-                            <div class="photoWrapper">
-                            <img src="/images/icons/find_classmates.png" class="blankStateUserListImage"/>
-                            </div>
-                            <strong>查找同学</strong>
-                          </a>
-                        </div>
-                      </li>
-                       -->
                     </ul>
                   </div>
                 </div>
