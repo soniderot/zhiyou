@@ -106,22 +106,27 @@
                 <div class="fbProfileBrowserLargeList fbProfileBrowserListContainer">
                   <ul class="uiList uiListHorizontal clearfix mvm phs">
                     <s:iterator value="profileList" status='st'>
-                    	<s:if test="#st.index%6==0&&match==null"> 
+                    	<s:if test="#st.index%4==0&&match==null"> 
                     		<ul class="uiList uiListHorizontal clearfix mvm phs">
                     			</ul>
                     		</s:if> 
                     <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-                      <div  class="fbProfileLargePortrait">
-                        <a href="/sns/match.jhtml?profileId=<s:property value='userid'/>&startAge=<s:property value='startAge'/>&endAge=<s:property value='endAge'/>&gender=<s:property value='matchgender'/>&keyword=<s:property value='keyword'/>">
-                          <div class="photoWrapper">
-                            <div class="photoCrop">
-                              <img  alt="" src="<s:property value='avatar'/>" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgScaleHeight img"/>
-                            </div>
-                          </div>
-                          <span class="textWrap fsm fwb"><s:property value='username'/></span>
-                        </a>
-                        <div class="textWrap fsm fcg"><s:property value='cityname'/></div>
-                      </div>
+                      <div class="dragWrapper">
+						            		<a ajaxify="" rel="theater" title="" href="#" name="2731105203678" id="pic_2731105203678" class="uiMediaThumb uiScrollableThumb uiMediaThumbHuge">
+							                <div class="tagWrapper">
+							                	<i style="background-image: url(http://localhost:8080/photos/2012/02/25/1cdec9db-5b72-45d1-b8fa-f06654d36998-small.jpg);"></i>
+							                 <span class="textWrap fsm fwb">
+							                 	 <div class="textWrap fsm fcg" align="center"><s:property value='username'/></div>
+							                  
+							                  <div class="textWrap fsm fcg" align="center"><s:property value='age'/>岁,<s:property value='cityname'/></div>
+							                  <div class="taggerOverlay hidden_elem">
+							                   </span>
+							                  </div>
+							                </div>
+						                </a>
+						                <i class="dragHover img sp_biub6x sx_e83c4c"></i>
+						                
+						              </div>
                     </li>
                     </s:iterator>
                   </ul>

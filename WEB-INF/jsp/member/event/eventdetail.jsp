@@ -21,7 +21,11 @@
       <div id="pagelet_friends_tab">
         <div id="ulclp8_3" class="fbProfileBrowser">
           <a class="uiAddPhoto" onclick="return showPopup('dialog_uploadPhoto');" href="javascript:void(0);" rel="dialog-post">
-            <span class="uiButtonText">+添加活动照片</span>
+            <span class="uiButtonText">&nbsp;&nbsp;添加活动照片</span>
+          </a>
+          
+           <a class="uiAddPhoto"  href="event/event!viewEventPhotos.jhtml?eventId=<s:property value='event.id' />" rel="dialog-post">
+            <span class="uiButtonText">&nbsp;&nbsp;&nbsp;&nbsp;查看更多</span>
           </a>
           <div>
             <div class="uiHeader uiHeaderTopAndBottomBorder uiHeaderSection">
@@ -41,10 +45,10 @@
                       <s:iterator value="eventPhotos" status="status" id="eventPhoto">
                       <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
                         <div class="fbProfileLargePortrait fbProfileLargeMarginLeft">
-                          <a href="event/event!viewEventPhotos.jhtml?eventId=<s:property value='event.id' />">
+                         <a>
                             <div class="photoWrapper">
                               <div class="photoCrop">
-                                <img alt="" src="<s:property value='photo.filename' />" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgSmall img"/>
+                                <img alt="" src="<s:property value='photo.filename' />" onclick="showBigPhoto(<s:property value='feed.id' />)" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgScaleHeight img"/>
                               </div>
                             </div>
                             <span class="textWrap fsm fwb"></span>

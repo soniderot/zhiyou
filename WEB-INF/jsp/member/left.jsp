@@ -253,7 +253,7 @@
                           <span class="mover hidden_elem"></span>
                         </li>
                         <li id="navItem_app_2305272732" class="sideNavItem stat_elem <s:property value="#session.menuSelect[8]"/>">
-                          <a class="item clearfix sortableItem">
+                          <a class="item clearfix sortableItem" href="usr/feed.jhtml?handle=sns.publish.photo,sns.event.photo">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">

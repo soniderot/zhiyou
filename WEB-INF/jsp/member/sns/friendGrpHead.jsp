@@ -35,7 +35,7 @@ $(function(){
     return false;
   }
 </script>
-<s:if test="friendsInGroup==null || friendsInGroup.size==0">
+<s:if test="friendsInGroup==null || friendsInGroup.size==0||1>0">
 <div id="headerArea">
   <div class="uiHeader uiHeaderWithImage friendListHeader" id="u29f2l_1">
     <div class="clearfix uiHeaderTop">
