@@ -63,9 +63,6 @@
                     <td>性别：</td>
                     <td>
                       <s:select name="gender" list="#{'0':'选择性别', '1':'男', '2':'女'}"></s:select>
-                      
-                     
-                      </label>
                     </td>
                   </tr>
                   <tr id="u9ikxu_15">
@@ -108,25 +105,23 @@
                     <s:iterator value="profileList" status='st'>
                     	<s:if test="#st.index%4==0&&match==null"> 
                     		<ul class="uiList uiListHorizontal clearfix mvm phs">
-                    			</ul>
-                    		</s:if> 
+                    		</ul>
+                    	</s:if> 
                     <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
                       <div class="dragWrapper">
-						            		<a ajaxify="" rel="theater" title="" href="#" name="2731105203678" id="pic_2731105203678" class="uiMediaThumb uiScrollableThumb uiMediaThumbHuge">
-							                <div class="tagWrapper">
-							                	<i style="background-image: url(http://localhost:8080/photos/2012/02/25/1cdec9db-5b72-45d1-b8fa-f06654d36998-small.jpg);"></i>
-							                 <span class="textWrap fsm fwb">
-							                 	 <div class="textWrap fsm fcg" align="center"><s:property value='username'/></div>
-							                  
-							                  <div class="textWrap fsm fcg" align="center"><s:property value='age'/>岁,<s:property value='cityname'/></div>
-							                  <div class="taggerOverlay hidden_elem">
-							                   </span>
-							                  </div>
-							                </div>
-						                </a>
-						                <i class="dragHover img sp_biub6x sx_e83c4c"></i>
-						                
-						              </div>
+                        <a ajaxify="" rel="theater" title="" href="#" name="2731105203678" id="pic_2731105203678" class="uiMediaThumb uiScrollableThumb uiMediaThumbHuge">
+                          <div class="tagWrapper">
+                            <a>
+                              <img height="116" width="160" src="http://www.aoboo.com/uploadfile/a4/album/2008-8/2008081412182573401.jpg"/>
+                            </a>
+                            <span class="textWrap fsm fwb">
+                              <div class="textWrap fsm fcg" align="center"><s:property value='username'/></div>
+                              <div class="textWrap fsm fcg" align="center"><s:property value='age'/>岁,<s:property value='cityname'/></div>
+                            </span>
+                          </div>
+                        </a>
+                        <i class="dragHover img sp_biub6x sx_e83c4c"></i>
+                      </div>
                     </li>
                     </s:iterator>
                   </ul>
@@ -140,8 +135,8 @@
     </table>
      <div  align="right">
             <div>
-            	<s:if test="profileList.size()>0">
-            	<jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
+              <s:if test="profileList.size()>0">
+              <jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
             </s:if>
            
             </div>
@@ -179,7 +174,7 @@
     return false;
   }
   function nextPhoto() {
-  	 var agefrom = $("select[name='startAge']").val();
+    var agefrom = $("select[name='startAge']").val();
     var ageto = $("select[name='endAge']").val();
     var gender = $("radio[name='gender']").val();
     var keyword = $("input[name='keyword']").val();

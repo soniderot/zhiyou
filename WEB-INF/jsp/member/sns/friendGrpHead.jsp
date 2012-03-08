@@ -31,11 +31,11 @@ $(function(){
       $(".name").html(data);
       form.snsGroupname.placeholder = data;
       $("#u29f2l_1").removeClass("friendListHeaderEditMode");
+      $("#navItem_grp_"+form.snsGroupId.value).find(".linkWrap").text(data);
     }, "html");
     return false;
   }
 </script>
-<s:if test="friendsInGroup==null || friendsInGroup.size==0||1>0">
 <div id="headerArea">
   <div class="uiHeader uiHeaderWithImage friendListHeader" id="u29f2l_1">
     <div class="clearfix uiHeaderTop">
@@ -51,7 +51,7 @@ $(function(){
                       <a rel="ignore" href="#" onclick="return showRenameForm()" tabindex="0" class="itemAnchor"><span class="itemLabel fsm">重命名朋友列表</span></a>
                     </li>
                     <li class="uiMenuItem">
-                      <a href="#" rel="dialog" tabindex="-1" class="itemAnchor"><span class="itemLabel fsm">添加/删除朋友……</span></a>
+                      <a href="#" rel="dialog" onclick="return getGroupFriends(${param.groupId})" tabindex="-1" class="itemAnchor"><span class="itemLabel fsm">添加/删除朋友……</span></a>
                     </li>
                     <li class="uiMenuSeparator"/>
                     <li class="uiMenuItem">
@@ -96,5 +96,4 @@ $(function(){
     </div>
   </div>
 </div>
-</s:if>
 <%@ include file="/WEB-INF/jsp/popup/delGroupPop.jsp"%>

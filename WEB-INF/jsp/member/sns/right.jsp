@@ -18,7 +18,7 @@ function sendFriendRequest(obj, userId) {
 }
 </script>
 <div role="complementary" id="rightCol">
-  <div class="home_right_column">
+  <div class="<s:if test='friendGroup==null'>home_right_column</s:if>" >
     <div class="rightColumnWrapper">
       <div id="pagelet_chbox"></div>
       <div id="pagelet_ego_pane_w">
