@@ -520,6 +520,7 @@ public class EventAction {
 		
 		if(eventId>0){
 			event.setLogo(eventFacade.getEvent(eventId).getLogo());
+			event.setBiglogo(eventFacade.getEvent(eventId).getBiglogo());
 		}
 		
 		System.out.println("-----------------publicflag----------------"+publicflag);

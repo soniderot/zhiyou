@@ -370,7 +370,7 @@ public class SNSServiceImpl implements SNSService{
 	public void removeSNSGroup(int ZyGroupId,int operatorId){
 		List<ZyFriend> friends = friendDao.getFriendsByGroupId(ZyGroupId);
 		for(int i=0;i<friends.size();i++){
-			friends.get(i).setGroupid(null);
+			friends.get(i).setGroupid(0);
 		}
 		
 		snsGroupDao.deleteByKey(ZyGroupId);
