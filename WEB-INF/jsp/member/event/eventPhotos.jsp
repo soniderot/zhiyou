@@ -52,7 +52,7 @@
                           <a>
                             <div class="photoWrapper">
                               <div class="photoCrop">
-                                <img alt="" src="<s:property value='photo.filename' />" onclick="showBigPhoto(<s:property value='feed.id' />)" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgScaleHeight img"/>
+                                <img alt="" src="<s:property value='photo.filename' />" onclick="showBigPhoto(<s:property value='feed.id' />)" class="fbEventLargePortraitImgScaleWidth fbEventLargePortraitImgScaleHeight img"/>
                               </div>
                             </div>
                             <span class="textWrap fsm fwb"></span>
