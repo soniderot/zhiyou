@@ -168,7 +168,7 @@
           </tr>
           <tr class="dataRow">
             <th class="label">详细信息：</th>
-            <td class="data"><s:textarea name="detail" rows="2" cols="40"  /></td>
+            <td class="data"><s:textarea name="detail" rows="2" cols="40" maxlength="140" /></td>
             <td class="rightCol"></td>
           </tr>
           <tr class="dataRow">

@@ -24,6 +24,7 @@
           <a class="uiAddPhoto" onclick="return showPopup('dialog_uploadPhoto');" href="javascript:void(0);" rel="dialog-post">
             <span class="uiButtonText">+添加活动照片</span>
           </a>
+
           <div>
             <div class="uiHeader uiHeaderTopAndBottomBorder uiHeaderSection">
               <div class="clearfix uiHeaderTop">
@@ -51,7 +52,7 @@
                           <a>
                             <div class="photoWrapper">
                               <div class="photoCrop">
-                                <img alt="" src="<s:property value='photo.filename' />" onclick="showBigPhoto(<s:property value='feed.id' />)" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgSmall img"/>
+                                <img alt="" src="<s:property value='photo.filename' />" onclick="showBigPhoto(<s:property value='feed.id' />)" class="fbProfileLargePortraitImgScaleWidth fbProfileLargePortraitImgScaleHeight img"/>
                               </div>
                             </div>
                             <span class="textWrap fsm fwb"></span>

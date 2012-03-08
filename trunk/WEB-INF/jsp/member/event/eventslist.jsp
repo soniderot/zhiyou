@@ -104,7 +104,7 @@
                       </div>
                       
                       <div class="fsm fwn fcg">举办地点：<s:property value='event.address' /> 
-                     <div class="fsm fwn fcg" style="white-space:nowrap">活动描述：<s:property value='event.detail' /> 
+                     <div class="fsm fwn fcg" style="white-space:nowrap">活动描述：<s:if test="(event.detail.length()>40)"><s:property value='event.detail.substring(0,40)' />... </s:if><s:else><s:property value='event.detail' /></s:else>
                        <div class="fsm fwn fcg">参加人数：<s:property value='members.size()' />  照片数：<s:property value='event.photosCnt' /> 评论数：<s:property value='event.commentsCnt' />
                        	
                     </div>
