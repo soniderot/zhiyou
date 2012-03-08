@@ -1593,6 +1593,8 @@ div.friendBrowserContentAlignMiddle{height:75px;vertical-align:middle !important
 .typeaheadLoading .fbHubsTypeaheadThrobber{display:block}
 .fbProfileLargePortraitImgScaleHeight{height:75px;position:relative}
 .fbProfileLargePortraitImgScaleWidth{position:relative;width:75px}
+.fbEventLargePortraitImgScaleHeight{height:120px;position:relative}
+.fbEventLargePortraitImgScaleWidth{position:relative;width:120px}
 .fbProfileLargePortraitImgSmall{background-position:center 10%}
 .fbProfileLargePortraitImgMedium{background-position:center 15%}
 .fbProfileLargePortraitImgLarge{background-position:center 20%}
@@ -2104,10 +2106,10 @@ padding-left:4px}
 .uiSideNavCountSprited .maxCountIndicator{display:inline-block;height:13px;vertical-align:top}
 .uiSideNav .async_saving .uiSideNavCountSprited,
 .uiSideNav .loading .uiSideNavCountSprited{display:none}
-.fbProfileLargePortrait{margin:2px 0 0 5px;width:75px;word-wrap:break-word}
+.fbProfileLargePortrait{margin:2px 0 0 5px;width:118px;word-wrap:break-word}
 .fbProfileLargeMarginLeft{margin-left:1px;}
-.fbProfileLargePortrait .photoCrop{background:#eee;height:75px;overflow:hidden;position:absolute;width:75px}
-.fbProfileLargePortrait .photoWrapper{height:79px}
+.fbProfileLargePortrait .photoCrop{background:#eee;height:120px;overflow:hidden;position:absolute;width:115px}
+.fbProfileLargePortrait .photoWrapper{height:125px}
 .standardLayout .filterBox{padding:6px 7px 6px 5px}
 .standardLayout .filterBox table{border-collapse:collapse;width:100%}
 .standardLayout .filterBox td{padding:0}
