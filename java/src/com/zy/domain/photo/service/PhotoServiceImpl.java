@@ -96,7 +96,7 @@ public class PhotoServiceImpl implements PhotoService{
 		for (int i = 0; i < photos.size(); i ++) {
 			FeedVO feedPhoto = new FeedVO();
 			ZyPhoto photo = photos.get(i);
-			ZyNewsfeed feed = feedDao.getNewsFeedByHandle("sns.publish.photo", photo.getId() + "");
+			ZyNewsfeed feed = feedDao.getNewsFeedByHandle("sns.event.photo", photo.getId() + "");
 			feedPhoto.setFeed(feed);
 			feedPhoto.setPhoto(photo);
 			eventPhotos.add(feedPhoto);

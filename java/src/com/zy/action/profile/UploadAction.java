@@ -15,16 +15,16 @@ import org.apache.struts2.ServletActionContext;
 
 import com.github.mhendred.face4j.model.Face;
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 import com.utils.CropFaceUtils;
 import com.utils.FaceCrop;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
-import com.zy.common.util.ImageUtil;
 import com.zy.facade.ProfileFacade;
 
-public class UploadAction {
+public class UploadAction extends ActionSupport{
 	private File logo;
 	private String logoContentType;
 	private ProfileFacade profileFacade;
@@ -211,14 +211,16 @@ public class UploadAction {
     PrintWriter out;
     try {
     	out = response.getWriter();
+    	System.out.println("--------before-success");
 	    out.print("success");
+	    System.out.println("--------after-success");
 	    out.flush();
-	    out.close(); 
-		} catch (IOException e) {
+	  //  out.close(); 
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return NONE;
 	}
 	private String getUrl(HttpServletRequest request) {
 		String url = "http://";
