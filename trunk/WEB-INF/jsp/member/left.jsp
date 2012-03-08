@@ -181,7 +181,7 @@
                       </div>
                       <ul class="uiSideNav mts mbm nonDroppableNav">	
 						<s:iterator value="#session.snsgroups">
-                        <li id="navItem_fl_2634661952657" class="sideNavItem stat_elem <s:property value="#session.menuSelect[5]"/>">
+                        <li id="navItem_grp_<s:property value="id" />" class="sideNavItem stat_elem <s:property value="#session.menuSelect[5]"/>">
                           <a href="usr/feed!getFeedsOfGroup.jhtml?groupId=<s:property value="id" />" class="item clearfix sortableItem">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
