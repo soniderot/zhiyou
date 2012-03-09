@@ -111,8 +111,8 @@
                       <div class="dragWrapper">
                         <a ajaxify="" rel="theater" title="" href="#" name="2731105203678" id="pic_2731105203678" class="uiMediaThumb uiScrollableThumb uiMediaThumbHuge">
                           <div class="tagWrapper">
-                            <a>
-                              <img height="116" width="160" src="http://www.aoboo.com/uploadfile/a4/album/2008-8/2008081412182573401.jpg"/>
+                            <a href="/sns/match.jhtml?profileId=<s:property value='userid'/>&startAge=<s:property value='startAge'/>&endAge=<s:property value='endAge'/>&gender=<s:property value='matchgender'/>&keyword=<s:property value='keyword'/>">
+                              <img height="116" width="160" src="<s:property value='avatar'/>"/>
                             </a>
                             <span class="textWrap fsm fwb">
                               <div class="textWrap fsm fcg" align="center"><s:property value='username'/></div>

@@ -1,57 +1,22 @@
 ﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 
-<script type="text/javascript">
-setTimeout("freshNotice()", 1000);
-function freshNotice() {
-  $.ajax({
-     type: "GET",
-     url: "usr/feed!getNoticeAjax.jhtml",
-     dataType: 'text',
-     success: function(data) {
-       var count = data.split(" ");
-       var requestcnt = count[0];
-       var messagecnt = count[1];
-       var noticecnt = count[2];
-       if (requestcnt > 0) {
-          $("#fbRequestsJewel").addClass("hasNew");
-          $("#requestsCountValue").text(requestcnt);
-       } else {
-          $("#fbRequestsJewel").removeClass("hasNew");
-       }
-       if (messagecnt > 0) {
-          $("#fbMessagesJewel").addClass("hasNew");
-          $("#messagesCountValue").text(messagecnt);
-       } else {
-          $("#fbMessagesJewel").removeClass("hasNew");
-       }
-       if (noticecnt > 0) {
-          $("#fbNotificationsJewel").addClass("hasNew");
-          $("#notificationsCountValue").text(noticecnt);
-       } else {
-          $("#fbNotificationsJewel").removeClass("hasNew");
-       }
-     }
-  });
-  setTimeout("freshNotice()", 1000);
-}
-</script>
   <div class="slim" id="blueBarHolder">
     <div id="blueBar">
       <div role="banner" id="pageHead" class="clearfix slimHeader">
         <h1 id="pageLogo">
-          <a  title="首页" href="/usr/landing.jhtml"/>
+          <a  title="首页" href="/usr/feed.jhtml"/>
         </h1>
         
         <div id="jewelContainer">
           <div id="fbRequestsJewel" class="fbJewel <s:if test="newrequestcnt>0"> hasNew  </s:if>" >
-            <a href="usr/request.jhtml" name="requests" rel="toggle" class="jewelButton">
+            <a href="usr/request.jhtml" name="requests" rel="toggle" class="jewelButton" title="请求">
               <span id="requestsCountWrapper" class="jewelCount">
                 <span id="requestsCountValue"><s:property value="newrequestcnt"/></span>
               </span>
             </a>
           </div>
           <div id="fbMessagesJewel" class="fbJewel <s:if test="newmessagecnt>0"> hasNew  </s:if>">
-            <a name="messages" rel="toggle" href = "usr/message.jhtml" class="jewelButton">
+            <a name="messages" rel="toggle" href = "usr/message.jhtml" class="jewelButton" title="邮件">
               <span id="messagesCountWrapper" class="jewelCount">
                 <span id="messagesCountValue"><s:property value="newmessagecnt"/></span>
               </span>
@@ -59,13 +24,20 @@ function freshNotice() {
           </div>
           
           <div id="fbNotificationsJewel" class="fbJewel <s:if test="newnotificationcnt>0"> hasNew  </s:if>">
-            <a href="usr/notify.jhtml" name="notifications" rel="toggle" class="jewelButton">
+            <a href="usr/notify.jhtml" name="notifications" rel="toggle" class="jewelButton" title="通知">
               <span id="notificationsCountWrapper" class="jewelCount">
                 <span id="notificationsCountValue"><s:property value="newnotificationcnt"/></span>
               </span>
             </a>
           </div>
          
+          <div id="fbNotificationsJewel" class="fbJewel <s:if test="newnotificationcnt>0"> hasNew  </s:if>">
+            <a href="usr/feed!getAtmeFeed.jhtml" name="notifications" rel="toggle" class="jewelButton" title="谁@了我">
+              <span id="notificationsCountWrapper" class="jewelCount">
+                <span id="notificationsCountValue"><s:property value="newnotificationcnt"/></span>
+              </span>
+            </a>
+          </div>
         </div>
         
         <div id="headNav" class="clearfix">
@@ -96,7 +68,7 @@ function freshNotice() {
           <div class="rfloat">
             <ul role="navigation" id="pageNav">
             	<li class="topNavLink middleLink">
-                <a href="/usr/landing.jhtml">首页</a>
+                <a href="/usr/feed.jhtml">首页</a>
               </li>
               <li class="topNavLink tinyman">
                 <a title="个人主页" href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="#session.user.userid"/>">
@@ -143,3 +115,38 @@ function freshNotice() {
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+setTimeout("freshNotice()", 1000);
+function freshNotice() {
+  $.ajax({
+     type: "GET",
+     url: "usr/feed!getNoticeAjax.jhtml",
+     dataType: 'text',
+     success: function(data) {
+       var count = data.split(" ");
+       var requestcnt = count[0];
+       var messagecnt = count[1];
+       var noticecnt = count[2];
+       if (requestcnt > 0) {
+          $("#fbRequestsJewel").addClass("hasNew");
+          $("#requestsCountValue").text(requestcnt);
+       } else {
+          $("#fbRequestsJewel").removeClass("hasNew");
+       }
+       if (messagecnt > 0) {
+          $("#fbMessagesJewel").addClass("hasNew");
+          $("#messagesCountValue").text(messagecnt);
+       } else {
+          $("#fbMessagesJewel").removeClass("hasNew");
+       }
+       if (noticecnt > 0) {
+          $("#fbNotificationsJewel").addClass("hasNew");
+          $("#notificationsCountValue").text(noticecnt);
+       } else {
+          $("#fbNotificationsJewel").removeClass("hasNew");
+       }
+     }
+  });
+  setTimeout("freshNotice()", 1000);
+}
+</script>
