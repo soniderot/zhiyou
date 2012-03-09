@@ -49,9 +49,9 @@
                     </span>
                 </div>
                 <div class="networkContextWrapper"><br>
-                	
                 	地址：<s:property value="address" /><br>
-                	简介：<s:property value="summary" />
+                	<span style="display:inline-block;float:left;">简介：</span>
+                    <span style="overflow:hidden;display:inline-block;width:600px;vertical-align:top;"><s:property value="summary" /></span>
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <div class="mbl" id="event_info_pagelet" data-referrer="event_info_pagelet">
 	<img class="uiPhotoThumb largePhoto" widhth="220" height="220" src="<s:property value="place.avatar" />" alt="">
-  <table class="uiInfoTable mvm profileInfoTable">
+  <table class="uiInfoTable mvm profileInfoTable" style="table-layout:fixed;">
     <tbody>
        <tr>
         <th class="label">名称</th>
