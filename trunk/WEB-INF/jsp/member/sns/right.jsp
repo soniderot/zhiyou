@@ -33,7 +33,8 @@ function sendFriendRequest(obj, userId) {
                 <div class="uiHeader uiHeaderTopAndBottomBorder uiHeaderSection fbFriendListMemberBoxTitle">
                   <div class="clearfix uiHeaderTop">
                     <div class="uiHeaderActions rfloat fsm fwn fcg">
-                      <a rel="dialog" href="#" onclick="return getGroupFriends(${param.groupId})">管理列表</a>
+                    	<!--
+                      <a rel="dialog" href="#" onclick="return getGroupFriends(${param.groupId})">管理列表</a>-->
                     </div>
                     <div><h3 class="uiHeaderTitle">此列表中的朋友（<s:property value="friendsInGroup.size()" />）</h3></div>
                   </div>

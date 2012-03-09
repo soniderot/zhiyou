@@ -26,6 +26,7 @@
                     <div class="navHeader">最爱</div>
                     <div class="mts mbm droppableNav">
                       <ul data-gt='{"nav_items_count":"5","nav_section":"pinnedNav"}' role="navigation" class="uiSideNav">
+                       <!---
                         <li id="navItem_app_156203961126022" class="sideNavItem stat_elem <s:property value="#session.menuSelect[0]"/>">
                           <div class="buttonWrap"></div>
                           <a data-gt='{"bmid":"156203961126022","count":"0","coeff2_info":"AasM7zARnPgbgC_QyV1VyOv88p8dSL-UzGszpVbiurs-Ze51FDKAJBmNRk0XhUz0-Mi9HoXJsBeNarBIEVuaar6F","coeff2_registry_key":"0016","coeff2_action":"3","rank":"1"}' title="欢迎来到 知友" href="/usr/landing.jhtml" class="item clearfix">
@@ -43,7 +44,7 @@
                               <div class="linkWrap noCount">欢迎来到 知友</div>
                             </div>
                           </a>
-                        </li>
+                        </li>--->
                         <li id="navItem_app_4748854339" class="sideNavItem stat_elem <s:property value="#session.menuSelect[1]"/>">
                           
                           <a data-gt='{"bmid":"4748854339","count":"0","coeff2_info":"Aasb80t8kL0QLo_8OvmsvgTMV-IUsl33Qc4hL-Voy6mMUADa31aZbymtMtThn1d5mJQ","coeff2_registry_key":"0016","coeff2_action":"3","rank":"2"}' title="" href="/usr/feed.jhtml" class="item clearfix" style="">
