@@ -34,4 +34,6 @@ public interface FeedDao extends BaseDao<ZyNewsfeed,Integer>{
 	public List<ZyNewsfeed> getUnreadAtNewsFeed(int atuserId,int pageNo,int pageSize);
 	
 	public int getUnreadAtNewsFeedCnt(int atuserId);
+	
+	public List<Integer> getNewsFeed(String handles,String body);
 }

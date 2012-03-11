@@ -9,6 +9,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.zy.common.model.ZyAlbum;
+import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyPhoto;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
@@ -58,6 +59,18 @@ public class PhotoAction {
 	private int eventId;
 	
 	private String[] viewType = new String[]{"","","",""};
+	
+	private List<ZyProfile> friends;
+	
+	
+
+	public List<ZyProfile> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(List<ZyProfile> friends) {
+		this.friends = friends;
+	}
 
 	public String[] getViewType() {
 		return viewType;
@@ -233,6 +246,7 @@ public class PhotoAction {
 		profile = profileFacade.findProfileById(userid);
 		albums = photoFacade.getAlbumList(userid);
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		friends = snsFacade.getAllFriends(userid,0,(short)1);
 		viewType[2] = "selectedItem open";
 		return "member.albumlist";
 	}
@@ -241,8 +255,15 @@ public class PhotoAction {
 		zyAlbum = photoFacade.getAlbum(albumId);
 		profile = profileFacade.findProfileById(userid);
 		userPhotos = photoFacade.getPhotoList(albumId, pageNo, pageSize);
+		for(int i=0;i<userPhotos.size();i++){
+			List<Integer> feedIds = feedFacade.getNewsFeed("'sns.publish.photo','sns.event.photo'",""+userPhotos.get(i).getId());
+			if(feedIds!=null&&feedIds.size()>0){
+				userPhotos.get(i).setFeedId(feedIds.get(0));
+			}
+		}
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 		int count = photoFacade.getPhotoList(albumId, 1, Integer.MAX_VALUE).size();
+		friends = snsFacade.getAllFriends(userid,0,(short)1);
 		page = new Page(count,pageNo,pageSize,5);
 		viewType[2] = "selectedItem open";
 		return "member.photolist";

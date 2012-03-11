@@ -90,6 +90,18 @@ public class SNSActioin extends ActionSupport{
 	
 	private List<ZyProfile> searchProfiles;
 	
+	private boolean more;
+	
+	
+	
+
+	public boolean isMore() {
+		return more;
+	}
+
+	public void setMore(boolean more) {
+		this.more = more;
+	}
 
 	public List<ZyProfile> getSearchProfiles() {
 		return searchProfiles;
@@ -532,7 +544,6 @@ public class SNSActioin extends ActionSupport{
 		//profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 		//return "you.mayknow";
 		
-		
 		profiles = new ArrayList<ZyProfile>();
 		List<Integer> ids = snsFacade.getAllFriendsByDegree(ActionUtil.getSessionUserId(),(short)2);
 		for(int i=0;i<ids.size();i++){
@@ -544,7 +555,8 @@ public class SNSActioin extends ActionSupport{
 			profiles.addAll(list);
 		}
 		
-		page = new Page(profiles.size(),pageNo,pageSize,5);
+		if(more==true)
+			page = new Page(profiles.size(),pageNo,pageSize,5);
 		if(profiles.size()>=pageSize*pageNo){
 			profiles = profiles.subList(pageSize*(pageNo-1),pageSize*pageNo);
 		}else{

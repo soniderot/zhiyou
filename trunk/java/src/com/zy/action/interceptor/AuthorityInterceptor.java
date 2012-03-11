@@ -1,6 +1,7 @@
 package com.zy.action.interceptor;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -13,6 +14,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 import com.zy.Constants;
+import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.CookieUtil;
@@ -42,19 +44,37 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 	}
 
 	public String intercept(ActionInvocation invocation) throws Exception {
-		
+		ActionContext actionContext = invocation.getInvocationContext();
+		HttpServletRequest request = (HttpServletRequest) actionContext.get(StrutsStatics.HTTP_REQUEST);
+		Map<String, Object> session = actionContext.getSession();
+		if(request.getRequestURI().indexOf("listPeopleYouMayKnow")<0&&request.getRequestURI().indexOf("getNoticeAjax")<0){
 		String[] menuSelect = new String[10];
 		for(int i=0;i<10;i++){
 			menuSelect[i] = "";
 		}
-		ActionContext actionContext = invocation.getInvocationContext();
-		HttpServletRequest request = (HttpServletRequest) actionContext.get(StrutsStatics.HTTP_REQUEST);
+		//System.out.println("-------------------into menu-----------"+request.getQueryString()+"----------"+request.getRequestURI());
+		
+		try{
+			//throw new Exception();
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
 		if(request.getRequestURI().indexOf("landing")>0){
-			System.out.println("-------------------into landing-----------");
 			menuSelect[0] = "selectedItem open";
 		}
-		if(request.getRequestURI().indexOf("feed")>0&&(request.getQueryString()==null||request.getQueryString().indexOf("photo")<0)){
-			menuSelect[1] = "selectedItem open";
+		
+		if(request.getRequestURI().indexOf("feed.jhtml")>0){
+			if(request.getParameter("handle")==null){
+				menuSelect[1] = "selectedItem open";
+			}
+			if("sns.event.create,sns.event.join".equals(request.getParameter("handle"))){
+				menuSelect[1] = "selectedItem open";
+			}
+			if("sns.share.connection".equals(request.getParameter("handle"))){
+				menuSelect[1] = "selectedItem open";
+			}
+			
 		}
 		if(request.getRequestURI().indexOf("message")>0){
 			menuSelect[2] = "selectedItem open";
@@ -65,24 +85,41 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 		if(request.getRequestURI().indexOf("getFriends")>0&&request.getRequestURI().indexOf("getFriendsEvents")<0){
 			menuSelect[4] = "selectedItem open";
 		}
-		if(request.getRequestURI().indexOf("getEvents")>0){
+		if(request.getRequestURI().indexOf("getMyEvents")>0){
 			menuSelect[5] = "selectedItem open";
 		}
-		if(request.getRequestURI().indexOf("getFriendsEvents")>0){
+		if(request.getRequestURI().indexOf("getPubEvents")>0){
 			menuSelect[6] = "selectedItem open";
 		}
 		if(request.getRequestURI().indexOf("match")>0){
 			menuSelect[7] = "selectedItem open";
 		}
-		if(request.getQueryString()!=null&&request.getQueryString().indexOf("photo")>0){
+		if("sns.publish.photo,sns.event.photo".equalsIgnoreCase(request.getParameter("handle"))){
 			menuSelect[8] = "selectedItem open";
 		}
 		
-		Map<String, Object> session = actionContext.getSession();
+		if("sns.publish.question".equalsIgnoreCase(request.getParameter("handle"))){
+			menuSelect[9] = "selectedItem open";
+		}
+		
 		session.put("menuSelect",menuSelect);
+		
+		}
 		if (session != null && session.get(Constants.USER_SESSION_KEY) != null) {
 			ZyProfile user = (ZyProfile)session.get(Constants.USER_SESSION_KEY);
 			session.put("snsgroups",snsFacade.getFriendGroups(user.getUserid()));
+			
+			if(request.getRequestURI().indexOf("getFeedsOfGroup")>0){
+				int groupId = Integer.valueOf(request.getParameter("groupId"));
+				List<ZyFriendgroup> groups = (List<ZyFriendgroup>)session.get("snsgroups");
+				for(int i=0;i<groups.size();i++){
+					if(groups.get(i).getId()==groupId){
+						groups.get(i).setSelected("selectedItem open");
+						break;
+					}
+				}
+			}
+			
 			return invocation.invoke();
 		}else{
 			setGoingToURL(session, invocation);
@@ -109,7 +146,18 @@ public class AuthorityInterceptor extends AbstractInterceptor{
 				    
 				    ZyProfile user1 = (ZyProfile)session.get(Constants.USER_SESSION_KEY);
 					session.put("snsgroups",snsFacade.getFriendGroups(user1.getUserid()));
-				    ActionUtil.getResponse().sendRedirect(url);
+				    
+					if(request.getRequestURI().indexOf("getFeedsOfGroup")>0){
+						int groupId = Integer.valueOf(request.getParameter("groupId"));
+						List<ZyFriendgroup> groups = (List<ZyFriendgroup>)session.get("snsgroups");
+						for(int i=0;i<groups.size();i++){
+							if(groups.get(i).getId()==groupId){
+								groups.get(i).setSelected("selectedItem open");
+								break;
+							}
+						}
+					}
+					ActionUtil.getResponse().sendRedirect(url);
 				    return null;
 				}
 			}

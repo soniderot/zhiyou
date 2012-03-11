@@ -2,7 +2,8 @@ package test;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zy.domain.profile.service.EducationService;
+import com.zy.common.util.ActionUtil;
+import com.zy.facade.FeedFacade;
 
 public class Test {
 	public static void main(String[] args) throws Exception{
@@ -240,9 +241,9 @@ public class Test {
 			System.out.println("user .id==="+profiles.get(i).getUserid()+"-----username:"+profiles.get(i).getUsername());
 		}*/
 		
-		EducationService educationService = (EducationService)appContext.getBean("educationService");
 		
-		System.out.println(educationService.getEducationByUser(1).getSchoolid());
-		
+		FeedFacade feedFacade =(FeedFacade)appContext.getBean("feedFacade");
+		int cnt = feedFacade.getUnreadAtNewsFeed(2,1,10000).size();
+		System.out.println("cnt=="+cnt);
 	}
 }

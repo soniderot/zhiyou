@@ -34,6 +34,11 @@ public class Page {
 	 * @param data
 	 */
 	public Page(int totalRows, int currentPage, final int pageSize, int num) {
+		try{
+			//throw new Exception();
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
 		// 计算总页数
 		if (totalRows > 0) {
 			this.totalRows = totalRows;
