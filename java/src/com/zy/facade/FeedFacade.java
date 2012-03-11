@@ -53,4 +53,6 @@ public interface FeedFacade {
 	public List<CommentBean> getFeedCommentsById (int feedId);
 	
 	public ZyNewsfeed getFeedById(int feedId);
+	
+	public List<Integer> getNewsFeed(String handles,String body);
 }

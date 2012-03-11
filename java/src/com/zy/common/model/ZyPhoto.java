@@ -32,9 +32,20 @@ public class ZyPhoto implements java.io.Serializable {
 	
 	private Integer eventid;
 	
+	private int feedId;
+	
+	
 	
 	// Constructors
 	
+
+	public int getFeedId() {
+		return feedId;
+	}
+
+	public void setFeedId(int feedId) {
+		this.feedId = feedId;
+	}
 
 	public Integer getWidth() {
 		return width;

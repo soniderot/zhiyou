@@ -739,10 +739,11 @@ public class FeedAction extends ActionSupport{
   		int newrequestcnt = requestFacade.getUserRequestInbox(ActionUtil.getSessionUserId(),1,10000).size();
   		int newnotificationcnt = notifyFacade.countForNewNotification(ActionUtil.getSessionUserId());
   		int newmessagecnt = messageFacade.countForNewInbox(ActionUtil.getSessionUserId());
-      HttpServletResponse response = ServletActionContext.getResponse();
+  		int newatmecnt = feedFacade.getUnreadAtNewsFeed(ActionUtil.getSessionUserId(),1,10000).size();
+  		HttpServletResponse response = ServletActionContext.getResponse();
       response.setCharacterEncoding("UTF-8");
       PrintWriter out = response.getWriter();
-      out.print(newrequestcnt + " " + newmessagecnt + " " + newnotificationcnt);
+      out.print(newrequestcnt + " " + newmessagecnt + " " + newnotificationcnt+ " "+newatmecnt);
       out.flush();    
       out.close();    
     } catch (Exception e) {   

@@ -236,4 +236,8 @@ public class FeedServiceImpl implements FeedService{
 		entity.setCreatetime(new Date());
 		blockedFeedsDao.save(entity);
 	}
+	
+	public List<Integer> getNewsFeed(String handles,String body){
+		return this.newsFeedDao.getNewsFeed(handles, body);
+	}
 }

@@ -60,5 +60,5 @@ public interface FeedService {
 	
 	public int getUnreadAtNewsFeedCnt(int atuserId);
 	
-	
+	public List<Integer> getNewsFeed(String handles,String body);
 }

@@ -386,4 +386,7 @@ public class FeedFacadeImpl implements FeedFacade{
 		return feedService.getFeedById(feedId);
 	}
 	
+	public List<Integer> getNewsFeed(String handles,String body){
+		return feedService.getNewsFeed(handles, body);
+	}
 }

@@ -452,7 +452,7 @@ public class EventAction {
 		this.friends = friends;
 	}
 	
-	public String getEvents(){
+	public String getMyEvents(){
 		System.out.println("--------------into-------------activitys");
 		userevents = eventFacade.getEvents(ActionUtil.getSessionUserId(),""+ActionUtil.getSessionUserId(), pageNo, pageSize);
 		System.out.println("----------------events.size----------"+userevents.size());
@@ -629,7 +629,7 @@ public class EventAction {
 				break;
 			}
 		}
-		eventPhotos = photoFacade.getEventPhotos(eventId, 1, 6);
+		eventPhotos = photoFacade.getEventPhotos(eventId, 1, 8);
 		feeds = feedFacade.getEventNewsFeed(""+eventId,pageNo,pageSize);
 		int count = feedFacade.getEventNewsFeed(""+eventId,1,Integer.MAX_VALUE).size();
 		page = new Page(count,pageNo,pageSize,5);
@@ -647,7 +647,11 @@ public class EventAction {
 				break;
 			}
 		}
-		eventPhotos = photoFacade.getEventPhotos(eventId, 1, 100);
+		eventPhotos = photoFacade.getEventPhotos(eventId, pageNo, 40);
+		int count1 = photoFacade.getEventPhotos(eventId,1,Integer.MAX_VALUE).size();
+		System.out.println("count1-------------"+count1);
+		page = new Page(count1,pageNo,40,5);
+		System.out.println("------------totalpage--------"+page.getTotalPage());
 		return "view.event.photos";
 	}
 	

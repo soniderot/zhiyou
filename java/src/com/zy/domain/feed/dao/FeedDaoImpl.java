@@ -61,6 +61,12 @@ public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements Fe
 		return this.getHibernateTemplate().find(hql, new Object[] { userId });
 	}
 	
+	
+	public List<Integer> getNewsFeed(String handles,String body) {
+		String hql = "select id from ZyNewsfeed where  body = ? and handle in(" + handles + ") order by id desc ";
+		return this.getHibernateTemplate().find(hql, new Object[] {body});
+	}
+	
 
 	/*
 	public boolean isExist(long remoteid,int userid,short extType) {
@@ -99,7 +105,7 @@ public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements Fe
 	}
 	
 	public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String body){
-		String hql = "from ZyNewsfeed where userid=? and handle= ? and body = ? ";
+		String hql = "from ZyNewsfeed where userid=? and handle = ? and body = ? ";
 		List<ZyNewsfeed> list = this.loadTopRows(hql, 1, new Object[] { userId, handle,body });
 		return list;
 	}
@@ -121,17 +127,17 @@ public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements Fe
 	}
 	
 	public List<ZyNewsfeed> getAtNewsFeed(int atuserId,int pageNo,int pageSize){
-		String hql = "from ZyNewsfeed where atuserid=?";
+		String hql = "from ZyNewsfeed where atuserid=? order by id desc";
 		return this.loadByPagenation(hql, pageNo, pageSize, new Object[] { atuserId });
 	}
 	
 	public List<ZyNewsfeed> getUnreadAtNewsFeed(int atuserId,int pageNo,int pageSize){
-		String hql = "from ZyNewsfeed where atuserid=? and (atread is null or atread!='T') ";
+		String hql = "from ZyNewsfeed where atuserid=? and (atread is null or atread!='Y') order by id desc";
 		return this.loadByPagenation(hql, pageNo, pageSize, new Object[] { atuserId });
 	}
 	
 	public int getUnreadAtNewsFeedCnt(int atuserId){
-		String hql = "select count(*) from ZyNewsfeed atuserid=? and (atread is null or atread!='T')";
+		String hql = "select count(*) from ZyNewsfeed atuserid=? and (atread is null or atread!='Y')";
 		return this.getTotalRows(hql, new Object[] {atuserId });
 	}
 }

@@ -17,8 +17,19 @@ public class ZyFriendgroup implements java.io.Serializable {
 	private String groupname;
 	private Short status;
 	private Date createtime;
+	
+	private String selected = "";
+	
 
 	// Constructors
+
+	public String getSelected() {
+		return selected;
+	}
+
+	public void setSelected(String selected) {
+		this.selected = selected;
+	}
 
 	/** default constructor */
 	public ZyFriendgroup() {

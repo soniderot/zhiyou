@@ -5,6 +5,7 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.util.ActionUtil;
+import com.zy.facade.FeedFacade;
 import com.zy.facade.MessageFacade;
 import com.zy.facade.NotifyFacade;
 import com.zy.facade.RequestFacade;
@@ -14,6 +15,7 @@ public class MemberAction extends ActionSupport{
 	private int newrequestcnt = 0;
 	private int newnotificationcnt =0;
 	private int newmessagecnt = 0;
+	private int newatmecnt = 0;
 	
 	private RequestFacade requestFacade;
 	private NotifyFacade notifyFacade;
@@ -21,7 +23,21 @@ public class MemberAction extends ActionSupport{
 	
 	private List<ZyFriendgroup> snsgroups;
 	private SNSFacade snsFacade;
+	private FeedFacade feedFacade;
+	
 
+	public int getNewatmecnt() {
+		return newatmecnt;
+	}
+	public void setNewatmecnt(int newatmecnt) {
+		this.newatmecnt = newatmecnt;
+	}
+	public FeedFacade getFeedFacade() {
+		return feedFacade;
+	}
+	public void setFeedFacade(FeedFacade feedFacade) {
+		this.feedFacade = feedFacade;
+	}
 	public SNSFacade getSnsFacade() {
 		return snsFacade;
 	}
@@ -76,6 +92,7 @@ public class MemberAction extends ActionSupport{
 		newnotificationcnt = notifyFacade.countForNewNotification(ActionUtil.getSessionUserId());
 		newmessagecnt = messageFacade.countForNewInbox(ActionUtil.getSessionUserId());
 		snsgroups = snsFacade.getFriendGroups(ActionUtil.getSessionUserId());
+		newatmecnt = feedFacade.getUnreadAtNewsFeed(ActionUtil.getSessionUserId(),1,10000).size();
 		System.out.println("--------------snsgroups-----------"+snsgroups.size());
 		}catch(Exception ex){
 			ex.printStackTrace();
