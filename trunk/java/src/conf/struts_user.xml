@@ -33,6 +33,7 @@
 		<result name="member.interest" type="tiles" >tiles.member.interest</result>
 		<result name="member.update" type="redirect" >/usr/update!basic.jhtml?profileform.pageIndex=${profileform.pageIndex}</result>
 		<result name="member.info" type="redirect" >/profile/profile!viewProfileInfo.jhtml?userid=${userid}</result>
+		<result name="member.home" type="redirect" >/usr/feed.jhtml</result>
 	</action>
 	
 	<action name="login" class="com.zy.action.profile.LoginAction">
