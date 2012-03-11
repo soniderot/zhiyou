@@ -17,8 +17,11 @@ function sendFriendRequest(obj, userId) {
   });
 }
 </script>
+
 <div role="complementary" id="rightCol">
-  <div class="<s:if test='friendGroup==null'>home_right_column</s:if>" >
+  <s:if test="#session.cssflag==null"> 
+  	 <div class="home_right_column" >
+  </s:if>
     <div class="rightColumnWrapper">
       <div id="pagelet_chbox"></div>
       <div id="pagelet_ego_pane_w">
@@ -169,7 +172,10 @@ function sendFriendRequest(obj, userId) {
       </div>
     </div>
   </div>
-</div>
+   <s:if test="#session.cssflag==null"> 
+  	 </div>
+  </s:if>
+
 <script type="text/javascript">
   function inviteFriends(eventId) {
     $.get("event/event!getEventFriendsAjax.jhtml", {eventId: eventId}, function(data) {

@@ -20,10 +20,11 @@
 						              </div>
 						              <div>
 						              	<span class="imgWrap"><i class="img sp_9tlaa1 sx_741547"></i></span>
-						                <div class="linkWrap noCount">涂鸦墙 <span class="count hidden_elem uiSideNavCountText">(<span class="countValue fsm">0</span><span class="maxCountIndicator"></span>)</span></div>
+						                <div class="linkWrap noCount">最近动态 <span class="count hidden_elem uiSideNavCountText">(<span class="countValue fsm">0</span><span class="maxCountIndicator"></span>)</span></div>
 						              </div>
 					              </a>
 					            </li>
+					            <!--
 					            <li id="navItem_info" class="sideNavItem <s:property value="viewType[1]"/>">
 					              <div class="buttonWrap"></div>
 					              <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
@@ -36,6 +37,7 @@
 						              </div>
 					              </a>
 					            </li>
+					            --->
 					            <li id="navItem_photos" class="sideNavItem stat_elem <s:property value="viewType[2]"/>">
 					              <div class="buttonWrap"></div>
 					              <a href="photo/photo!getAlbum.jhtml?userid=<s:property value="profile.userid" />" class="item clearfix" style="">
@@ -91,7 +93,7 @@
 				              </div>
 					          </li>
 					          </s:if> 
-					          </s:iterator>......
+					        </s:iterator><s:if test="friends.size()>10"> ......</s:if>
 					        </ul>
 					      </div>
 					    </div>
