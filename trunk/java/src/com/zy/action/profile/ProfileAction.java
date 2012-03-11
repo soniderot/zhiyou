@@ -217,7 +217,7 @@ public class ProfileAction {
 		}
 	}
 
-	public String viewProfileInfo(){
+	public String viewProfileInfo_old(){
 		profile = profileFacade.findProfileById(userid);
 		profile.setHobbyList(getHobbyList(profile.getHobby()));
 		friends = snsFacade.getAllFriends(userid,0,(short)1);
@@ -231,6 +231,18 @@ public class ProfileAction {
 	public String viewProfilePhoto(){
 		setFriendRequestFlag();
 		return "profile.photo";
+	}
+	
+	public String viewProfileInfo(){
+		setFriendRequestFlag();
+		feeds = feedFacade.getNewsFeed(userid,""+userid,null,pageNo,pageSize);
+		profile = profileFacade.findProfileById(userid);
+		profile.setHobbyList(getHobbyList(profile.getHobby()));
+		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		viewType[0] = "selectedItem open";
+		int count = feedFacade.getNewsFeed(userid,""+userid,null,1,Integer.MAX_VALUE).size();
+		page = new Page(count,pageNo,pageSize,5);
+		return "profile.feeds";
 	}
 	
 	public String viewProfileFeeds(){

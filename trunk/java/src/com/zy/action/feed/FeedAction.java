@@ -460,7 +460,7 @@ public class FeedAction extends ActionSupport{
 			String filetype = null;
 			filetype = FileUtil.isJPGorPNG(this.getFeedphotoContentType());
 			if (StringUtils.isBlank(filetype)) {
-				return "member.event.photos";
+				return "event.detail";
 			}
 			String root = ServletActionContext.getServletContext().getRealPath("/");
 			final String photoDir = File.separator + "photos/album";

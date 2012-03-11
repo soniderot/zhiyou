@@ -272,6 +272,7 @@ public class PhotoAction {
 	public String toUpladPhoto(){
 		profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
 		albums = photoFacade.getAlbumList(ActionUtil.getSessionUserId());
+		friends = snsFacade.getAllFriends(userid,0,(short)1);
 		return "member.uploadphoto";
 	}
 	
@@ -338,10 +339,14 @@ public class PhotoAction {
 		
 		
 		String filetype = null;
-		filetype = FileUtil.isJPGorPNG(this.getPhotoContentType());
-		if (StringUtils.isBlank(filetype)) {
-			profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
-			return "member.uploadphoto";
+		try{
+			filetype = FileUtil.isJPGorPNG(this.getPhotoContentType());
+			if (StringUtils.isBlank(filetype)) {
+				profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
+				return "to.photo.upload";
+			}
+		}catch(Exception ex){
+			return "to.photo.upload";
 		}
 		String root = ServletActionContext.getServletContext().getRealPath("/");
 		final String photoDir = File.separator + "photos/album";

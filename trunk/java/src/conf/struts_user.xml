@@ -89,6 +89,7 @@
 		<result name="member.feed.bigPhoto">/WEB-INF/jsp/member/feed/bigPhotoFeed.jsp</result>
 		<result name="eventaction.detail" type="redirect">/event/event!viewEvent.jhtml?eventId=${eventId}</result>
 		<result name="snsgroup.friends">/WEB-INF/jsp/popup/groupFriendsPop.jsp</result>
+		<result name="event.detail" type="redirect">/event/event!viewEvent.jhtml?eventId=${eventId}</result>
 	</action>
 	
 	<action name="upload" class="com.zy.action.profile.UploadAction">
