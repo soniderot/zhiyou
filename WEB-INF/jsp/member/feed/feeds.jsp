@@ -301,7 +301,7 @@
                   <img alt="" src="<s:property value="user.avatar"/>" class="uiProfilePhoto profilePic uiProfilePhotoLarge img" />
                 </a>
                 <div class="storyInnerContent UIImageBlock_Content UIImageBlock_MED_Content">
-                  <a href="javascript:void(0)" onclick="<s:if test="user.userid==#session.user.userid">showDelFeedPop('dialog_delFeed', <s:property value="feed.id"/>)</s:if><s:else>blockFeed(<s:property value="feed.id"/>)</s:else>" title="" class="mlm uiStreamHide uiCloseButton"></a>
+                  <a href="javascript:void(0)" onclick="<s:if test="user.userid==#session.user.userid">showDelFeedPop('dialog_delFeed', <s:property value="feed.id"/>)</s:if><s:else>blockFeed(<s:property value="feed.id"/>)</s:else>" title="删除" class="mlm uiStreamHide uiCloseButton" ></a>
                   <div class="mainWrapper">
                     <h6 class="uiStreamMessage">
                       <div class="actorDescription actorName">
