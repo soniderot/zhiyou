@@ -20,9 +20,11 @@
     <div id="pagelet_main_column_personal">
       <div id="pagelet_friends_tab">
         <div id="ulclp8_3" class="fbProfileBrowser">
+        	<s:if test="joined==true">
           <a class="uiAddPhoto" onclick="return showPopup('dialog_uploadPhoto');" href="javascript:void(0);" rel="dialog-post">
             <span class="uiButtonText">&nbsp;&nbsp;添加活动照片</span>
           </a>
+        </s:if>
           
            <a class="uiAddPhoto"  href="event/event!viewEventPhotos.jhtml?eventId=<s:property value='event.id' />" rel="dialog-post">
             <span class="uiButtonText">&nbsp;&nbsp;&nbsp;&nbsp;查看更多</span>
@@ -119,6 +121,8 @@
                               <span class="highlighterContent"></span>
                             </div>
                           </div>
+                         
+                           <s:if test="joined==true">
                           <div id="u3mxyl_7" class="uiTypeahead composerTypeahead mentionsTypeahead">
                             <div class="wrap">
                               <div class="innerWrap">
@@ -128,7 +132,10 @@
                               </div>
                             </div>
                           </div>
+                          
                           <input type="hidden" id="friendId" name="friendId" class="mentionsHidden" />
+                          </s:if>
+                          
                         </div>
                         <div class="attachmentMetaArea hidden_elem">
                           <div class="pbm webComposerPhotoUpload">
