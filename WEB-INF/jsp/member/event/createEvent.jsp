@@ -204,10 +204,10 @@
                 
                 
                 <li class="uiListItem uiListVerticalItemBorder">
+                  
                   <label for="guest_list" class="uiCheckbox">
-                    <input type="checkbox" checked value=1 name="publicflag" id="guest_list"/>
-                  </label>
-                  <label for="guest_list">公共活动</label>
+                  <s:select name="publicflag" list="#{'0':'个人活动', '1':'公共活动'}" tipstype="error"></s:select>
+                   </label>
                 </li>
                 <!---
                 <li class="hidden_elem uiListItem uiListVerticalItemBorder">
