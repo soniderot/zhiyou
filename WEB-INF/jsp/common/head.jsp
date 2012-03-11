@@ -8,33 +8,41 @@
         </h1>
         
         <div id="jewelContainer">
-          <div id="fbRequestsJewel" class="fbJewel <s:if test="newrequestcnt>0"> hasNew  </s:if>" >
+          <div id="fbRequestsJewel" class="fbJewel <s:if test="newrequestcnt>0||1>0"> hasNew  </s:if>" >
             <a href="usr/request.jhtml" name="requests" rel="toggle" class="jewelButton" title="请求">
               <span id="requestsCountWrapper" class="jewelCount">
+              	<s:if test="newrequestcnt>0"> 
                 <span id="requestsCountValue"><s:property value="newrequestcnt"/></span>
+                	</s:if>
               </span>
             </a>
           </div>
-          <div id="fbMessagesJewel" class="fbJewel <s:if test="newmessagecnt>0"> hasNew  </s:if>">
+          <div id="fbMessagesJewel" class="fbJewel <s:if test="newmessagecnt>0||1>0"> hasNew  </s:if>">
             <a name="messages" rel="toggle" href = "usr/message.jhtml" class="jewelButton" title="邮件">
               <span id="messagesCountWrapper" class="jewelCount">
+              	<s:if test="newmessagecnt>0"> 
                 <span id="messagesCountValue"><s:property value="newmessagecnt"/></span>
+                	</s:if>
               </span>
             </a>
           </div>
           
-          <div id="fbNotificationsJewel" class="fbJewel <s:if test="newnotificationcnt>0"> hasNew  </s:if>">
+          <div id="fbNotificationsJewel" class="fbJewel <s:if test="newnotificationcnt>0||1>0"> hasNew  </s:if>">
             <a href="usr/notify.jhtml" name="notifications" rel="toggle" class="jewelButton" title="通知">
               <span id="notificationsCountWrapper" class="jewelCount">
+              	<s:if test="newnotificationcnt>0"> 
                 <span id="notificationsCountValue"><s:property value="newnotificationcnt"/></span>
+                	 </s:if>
               </span>
             </a>
           </div>
          
-          <div id="fbNotificationsJewel" class="fbJewel <s:if test="newnotificationcnt>0"> hasNew  </s:if>">
+          <div id="fbNotificationsJewel" class="fbJewel <s:if test="newatmecnt>0||1>0"> hasNew  </s:if>">
             <a href="usr/feed!getAtmeFeed.jhtml" name="notifications" rel="toggle" class="jewelButton" title="谁@了我">
               <span id="notificationsCountWrapper" class="jewelCount">
-                <span id="notificationsCountValue"><s:property value="newnotificationcnt"/></span>
+              	<s:if test="newatmecnt>0"> 
+                <span id="notificationsCountatmeValue"><s:property value="newatmecnt"/></span>
+                </s:if>
               </span>
             </a>
           </div>
@@ -127,6 +135,8 @@ function freshNotice() {
        var requestcnt = count[0];
        var messagecnt = count[1];
        var noticecnt = count[2];
+       var atmecnt = count[3];
+       
        if (requestcnt > 0) {
           $("#fbRequestsJewel").addClass("hasNew");
           $("#requestsCountValue").text(requestcnt);
@@ -145,6 +155,38 @@ function freshNotice() {
        } else {
           $("#fbNotificationsJewel").removeClass("hasNew");
        }
+        if (atmecnt > 0) {
+          $("#fbNotificationsatmeJewel").addClass("hasNew");
+          $("#notificationsCountatmeValue").text(atmecnt);
+       } else {
+          $("#fbNotificationsatmeJewel").removeClass("hasNew");
+       }
+       
+       <!--
+       if (requestcnt > 0) {
+          $("#fbRequestsJewel").addClass("hasNew");
+          $("#requestsCountValue").text(requestcnt);
+       } else {
+          $("#fbRequestsJewel").removeClass("hasNew");
+       }
+       if (messagecnt > 0) {
+          $("#fbMessagesJewel").addClass("hasNew");
+          $("#messagesCountValue").text(messagecnt);
+       } else {
+          $("#fbMessagesJewel").removeClass("hasNew");
+       }
+       if (noticecnt > 0) {
+          $("#fbNotificationsJewel").addClass("hasNew");
+          $("#notificationsCountValue").text(noticecnt);
+       } else {
+          $("#fbNotificationsJewel").removeClass("hasNew");
+       }
+        if (atmecnt > 0) {
+          $("#fbNotificationsatmeJewel").addClass("hasNew");
+          $("#notificationsCountatmeValue").text(atmecnt);
+       } else {
+          $("#fbNotificationsatmeJewel").removeClass("hasNew");
+       }-->
      }
   });
   setTimeout("freshNotice()", 1000);

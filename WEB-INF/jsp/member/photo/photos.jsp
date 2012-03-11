@@ -28,9 +28,15 @@
                       </h6>
               		<div class="mvm uiStreamAttachments clearfix fbMainStreamAttachment">
               		  <div>
+              		  	<!--
               		    <a title="<s:property value="summary" />" ajaxify="#" class="uiPhotoThumb largePhoto">
               		      <img alt="" src="<s:property value="filename" />" class="img" />
               		    </a>
+              		    -->
+              		    <a title="<s:property value="summary" />" class="uiPhotoThumb largePhoto">
+      										<img width="<s:property value="width" />" height="<s:property value="height" />"  alt="" src="<s:property value="filename" />" class="img" onclick="showBigPhoto(<s:property value="feedId" />)">
+   										 </a>
+              		    
               		    <div class="fsm fwn fcg">
               		      <span class="caption"></span>
               		      <div class="uiAttachmentDesc translationEligibleUserAttachmentMessage"></div>
@@ -93,6 +99,79 @@
      }
     });
     return false;
+  }
+  
+   function removeBigPhoto() {
+    $("#fbPhotoSnowlift").remove();
+  }
+  
+ function enterKeypress(obj, event) {
+    if ("" == $(obj).val()) {
+      return false;
+    }
+    if(event.keyCode == 13)
+    {      
+      $(obj).parents("form").submit();
+    }
+    return false;
+  }
+  
+  function commentSubmit(form) {
+    $.post("usr/feed!addFeedCommentAjax.jhtml", {
+      feedId : form.feedId.value,
+      feedComment : form.feedComment.value
+    }, function (data) {
+      $(form).find(".commentList").append(data);
+      form.feedComment.value = "";
+    });
+    return false;
+  }
+  
+  function showShareInput(feedId) {
+    $("#shareInput_" + feedId).parents("form").addClass("collapsed_comments");
+    $("#shareInput_" + feedId).find("ul").css("display", "block");
+    return false;
+  }
+  
+  function commentFocus(obj) {
+    $(obj).parents("ul").addClass("child_is_active child_is_focused");
+    return false;
+  }
+  
+  function showShareReasonInput(obj) {
+    $("#shareReasonInput").removeClass("hidden_elem");
+    $("#fbPhotoSnowliftFeedbackInput").addClass("hidden_elem");
+    $(obj).parents().find(".uiUfiComments").hide();
+    $(obj).parents().find(".ufiNub").addClass("share");
+    return false;
+  }
+  
+  function share(obj, event, feedId) {
+    if(event.keyCode == 13)
+    {
+      $.ajax({
+       type: "GET",
+       url: "usr/feed!sharedFeedAjax.jhtml",
+       dataType: 'html',
+       data: "feedId=" + feedId + "&shareReason=" + $(obj).val(),
+       success: function(data) {
+         $("body").append(data);
+         $(obj).val("");
+       }
+      });
+    }
+    return false;
+  }
+  function showBigPhoto(feedId) {
+    $.ajax({
+     type: "GET",
+     url: "usr/feed!showBigPhotoAjax.jhtml",
+     dataType: 'html',
+     data: "feedId=" + feedId,
+     success: function(data) {
+       $("body").append(data);
+     }
+    });
   }
 
 </script>

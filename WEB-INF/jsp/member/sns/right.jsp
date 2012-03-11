@@ -48,7 +48,7 @@ function sendFriendRequest(obj, userId) {
                           <ul class="uiList uiListHorizontal clearfix pvm"></ul>
                           </s:if> 
                         <li class="uiFacepileItem uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-                          <a class="uiTooltip link" onmouseout="this.blur();" href="http://www.facebook.com/profile.php?id=100003175668442">
+                          <a class="uiTooltip link" onmouseout="this.blur();" href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="userid" />">
                             <img class="uiProfilePhoto uiProfilePhotoLarge img" src="<s:property value="avatar" />" alt="">
                             <span class="uiTooltipWrap top left lefttop">
                               <span class="uiTooltipText"><s:property value="username" /></span>
@@ -64,10 +64,10 @@ function sendFriendRequest(obj, userId) {
             </div>
             </s:if> 
             
-            <s:if test="events!=null">   
+            <s:if test="events!=null&&events.size()>0">   
             <div class="uiHeader uiHeaderTopAndBottomBorder mbs uiSideHeader">
               <div class="clearfix uiHeaderTop">
-                <a href="/event/event!getEvents.jhtml" class="uiHeaderActions rfloat">显示更多</a>
+                <a href="/event/event!getMyEvents.jhtml" class="uiHeaderActions rfloat">显示更多</a>
                 <div><h4 class="uiHeaderTitle">近期活动</h4></div>
               </div>
             </div>
@@ -85,7 +85,7 @@ function sendFriendRequest(obj, userId) {
               </div>
               </s:iterator>
             </div>
-            <s:if test="matchedProfiles!=null">   
+            <s:if test="matchedProfiles!=null&&matchedProfiles.size()>0">   
             <div class="uiHeader uiHeaderTopAndBottomBorder mbs uiSideHeader">
               <div class="clearfix uiHeaderTop">
                 <a href="sns/search!search.jhtml?match=1" class="uiHeaderActions rfloat">显示更多</a>
@@ -119,7 +119,7 @@ function sendFriendRequest(obj, userId) {
                       <ul class="uiList uiListHorizontal clearfix pvm"></ul>
                       </s:if> 
                     <li class="uiFacepileItem uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-                      <a class="uiTooltip link" onmouseout="this.blur();" href="http://www.facebook.com/profile.php?id=100003175668442">
+                      <a class="uiTooltip link" onmouseout="this.blur();" href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="userid" />">
                         <img class="uiProfilePhoto uiProfilePhotoLarge img" src="<s:property value="avatar" />" alt="">
                         <span class="uiTooltipWrap top left lefttop">
                           <span class="uiTooltipText"><s:property value="username" /></span>

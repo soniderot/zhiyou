@@ -13,7 +13,7 @@
         </div>
       </div>
       <ul id="welcome_dashboard">
-      <s:if test="(#session.userlogo==null)"> 
+      <s:if test="(#session.userlogo==null&&1>2)"> 
       	<s:form action="/usr/upload.jhtml" method="post" enctype="multipart/form-data" >
         <li class="clearfix step">
           <h3 class="step_indicator">1</h3>
@@ -42,7 +42,7 @@
        </s:if>     
         <li class="clearfix step last">
         
-        <s:if test="(#session.userlogo==null)"> 
+        <s:if test="(#session.userlogo==null&&1>2)"> 
           <h3 class="step_indicator active_step">2</h3>
            </s:if>     
            <s:else>   

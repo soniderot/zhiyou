@@ -143,7 +143,8 @@
                           <div class="fbPhotoSnowliftActionLinks">
                             <span class="UIActionLinks UIActionLinks_bottom">
                             <label title="发表留言" class="uiLinkButton comment_link">
-                            <input type="button" onclick="replyFocus('feedComment')" value="回复" />
+                            	<!--
+                            <input type="button" onclick="replyFocus('feedComment')" value="回复" />-->
                             </label>
                             · <a href="usr/feed!sharedFeed.jhtml?feedId=<s:property value="feedBean.feed.id" />" onclick="return showShareReasonInput(this);" rel="dialog">分享</a>
                             </span>

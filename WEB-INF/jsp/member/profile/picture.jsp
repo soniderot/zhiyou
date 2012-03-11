@@ -270,7 +270,7 @@ function afterCropAction() {
                 <div class="profile_pic_upload">
                   <div id="profile_pic_form">从计算机中选择上传一张图片文件：
                     <div class="UIMessageBox UIMessageBoxError hidden_elem" id="error">
-                      <p>您输入的图片不符合要求。图片要求小于2M，格式为.jpg或者.pgn。</p>
+                      <p>您输入的图片不符合要求。图片要求小于2M，格式为.jpg或者.png。</p>
                     </div>
                     <s:form id="form_upload_profile_pic" target="profile_pic_iframe" enctype="multipart/form-data" method="post" action="usr/upload!uploadPhotoAjax.jhtml" class="profile_pic_upload">
                       <input type="hidden" value="28919a42cab825a462a76591f83e5fc1" name="post_form_id" autocomplete="off"/>
@@ -281,7 +281,7 @@ function afterCropAction() {
                     </s:form>
                   </div>
                   <div id="profile_pic_upload_indicator" class="profile_pic_display_none">
-                    <img height="32" width="32" alt="" src="http://static.ak.fbcdn.net/rsrc.php/v1/y9/r/jKEcVPZFk-2.gif" class="img"/>
+                    <img height="32" width="32" alt="" src="images/jKEcVPZFk-2.gif" class="img"/>
                     <div class="load_message">正在上传图片</div>
                   </div>
                 </div>
