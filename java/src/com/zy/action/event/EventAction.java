@@ -499,14 +499,18 @@ public class EventAction {
 			if(endHour.indexOf("0")==0){
 				endHour = endHour.substring(1);
 			}
-			
-			this.eventCategory = event.getSubcategoryid();
+			if(event.getSubcategoryid()!=null){
+				this.eventCategory = event.getSubcategoryid();
+			}
 			System.out.println("------------eventCategory-----"+eventCategory);
-			this.districtId = event.getDistrictid();
 			
+			if(event.getDistrictid()!=null){
+				this.districtId = event.getDistrictid();
+			}
 			members = eventFacade.getEventMembers(eventId);
 		}
 		friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(), 0, (short)1);
+		publicflag = event.getType().shortValue();
 		return "member.cteateOrUpdateEvent";
 	}
 	

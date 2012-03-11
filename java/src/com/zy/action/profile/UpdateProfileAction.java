@@ -155,7 +155,7 @@ public class UpdateProfileAction extends ActionSupport implements ModelDriven<Pr
 			viewType[3] = "selectedItem open";
 			return "member.contact";
 		} else {
-			return "member.info";
+			return "member.home";
 		}
 	}
 	

@@ -243,7 +243,6 @@ public class Test {
 		
 		
 		FeedFacade feedFacade =(FeedFacade)appContext.getBean("feedFacade");
-		int cnt = feedFacade.getUnreadAtNewsFeed(2,1,10000).size();
-		System.out.println("cnt=="+cnt);
+		feedFacade.getNewsFeed(1,"1",null,1,100);
 	}
 }

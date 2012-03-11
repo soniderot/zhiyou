@@ -9,9 +9,9 @@ import com.zy.common.model.ZyNewsfeed;
 public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements FeedDao {
 	@Override
 	public List<ZyNewsfeed> getNewsFeed(String ids, String handles, String blockedfeeds, int pageNo, int pageSize) {
-		String hql = "from ZyNewsfeed where userid in(" + ids + ") and handle in(" + handles + ") and id not in ("+ blockedfeeds +") order by id desc ";
+		String hql = "from ZyNewsfeed where (userid in(" + ids + ") or (handle='sns.share.connection' and body in(" + ids + "))) and handle in(" + handles + ") and id not in ("+ blockedfeeds +") order by id desc ";
 		if(handles==null){
-			hql = "from ZyNewsfeed where userid in(" + ids + ") and id not in ("+ blockedfeeds +") order by id desc ";
+			hql = "from ZyNewsfeed where (userid in(" + ids + ") or (handle='sns.share.connection' and body in(" + ids + "))) and id not in ("+ blockedfeeds +") order by id desc ";
 		}
 		// LogUtil.info(hql);
 		return this.loadByPagenation(hql, pageNo, pageSize);
