@@ -286,6 +286,9 @@
   <div id="pagelet_home_stream">
     <div id="c4ec37b3fc7e022d58174072" class="UIIntentionalStream UIStream">
       <ul id="home_stream" class="uiList uiStream UIIntentionalStream_Content" style="min-height: 100px;">
+      		<s:if test="feeds.size()==0">
+      	<%@ include file="/WEB-INF/jsp/member/feed/welcomefeed.jsp"%>
+      	</s:if>
         <s:iterator value="feeds">
           <li id="feed_<s:property value="feed.id"/>"
             class="pvm uiUnifiedStory uiStreamStory genericStreamStory aid_1438697558 uiListItem uiListLight uiListVerticalItemBorder">

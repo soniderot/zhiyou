@@ -2,6 +2,9 @@
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 
 <div class="mvm uiStreamAttachments clearfix fbMainStreamAttachment">
+	<h6 data-ft="{&quot;type&quot;:1}" class="uiStreamMessage" > 
+                        <span data-ft="{&quot;type&quot;:3}" class="messageBody"><s:property value="photo.summary" /></span>
+  </h6>
   <div>
     <a title="<s:property value="photo.summary" />" class="uiPhotoThumb largePhoto">
       <img width="<s:property value="photo.width" />" height="<s:property value="photo.height" />"  alt="" src="<s:property value="photo.filename" />" class="img" onclick="showBigPhoto(<s:property value='feed.id' />)">

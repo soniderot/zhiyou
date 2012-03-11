@@ -17,6 +17,7 @@
                     <div id="u3mxyl_6" class="uiMetaComposerMessageBox uiComposerMessageBoxMentions">
                       <table>
                         <tbody>
+                        	<!--
                           <tr>
                             <td>
                               <label for="emails">描述：</label>
@@ -30,7 +31,7 @@
                                 </div>
                               </div>
                             </td>
-                          </tr>
+                          </tr>-->
                           <tr>
                             <td>
                               <label for="emails">图片：</label>

@@ -111,9 +111,17 @@
                       <div class="dragWrapper">
                         <a ajaxify="" rel="theater" title="" href="#" name="2731105203678" id="pic_2731105203678" class="uiMediaThumb uiScrollableThumb uiMediaThumbHuge">
                           <div class="tagWrapper">
-                            <a href="/sns/match.jhtml?profileId=<s:property value='userid'/>&startAge=<s:property value='startAge'/>&endAge=<s:property value='endAge'/>&gender=<s:property value='matchgender'/>&keyword=<s:property value='keyword'/>">
+                          	<s:if test="match!=null"> 
+                          		 <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value='userid'/>">
                               <img height="116" width="160" src="<s:property value='avatar'/>"/>
                             </a>
+                          	</s:if>
+                          	<s:else>
+                          		 <a href="/sns/match.jhtml?profileId=<s:property value='userid'/>&startAge=<s:property value='startAge'/>&endAge=<s:property value='endAge'/>&gender=<s:property value='matchgender'/>&keyword=<s:property value='keyword'/>">
+                              <img height="116" width="160" src="<s:property value='avatar'/>"/>
+                            </a>
+                          	</s:else>
+                           
                             <span class="textWrap fsm fwb">
                               <div class="textWrap fsm fcg" align="center"><s:property value='username'/></div>
                               <div class="textWrap fsm fcg" align="center"><s:property value='age'/>岁,<s:property value='cityname'/></div>

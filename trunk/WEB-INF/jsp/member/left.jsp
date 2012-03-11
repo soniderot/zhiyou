@@ -134,7 +134,7 @@
                       </div>
                       <ul class="uiSideNav mts mbm nonDroppableNav">
                         <li id="navItem_fl_2634661952657" class="sideNavItem stat_elem <s:property value="#session.menuSelect[5]"/>">
-                          <a href="event/event!getEvents.jhtml" class="item clearfix sortableItem">
+                          <a href="event/event!getMyEvents.jhtml" class="item clearfix sortableItem">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
                               <span class="count hidden_elem uiSideNavCount">
@@ -177,12 +177,12 @@
                     <div id="groupsNav" class="homeSideNav">
                       <div class="navHeader">
                         <div class="clearfix">
-                          <div class="lfloat">好友管理</div>
+                          <div class="lfloat" >好友管理</div>
                         </div>
                       </div>
                       <ul class="uiSideNav mts mbm nonDroppableNav">	
-						<s:iterator value="#session.snsgroups">
-                        <li id="navItem_grp_<s:property value="id" />" class="sideNavItem stat_elem <s:property value="#session.menuSelect[5]"/>">
+						<s:iterator value="#session.snsgroups" >
+                        <li id="navItem_grp_<s:property value="id" />" class="sideNavItem stat_elem <s:property value="selected" />">
                           <a href="usr/feed!getFeedsOfGroup.jhtml?groupId=<s:property value="id" />" class="item clearfix sortableItem">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>
@@ -202,7 +202,7 @@
                           <span class="mover hidden_elem"></span>
                         </li>
                         </s:iterator>
-                         <li id="navItem_fl_2634661952657" class="sideNavItem stat_elem <s:property value="#session.menuSelect[5]"/>">
+                         <li id="navItem_fl_2634661952657" class="sideNavItem stat_elem ">
                           <a href="sns/sns!newFrdGrp.jhtml" class="item clearfix sortableItem">
                             <div class="rfloat">
                               <img height="11" width="16" alt="" src="images/GsNJNwuI-UM.gif" class="uiLoadingIndicatorAsync img"/>

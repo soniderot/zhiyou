@@ -75,6 +75,7 @@
                        -->
                     </ul>
                   </div>
+                  
                 </div>
               </div>
             </div>
@@ -83,10 +84,16 @@
       </div>
     </div>
   </div>
+  <jsp:include page="/WEB-INF/jsp/common/pagination.jsp" flush="true" />
 </div>
 <%@ include file="/WEB-INF/jsp/popup/uploadPhotoPop.jsp"%>
 <%@ include file="/WEB-INF/jsp/popup/delFeedCommentPop.jsp"%>
 <script type="text/javascript">
+  
+   function topage(pageNo) {
+   location.href = "event/event!viewEventPhotos.jhtml?eventId=<s:property value="event.id" />&pageNo="+pageNo
+  return false;
+  }
   
   function showBigPhoto(feedId) {
     $.ajax({

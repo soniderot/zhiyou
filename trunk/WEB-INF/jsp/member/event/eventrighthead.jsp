@@ -32,14 +32,16 @@
 															<s:if test="#st.index%3==0&&#st.index>0"> 
 															<ul class="uiList uiListHorizontal clearfix pvm"></ul>
 															</s:if> 
+															<s:if test="#st.index<12"> 
 														<li class="uiFacepileItem uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
-															<a class="uiTooltip link" onmouseout="this.blur();" href="http://www.facebook.com/profile.php?id=100003175668442" data-jsid="anchor">
+															<a class="uiTooltip link" onmouseout="this.blur();" href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value="userid" />" data-jsid="anchor">
 																<img class="uiProfilePhoto uiProfilePhotoLarge img" src="<s:property value="avatar" />" alt="" data-jsid="img">
 																<span class="uiTooltipWrap top left lefttop">
 																	<span class="uiTooltipText"><s:property value="username" /></span>
 																</span>
 															</a>
 														</li>
+														</s:if> 
 														</s:iterator>
 													</ul>
 												</div>

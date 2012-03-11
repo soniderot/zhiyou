@@ -122,6 +122,7 @@
                           <div id="u3mxyl_7" class="uiTypeahead composerTypeahead mentionsTypeahead">
                             <div class="wrap">
                               <div class="innerWrap">
+                              	
                                 <s:textarea id="feedmessage" name="feedmessage" placeholder="发表点看法吧" onfocus="expandInput('u3mxyl_2')" 
                                   cssClass="DOMControl_placeholder uiTextareaAutogrow input mentionsTextarea textInput"></s:textarea>
                               </div>
