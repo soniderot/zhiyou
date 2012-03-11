@@ -39,7 +39,7 @@
                             <td class="fullWidth">
                               <div class="webComposerPhotoInputArea">
                                 <div class="mbs photoUploadPrompt fwb">从你的电脑上选择一个图像。</div>
-                                <input type="file" name="feedphoto" onchange="enableSubmitBtn()" />
+                                <input type="file" name="feedphoto" onchange="enableSubmitBtn(this)" />
                               </div>
                             </td>
                           </tr>
@@ -99,7 +99,17 @@ function hidePop(dialog) {
 function uploadPhoto() {
   $("form:last").submit();
 }
-function enableSubmitBtn() {
+function enableSubmitBtn(obj) {
+	var strSrc = $(obj).val();
+    img = new Image();  
+    //img.src = getFullPath(obj);
+    //验证上传文件格式是否正确  
+    var pos = strSrc.lastIndexOf(".");  
+    var lastname = strSrc.substring(pos, strSrc.length);
+    if (lastname.toLowerCase() != ".jpg" && lastname.toLowerCase() != ".png") {  
+  		alert('您输入的图片不符合要求。图片要求小于2M，格式为.jpg或者.png。');
+        return false;  
+      }
   $("input[name='uploadBtn']").parent().removeClass("uiButtonDisabled");
 }
 </script>

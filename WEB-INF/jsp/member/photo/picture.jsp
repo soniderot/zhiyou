@@ -30,7 +30,7 @@
                       <input type="hidden" value="28919a42cab825a462a76591f83e5fc1" name="post_form_id" autocomplete="off"/>
                       <input type="hidden" autocomplete="off" value="AQCjyPru" name="fb_dtsg"/>
                       <div class="pfileselector">
-                        <input type="file" id="profile_picture_post_file" name="photo" />
+                        <input type="file" id="profile_picture_post_file" name="photo" onchange="enableSubmitBtn(this)"/>
                       </div>
                       照片描述：
                       <div class="pfileselector">
@@ -57,3 +57,18 @@
   </div>
 </div>
 
+<script type="text/javascript">
+function enableSubmitBtn(obj) {
+	var strSrc = $(obj).val();
+    img = new Image();  
+    //img.src = getFullPath(obj);
+    //验证上传文件格式是否正确  
+    var pos = strSrc.lastIndexOf(".");  
+    var lastname = strSrc.substring(pos, strSrc.length);
+    if (lastname.toLowerCase() != ".jpg" && lastname.toLowerCase() != ".png") {  
+  		alert('您输入的图片不符合要求。图片要求小于2M，格式为.jpg或者.png。');
+        return false;  
+      }
+  $("input[name='uploadBtn']").parent().removeClass("uiButtonDisabled");
+}
+</script>
