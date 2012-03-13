@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.zy.Constants;
+import com.zy.common.model.ZyCity;
 import com.zy.common.model.ZyInterest;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRequest;
+import com.zy.common.model.ZySchool;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.Page;
 import com.zy.common.util.StringUtil;
 import com.zy.domain.feed.bean.FeedBean;
+import com.zy.facade.EducationFacade;
 import com.zy.facade.FeedFacade;
+import com.zy.facade.LocationFacade;
 import com.zy.facade.OptionFacade;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.RequestFacade;
@@ -22,6 +26,8 @@ public class ProfileAction {
 	private ProfileFacade profileFacade;
 	private RequestFacade requestFacade;
 	private OptionFacade optionFacade;
+	private LocationFacade locationFacade;
+	private EducationFacade educationFacade;
 	private ZyProfile profile;
 	private List<ZyProfile> friends;
 	private List<ZyProfile> profiles;
@@ -43,6 +49,22 @@ public class ProfileAction {
 	
 	private boolean requestInFlag;
 
+
+	public LocationFacade getLocationFacade() {
+		return locationFacade;
+	}
+
+	public EducationFacade getEducationFacade() {
+		return educationFacade;
+	}
+
+	public void setLocationFacade(LocationFacade locationFacade) {
+		this.locationFacade = locationFacade;
+	}
+
+	public void setEducationFacade(EducationFacade educationFacade) {
+		this.educationFacade = educationFacade;
+	}
 
 	public OptionFacade getOptionFacade() {
 		return optionFacade;
@@ -221,8 +243,7 @@ public class ProfileAction {
 		profile = profileFacade.findProfileById(userid);
 		profile.setHobbyList(getHobbyList(profile.getHobby()));
 		friends = snsFacade.getAllFriends(userid,0,(short)1);
-		
-		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		profiles = snsFacade.getProfilesYouMayKnow(userid);
 		viewType[1] = "selectedItem open";
 		setFriendRequestFlag();
 		return "profile.info";
@@ -251,6 +272,14 @@ public class ProfileAction {
 		profile = profileFacade.findProfileById(userid);
 		profile.setHobbyList(getHobbyList(profile.getHobby()));
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		if (profile.getHometownid() != null) {
+			ZyCity home = locationFacade.getCity(profile.getHometownid());
+			profile.setHometownname(home.getCityname());
+		}
+		ZySchool school = educationFacade.getSchoolByUser(userid);
+		if (school != null) {
+			profile.setCollegename(school.getSchoolname());
+		}
 		viewType[0] = "selectedItem open";
 		int count = feedFacade.getNewsFeed(userid,""+userid,null,1,Integer.MAX_VALUE).size();
 		page = new Page(count,pageNo,pageSize,5);
