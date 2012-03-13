@@ -41,6 +41,24 @@
               </div>
             </div>
             
+            <div class="UIImageBlock clearfix ego_unit">
+              <div class="ego_action">
+                <div class="rightLabel">城市</div>
+                <span class="rightValue">
+                  <s:property value="profile.cityname"/>
+                </span>
+              </div>
+              <div class="ego_action">
+                <div class="rightLabel">家乡</div>
+                <span class="rightValue">
+                  <s:property value="profile.hometownname"/>
+                </span>
+              </div>
+              <div class="ego_action">
+                <span class="rightLabel">学院/大学</span>
+                <span class="rightValue"><s:property value="profile.collegename"/></span>
+              </div>
+            </div>
             
             <div class="UIImageBlock clearfix ego_unit">
               <div class="ego_action">
