@@ -49,7 +49,8 @@ public class ZyProfile implements java.io.Serializable {
 	private String cityname;
 	private String regionname;
 	private String countryname;
-
+	private String hometownname;
+	private String collegename;
 	private String token;
 	
 	private int age;
@@ -133,6 +134,14 @@ public class ZyProfile implements java.io.Serializable {
 		return countryname;
 	}
 
+	public void setHometownname(String hometownname) {
+		this.hometownname = hometownname;
+	}
+
+	public void setCollegename(String collegename) {
+		this.collegename = collegename;
+	}
+	
 	/** default constructor */
 	public ZyProfile() {
 	}
@@ -439,4 +448,13 @@ public class ZyProfile implements java.io.Serializable {
 	public void setHobbyList(List<ZyInterest> hobbyList) {
 		this.hobbyList = hobbyList;
 	}
+
+	public String getHometownname() {
+		return hometownname;
+	}
+
+	public String getCollegename() {
+		return collegename;
+	}
+
 }
