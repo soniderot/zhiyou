@@ -215,9 +215,7 @@
                       <div class="inputContainer">
                         <div id="u3mxyl_3" class="uiMentionsInput">
                           <div class="highlighter">
-                            <div>
-                              <span class="highlighterContent"></span>
-                            </div>
+                            
                           </div>
                           <div id="u3mxyl_7" class="uiTypeahead composerTypeahead mentionsTypeahead">
                             <div class="wrap">
