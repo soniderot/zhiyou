@@ -312,7 +312,7 @@ td.auxCell{width:50%}
 .uiInterstitialContent{margin-bottom:15px}
 .fullBleed .uiInterstitialContent{margin:0;padding:0}
 .uiInterstitialBar{border-bottom-right-radius:3px;border-bottom-left-radius:3px;-moz-border-radius:0 0 3px 3px;line-height:16px;padding:8px 10px}
-div.uiInterstitialWithStripes{background:transparent url(http://static.ak.fbcdn.net/rsrc.php/v1/y9/r/y7MG8IZpiC8.gif) repeat-x;padding-top:15px}
+div.uiInterstitialWithStripes{background:transparent url(../images/y7MG8IZpiC8.gif) repeat-x;padding-top:15px}
 #conf_code_input input{width:70px}
 .securityq_prompt{padding-bottom:12px}
 
