@@ -261,7 +261,7 @@ span.uiComposerAttachment{color:#333;display:inline-block}
 .uiMetaComposerMessageBox .uiMentionsInput .highlighter .withToken,.uiMetaComposerMessageBox .uiMentionsInput .highlighter .timeToken,.uiMetaComposerMessageBox .uiMentionsInput .highlighter .placeToken{z-index:2;position:relative}
 .uiMetaComposerMessageBox .uiMentionsInput .highlighter .withToken{cursor:pointer;color:#3b5998}
 .uiMetaComposerMessageBox .uiMentionsInput .highlighter .withToken:hover{text-decoration:underline}
-.uiMetaComposerMessageBox .input{background:transparent;border-width:0;font-size: 14px;height:16px;margin:0;outline:none;padding:0;resize:none;vertical-align:bottom;width:100%}
+.uiMetaComposerMessageBox .input{background:transparent;border-width:0;font-size: 14px;height:18px;margin:0;outline:none;padding:0;resize:none;vertical-align:bottom;width:100%}
 .child_was_focused .uiMetaComposerMessageBox .input{min-height:48px}
 .child_was_focused .uiMetaComposerMessageBox .inputContainer{min-height:58px}
 .uiMetaComposerMessageBox .composerTypeahead .uiStickyPlaceholderInput{width:100%}
