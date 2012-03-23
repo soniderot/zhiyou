@@ -1,8 +1,13 @@
 ﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <li class="uiUfiComment comment_<s:property value='comment.id' /> ufiItem ufiItem uiUfiUnseenItem">
   <div class="UIImageBlock clearfix uiUfiActorBlock">
-    <a href="http://www.facebook.com/profile.php?id=100003145753118" tabindex="-1" class="actorPic UIImageBlock_Image UIImageBlock_SMALL_Image">
+    <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value='user.userid'/>" tabindex="-1" class="actorPic UIImageBlock_Image UIImageBlock_SMALL_Image">
+      <s:if test="#session.userlogo!=null">
       <img alt="" src="<s:property value='#session.userlogo'/>" class="uiProfilePhoto uiProfilePhotoMedium img"/>
+    	</s:if>
+    	<s:else>
+      	 <img alt="" src="/images/default.JPG" class="uiProfilePhoto uiProfilePhotoMedium img"/>
+      	 	</s:else>
     </a>
     <label for="u3ft9v_1" class="deleteAction stat_elem UIImageBlock_Ext uiCloseButton">
       <input type="button" id="u3ft9v_<s:property value='comment.id' />" onclick="showDelCommentPop('dialog_delFeedCmt', <s:property value='comment.id' />)" title="删除"/>

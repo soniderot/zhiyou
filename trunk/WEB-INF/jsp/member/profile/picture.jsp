@@ -208,7 +208,7 @@ function submitCrop(form,x1,y1,x2,y2) {
 }
 
 function afterCropAction() {
-  location.href = "usr/update!basic.jhtml?profileform.pageIndex=2";
+  location.href = "/usr/update!basic.jhtml?profileform.pageIndex=2";
 }
 
 </script>
