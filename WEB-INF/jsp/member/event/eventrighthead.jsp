@@ -3,15 +3,15 @@
 <div id="event_profile_guest_info">
     <div id="pagelet_nav_visitors"></div>
     
-    
+    <s:if test="#session.user.userid==event.createuserid">
     <div class="uiHeader uiHeaderTopBorder uiHeaderNav">
-         
-        </div>
+     </div>
+        
     <a class="mbs uiButton" onclick="return inviteFriends(<s:property value="eventId" />);" href="javascript:void(0);" rel="dialog-post">
       <i class="mrs img sp_7gl7wd sx_61da04"></i>
       <span class="uiButtonText">选择你要邀请的朋友</span>
     </a>
-    
+    </s:if>
     <div>
       <div class="event_guestlist mbm">
       	

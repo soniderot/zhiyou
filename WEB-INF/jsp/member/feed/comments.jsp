@@ -77,7 +77,13 @@
     </li>
     <li class="uiUfiAddComment clearfix uiUfiSmall ufiItem ufiItem uiListItem uiListVerticalItemBorder uiUfiAddCommentCollapsed">
       <div class="UIImageBlock clearfix mentionsAddComment">
-        <img alt="" src="<s:property value="#session.userlogo"/>" class="uiProfilePhoto actorPic UIImageBlock_Image UIImageBlock_ICON_Image uiProfilePhotoMedium img"/>
+      	
+       <s:if test="#session.userlogo!=null">
+     <img alt="" src="<s:property value="#session.userlogo"/>" class="uiProfilePhoto actorPic UIImageBlock_Image UIImageBlock_ICON_Image uiProfilePhotoMedium img"/>
+    	</s:if>
+    	<s:else>
+      	 <img alt="" src="/images/default.JPG" class="uiProfilePhoto actorPic UIImageBlock_Image UIImageBlock_ICON_Image uiProfilePhotoMedium img"/>
+      	 	</s:else>
         <div class="commentArea UIImageBlock_Content UIImageBlock_ICON_Content">
           <div class="commentBox">
             <div id="u3aqpf_8" class="uiMentionsInput textBoxContainer">
