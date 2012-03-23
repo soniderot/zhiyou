@@ -35,7 +35,9 @@ public class ImageUtil {
 	
 	public static void resetsize(String picFrom, String picTo,int newWidth,int newHeight) {
 		try {
+			System.out.println("-----libary-------"+System.getProperty("java.library.path"));
 			ImageInfo info = new ImageInfo(picFrom);
+			
 			MagickImage image = new MagickImage(new ImageInfo(picFrom));
 			System.out.println("width---------"
 					+ image.getDimension().getWidth());

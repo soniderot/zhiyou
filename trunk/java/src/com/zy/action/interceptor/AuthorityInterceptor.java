@@ -115,7 +115,7 @@ public class AuthorityInterceptor extends AbstractInterceptor {
 			session.remove("cssflag");
 			try{
 				System.out.println("--------requset.uri--"+request.getRequestURI());
-				throw new Exception();
+				//throw new Exception();
 			}catch(Exception ex){
 				ex.printStackTrace();
 			}

@@ -34,12 +34,14 @@ public class ImageUtil {
 	public static int[] resetsize(String picFrom, String picTo,int newWidth,int newHeight) {
 		int[] result = new int[2];
 		try {
+			System.out.println("-----libary-------"+System.getProperty("java.library.path"));
 			
 			System.setProperty("jmagick.systemclassloader","false"); 
 			ImageInfo info = new ImageInfo(picFrom);
 			//if(true){
 				//return;
 			//}
+			System.out.println(Constants.realPath+picFrom);
 			MagickImage image = new MagickImage(new ImageInfo(Constants.realPath+picFrom));
 			System.out.println("width---------"
 					+ image.getDimension().getWidth());

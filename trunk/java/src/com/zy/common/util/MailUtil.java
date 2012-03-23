@@ -29,8 +29,8 @@ public class MailUtil {
 
 	public static void send(String from, String senderName, String to,
 			String subject, String message) {
-		String l_host = Constants.SMTP_SERVER;
-		//l_host = "smtp.hungryforwords.com";
+		//String l_host = Constants.SMTP_SERVER;
+		String l_host = "smtp111.hungryforwords111.com";
 		Properties l_props = System.getProperties();
 		l_props.put("mail.smtp.host", l_host);
 		l_props.put("mail.smtp.auth","false");

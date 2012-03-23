@@ -243,5 +243,5 @@ public class Constants {
     public final static short QUESTION_TYPE_COMMON = 1;
     public final static short QUESTION_TYPE_OPTIONS = 2;
     
-    public final static String realPath = "D://workspace//zy//zhiyou//";
+    public final static String realPath = "D:/workspace/zy/zhiyou/";
 }

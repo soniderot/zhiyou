@@ -562,6 +562,8 @@ public class SNSActioin extends ActionSupport{
 		}else{
 			profiles = profiles.subList(pageSize*(pageNo-1),profiles.size());
 		}
+		
+		
 		for (int i = 0; i < profiles.size(); i++) {
 			System.out.println(profiles.get(i).getUserid() + " : " + profiles.get(i).getUsername());
 		}
@@ -583,10 +585,17 @@ public class SNSActioin extends ActionSupport{
 		else{
 			friendIds = ActionUtil.getSessionUserId()+"";
 		}
-		events =eventFacade.getEvents(ActionUtil.getSessionUserId(),friendIds,1,5);
+		events =eventFacade.getEvents(ActionUtil.getSessionUserId(),friendIds,1,3);
 		
 		
-		matchedProfiles = snsFacade.getMatchedFriends(ActionUtil.getSessionUserId(), 1, 6);
+		matchedProfiles = snsFacade.getMatchedFriends(ActionUtil.getSessionUserId(), 1, 3);
+		
+		int size = 9-matchedProfiles.size()-events.size();
+		
+		if(more==false){
+			if(profiles.size()>=size)
+				profiles = profiles.subList(0,size);
+		}
 		return "you.mayknow";
 	}
 	

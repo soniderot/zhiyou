@@ -140,6 +140,7 @@ public class UploadAction extends ActionSupport{
 			ZyProfile profile = profileFacade.findProfileById(ActionUtil.getSessionUserId());
 			int[] result = profile.setProfileAvatar(str);
 			Map<String, Object> session  = ActionContext.getContext().getSession();
+			ActionContext.getContext().getSession().put("userlogo",profile.getBigavatar());
 			HttpServletRequest request = ServletActionContext.getRequest();
 			String imageUrl = getUrl(request) + str;
 

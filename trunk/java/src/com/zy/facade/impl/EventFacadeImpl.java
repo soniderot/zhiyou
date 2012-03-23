@@ -125,7 +125,9 @@ public class EventFacadeImpl implements EventFacade{
 		}
 		System.out.println("--------------into---friends----------activitys---["+str+"]");
 		
-		
+		if(str.length()==0){
+			str = "0";
+		}
 		List<ZyEvent> events = eventService.getDistinctEvents(str, pageNo, pageSize);
 		List<EventVO> results = new ArrayList<EventVO>();
 		for(int i=0;i<events.size();i++){
