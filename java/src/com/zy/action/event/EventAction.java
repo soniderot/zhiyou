@@ -510,7 +510,8 @@ public class EventAction {
 			members = eventFacade.getEventMembers(eventId);
 		}
 		friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(), 0, (short)1);
-		publicflag = event.getType().shortValue();
+		if(event!=null&&event.getType()!=null)
+			publicflag = event.getType().shortValue();
 		return "member.cteateOrUpdateEvent";
 	}
 	
@@ -582,7 +583,10 @@ public class EventAction {
 			}
 			String token = UUID.randomUUID() + "";
 			String fn = token + filetype;
-			String fileName = FileUtil.copy(logo, "D:\\workspace\\zy\\zhiyou\\photos\\event", fn);
+			String root = ServletActionContext.getServletContext().getRealPath("/");
+			final String photoDir = File.separator + "photos/event";
+			
+			String fileName = FileUtil.copy(logo, root+photoDir, fn);
 			System.out.println(fileName);
 			String datedir = DateUtil.formatDate(new Date());
 			String str = datedir + "/" + fn;

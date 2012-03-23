@@ -260,6 +260,14 @@ public class ProfileAction {
 		profile = profileFacade.findProfileById(userid);
 		profile.setHobbyList(getHobbyList(profile.getHobby()));
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
+		if (profile.getHometownid() != null) {
+			ZyCity home = locationFacade.getCity(profile.getHometownid());
+			profile.setHometownname(home.getCityname());
+		}
+		ZySchool school = educationFacade.getSchoolByUser(userid);
+		if (school != null) {
+			profile.setCollegename(school.getSchoolname());
+		}
 		viewType[0] = "selectedItem open";
 		int count = feedFacade.getNewsFeed(userid,""+userid,null,1,Integer.MAX_VALUE).size();
 		page = new Page(count,pageNo,pageSize,5);

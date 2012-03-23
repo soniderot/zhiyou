@@ -92,6 +92,10 @@ public class LoginAction extends MemberAction{
 				ActionContext.getContext().getSession().put("userlogo",user.getAvatar());
 			}
 			
+			if(user.getAvatar()!=null){
+				ActionContext.getContext().getSession().put("userlogo",user.getAvatar());
+			}
+			
 			
 			if (rememberMe) {
 				Cookie cookie=CookieUtil.addUserToCookie(user.getEmail()+ "," + user.getPasswd(),rememberMe);

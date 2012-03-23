@@ -17,16 +17,19 @@ import org.apache.commons.lang.StringUtils;
 import com.zy.Constants;
 import com.zy.common.model.ZyIndexlog;
 import com.zy.common.model.ZyIndexqueue;
+import com.zy.common.model.ZyInterest;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
 import com.zy.common.util.LogUtil;
+import com.zy.common.util.StringUtil;
 import com.zy.domain.option.service.SchoolService;
 import com.zy.domain.profile.service.EducationService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.search.service.LuceneIndexService;
 import com.zy.domain.sns.service.SNSService;
 import com.zy.facade.LuceneIndexFacade;
+import com.zy.facade.OptionFacade;
 import com.zy.facade.vo.LuceneProfileVo;
 
 public class LuceneIndexFacadeImpl implements LuceneIndexFacade {
@@ -36,7 +39,16 @@ public class LuceneIndexFacadeImpl implements LuceneIndexFacade {
 	private SchoolService schoolService;
 	private EducationService educationService;
 	private SNSService snsService;
+	private OptionFacade optionFacade;
 	
+
+	public OptionFacade getOptionFacade() {
+		return optionFacade;
+	}
+
+	public void setOptionFacade(OptionFacade optionFacade) {
+		this.optionFacade = optionFacade;
+	}
 
 	public SNSService getSnsService() {
 		return snsService;
@@ -137,7 +149,8 @@ public class LuceneIndexFacadeImpl implements LuceneIndexFacade {
 				}
 				str = str+"-";
 				profile.setFriendIds(str);
-				profile.setHomeId(p.getHometownid());
+				if(p.getHometownid()!=null)
+					profile.setHomeId(p.getHometownid());
 				
 				profile.setGender(p.getGender());
 				profile.setRegTime(DateUtil.formatDate(p.getRegistertime(),
@@ -161,7 +174,17 @@ public class LuceneIndexFacadeImpl implements LuceneIndexFacade {
 				*/
 				
 				profile.setInterest(p.getInterest());
-				profile.setHobby(p.getHobby());
+				
+				String hobby = "";
+				if (!StringUtil.isNull(p.getHobby())) {
+					String[] hobbyArr = p.getHobby().split(" ");
+					for(int i = 0; i < hobbyArr.length; i++) {
+						ZyInterest interest = optionFacade.getInterestById(Integer.parseInt(hobbyArr[i]));
+						hobby = hobby+" "+interest.getTag();
+					}
+				}
+				
+				profile.setHobby(hobby);
 				profile.setIntroduction(p.getIntroduction());
 				if(educationService.getEducationByUser(p.getUserid())!=null){
 					profile.setSchoolName(schoolService.getSchoolById(educationService.getEducationByUser(p.getUserid()).getSchoolid()).getSchoolname());
