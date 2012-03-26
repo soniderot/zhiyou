@@ -90,7 +90,7 @@ public class FeedAction extends ActionSupport{
 	
 	private NotifyFacade notifyFacade;
 	
-	private int friendId;
+	private String friendIds;
 	private int groupId;
 	private ZyFriendgroup friendGroup;
 	
@@ -120,11 +120,11 @@ public class FeedAction extends ActionSupport{
 	public void setGroupId(int groupId) {
 		this.groupId = groupId;
 	}
-	public int getFriendId() {
-		return friendId;
+	public String getFriendIds() {
+		return friendIds;
 	}
-	public void setFriendId(int friendId) {
-		this.friendId = friendId;
+	public void setFriendId(String friendIds) {
+		this.friendIds = friendIds;
 	}
 
 	public NotifyFacade getNotifyFacade() {
@@ -564,14 +564,15 @@ public class FeedAction extends ActionSupport{
 		feeds = new ArrayList<FeedBean>();
 		feeds.add(feedBean);
 		
-		if(friendId>0){
+		if(friendIds != null && friendIds.length() > 0) {
+			/*
 			ZyNewsfeed feed = feedBean.getFeed();
 			feed.setAtuserid(friendId);
 			String username = profileFacade.findProfileById(friendId).getUsername();
 			if("status".equalsIgnoreCase(feedtype)){
 				feed.setBody(feedmessage.replace("@"+username+":",""));
 			}
-			feedFacade.updateNewsFeed(feed);
+			feedFacade.updateNewsFeed(feed);*/
 		}
 		return "member.addfeed.ajax";
 	}
