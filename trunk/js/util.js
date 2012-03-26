@@ -491,3 +491,29 @@ function text2Unicode(str) {
 
 	return result;
 }
+
+function _getFocus(elem) {
+		
+        var index = 0;
+        if (document.selection) {// IE Support
+            elem.focus();
+            var Sel = document.selection.createRange();
+            if (elem.nodeName === 'TEXTAREA') {//textarea
+                var Sel2 = Sel.duplicate();
+                Sel2.moveToElementText(elem);
+                var index = -1;
+                while (Sel2.inRange(Sel)) {
+                    Sel2.moveStart('character');
+                    index++;
+                };
+            }
+            else if (elem.nodeName === 'INPUT') {// input
+                Sel.moveStart('character', -elem.value.length);
+                index = Sel.text.length;
+            }
+        }
+        else if (elem.selectionStart || elem.selectionStart == '0') { // Firefox support
+            index = elem.selectionStart;
+        }
+        return (index);
+  }
