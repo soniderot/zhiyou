@@ -186,7 +186,7 @@ function freshNotice() {
           $("#notificationsCountatmeValue").text(atmecnt);
        } else {
           $("#fbNotificationsatmeJewel").removeClass("hasNew");
-       }-->
+       }
      }
   });
   setTimeout("freshNotice()", 1000);
