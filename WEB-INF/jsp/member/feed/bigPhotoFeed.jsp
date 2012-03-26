@@ -1,5 +1,53 @@
 <%@page pageEncoding="utf-8"%>
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("div.stageWrapper").hover(
+    function () {
+      $('#fbPhotoSnowlift').addClass("pagingActivated");
+    },
+    function () {
+      $('#fbPhotoSnowlift').removeClass("pagingActivated");
+    }
+  );
+});
+
+  var index = $("input[name='photoFeedIds']").index($("input[name='photoFeedIds'][value='${feedBean.feed.id}']"));
+  var size = $("input[name='photoFeedIds']").size();
+  if (index == 0) {
+    $("a.prev").removeClass("hilightPager");
+  } else if (index == size - 1) {
+    $("a.next").removeClass("hilightPager");
+  }
+  
+  function showPreBigPhoto() {
+    var feedId = $("input[name='photoFeedIds']").get(index - 1).value;
+    $.ajax({
+     type: "GET",
+     url: "usr/feed!showBigPhotoAjax.jhtml",
+     dataType: 'html',
+     data: "feedId=" + feedId,
+     success: function(data) {
+       $("#fbPhotoSnowlift").replaceWith(data);
+     }
+    });
+    return false;
+  }
+  
+  function showNextBigPhoto() {
+    var feedId = $("input[name='photoFeedIds']").get(index + 1).value;
+    $.ajax({
+     type: "GET",
+     url: "usr/feed!showBigPhotoAjax.jhtml",
+     dataType: 'html',
+     data: "feedId=" + feedId,
+     success: function(data) {
+       $("#fbPhotoSnowlift").replaceWith(data);
+     }
+    });
+    return false;
+  }
+</script>
 <div class="fbPhotoSnowlift fbxPhoto pagingReady" id="fbPhotoSnowlift">
   <div class="fbPhotoSnowliftOuter">
     <div class="fbPhotoSnowliftInner">
@@ -8,7 +56,7 @@
           <div class="clearfix fbPhotoSnowliftPopup" style="width: 860px; height: 520px;">
             <div class="stageWrapper lfloat" style="width: 520px; line-height: 43.3333em;">
               <div class="stage">
-                <img class="spotlight" alt="" src="<s:property value='feedBean.photo.bigfilename'/>"/>
+                <img class="spotlight" alt="" src="<s:property value='feedBean.photo.bigfilename'/>" />
                 <div id="fbPhotoSnowliftTagBoxes" class="fbPhotosPhotoTagboxes tagContainer">
                   <div class="tagsWrapper"></div>
                 </div>
@@ -88,11 +136,11 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>-->
               
-              <a title="上一页" href="#" class="snowliftPager prev hilightPager"><i></i></a>
-              <a title="下一页" href="#" class="snowliftPager next"><i></i></a>
-               -->
+              <a title="上一页" href="javascript:void(0);" onclick="showPreBigPhoto()" class="snowliftPager prev hilightPager"><i></i></a>
+              <a title="下一页" href="javascript:void(0);" onclick="showNextBigPhoto()" class="snowliftPager next hilightPager"><i></i></a>
+               
               <div id="fbPhotoSnowliftError" class="photoError stageError hidden_elem"></div>
             </div>
             <div class="rhc photoUfiContainer">
