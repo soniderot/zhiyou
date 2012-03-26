@@ -41,6 +41,7 @@
                   <div class="fbProfileBrowserLargeList fbProfileBrowserListContainer">
                     <ul class="uiList uiListHorizontal clearfix mvm phs">
                       <s:iterator value="eventPhotos" status="status">
+                      <input type="hidden" name="photoFeedIds" value="<s:property value='#eventPhoto.feed.id' />"/>
                       <s:if test="status.index%6==0 && status.index!=0">
                         </ul>
                         <s:if test="status.index!=eventPhotos.size-1">

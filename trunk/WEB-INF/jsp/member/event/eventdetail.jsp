@@ -45,12 +45,13 @@
                   <div class="fbProfileBrowserLargeList fbProfileBrowserListContainer">
                     <ul class="uiList uiListHorizontal clearfix mvm phs">
                       <s:iterator value="eventPhotos" status="status" id="eventPhoto">
+                      <input type="hidden" name="photoFeedIds" value="<s:property value='#eventPhoto.feed.id' />"/>
                       <li class="uiListItem uiListHorizontalItemBorder uiListHorizontalItem">
                         <div class="fbProfileLargePortrait fbProfileLargeMarginLeft">
                          <a>
                             <div class="photoWrapper">
                               <div class="photoCrop">
-                                <img alt="" src="<s:property value='photo.filename' />" onclick="showBigPhoto(<s:property value='feed.id' />)" class="fbEventLargePortraitImgScaleWidth fbEventLargePortraitImgScaleHeight img"/>
+                                <img alt="" src="<s:property value='#eventPhoto.photo.filename' />" onclick="showBigPhoto(<s:property value='#eventPhoto.feed.id' />)" class="fbEventLargePortraitImgScaleWidth fbEventLargePortraitImgScaleHeight img"/>
                               </div>
                             </div>
                             <span class="textWrap fsm fwb"></span>
