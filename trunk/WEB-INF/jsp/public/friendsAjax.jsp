@@ -1,10 +1,18 @@
 ﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <script type="text/javascript">
   function selectFriend(userId, username) {
-    $("#friendId").val(userId);
-    $("#feedmessage").val("@" + username + ":");
+    var friendIds = $("#friendId").val();
+    $("#friendId").val(friendIds + " " + userId);
+    var text = $("#feedmessage").val();
+    var message = text.substring(0, start) + "@" + username + " ";
+    if (index < text.length) {
+      message = message + text.substring(index);
+    }
+    $("#feedmessage").val(message);
     $(".uiContextualLayer").remove();
     $("#feedmessage").focus();
+    nameFlg = false;
+    text = '';
   }
   $(document).ready(function() {
     $(".compact li").hover(
