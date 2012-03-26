@@ -1,11 +1,18 @@
 ﻿<%@ include file="/WEB-INF/jsp/common/taglib.jsp"%>
 <script type="text/javascript">
+  var nameFlg = false;
+  var text = '';
+  var start = 0;
+  var index = 0;
   $(document).ready(function() {
-    $("textarea[id='feedmessage']").keyup(function(){
-      var text = $(this).val();
-      if(text.indexOf(":") == -1) {
-        showFriends(text);
+    $("textarea[id='feedmessage']").keyup(function(event){
+      index = _getFocus(this);
+      var char = $(this).val().substring(index-1, index);
+      if (char == '@') {
+        start = index - 1;
       }
+      var term = $(this).val().substring(start, index);
+      showFriends(term);
     });
     
     function showFriends(term) {
