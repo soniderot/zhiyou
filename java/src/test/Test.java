@@ -2,8 +2,8 @@ package test;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zy.common.util.ActionUtil;
-import com.zy.facade.FeedFacade;
+import com.zy.facade.EventFacade;
+import com.zy.facade.SNSFacade;
 
 public class Test {
 	public static void main(String[] args) throws Exception{
@@ -234,15 +234,15 @@ public class Test {
 		//snsFacade.addFriend(21, 1);
 		
 		
+		
+		EventFacade eventFacade = (EventFacade)appContext.getBean("eventFacade");
 		/*
-		SNSFacade snsFacade = (SNSFacade)appContext.getBean("snsFacade");
 		List<ZyProfile> profiles = snsFacade.getFriendsByName(1, "x",true);
 		for(int i=0;i<profiles.size();i++){
 			System.out.println("user .id==="+profiles.get(i).getUserid()+"-----username:"+profiles.get(i).getUsername());
 		}*/
 		
-		
-		FeedFacade feedFacade =(FeedFacade)appContext.getBean("feedFacade");
-		feedFacade.getNewsFeed(1,"1",null,1,100);
+		int size = eventFacade.getFollowEvents(1,1,100).size();
+		System.out.println("-------size--------"+size);
 	}
 }

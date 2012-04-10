@@ -326,4 +326,8 @@ public class SNSFacadeImpl implements SNSFacade{
 		}
 		return groupFriends;
 	}
+	
+	public boolean checkIfTargetInSNS(int userId,int targetId,short degree){
+		return snsService.checkIfTargetInSNS(userId, targetId, degree);
+	}
 }

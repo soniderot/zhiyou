@@ -89,6 +89,7 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
 				doc.add(new Field(IndexField.Profile.USER_ID, profile
 						.getUserId(), Store.YES, Index.ANALYZED));
 				
+				doc.add(new Field(IndexField.Profile.HOBBY, profile.getHobby(), Store.YES, Index.ANALYZED));
 				doc.add(new Field(IndexField.Profile.SCHOOL_NAME, profile.getSchoolName(), Store.NO, Index.ANALYZED));
 				doc.add(new Field(IndexField.Profile.SCHOOL_ID, ""+profile.getSchoolId(), Store.NO, Index.ANALYZED));
 				

@@ -23,8 +23,38 @@ public class FeedBean {
 	
 	private ZyProfile atuser;
 	
+	private int lastFeedId;
+	private int nextFeedId;
+	
+	private List<AtFeedBean> atfeeds;
+	
+	private List<ZyProfile> atusers;
 	
 	
+	public List<ZyProfile> getAtusers() {
+		return atusers;
+	}
+	public void setAtusers(List<ZyProfile> atusers) {
+		this.atusers = atusers;
+	}
+	public List<AtFeedBean> getAtfeeds() {
+		return atfeeds;
+	}
+	public void setAtfeeds(List<AtFeedBean> atfeeds) {
+		this.atfeeds = atfeeds;
+	}
+	public int getLastFeedId() {
+		return lastFeedId;
+	}
+	public void setLastFeedId(int lastFeedId) {
+		this.lastFeedId = lastFeedId;
+	}
+	public int getNextFeedId() {
+		return nextFeedId;
+	}
+	public void setNextFeedId(int nextFeedId) {
+		this.nextFeedId = nextFeedId;
+	}
 	public ZyProfile getAtuser() {
 		return atuser;
 	}

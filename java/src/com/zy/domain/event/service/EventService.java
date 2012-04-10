@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyEventcategory;
+import com.zy.common.model.ZyEventfollow;
 import com.zy.common.model.ZyEventmember;
 import com.zy.common.model.ZyRecommplace;
 import com.zy.facade.vo.EventVO;
@@ -28,4 +29,11 @@ public interface EventService {
 	public List<ZyEvent> getHotPubEvents(int pageNo,int pageSize);
 	public void createPlace(ZyRecommplace place);
 	public ZyRecommplace getPlace(int placeId);
+	
+	public List<ZyEventfollow> getFollowEvents(int userId,int pageNo,int pageSize);
+	public List<ZyEventfollow> getEventFollow(int eventId,int pageNo,int pageSize);
+	
+	public void addEventFollow(int eventId,int userId);
+	public void removeEventFollow(int eventId,int userId);
+	public List<ZyEventfollow> getFollowEvnets(int userId,int eventId,int pageNo,int pageSize);
 }

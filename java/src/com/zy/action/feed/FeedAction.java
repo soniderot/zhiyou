@@ -18,6 +18,7 @@ import com.zy.Constants;
 import com.zy.common.model.ZyAlbum;
 import com.zy.common.model.ZyAnswer;
 import com.zy.common.model.ZyAnsweroption;
+import com.zy.common.model.ZyAtfeed;
 import com.zy.common.model.ZyFriendgroup;
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
@@ -28,8 +29,10 @@ import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.FileUtil;
 import com.zy.common.util.Page;
+import com.zy.domain.feed.bean.AtFeedBean;
 import com.zy.domain.feed.bean.CommentBean;
 import com.zy.domain.feed.bean.FeedBean;
+import com.zy.facade.EventFacade;
 import com.zy.facade.FeedFacade;
 import com.zy.facade.MessageFacade;
 import com.zy.facade.NotifyFacade;
@@ -96,6 +99,25 @@ public class FeedAction extends ActionSupport{
 	
 	private List<ZyProfile> friendsInGroup;
 	
+	private EventFacade eventFacade;
+	private boolean atflag;
+	
+	
+	public boolean isAtflag() {
+		return atflag;
+	}
+	public void setAtflag(boolean atflag) {
+		this.atflag = atflag;
+	}
+	public void setFriendIds(String friendIds) {
+		this.friendIds = friendIds;
+	}
+	public EventFacade getEventFacade() {
+		return eventFacade;
+	}
+	public void setEventFacade(EventFacade eventFacade) {
+		this.eventFacade = eventFacade;
+	}
 	public List<FriendJoinedVO> getGroupFriends() {
 		return groupFriends;
 	}
@@ -408,15 +430,19 @@ public class FeedAction extends ActionSupport{
 	}
 	
 	public String getAtmeFeed(){
-		feeds = feedFacade.getAtNewsFeed(ActionUtil.getSessionUserId(),pageNo,pageSize);
-		for(int i=0;i<feeds.size();i++){
-			if(!"Y".equalsIgnoreCase(feeds.get(i).getFeed().getAtread())){
-				ZyNewsfeed zyFeed = feeds.get(i).getFeed();
-				zyFeed.setAtread("Y");
-				feedFacade.updateNewsFeed(zyFeed);
-			}
+		atflag = true;
+		List<AtFeedBean> atfeeds = feedFacade.getAtFeedsByUserId(ActionUtil.getSessionUserId(),pageNo,pageSize);
+		feeds = new ArrayList<FeedBean>();
+		for(int i=0;i<atfeeds.size();i++){
+			FeedBean bean = new FeedBean();
+			bean.setFeed(atfeeds.get(i).getFeed());
+			bean.getFeed().setAtuserid(atfeeds.get(i).getAtFeed().getAtuserid());
+			bean.setUser(profileFacade.findProfileById(atfeeds.get(i).getFeed().getUserid()));
+			bean.setAtuser(profileFacade.findProfileById(atfeeds.get(i).getAtFeed().getAtuserid()));
+			feedFacade.readAtFeed_tx(atfeeds.get(i).getAtFeed().getId());
+			feeds.add(bean);
 		}
-		int count = 0;
+		int count = feedFacade.getAtFeedsByUserId(ActionUtil.getSessionUserId(),pageNo,Integer.MAX_VALUE).size();
 		System.out.println("-------------count------------"+count);
 		page = new Page(count,pageNo,pageSize,5);
 		
@@ -445,6 +471,17 @@ public class FeedAction extends ActionSupport{
 			feeds = feedFacade.getNewsFeed(userId, str,"'"+str1+"'",pageNo,pageSize);
 			count = feedFacade.getNewsFeed(userId, str,"'"+str1+"'",1,Integer.MAX_VALUE).size();
 		}
+		/*
+		for(int i=0;i<feeds.size()&&feeds.size()>1;i++){
+			if(i==0){
+				feeds.get(i).setNextFeedId(feeds.get(i+1).getFeed().getId());
+			}else if(i==feeds.size()-1){
+				feeds.get(i).setLastFeedId(feeds.get(i-1).getFeed().getId());
+			}else{
+				feeds.get(i).setNextFeedId(feeds.get(i+1).getFeed().getId());
+				feeds.get(i).setLastFeedId(feeds.get(i-1).getFeed().getId());
+			}
+		}*/
 		System.out.println("-------------count------------"+count);
 		page = new Page(count,pageNo,10,5);
 		
@@ -564,7 +601,27 @@ public class FeedAction extends ActionSupport{
 		feeds = new ArrayList<FeedBean>();
 		feeds.add(feedBean);
 		
-		if(friendIds != null && friendIds.length() > 0) {
+		if(friendIds != null && friendIds.length() > 0&&"status".equalsIgnoreCase(feedtype)) {
+			ZyNewsfeed feed = feedBean.getFeed();
+			System.out.println("------------friendIds----------"+friendIds);
+			String[] array = friendIds.trim().split(" ");
+			for(int i=0;i<array.length;i++){
+				int friendId = Integer.valueOf(array[i]);
+				System.out.println("----------friendId:"+friendId);
+				ZyAtfeed atfeed = new ZyAtfeed();
+				atfeed.setCreatetime(new Date());
+				atfeed.setReadflag(0);
+				atfeed.setAtuserid(friendId);
+				atfeed.setFeedid(feed.getId());
+				feedFacade.addAtFeed(atfeed);
+				String username = profileFacade.findProfileById(friendId).getUsername();
+				if("status".equalsIgnoreCase(feedtype)){
+					feedmessage = feedmessage.replace("@"+username,"");
+				}
+			}
+			//ZyNewsfeed feed = feedBean.getFeed();
+			feed.setBody(feedmessage);
+			feedFacade.updateNewsFeed(feed);
 			/*
 			ZyNewsfeed feed = feedBean.getFeed();
 			feed.setAtuserid(friendId);
@@ -600,6 +657,10 @@ public class FeedAction extends ActionSupport{
 	
 	public String sharedFeedAjax(){
 		String shareReason = ActionUtil.getRequest().getParameter("shareReason");
+		ZyNewsfeed newsfeed = feedFacade.getFeedById(feedId);
+		if(newsfeed.getHandle().equalsIgnoreCase("sns.share.photo")){
+			feedId = Integer.valueOf(newsfeed.getBody());
+		}
 		feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), feedId, shareReason);
 		//return NONE;
 		return "member.sharefeeds.pop";
@@ -763,6 +824,26 @@ public class FeedAction extends ActionSupport{
 			feed = feedFacade.getFeedById(Integer.parseInt(feed.getBody()));
 		}
 		ZyPhoto photo = photoFacade.getPhoto(Integer.parseInt(feed.getBody()));
+		/*
+		if(feed.getHandle().indexOf("sns.event.photo")>=0){
+			if(feed.getReferenceid()!=null){
+				int eventId = feed.getReferenceid();
+				List<FeedVO> eventPhotos = photoFacade.getEventPhotos(eventId, 1, Integer.MAX_VALUE);
+				for(int i=0;i<eventPhotos.size();i++){
+					if(photo.getId()==eventPhotos.get(i).getPhoto().getId()){
+						if(i==0){
+							feedBean.setNextFeedId(eventPhotos.get(i+1).getFeed().getId());
+						}else if(i==eventPhotos.size()-1){
+							feedBean.setLastFeedId(eventPhotos.get(i-1).getFeed().getId());
+						}else{
+							feedBean.setLastFeedId(eventPhotos.get(i-1).getFeed().getId());
+							feedBean.setNextFeedId(eventPhotos.get(i+1).getFeed().getId());
+						}
+					}
+				}
+			}
+		}
+		*/
 		feedBean.setPhoto(photo);
 		List<CommentBean> comments = feedFacade.getFeedCommentsById(feedId);
 		feedBean.setComments(comments);

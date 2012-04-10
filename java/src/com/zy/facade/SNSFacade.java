@@ -66,4 +66,5 @@ public interface SNSFacade {
 	public List<ZyProfile> getMatchedFriends(int userId,int pageNo,int pageSize);
 	public ZyFriendgroup getSNSGroup(int ZyGroupId);
 	public List<FriendJoinedVO> getGroupFriends(int userId, int groupId);
+	public boolean checkIfTargetInSNS(int userId,int targetId,short degree);
 }

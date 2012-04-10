@@ -45,5 +45,8 @@
          <property name="atread" type="java.lang.String">
             <column name="ATREAD" length="1"  />
         </property>
+        <property name="privacy" type="java.lang.Integer">
+            <column name="PRIVACY" />
+        </property>
     </class>
 </hibernate-mapping>

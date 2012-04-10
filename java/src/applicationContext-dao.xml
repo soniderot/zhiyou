@@ -18,6 +18,7 @@
 <bean id="notificationTypeDao" class="com.zy.domain.message.dao.NotificationTypeDaoImpl" parent="baseDao" />
 <bean id="notificationDao" class="com.zy.domain.message.dao.NotificationDaoImpl" parent="baseDao" />
 
+<bean id="eventFollowDao" class="com.zy.domain.event.dao.EventFollowDaoImpl" parent="baseDao" />
 <bean id="eventDao" class="com.zy.domain.event.dao.EventDaoImpl" parent="baseDao" />
 <bean id="eventInviteDao" class="com.zy.domain.event.dao.EventInviteDaoImpl" parent="baseDao" />
 <bean id="eventMemberDao" class="com.zy.domain.event.dao.EventMemberDaoImpl" parent="baseDao" />
@@ -45,4 +46,5 @@
 <bean id="recommendUserDao" class="com.zy.domain.sns.dao.RecommendUserDaoImpl" parent="baseDao" />
 <bean id="interestDao" class="com.zy.domain.option.dao.InterestDaoImpl" parent="baseDao" />
 <bean id="blockedFeedsDao" class="com.zy.domain.feed.dao.BlockedFeedsDaoImpl" parent="baseDao" />
+<bean id="atFeedDao" class="com.zy.domain.feed.dao.AtFeedDaoImpl" parent="baseDao" />
 </beans>

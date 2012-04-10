@@ -8,6 +8,8 @@ import com.zy.Constants;
 import com.zy.common.model.ZyAlbum;
 import com.zy.common.model.ZyAnswer;
 import com.zy.common.model.ZyAnsweroption;
+import com.zy.common.model.ZyAtfeed;
+import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyPhoto;
@@ -15,13 +17,17 @@ import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyQuestion;
 import com.zy.common.util.ActionUtil;
 import com.zy.domain.event.service.EventService;
+import com.zy.domain.feed.bean.AtFeedBean;
 import com.zy.domain.feed.bean.CommentBean;
 import com.zy.domain.feed.bean.FeedBean;
 import com.zy.domain.feed.service.FeedService;
+import com.zy.domain.message.bean.RequestBean;
+import com.zy.domain.message.service.RequestService;
 import com.zy.domain.photo.service.PhotoService;
 import com.zy.domain.profile.service.ProfileService;
 import com.zy.domain.question.service.QuestionService;
 import com.zy.facade.FeedFacade;
+import com.zy.facade.vo.EventVO;
 import com.zy.facade.vo.OptionVO;
 
 public class FeedFacadeImpl implements FeedFacade{
@@ -30,8 +36,17 @@ public class FeedFacadeImpl implements FeedFacade{
 	private ProfileService profileService;
 	private PhotoService photoService;
 	private QuestionService questionService;
+	private RequestService requestService;
 	
 	
+	public RequestService getRequestService() {
+		return requestService;
+	}
+
+	public void setRequestService(RequestService requestService) {
+		this.requestService = requestService;
+	}
+
 	public PhotoService getPhotoService() {
 		return photoService;
 	}
@@ -95,12 +110,15 @@ public class FeedFacadeImpl implements FeedFacade{
 		return bean;
 	}
 	
-	public void addNewEventNewsFeed(int userId,int enentId){
+	public void addNewEventNewsFeed(int userId,int eventId){
 		ZyNewsfeed feed = new ZyNewsfeed();
 		feed.setUserid(userId);
 		feed.setCreated(new Date());
 		feed.setHandle("sns.event.create");
-		feed.setBody(""+enentId);
+		feed.setBody(""+eventId);
+		if(eventService.getEvent(eventId).getPrivacy()!=null){
+			feed.setPrivacy(eventService.getEvent(eventId).getPrivacy());
+		}
 		feedService.addNewsFeed(feed);
 	}
 	
@@ -124,6 +142,9 @@ public class FeedFacadeImpl implements FeedFacade{
 		feed.setCreated(new Date());
 		feed.setHandle("sns.event.join");
 		feed.setBody(""+eventId);
+		if(eventService.getEvent(eventId).getPrivacy()!=null){
+			feed.setPrivacy(eventService.getEvent(eventId).getPrivacy());
+		}
 		feedService.addNewsFeed(feed);
 	}
 	
@@ -236,9 +257,19 @@ public class FeedFacadeImpl implements FeedFacade{
 			
 			List<CommentBean> commentBeans = getFeedCommentsById(bean.getFeed().getId());
 			bean.setComments(commentBeans);
+			
+			/*
 			if(feeds.get(i).getAtuserid()!=null&&feeds.get(i).getAtuserid()>0){
 				bean.setAtuser(profileService.findProfileById(feeds.get(i).getAtuserid()));
+			}*/
+			
+			List<ZyProfile> atusers = new ArrayList<ZyProfile>();
+			List<ZyAtfeed> atfeeds = feedService.getAtFeedsByFeedId(bean.getFeed().getId(),1,Integer.MAX_VALUE);
+			for(int k=0;k<atfeeds.size();k++){
+				ZyProfile profile = profileService.findProfileById(atfeeds.get(k).getAtuserid());
+				atusers.add(profile);
 			}
+			bean.setAtusers(atusers);
 			results.add(bean);
 		}
 	}
@@ -333,6 +364,9 @@ public class FeedFacadeImpl implements FeedFacade{
 		feed.setHandle("sns.event.photo");
 		feed.setBody(""+photoId);
 		feed.setReferenceid(eventId);
+		if(eventService.getEvent(eventId).getPrivacy()!=null){
+			feed.setPrivacy(eventService.getEvent(eventId).getPrivacy());
+		}
 		feedService.addNewsFeed(feed);
 		bean.setFeed(feed);
 		bean.setUser(profileService.findProfileById(feed.getUserid()));
@@ -348,6 +382,9 @@ public class FeedFacadeImpl implements FeedFacade{
 		feed.setHandle("sns.event.text");
 		feed.setBody(message);
 		feed.setReferenceid(eventId);
+		if(eventService.getEvent(eventId).getPrivacy()!=null){
+			feed.setPrivacy(eventService.getEvent(eventId).getPrivacy());
+		}
 		feedService.addNewsFeed(feed);
 		
 		FeedBean bean = new FeedBean();
@@ -388,5 +425,42 @@ public class FeedFacadeImpl implements FeedFacade{
 	
 	public List<Integer> getNewsFeed(String handles,String body){
 		return feedService.getNewsFeed(handles, body);
+	}
+	
+	public List<AtFeedBean> getAtFeedsByUserId(int userId,int pageNo,int pageSize){
+		return feedService.getAtFeedsByUserId(userId, pageNo, pageSize);
+	}
+	
+	public List<ZyAtfeed> getUnReadAtFeeds(int userId,int pageNo,int pageSize){
+		return feedService.getUnReadAtFeeds(userId, pageNo, pageSize);
+	}
+	
+	public void readAtFeed_tx(int atfeedId){
+		feedService.readAtFeed_tx(atfeedId);
+	}
+	
+	public List<ZyEvent> getEventsAndReqs(int userId){
+		ArrayList<ZyEvent> results = new ArrayList<ZyEvent>();
+		List<RequestBean> requests = requestService.getUserRequestInbox(userId,(short)5,1,Integer.MAX_VALUE);
+		for(int i=0;i<requests.size();i++){
+			Integer eventId = requests.get(i).getRequest().getReferenceid();
+			if(eventId!=null&&eventId>0){
+				results.add(eventService.getEvent(eventId));
+			}
+		}
+		
+		List<EventVO>  list = eventService.getEvents(""+userId,1,Integer.MAX_VALUE);
+		for(int i=0;i<list.size();i++){
+			results.add(list.get(i).getEvent());
+		}
+		return results;
+	}
+	
+	public void addAtFeed(ZyAtfeed atfeed){
+		feedService.addAtFeed(atfeed);
+	}
+	
+	public List<AtFeedBean> getAtFeedsByFeedId(int feedId,int pageNo,int pageSize){
+		return null;
 	}
 }

@@ -101,6 +101,18 @@ public class PhotoServiceImpl implements PhotoService{
 			feedPhoto.setPhoto(photo);
 			eventPhotos.add(feedPhoto);
 		}
+		
+		/*
+		for(int i=0;i<eventPhotos.size()&&eventPhotos.size()>1;i++){
+			if(i==0){
+				eventPhotos.get(i).setNextFeedId(eventPhotos.get(i+1).getFeed().getId());
+			}else if(i==eventPhotos.size()-1){
+				eventPhotos.get(i).setLastFeedId(eventPhotos.get(i-1).getFeed().getId());
+			}else{
+				eventPhotos.get(i).setNextFeedId(eventPhotos.get(i+1).getFeed().getId());
+				eventPhotos.get(i).setLastFeedId(eventPhotos.get(i-1).getFeed().getId());
+			}
+		}*/
 		return eventPhotos;
 	}
 	public int getPhotosCntByEventId(int eventId){

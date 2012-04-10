@@ -5,11 +5,18 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.zy.common.model.ZyCity;
+import com.zy.common.model.ZyInterest;
 import com.zy.common.model.ZyProfile;
+import com.zy.common.model.ZySchool;
 import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.LogUtil;
 import com.zy.common.util.Page;
+import com.zy.common.util.StringUtil;
+import com.zy.facade.EducationFacade;
+import com.zy.facade.LocationFacade;
+import com.zy.facade.OptionFacade;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.SNSFacade;
 import com.zy.facade.SearchFacade;
@@ -26,6 +33,7 @@ public class SearchAction {
 	private int pageNo;
 	private SearchFacade searchFacade;
 	private ProfileFacade profileFacade;
+	private LocationFacade locationFacade;
 	
 	private String flag ;
 	private String listFlag;
@@ -35,8 +43,66 @@ public class SearchAction {
 	private int profileId;
 	private String match;
 	private SNSFacade snsFacade;
+	private int cityid;
+	private String cityname;
+	private String hobby;
 	
+	private int searchCityId;
+	private String searchHobby;
 	
+	private EducationFacade educationFacade;
+	
+	private OptionFacade optionFacade;
+	
+
+	public OptionFacade getOptionFacade() {
+		return optionFacade;
+	}
+	public void setOptionFacade(OptionFacade optionFacade) {
+		this.optionFacade = optionFacade;
+	}
+	public EducationFacade getEducationFacade() {
+		return educationFacade;
+	}
+	public void setEducationFacade(EducationFacade educationFacade) {
+		this.educationFacade = educationFacade;
+	}
+	public int getSearchCityId() {
+		return searchCityId;
+	}
+	public void setSearchCityId(int searchCityId) {
+		this.searchCityId = searchCityId;
+	}
+	public String getSearchHobby() {
+		return searchHobby;
+	}
+	public void setSearchHobby(String searchHobby) {
+		this.searchHobby = searchHobby;
+	}
+	public String getHobby() {
+		return hobby;
+	}
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+	public LocationFacade getLocationFacade() {
+		return locationFacade;
+	}
+	public void setLocationFacade(LocationFacade locationFacade) {
+		this.locationFacade = locationFacade;
+	}
+	public String getCityname() {
+		return cityname;
+	}
+	public void setCityname(String cityname) {
+		this.cityname = cityname;
+	}
+	public int getCityid() {
+		return cityid;
+	}
+	public void setCityid(int cityid) {
+		this.cityid = cityid;
+	}
 	public SNSFacade getSnsFacade() {
 		return snsFacade;
 	}
@@ -134,12 +200,35 @@ public class SearchAction {
 		this.profileList = profileList;
 	}
 	
+	private String getHobbyList(String hobby) {
+		String str = "";
+		List<ZyInterest> hobbies = new ArrayList<ZyInterest>();
+		if (!StringUtil.isNull(hobby)) {
+			String[] hobbyArr = hobby.split(" ");
+			for(int i = 0; i < hobbyArr.length; i++) {
+				ZyInterest interest = optionFacade.getInterestById(Integer.parseInt(hobbyArr[i]));
+				str = str + " "+interest.getTag();
+			}
+		}
+		return str;
+	}
+	
 	public String execute() {
 		System.out.println("-----------------into search execute---------");
 		profileList = new ArrayList<ZyProfile>();
 		if(profileId>0&&!"1".equals(flag)){
 			System.out.println("-----------------profile.id---------"+profileId);
-			profileList.add(profileFacade.findProfileById(profileId));
+			
+			ZyProfile profile = profileFacade.findProfileById(profileId);
+			
+			
+			ZySchool school = educationFacade.getSchoolByUser(profile.getUserid());
+			if (school != null) {
+				profile.setCollegename(school.getSchoolname());
+			}
+			String hobbystr = getHobbyList(profile.getHobby());
+			profile.setHobbyStr(hobbystr);
+			profileList.add(profile);
 			return "match.search.ajax";
 		}
 		System.out.println("in before search vos.size---------");
@@ -156,8 +245,15 @@ public class SearchAction {
 				System.out.println("index=="+index);
 				System.out.println("newprofileid.i=="+i);
 				System.out.println("newprofileid=="+results.get(i).getProfileId());
-				profileList.add(profileFacade.findProfileById(results.get(i).getProfileId()));
-		
+				ZyProfile profile = profileFacade.findProfileById(results.get(i).getProfileId());
+				
+				ZySchool school = educationFacade.getSchoolByUser(results.get(i).getProfileId());
+				if (school != null) {
+					profile.setCollegename(school.getSchoolname());
+				}
+				String hobbystr = getHobbyList(profile.getHobby());
+				profile.setHobbyStr(hobbystr);
+				profileList.add(profile);
 			}
 		}
 		return "match.search.ajax";
@@ -265,6 +361,26 @@ public class SearchAction {
 		vo.setExclude1d(true);
 		vo.setGender(gender);
 		vo.setExcludeReq(true);
+		
+		if(hobby!=null&&hobby.trim().length()>0){
+			vo.setHobby(hobby);
+			this.searchHobby = hobby;
+		}
+		
+		if(cityid>0){
+			vo.setCityId(cityid);
+			this.searchCityId = cityid;
+		}
+		
+		if(cityname!=null&&cityname.trim().length()>0&&cityid==0){
+			List<ZyCity> citys = locationFacade.getCitiesByKey(cityname);
+			if(citys.size()>0){
+				cityid =citys.get(0).getId();
+				vo.setCityId(cityid);
+				this.searchCityId = cityid;
+			}
+		}
+		
 		//vo.setExcludeReq(true);
 
 		//PageListVO<SearchResultVo> results = searchFacade.getProfilesBySearch(ActionUtil.getSessionUserId(), vo, pageNo,pageSize,2000);

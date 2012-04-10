@@ -23,6 +23,16 @@ public class EventVO {
 	
 	private boolean newDateFlag;
 	
+	private boolean followFlag;
+	
+	
+	
+	public boolean isFollowFlag() {
+		return followFlag;
+	}
+	public void setFollowFlag(boolean followFlag) {
+		this.followFlag = followFlag;
+	}
 	public boolean isNewDateFlag() {
 		return newDateFlag;
 	}

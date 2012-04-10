@@ -10,7 +10,7 @@
 		<result name="contacts" type="tiles">tiles.sns.contacts</result>
 		<result name="invite" type="tiles">tiles.sns.invite</result>
 		<result name="you.mayknow" >/WEB-INF/jsp/member/sns/right.jsp</result>
-		<result name="you.wanttoknow" >/WEB-INF/jsp/member/sns/welcome.jsp</result>
+		<result name="you.wanttoknow">/WEB-INF/jsp/member/sns/welcome.jsp</result>
 		<result name="search.result" type="tiles">tiles.sns.search</result>
 		<result name="friends.list" type="tiles">tiles.sns.friendslist</result>
 		<result name="invite.success" type="tiles">tiles.sns.invitesuccess</result>

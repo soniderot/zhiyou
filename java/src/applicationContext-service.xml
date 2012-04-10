@@ -36,6 +36,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="eventMemberDao" ref="eventMemberDao"/>
 		<property name="eventCategoryDao" ref="eventCategoryDao"/>
 		<property name="recommPlaceDao" ref="recommPlaceDao"/>
+		<property name="eventFollowDao" ref="eventFollowDao"/>
 	</bean>
 	
 	<bean name="feedService" class="com.zy.domain.feed.service.FeedServiceImpl">
@@ -43,6 +44,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="newsFeedTypeDao" ref="feedTypeDao"/>
 		<property name="newsFeedCommentDao" ref="feedCommentDao"/>
 		<property name="blockedFeedsDao" ref="blockedFeedsDao"/>
+		<property name="atFeedDao" ref="atFeedDao"/>
 	</bean>
 	
 	<bean name="messageService" class="com.zy.domain.message.service.MessageServiceImpl">

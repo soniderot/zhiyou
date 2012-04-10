@@ -5,11 +5,13 @@ import java.util.List;
 
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyEventcategory;
+import com.zy.common.model.ZyEventfollow;
 import com.zy.common.model.ZyEventinvite;
 import com.zy.common.model.ZyEventmember;
 import com.zy.common.model.ZyRecommplace;
 import com.zy.domain.event.dao.EventCategoryDao;
 import com.zy.domain.event.dao.EventDao;
+import com.zy.domain.event.dao.EventFollowDao;
 import com.zy.domain.event.dao.EventInviteDao;
 import com.zy.domain.event.dao.EventMemberDao;
 import com.zy.domain.event.dao.RecommPlaceDao;
@@ -21,8 +23,16 @@ public class EventServiceImpl implements EventService{
 	private EventMemberDao eventMemberDao;
 	private EventCategoryDao eventCategoryDao;
 	private RecommPlaceDao recommPlaceDao;
+	private EventFollowDao eventFollowDao;
 	
-	
+	public EventFollowDao getEventFollowDao() {
+		return eventFollowDao;
+	}
+
+	public void setEventFollowDao(EventFollowDao eventFollowDao) {
+		this.eventFollowDao = eventFollowDao;
+	}
+
 	public RecommPlaceDao getRecommPlaceDao() {
 		return recommPlaceDao;
 	}
@@ -134,5 +144,29 @@ public class EventServiceImpl implements EventService{
 	
 	public ZyRecommplace getPlace(int placeId){
 		return recommPlaceDao.get(placeId);
+	}
+	
+	public List<ZyEventfollow> getFollowEvents(int userId,int pageNo,int pageSize){
+		return eventFollowDao.getFollowEvents(userId, pageNo, pageSize);
+	}
+	public List<ZyEventfollow> getEventFollow(int eventId,int pageNo,int pageSize){
+		return eventFollowDao.getEventFollow(eventId, pageNo, pageSize);
+	}
+	public void addEventFollow(int eventId,int userId){
+		ZyEventfollow follow = new ZyEventfollow();
+		follow.setCreatetime(new Date());
+		follow.setEventid(eventId);
+		follow.setUserid(userId);
+		eventFollowDao.save(follow);
+	}
+	public void removeEventFollow(int eventId,int userId){
+		List<ZyEventfollow> list = eventFollowDao.getFollowEvnets(userId, eventId, 1,Integer.MAX_VALUE);
+		for(int i=0;i<list.size();i++){
+			eventFollowDao.deleteByKey(list.get(i).getId());
+		}
+	}
+	
+	public List<ZyEventfollow> getFollowEvnets(int userId,int eventId,int pageNo,int pageSize){
+		return eventFollowDao.getFollowEvnets(userId, eventId, pageNo, pageSize);
 	}
 }

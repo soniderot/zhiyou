@@ -58,5 +58,7 @@ public class IndexField {
 		public final static String VERIFIED_SCHOOL="verifiedSchoolId";
 		
 		public final static String BIRTHDATE="birthDate"; 
+		
+		public final static String HOBBY = "hobby";
 	}
 }

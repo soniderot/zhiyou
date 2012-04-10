@@ -92,7 +92,7 @@ public class MemberAction extends ActionSupport{
 		newnotificationcnt = notifyFacade.countForNewNotification(ActionUtil.getSessionUserId());
 		newmessagecnt = messageFacade.countForNewInbox(ActionUtil.getSessionUserId());
 		snsgroups = snsFacade.getFriendGroups(ActionUtil.getSessionUserId());
-		newatmecnt = feedFacade.getUnreadAtNewsFeed(ActionUtil.getSessionUserId(),1,10000).size();
+		newatmecnt = feedFacade.getUnReadAtFeeds(ActionUtil.getSessionUserId(),1,10000).size();
 		System.out.println("--------------snsgroups-----------"+snsgroups.size());
 		}catch(Exception ex){
 			ex.printStackTrace();

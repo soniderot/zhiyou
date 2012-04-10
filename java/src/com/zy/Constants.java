@@ -181,8 +181,6 @@ public class Constants {
 		DOMAINNAME = pro.getProperty("DOMAINNAME", "");
 		BNSCLASSPATH = pro.getProperty("BNSCLASSPATH");
 		JMLPATH = pro.getProperty("JMLPATH");
-		HOSTS = pro.getProperty("HOSTS");
-		CHINESE_BYTES = Integer.parseInt(pro.getProperty("CHINESE_BYTES"));	
 	}
 
 
@@ -190,24 +188,25 @@ public class Constants {
 	public final static short USER_EMAIL_UNVERIFIED = 0;
 	public final static short USER_EMAIL_VERIFIED = 1;
 
-	public final static short SNS_INTRODUCE_PENDING = 0;
-	public final static short SNS_INTRODUCE_FORWARED = 1;
-	public final static short SNS_INTRODUCE_DECLINED = 2;
-	public final static short SNS_INTRODUCE_ACCEPTED = 3;
-	public final static short SNS_INTRODUCE_TERMINATED = 4;
+	//public final static short SNS_INTRODUCE_PENDING = 0;
+	//public final static short SNS_INTRODUCE_FORWARED = 1;
+	//public final static short SNS_INTRODUCE_DECLINED = 2;
+	//public final static short SNS_INTRODUCE_ACCEPTED = 3;
+	//public final static short SNS_INTRODUCE_TERMINATED = 4;
 
 	// sns feed
+	
 	public final static String SNS_SHARE_TEXT = "sns.share.text";
-	public final static String SNS_SHARE_DOCUMENT = "sns.share.document";
-	public final static String SNS_SHARE_LINKURL = "sns.share.linkurl";
-	public final static String SNS_SHARE_CAREER = "sns.share.career";
-	public final static String SNS_SHARE_EDUCATION = "sns.share.education";
-	public final static String SNS_SHARE_PROFILE = "sns.share.profile";
-	public final static String SNS_CREATE_GROUP = "sns.create.group";
-	public final static String SNS_JOIN_GROUP = "sns.join.group";
-	public final static String SNS_JOIN_GROUP_EVENT = "sns.join.group.event";
+	//public final static String SNS_SHARE_DOCUMENT = "sns.share.document";
+	//public final static String SNS_SHARE_LINKURL = "sns.share.linkurl";
+	//public final static String SNS_SHARE_CAREER = "sns.share.career";
+	//public final static String SNS_SHARE_EDUCATION = "sns.share.education";
+	//public final static String SNS_SHARE_PROFILE = "sns.share.profile";
+	//public final static String SNS_CREATE_GROUP = "sns.create.group";
+	//public final static String SNS_JOIN_GROUP = "sns.join.group";
+	//public final static String SNS_JOIN_GROUP_EVENT = "sns.join.group.event";
 	public final static String SNS_SHARE_CONNECTION = "sns.share.connection";
-	public final static String SNS_INIT_INTRODUCE = "sns.init.introduce";
+	//public final static String SNS_INIT_INTRODUCE = "sns.init.introduce";
 	
     // 3 all 2 3d 1 1d for search scope
 	public final static int SEARCH_SCOPE_ALL = 5;
@@ -218,23 +217,23 @@ public class Constants {
 
 	public final static ThreadLocal<HashMap> cache = new ThreadLocal<HashMap>();
 
-	public final static String UNPAIRED_PARENTHESIS = "UNPAIRED_PARENTHESIS";
-    public final static String INVALID_FAMILY_NAME = "INVALID_FAMILY_NAME";
-    public final static String FORBIDDEN_WORDS = "FORBIDDEN_WORDS";
-    public final static String SUCCESS_VALIDATION = "SUCCESS_VALIDATION";
+	//public final static String UNPAIRED_PARENTHESIS = "UNPAIRED_PARENTHESIS";
+   // public final static String INVALID_FAMILY_NAME = "INVALID_FAMILY_NAME";
+   // public final static String FORBIDDEN_WORDS = "FORBIDDEN_WORDS";
+   // public final static String SUCCESS_VALIDATION = "SUCCESS_VALIDATION";
 	
-    public final static String INVALID_NAME_NOTIC_HAS_BEEN_CLOSED = "INVALID_NAME_NOTIC_HAS_BEEN_CLOSED";
+   // public final static String INVALID_NAME_NOTIC_HAS_BEEN_CLOSED = "INVALID_NAME_NOTIC_HAS_BEEN_CLOSED";
 	
-    public static final Set<String> chineseFamilyNameSet = new HashSet<String>();
-    public static final Set<String> forbiddenWordSet = new HashSet<String>();
+    //public static final Set<String> chineseFamilyNameSet = new HashSet<String>();
+    //public static final Set<String> forbiddenWordSet = new HashSet<String>();
    
 	public final static int REQUEST_LIST_CONTENT_MAX_SIZE = 300; 
 	
-	public final static short REQUEST_TYPE_1D_INVITE_REQUEST = 1;
+	//public final static short REQUEST_TYPE_1D_INVITE_REQUEST = 1;
 		
-	public final static short RECOMMEND_ITEM_TYPE_FRIEND = 1; // friend recommendation item
+//	public final static short RECOMMEND_ITEM_TYPE_FRIEND = 1; // friend recommendation item
     
-    public static long FEED_MERGE_MINUTE = 5 * 60 * 1000;	
+    //public static long FEED_MERGE_MINUTE = 5 * 60 * 1000;	
     
     //FROM HERE!!
     public final static String LOGO_PATH = "/";

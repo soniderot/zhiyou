@@ -30,6 +30,12 @@ public class SearchFormVo implements Serializable {
 	private int countryId;
 	private int regionId;
 	private int cityId;
+	
+	private int searchCityId;
+	private String searchHobby;
+	
+	
+	
 
 	// split by space example 2 10 turn to query:+(industry:2 industry:10)
 	private int[] industryIds;
@@ -59,6 +65,17 @@ public class SearchFormVo implements Serializable {
 	private boolean excludeReq;
 	private int homeId;
 	
+	private String hobby;
+	
+	
+	public String getHobby() {
+		return hobby;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+
 	public int getHomeId() {
 		return homeId;
 	}
@@ -182,6 +199,13 @@ public class SearchFormVo implements Serializable {
 			values.add(this.getCityId() + "");
 			flags.add(BooleanClause.Occur.MUST);
 		}
+		
+		if(this.getHobby()!=null){
+			fields.add(IndexField.Profile.HOBBY);
+			values.add(this.hobby);
+			flags.add(BooleanClause.Occur.MUST);
+		}
+		
 		if (this.getHomeId() > 0) {
 			fields.add(IndexField.Profile.HOME);
 			values.add(this.getHomeId() + "");
@@ -467,5 +491,21 @@ public class SearchFormVo implements Serializable {
     public void setContactIdsString(String contactIdsString) {
         this.contactIdsString = contactIdsString;
     }
+
+	public int getSearchCityId() {
+		return searchCityId;
+	}
+
+	public void setSearchCityId(int searchCityId) {
+		this.searchCityId = searchCityId;
+	}
+
+	public String getSearchHobby() {
+		return searchHobby;
+	}
+
+	public void setSearchHobby(String searchHobby) {
+		this.searchHobby = searchHobby;
+	}
 
 }
