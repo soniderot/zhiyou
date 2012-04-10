@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+/*Big photo style like kaixin*/
+.fbPhotoSnowlift .rhcScroller .uiScrollableAreaContent{ padding:0 10px;}
+.fbPhotoSnowlift .rhcHeader{ margin-bottom:-15px; padding:0; position:relative; z-index:999;}
+.fbPhotoSnowlift .fbPhotoSnowliftControls{ padding:5px}
+.fbPhotosSnowboxFeedbackInput{ margin:0 0 10px 0; position:relative}
+.fbPhotoSnowlift .fbPhotosSnowliftUfi{ height:329px; overflow-y:auto; overflow-x:hidden}
+.uiButton.uiButtonConfirm{ margin-top:0px;}
+.pic_prew{ position:absolute; top:0; left:20px;}
+.pic_next{ position:absolute; top:0; right:20px;}
+
+.uiGrid{ width:100%}
+#imageContainer{ position:relative}
+.userinfo{ width:100%;}
+.slidewrap{ width:55%; float:left}
+.next,.prev{ top:140px !important; position:absolute}
+.next{ left:370px !important}
+.prev{ left:10px !important} 
+.yesNoBtns{ top:102px; left:630px; position:static; font-size:14px; font-weight:bold; line-height:32px; padding-left:160px;}
+.v_profile{ width:37%; font-size:12px; float:right;}
+.v_profile li{ clear:both; height:26px; line-height:26px; font-size:12px; color:#999999; padding-left:5px;}
+.v_profile h1{ height:20px; line-height:20px; background:#EEEEEE; font-size:12px; padding:2px 5px;font-size:12px;}
+.v_profile h3{ display:block; width:70px; font-weight:bold; float:left ; color:#333333;font-size:12px;}
+#imageContainer{ padding-top:5px;}
+
+
+
