@@ -79,6 +79,21 @@
                 <a href="/usr/feed.jhtml">首页</a>
               </li>
               <li class="topNavLink tinyman">
+                <a title="好友" href="/sns/sns!getFriendsList.jhtml">
+                  <span class="headerTinymanName">好友</span>
+                </a>
+              </li>
+              <li class="topNavLink tinyman">
+                <a title="活动" href="/event/event!getMyEvents.jhtml">
+                  <span class="headerTinymanName">活动</span>
+                </a>
+              </li>
+              <li class="topNavLink tinyman">
+                <a title="速配" href="/sns/search!search.jhtml">
+                  <span class="headerTinymanName">速配</span>
+                </a>
+              </li>
+              <li class="topNavLink tinyman">
                 <a title="个人主页" href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="#session.user.userid"/>">
                   <span class="headerTinymanName">个人信息</span>
                 </a>
@@ -186,7 +201,7 @@ function freshNotice() {
           $("#notificationsCountatmeValue").text(atmecnt);
        } else {
           $("#fbNotificationsatmeJewel").removeClass("hasNew");
-       }
+       }-->
      }
   });
   setTimeout("freshNotice()", 1000);

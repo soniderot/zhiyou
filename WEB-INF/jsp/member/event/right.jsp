@@ -46,6 +46,30 @@
            		
                 </div>
                 
+                
+                 <div class="phs">
+                  
+                  
+                   <s:iterator value="friendEvents">
+                  <div class="UIImageBlock clearfix ego_unit">
+                    <a aria-hidden="true" tabindex="-1" data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1372884330","eng_data":{"ego_service":"pymk","ego_pos":"4"}}}' href="/event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />" class="UIImageBlock_Image UIImageBlock_SMALL_Image">
+                      <img alt="" src="<s:property value="event.logo" />" class="uiProfilePhoto uiProfilePhotoLarge img"/>
+                    </a>
+                    <div class="egoProfileTemplate UIImageBlock_Content UIImageBlock_SMALL_Content">
+                      <a data-gt='{"engagement":{"eng_type":"1","eng_src":"13","eng_tid":"1372884330","eng_data":{"ego_service":"pymk","ego_pos":"4"}}}' href="/event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />" class="ego_title"><s:property value="event.eventname" /></a>
+                      <div class="ego_action">
+                        
+                        <a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="friends.get(0).userid" />" class="ego_title"><s:property value="friends.get(0).username" /></a>等<s:property value="friends.size()" />位好友参加
+                        	
+                        
+                      
+                      </div>
+                    </div>
+                  </div>
+           		</s:iterator>
+           		
+                </div>
+                
                  <s:if test="publicEvents!=null">   
                
                 <div class="uiHeader uiHeaderTopAndBottomBorder mbs uiSideHeader">

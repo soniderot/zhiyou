@@ -14,10 +14,12 @@ $(document).ready(function() {
 
   var index = $("input[name='photoFeedIds']").index($("input[name='photoFeedIds'][value='${feedBean.feed.id}']"));
   var size = $("input[name='photoFeedIds']").size();
+  
+ 
   if (index == 0) {
-    $("a.prev").removeClass("hilightPager");
+    $("span.pic_prew").addClass("hidden");
   } else if (index == size - 1) {
-    $("a.next").removeClass("hilightPager");
+    $("span.pic_next").addClass("hidden");
   }
   
   function showPreBigPhoto() {
@@ -53,10 +55,14 @@ $(document).ready(function() {
     <div class="fbPhotoSnowliftInner">
       <div class="fbPhotoSnowliftContainer uiContextualLayerParent">
         <div class="fbPhotoSnowliftBorder">
-          <div class="clearfix fbPhotoSnowliftPopup" style="width: 860px; height: 520px;">
-            <div class="stageWrapper lfloat" style="width: 520px; line-height: 43.3333em;">
+          <div class="clearfix fbPhotoSnowliftPopup" style="width: 1000px; height: 520px;">
+            <div class="stageWrapper lfloat" style="width: 730px; line-height: 43.3333em;">
               <div class="stage">
-                <img class="spotlight" alt="" src="<s:property value='feedBean.photo.bigfilename'/>" />
+              
+              	<span class="pic_prew"><img src="/images/new_images/photoview_prev.png" onclick="showPreBigPhoto()"/></span>
+                <span class="pic_next"><img src="/images/new_images/photoview_next.png" onclick="showNextBigPhoto()"/></span>
+                
+                <img class="spotlight" alt="" src="<s:property value='feedBean.photo.bigfilename'/>"/>
                 <div id="fbPhotoSnowliftTagBoxes" class="fbPhotosPhotoTagboxes tagContainer">
                   <div class="tagsWrapper"></div>
                 </div>
@@ -136,11 +142,11 @@ $(document).ready(function() {
                     </div>
                   </div>
                 </div>
-              </div>-->
+              </div>
               
-              <a title="上一页" href="javascript:void(0);" onclick="showPreBigPhoto()" class="snowliftPager prev hilightPager"><i></i></a>
-              <a title="下一页" href="javascript:void(0);" onclick="showNextBigPhoto()" class="snowliftPager next hilightPager"><i></i></a>
-               
+              <a title="上一页" href="#" class="snowliftPager prev hilightPager"><i></i></a>
+              <a title="下一页" href="#" class="snowliftPager next"><i></i></a>
+               -->
               <div id="fbPhotoSnowliftError" class="photoError stageError hidden_elem"></div>
             </div>
             <div class="rhc photoUfiContainer">
@@ -177,7 +183,7 @@ $(document).ready(function() {
                           </div>
                         </div>
                         <div id="fbPhotoSnowliftCaption" class="fbPhotosPhotoCaption">
-                          <span class="hasCaption"><br/>
+                          <span class="hasCaption"><!--<br/> -->
                           <s:property value='feedBean.feed.shareReason'/></span>
                         </div>
                         <div id="fbPhotoSnowliftTagList" class="fbPhotoTagList hidden_elem"></div>
@@ -193,14 +199,50 @@ $(document).ready(function() {
                             <label title="发表留言" class="uiLinkButton comment_link">
                             	<!--
                             <input type="button" onclick="replyFocus('feedComment')" value="回复" />-->
+                            
                             </label>
+                            <!--
                             · <a href="usr/feed!sharedFeed.jhtml?feedId=<s:property value="feedBean.feed.id" />" onclick="return showShareReasonInput(this);" rel="dialog">分享</a>
+                            -->
                             </span>
                           </div>
+                          <!--<li id="fbPhotoSnowliftFeedbackInput" class="fbPhotosSnowboxFeedbackInput">
+                              <ul class="uiUfi fbPhotosSnowliftUfi">
+                                <li class="uiUfiAddComment clearfix uiUfiSmall ufiItem ufiItem"> -->
+                                  <div class="UIImageBlock clearfix mentionsAddComment">
+                                    <img alt="" src="<s:property value="#session.userlogo"/>" class="uiProfilePhoto actorPic UIImageBlock_Image UIImageBlock_ICON_Image uiProfilePhotoMedium img"/>
+                                    <div class="commentArea UIImageBlock_Content UIImageBlock_ICON_Content">
+                                      <div class="commentBox">
+                                        <div id="uex6s3_3" class="uiMentionsInput textBoxContainer">
+                                          <div class="highlighter" style="direction: ltr; text-align: left;">
+                                            <div style="width: 242px;"><span class="highlighterContent hidden_elem"></span></div>
+                                          </div>
+                                          <div id="uex6s3_4" class="uiTypeahead mentionsTypeahead" style="height: auto;">
+                                            <div class="wrap">
+                                              <input type="hidden" class="hiddenInput"/>
+                                              <div class="innerWrap">
+                                                <s:textarea id="feedComment" name="feedComment" onkeypress="_enterKeypress(this, event)" placeholder="留段话吧..." title="留段话吧..." cssClass="enter_submit uiTextareaNoResize uiTextareaAutogrow textBox mentionsTextarea textInput DOMControl_placeholder"></s:textarea>
+                                                
+                                              </div>
+                                            </div>
+                                          </div>
+           									 <div class="uiButton uiButtonConfirm"><input type="submit" id="u5rqxr_1" value="&nbsp;&nbsp;发&nbsp;布&nbsp;&nbsp;"></div>
+                                          <input type="hidden" class="mentionsHidden" name="add_comment_text" value=""/>
+                                        </div>
+                                      </div>
+                                      <!--
+                                      <label for="uex6s3_5" class="mts commentBtn stat_elem hidden_elem optimistic_submit uiButton uiButtonConfirm">
+                                      <input type="submit" id="uex6s3_5" name="comment" class="enter_submit_target" value="回复"/>
+                                      </label>-->
+                                    </div>
+                                  </div>
+                                <!--</li>
+                              </ul>
+                          </li> -->
                           <ul class="uiList uiUfi focus_target fbUfi fbPhotosSnowliftUfi">
-                            <li class="ufiNub uiListItem uiListVerticalItemBorder"><i></i></li>
-                            <li class="hidden_elem uiUfiLike uiListItem uiListVerticalItemBorder"></li>
-                            <li class="uiUfiViewReposts ufiItem uiListItem uiListVerticalItemBorder">
+                          	<li class="ufiNub uiListItem uiListVerticalItemBorder" style="display:none"><i></i></li>
+                            <li class="hidden_elem uiUfiLike uiListItem uiListVerticalItemBorder" style="display:none"></li>
+                            <li class="uiUfiViewReposts ufiItem uiListItem uiListVerticalItemBorder"  style="display:none">
                               <!-- <span class="stat_elem">
                                 <a href="/shares/view?id=3208743944348" rel="async" class="uiIconText uiUfiViewSharesLink">
                                   <i class="img sp_be31r1 sx_2d5461"></i>被转载分享了 1 次
@@ -235,9 +277,10 @@ $(document).ready(function() {
                                     </div>
                                   </div>
                                 </li>
+                                </s:iterator>
                               </ul>
                             </li>
-                            </s:iterator>
+                            
                           </ul>
                         </div>
                       </div>
@@ -247,37 +290,7 @@ $(document).ready(function() {
                     <div class="uiScrollableAreaGripper hidden_elem" style="height: 174.081px; top: 0px;"></div>
                   </div>
                 </div>
-                <div id="fbPhotoSnowliftFeedbackInput" class="fbPhotosSnowboxFeedbackInput">
-                  <ul class="uiUfi fbPhotosSnowliftUfi">
-                    <li class="uiUfiAddComment clearfix uiUfiSmall ufiItem ufiItem">
-                      <div class="UIImageBlock clearfix mentionsAddComment">
-                        <img alt="" src="<s:property value="#session.userlogo"/>" class="uiProfilePhoto actorPic UIImageBlock_Image UIImageBlock_ICON_Image uiProfilePhotoMedium img"/>
-                        <div class="commentArea UIImageBlock_Content UIImageBlock_ICON_Content">
-                          <div class="commentBox">
-                            <div id="uex6s3_3" class="uiMentionsInput textBoxContainer">
-                              <div class="highlighter" style="direction: ltr; text-align: left;">
-                                <div style="width: 242px;"><span class="highlighterContent hidden_elem"></span></div>
-                              </div>
-                              <div id="uex6s3_4" class="uiTypeahead mentionsTypeahead" style="height: auto;">
-                                <div class="wrap">
-                                  <input type="hidden" class="hiddenInput"/>
-                                  <div class="innerWrap">
-                                    <s:textarea id="feedComment" name="feedComment" onkeypress="enterKeypress(this, event)" placeholder="留段话吧..." title="留段话吧..." cssClass="enter_submit uiTextareaNoResize uiTextareaAutogrow textBox mentionsTextarea textInput DOMControl_placeholder"></s:textarea>
-                                  </div>
-                                </div>
-                              </div>
-                              <input type="hidden" class="mentionsHidden" name="add_comment_text" value=""/>
-                            </div>
-                          </div>
-                          <!--
-                          <label for="uex6s3_5" class="mts commentBtn stat_elem hidden_elem optimistic_submit uiButton uiButtonConfirm">
-                          <input type="submit" id="uex6s3_5" name="comment" class="enter_submit_target" value="回复"/>
-                          </label>-->
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                
                 <div id="shareReasonInput" class="fbPhotosSnowboxFeedbackInput hidden_elem">
                   <ul class="uiUfi fbPhotosSnowliftUfi">
                     <li class="uiUfiAddComment clearfix uiUfiSmall ufiItem ufiItem">
@@ -295,6 +308,7 @@ $(document).ready(function() {
                                   <div class="innerWrap">
                                     <s:textarea name="shareReason" onfocus="commentFocus(this)" onkeypress="share(this, event, %{feedBean.feed.id})" placeholder="分享理由..." title="分享理由..." cssClass="enter_submit uiTextareaNoResize uiTextareaAutogrow textBox mentionsTextarea textInput DOMControl_placeholder"></s:textarea>
                                   </div>
+                                  <div class="uiButton uiButtonConfirm"><input type="submit" id="u5rqxr_1" value="&nbsp;&nbsp;发&nbsp;布&nbsp;&nbsp;"></div>
                                 </div>
                               </div>
                               <input type="hidden" class="mentionsHidden" name="add_comment_text" value=""/>

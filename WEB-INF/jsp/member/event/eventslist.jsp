@@ -17,11 +17,26 @@
         <h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_6h8b4g sx_70f090"></i>朋友的活动</h2>
       </s:if>
       <s:elseif test="(publicflag==0)"> 
-        <h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_6h8b4g sx_70f090"></i>我的活动</h2>
+        <h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_6h8b4g sx_70f090"></i>
+        	<s:if test="(followEventFlag==true)"> 
+        	我感兴趣的活动 
+        	</s:if>
+        	<s:if test="(followEventFlag==false)"> 
+        	我的活动
+        	</s:if>
+        	</h2>
+    
       </s:elseif>
       <s:else>
       	 <h2 class="uiHeaderTitle"><i class="uiHeaderImage img sp_6h8b4g sx_70f090"></i>公共活动</h2>
       </s:else>
+      <br>
+      <s:if test="(followEventFlag==true)"> 
+      <a  href="event/event!getMyEvents.jhtml">我的活动</a>
+      </s:if>
+      <s:if test="(followEventFlag==false)"> 
+      <a  href="event/event!getMyFollowEvents.jhtml">我感兴趣的活动</a>
+      </s:if>
       </div>
     </div>
   </div>
@@ -80,6 +95,13 @@
                           </s:elseif>
                           <s:else>
                             <a href="event/event!joinEvent.jhtml?eventId=<s:property value="event.id" />">加入</a>
+                            	
+                            <s:if test="(followFlag==false)">
+                            <a href="event/event!followEvent.jhtml?eventId=<s:property value="event.id" />">有兴趣</a>
+                            </s:if>
+                            <s:else>
+                            	<a href="event/event!notFollowEvent.jhtml?eventId=<s:property value="event.id" />">取消关注</a>
+                            </s:else>
                           </s:else>
                         </div>
                         <div class="mrl">
@@ -126,11 +148,17 @@
 	
 <script>
 function topage(pageNo) {
-	<s:if test="(friendFlag==false)"> 
-  location.href = "event/event!getEvents.jhtml?pageNo="+pageNo
-  </s:if>
-  <s:else>
+	<s:if test="(friendFlag==true)"> 
   location.href = "event/event!getFriendsEvents.jhtml?pageNo="+pageNo
+  </s:if>
+  <s:elseif test="(followEventFlag==true)">
+  location.href = "event/event!getFollowEvents.jhtml?pageNo="+pageNo
+  </s:elseif>
+  <s:elseif test="(publicflag==1)">
+  location.href = "event/event!getPubEvents.jhtml?pageNo="+pageNo
+  </s:elseif>
+  <s:else>
+  location.href = "event/event!getMyEvents.jhtml?pageNo="+pageNo
   </s:else>
   return false;
 }
