@@ -215,10 +215,23 @@ function notFoundMySchool() {
             <div class="rfloat">
               <div id="u9ikxu_28">
                 <div id="div_<s:property value="userid"/>" class="FriendButton">
+                	 <s:if test="friendFlag==false">
                   <label for="addFriendBtn_<s:property value="userid"/>" class="FriendRequestAdd addButton uiButton">
                     <i class="mrs img sp_ah6icc sx_070d6b"></i>
                     <input type="button" id="addFriendBtn_<s:property value="userid"/>" value="加为好友" onclick="showPopup('dialog_0', <s:property value="userid"/>)"/>
                   </label>
+                   </s:if>
+                  
+                  <s:if test="friendFlag==true">
+                  	
+                  	<a class="mls uiButton" role="button" href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="userid"/>">
+									
+										<i class="mrs img sp_7gl7wd sx_167a57"></i>
+									<span class="uiButtonText">查看详细</span>
+									</a>
+                  
+                  </s:if>
+                  
                   <a href="#" role="button" class="FriendRequestOutgoing enableFriendListFlyout hidden_elem outgoingButton uiButton">
                     <i class="mrs img sp_ah6icc sx_070d6b"></i>
                     <span class="uiButtonText">朋友请求已传送。</span>
@@ -232,7 +245,7 @@ function notFoundMySchool() {
               </div>
               <div class="instant_search_title fsl fwb fcb">
                 <s:if test="gender==1">男</s:if><s:else>女</s:else>
-               <s:if test="age>0">，<s:property value="age"/>岁</s:if>
+               <s:if test="age>0">，<s:property value="age"/>岁</s:if><s:if test="friendFlag==true">，1度朋友</s:if>
               </div>
               <div class="fsm fwn fcg"></div>
             </div>

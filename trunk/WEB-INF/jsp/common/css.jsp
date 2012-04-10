@@ -32,6 +32,8 @@
   <link	type="text/css"	rel="stylesheet" href="css/p__pch0d1gv.css"	/>
   <link type="text/css" rel="stylesheet" href="css/jquery.autocomplete.css" />
   <link	type="text/css"	rel="stylesheet" href="css/pf9v88jnAEJ.css" />
+  
+  <link	type="text/css"	rel="stylesheet" href="css/0_cover.css" />
 
   <script type="text/javascript" language="javascript" src="js/jquery.js"></script>
   <script type="text/javascript" language="javascript" src="js/jquery.autocomplete.js"></script>

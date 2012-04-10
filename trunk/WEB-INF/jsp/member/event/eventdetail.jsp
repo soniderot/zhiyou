@@ -16,6 +16,7 @@
     </div>
   </div>
   <%@ include file="/WEB-INF/jsp/member/event/eventdetailhead.jsp"%>
+  <s:if test="joined==true">
   <div id="pagelet_main_column">
     <div id="pagelet_main_column_personal">
       <div id="pagelet_friends_tab">
@@ -303,7 +304,7 @@
     </div>
   </div>
 </div>
-
+</s:if>
 <script type="text/javascript">
   var attach = $(".attachmentMetaArea").html();
   $(".attachmentMetaArea").empty();

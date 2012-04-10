@@ -16,7 +16,12 @@
                   </s:if>
                 </s:if>
                 <s:else>
+                	<s:if test="(followflag==false)"> 
                   <h3 class="uiHeaderTitle">参加活动成员列表</h3>
+                   </s:if>
+                   <s:if test="(followflag==true)"> 
+                  <h3 class="uiHeaderTitle">关注该活动成员列表</h3>
+                   </s:if>
                </s:else>
                 </div>
               </div>

@@ -291,10 +291,13 @@
   <div id="pagelet_home_stream">
     <div id="c4ec37b3fc7e022d58174072" class="UIIntentionalStream UIStream">
       <ul id="home_stream" class="uiList uiStream UIIntentionalStream_Content" style="min-height: 100px;">
-      		<s:if test="feeds.size()==0">
+      		<s:if test="feeds.size()==0&&atflag==false">
       	<%@ include file="/WEB-INF/jsp/member/feed/welcomefeed.jsp"%>
       	</s:if>
         <s:iterator value="feeds">
+        	<s:if test="feed.handle.indexOf('photo')>0">
+        	<input type="hidden" name="photoFeedIds" value="<s:property value='feed.id' />"/>
+        	</s:if>
           <li id="feed_<s:property value="feed.id"/>"
             class="pvm uiUnifiedStory uiStreamStory genericStreamStory aid_1438697558 uiListItem uiListLight uiListVerticalItemBorder">
             <div class="storyHighlightIndicatorWrapper"></div>
@@ -313,10 +316,16 @@
                         <a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="user.userid"/>">
                           <s:property value="user.username" />
                         </a>
-                        <s:if test="feed.atuserid!=null&&feed.atuserid>0">
-                        (@<a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="atuser.userid"/>">
-                          <s:property value="atuser.username" />
+                        <s:if test="atusers!=null&&atusers.size()>0">
+                        	(@
+                        	 <s:iterator value="atusers" status='st'>
+                        	 	<s:if test="#st.getCount()<=10"> 
+                        <a href="/profile/profile!viewProfileInfo.jhtml?userid=<s:property value="userid"/>">
+                          <s:property value="username" />
+                          	</s:if>
+                          	</s:iterator>
                         </a>)
+                        
                         </s:if>
                         <s:if test="feed.handle=='sns.publish.text'">发布了评论</s:if>
                         <s:if test="feed.handle=='sns.event.text'">发布了关于活动
@@ -522,13 +531,18 @@
   }
   
   function commentSubmit(form) {
-    $.post("usr/feed!addFeedCommentAjax.jhtml", {
-      feedId : form.feedId.value,
-      feedComment : form.feedComment.value
-    }, function (data) {
-      $(form).find(".commentList").append(data);
-      form.feedComment.value = "";
-    });
+  	var textBoxContent = $(form).find(".textBox").val();
+  	if(textBoxContent && textBoxContent.length>=4){
+		$.post("usr/feed!addFeedCommentAjax.jhtml", {
+		  feedId : form.feedId.value,
+		  feedComment : form.feedComment.value
+		}, function (data) {
+		  $(form).find(".commentList").append(data);
+		  form.feedComment.value = "";
+		});
+	}
+	else{
+	alert("请输入至少四个字符的评论内容");}
     return false;
   }
   
@@ -622,7 +636,7 @@
   
   function share(obj, event, feedId) {
   
-    if(event.keyCode == 13)
+    if(event.keyCode == 13 )
     {
       $.ajax({
        type: "GET",
@@ -634,7 +648,9 @@
          $(obj).val("");
        }
       });
+
     }
+	
     return false;
   }
   
@@ -679,6 +695,7 @@
     $(obj).parents().find(".ufiNub").addClass("share");
     return false;
   }
+  
 </script>
 
 <%@ include file="/WEB-INF/jsp/popup/delFeedCommentPop.jsp"%>

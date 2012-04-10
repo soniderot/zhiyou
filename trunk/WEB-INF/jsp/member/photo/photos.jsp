@@ -15,6 +15,7 @@
     <div id="c4ec37b3fc7e022d58174072" class="UIIntentionalStream UIStream">
       <ul id="home_stream" class="uiList uiStream UIIntentionalStream_Content" data-referrer="home_stream" style="min-height: 100px;">
         <s:iterator value="userPhotos">
+        	<input type="hidden" name="photoFeedIds" value="<s:property value='feedId' />"/>
         <li id="stream_story_4ec37b3fd947b3232640247" class="pvm uiUnifiedStory uiStreamStory genericStreamStory aid_1438697558 uiListItem uiListLight uiListVerticalItemBorder">
           <div class="storyHighlightIndicatorWrapper"></div>
           <div class="storyContent">
@@ -47,7 +48,7 @@
                 </h6>
                   <span class="UIActionLinks UIActionLinks_bottom">
                     <label class="uiLinkButton comment_link" title="分享">
-                      <a href="photo/photo!sharePhoto.jhtml?photoId=<s:property value="id" />" onclick="return share(<s:property value="id" />);"><span class="fwn">分享</span> </a> 
+                      <a  onclick="return sharephoto(<s:property value="id" />);"><span class="fwn">分享</span> </a> 
                     </label> · 
                   </span>
                   
@@ -88,7 +89,7 @@
   return false;
   }
 
-  function share(photoId) {
+  function sharephoto(photoId) {
     $.ajax({
      type: "GET",
      url: "photo/photo!sharePhotoAjax.jhtml",

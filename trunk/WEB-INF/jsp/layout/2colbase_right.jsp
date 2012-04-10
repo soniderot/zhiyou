@@ -17,9 +17,11 @@
       <div id="toolbarContainer"></div>
       <div id="mainContainer">
         <div id="leftColContainer"></div>
-        
+   
+				
         <div class="" id="contentCol" style="min-height: 100px;" data-referrer="contentCol">
           <tiles:insertAttribute name="headline" ignore="true"/>
+          	
           <tiles:insertAttribute name="right" ignore="true"/>
           <tiles:insertAttribute name="content" ignore="true"/>
                   <div id="bottomContent"></div>
