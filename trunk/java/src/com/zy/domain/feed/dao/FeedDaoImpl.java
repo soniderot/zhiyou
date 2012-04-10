@@ -9,6 +9,10 @@ import com.zy.common.model.ZyNewsfeed;
 public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements FeedDao {
 	@Override
 	public List<ZyNewsfeed> getNewsFeed(String ids, String handles, String blockedfeeds, int pageNo, int pageSize) {
+		String sql1 = " or handle in ('sns.event.photo','','sns.event.create','sns.event.text','sns.event.join') and privacy = 0";
+		String sql2 = " or handle in ('sns.event.photo','','sns.event.create','sns.event.text','sns.event.join') and privacy = 1";
+		String sql3 = " or handle in ('sns.event.photo','','sns.event.create','sns.event.text','sns.event.join') and privacy = 2";
+		
 		String hql = "from ZyNewsfeed where (userid in(" + ids + ") or (handle='sns.share.connection' and body in(" + ids + "))) and handle in(" + handles + ") and id not in ("+ blockedfeeds +") order by id desc ";
 		if(handles==null){
 			hql = "from ZyNewsfeed where (userid in(" + ids + ") or (handle='sns.share.connection' and body in(" + ids + "))) and id not in ("+ blockedfeeds +") order by id desc ";
@@ -91,6 +95,7 @@ public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements Fe
 	}*/
 	
 	
+	/*
 	@Override
 	public List<ZyNewsfeed> getMyComment(int pageNo, int pageSize, int userId) {
 		String hql = "select distinct n from ZyNewsfeed n, ZyNewsfeedcomment c where (handle =? or handle =? or handle =?) and c.newsfeedid = n.id and c.userid = ? order by n.id desc ";
@@ -102,10 +107,10 @@ public class FeedDaoImpl extends HibernateDao<ZyNewsfeed, Integer> implements Fe
 	public int getMyCommentCount(int userId) {
 		String hql = "select count(distinct n.id) from ZyNewsfeed n, ZyNewsfeedcomment c where (handle =? or handle =? or handle =?) and c.newsfeedid = n.id and c.userid = ?";
 		return this.getTotalRows(hql, new Object[] {Constants.SNS_SHARE_TEXT, Constants.SNS_SHARE_LINKURL, Constants.SNS_SHARE_DOCUMENT, userId });
-	}
+	}*/
 	
 	public List<ZyNewsfeed> getNewsFeed(int userId,String handle,String body){
-		String hql = "from ZyNewsfeed where userid=? and handle = ? and body = ? ";
+		String hql = "from ZyNewsfeed where userid=? and handle in (?) and body = ? ";
 		List<ZyNewsfeed> list = this.loadTopRows(hql, 1, new Object[] { userId, handle,body });
 		return list;
 	}

@@ -7,12 +7,14 @@ import java.util.List;
 
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyEventcategory;
+import com.zy.common.model.ZyEventfollow;
 import com.zy.common.model.ZyEventmember;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRecommplace;
 import com.zy.common.model.ZyRequest;
 import com.zy.domain.event.service.EventService;
 import com.zy.domain.feed.bean.FeedBean;
+import com.zy.domain.message.bean.RequestBean;
 import com.zy.domain.message.service.RequestService;
 import com.zy.domain.photo.service.PhotoService;
 import com.zy.domain.profile.service.ProfileService;
@@ -164,6 +166,10 @@ public class EventFacadeImpl implements EventFacade{
 				list.get(i).setNewDateFlag(true);
 			}
 			
+			if(eventService.getFollowEvnets(userId,list.get(i).getEvent().getId(), 1, 1).size()>0){
+				list.get(i).setFollowFlag(true);
+			}
+			
 			list.get(i).setProfile(profileService.findProfileById(list.get(i).getMember().getUserid()));
 			System.out.println(list.get(i).getProfile().getUserid());
 			List<ZyProfile> profiles = this.getEventMembers(list.get(i).getEvent().getId());
@@ -283,6 +289,10 @@ public class EventFacadeImpl implements EventFacade{
 		for(int i=0;i<events.size();i++){
 			EventVO vo = new EventVO();
 			vo.setEvent(events.get(i));
+			
+			if(eventService.getFollowEvnets(userId,events.get(i).getId(), 1, 1).size()>0){
+				vo.setFollowFlag(true);
+			}
 			vo.setCreateUser(profileService.findProfileById(events.get(i).getCreateuserid()));
 			List<ZyProfile> members = this.getEventMembers(events.get(i).getId());
 			vo.setMembers(members);
@@ -309,5 +319,96 @@ public class EventFacadeImpl implements EventFacade{
 	
 	public ZyRecommplace getPlace(int placeId){
 		return eventService.getPlace(placeId);
+	}
+	
+	public List<ZyEvent> getEventsAndReqs(int userId){
+		ArrayList<ZyEvent> results = new ArrayList<ZyEvent>();
+		List<RequestBean> requests = requestService.getUserRequestInbox(userId,(short)5,1,Integer.MAX_VALUE);
+		for(int i=0;i<requests.size();i++){
+			Integer eventId = requests.get(i).getRequest().getReferenceid();
+			if(eventId!=null&&eventId>0){
+				results.add(eventService.getEvent(eventId));
+			}
+		}
+		
+		List<EventVO>  list = eventService.getEvents(""+userId,1,Integer.MAX_VALUE);
+		for(int i=0;i<list.size();i++){
+			results.add(list.get(i).getEvent());
+		}
+		return results;
+	}
+	
+	public List<EventVO> getFollowEvents(int userId,int pageNo,int pageSize){
+		//return eventService.getFollowEvents(userId, pageNo, pageSize);
+		
+		List<ZyEventfollow> results = eventService.getFollowEvents(userId, pageNo, pageSize);
+		System.out.println("------results.size---"+results.size());
+		List<EventVO> list = new ArrayList<EventVO>();
+		for(int i=0;i<results.size();i++){
+			EventVO vo = new EventVO();
+			list.add(vo);
+			vo.setEvent(eventService.getEvent(results.get(i).getEventid()));
+		}
+		SimpleDateFormat dateformat=new SimpleDateFormat("yyyy-MM-dd");
+		List<String> dates = new ArrayList<String>();
+		for(int i=0;i<list.size();i++){
+			
+			String date = dateformat.format(list.get(i).getEvent().getBegintime());
+			if(!dates.contains(date)){
+				dates.add(date);
+				list.get(i).setNewDateFlag(true);
+			}
+			
+			if(eventService.getFollowEvnets(userId,list.get(i).getEvent().getId(), 1, 1).size()>0){
+				list.get(i).setFollowFlag(true);
+			}
+			
+			//list.get(i).setProfile(profileService.findProfileById(list.get(i).getMember().getUserid()));
+			//System.out.println(list.get(i).getProfile().getUserid());
+			List<ZyProfile> profiles = this.getEventMembers(list.get(i).getEvent().getId());
+			list.get(i).setMembers(profiles);
+			
+			list.get(i).setCreateUser(profileService.findProfileById(list.get(i).getEvent().getCreateuserid()));
+			int photosCnt = photoService.getPhotosCntByEventId(list.get(i).getEvent().getId());
+			List<FeedBean> feeds = feedFacade.getEventNewsFeed(""+list.get(i).getEvent().getId(),1,Integer.MAX_VALUE);
+			list.get(i).getEvent().setPhotosCnt(photosCnt);
+			list.get(i).getEvent().setCommentsCnt(feeds.size());
+			
+			if(list.get(i).getEvent().getEndtime()!=null){
+				if(list.get(i).getEvent().getEndtime().before(new Date())){
+					list.get(i).setExpired(true);
+				}
+			}
+			for(int m=0;m<profiles.size();m++){
+				if(profiles.get(m).getUserid()==userId){
+					list.get(i).setJoined(true);
+					break;
+				}
+			}
+		}
+		return list;
+	
+	}
+	public List<ZyEventfollow> getEventFollow(int eventId,int pageNo,int pageSize){
+		return eventService.getEventFollow(eventId, pageNo, pageSize);
+	}
+	
+	public void addEventFollow(int eventId,int userId){
+		eventService.addEventFollow(eventId, userId);
+	}
+	public void removeEventFollow(int eventId,int userId){
+		eventService.removeEventFollow(eventId, userId);
+	}
+	public List<ZyEventfollow> getFollowEvnets(int userId,int eventId,int pageNo,int pageSize){
+		return eventService.getFollowEvnets(userId, eventId, pageNo, pageSize);
+	}
+	
+	public List<ZyProfile> getEventFollowers(int eventId){
+		List<ZyProfile> profiles = new ArrayList<ZyProfile>();
+		List<ZyEventfollow> followers = eventService.getEventFollow(eventId,1,Integer.MAX_VALUE);
+		for(int i=0;i<followers.size();i++){
+			profiles.add(profileService.findProfileById(followers.get(i).getUserid()));
+		}
+		return profiles;
 	}
 }

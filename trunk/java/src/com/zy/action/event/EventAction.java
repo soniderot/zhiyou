@@ -18,6 +18,7 @@ import com.zy.Constants;
 import com.zy.common.model.ZyDistrict;
 import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyEventcategory;
+import com.zy.common.model.ZyEventfollow;
 import com.zy.common.model.ZyProfile;
 import com.zy.common.model.ZyRecommplace;
 import com.zy.common.model.ZyRequest;
@@ -98,9 +99,62 @@ public class EventAction {
 	private int category;
 	private ZyRecommplace place;
 	private int placeId;
+	private int privacy;
+	private boolean photosflag;
+	private boolean eventReqFlag;
+	private boolean followEventFlag;
+	private boolean followflag;
+	private List<ZyProfile> followers;
 	
 	
-	
+	public List<ZyProfile> getFollowers() {
+		return followers;
+	}
+
+	public void setFollowers(List<ZyProfile> followers) {
+		this.followers = followers;
+	}
+
+	public boolean isFollowflag() {
+		return followflag;
+	}
+
+	public void setFollowflag(boolean followflag) {
+		this.followflag = followflag;
+	}
+
+	public boolean isFollowEventFlag() {
+		return followEventFlag;
+	}
+
+	public void setFollowEventFlag(boolean followEventFlag) {
+		this.followEventFlag = followEventFlag;
+	}
+
+	public boolean isEventReqFlag() {
+		return eventReqFlag;
+	}
+
+	public void setEventReqFlag(boolean eventReqFlag) {
+		this.eventReqFlag = eventReqFlag;
+	}
+
+	public boolean isPhotosflag() {
+		return photosflag;
+	}
+
+	public void setPhotosflag(boolean photosflag) {
+		this.photosflag = photosflag;
+	}
+
+	public int getPrivacy() {
+		return privacy;
+	}
+
+	public void setPrivacy(int privacy) {
+		this.privacy = privacy;
+	}
+
 	public int getPlaceId() {
 		return placeId;
 	}
@@ -508,6 +562,9 @@ public class EventAction {
 				this.districtId = event.getDistrictid();
 			}
 			members = eventFacade.getEventMembers(eventId);
+			if(event.getPrivacy()!=null){
+				privacy = event.getPrivacy();
+			}
 		}
 		friends = snsFacade.getAllFriends(ActionUtil.getSessionUserId(), 0, (short)1);
 		if(event!=null&&event.getType()!=null)
@@ -602,6 +659,7 @@ public class EventAction {
 		if(event.getCityid()==null){
 			event.setCityid(8843);
 		}
+		event.setPrivacy(privacy);
 		if(eventId>0){
 			event.setId(eventId);
 			eventFacade.updateEvent(event);
@@ -630,6 +688,10 @@ public class EventAction {
 	public String viewEvent() {
 		event = eventFacade.getEvent(eventId);
 		createUser = profileFacade.findProfileById(event.getCreateuserid());
+		List<ZyEventfollow> follows = eventFacade.getFollowEvnets(ActionUtil.getSessionUserId(), eventId,1,1);
+		if(follows.size()>0){
+			this.followEventFlag = true;
+		}
 		members = eventFacade.getEventMembers(eventId);
 		for(int i=0;i<members.size();i++){
 			if(ActionUtil.getSessionUserId()==members.get(i).getUserid().intValue()){
@@ -637,16 +699,28 @@ public class EventAction {
 				break;
 			}
 		}
+		followers = eventFacade.getEventFollowers(eventId);
 		eventPhotos = photoFacade.getEventPhotos(eventId, 1, 8);
 		feeds = feedFacade.getEventNewsFeed(""+eventId,pageNo,pageSize);
 		int count = feedFacade.getEventNewsFeed(""+eventId,1,Integer.MAX_VALUE).size();
 		page = new Page(count,pageNo,pageSize,5);
 		
+		if(joined==false){
+			List<ZyRequest> list = requestFacade.getRequest(ActionUtil.getSessionUserId(), (short)5, eventId);
+			if(list.size()>0){
+				eventReqFlag = true;
+			}
+		}
 		return "view.event.detail";
 	}
 	
 	public String viewEventPhotos() {
+		photosflag = true;
 		event = eventFacade.getEvent(eventId);
+		List<ZyEventfollow> follows = eventFacade.getFollowEvnets(ActionUtil.getSessionUserId(), eventId,1,1);
+		if(follows.size()>0){
+			this.followEventFlag = true;
+		}
 		createUser = profileFacade.findProfileById(event.getCreateuserid());
 		members = eventFacade.getEventMembers(eventId);
 		for(int i=0;i<members.size();i++){
@@ -655,6 +729,7 @@ public class EventAction {
 				break;
 			}
 		}
+		followers = eventFacade.getEventFollowers(eventId);
 		eventPhotos = photoFacade.getEventPhotos(eventId, pageNo, 40);
 		int count1 = photoFacade.getEventPhotos(eventId,1,Integer.MAX_VALUE).size();
 		System.out.println("count1-------------"+count1);
@@ -672,16 +747,17 @@ public class EventAction {
 		if(eventFacade.isMemberInEvent(ActionUtil.getSessionUserId(), eventId)){
 			return "my.events";
 		}
-		eventFacade.addMember(ActionUtil.getSessionUserId(), eventId);
+		
 		List<ZyRequest> list = requestFacade.getRequest(ActionUtil.getSessionUserId(), (short)5, eventId);
 		for(int i=0;i<list.size();i++){
 			requestFacade.approveRequest_tx(list.get(i).getId());
 		}
 		
 		if(list.size()==0){
+			eventFacade.addMember(ActionUtil.getSessionUserId(), eventId);
 			feedFacade.addAcceptEventInviteNewsFeed(ActionUtil.getSessionUserId(), eventId);
 		}
-		
+		eventFacade.removeEventFollow(eventId, ActionUtil.getSessionUserId());
 		return "my.events";
 	}
 	
@@ -758,6 +834,10 @@ public class EventAction {
 				joined = true;
 				break;
 			}
+		}
+		List<ZyEventfollow> follows = eventFacade.getFollowEvnets(ActionUtil.getSessionUserId(), eventId,1,1);
+		if(follows.size()>0){
+			this.followEventFlag = true;
 		}
 		return "event.members";
 	}
@@ -842,5 +922,55 @@ public class EventAction {
 		System.out.println(df.parse(str));
 	}
 	
+	public String followEvent(){
+		eventFacade.addEventFollow(eventId, ActionUtil.getSessionUserId());
+		return "my.followevents";
+	}
 	
+	public String notFollowEvent(){
+		eventFacade.removeEventFollow(eventId, ActionUtil.getSessionUserId());
+		return "my.follwevents";
+	}
+	
+	public String getMyFollowEvents(){
+		this.followEventFlag = true;
+		System.out.println("--------------into-------------activitys");
+		userevents = eventFacade.getFollowEvents(ActionUtil.getSessionUserId(), pageNo, pageSize);
+		System.out.println("----------------events.size----------"+userevents.size());
+		
+		friendEvents = eventFacade.getFriendsEvents(ActionUtil.getSessionUserId(), pageNo, pageSize);
+		publicEvents = eventFacade.getHotPubEvents(ActionUtil.getSessionUserId(),1, pageSize);
+		int count = eventFacade.getFollowEvents(ActionUtil.getSessionUserId(), pageNo,Integer.MAX_VALUE).size();
+		page = new Page(count,pageNo,pageSize,5);
+		if(userevents.size()==0){
+			//return "member.emtyevents";
+			return "member.events";
+		}else{
+			return "member.events";
+		}
+	}
+	
+	public String getEventFollowers(){
+		List<ZyEventfollow> follows = eventFacade.getFollowEvnets(ActionUtil.getSessionUserId(), eventId,1,1);
+		if(follows.size()>0){
+			this.followEventFlag = true;
+		}
+		friends = eventFacade.getEventFollowers(eventId);
+		members = friends;
+		event = eventFacade.getEvent(eventId);
+
+		createUser = profileFacade.findProfileById(event.getCreateuserid());
+		
+		
+		this.followflag = true;
+		members = eventFacade.getEventMembers(eventId);
+		for(int i=0;i<members.size();i++){
+			if(ActionUtil.getSessionUserId()==members.get(i).getUserid().intValue()){
+				joined = true;
+				break;
+			}
+		}
+		return "event.members";
+
+	}
 }

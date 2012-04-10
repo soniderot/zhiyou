@@ -79,7 +79,7 @@ public class SearchFacadeImpl implements SearchFacade{
 			}
 		} else {
 			// exclude 1d
-			if (form.isExclude1d()&&form.getScope()!=null&&form.getScope()<2) {
+			if (form.isExclude1d()) {
 				List<Integer> ids1 = this.snsService.getAllFriendsByDegree(userId, (short) 1);
 				StringBuffer sb1 = new StringBuffer();
 				if (ids1 != null) {

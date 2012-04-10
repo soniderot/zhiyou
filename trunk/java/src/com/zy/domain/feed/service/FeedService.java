@@ -2,10 +2,11 @@ package com.zy.domain.feed.service;
 
 import java.util.List;
 
+import com.zy.common.model.ZyAtfeed;
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyNewsfeedtype;
-import com.zy.domain.feed.bean.FeedBean;
+import com.zy.domain.feed.bean.AtFeedBean;
 
 public interface FeedService {
 	public void addNewsFeed(ZyNewsfeed feed);
@@ -39,8 +40,9 @@ public interface FeedService {
 	
 	public void blockFeed(int feedId, int userId);
 	
+	/*
 	public List<ZyNewsfeed> getMyComment(int pageNo, int pageSize, int userId);
-	public int getMyCommentCount(int userId);
+	public int getMyCommentCount(int userId);*/
 	
 	public List<Integer> getNewsFeed(int userId, String handles);
 	
@@ -61,4 +63,13 @@ public interface FeedService {
 	public int getUnreadAtNewsFeedCnt(int atuserId);
 	
 	public List<Integer> getNewsFeed(String handles,String body);
+	
+	public List<AtFeedBean> getAtFeedsByUserId(int userId,int pageNo,int pageSize);
+	
+	public List<ZyAtfeed> getUnReadAtFeeds(int userId,int pageNo,int pageSize);
+	
+	public void readAtFeed_tx(int atfeedId);
+	
+	public void addAtFeed(ZyAtfeed atfeed);
+	public List<ZyAtfeed> getAtFeedsByFeedId(int feedId,int pageNo,int pageSize);
 }

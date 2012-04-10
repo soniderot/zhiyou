@@ -40,16 +40,26 @@
 	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
 </definition>
 
-<definition name="tiles.sns.match" template="/WEB-INF/jsp/layout/2colbase_right.jsp" >
+<definition name="tiles.sns.match" template="/WEB-INF/jsp/layout/2colbase.jsp" >
 	<put-attribute name="css" value="/WEB-INF/jsp/common/css.jsp"/>
 	<put-attribute name="head" value="/usr/header.jhtml"/>
 	<put-attribute name="content" value="/WEB-INF/jsp/member/sns/match.jsp"/>
 	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
+	<put-attribute name="left" value="/WEB-INF/jsp/member/left.jsp"/>
 </definition>
 
-<definition name="tiles.sns.match.list" template="/WEB-INF/jsp/layout/2colbase_right.jsp" >
+<definition name="tiles.sns.match.list" template="/WEB-INF/jsp/layout/2colbase.jsp" >
 	<put-attribute name="css" value="/WEB-INF/jsp/common/css.jsp"/>
 	<put-attribute name="head" value="/usr/header.jhtml"/>
+	<put-attribute name="left" value="/WEB-INF/jsp/member/left.jsp"/>
+	<put-attribute name="content" value="/WEB-INF/jsp/member/sns/matchList.jsp"/>
+	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
+</definition>
+
+<definition name="tiles.you.wanttoknow" template="/WEB-INF/jsp/layout/2colbase.jsp" >
+	<put-attribute name="css" value="/WEB-INF/jsp/common/css.jsp"/>
+	<put-attribute name="head" value="/usr/header.jhtml"/>
+	<put-attribute name="left" value="/WEB-INF/jsp/member/left.jsp"/>
 	<put-attribute name="content" value="/WEB-INF/jsp/member/sns/matchList.jsp"/>
 	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
 </definition>

@@ -2,12 +2,12 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
 
-<definition name="tiles.login.welcome" template="/WEB-INF/jsp/layout/3colbase.jsp" >
+<definition name="tiles.login.welcome" template="/WEB-INF/jsp/layout/2colbase.jsp" >
 	<put-attribute name="css" value="/WEB-INF/jsp/common/css.jsp"/>
 	<put-attribute name="head" value="/usr/header.jhtml"/>
 	<put-attribute name="left" value="/WEB-INF/jsp/member/left.jsp"/>
 	
-	<put-attribute name="center" value="/sns/sns!listPeopleYouWantKnow.jhtml"/>
+	<put-attribute name="content" value="/sns/sns!listPeopleYouWantKnow.jhtml"/>
 	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
 </definition>
 

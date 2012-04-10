@@ -52,5 +52,9 @@
         <property name="type" type="java.lang.Integer">
             <column name="TYPE" />
         </property>
+        
+        <property name="privacy" type="java.lang.Integer">
+            <column name="PRIVACY" />
+        </property>
     </class>
 </hibernate-mapping>

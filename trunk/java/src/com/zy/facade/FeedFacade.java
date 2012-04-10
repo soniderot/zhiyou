@@ -2,8 +2,11 @@ package com.zy.facade;
 
 import java.util.List;
 
+import com.zy.common.model.ZyAtfeed;
+import com.zy.common.model.ZyEvent;
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
+import com.zy.domain.feed.bean.AtFeedBean;
 import com.zy.domain.feed.bean.CommentBean;
 import com.zy.domain.feed.bean.FeedBean;
 
@@ -55,4 +58,16 @@ public interface FeedFacade {
 	public ZyNewsfeed getFeedById(int feedId);
 	
 	public List<Integer> getNewsFeed(String handles,String body);
+	
+	public List<AtFeedBean> getAtFeedsByUserId(int userId,int pageNo,int pageSize);
+	
+	public List<ZyAtfeed> getUnReadAtFeeds(int userId,int pageNo,int pageSize);
+	
+	public void readAtFeed_tx(int atfeedId);
+	
+	public List<ZyEvent> getEventsAndReqs(int userId);
+	
+	public void addAtFeed(ZyAtfeed atfeed);
+	
+	public List<AtFeedBean> getAtFeedsByFeedId(int feedId,int pageNo,int pageSize);
 }

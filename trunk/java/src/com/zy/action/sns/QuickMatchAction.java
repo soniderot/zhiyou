@@ -21,6 +21,30 @@ public class QuickMatchAction extends ActionSupport{
 	private int friendId;
 	private int profileId;
 	
+	private String hobby;
+	private int ciytid;
+	private String cityname;
+	
+	
+	
+	public String getHobby() {
+		return hobby;
+	}
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+	public int getCiytid() {
+		return ciytid;
+	}
+	public void setCiytid(int ciytid) {
+		this.ciytid = ciytid;
+	}
+	public String getCityname() {
+		return cityname;
+	}
+	public void setCityname(String cityname) {
+		this.cityname = cityname;
+	}
 	public int getProfileId() {
 		return profileId;
 	}

@@ -8,9 +8,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts2.ServletActionContext;
-
 import octazen.addressbook.Contact;
+
+import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.zy.Constants;
@@ -20,6 +20,7 @@ import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
 import com.zy.common.util.Page;
 import com.zy.facade.EventFacade;
+import com.zy.facade.LocationFacade;
 import com.zy.facade.ProfileFacade;
 import com.zy.facade.RequestFacade;
 import com.zy.facade.SNSFacade;
@@ -92,8 +93,16 @@ public class SNSActioin extends ActionSupport{
 	
 	private boolean more;
 	
+	private LocationFacade locationFacade;
 	
-	
+
+	public LocationFacade getLocationFacade() {
+		return locationFacade;
+	}
+
+	public void setLocationFacade(LocationFacade locationFacade) {
+		this.locationFacade = locationFacade;
+	}
 
 	public boolean isMore() {
 		return more;
@@ -504,14 +513,16 @@ public class SNSActioin extends ActionSupport{
 			profiles.addAll(list);
 		}
 		
-		page = new Page(profiles.size(),pageNo,10,5);
+		page = new Page(profiles.size(),pageNo,12,5);
 		if(profiles.size()>=pageSize*pageNo){
-			profiles = profiles.subList(pageSize*(pageNo-1),pageSize*pageNo);
+			profiles = profiles.subList(12*(pageNo-1),12*pageNo);
 		}else{
-			profiles = profiles.subList(pageSize*(pageNo-1),profiles.size());
+			profiles = profiles.subList(12*(pageNo-1),profiles.size());
 		}
 		for (int i = 0; i < profiles.size(); i++) {
 			System.out.println(profiles.get(i).getUserid() + " : " + profiles.get(i).getUsername());
+			if(profiles.get(i).getCityid()!=null)
+				profiles.get(i).setCityname(locationFacade.getCity(profiles.get(i).getCityid()).getCityname());
 		}
 		
 		
@@ -608,7 +619,13 @@ public class SNSActioin extends ActionSupport{
 			List<SearchResultVo> results = searchFacade.getProfilesBySearch_tx(ActionUtil.getSessionUserId(),vo,500);
 			searchProfiles = new ArrayList<ZyProfile>();
 			for(int i=0;i<results.size();i++){
-				searchProfiles.add(profileFacade.findProfileById(results.get(i).getProfileId()));
+				int targetId = results.get(i).getProfileId();
+				if(results.get(i).getProfileId()!=ActionUtil.getSessionUserId())
+					searchProfiles.add(profileFacade.findProfileById(results.get(i).getProfileId()));
+				if(snsFacade.checkIfTargetInSNS(ActionUtil.getSessionUserId(), targetId, (short)1)){
+					//profileFacade.findProfileById(results.get(i).getProfileId()).setFriendFlag(true);
+					searchProfiles.get(searchProfiles.size()-1).setFriendFlag(true);
+				}
 			}
 			
 			System.out.println("profiles.size---------------"+searchProfiles.size());
@@ -662,7 +679,7 @@ public class SNSActioin extends ActionSupport{
 			vo.setGender(gender);
 		}
 		
-		vo.setExclude1d(true);
+		//vo.setExclude1d(true);
 		
 		 DateFormat df = new SimpleDateFormat("yyyyMMdd");
 		 System.out.println(df.format(DateUtil.computeBirthDate(25)));
@@ -681,7 +698,15 @@ public class SNSActioin extends ActionSupport{
 		
 		searchProfiles = new ArrayList<ZyProfile>();
 		for(int i=0;i<results.size();i++){
-			searchProfiles.add(profileFacade.findProfileById(results.get(i).getProfileId()));
+			int targetId = results.get(i).getProfileId();
+			if(targetId!=ActionUtil.getSessionUserId()){
+			
+				searchProfiles.add(profileFacade.findProfileById(results.get(i).getProfileId()));
+				if(snsFacade.checkIfTargetInSNS(ActionUtil.getSessionUserId(), targetId, (short)1)){
+					//profileFacade.findProfileById(results.get(i).getProfileId()).setFriendFlag(true);
+					searchProfiles.get(searchProfiles.size()-1).setFriendFlag(true);
+				}
+			}
 		}
 		
 		//profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());

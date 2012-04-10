@@ -35,6 +35,8 @@ public class ZyEvent implements java.io.Serializable {
 	
 	private String eventLogo;
 	
+	private Integer privacy; //0 all 1 friends 2 members 
+	
 	
 	// Constructors
 
@@ -223,6 +225,14 @@ public class ZyEvent implements java.io.Serializable {
 
 	public void setType(Integer type) {
 		this.type = type;
+	}
+
+	public Integer getPrivacy() {
+		return privacy;
+	}
+
+	public void setPrivacy(Integer privacy) {
+		this.privacy = privacy;
 	}
 
 }

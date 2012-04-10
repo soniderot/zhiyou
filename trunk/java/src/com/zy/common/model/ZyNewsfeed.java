@@ -24,6 +24,8 @@ public class ZyNewsfeed implements java.io.Serializable {
 	private String shareReason;
 	private Integer atuserid;
 	private String atread;
+	
+	private Integer privacy;
 
 	// Constructors
 
@@ -148,5 +150,14 @@ public class ZyNewsfeed implements java.io.Serializable {
 	public void setShareReason(String shareReason) {
 		this.shareReason = shareReason;
 	}
+
+	public Integer getPrivacy() {
+		return privacy;
+	}
+
+	public void setPrivacy(Integer privacy) {
+		this.privacy = privacy;
+	}
+	
 
 }

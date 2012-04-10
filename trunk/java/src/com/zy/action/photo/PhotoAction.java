@@ -261,6 +261,18 @@ public class PhotoAction {
 				userPhotos.get(i).setFeedId(feedIds.get(0));
 			}
 		}
+		
+		/*
+		for(int i=0;i<userPhotos.size()&&userPhotos.size()>1;i++){
+			if(i==0){
+				userPhotos.get(i).setNextFeedId(userPhotos.get(i+1).getFeedId());
+			}else if(i==userPhotos.size()-1){
+				userPhotos.get(i).setLastFeedId(userPhotos.get(i-1).getFeedId());
+			}else{
+				userPhotos.get(i).setNextFeedId(userPhotos.get(i+1).getFeedId());
+				userPhotos.get(i).setLastFeedId(userPhotos.get(i-1).getFeedId());
+			}
+		}*/
 		profiles = snsFacade.getProfilesYouMayKnow(ActionUtil.getSessionUserId());
 		int count = photoFacade.getPhotoList(albumId, 1, Integer.MAX_VALUE).size();
 		friends = snsFacade.getAllFriends(userid,0,(short)1);
@@ -411,7 +423,7 @@ public class PhotoAction {
 		ZyPhoto photo = photoFacade.getPhoto(photoId);
 		int feedId = 0;
 		try{
-			feedId = feedFacade.getNewsFeed(photo.getUserid(), "sns.publish.photo",""+photo.getId()).get(0).getId();
+			feedId = feedFacade.getNewsFeed(photo.getUserid(), "'sns.publish.photo','sns.event.photo'",""+photo.getId()).get(0).getId();
 			feedFacade.shareNewsFeed_tx(ActionUtil.getSessionUserId(), feedId, null);
 		}catch(Exception ex){
 			if(feedId==0){

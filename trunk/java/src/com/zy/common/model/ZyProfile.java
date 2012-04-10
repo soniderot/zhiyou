@@ -64,8 +64,20 @@ public class ZyProfile implements java.io.Serializable {
 	private String bigavatar;
 	
 	private List<ZyInterest> hobbyList;
+	
+	private String hobbyStr;
+	
+	
 	// Constructors
 
+
+	public String getHobbyStr() {
+		return hobbyStr;
+	}
+
+	public void setHobbyStr(String hobbyStr) {
+		this.hobbyStr = hobbyStr;
+	}
 
 	public boolean isRequestOutFlag() {
 		return requestOutFlag;

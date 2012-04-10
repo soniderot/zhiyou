@@ -1,15 +1,18 @@
 package com.zy.domain.feed.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import com.zy.Constants;
+import com.zy.common.model.ZyAtfeed;
 import com.zy.common.model.ZyBlockedfeeds;
 import com.zy.common.model.ZyNewsfeed;
 import com.zy.common.model.ZyNewsfeedcomment;
 import com.zy.common.model.ZyNewsfeedtype;
-import com.zy.common.util.ActionUtil;
 import com.zy.common.util.DateUtil;
+import com.zy.domain.feed.bean.AtFeedBean;
+import com.zy.domain.feed.dao.AtFeedDao;
 import com.zy.domain.feed.dao.BlockedFeedsDao;
 import com.zy.domain.feed.dao.FeedCommentDao;
 import com.zy.domain.feed.dao.FeedDao;
@@ -21,8 +24,17 @@ public class FeedServiceImpl implements FeedService{
 	private FeedTypeDao newsFeedTypeDao;
 	private FeedCommentDao newsFeedCommentDao;
 	private BlockedFeedsDao blockedFeedsDao;
+	private AtFeedDao atFeedDao;
 	
 	
+	public AtFeedDao getAtFeedDao() {
+		return atFeedDao;
+	}
+
+	public void setAtFeedDao(AtFeedDao atFeedDao) {
+		this.atFeedDao = atFeedDao;
+	}
+
 	public BlockedFeedsDao getBlockedFeedsDao() {
 		return blockedFeedsDao;
 	}
@@ -60,6 +72,9 @@ public class FeedServiceImpl implements FeedService{
 			feed.setFeedfrom(0);
 			//feed.setRemoteid(0L);
 		}
+		
+		this.newsFeedDao.save(feed);
+		/*
 		if (feed.getHandle().equals(Constants.SNS_SHARE_PROFILE)) {
 			// 24 hours check
 			ZyNewsfeed f = this.newsFeedDao.getNewsFeedByHandle(feed.getHandle(), feed.getUserid());
@@ -121,7 +136,7 @@ public class FeedServiceImpl implements FeedService{
 			}
 		}  else {
 			this.newsFeedDao.save(feed);
-		}
+		}*/
 	}
 	
 	public ZyNewsfeed getFeedById(int id){
@@ -180,12 +195,13 @@ public class FeedServiceImpl implements FeedService{
 		this.getNewsFeedCommentDao().deleteByKey(commentId);
 	}
 	
+	/*
 	public List<ZyNewsfeed> getMyComment(int pageNo, int pageSize, int userId){
 		return this.newsFeedDao.getMyComment(pageNo, pageSize, userId);
 	}
 	public int getMyCommentCount(int userId){
 		return this.newsFeedDao.getMyCommentCount(userId);
-	}
+	}*/
 	
 	public List<Integer> getNewsFeed(int userId, String handles){
 		return this.newsFeedDao.getNewsFeed(userId, handles);
@@ -235,9 +251,42 @@ public class FeedServiceImpl implements FeedService{
 		entity.setUserid(userId);
 		entity.setCreatetime(new Date());
 		blockedFeedsDao.save(entity);
+		List<ZyAtfeed> list = atFeedDao.getAtFeed(userId, feedId, 1,100);
+		System.out.println("-------------affeed.block.size-----------"+list.size()+"----------feedId----"+feedId);
+		if(list.size()>0)
+			atFeedDao.deleteByKey(list.get(0).getId());
 	}
 	
 	public List<Integer> getNewsFeed(String handles,String body){
 		return this.newsFeedDao.getNewsFeed(handles, body);
+	}
+	
+	public List<AtFeedBean> getAtFeedsByUserId(int userId,int pageNo,int pageSize){
+		List<AtFeedBean> results = new ArrayList<AtFeedBean>();
+		List<ZyAtfeed> atfeeds = atFeedDao.getAtFeeds(userId, pageNo, pageSize);
+		for(int i=0;i<atfeeds.size();i++){
+			AtFeedBean bean = new AtFeedBean();
+			int feedId = atfeeds.get(i).getFeedid();
+			ZyNewsfeed feed = newsFeedDao.load(feedId);
+			bean.setFeed(feed);
+			bean.setAtFeed(atfeeds.get(i));
+			results.add(bean);
+		}
+		return results;
+	}
+	
+	public List<ZyAtfeed> getUnReadAtFeeds(int userId,int pageNo,int pageSize){
+		return atFeedDao.getUnReadAtFeeds(userId, pageNo, pageSize);
+	}
+	
+	public void readAtFeed_tx(int atfeedId){
+		atFeedDao.load(atfeedId).setReadflag(1);
+	}
+	
+	public void addAtFeed(ZyAtfeed atfeed){
+		atFeedDao.save(atfeed);
+	}
+	public List<ZyAtfeed> getAtFeedsByFeedId(int feedId,int pageNo,int pageSize){
+		return atFeedDao.getAtFeedsByFeedId(feedId, pageNo, pageSize);
 	}
 }
