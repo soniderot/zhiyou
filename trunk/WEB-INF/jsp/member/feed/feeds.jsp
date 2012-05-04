@@ -550,6 +550,9 @@
   <s:if test="event!=null">
    location.href = "event/event!viewEvent.jhtml?eventId=<s:property value="event.id" />&pageNo="+pageNo;
   </s:if>
+   <s:elseif test="userid>0">
+  location.href = "/profile/profile!viewProfileFeeds.jhtml?userid=<s:property value="userid"/>&pageNo="+pageNo;
+  </s:elseif>
   <s:else>
   location.href = "/usr/feed.jhtml?handle=<s:property value="handle" />&pageNo="+pageNo;
   </s:else>
