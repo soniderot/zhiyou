@@ -78,6 +78,7 @@ function notFoundMySchool() {
 <div data-referrer="pagelet_search_results_spellcheck" id="pagelet_search_results_spellcheck">
   <div class="search_spell_check"></div>
 </div>
+
 <s:if test="(keyWordSearch!=true)"> 
 <div class="mbs detailedsearch_feature_header"><span>搜索朋友</span></div>
 <div class="mbm">
@@ -256,6 +257,10 @@ function notFoundMySchool() {
     </div>
   </div>
   </s:iterator>
+  
+  
+  
+  
 </div>
 
 <div class="friendBrowserCheckboxContentPager">

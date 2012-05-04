@@ -10,7 +10,9 @@
               <div class="clearfix uiHeaderTop">
                 <div>
                   <s:if test="(event==null)"> 
+                  		 <s:if test="(#session.userid==profile.userid)"> 
                   <h3 class="uiHeaderTitle"><a href="sns/sns!getFriendsList.jhtml?degree=1">一度朋友列表</a>&nbsp&nbsp&nbsp&nbsp
+                  	</s:if>
                     <s:if test="(#session.userid==profile.userid)"> 
                     <a href="sns/sns!getFriendsList.jhtml?degree=2">二度朋友列表</a>&nbsp&nbsp
                   </s:if>
