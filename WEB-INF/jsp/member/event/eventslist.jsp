@@ -47,7 +47,7 @@
 								<i class="UIImageBlock_Image UIImageBlock_SMALL_Image img sp_9dewam sx_83050b"></i>
 								<div class="UIImageBlock_Content UIImageBlock_SMALL_Content">
 									<p>没有即将举行的活动。
-										<a class="pls" href="/events/create/">创建活动</a>
+										<a class="pls" href="/event/createOrUpdate!createOrUpdate.jhtml">创建活动</a>
 									</p>
 								</div>
 							</div>
@@ -126,7 +126,7 @@
                       </div>
                       
                       <div class="fsm fwn fcg">举办地点：<s:property value='event.address' /> 
-                     <div class="fsm fwn fcg" style="white-space:nowrap">活动描述：<s:if test="(event.detail.length()>40)"><s:property value='event.detail.substring(0,40)' />... </s:if><s:else><s:property value='event.detail' /></s:else>
+                     <div class="fsm fwn fcg" style="white-space:nowrap">活动描述：<s:if test="event.detail.length()>20"><s:property value='event.detail.substring(0,20)' />... </s:if><s:else><s:property value='event.detail' /></s:else>
                        <div class="fsm fwn fcg">参加人数：<s:property value='members.size()' />  照片数：<s:property value='event.photosCnt' /> 评论数：<s:property value='event.commentsCnt' />
                        	
                     </div>
