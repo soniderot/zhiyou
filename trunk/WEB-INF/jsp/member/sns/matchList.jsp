@@ -13,7 +13,8 @@
     <div class="clearfix uiHeaderTop">
       <div>
         <h3 class="uiHeaderTitle">
-        	<s:if test="match!='1'"> 
+        	
+        	<s:if test="match!='1'.toString()"> 
         	配对会员&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
         
         	<a href="sns/search!search.jhtml?match=1">
@@ -21,7 +22,7 @@
         	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
         </s:if> 
         
-        <s:if test="match=='1'"> 
+        <s:if test="match=='1'.toString()"> 
         	<a href="sns/search!search.jhtml">
         	配对会员&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
         </a>
@@ -53,7 +54,7 @@
           	<table>
           		
                 <tbody class="fbSearchAdvancedFiltersVisible">
-                	<s:if test="match!='1'"> 
+                	<s:if test="match!='1'.toString()"> 
                   <tr id="u9ikxu_13">
                     <td>
                       年龄：
@@ -154,7 +155,7 @@
                       <div class="dragWrapper">
                         <a ajaxify="" rel="theater" title="" href="#" name="2731105203678" id="pic_2731105203678" class="uiMediaThumb uiScrollableThumb uiMediaThumbHuge">
                           <div class="tagWrapper">
-                          	<s:if test="match=='1'"> 
+                          	<s:if test="match=='1'.toString()"> 
                           		 <a href="profile/profile!viewProfileInfo.jhtml?userid=<s:property value='userid'/>">
                               <img height="116" width="160" src="<s:property value='avatar'/>"/>
                             </a>
